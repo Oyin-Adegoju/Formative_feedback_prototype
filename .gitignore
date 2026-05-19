@@ -1,0 +1,6 @@
+logs/*.log
+logs/*.jsonl
+.env
+__pycache__/
+*.pyc
+.DS_Store
