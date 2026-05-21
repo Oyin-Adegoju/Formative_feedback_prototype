@@ -101,3 +101,124 @@ def _slugify_doc_id(stem: str) -> str:
     s = re.sub(r"[^\w\-.]+", "_", stem)
     return s.strip("_") or "document"
 
+# --- Per-pagina extractie -----------------------------------------------------
+
+
+def _extract_page_blocks(
+    page,
+    page_number: int,
+    block_counter: list[int],
+    heading_path: list[str],
+    warnings: list[str],
+) -> list[Block]:
+    """Extract heading/paragraph/table_row blocks uit één pagina.
+
+    `block_counter` en `heading_path` worden in-place geüpdatet zodat
+    block-IDs en heading-context over pagina's heen consistent blijven.
+    """
+    blocks: list[Block] = []
+
+    # 1. Tabellen detecteren + bboxes verzamelen.
+    try:
+        tables = page.find_tables()
+    except Exception as e:  
+        tables = []
+        warnings.append(f"pagina {page_number}: tabel-detectie faalde ({e})")
+
+    table_bboxes: list[tuple[float, float, float, float]] = []
+    table_rows_per_table: list[list[str]] = []
+    for table in tables:
+        try:
+            table_bboxes.append(table.bbox)
+            rows = table.extract() or []
+            formatted = [_format_table_row(r) for r in rows]
+            table_rows_per_table.append([r for r in formatted if r])
+        except Exception as e:  # noqa: BLE001
+            warnings.append(f"pagina {page_number}: tabel-extractie faalde ({e})")
+
+    # 2. Tekst extraheren  objecten in tabel-bboxes overslaan.
+    def _buiten_tabellen(obj) -> bool:
+        cx = (obj.get("x0", 0) + obj.get("x1", 0)) / 2
+        cy = (obj.get("top", 0) + obj.get("bottom", 0)) / 2
+        for x0, top, x1, bottom in table_bboxes:
+            if x0 <= cx <= x1 and top <= cy <= bottom:
+                return False
+        return True
+
+    try:
+        if table_bboxes:
+            page_text = page.filter(_buiten_tabellen).extract_text() or ""
+        else:
+            page_text = page.extract_text() or ""
+    except Exception as e:  
+        warnings.append(f"pagina {page_number}: tekst-extractie faalde ({e})")
+        page_text = ""
+
+    # 3. Regels groeperen naar heading / paragraaf.
+    current_path = list(heading_path)
+    paragraph_buffer: list[str] = []
+
+    def _flush_paragraph() -> None:
+        if not paragraph_buffer:
+            return
+        tekst = " ".join(paragraph_buffer).strip()
+        paragraph_buffer.clear()
+        if not tekst:
+            return
+        block_counter[0] += 1
+        blocks.append(
+            Block(
+                block_id=f"b{block_counter[0]:04d}",
+                type="paragraph",
+                page=page_number,
+                level=None,
+                heading_path=list(current_path),
+                text=tekst,
+            )
+        )
+
+    for raw_line in page_text.splitlines():
+        line = raw_line.strip()
+        if not line:
+            _flush_paragraph()
+            continue
+        heading = _detect_heading(line)
+        if heading is not None:
+            _flush_paragraph()
+            level, text = heading
+            current_path = _update_heading_path(current_path, level, text)
+            block_counter[0] += 1
+            blocks.append(
+                Block(
+                    block_id=f"b{block_counter[0]:04d}",
+                    type="heading",
+                    page=page_number,
+                    level=level,
+                    heading_path=list(current_path),
+                    text=text,
+                )
+            )
+        else:
+            paragraph_buffer.append(line)
+    _flush_paragraph()
+
+    # 4. Tabelrijen toevoegen (na de tekst van deze pagina, met de
+    #    laatst geldige heading-context).
+    for table_rows in table_rows_per_table:
+        for row_text in table_rows:
+            block_counter[0] += 1
+            blocks.append(
+                Block(
+                    block_id=f"b{block_counter[0]:04d}",
+                    type="table_row",
+                    page=page_number,
+                    level=None,
+                    heading_path=list(current_path),
+                    text=row_text,
+                )
+            )
+
+    # Heading-path doorgeven aan volgende pagina.
+    heading_path[:] = current_path
+    return blocks
+
