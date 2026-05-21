@@ -330,3 +330,44 @@ def parse_directory(root: str | Path, output_dir: str | Path) -> list[dict]:
     with report_path.open("w", encoding="utf-8") as f:
         json.dump(reports, f, ensure_ascii=False, indent=2)
     return reports
+
+# --- CLI ---------------------------------------------------------------------
+
+
+def _main(argv: list[str] | None = None) -> int:
+    cli = argparse.ArgumentParser(
+        description="Parse INFIRST requirements-PDFs naar gestructureerde JSON."
+    )
+    bron = cli.add_mutually_exclusive_group(required=True)
+    bron.add_argument("--file", type=Path, help="Parse één PDF.")
+    bron.add_argument("--batch", type=Path, help="Parse alle PDFs recursief in een map.")
+    cli.add_argument(
+        "--out",
+        type=Path,
+        default=Path("logs/parsed"),
+        help="Outputmap voor parsed JSON (default: logs/parsed).",
+    )
+    cli.add_argument(
+        "--quality-label",
+        type=str,
+        default=None,
+        help="Optioneel kwaliteitslabel bij --file.",
+    )
+    args = cli.parse_args(argv)
+
+    if args.file:
+        doc = parse_pdf(args.file, quality_label=args.quality_label)
+        target = write_parsed(doc, args.out)
+        print(json.dumps(_summary_for_report(doc), ensure_ascii=False, indent=2))
+        print(f"\nGeschreven naar: {target}")
+        return 0 if doc.status != "error" else 1
+
+    reports = parse_directory(args.batch, args.out)
+    successes = sum(1 for r in reports if r["status"] == "success")
+    print(f"Verwerkt: {len(reports)} documenten — {successes} success.")
+    print(f"Report: {args.out / 'parse_report.json'}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(_main())
