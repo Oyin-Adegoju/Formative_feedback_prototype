@@ -306,4 +306,27 @@ def _summary_for_report(doc: ParsedDocument) -> dict:
     }
 
 
+def parse_directory(root: str | Path, output_dir: str | Path) -> list[dict]:
+    """Parse alle PDFs recursief onder `root` en schrijf JSON + parse_report.json."""
+    root_p = Path(root)
+    out_p = Path(output_dir)
+    out_p.mkdir(parents=True, exist_ok=True)
 
+    pdf_paths = sorted(root_p.rglob("*.pdf"))
+    reports: list[dict] = []
+    for pdf_path in pdf_paths:
+        # quality_label = naam van de directe oudermap onder de root.
+        try:
+            relative = pdf_path.relative_to(root_p)
+            quality_label = relative.parts[0] if len(relative.parts) > 1 else None
+        except ValueError:
+            quality_label = None
+
+        doc = parse_pdf(pdf_path, quality_label=quality_label)
+        write_parsed(doc, out_p)
+        reports.append(_summary_for_report(doc))
+
+    report_path = out_p / "parse_report.json"
+    with report_path.open("w", encoding="utf-8") as f:
+        json.dump(reports, f, ensure_ascii=False, indent=2)
+    return reports
