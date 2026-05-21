@@ -280,3 +280,30 @@ def parse_pdf(path: str | Path, quality_label: str | None = None) -> ParsedDocum
     )
 
 
+def write_parsed(doc: ParsedDocument, output_dir: str | Path) -> Path:
+    """Schrijf één ParsedDocument naar `<output_dir>/<doc_id>.json`."""
+    out = Path(output_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    target = out / f"{doc.doc_id}.json"
+    with target.open("w", encoding="utf-8") as f:
+        json.dump(asdict(doc), f, ensure_ascii=False, indent=2)
+    return target
+
+
+def _summary_for_report(doc: ParsedDocument) -> dict:
+    headings = sum(1 for b in doc.blocks if b.type == "heading")
+    rows = sum(1 for b in doc.blocks if b.type == "table_row")
+    return {
+        "doc_id": doc.doc_id,
+        "source_path": doc.source_path,
+        "quality_label": doc.quality_label,
+        "page_count": doc.page_count,
+        "block_count": len(doc.blocks),
+        "heading_count": headings,
+        "table_row_count": rows,
+        "warnings": doc.warnings,
+        "status": doc.status,
+    }
+
+
+
