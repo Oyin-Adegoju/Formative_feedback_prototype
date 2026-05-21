@@ -222,3 +222,61 @@ def _extract_page_blocks(
     heading_path[:] = current_path
     return blocks
 
+# --- Hoofdfuncties ------------------------------------------------------------
+
+
+def parse_pdf(path: str | Path, quality_label: str | None = None) -> ParsedDocument:
+    """Parse één PDF naar een ParsedDocument."""
+    p = Path(path)
+    doc_id = _slugify_doc_id(p.stem)
+    warnings: list[str] = []
+    blocks: list[Block] = []
+    page_count = 0
+
+    try:
+        with pdfplumber.open(p) as pdf:
+            page_count = len(pdf.pages)
+            block_counter = [0]
+            heading_path: list[str] = []
+            for i, page in enumerate(pdf.pages, start=1):
+                try:
+                    page_blocks = _extract_page_blocks(
+                        page,
+                        page_number=i,
+                        block_counter=block_counter,
+                        heading_path=heading_path,
+                        warnings=warnings,
+                    )
+                    blocks.extend(page_blocks)
+                except Exception as e:  # noqa: BLE001 - pagina kan corrupt zijn
+                    warnings.append(f"pagina {i}: verwerking gefaald ({e})")
+    except Exception as e:  # noqa: BLE001 - PDF openen kan falen
+        return ParsedDocument(
+            doc_id=doc_id,
+            source_path=str(p),
+            source_type="pdf",
+            quality_label=quality_label,
+            page_count=0,
+            blocks=[],
+            warnings=[f"PDF kon niet geopend worden ({e})"],
+            status="error",
+        )
+
+    if not blocks:
+        warnings.append("geen extraheerbare tekst gevonden (mogelijk geen tekstlaag)")
+        status = "empty"
+    else:
+        status = "success"
+
+    return ParsedDocument(
+        doc_id=doc_id,
+        source_path=str(p),
+        source_type="pdf",
+        quality_label=quality_label,
+        page_count=page_count,
+        blocks=blocks,
+        warnings=warnings,
+        status=status,
+    )
+
+
