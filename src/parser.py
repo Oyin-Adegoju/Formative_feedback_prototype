@@ -85,3 +85,19 @@ def _update_heading_path(path: list[str], level: int, heading_text: str) -> list
     new_path.append(heading_text)
     return new_path
 
+# --- Tabellen -----------------------------------------------------------------
+
+
+def _format_table_row(row: list[str | None]) -> str:
+    cells = [(c or "").strip() for c in row]
+    cells = [c for c in cells if c]
+    return " | ".join(cells)
+
+
+# --- Diversen -----------------------------------------------------------------
+
+
+def _slugify_doc_id(stem: str) -> str:
+    s = re.sub(r"[^\w\-.]+", "_", stem)
+    return s.strip("_") or "document"
+
