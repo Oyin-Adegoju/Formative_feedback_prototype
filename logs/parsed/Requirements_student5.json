@@ -1,0 +1,1103 @@
+{
+  "doc_id": "Requirements_student5",
+  "source_path": "INFIRST_requirements/Goed/Requirements_student5.pdf",
+  "source_type": "pdf",
+  "quality_label": "Goed",
+  "page_count": 20,
+  "blocks": [
+    {
+      "block_id": "b0001",
+      "type": "paragraph",
+      "page": 1,
+      "level": null,
+      "heading_path": [],
+      "text": "FIRST FULL STACK Requirements Analyse Opleiding: Informatica – Firts Full Stack Challenge week Datum: 09-04-2024 Namen: - Fariha Ahmad, - Ugur Kumas, - Rami Al-Muhanna, - Kane Luiten, - Sam Heintz, - Danny Yik Inhoud Inhoud ................................................................................................................................... 1 Introductie ............................................................................................................................. 3 Wensen, Eisen, Prioriteiten ..................................................................................................... 4 2.1 Constraints en (non-) Functionele eisen ......................................................................... 4 Constraints ....................................................................................................... 4 Niet-functionele requirements ............................................................................ 4 Functionele requirements .................................................................................. 5 Use Cases ............................................................................................................................. 8 1"
+    },
+    {
+      "block_id": "b0002",
+      "type": "paragraph",
+      "page": 2,
+      "level": null,
+      "heading_path": [],
+      "text": "Use Case Diagram .............................................................................................................. 8 Use Case beschrijvingen ..................................................................................................... 8 Beveiliging ........................................................................................................................... 18 Bronnen: .............................................................................................................................. 20 2"
+    },
+    {
+      "block_id": "b0003",
+      "type": "paragraph",
+      "page": 3,
+      "level": null,
+      "heading_path": [],
+      "text": "Introductie Welkom bij FusionFinds, de ultieme online bestemming voor liefhebbers van sneakers, posters, parfum, kleding en games. Bij ons staat diversiteit centraal; een fusie van stijlen, geuren, kleuren en entertainment die jouw unieke smaak tot uiting brengt. FusionFinds is niet zomaar een webshop; het is een ontdekkingsreis naar de perfecte expressie van je persoonlijkheid. Of je nu op zoek bent naar die limited edition sneakers, een unieke poster die je kamer compleet maakt, de verleidelijke geur van een nieuw parfum, de laatste fashion must-haves, of de nieuwste game sensatie, bij FusionFinds vind je het allemaal. Ons doel is om een onvergetelijke shopping ervaring te bieden, waarbij kwaliteit, diversiteit en klanttevredenheid voorop staan. Duik in de wereld van FusionFinds, waar elk item dat je vindt, een verhaal vertelt. Jouw verhaal. 3"
+    },
+    {
+      "block_id": "b0004",
+      "type": "paragraph",
+      "page": 4,
+      "level": null,
+      "heading_path": [],
+      "text": "Wensen, Eisen, Prioriteiten In Hoofdstuk 4 van het requirements document worden de kernaspecten behandeld van de wensen, eisen en prioriteiten die van cruciaal belang zijn voor de ontwikkeling van mijn webshop. Er wordt gericht op zowel functionele als niet- functionele eisen en de beperkingen die van invloed zijn op de projectuitvoering. Wat valt onder de constraints, functionele, niet functionele requirements, use cases beschrijven en een use case diagram."
+    },
+    {
+      "block_id": "b0005",
+      "type": "heading",
+      "page": 4,
+      "level": 2,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "2.1 Constraints en (non-) Functionele eisen"
+    },
+    {
+      "block_id": "b0006",
+      "type": "paragraph",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Constraints Niet-functionele requirements 4"
+    },
+    {
+      "block_id": "b0007",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Naam | Architecturale relevantie | Geadresseerd in:"
+    },
+    {
+      "block_id": "b0008",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "CONSTR01: Budget | De ontwikkeling van de website moet binnen\neen budget van 10.000 euro worden voltooid | Alinea 11\nRegel 51\nPagina"
+    },
+    {
+      "block_id": "b0009",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "CONSTR02:\nBetaalbeperkingen | Klanten mogen artikelen niet betalen met\ngiftcards en kunnen geen gebruik maken van\npromocodes in de webshop. | Alinea 3\nRegel 12-13\nPagina"
+    },
+    {
+      "block_id": "b0010",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "CONSTR03:\nVerzendkosten | Hierbij zijn de verzendkosten niet afhankelijk\nvan het formaat of de locatie, maar een\nstandaardbedrag. | Alinea 5\nRegel 20-21\nPagina"
+    },
+    {
+      "block_id": "b0011",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "CONSTR04: Product\nselecteren binnen\ncategorie | In de webshop zijn er verschillende categorieën\nwaarbij de klanten de mogelijkheid hebben om\nte kiezen uit vijftig producten. | Alinea 3\nRegel 9-12\nPagina"
+    },
+    {
+      "block_id": "b0012",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "CONSTR05: Tijd | De webshop moet ontworpen, ontwikkeld en\ngetest zijn binnen deze 1 week. | Alinea 11\nRegel 51\nPagina"
+    },
+    {
+      "block_id": "b0013",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "CONSTR06:\nApi’s | De webshop moet met minimaal 3 andere api’s\npraten | -"
+    },
+    {
+      "block_id": "b0014",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Naam | Categorie | Architecturale relevantie | Geadresseerd | Prio"
+    },
+    {
+      "block_id": "b0015",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "in:"
+    },
+    {
+      "block_id": "b0016",
+      "type": "paragraph",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Functionele requirements 5"
+    },
+    {
+      "block_id": "b0017",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR01: | Gebruiksvriendelijkheid | De website moet gebruiksvriendelijk zijn, met\nspecifieke aandacht voor een soepele\ngebruikerservaring. | Alinea 3\nRegel 8\nPagina | MUST HAVE\nEen gebruiksvriendelijke website is essentieel om\nklanten een soepele ervaring te bieden. Dit draagt\nbij aan tevredenheid en klantloyaliteit."
+    },
+    {
+      "block_id": "b0018",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR02: | Betrouwbaarheid | De website moet altijd bereikbaar zijn voor\nklanten, en bestellingen moeten betrouwbaar\nworden verwerkt. | Alinea 5\nRegel 20\nPagina | MUST HAVE\nBetrouwbaarheid is kritiek om het vertrouwen van\nklanten te behouden. Een altijd bereikbare\nwebsite en betrouwbare orderverwerking zijn van\nvitaal belang."
+    },
+    {
+      "block_id": "b0019",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR03: | Veiligheid en\nGegevensbescherming | Het systeem moet voldoen aan de Algemene\nVerordening Gegevensbescherming (AVG) en een\ngrondige beveiligings- en risicoanalyse ondergaan\nom klantgegevens te beschermen. | Alinea 9\nRegel 37-39\nPagina | MUST HAVE\nIn overeenstemming zijn met AVG en zorgen\nvoor gegevensbescherming is van cruciaal belang\nom het vertrouwen van klanten te winnen en\nwettelijke vereisten te voldoen."
+    },
+    {
+      "block_id": "b0020",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR04: | Responsief | De website moet toegankelijk zijn op verschillende\napparaten, ongeacht het device waarop klanten het\nbekijken (responsief). | Alinea 6\nRegel 24\nPagina | MUST HAVE\nEen responsief ontwerp is noodzakelijk voor\ntoegankelijkheid op verschillende apparaten,\nwaardoor klanten de website kunnen bekijken\nongeacht het device dat ze gebruiken."
+    },
+    {
+      "block_id": "b0021",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR05: | Voorraadbeheer | Automatische bijwerking van de voorraadstatus bij\nelke aankoop | - | SHOULD HAVE\nVoorkomt problemen met betrekking tot\nuitverkochte producten en verbetert de\nklanttevredenheid."
+    },
+    {
+      "block_id": "b0022",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR06: | Notificatiesysteem | Klanten moeten meldingen ontvangen over\norderbevestigingen, verzending en eventuele\npromoties. | - | SHOULD HAVE\nDoor de klanten een melding/notificatie te geven\nhoudt dit klanten op de hoogte en bevordert\nbetrokkenheid."
+    },
+    {
+      "block_id": "b0023",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR07: | Meertalig | De webshop moet een gebruikersinterface\nhebben die ondersteuning biedt voor\nmeerdere talen. | - | SHOULD HAVE\nDoor meerdere talen te ondersteunen,\nvergroot de webshop haar toegankelijkheid\nvoor een breder scala aan gebruikers"
+    },
+    {
+      "block_id": "b0024",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR08: | Beoordelen(rating) | De klant kan na de aankoop een review\nachterhalen hoe de gebruikerservaring verliep. | - | SHOULD HAVE\nHoewel deze functionaliteit waardevol is voor\nzowel de klantenservice als het vertrouwen\nvan nieuwe gebruikers, is het niet cruciaal\nvoor de basisfunctionaliteit van de webshop,\nzoals de toegankelijkheid of betrouwbaarheid\nvan de site."
+    },
+    {
+      "block_id": "b0025",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR09: | Aantrekkelijkheid\n(Vormgeving is TOP) | Ook moet de website aantrekkelijk zijn voor de\nklanten. De uitstraling en opmaak van de website\ndien te passen bij de beoogde klanten van het soort\nproduct. | Alinea 6\nRegel 23\nPagina | COULD HAVE\nHoewel een aantrekkelijke website belangrijk is,\nkan het als “COULD HAVE” worden beschouwd\nomdat het niet de kernfunctionaliteit van de\nwebsite beïnvloedt."
+    },
+    {
+      "block_id": "b0026",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR10 | Landingspagina | Er moet een landingspagina gemaakt worden | - | SHOULD HAVE\nBij een webshop is het essentieel dat de klant\ngerust binnen kamen in de webshop en niet gelijk\nwordt overbelast van alle producten. Dit zorgt\nervoor dar de webshop meer klant vriendelijk is."
+    },
+    {
+      "block_id": "b0027",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR11 | Administratiekosten | Op de totale kosten komt er 5%\nadministratiekosten | MUST HAVE\nHet is voor een webshop van belang om zoveel\nmogelijk kosten te dekken"
+    },
+    {
+      "block_id": "b0028",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR12 | Testen | Er moeten met testen worden uitgevoerd met niet\nICT studenten. De testen moeten daarna netjes\nworden gedocumenteerd en inzichtelijk gemaakt | MUST HAVE\nHet testen van een webshop is van belang, omdat\ntesten ervoor zorgt dat de webshop effectiever,\nveiliger en meer functioneel word."
+    },
+    {
+      "block_id": "b0029",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Naam | Categorie | Architecturale relevantie | Geadress | Prio"
+    },
+    {
+      "block_id": "b0030",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "eerd in:"
+    },
+    {
+      "block_id": "b0031",
+      "type": "paragraph",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "6"
+    },
+    {
+      "block_id": "b0032",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "UC01:\nGebruikersprofiel\naanmaken/registrere\nn | Gebruikersregistratie | Het systeem moet in staat zijn een\nprofiel aan te maken voor nieuwe\ngebruikers. | Alinea 4\nRegel 14\nPagina | MUST HAVE\nZonder gebruikersregistratie\nkunnen klanten geen profiel\naanmaken en geen gebruikmaken\nvan de webshop."
+    },
+    {
+      "block_id": "b0033",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "UC02: Inloggen-\ngebruiker | Inloggen | Gebruikers loggen in voor een\ngepersonaliseerde winkelervaring\nvan de webshop. | Alinea 4\nRegel 14\nPagina | MUST HAVE\nInloggen is essentieel voor het\nbieden van een gepersonaliseerde\nwinkelervaring, zonder in te\nloggen kan je niet in de webshop."
+    },
+    {
+      "block_id": "b0034",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "UC03: Beheren van\nwinkelmandje | Winkelmandfunction\naliteit | Klanten moeten de producten in hun\nwinkelmand kunnen bekijken,\ntoevoegen en verwijderen. | Alinea 4\nRegel 16\nPagina | MUST HAVE\nAangezien het beheren van het\nwinkelmandje cruciaal is voor het\naankoopproces. Klanten moeten\nproducten kunnen toevoegen,\nbekijken en verwijderen voor een\nsoepele afhandeling van\nbestellingen."
+    },
+    {
+      "block_id": "b0035",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "UC04: Beheer van\nklantgegevens | Beheerinterface | Het systeem moet een intuïtieve\nbeheerinterface hebben waarmee\nproducten, klanten en bestellingen\neenvoudig kunnen worden beheerd. | Alinea 8\nRegel 33-\n34\nPagina | MUST HAVE Een intuïtieve\nbeheerinterface nodig is om\nefficiënt producten, klanten en\nbestellingen te beheren. Dit is\nessentieel voor het succesvol\nrunnen van de webshop."
+    },
+    {
+      "block_id": "b0036",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "UC05: Omschrijving\nproduct | Productomschrijving | Gedetailleerde\ninformatie/beschrijving over elk\nproduct, bijvoorbeeld, grootte, prijs\nen beschikbaarheid. | - | MUST HAVE\nDoor bij elke product een\nomschrijving te geven, geeft dit\nde klanten de nodige informatie\nom weloverwogen\naankoopbeslissingen te nemen."
+    },
+    {
+      "block_id": "b0037",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "UC06: Filteren | Filter-zoek\nfunctionaliteit | Klanten moeten producten kunnen\nfilteren op eigenschappen en kunnen\nzoeken op specifieke criteria. | - | MUST HAVE\nKlanten kunnen hun zoekopdracht\nverfijnen op basis van specifieke\neigenschappen en criteria,\nwaardoor ze sneller bij de\ngewenste producten komen. Dit\nverhoogt de efficiëntie van het\nzoekproces."
+    },
+    {
+      "block_id": "b0038",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "UC07: Beheerders | Beheerder over\nproducten | Beheerders/admins kunnen alle\nproducten toevoegen, wijzigen en\nverwijderen | - | SHOULD HAVE\nAdmin/beheerders moeten in staat\nkunnen zijn om de producten te\nkunnen wjizigen en verwijderen"
+    },
+    {
+      "block_id": "b0039",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "UC09: klant bekijkt\nbestelgeschiedenis | Bestelgeschiedenis | Geregistreerde gebruikers moeten\nhun bestelgeschiedenis kunnen\nbekijken en eerdere bestellingen\nkunnen volgen. | - | MUST HAVE\nHet is “MUST have” omdat de\ngebruiker zijn bestelling moet\nkunnen zien/volgen."
+    },
+    {
+      "block_id": "b0040",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "UC010:\nBestellen | Bestellen | Klanten moeten kunnen bestellen bij\neen gewenst product. Bij een\nwebshop is bestellen cruciaal, als een\nklant niet kan bestellen. Dan is het\nniet mogelijk om omzet te de\ndraaien. | - | Must have\nEen klant moet een product\nkunnen bestellen."
+    },
+    {
+      "block_id": "b0041",
+      "type": "paragraph",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "7"
+    },
+    {
+      "block_id": "b0042",
+      "type": "paragraph",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Use Cases Use Case Diagram Use Case Diagram (Alleen de functionele requirements) Webshop applicatie use-case diagram. Use Case beschrijvingen Use Case beschrijvingen Een overzicht van alle uitgewerkte use-cases (functionele requirements) die uit de opdracht komen 8"
+    },
+    {
+      "block_id": "b0043",
+      "type": "paragraph",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Use case01: Gebruikers profiel aanmaken/ registreren Use case02: Inloggen – gebruiker 9"
+    },
+    {
+      "block_id": "b0044",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Actor | Klant"
+    },
+    {
+      "block_id": "b0045",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Preconditie | Het systeem is operationeel.\nDe klant heeft toegang tot het registratie- en inlogscherm."
+    },
+    {
+      "block_id": "b0046",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Beschrijving | Het proces wordt beschreven waarin een klant een nieuw account\naanmaakt, het account valideert en inlogt om toegang te krijgen tot een\ngepersonaliseerde winkelervaring."
+    },
+    {
+      "block_id": "b0047",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De klant opent de registratie pagina en kiest voor het\naanmaken van een nieuw account.\n2. Het systeem vraagt de klant om benodigde informatie, zoals\nnaam, e-mailadres en wachtwoord, in te voeren.\n3. De klant vult de vereiste gegevens in en klikt op\n\"Registreren\".\n4. Het systeem valideert de ingevoerde informatie en maakt\neen uniek gebruikersprofiel aan.\n5. Een bevestigingsbericht wordt weergegeven, en het\nsysteem stuurt een verificatie-e-mail naar het opgegeven e-\nmailadres."
+    },
+    {
+      "block_id": "b0048",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Postconditie | Het systeem slaat het gebruikersprofiel op met de verstrekte informatie.\nDe geregistreerde klant heeft toegang tot de gepersonaliseerde\nwinkelomgeving."
+    },
+    {
+      "block_id": "b0049",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Exceptie\nflow 1: | Als de geregistreerde klant al een geregistreerd account heeft, krijgt de\nklant een foutmelding met “deze account bestaat al, probeer opnieuw in\nte loggen”. De geregistreerde klant kan direct inloggen zonder het\nregistratieproces opnieuw te doorlopen."
+    },
+    {
+      "block_id": "b0050",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Exceptie\nflow 2: | Als de geregistreerde klant onjuiste inloggegevens invoert (bijvoorbeeld\neen verkeerd e-mailadres of wachtwoord), krijgt de gebruiker een\nfoutmelding. Het systeem geeft aan welke inloggegevens incorrect zijn\nen biedt de mogelijkheid om opnieuw in te loggen."
+    },
+    {
+      "block_id": "b0051",
+      "type": "paragraph",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Use case03: Beheren van winkelmandje 10"
+    },
+    {
+      "block_id": "b0052",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Actor | Geregistreerde klant"
+    },
+    {
+      "block_id": "b0053",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Preconditie | De klant heeft een geregistreerd account.\nHet systeem is operationeel en biedt de inlogfunctionaliteit."
+    },
+    {
+      "block_id": "b0054",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Beschrijving | Deze use case beschrijft hoe geregistreerde klanten kunnen inloggen om\ntoegang te krijgen tot de webshop voor een gepersonaliseerde\nwinkelervaring."
+    },
+    {
+      "block_id": "b0055",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De geregistreerde klant opent de webshop en navigeert naar\nde inlogpagina.\n2. De geregistreerde klant voert zijn/haar gebruikersnaam en\nwachtwoord in en klikt op de inlogknop.\n3. Het systeem valideert de ingevoerde gegevens.\n4. Na een succesvolle validatie wordt de geregistreerde klant\ndoorgestuurd naar de webshop.\n5. De geregistreerde klant kan door productcategorieën scrollen,\naanbiedingen bekijken en producten toevoegen aan het\nwinkelmandje."
+    },
+    {
+      "block_id": "b0056",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Postconditie | De geregistreerde klant heeft met succes ingelogd en heeft toegang tot de\nwebshop."
+    },
+    {
+      "block_id": "b0057",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Exceptie\nflow 1: | Als de klant onjuiste inloggegevens invoert, ontvangt de klant een melding\nen wordt gevraagd om de juiste gegevens in te voeren."
+    },
+    {
+      "block_id": "b0058",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Exceptie\nflow 2: | Als het account van de geregistreerde klant is vergrendeld vanwege te veel\ninlogpogingen, ontvangt de klant instructies over het ontgrendelen van het\naccount of het resetten van het wachtwoord."
+    },
+    {
+      "block_id": "b0059",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Actor | Geregistreerde klant"
+    },
+    {
+      "block_id": "b0060",
+      "type": "paragraph",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Use case04: Beheer van de klantgegevens 11"
+    },
+    {
+      "block_id": "b0061",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Preconditie | De geregistreerde klant heeft ingelogd op zijn/haar gebruikersaccount.\nDe geregistreerde klant heeft één of meer producten toegevoegd aan het\nwinkelmandje."
+    },
+    {
+      "block_id": "b0062",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Beschrijving | Deze use case beschrijft hoe klanten de producten kunnen bekijken,\ntoevoegen en verwijderen uit hun winkelmandje in de webshop."
+    },
+    {
+      "block_id": "b0063",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De klant navigeert naar het winkelmandje.\n2. Het systeem toont een overzicht van de producten die\nmomenteel in het winkelmandje van de klant zitten.\n3. De klant kan extra producten toevoegen aan het winkelmandje\ndoor op de knop \"Toevoegen aan winkelmandje\" te klikken bij het\ngewenste product.\n4. De klant heeft de mogelijkheid om producten te verwijderen uit\nhet winkelmandje door op de knop \"Verwijderen\" of \"Aantal\nverminderen\" te klikken.\n5. Na het bekijken, toevoegen of verwijderen van producten, wordt\nhet gewijzigde winkelmandje weergegeven aan de klant."
+    },
+    {
+      "block_id": "b0064",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Postconditie | De klant heeft het winkelmandje beheerd door producten te bekijken, toe te\nvoegen en/of te verwijderen.\nHet systeem toont het bijgewerkte winkelmandje met de gemaakte\nwijzigingen."
+    },
+    {
+      "block_id": "b0065",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Exceptie\nflow 1: | Als de klant probeert een product toe te voegen aan het winkelmandje dat\ntijdelijk niet beschikbaar is (bijv. uitverkocht), ontvangt de klant een melding\nen wordt geadviseerd om op een later tijdstip terug te komen of een\nalternatief product te selecteren."
+    },
+    {
+      "block_id": "b0066",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Actor | Beheer"
+    },
+    {
+      "block_id": "b0067",
+      "type": "paragraph",
+      "page": 12,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Use case06: Filteren 12"
+    },
+    {
+      "block_id": "b0068",
+      "type": "table_row",
+      "page": 12,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Preconditie | De beheerder heeft met succes ingelogd op het beheerdersaccount.\nHet systeem is operationeel en heeft toegang tot de database met\nproducten, klantgegevens en bestellingen."
+    },
+    {
+      "block_id": "b0069",
+      "type": "table_row",
+      "page": 12,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Beschrijving | Deze use case beschrijft hoe de beheerder producten, klanten en\nbestellingen kan beheren via de intuïtieve beheerinterface."
+    },
+    {
+      "block_id": "b0070",
+      "type": "table_row",
+      "page": 12,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Scenario\nbeschrijving | 1. Na succesvol inloggen, wordt de beheerder doorgestuurd\nnaar de intuïtieve beheerinterface.\n2. De beheerder kan producten bekijken, toevoegen,\nbewerken of verwijderen. Het systeem biedt eenvoudige navigatie\nen zoekmogelijkheden om specifieke producten te vinden.\n3. De beheerder heeft toegang tot klantgegevens en kan\nnieuwe klanten toevoegen, bestaande klantgegevens bewerken\nof klanten verwijderen.\n4. De beheerder logt in op het beheerdersaccount met geldige\nreferenties.\n• Navigeren naar Beheerinterface:\n• Beheren van Producten:\n• Beheren van Klantgegevens:\n• Beheren van Bestellingen:\n5. De beheerder kan bestellingen bekijken, statussen\nbijwerken, bestellingen verwerken en gegevens analyseren."
+    },
+    {
+      "block_id": "b0071",
+      "type": "table_row",
+      "page": 12,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Postconditie | De beheerder heeft met succes producten, klanten en bestellingen\nbeheerd via de intuïtieve beheerinterface."
+    },
+    {
+      "block_id": "b0072",
+      "type": "table_row",
+      "page": 12,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Exceptie\nflow 1: | Als de beheerder probeert wijzigingen op te slaan zonder vereiste velden\nin te vullen, ontvangt de beheerder een melding en wordt gevraagd om\nontbrekende informatie in te vullen."
+    },
+    {
+      "block_id": "b0073",
+      "type": "table_row",
+      "page": 12,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Actor | Geregistreerde klant"
+    },
+    {
+      "block_id": "b0074",
+      "type": "table_row",
+      "page": 12,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Preconditie | De geregistreerde klant heeft ingelogd op zijn/haar gebruikersaccount.\nDe klant bevindt zich op de pagina met producten."
+    },
+    {
+      "block_id": "b0075",
+      "type": "paragraph",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Use case07: Beheer over Product 13"
+    },
+    {
+      "block_id": "b0076",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Beschrijving | Deze use case beschrijft hoe een klant de filter- en zoekfunctionaliteit\ngebruikt om parfums te vinden op basis van specifieke criteria."
+    },
+    {
+      "block_id": "b0077",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De klant navigeert naar de parfumsectie van de webshop.\n2. Op de beginpagina ziet de klant een filterknop, daaruit heb\nje verschillende filteropties, zoals grootte, kleur, prijsklasse,\nent.\n3. De klant selecteert de gewenste filters om de zoekopdracht\nte verfijnen.\n4. Na het toepassen van de filters klikt de klant op de\nzoekknop.\n5. Het systeem toont de resultaten die overeenkomen met de\ngeselecteerde filters en criteria."
+    },
+    {
+      "block_id": "b0078",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Postconditie | De klant heeft een product gevonden op basis van specifieke criteria en\nkan doorgaan met het bekijken en eventueel kopen van het\ngeselecteerde products."
+    },
+    {
+      "block_id": "b0079",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Exceptie\nflow 1: | Als er geen resultaten worden gevonden op basis van de opgegeven\nfilters, toont het systeem een melding en moedigt het de klant aan om de\nfilters aan te passen voor bredere zoekresultaten."
+    },
+    {
+      "block_id": "b0080",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Actor | Geregistreerde Admin"
+    },
+    {
+      "block_id": "b0081",
+      "type": "paragraph",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Use case08: Klanten met beperkingen 14"
+    },
+    {
+      "block_id": "b0082",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Preconditie | De geregistreerde Admin heeft ingelogd op zijn/haar gebruikersaccount.\nDe Admin bevindt zich op de pagina met het parfumassortiment."
+    },
+    {
+      "block_id": "b0083",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Beschrijving | Deze use case beschrijft hoe een geregistreerde Admin producten kan\ntoevoegen verwijderen, aanmaken en aanpassen"
+    },
+    {
+      "block_id": "b0084",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Scenario\nbeschrijving | Verwijderen:\n1. De Admin selecteert het product dat hij wil verwijderen.\n2. Het systeem verwijdert het product uit de product lijst\nAanpassen:\n1. De Admin kiest de product dat hij wilt aanpassen.\n2. Het systeem laad de product gegevens op.\n3. De Admin past de gewenste gegevens aan.\n4. Het systeem slaat de gegevens op in de product lijst.\nAanmaken:\n1. De Admin kiest om een nieuwe product aan te maken.\n2. Het systeem creëert een leeg formulier.\n3. De Admin vult de gewenste gegevens die benodigd\nzijn.\n4. Het systeem slaat de gegevens van de product op in de\nproduct lijst."
+    },
+    {
+      "block_id": "b0085",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Postconditie | Verwijderen: er is een product uit een lijst verwijderd.\nAanpassen: er is een product aangepast in de producten lijst.\nToevoegen: er is een product toegevoegd in de producten lijst"
+    },
+    {
+      "block_id": "b0086",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Exceptie\nflow 1: | Als er geen resultaten worden gevonden op basis van de opgegeven filters,\ntoont het systeem een melding en moedigt het de klant aan om de filters\naan te passen voor bredere zoekresultaten."
+    },
+    {
+      "block_id": "b0087",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Actor | Geregistreerde klant"
+    },
+    {
+      "block_id": "b0088",
+      "type": "paragraph",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Use case09: Klant bekijkt bestelgeschiedenis 15"
+    },
+    {
+      "block_id": "b0089",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Preconditie | De geregistreerde klant heeft ingelogd op zijn/haar gebruikersaccount.\nKlant is slechtziend of kleurenblind"
+    },
+    {
+      "block_id": "b0090",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Beschrijving | Deze use case beschrijft hoe de toegankelijkheidsspecialist de website\noptimaliseert voor klanten met visuele beperkingen, zoals slechtziendheid\nen kleurenblindheid, om een inclusieve winkelervaring te bieden."
+    },
+    {
+      "block_id": "b0091",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De visuele beperkte klant navigeert naar de dashboard\n(slechtzienden, kleurenblinden)\n2. Het systeem toont een in en uitzoom knop voor de klanten\nmet beperkingen\n3. De klant drukt op de inzoom knop\n4. Het scherm zoomt in waardoor de klant het product beter\nkan bekijken.\n5. De gebruikersinterface is simpel gehouden door alleen de\nkleuren zwart en wit te implementeren.\n6. De beheerder implementeert een kleurenpalet dat rekening\nhoudt met verschillende vormen van kleurenblindheid en zorgt\nvoor duidelijke kleurcontrasten.\n7. De klant gebruikt de aangepaste interface om producten te\nbekijken en aankopen te doen."
+    },
+    {
+      "block_id": "b0092",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Postconditie | De klant heeft met succes de website gebruikt om informatie te verkrijgen\nen aankopen te doen met behulp van toegankelijkheidsfuncties."
+    },
+    {
+      "block_id": "b0093",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Exceptie\nflow 1: | Het systeem slaagt er niet in om de opgeslagen toegankelijkheidsvoorkeuren\nvan de klant toe te passen bij het inloggen."
+    },
+    {
+      "block_id": "b0094",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Actor | Geregistreerde klant"
+    },
+    {
+      "block_id": "b0095",
+      "type": "paragraph",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Use case10: Bestellen 16"
+    },
+    {
+      "block_id": "b0096",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Preconditie | De geregistreerde klant heeft ingelogd op zijn/haar gebruikersaccount.\nKlant heeft een bestelling geplaatst."
+    },
+    {
+      "block_id": "b0097",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Beschrijving | Deze use case beschrijft hoe klanten hun bestelgeschiedenis kunnen\nbekijken"
+    },
+    {
+      "block_id": "b0098",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De geregistreerde gebruiker navigeert naar de sectie \"Mijn\nAccount\" op de website van de webshop.\n2. De gebruiker selecteert de optie \"Bestelgeschiedenis\"\n3. Het systeem toont een overzicht van eerdere bestellingen van\nde gebruiker\n4. de geregistreerde klant krijgt de datum van aankoop, inclusief\nrelevante details zoals bestelnummer, datum, totaalbedrag en\nstatus van de bestelling te zien."
+    },
+    {
+      "block_id": "b0099",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Postconditie | De geregistreerde gebruiker heeft met succes zijn/haar bestelgeschiedenis\nbekeken"
+    },
+    {
+      "block_id": "b0100",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Exceptie\nflow 1: | Het systeem toont een bericht dat er geen eerdere bestellingen zijn\ngevonden voor de gebruiker en biedt opties om terug te keren naar het\nwinkelen of andere acties uit te voeren."
+    },
+    {
+      "block_id": "b0101",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Actor | Geregistreerde klant"
+    },
+    {
+      "block_id": "b0102",
+      "type": "paragraph",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "17"
+    },
+    {
+      "block_id": "b0103",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Preconditie | De geregistreerde klant heeft ingelogd op zijn/haar gebruikersaccount.\nDe geregistreerde klant heeft ingelogd op zijn/haar gebruikersaccount en\nheeft items in het winkelmandje geplaatst."
+    },
+    {
+      "block_id": "b0104",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Beschrijving | Deze use case beschrijft hoe klanten hun bestelling kunnen plaatsen"
+    },
+    {
+      "block_id": "b0105",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De geregistreerde gebruiker beoordeelt de items in het\nwinkelmandje en klikt op de knop 'Bestellen'\n2. Het systeem controleert of de items in het winkelmandje nog\nbeschikbaar zijn en valideert de hoeveelheden.\n3. Het systeem stuurt de gebruiker door naar de bestelpagina,\nwaar een overzicht van de bestelling wordt getoond, inclusief\nproducten, aantallen, prijzen, en de totale kosten, evenals opties\nvoor verzending en betaling.\n4. De gebruiker controleert de bestelling en bevestigt door op de\nknop 'Bestelling plaatsen' te klikken."
+    },
+    {
+      "block_id": "b0106",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Postconditie | De geregistreerde gebruiker heeft met succes een bestelling geplaatst en ziet\neen bevestiging op het scherm, evenals een overzicht van de bestelling op\neen nieuwe pagina."
+    },
+    {
+      "block_id": "b0107",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Exceptie\nflow: | De gebruiker klikt op 'Bestellen' zonder items in het winkelmandje.\nHet systeem detecteert dat er geen items in het winkelmandje aanwezig zijn\nen toont een bericht: \"Uw winkelmandje is leeg. Voeg producten toe om een\nbestelling te plaatsen.\""
+    },
+    {
+      "block_id": "b0108",
+      "type": "paragraph",
+      "page": 18,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Beveiliging Securityelement: Data Encryptie Ik heb een securityelement (data encryptie) onderbouwd rondom de AVG-regels. Daarna volgt hoe het toegepast wordt op de webshop, de AVG-naleving, voordelen en conclusie. Hier zijn de belangrijkste regels en principes van de AVG van de Algemene Verordening Gegevensbescherming (AVG), • Toestemming • Recht op inzage • Recht op rectificatie • Recht op gegevenswissing • Recht op beperking van de verwerking • Recht op dataportabiliteit • Recht van bezwaar • Geautomatiseerde individuele besluitvorming, inclusief profilering Definitie en belang: Data encryptie is het proces van het omzetten van informatie of data in een code, om ongeautoriseerde toegang te voorkomen. Dit is cruciaal voor het beschermen van persoonsgegevens omdat het ervoor zorgt dat zelfs als de gegevens worden onderschept tijdens de overdracht of ongeautoriseerd worden benaderd op een server, deze onleesbaar en nutteloos zijn voor de indringer. Toepassing in de Webshop: Voor een webshop is het cruciaal om persoonsgegevens zoals klantnamen, adressen, betalingsinformatie en inloggegevens te versleutelen. Dit is noodzakelijk zowel voor data 'at rest' (opgeslagen data) als data 'in transit' (data die wordt verzonden). Hoewel SSL/TLS-certificaten een standaardmethode zijn voor het beveiligen van gegevens die over het internet worden verzonden, kan in jouw geval het gebruik van JSON Web Tokens (JWT) een alternatieve of aanvullende benadering zijn, vooral voor identificatie en autorisatieprocessen binnen de webshop. JWT's zijn methoden voor het veilig overbrengen van informatie tussen partijen als een JSON-object, wat bijdraagt aan de veiligheid van zowel de statische data als de data die actief wordt verstuurd tussen client en server. Deze tokens kunnen worden versleuteld om een veilige manier van authenticatie en gegevensoverdracht te bieden, waardoor ze een waardevolle beveiligingsoptie vormen in aanvulling op traditionele SSL/TLS-encryptie voor de bescherming van online transacties en communicatie binnen je webshop 18"
+    },
+    {
+      "block_id": "b0109",
+      "type": "paragraph",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "AVG-naleving: Vanuit het perspectief van de AVG is data-encryptie een belangrijke technische maatregel voor het waarborgen van de integriteit en vertrouwelijkheid van persoonsgegevens. De AVG vereist dat organisaties passende technische en organisatorische maatregelen nemen om persoonsgegevens te beschermen. Data- encryptie voldoet aan deze vereiste door te zorgen voor een beveiligingsniveau dat past bij het risico. Voordelen: Door het gebruik van SSL/TLS-certificaten tonen webshops aan dat ze de privacy en beveiliging van klantgegevens serieus nemen, wat het vertrouwen van de klant kan vergroten. Encryptie vermindert het risico op datalekken en fraude, aangezien gecompromitteerde gegevens zonder de juiste sleutels niet leesbaar zijn. Google en andere zoekmachines geven voorrang aan websites die HTTPS gebruiken, wat kan leiden tot betere zoekmachine ranking. Conclusie: De implementatie van data-encryptie, met name via SSL/TLS-certificaten, is een fundamenteel securityelement voor webshops die persoonsgegevens verwerken. Het zorgt niet alleen voor compliance met de AVG door het beschermen van klantgegevens tegen ongeautoriseerde toegang, maar verhoogt ook het klantvertrouwen en de algehele beveiligingshouding van de webshop. 19"
+    },
+    {
+      "block_id": "b0110",
+      "type": "paragraph",
+      "page": 20,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Bronnen: https://kinsta.com/knowledgebase/what-is-encryption/ https://www.digitalguardian.com/blog/what-data-encryption https://www.egnyte.com/guides/governance/data-encryption Casus Wk 9_Challengeweek_kick-off_presentatie.pdf Wat gaan we doen: we maken bol.com na • Werkende applicatie waar je kan bestellen • Je praat met minimaal 3 andere API’s (van de webshops) • Er komt 1 frontend • Daar zijn twee beperkingen zichtbaar • Je kunt filteren op resultaten • Je kunt zoeken op resultaten • Als gebruiker kan je bestellingen inzien • Als beheerder/admin kan je alle bestellingen inzien • Op alle producten moet een administratie kosten van 5% zitten • Alle producten moeten een verkoopprijs hebben o Beheerder/admin moet: o inzicht krijgen in hoeveel je verdient per dag • Vormgeving is TOP!! • Er moet een landingspagina komen • Je maakt je test bevindingen inzichtelijk – EN we testen niet met ICT studenten Week 8 - voorbereiding challengeweek v2.pdf • De API moet op de server online beschikbaar zijn • De DB moet op de server staan Infirfs_Toetsmatrijs_Challengeweek_1.0.pdf • - Studenten pasten securityaspecten goed toe op de gezamenlijke webshop. Dit wordt met rollen, rechten en login afgedwongen. • Studenten tonen de werkende webshop welke voldoet aan de requirements en onderbouwen dat deze voldoet aan de opdracht; gebruikers moeten een kies/ bestel/ afreken proces kunnen uitvoeren. • Studenten zijn elk verantwoordelijk voor een kwalitatief onderdeel van het applicatieontwerp. Studenten baseren het ontwerp op de gestelde requirements en onderbouwen, wanneer gevraagd, op individuele basis het applicatieontwerp in haar geheel. Het datamodel is onderdeel van het ontwerpdocument. • Student is verantwoordelijk voor minimaal 2 testen. De testen zijn onderdeel van het testrapport. De student onderbouwt de relevantie en totstandkoming van de testen en legt de testresultaten duidelijk uit in relatie tot security en requirements. 20"
+    }
+  ],
+  "warnings": [],
+  "status": "success"
+}

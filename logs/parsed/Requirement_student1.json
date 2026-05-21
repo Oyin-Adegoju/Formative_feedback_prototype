@@ -1,0 +1,5041 @@
+{
+  "doc_id": "Requirement_student1",
+  "source_path": "INFIRST_requirements/onvoldoende/Requirement_student1 .pdf",
+  "source_type": "pdf",
+  "quality_label": "onvoldoende",
+  "page_count": 23,
+  "blocks": [
+    {
+      "block_id": "b0001",
+      "type": "paragraph",
+      "page": 1,
+      "level": null,
+      "heading_path": [],
+      "text": "Student naam + nummer Modulenaam Datum Titel pagina [ leuke meme ] [ mooie plaatje ] [ goede document template ] - consistent met je andere documenten Inhoud"
+    },
+    {
+      "block_id": "b0002",
+      "type": "heading",
+      "page": 1,
+      "level": 1,
+      "heading_path": [
+        "H1 Introductie ......................................................................................................................... 3"
+      ],
+      "text": "H1 Introductie ......................................................................................................................... 3"
+    },
+    {
+      "block_id": "b0003",
+      "type": "heading",
+      "page": 1,
+      "level": 2,
+      "heading_path": [
+        "H1 Introductie ......................................................................................................................... 3",
+        "H2 Stakeholders analyse ......................................................................................................... 4"
+      ],
+      "text": "H2 Stakeholders analyse ......................................................................................................... 4"
+    },
+    {
+      "block_id": "b0004",
+      "type": "heading",
+      "page": 1,
+      "level": 3,
+      "heading_path": [
+        "H1 Introductie ......................................................................................................................... 3",
+        "H2 Stakeholders analyse ......................................................................................................... 4",
+        "H3 Onderzoek naar web gebruikers ........................................................................................ 11"
+      ],
+      "text": "H3 Onderzoek naar web gebruikers ........................................................................................ 11"
+    },
+    {
+      "block_id": "b0005",
+      "type": "heading",
+      "page": 1,
+      "level": 4,
+      "heading_path": [
+        "H1 Introductie ......................................................................................................................... 3",
+        "H2 Stakeholders analyse ......................................................................................................... 4",
+        "H3 Onderzoek naar web gebruikers ........................................................................................ 11",
+        "H4 Wensen, Eisen, Prioriteiten ............................................................................................... 13"
+      ],
+      "text": "H4 Wensen, Eisen, Prioriteiten ............................................................................................... 13"
+    },
+    {
+      "block_id": "b0006",
+      "type": "paragraph",
+      "page": 1,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie ......................................................................................................................... 3",
+        "H2 Stakeholders analyse ......................................................................................................... 4",
+        "H3 Onderzoek naar web gebruikers ........................................................................................ 11",
+        "H4 Wensen, Eisen, Prioriteiten ............................................................................................... 13"
+      ],
+      "text": "4.1 Constraints en (non-) Functionele eisen ........................................................................ 13 4.2 Use Case Diagram ................................................................................................... 17 4.3 Use Case beschrijvingen ......................................................................................... 17 H5 Ethische aandachtspunten ............................................................................................... 20 H6 Literatuurlijst .................................................................................................................... 21 Bijlage I – Interview verslag Marcel ......................................................................................... 22 Bijlage II – Interview verslag - Daphne ..................................................................................... 23 Requirements Analyse pag. 1"
+    },
+    {
+      "block_id": "b0007",
+      "type": "paragraph",
+      "page": 2,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie ......................................................................................................................... 3",
+        "H2 Stakeholders analyse ......................................................................................................... 4",
+        "H3 Onderzoek naar web gebruikers ........................................................................................ 11",
+        "H4 Wensen, Eisen, Prioriteiten ............................................................................................... 13"
+      ],
+      "text": "Requirements Analyse pag. 2"
+    },
+    {
+      "block_id": "b0008",
+      "type": "heading",
+      "page": 3,
+      "level": 1,
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "H1 Introductie"
+    },
+    {
+      "block_id": "b0009",
+      "type": "paragraph",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "Korte beschrijving van de webshop die JIJ gaat maken. Mogelijk met een voorbeeld tekening – Gebruik daar bijvoorbeeld Figma voor. Richt op 2 of 3 alineas – halve A4 - tot maximaal 1 pagina als je plaatjes toevoegd. Requirements Analyse pag. 3"
+    },
+    {
+      "block_id": "b0010",
+      "type": "heading",
+      "page": 4,
+      "level": 2,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "H2 Stakeholders analyse"
+    },
+    {
+      "block_id": "b0011",
+      "type": "paragraph",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "De stakeholder waar we rekening mee houden zijn deze ; Functie en Rol : Requirements Analyse pag. 4"
+    },
+    {
+      "block_id": "b0012",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Stakeholder | Functie | Rol"
+    },
+    {
+      "block_id": "b0013",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Jolijn Berlage | Jolijn Berlage | Vertegenwoordiger van\ninvesteringsbedrijf Plenty. | Vertegenwoordiger van | Jolijn Berlage is verantwoordelijk voor\nhet vinden van geschikte\nwebsiteontwikkelaars en het\ndefiniëren van de vereisten voor het\nproject. Ze fungeert als\ntussenpersoon tussen het\ninvesteringsbedrijf en de\nwebsiteontwikkelaars. | Jolijn Berlage is verantwoordelijk voor"
+    },
+    {
+      "block_id": "b0014",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeringsbedrijf Plenty. | het vinden van geschikte"
+    },
+    {
+      "block_id": "b0015",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "websiteontwikkelaars en het"
+    },
+    {
+      "block_id": "b0016",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "definiëren van de vereisten voor het"
+    },
+    {
+      "block_id": "b0017",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "project. Ze fungeert als"
+    },
+    {
+      "block_id": "b0018",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "tussenpersoon tussen het"
+    },
+    {
+      "block_id": "b0019",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeringsbedrijf en de"
+    },
+    {
+      "block_id": "b0020",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "websiteontwikkelaars."
+    },
+    {
+      "block_id": "b0021",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Eigenaren/Investeerders | Eigenaren of financiële\ninvesteerders van\ninvesteringsbedrijf Plenty. | Ze zijn verantwoordelijk voor het\ngoedkeuren van het project en het\nvaststellen van de algemene\nstrategie en doelstellingen ervan. Als\nleiders van het investeringsbedrijf\ndragen ze de\neindverantwoordelijkheid voor het\nsuccesvol afronden van het project\nbinnen de gestelde parameters."
+    },
+    {
+      "block_id": "b0022",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Bestuur/Directie | Bestuursleden of directieleden\nvan investeringsbedrijf Plenty. | Ze zijn verantwoordelijk voor het\ngoedkeuren van het project en het\nvaststellen van de algemene\nstrategie en doelstellingen ervan. Als\nleiders van het investeringsbedrijf\ndragen ze de\neindverantwoordelijkheid voor het\nsuccesvol afronden van het project\nbinnen de gestelde parameters"
+    },
+    {
+      "block_id": "b0023",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Managementteam | Leidinggevenden en managers\nbinnen investeringsbedrijf\nPlenty. | Ze zijn betrokken bij het toezicht\nhouden op het project en het zorgen\nvoor een goede uitvoering van de\nstrategie. Ze coördineren de\nactiviteiten op verschillende\nafdelingen en zorgen ervoor dat de\ndoelstellingen worden behaald\nbinnen de gestelde tijdlijnen en\nbudgetten."
+    },
+    {
+      "block_id": "b0024",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Eigenaren of financiële"
+    },
+    {
+      "block_id": "b0025",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeerders van"
+    },
+    {
+      "block_id": "b0026",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeringsbedrijf Plenty."
+    },
+    {
+      "block_id": "b0027",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Ze zijn verantwoordelijk voor het"
+    },
+    {
+      "block_id": "b0028",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "goedkeuren van het project en het"
+    },
+    {
+      "block_id": "b0029",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "vaststellen van de algemene"
+    },
+    {
+      "block_id": "b0030",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "strategie en doelstellingen ervan. Als"
+    },
+    {
+      "block_id": "b0031",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "leiders van het investeringsbedrijf"
+    },
+    {
+      "block_id": "b0032",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "dragen ze de"
+    },
+    {
+      "block_id": "b0033",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "eindverantwoordelijkheid voor het"
+    },
+    {
+      "block_id": "b0034",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "succesvol afronden van het project"
+    },
+    {
+      "block_id": "b0035",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "binnen de gestelde parameters."
+    },
+    {
+      "block_id": "b0036",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Bestuursleden of directieleden"
+    },
+    {
+      "block_id": "b0037",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "van investeringsbedrijf Plenty."
+    },
+    {
+      "block_id": "b0038",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Ze zijn verantwoordelijk voor het"
+    },
+    {
+      "block_id": "b0039",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "goedkeuren van het project en het"
+    },
+    {
+      "block_id": "b0040",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "vaststellen van de algemene"
+    },
+    {
+      "block_id": "b0041",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "strategie en doelstellingen ervan. Als"
+    },
+    {
+      "block_id": "b0042",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "leiders van het investeringsbedrijf"
+    },
+    {
+      "block_id": "b0043",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "dragen ze de"
+    },
+    {
+      "block_id": "b0044",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "eindverantwoordelijkheid voor het"
+    },
+    {
+      "block_id": "b0045",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "succesvol afronden van het project"
+    },
+    {
+      "block_id": "b0046",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "binnen de gestelde parameters"
+    },
+    {
+      "block_id": "b0047",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Leidinggevenden en managers"
+    },
+    {
+      "block_id": "b0048",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "binnen investeringsbedrijf"
+    },
+    {
+      "block_id": "b0049",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Plenty."
+    },
+    {
+      "block_id": "b0050",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Ze zijn betrokken bij het toezicht"
+    },
+    {
+      "block_id": "b0051",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "houden op het project en het zorgen"
+    },
+    {
+      "block_id": "b0052",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "voor een goede uitvoering van de"
+    },
+    {
+      "block_id": "b0053",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "strategie. Ze coördineren de"
+    },
+    {
+      "block_id": "b0054",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "activiteiten op verschillende"
+    },
+    {
+      "block_id": "b0055",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "afdelingen en zorgen ervoor dat de"
+    },
+    {
+      "block_id": "b0056",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "doelstellingen worden behaald"
+    },
+    {
+      "block_id": "b0057",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "binnen de gestelde tijdlijnen en"
+    },
+    {
+      "block_id": "b0058",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "budgetten."
+    },
+    {
+      "block_id": "b0059",
+      "type": "paragraph",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Requirements Analyse pag. 5"
+    },
+    {
+      "block_id": "b0060",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Medewerkers | Alle werknemers van\ninvesteringsbedrijf Plenty."
+    },
+    {
+      "block_id": "b0061",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Hoewel ze niet direct betrokken zijn"
+    },
+    {
+      "block_id": "b0062",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "bij het project voor de ontwikkeling"
+    },
+    {
+      "block_id": "b0063",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "van de webshop, dragen ze bij aan"
+    },
+    {
+      "block_id": "b0064",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "de algehele activiteiten van het"
+    },
+    {
+      "block_id": "b0065",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeringsbedrijf. Hun inzet en"
+    },
+    {
+      "block_id": "b0066",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "bijdragen op verschillende afdelingen"
+    },
+    {
+      "block_id": "b0067",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "helpen bij het ondersteunen van de"
+    },
+    {
+      "block_id": "b0068",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "strategische doelstellingen van het"
+    },
+    {
+      "block_id": "b0069",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "bedrijf, waaronder ook het succes"
+    },
+    {
+      "block_id": "b0070",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "van het project."
+    },
+    {
+      "block_id": "b0071",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Individuele\nwebsiteontwikkelaars | Websiteontwikkelaars. | Zij zijn verantwoordelijk voor het\nontwerpen, ontwikkelen, beveiligen\nen testen van de webshop volgens\nde gestelde specificaties. Hun rol is\ncruciaal bij het creëren van een goed\nfunctionerende en\ngebruiksvriendelijke webshop. | Zij zijn verantwoordelijk voor het"
+    },
+    {
+      "block_id": "b0072",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "ontwerpen, ontwikkelen, beveiligen"
+    },
+    {
+      "block_id": "b0073",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "en testen van de webshop volgens"
+    },
+    {
+      "block_id": "b0074",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "de gestelde specificaties. Hun rol is"
+    },
+    {
+      "block_id": "b0075",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "cruciaal bij het creëren van een goed"
+    },
+    {
+      "block_id": "b0076",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "functionerende en"
+    },
+    {
+      "block_id": "b0077",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "gebruiksvriendelijke webshop."
+    },
+    {
+      "block_id": "b0078",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Klanten | Eindgebruikers van de website. | Klanten zijn degenen die de webshop\nzullen gebruiken om producten te\nzoeken en kopen. Hun behoeften en\nvoorkeuren moeten worden\nmeegenomen in het ontwerp en de\nontwikkeling van de webshop om een\noptimale gebruikerservaring te\ngaranderen."
+    },
+    {
+      "block_id": "b0079",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Gebruikers met beperkte\nfinanciële middelen | Eindgebruikers van de website\nmet beperkte financiële\nmiddelen. | Vertegenwoordigen gebruikers met"
+    },
+    {
+      "block_id": "b0080",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "financiële beperkingen."
+    },
+    {
+      "block_id": "b0081",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Ze zijn belangrijk voor het bieden van"
+    },
+    {
+      "block_id": "b0082",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "betaalbare producten."
+    },
+    {
+      "block_id": "b0083",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Hun behoeften beïnvloeden het"
+    },
+    {
+      "block_id": "b0084",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "ontwerp van de webshop."
+    },
+    {
+      "block_id": "b0085",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Alle werknemers van"
+    },
+    {
+      "block_id": "b0086",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeringsbedrijf Plenty."
+    },
+    {
+      "block_id": "b0087",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Individuele"
+    },
+    {
+      "block_id": "b0088",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "websiteontwikkelaars"
+    },
+    {
+      "block_id": "b0089",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Klanten zijn degenen die de webshop"
+    },
+    {
+      "block_id": "b0090",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "zullen gebruiken om producten te"
+    },
+    {
+      "block_id": "b0091",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "zoeken en kopen. Hun behoeften en"
+    },
+    {
+      "block_id": "b0092",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "voorkeuren moeten worden"
+    },
+    {
+      "block_id": "b0093",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "meegenomen in het ontwerp en de"
+    },
+    {
+      "block_id": "b0094",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "ontwikkeling van de webshop om een"
+    },
+    {
+      "block_id": "b0095",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "optimale gebruikerservaring te"
+    },
+    {
+      "block_id": "b0096",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "garanderen."
+    },
+    {
+      "block_id": "b0097",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Gebruikers met beperkte"
+    },
+    {
+      "block_id": "b0098",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "financiële middelen"
+    },
+    {
+      "block_id": "b0099",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Eindgebruikers van de website"
+    },
+    {
+      "block_id": "b0100",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "met beperkte financiële"
+    },
+    {
+      "block_id": "b0101",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "middelen."
+    },
+    {
+      "block_id": "b0102",
+      "type": "paragraph",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Categorisatie Requirements Analyse pag. 6"
+    },
+    {
+      "block_id": "b0103",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Stakeholder | Category (primair,\nsecundair) | Intern/extern/interface | Invloed"
+    },
+    {
+      "block_id": "b0104",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Jolijn Berlage | Primair - Haar rol als\nvertegenwoordiger van\nhet investeringsbedrijf\nmaakt haar essentieel\nvoor het project. | Intern - Ze is intern\nverbonden met het\nbedrijf en heeft directe\ninvloed op het project. | Gemiddeld: Als"
+    },
+    {
+      "block_id": "b0105",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "vertegenwoordiger van"
+    },
+    {
+      "block_id": "b0106",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "het investeringsbedrijf"
+    },
+    {
+      "block_id": "b0107",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "heeft ze invloed op de"
+    },
+    {
+      "block_id": "b0108",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "richting van het project,"
+    },
+    {
+      "block_id": "b0109",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "maar haar macht wordt"
+    },
+    {
+      "block_id": "b0110",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "beperkt door de"
+    },
+    {
+      "block_id": "b0111",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "vereisten en prioriteiten"
+    },
+    {
+      "block_id": "b0112",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "van het bedrijf."
+    },
+    {
+      "block_id": "b0113",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Eigenaren/Investeerders | Primair - Hun direct\nfinancieel belang maakt\nhen essentieel voor het\nsucces van het project | Intern - Ze zijn intern | Veel- Hun direct"
+    },
+    {
+      "block_id": "b0114",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "verbonden met het | financieel belang en"
+    },
+    {
+      "block_id": "b0115",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeringsbedrijf en | besluitvormingsmacht"
+    },
+    {
+      "block_id": "b0116",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "hebben directe invloed | maken hun invloed"
+    },
+    {
+      "block_id": "b0117",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "op strategische | significant voor het"
+    },
+    {
+      "block_id": "b0118",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "beslissingen. | project."
+    },
+    {
+      "block_id": "b0119",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Bestuur/Directie | Primair - Hun\nverantwoordelijkheid\nvoor strategisch beheer\nmaakt hun\nbetrokkenheid cruciaal. | Intern - Ze opereren | Veel - Als strategische\nleiders bepalen zij de\nkoers van het bedrijf,\nwaardoor hun invloed\naanzienlijk is | Veel - Als strategische"
+    },
+    {
+      "block_id": "b0120",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "binnen de interne | leiders bepalen zij de"
+    },
+    {
+      "block_id": "b0121",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "structuur van het | koers van het bedrijf,"
+    },
+    {
+      "block_id": "b0122",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeringsbedrijf en | waardoor hun invloed"
+    },
+    {
+      "block_id": "b0123",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "dragen direct bij aan | aanzienlijk is"
+    },
+    {
+      "block_id": "b0124",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "besluitvorming."
+    },
+    {
+      "block_id": "b0125",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Managementteam | Primair - Hun rol in\noperationeel beheer\nmaakt hun\nbetrokkenheid van groot\nbelang. | Intern - Ze zijn\nonderdeel van de interne\norganisatiestructuur en\nhouden toezicht op het\nproject. | Intern - Ze zijn | Gemiddeld - Ze\nhebben operationele\nverantwoordelijkheden\nen kunnen directe\ninvloed uitoefenen\nbinnen hun toegewezen\ndomeinen."
+    },
+    {
+      "block_id": "b0126",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "onderdeel van de interne"
+    },
+    {
+      "block_id": "b0127",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "organisatiestructuur en"
+    },
+    {
+      "block_id": "b0128",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "houden toezicht op het"
+    },
+    {
+      "block_id": "b0129",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "project."
+    },
+    {
+      "block_id": "b0130",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Medewerkers | Secundair - Hoewel ze\nbijdragen aan dagelijkse\nactiviteiten, zijn ze niet\ndirect betrokken bij het\nproject. | Intern - Ze zijn\nonderdeel van de interne\norganisatiestructuur en\nhouden toezicht op het\nproject. | Weinig - Hoewel ze"
+    },
+    {
+      "block_id": "b0131",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "bijdragen aan de"
+    },
+    {
+      "block_id": "b0132",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "dagelijkse activiteiten,"
+    },
+    {
+      "block_id": "b0133",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "hebben ze over het"
+    },
+    {
+      "block_id": "b0134",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "algemeen minder"
+    },
+    {
+      "block_id": "b0135",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "directe invloed op"
+    },
+    {
+      "block_id": "b0136",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "strategische"
+    },
+    {
+      "block_id": "b0137",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "beslissingen en"
+    },
+    {
+      "block_id": "b0138",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "projecten."
+    },
+    {
+      "block_id": "b0139",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Category (primair,"
+    },
+    {
+      "block_id": "b0140",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "secundair)"
+    },
+    {
+      "block_id": "b0141",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Haar rol als"
+    },
+    {
+      "block_id": "b0142",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "vertegenwoordiger van"
+    },
+    {
+      "block_id": "b0143",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "het investeringsbedrijf"
+    },
+    {
+      "block_id": "b0144",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "maakt haar essentieel"
+    },
+    {
+      "block_id": "b0145",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "voor het project."
+    },
+    {
+      "block_id": "b0146",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Intern - Ze is intern"
+    },
+    {
+      "block_id": "b0147",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "verbonden met het"
+    },
+    {
+      "block_id": "b0148",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "bedrijf en heeft directe"
+    },
+    {
+      "block_id": "b0149",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "invloed op het project."
+    },
+    {
+      "block_id": "b0150",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Hun direct"
+    },
+    {
+      "block_id": "b0151",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "financieel belang maakt"
+    },
+    {
+      "block_id": "b0152",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "hen essentieel voor het"
+    },
+    {
+      "block_id": "b0153",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "succes van het project"
+    },
+    {
+      "block_id": "b0154",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Hun"
+    },
+    {
+      "block_id": "b0155",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "verantwoordelijkheid"
+    },
+    {
+      "block_id": "b0156",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "voor strategisch beheer"
+    },
+    {
+      "block_id": "b0157",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "maakt hun"
+    },
+    {
+      "block_id": "b0158",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "betrokkenheid cruciaal."
+    },
+    {
+      "block_id": "b0159",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Hun rol in"
+    },
+    {
+      "block_id": "b0160",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "operationeel beheer"
+    },
+    {
+      "block_id": "b0161",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "maakt hun"
+    },
+    {
+      "block_id": "b0162",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "betrokkenheid van groot"
+    },
+    {
+      "block_id": "b0163",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "belang."
+    },
+    {
+      "block_id": "b0164",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Gemiddeld - Ze"
+    },
+    {
+      "block_id": "b0165",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "hebben operationele"
+    },
+    {
+      "block_id": "b0166",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "verantwoordelijkheden"
+    },
+    {
+      "block_id": "b0167",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "en kunnen directe"
+    },
+    {
+      "block_id": "b0168",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "invloed uitoefenen"
+    },
+    {
+      "block_id": "b0169",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "binnen hun toegewezen"
+    },
+    {
+      "block_id": "b0170",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "domeinen."
+    },
+    {
+      "block_id": "b0171",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Secundair - Hoewel ze"
+    },
+    {
+      "block_id": "b0172",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "bijdragen aan dagelijkse"
+    },
+    {
+      "block_id": "b0173",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "activiteiten, zijn ze niet"
+    },
+    {
+      "block_id": "b0174",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "direct betrokken bij het"
+    },
+    {
+      "block_id": "b0175",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "project."
+    },
+    {
+      "block_id": "b0176",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Intern - Ze zijn"
+    },
+    {
+      "block_id": "b0177",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "onderdeel van de interne"
+    },
+    {
+      "block_id": "b0178",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "organisatiestructuur en"
+    },
+    {
+      "block_id": "b0179",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "houden toezicht op het"
+    },
+    {
+      "block_id": "b0180",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "project."
+    },
+    {
+      "block_id": "b0181",
+      "type": "paragraph",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Requirements Analyse pag. 7"
+    },
+    {
+      "block_id": "b0182",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Individuele\nwebsiteontwikkelaars | Primair - Hun bijdrage\naan het ontwerp en de\nontwikkeling van de\nwebshop is van cruciaal\nbelang. | Extern - Ze zijn niet\nintern verbonden met het\ninvesteringsbedrijf maar\nzijn externe partners. | Gemiddeld - Ze\nhebben een significante\ninvloed op het project\ndoor het ontwerpen en\nontwikkelen van de\nwebshop, maar zijn\nafhankelijk van de\nspecificaties en\nvereisten die zijn\nvastgesteld door het\ninvesteringsbedrijf."
+    },
+    {
+      "block_id": "b0183",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Klanten | Primair - Hun\nbehoeften en\nvoorkeuren zijn vitaal\nvoor het succes van de\nwebshop. | Extern - Ze zijn externe\neindgebruikers van de\nwebshop. | Weinig: Hun feedback"
+    },
+    {
+      "block_id": "b0184",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "en voorkeuren hebben"
+    },
+    {
+      "block_id": "b0185",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "invloed op het"
+    },
+    {
+      "block_id": "b0186",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "eindproduct, maar de"
+    },
+    {
+      "block_id": "b0187",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop moet ook"
+    },
+    {
+      "block_id": "b0188",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "rekening houden met"
+    },
+    {
+      "block_id": "b0189",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "andere"
+    },
+    {
+      "block_id": "b0190",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "belanghebbenden en"
+    },
+    {
+      "block_id": "b0191",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "zakelijke doelstellingen."
+    },
+    {
+      "block_id": "b0192",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Gebruikers met\nbeperkte financiële\nmiddelen | Primair - Hun\nbehoeften moeten\nworden geïntegreerd in\nhet ontwerp van de\nwebshop. | Extern - Ze zijn externe\ngebruikers met\nspecifieke behoeften. | Weinig: Hoewel hun"
+    },
+    {
+      "block_id": "b0193",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "behoeften relevant zijn"
+    },
+    {
+      "block_id": "b0194",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "voor de prijsstelling,"
+    },
+    {
+      "block_id": "b0195",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "kunnen andere"
+    },
+    {
+      "block_id": "b0196",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "belanghebbenden zoals"
+    },
+    {
+      "block_id": "b0197",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeerders en het"
+    },
+    {
+      "block_id": "b0198",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "managementteam"
+    },
+    {
+      "block_id": "b0199",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "prioriteit geven aan"
+    },
+    {
+      "block_id": "b0200",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "winstgevendheid en"
+    },
+    {
+      "block_id": "b0201",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "concurrentievoordeel,"
+    },
+    {
+      "block_id": "b0202",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "waardoor hun directe"
+    },
+    {
+      "block_id": "b0203",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "invloed beperkt kan"
+    },
+    {
+      "block_id": "b0204",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "zijn."
+    },
+    {
+      "block_id": "b0205",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Individuele"
+    },
+    {
+      "block_id": "b0206",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "websiteontwikkelaars"
+    },
+    {
+      "block_id": "b0207",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Hun bijdrage"
+    },
+    {
+      "block_id": "b0208",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "aan het ontwerp en de"
+    },
+    {
+      "block_id": "b0209",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "ontwikkeling van de"
+    },
+    {
+      "block_id": "b0210",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop is van cruciaal"
+    },
+    {
+      "block_id": "b0211",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "belang."
+    },
+    {
+      "block_id": "b0212",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Extern - Ze zijn niet"
+    },
+    {
+      "block_id": "b0213",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "intern verbonden met het"
+    },
+    {
+      "block_id": "b0214",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeringsbedrijf maar"
+    },
+    {
+      "block_id": "b0215",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "zijn externe partners."
+    },
+    {
+      "block_id": "b0216",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Gemiddeld - Ze"
+    },
+    {
+      "block_id": "b0217",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "hebben een significante"
+    },
+    {
+      "block_id": "b0218",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "invloed op het project"
+    },
+    {
+      "block_id": "b0219",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "door het ontwerpen en"
+    },
+    {
+      "block_id": "b0220",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "ontwikkelen van de"
+    },
+    {
+      "block_id": "b0221",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop, maar zijn"
+    },
+    {
+      "block_id": "b0222",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "afhankelijk van de"
+    },
+    {
+      "block_id": "b0223",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "specificaties en"
+    },
+    {
+      "block_id": "b0224",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "vereisten die zijn"
+    },
+    {
+      "block_id": "b0225",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "vastgesteld door het"
+    },
+    {
+      "block_id": "b0226",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeringsbedrijf."
+    },
+    {
+      "block_id": "b0227",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Hun"
+    },
+    {
+      "block_id": "b0228",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "behoeften en"
+    },
+    {
+      "block_id": "b0229",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "voorkeuren zijn vitaal"
+    },
+    {
+      "block_id": "b0230",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "voor het succes van de"
+    },
+    {
+      "block_id": "b0231",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop."
+    },
+    {
+      "block_id": "b0232",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Extern - Ze zijn externe"
+    },
+    {
+      "block_id": "b0233",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "eindgebruikers van de"
+    },
+    {
+      "block_id": "b0234",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop."
+    },
+    {
+      "block_id": "b0235",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Gebruikers met"
+    },
+    {
+      "block_id": "b0236",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "beperkte financiële"
+    },
+    {
+      "block_id": "b0237",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "middelen"
+    },
+    {
+      "block_id": "b0238",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Hun"
+    },
+    {
+      "block_id": "b0239",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "behoeften moeten"
+    },
+    {
+      "block_id": "b0240",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "worden geïntegreerd in"
+    },
+    {
+      "block_id": "b0241",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "het ontwerp van de"
+    },
+    {
+      "block_id": "b0242",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop."
+    },
+    {
+      "block_id": "b0243",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Extern - Ze zijn externe"
+    },
+    {
+      "block_id": "b0244",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "gebruikers met"
+    },
+    {
+      "block_id": "b0245",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "specifieke behoeften."
+    },
+    {
+      "block_id": "b0246",
+      "type": "paragraph",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Belangen en Concerns: Requirements Analyse pag. 8"
+    },
+    {
+      "block_id": "b0247",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Stakeholder | Category (primair,\nsecundair) | Intern/extern/interface | Invloed"
+    },
+    {
+      "block_id": "b0248",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Jolijn Berlage | Primair - Haar rol als\nvertegenwoordiger van\nhet investeringsbedrijf\nmaakt haar essentieel\nvoor het project. | Intern - Ze is intern\nverbonden met het\nbedrijf en heeft directe\ninvloed op het project. | Gemiddeld: Als"
+    },
+    {
+      "block_id": "b0249",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "vertegenwoordiger van"
+    },
+    {
+      "block_id": "b0250",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "het investeringsbedrijf"
+    },
+    {
+      "block_id": "b0251",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "heeft ze invloed op de"
+    },
+    {
+      "block_id": "b0252",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "richting van het project,"
+    },
+    {
+      "block_id": "b0253",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "maar haar macht wordt"
+    },
+    {
+      "block_id": "b0254",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "beperkt door de"
+    },
+    {
+      "block_id": "b0255",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "vereisten en prioriteiten"
+    },
+    {
+      "block_id": "b0256",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "van het bedrijf."
+    },
+    {
+      "block_id": "b0257",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Eigenaren/Investeerders | Primair - Hun direct\nfinancieel belang maakt\nhen essentieel voor het\nsucces van het project | Intern - Ze zijn intern | Veel- Hun direct"
+    },
+    {
+      "block_id": "b0258",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "verbonden met het | financieel belang en"
+    },
+    {
+      "block_id": "b0259",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeringsbedrijf en | besluitvormingsmacht"
+    },
+    {
+      "block_id": "b0260",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "hebben directe invloed | maken hun invloed"
+    },
+    {
+      "block_id": "b0261",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "op strategische | significant voor het"
+    },
+    {
+      "block_id": "b0262",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "beslissingen. | project."
+    },
+    {
+      "block_id": "b0263",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Bestuur/Directie | Primair - Hun\nverantwoordelijkheid\nvoor strategisch beheer\nmaakt hun\nbetrokkenheid cruciaal. | Intern - Ze opereren | Veel - Als strategische\nleiders bepalen zij de\nkoers van het bedrijf,\nwaardoor hun invloed\naanzienlijk is | Veel - Als strategische"
+    },
+    {
+      "block_id": "b0264",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "binnen de interne | leiders bepalen zij de"
+    },
+    {
+      "block_id": "b0265",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "structuur van het | koers van het bedrijf,"
+    },
+    {
+      "block_id": "b0266",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeringsbedrijf en | waardoor hun invloed"
+    },
+    {
+      "block_id": "b0267",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "dragen direct bij aan | aanzienlijk is"
+    },
+    {
+      "block_id": "b0268",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "besluitvorming."
+    },
+    {
+      "block_id": "b0269",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Managementteam | Primair - Hun rol in\noperationeel beheer\nmaakt hun\nbetrokkenheid van groot\nbelang. | Intern - Ze zijn\nonderdeel van de interne\norganisatiestructuur en\nhouden toezicht op het\nproject. | Intern - Ze zijn | Gemiddeld - Ze\nhebben operationele\nverantwoordelijkheden\nen kunnen directe\ninvloed uitoefenen\nbinnen hun toegewezen\ndomeinen."
+    },
+    {
+      "block_id": "b0270",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "onderdeel van de interne"
+    },
+    {
+      "block_id": "b0271",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "organisatiestructuur en"
+    },
+    {
+      "block_id": "b0272",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "houden toezicht op het"
+    },
+    {
+      "block_id": "b0273",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "project."
+    },
+    {
+      "block_id": "b0274",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Medewerkers | Secundair - Hoewel ze\nbijdragen aan dagelijkse\nactiviteiten, zijn ze niet\ndirect betrokken bij het\nproject. | Intern - Ze zijn\nonderdeel van de interne\norganisatiestructuur en\nhouden toezicht op het\nproject. | Weinig - Hoewel ze"
+    },
+    {
+      "block_id": "b0275",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "bijdragen aan de"
+    },
+    {
+      "block_id": "b0276",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "dagelijkse activiteiten,"
+    },
+    {
+      "block_id": "b0277",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "hebben ze over het"
+    },
+    {
+      "block_id": "b0278",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "algemeen minder"
+    },
+    {
+      "block_id": "b0279",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "directe invloed op"
+    },
+    {
+      "block_id": "b0280",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "strategische"
+    },
+    {
+      "block_id": "b0281",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "beslissingen en"
+    },
+    {
+      "block_id": "b0282",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "projecten."
+    },
+    {
+      "block_id": "b0283",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Category (primair,"
+    },
+    {
+      "block_id": "b0284",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "secundair)"
+    },
+    {
+      "block_id": "b0285",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Haar rol als"
+    },
+    {
+      "block_id": "b0286",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "vertegenwoordiger van"
+    },
+    {
+      "block_id": "b0287",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "het investeringsbedrijf"
+    },
+    {
+      "block_id": "b0288",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "maakt haar essentieel"
+    },
+    {
+      "block_id": "b0289",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "voor het project."
+    },
+    {
+      "block_id": "b0290",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Intern - Ze is intern"
+    },
+    {
+      "block_id": "b0291",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "verbonden met het"
+    },
+    {
+      "block_id": "b0292",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "bedrijf en heeft directe"
+    },
+    {
+      "block_id": "b0293",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "invloed op het project."
+    },
+    {
+      "block_id": "b0294",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Hun direct"
+    },
+    {
+      "block_id": "b0295",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "financieel belang maakt"
+    },
+    {
+      "block_id": "b0296",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "hen essentieel voor het"
+    },
+    {
+      "block_id": "b0297",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "succes van het project"
+    },
+    {
+      "block_id": "b0298",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Hun"
+    },
+    {
+      "block_id": "b0299",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "verantwoordelijkheid"
+    },
+    {
+      "block_id": "b0300",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "voor strategisch beheer"
+    },
+    {
+      "block_id": "b0301",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "maakt hun"
+    },
+    {
+      "block_id": "b0302",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "betrokkenheid cruciaal."
+    },
+    {
+      "block_id": "b0303",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Hun rol in"
+    },
+    {
+      "block_id": "b0304",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "operationeel beheer"
+    },
+    {
+      "block_id": "b0305",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "maakt hun"
+    },
+    {
+      "block_id": "b0306",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "betrokkenheid van groot"
+    },
+    {
+      "block_id": "b0307",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "belang."
+    },
+    {
+      "block_id": "b0308",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Gemiddeld - Ze"
+    },
+    {
+      "block_id": "b0309",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "hebben operationele"
+    },
+    {
+      "block_id": "b0310",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "verantwoordelijkheden"
+    },
+    {
+      "block_id": "b0311",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "en kunnen directe"
+    },
+    {
+      "block_id": "b0312",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "invloed uitoefenen"
+    },
+    {
+      "block_id": "b0313",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "binnen hun toegewezen"
+    },
+    {
+      "block_id": "b0314",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "domeinen."
+    },
+    {
+      "block_id": "b0315",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Secundair - Hoewel ze"
+    },
+    {
+      "block_id": "b0316",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "bijdragen aan dagelijkse"
+    },
+    {
+      "block_id": "b0317",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "activiteiten, zijn ze niet"
+    },
+    {
+      "block_id": "b0318",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "direct betrokken bij het"
+    },
+    {
+      "block_id": "b0319",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "project."
+    },
+    {
+      "block_id": "b0320",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Intern - Ze zijn"
+    },
+    {
+      "block_id": "b0321",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "onderdeel van de interne"
+    },
+    {
+      "block_id": "b0322",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "organisatiestructuur en"
+    },
+    {
+      "block_id": "b0323",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "houden toezicht op het"
+    },
+    {
+      "block_id": "b0324",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "project."
+    },
+    {
+      "block_id": "b0325",
+      "type": "paragraph",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Requirements Analyse pag. 9"
+    },
+    {
+      "block_id": "b0326",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Individuele\nwebsiteontwikkelaars | Primair - Hun bijdrage\naan het ontwerp en de\nontwikkeling van de\nwebshop is van cruciaal\nbelang. | Extern - Ze zijn niet\nintern verbonden met het\ninvesteringsbedrijf maar\nzijn externe partners. | Gemiddeld - Ze\nhebben een significante\ninvloed op het project\ndoor het ontwerpen en\nontwikkelen van de\nwebshop, maar zijn\nafhankelijk van de\nspecificaties en\nvereisten die zijn\nvastgesteld door het\ninvesteringsbedrijf."
+    },
+    {
+      "block_id": "b0327",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Klanten | Primair - Hun\nbehoeften en\nvoorkeuren zijn vitaal\nvoor het succes van de\nwebshop. | Extern - Ze zijn externe\neindgebruikers van de\nwebshop. | Weinig: Hun feedback"
+    },
+    {
+      "block_id": "b0328",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "en voorkeuren hebben"
+    },
+    {
+      "block_id": "b0329",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "invloed op het"
+    },
+    {
+      "block_id": "b0330",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "eindproduct, maar de"
+    },
+    {
+      "block_id": "b0331",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop moet ook"
+    },
+    {
+      "block_id": "b0332",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "rekening houden met"
+    },
+    {
+      "block_id": "b0333",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "andere"
+    },
+    {
+      "block_id": "b0334",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "belanghebbenden en"
+    },
+    {
+      "block_id": "b0335",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "zakelijke doelstellingen."
+    },
+    {
+      "block_id": "b0336",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Gebruikers met\nbeperkte financiële\nmiddelen | Primair - Hun\nbehoeften moeten\nworden geïntegreerd in\nhet ontwerp van de\nwebshop. | Extern - Ze zijn externe\ngebruikers met\nspecifieke behoeften. | Weinig: Hoewel hun"
+    },
+    {
+      "block_id": "b0337",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "behoeften relevant zijn"
+    },
+    {
+      "block_id": "b0338",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "voor de prijsstelling,"
+    },
+    {
+      "block_id": "b0339",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "kunnen andere"
+    },
+    {
+      "block_id": "b0340",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "belanghebbenden zoals"
+    },
+    {
+      "block_id": "b0341",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeerders en het"
+    },
+    {
+      "block_id": "b0342",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "managementteam"
+    },
+    {
+      "block_id": "b0343",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "prioriteit geven aan"
+    },
+    {
+      "block_id": "b0344",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "winstgevendheid en"
+    },
+    {
+      "block_id": "b0345",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "concurrentievoordeel,"
+    },
+    {
+      "block_id": "b0346",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "waardoor hun directe"
+    },
+    {
+      "block_id": "b0347",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "invloed beperkt kan"
+    },
+    {
+      "block_id": "b0348",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "zijn."
+    },
+    {
+      "block_id": "b0349",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Individuele"
+    },
+    {
+      "block_id": "b0350",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "websiteontwikkelaars"
+    },
+    {
+      "block_id": "b0351",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Hun bijdrage"
+    },
+    {
+      "block_id": "b0352",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "aan het ontwerp en de"
+    },
+    {
+      "block_id": "b0353",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "ontwikkeling van de"
+    },
+    {
+      "block_id": "b0354",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop is van cruciaal"
+    },
+    {
+      "block_id": "b0355",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "belang."
+    },
+    {
+      "block_id": "b0356",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Extern - Ze zijn niet"
+    },
+    {
+      "block_id": "b0357",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "intern verbonden met het"
+    },
+    {
+      "block_id": "b0358",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeringsbedrijf maar"
+    },
+    {
+      "block_id": "b0359",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "zijn externe partners."
+    },
+    {
+      "block_id": "b0360",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Gemiddeld - Ze"
+    },
+    {
+      "block_id": "b0361",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "hebben een significante"
+    },
+    {
+      "block_id": "b0362",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "invloed op het project"
+    },
+    {
+      "block_id": "b0363",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "door het ontwerpen en"
+    },
+    {
+      "block_id": "b0364",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "ontwikkelen van de"
+    },
+    {
+      "block_id": "b0365",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop, maar zijn"
+    },
+    {
+      "block_id": "b0366",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "afhankelijk van de"
+    },
+    {
+      "block_id": "b0367",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "specificaties en"
+    },
+    {
+      "block_id": "b0368",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "vereisten die zijn"
+    },
+    {
+      "block_id": "b0369",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "vastgesteld door het"
+    },
+    {
+      "block_id": "b0370",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "investeringsbedrijf."
+    },
+    {
+      "block_id": "b0371",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Hun"
+    },
+    {
+      "block_id": "b0372",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "behoeften en"
+    },
+    {
+      "block_id": "b0373",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "voorkeuren zijn vitaal"
+    },
+    {
+      "block_id": "b0374",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "voor het succes van de"
+    },
+    {
+      "block_id": "b0375",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop."
+    },
+    {
+      "block_id": "b0376",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Extern - Ze zijn externe"
+    },
+    {
+      "block_id": "b0377",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "eindgebruikers van de"
+    },
+    {
+      "block_id": "b0378",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop."
+    },
+    {
+      "block_id": "b0379",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Gebruikers met"
+    },
+    {
+      "block_id": "b0380",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "beperkte financiële"
+    },
+    {
+      "block_id": "b0381",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "middelen"
+    },
+    {
+      "block_id": "b0382",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Primair - Hun"
+    },
+    {
+      "block_id": "b0383",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "behoeften moeten"
+    },
+    {
+      "block_id": "b0384",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "worden geïntegreerd in"
+    },
+    {
+      "block_id": "b0385",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "het ontwerp van de"
+    },
+    {
+      "block_id": "b0386",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop."
+    },
+    {
+      "block_id": "b0387",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Extern - Ze zijn externe"
+    },
+    {
+      "block_id": "b0388",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "gebruikers met"
+    },
+    {
+      "block_id": "b0389",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "specifieke behoeften."
+    },
+    {
+      "block_id": "b0390",
+      "type": "paragraph",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Deze worden op deze manier in het kwadrant geplaatst. Requirements Analyse pag. 10"
+    },
+    {
+      "block_id": "b0391",
+      "type": "paragraph",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Onderzoek naar web gebruikers De website moet dit gaan doen: Zich richten op twee specifieke doelgroepen, namelijk meisjes rond universiteitsleeftijd die op zoek zijn naar unieke brillen en slechtziende mensen die behoefte hebben aan een toegankelijke winkelervaring. Ik richt me dus op deze doelgroepen, die gewend zijn aan online winkelen en het gebruiken van vergelijkbare websites in de mode- en accessoirebranche. Meisjes rond universiteitsleeftijd: Deze doelgroep gebruikt vaak dergelijke sites om snel trendy en modieuze items te vinden die passen bij hun persoonlijke stijl. Ze waarderen een website die intuïtief en visueel aantrekkelijk is, met een gebruiksvriendelijke interface. Snelle en eenvoudige navigatie is cruciaal, aangezien deze doelgroep geneigd is tot impulsieve aankopen. Deze gebruikers vinden het prettig als de website een gevarieerd maar beperkt assortiment aanbiedt, waardoor ze niet overweldigd raken. Daarnaast waarderen ze een website met een paars, zwart en wit kleurenpalet, dat aansluit bij hun meisjesachtige voorkeuren en een esthetisch aantrekkelijke winkelervaring biedt. Slechtziende mensen: Voor slechtziende mensen is het cruciaal dat de website toegankelijk is en hen de mogelijkheid biedt om de tekstgrootte naar eigen voorkeur aan te passen. Het kleurenschema van paar, zwart en wit met een hoog contrast draagt bij aan een betere zichtbaarheid voor deze doelgroep. Het ontwerp van de website zal extra aandacht besteden aan een duidelijke navigatie en goed georganiseerde informatie. Specifieke functionaliteiten, zoals de mogelijkheid om de lettergrootte aan te passen, zullen worden geïmplementeerd om een inclusieve ervaring te bieden aan slechtziende bezoekers. In het geval van slechtziende mensen houd ik extra rekening met de gebruiksvriendelijkheid van schermlezers en andere hulpmiddelen. Het kleurenschema en de lettergrootte zijn ontworpen om de leesbaarheid te verbeteren en een meer toegankelijke online winkelomgeving te bieden. De filterfunctie blijft gehandhaafd, waarmee gebruikers, waaronder slechtziende mensen, producten kunnen sorteren op prijs van laag naar hoog. Dit maakt het voor beide doelgroepen eenvoudiger om de gewenste producten te vinden en draagt bij aan een gebruiksvriendelijke ervaring. Requirements Analyse pag. 11"
+    },
+    {
+      "block_id": "b0392",
+      "type": "paragraph",
+      "page": 12,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Profiel van doelgroep: Naam: Emma Stevens Leeftijd: 19 jaar Studie: Communicatie aan de Hogeschool leiden Interesses: Emma is gepassioneerd door mode en zoekt altijd naar unieke accessoires om haar stijl te onderscheiden. Ze volgt de laatste modetrends op social media, vooral op Instagram en TikTok. Als student waardeert ze betaalbare, kwalitatieve producten die haar studentenbudget niet te zwaar belasten. Stijl: Emma's stijl is eclectisch en expressief. Ze houdt van opvallende kleuren en patronen. Haar bril is niet alleen een noodzaak, maar ook een belangrijk modeaccessoire waarmee ze haar persoonlijkheid kan uitdrukken. Online winkelgedrag: Emma winkelt graag online vanwege het gemak en de ruime keuze. Ze houdt van websites die haar een soepele en intuïtieve winkelervaring bieden. Ze gebruikt filters om producten op prijs te sorteren en zoekt naar betaalopties die passen bij haar studentenbudget. Financiële situatie: Als student heeft Emma een beperkt budget, maar ze geeft er de voorkeur aan om te investeren in kwaliteitsproducten die haar persoonlijke stijl weerspiegelen. Ze is geïnteresseerd in betaalopties zoals betalingsplannen om de kosten te spreiden. Mobiel gebruik: Emma gebruikt voornamelijk haar smartphone om online te winkelen. Ze waardeert een responsieve website die er goed uitziet, zelfs op haar kleine scherm. Overige kenmerken: Emma hecht veel waarde aan duurzaamheid en zou geïnteresseerd zijn in brillen gemaakt van milieuvriendelijke materialen. Ze houdt van websites met duidelijke informatie over producten, betalingsmogelijkheden en levering. Requirements Analyse pag. 12"
+    },
+    {
+      "block_id": "b0393",
+      "type": "heading",
+      "page": 13,
+      "level": 4,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "H4 Wensen, Eisen, Prioriteiten"
+    },
+    {
+      "block_id": "b0394",
+      "type": "paragraph",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Kleine introtekst over hoe ik H4 moet lezen ; hoog abstract ? laag abstract ? Alles zelf in 1 keer bedacht ? Werk in uitvoering ? input van wie gekregen/ verwerkt ? Hoe lang aan gewerkt ? Inspriratie gekregen van ?"
+    },
+    {
+      "block_id": "b0395",
+      "type": "heading",
+      "page": 13,
+      "level": 2,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "4.1 Constraints en (non-) Functionele eisen"
+    },
+    {
+      "block_id": "b0396",
+      "type": "paragraph",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Constraints Niet-functionele requirements Requirements Analyse pag. 13"
+    },
+    {
+      "block_id": "b0397",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Naam | Architecturele relevantie | Geadresseerd in:"
+    },
+    {
+      "block_id": "b0398",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "CONSTR01:\nBudget | De applicatie inclusief ontwikkeling mag\nniet meer dan 10.000 euro kosten."
+    },
+    {
+      "block_id": "b0399",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "CONSTR02:\nVerzend kosten | De verzendkosten zijn niet afhankelijk\nvan het formaat of de locatie, maar een\nstandaardbedrag"
+    },
+    {
+      "block_id": "b0400",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "CONSTR03:\nTijdsduur | De tijdduur van het project is zes weken"
+    },
+    {
+      "block_id": "b0401",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "CONSTR03:\nBetaal Methode | Klanten kunnen met promocodes of gift\ncards"
+    },
+    {
+      "block_id": "b0402",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Naam | Architecturele relevantie | Architecturele relevantie | Geadres- | Prio"
+    },
+    {
+      "block_id": "b0403",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "seerd in:"
+    },
+    {
+      "block_id": "b0404",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR01:\nBeschikbaarhei\nd en\nbetrouwbaarhei\nd: | De website moet te allen tijde beschikbaar\nzijn voor klanten en bestellingen moeten\nbetrouwbaar worden verwerkt en\nafgehandeld. | Pag6:par5:\nHR | Must Have"
+    },
+    {
+      "block_id": "b0405",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR02 | Producten moeten makkelijk te vinden zijn\nklant | Should have"
+    },
+    {
+      "block_id": "b0406",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR03:\nToegankelijkhei\nd:: | De website moet toegankelijk zijn voor\nmensen met beperkte financiële middelen. | Must Have"
+    },
+    {
+      "block_id": "b0407",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR04:\nAantrekkelijkhei\nd | De uitstraling en opmaak van de website\nmoeten aantrekkelijk zijn voor de beoogde\nklanten. | Must Have"
+    },
+    {
+      "block_id": "b0408",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR05:\nMobiele\nresponsiviteit | De webshop moet goed functioneren op\nverschillende apparaten, zoals\nsmartphones en tablets, om een optimale\ngebruikerservaring te bieden, ongeacht het\napparaat dat de klant gebruikt. | Should Have"
+    },
+    {
+      "block_id": "b0409",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "NFR06:\nGegevensbesc\nherming en\nnaleving van de\nAVG: | Strikte naleving van de Algemene\nVerordening Gegevensbescherming (AVG)\nis essentieel om de gegevens van klanten\nte beschermen en risico's te\nminimaliseren. | Should Have"
+    },
+    {
+      "block_id": "b0410",
+      "type": "paragraph",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Waarom MosCow: Must Have: 1. M: De website moet te allen tijde beschikbaar zijn voor klanten en bestellingen moeten betrouwbaar worden verwerkt en afgehandeld. • Onderbouwing: Dit is cruciaal voor het behoud van klanttevredenheid en vertrouwen in de webshop. Betrouwbaarheid en beschikbaarheid zijn fundamentele aspecten van een succesvolle e-commerce ervaring. 2. M: Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essentieel om de gegevens van klanten te beschermen en risico's te minimaliseren. • Onderbouwing: Dit is van vitaal belang om te voldoen aan de wettelijke vereisten voor gegevensbescherming en om het vertrouwen van klanten te behouden. Niet-naleving kan leiden tot boetes en reputatieschade. Should have: 3. S: De webshop moet goed functioneren op verschillende apparaten, zoals smartphones en tablets, om een optimale gebruikerservaring te bieden, ongeacht het apparaat dat de klant gebruikt. • Onderbouwing: Hoewel het belangrijk is om een goede gebruikerservaring te bieden op verschillende apparaten, kan dit als een 'should have' worden beschouwd omdat het niet zo essentieel is als beschikbaarheid en gegevensbescherming. 4. S: De uitstraling en opmaak van de website moeten aantrekkelijk zijn voor de beoogde klanten. • Onderbouwing: Hoewel het belangrijk is om een aantrekkelijk ontwerp te hebben, kan dit als een 'should have' worden beschouwd omdat het de gebruikerservaring verbetert maar niet zo kritisch is als beschikbaarheid en gegevensbescherming. 5. S: De producten moeten makkelijk te vinden zijn voor de klant • Onderbouwing: Hoewel het belangrijk is voor de klant om makkelijk producten te kunnen vinden, kan dit als een 'should have' worden beschouwd omdat het de gebruikerservaring verbetert maar niet zo kritisch is als beschikbaarheid en gegevensbescherming. Requirements Analyse pag. 14"
+    },
+    {
+      "block_id": "b0411",
+      "type": "paragraph",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "8. Functionele requirements Waarom MoScoW: 1. Must have: Klanten moeten in staat zijn om te registreren en een profiel aan te maken in de webshop • Onderbouwing: Dit is essentieel omdat het klanten in staat stelt om een gepersonaliseerde ervaring te hebben, zoals het opslaan van favoriete producten, het bijhouden van bestelgeschiedenis en het ontvangen van relevante aanbiedingen. Het verhoogt ook de klantbetrokkenheid en loyaliteit. 2. Must have: Klanten moeten in staat zijn om een profiel aan te maken en in te loggen om een gepersonaliseerde winkelervaring te hebben. • Onderbouwing: Dit is essentieel omdat het klanten in staat stelt om een gepersonaliseerde ervaring te hebben, zoals het opslaan van favoriete producten, het bijhouden van bestelgeschiedenis en het ontvangen van relevante aanbiedingen. Het verhoogt ook de klantbetrokkenheid en loyaliteit. 3. Must have: Klanten moeten producten kunnen toevoegen aan hun winkelmandje, het mandje kunnen bekijken, producten kunnen verwijderen en de bestelling kunnen afronden. • Onderbouwing: Dit is van vitaal belang voor het succes van de webshop, aangezien het de basisfunctionaliteit biedt voor het doen van aankopen. Het stelt klanten in staat om een soepele winkelervaring te hebben en bevordert de conversie van bezoekers naar kopers. 4. Must have: Een intuïtieve beheerinterface is essentieel voor het efficiënt beheren van producten, klanten en bestellingen. • Onderbouwing: Dit is cruciaal voor het interne beheer van de webshop, omdat het efficiënte en effectieve werking mogelijk maakt. Het minimaliseert fouten, verhoogt de productiviteit van het personeel en zorgt voor een gestroomlijnd proces van productbeheer, klantenservice en orderverwerking. 5. Should have: De webshop bestaat uit een categorie, waarbij elke categorie maximaal 10 producten kan bevatten. • Onderbouwing: Dit is belangrijk om de navigatie en gebruikservaring van klanten te verbeteren door een georganiseerde en overzichtelijke presentatie van Requirements Analyse pag. 15"
+    },
+    {
+      "block_id": "b0412",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Naam | Architecturele relevantie | Geadresseerd | Prio"
+    },
+    {
+      "block_id": "b0413",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "in:"
+    },
+    {
+      "block_id": "b0414",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "UC01: Registratie\nfunctionaliteit | Klanten moeten in staat zijn om te registreren en\neen profiel aan te maken bij de webshop | Pag7:par2:US\nR | MUST HAVE"
+    },
+    {
+      "block_id": "b0415",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "UC02:\ninlogfunctionalitei | Klanten moeten in staat zijn te loggen om een\ngepersonaliseerde winkelervaring te hebben | MUST HAVE"
+    },
+    {
+      "block_id": "b0416",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": ":Website categorie | De webshop bestaat uit een categorie, waarbij\nelke categorie maximaal 10 producten kan\nbevatten. | Pag3:par1:US\nR | SHOULD\nHAVE"
+    },
+    {
+      "block_id": "b0417",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "UC03:,Winkelmandfu\nnctionaliteit | Klanten moeten producten kunnen toevoegen\naan hun winkelmandje, het mandje kunnen\nbekijken, producten kunnen verwijderen en de\nbestelling kunnen afronden. | MUST HAVE"
+    },
+    {
+      "block_id": "b0418",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "UC04:\nBeheerinterface | Een intuïtieve beheerinterface is essentieel voor\nhet efficiënt beheren van producten, klanten en\nbestellingen. | MUST HAVE"
+    },
+    {
+      "block_id": "b0419",
+      "type": "paragraph",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "producten te bieden. Hoewel het niet zo essentieel is als de vorige must-have requirements, kan het bijdragen aan een betere gebruikerservaring en conversieratio. Requirements Analyse pag. 16"
+    },
+    {
+      "block_id": "b0420",
+      "type": "heading",
+      "page": 17,
+      "level": 2,
+      "heading_path": [
+        "H1 Introductie",
+        "4.2 Use Case Diagram"
+      ],
+      "text": "4.2 Use Case Diagram"
+    },
+    {
+      "block_id": "b0421",
+      "type": "paragraph",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.2 Use Case Diagram"
+      ],
+      "text": "Use Case Diagram"
+    },
+    {
+      "block_id": "b0422",
+      "type": "heading",
+      "page": 17,
+      "level": 2,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "4.3 Use Case beschrijvingen"
+    },
+    {
+      "block_id": "b0423",
+      "type": "paragraph",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Use Case beschrijvingen Een overzicht van alle uitgewerkte use-cases (functionele requirements) die uit de opdracht komen. Let hier weer goed op je nummering. USC1: Registratie functionaliteit Requirements Analyse pag. 17"
+    },
+    {
+      "block_id": "b0424",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Actor | Nieuwe Klant"
+    },
+    {
+      "block_id": "b0425",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Preconditie | De klant heeft webshop open"
+    },
+    {
+      "block_id": "b0426",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Beschrijving | Deze use case stelt klanten in staat om een profiel aan te maken en in te loggen\nop de webshop.."
+    },
+    {
+      "block_id": "b0427",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Scenario\nbeschrijving | 1. Klant navigeert naar de registratiepagina.\n2. Klant vult de vereiste informatie in de gegeven tekstvakken\n3. Klant klikt op \"Registreren\".\n4. Systeem valideert de ingevoerde gegevens en maakt een nieuw profiel\naan."
+    },
+    {
+      "block_id": "b0428",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Postconditie | Klant heeft succesvol een profiel aangemaakt en is geregistreerd op de\nwebshop. ."
+    },
+    {
+      "block_id": "b0429",
+      "type": "paragraph",
+      "page": 18,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "USC2: Inlog – functionaliteit Requirements Analyse pag. 18"
+    },
+    {
+      "block_id": "b0430",
+      "type": "table_row",
+      "page": 18,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Exceptie flow 1:\nOngeldige\ngebruikersnaam of\nwachtwoord | Als de klant een ongeldige gebruikersnaam of wachtwoord invoert tijdens het\naanmaken van het profiel, wordt er een foutmelding weergegeven en wordt de\nklant gevraagd om de informatie opnieuw in te voeren."
+    },
+    {
+      "block_id": "b0431",
+      "type": "table_row",
+      "page": 18,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Exceptie flow 2:\nProfielinformatie\nontbreekt | Als de klant verplichte informatie mist bij het aanmaken van het profiel, wordt er\neen foutmelding weergegeven en wordt de klant gevraagd om alle vereiste\nvelden in te vullen."
+    },
+    {
+      "block_id": "b0432",
+      "type": "table_row",
+      "page": 18,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Actor | Geregistreerde Klant"
+    },
+    {
+      "block_id": "b0433",
+      "type": "table_row",
+      "page": 18,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Preconditie | Klant heeft toegang tot de website"
+    },
+    {
+      "block_id": "b0434",
+      "type": "table_row",
+      "page": 18,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Beschrijving | Deze use case stelt geregistreerde klanten in staat om in te loggen op de\nwebsite om toegang te krijgen tot gepersonaliseerde functies en een op maat\ngemaakte winkelervaring te hebben."
+    },
+    {
+      "block_id": "b0435",
+      "type": "table_row",
+      "page": 18,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Scenario\nbeschrijving | 1. Klant navigeert naar de inlog pagina.\n2. De klant voert zijn/haar gebruikersnaam of e-mailadres en wachtwoord\nin.\n3. Het systeem valideert de ingevoerde inloggegevens.Klant bekijkt en\nbewerkt het winkelmandje indien nodig\n4. Als de inloggegevens correct zijn, verifieert het systeem de identiteit van\nde klant en logt de klant in op het systeem."
+    },
+    {
+      "block_id": "b0436",
+      "type": "table_row",
+      "page": 18,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Postconditie | De klant krijgt toegang tot zijn/haar gepersonaliseerde accountpagina met\nspecifieke functies en voorkeuren."
+    },
+    {
+      "block_id": "b0437",
+      "type": "table_row",
+      "page": 18,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Exceptie flow 1 | Als de ingevoerde inloggegevens onjuist zijn, wordt de klant gevraagd om de\ncorrecte gegevens in te voeren of om zijn/haar wachtwoord opnieuw in te\nstellen."
+    },
+    {
+      "block_id": "b0438",
+      "type": "table_row",
+      "page": 18,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Exceptie flow 2 | Als het account van de klant is geblokkeerd of opgeschort, wordt de klant\ngeïnformeerd over de status van zijn/haar account en worden instructies\ngegeven voor verdere actie."
+    },
+    {
+      "block_id": "b0439",
+      "type": "paragraph",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "USC3: Winkelmand functionaliteit USC4: Beheerinterface Requirements Analyse pag. 19"
+    },
+    {
+      "block_id": "b0440",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Actor | Geregistreerde Klant"
+    },
+    {
+      "block_id": "b0441",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Preconditie | Klant is ingelogd."
+    },
+    {
+      "block_id": "b0442",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Beschrijving | Deze use case stelt klanten in staat om door de producten te bladeren,\nproducten aan hun winkelmandje toe te voegen of verwijderen en bestellingen\nte plaatsen."
+    },
+    {
+      "block_id": "b0443",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Scenario\nbeschrijving | 5. Klant navigeert naar de producten pagina.\n6. Klant bekijkt beschikbare producten en selecteert gewenste items.\n7. Klant voegt geselecteerde producten toe aan het winkelmandje.\n8. Als klant product niet wilt klikken zij op de verwijder knop en product\nwordt uit de winkel mand verwijdert\n9. Klant bekijkt en bewerkt het winkelmandje indien nodig\n10. Klant voltooit de bestelling door af te rekenen.\n."
+    },
+    {
+      "block_id": "b0444",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Postconditie | Bestelling is geplaatst en de klant ontvangt een bevestiging van de aankoop."
+    },
+    {
+      "block_id": "b0445",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Exceptie flow 1:\nOngeldig product | Als de klant een ongeldig product probeert toe te voegen aan het winkelmandje,\nwordt er een foutmelding weergegeven en wordt de klant geïnformeerd dat het\nproduct niet beschikbaar is."
+    },
+    {
+      "block_id": "b0446",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Exceptie flow 2:\nOnbeschikbaar\nproduct | Als het product tijdelijk niet beschikbaar is, wordt de klant op de hoogte gebracht\nen kan deze ervoor kiezen om het product op een later tijdstip toe te voegen aan\nhet winkelmandje."
+    },
+    {
+      "block_id": "b0447",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Actor | Beheerder"
+    },
+    {
+      "block_id": "b0448",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Preconditie | Beheerder is ingelogd als beheerder."
+    },
+    {
+      "block_id": "b0449",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Beschrijving | Deze use case stelt beheerders in staat om producten, klanten en bestellingen\nte beheren via een intuïtieve beheerinterface."
+    },
+    {
+      "block_id": "b0450",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Scenario\nbeschrijving | 1. Beheerder navigeert naar het beheerdersdashboard.\n2. Beheerder voert zoekopdrachten uit om specifieke producten, klanten of\nbestellingen te vinden. Klant klikt op \"Registreren\".\n3. Beheerder voert bewerkingen uit, zoals het toevoegen, bewerken of\nverwijderen van producten, klanten of bestellingen.\n4. Beheerder slaat wijzigingen op en controleert de status van het\nbeheerproces.\n."
+    },
+    {
+      "block_id": "b0451",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Postconditie | Producten, klanten en bestellingen zijn succesvol beheerd en eventuele\nwijzigingen zijn doorgevoerd."
+    },
+    {
+      "block_id": "b0452",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Exceptie flow 1 | Als de zoekopdracht van de beheerder geen resultaten oplevert, wordt een\nmelding weergegeven dat er geen overeenkomende resultaten zijn gevonden en\nwordt de beheerder aangemoedigd om de zoekopdracht te wijzigen."
+    },
+    {
+      "block_id": "b0453",
+      "type": "table_row",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Exceptie flow 2 | Als er tijdens het bewerken of verwijderen van een product, klant of bestelling\neen fout optreedt, zoals een databasefout of een netwerkprobleem, wordt een\nfoutmelding weergegeven en wordt de beheerder gevraagd om het later\nopnieuw te proberen."
+    },
+    {
+      "block_id": "b0454",
+      "type": "paragraph",
+      "page": 20,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "H5 Ethische aandachtspunten N.a.v. het College en de onderwerp die zijn behandeld en de nieuwsberichten omtrent fraude en oplichten op internet / marktplaats heb ik extra aandacht voor ; Dat heeft gevolgen voor de website die ik gemaakt heb, namelijk ; X Y Z Als het doel is om de wereld te verbeteren en niet puur op winst uit te zijn want ik ben een scholier uit generatie XYZMCV waar ik meer wil dan alleen geld verdienen, zal mijn website dus rekening houden met deze onderwerpen - Gebundeld verzenden - Minder plastic - Duurdere produkten die 50 jaar meegaan en niet na een jaar vervangen moeten worden. - Reden x - Reden y - Reden z Requirements Analyse pag. 20"
+    },
+    {
+      "block_id": "b0455",
+      "type": "paragraph",
+      "page": 21,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "H6 Literatuurlijst Requirements Analyse pag. 21"
+    },
+    {
+      "block_id": "b0456",
+      "type": "paragraph",
+      "page": 22,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Bijlage I – Interview verslag Marcel Requirements Analyse pag. 22"
+    },
+    {
+      "block_id": "b0457",
+      "type": "paragraph",
+      "page": 23,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "Bijlage II – Interview verslag - Daphne Requirements Analyse pag. 23"
+    }
+  ],
+  "warnings": [],
+  "status": "success"
+}

@@ -1,0 +1,2206 @@
+{
+  "doc_id": "requirments_student4",
+  "source_path": "INFIRST_requirements/Voldoende/requirments_student4.pdf",
+  "source_type": "pdf",
+  "quality_label": "Voldoende",
+  "page_count": 21,
+  "blocks": [
+    {
+      "block_id": "b0001",
+      "type": "paragraph",
+      "page": 1,
+      "level": null,
+      "heading_path": [],
+      "text": "Mohamad Hamad(s1149548) First Full Stack 25-03-2024"
+    },
+    {
+      "block_id": "b0002",
+      "type": "paragraph",
+      "page": 2,
+      "level": null,
+      "heading_path": [],
+      "text": "Inhoud Inhoud ......................................................................................................................................... 2"
+    },
+    {
+      "block_id": "b0003",
+      "type": "heading",
+      "page": 2,
+      "level": 1,
+      "heading_path": [
+        "H1 Introductie .............................................................................................................................. 3"
+      ],
+      "text": "H1 Introductie .............................................................................................................................. 3"
+    },
+    {
+      "block_id": "b0004",
+      "type": "heading",
+      "page": 2,
+      "level": 2,
+      "heading_path": [
+        "H1 Introductie .............................................................................................................................. 3",
+        "H2 Stakeholders analyse .............................................................................................................. 4"
+      ],
+      "text": "H2 Stakeholders analyse .............................................................................................................. 4"
+    },
+    {
+      "block_id": "b0005",
+      "type": "heading",
+      "page": 2,
+      "level": 3,
+      "heading_path": [
+        "H1 Introductie .............................................................................................................................. 3",
+        "H2 Stakeholders analyse .............................................................................................................. 4",
+        "H3 Onderzoek naar web gebruikers ............................................................................................... 5"
+      ],
+      "text": "H3 Onderzoek naar web gebruikers ............................................................................................... 5"
+    },
+    {
+      "block_id": "b0006",
+      "type": "heading",
+      "page": 2,
+      "level": 4,
+      "heading_path": [
+        "H1 Introductie .............................................................................................................................. 3",
+        "H2 Stakeholders analyse .............................................................................................................. 4",
+        "H3 Onderzoek naar web gebruikers ............................................................................................... 5",
+        "H4 Wensen, Eisen, Prioriteiten ..................................................................................................... 6"
+      ],
+      "text": "H4 Wensen, Eisen, Prioriteiten ..................................................................................................... 6"
+    },
+    {
+      "block_id": "b0007",
+      "type": "paragraph",
+      "page": 2,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie .............................................................................................................................. 3",
+        "H2 Stakeholders analyse .............................................................................................................. 4",
+        "H3 Onderzoek naar web gebruikers ............................................................................................... 5",
+        "H4 Wensen, Eisen, Prioriteiten ..................................................................................................... 6"
+      ],
+      "text": "Use Case Diagram ..................................................................................................................... 12 Use Case beschrijvingen ............................................................................................................ 13 H5 Ethische aandachtspunten ................................................................................................... 18 H6 Security ................................................................................................................................ 19 H7 Literatuurlijst ........................................................................................................................ 20 Bijlage I – Interview verslag ......................................................................................................... 21 Bijlage II – Poster ........................................................................................................................ 22 ................................................................................................................................................. 22"
+    },
+    {
+      "block_id": "b0008",
+      "type": "heading",
+      "page": 3,
+      "level": 1,
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "H1 Introductie"
+    },
+    {
+      "block_id": "b0009",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "Ik ga een webshop maken voor fitnesskleding en supplementen, en dan vooral hard copy"
+    },
+    {
+      "block_id": "b0010",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "sportkleding met eventuele uitbreidingen naar fitnessaccessoires. Hierdoor kunnen sporters hun"
+    },
+    {
+      "block_id": "b0011",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "fitnessgarderobe fysiek uitbreiden en hun voedingsbehoeften aanvullen. Ik wil vooral focussen"
+    },
+    {
+      "block_id": "b0012",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "op een brede collectie aan recente fitnesskleding en hoogwaardige eiwitsupplementen die nu"
+    },
+    {
+      "block_id": "b0013",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "vooral populair zijn. Uiteindelijk zou ik nog kunnen uitbreiden naar fitnessaccessoires zoals"
+    },
+    {
+      "block_id": "b0014",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "sporttassen, waterflessen, en andere benodigdheden voor een actieve levensstijl."
+    },
+    {
+      "block_id": "b0015",
+      "type": "heading",
+      "page": 4,
+      "level": 2,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "H2 Stakeholders analyse"
+    },
+    {
+      "block_id": "b0016",
+      "type": "paragraph",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "De stakeholders waar ik rekening mee houd zijn de volgende stakeholders ; 1. Opdrachtgever (Bedrijf Plenty) 2. Ontwikkelaar 3. De eindgebruikers of doelgroep zijn de mensen die de webshop zullen gebruiken. Bij het ontwerpen van de webshop is het essentieel om rekening te houden met hun behoeften, voorkeuren en gebruikerservaring. Hun tevredenheid staat centraal in het ontwerpproces. 4. Leverancier"
+    },
+    {
+      "block_id": "b0017",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "De opdrachtgever, Bedrijf Plenty, heeft het initiatief genomen voor de ontwikkeling van de"
+    },
+    {
+      "block_id": "b0018",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop. Hun voornaamste doel is om winst te genereren. Bedrijf Plenty streeft naar een"
+    },
+    {
+      "block_id": "b0019",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "succesvolle exploitatie van de webshop, met een focus op rendabiliteit als belangrijkste"
+    },
+    {
+      "block_id": "b0020",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "drijfveer."
+    },
+    {
+      "block_id": "b0021",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "De ontwikkelaar is verantwoordelijk voor het bouwen en ontwikkelen van de webshop. Ze"
+    },
+    {
+      "block_id": "b0022",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "moeten de wensen van de opdrachtgever begrijpen, de webshop ontwerpen en"
+    },
+    {
+      "block_id": "b0023",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "programmeren, en ervoor zorgen dat deze goed werkt en gemakkelijk te gebruiken is voor"
+    },
+    {
+      "block_id": "b0024",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "de klanten."
+    },
+    {
+      "block_id": "b0025",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "De leverancier voorziet mogelijk in de benodigde producten of diensten voor de"
+    },
+    {
+      "block_id": "b0026",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop van Bedrijf Plenty. Dit zijn de items die te koop worden aangeboden via de"
+    },
+    {
+      "block_id": "b0027",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop."
+    },
+    {
+      "block_id": "b0028",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "5. Marketingbureau"
+    },
+    {
+      "block_id": "b0029",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Het marketingbureau is belast met het promoten en adverteren van de webshop van\nBedrijf Plenty. Ze spelen een cruciale rol bij het bereiken van de doelgroep, het\nvergroten\nvan de bekendheid van het merk en het aantrekken van verkeer naar de webshop."
+    },
+    {
+      "block_id": "b0030",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Het marketingbureau is belast met het promoten en adverteren van de webshop van"
+    },
+    {
+      "block_id": "b0031",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Bedrijf Plenty. Ze spelen een cruciale rol bij het bereiken van de doelgroep, het"
+    },
+    {
+      "block_id": "b0032",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "vergroten"
+    },
+    {
+      "block_id": "b0033",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "van de bekendheid van het merk en het aantrekken van verkeer naar de webshop."
+    },
+    {
+      "block_id": "b0034",
+      "type": "paragraph",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Stakeholder quadrant"
+    },
+    {
+      "block_id": "b0035",
+      "type": "heading",
+      "page": 5,
+      "level": 3,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "H3 Onderzoek naar web gebruikers"
+    },
+    {
+      "block_id": "b0036",
+      "type": "paragraph",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "De website is ontworpen om een uitgebreid assortiment aan te bieden, variërend van hoogwaardige gymkleding tot voedingssupplementen zoals eiwitpoeder. De doelgroep bestaat uit fitnessliefhebbers van alle leeftijden en niveaus, van beginners die net beginnen met hun fitnessreis tot ervaren atleten die op zoek zijn naar specifieke kledingstukken en supplementen om hun training te ondersteunen."
+    },
+    {
+      "block_id": "b0037",
+      "type": "paragraph",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "Het aanbieden van een breed scala aan producten stelt de webshop in staat om tegemoet te komen aan de diverse behoeften van klanten en hen te voorzien van alles wat ze nodig hebben om hun fitnessdoelen te bereiken. Of klanten nu op zoek zijn naar comfortabele sportkleding voor hun dagelijkse trainingen, duurzame sportschoenen voor intensieve workouts, of hoogwaardige supplementen om hun prestaties te verbeteren, de webshop heeft het allemaal. Mensen over de hele wereld vertrouwen op websites om hun fitnessbehoeften te vervullen, en daarom is het cruciaal dat mijn webshop gemakkelijk toegankelijk is en een aantrekkelijke gebruikerservaring biedt. Dit betekent dat de website een intuïtieve navigatie moet hebben, duidelijke productbeschrijvingen en afbeeldingen van hoge kwaliteit, en een soepel afrekenproces. Om ervoor te zorgen dat de website toegankelijk is voor mensen met kleurenblindheid, kies ik zorgvuldig kleuren die gemakkelijk te onderscheiden zijn voor deze doelgroep en vermijd ik het gebruik van kleuren als enige manier om informatie over te brengen. Daarnaast voeg ik een taalkeuzeknop toe waarmee bezoekers de taal van de webshop kunnen aanpassen aan hun voorkeur. Dit vergroot de kans op internationaal succes en maakt de inhoud begrijpelijker voor een breder publiek over de hele wereld. De webshop streeft naar een naadloze en bevredigende winkelervaring voor elke klant, ongeacht hun locatie, leeftijd of fitnessniveau. Door te focussen op kwaliteit, toegankelijkheid en gebruiksgemak, ben ik ervan overtuigd dat de webshop een gewaardeerde bestemming zal worden voor fitnessliefhebbers wereldwijd. (https://www.frankwatching.com/archive/2021/03/11/webdesign-voor-kleurenblinden/) (https://succesmetjewebshop.nl/je-webshop-laten-vertalen-waarom-zou-je-dat-doen/)"
+    },
+    {
+      "block_id": "b0038",
+      "type": "heading",
+      "page": 6,
+      "level": 4,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "H4 Wensen, Eisen, Prioriteiten"
+    },
+    {
+      "block_id": "b0039",
+      "type": "paragraph",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Constraints"
+    },
+    {
+      "block_id": "b0040",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Constraint Naam | Architecturale | Geadresseerd in | Stakeholder"
+    },
+    {
+      "block_id": "b0041",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Relevantie"
+    },
+    {
+      "block_id": "b0042",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Budgetbeperking | De totale kosten\nvoor de ontwikkeling\nen implementatie\nvan de applicatie\nmogen niet meer\ndan 10.000 euro\nbedragen, om\nbinnen het\nbudgettaire kader\nvan het project te\nblijven. | Paragraaf 2\nWe stellen voor dat\nde ontwikkeling van\nde website wordt\nvoltooid binnen een\nbudget van 10.000\neuro een redelijke\ntermijn van zes\nweken | Investment\nCompany Plenty /\nJolijn Berlage"
+    },
+    {
+      "block_id": "b0043",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Tijdbeperking | Het project moet\nbinnen een\ntijdsbestek van zes\nweken worden\nvoltooid, van\nconcept tot\nlancering, om aan\nde projectdeadlines\nte voldoen. | Paragraaf 2 | Investment\nCompany Plenty /\nJolijn Berlage"
+    },
+    {
+      "block_id": "b0044",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Geen giftcards of\npromotiecodes | Het systeem mag\ngeen gebruik maken\nvan giftcards of\npromotiecodes, om\nde eenvoud en\nuniformiteit in\nprijsstelling te\nwaarborgen. | Paragraaf 3\nKlanten mogen deze\nartikelen alleen niet\nbetalen met giftcards\nen zij kunnen niet\ngebruik maken van\npromocodes in de\nwebshop | Eindgebruikers /\nKlanten"
+    },
+    {
+      "block_id": "b0045",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Standaard\nverzendkosten | De verzendkosten\nmoeten\ngestandaardiseerd\nzijn, ongeacht de\ngrootte van de\nbestelling of de\nbestemming, om het\nbestelproces te\nvereenvoudigen. | Hierbij zijn de\nverzendkosten niet\nafhankelijk van het\nformaat of de locatie,\nmaar een\nstandaardbedrag | Eindgebruikers /\nKlanten"
+    },
+    {
+      "block_id": "b0046",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Techniek | De webshop moet\nwel in Java,\nSpringboot en\nAngular\ngeprogrammeerd | Opdrachtgever | Plenty/Jolijn Berlage"
+    },
+    {
+      "block_id": "b0047",
+      "type": "table_row",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Eenvoudig beheer | Het beheer van\nproducten, klanten\nen bestellingen moet\neenvoudig en\nintuïtief zijn, om de\noperationele\nefficiëntie te\nmaximaliseren. | Paragraaf 1 | Ontwikkelaars en\nDesigners"
+    },
+    {
+      "block_id": "b0048",
+      "type": "paragraph",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Functionele requirements"
+    },
+    {
+      "block_id": "b0049",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Beveiliging van niet-\nfinanciële data | Hoewel er geen\nfinanciële transacties\nvia de website zullen\nplaatsvinden, is het\ncruciaal om de\nveiligheid van alle\nverzamelde gegevens\nte waarborgen. | Paragraaf 1 | Ontwikkelaars en\nDesigners"
+    },
+    {
+      "block_id": "b0050",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Naam Requirement | Architecturele | Geadresseerd in | Stakeholder | Prio"
+    },
+    {
+      "block_id": "b0051",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "relevantie"
+    },
+    {
+      "block_id": "b0052",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Producten kopen | Klanten moeten\nin staat zijn\ndiverse\nproducten te\nkopen, wat een\nkernfunctionalitei\nt van de\nwebshop is. | Algemene beschrijving\nvan de\nwebshopfunctionaliteit | Eindgebruike\nr | Must"
+    },
+    {
+      "block_id": "b0053",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Verschillende\nproductcategorieë | Het aanbod\nmoet divers zijn\nom aan de\nbehoeften van\neen breed\nklantenspectrum\nte voldoen. | Vermelding van diverse\nproductcategorieën | Must"
+    },
+    {
+      "block_id": "b0054",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Klantaccounts/registra\ntie | Klanten moeten\naccounts kunnen\naanmaken en\ninloggen voor\neen\ngepersonaliseerd\ne winkelervaring. | Beschrijving van\ngepersonaliseerde\nwinkelervaring | Bezoeker | Must"
+    },
+    {
+      "block_id": "b0055",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Profiel bewerken | Gebruikers\nmoeten hun\nprofielgegevens\nkunnen wijzigen. | Opdrachtgever | Eindgebruiker | Shoul\nd have"
+    },
+    {
+      "block_id": "b0056",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Gemakkelijk producten\nvinden | De zoek- en\nnavigatiefuncties | Focus op\ngebruiksvriendelijkheid | Eindgebruike\nr | Must"
+    },
+    {
+      "block_id": "b0057",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Verschillende"
+    },
+    {
+      "block_id": "b0058",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "productcategorieë"
+    },
+    {
+      "block_id": "b0059",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Klantaccounts/registra"
+    },
+    {
+      "block_id": "b0060",
+      "type": "table_row",
+      "page": 8,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "tie"
+    },
+    {
+      "block_id": "b0061",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "moeten\ngeoptimaliseerd\nzijn voor\ngebruiksgemak."
+    },
+    {
+      "block_id": "b0062",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Winkelmandje | Een functioneel\nwinkelmandje is\nessentieel voor\neen soepele\naankoopervaring. | Beschrijving van\nwinkelmandfunctionalit\neit.\nmoeten producten\ngemakkelijk kunnen\nvinden, op de website\nbekijken en in hun\nwinkelmand plaatsen | Eindgebruiker | Must"
+    },
+    {
+      "block_id": "b0063",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Product\naanpassen | De\nwebsitebeheerde\nr kan producten\naanpassen naar\nbehoefte. | Het systeem moet een\nintuïtieve\nbeheerinterface hebben\nwaarmee producten,\nklanten en bestellingen\neenvoudig worden\nbeheerd. Het doel is om\nefficiënt beheer van de\nwebsite mogelijk te\nmaken.” | Ontwikkelaar | Shoul\nd have"
+    },
+    {
+      "block_id": "b0064",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Product verwijderen | De beheerder\nheeft de\nmogelijkheid om\nspecifieke\nproducten te\nverwijderen van\nde website. | Het systeem moet een\nintuïtieve\nbeheerinterface hebben\nwaarmee producten,\nklanten en bestellingen\neenvoudig worden\nbeheerd. Het doel is om\nefficiënt beheer van de\nwebsite mogelijk te\nmaken.” | Ontwikkelaar | Shoul\nd have"
+    },
+    {
+      "block_id": "b0065",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Recensies | Klanten moeten\nin staat zijn\nrecensies te\nplaatsen, wat\nbijdraagt aan de\ngeloofwaardighe\nid en interactie. | Opdrachtgev\ner | Shoul\nd"
+    },
+    {
+      "block_id": "b0066",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Wenslijst | Klanten moeten\nproducten\nkunnen\ntoevoegen aan\neen wenslijst | Opdrachtgever | Eindgebruiker | Could"
+    },
+    {
+      "block_id": "b0067",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "De"
+    },
+    {
+      "block_id": "b0068",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "websitebeheerde"
+    },
+    {
+      "block_id": "b0069",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "r kan producten"
+    },
+    {
+      "block_id": "b0070",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "aanpassen naar"
+    },
+    {
+      "block_id": "b0071",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "behoefte."
+    },
+    {
+      "block_id": "b0072",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Opdrachtgev"
+    },
+    {
+      "block_id": "b0073",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "er"
+    },
+    {
+      "block_id": "b0074",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Shoul"
+    },
+    {
+      "block_id": "b0075",
+      "type": "table_row",
+      "page": 9,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "d"
+    },
+    {
+      "block_id": "b0076",
+      "type": "paragraph",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Niet-functionele requirements"
+    },
+    {
+      "block_id": "b0077",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "voor latere\naankoop."
+    },
+    {
+      "block_id": "b0078",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Order Tracking | Klanten moeten\nde status van\nhun bestellingen\nkunnen volgen\nvoor een betere\nklantenservice. | Opdrachtgever | Eindgebruiker | Shoul\nd"
+    },
+    {
+      "block_id": "b0079",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Shoul"
+    },
+    {
+      "block_id": "b0080",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "d"
+    },
+    {
+      "block_id": "b0081",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Naam Requirement | Architecturele\nrelevantie | Geadresseerd in | Stakeholder | Prio"
+    },
+    {
+      "block_id": "b0082",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Gebruiksvriendelijkhei\nd | De website moet\nintuïtief en\neenvoudig te\nnavigeren zijn,\nzodat gebruikers\nmoeiteloos\nkunnen vinden\nwat ze nodig\nhebben. | Paragraaf 1, \"De\nwebsite moet\ngebruiksvriendelijk\nzijn.\" | ontwikkelaars,\neindgebruikers | Must"
+    },
+    {
+      "block_id": "b0083",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Toegankelijkheid | De website moet\ntoegankelijk zijn\nvoor iedereen,\ninclusief mensen\nmet beperkingen\nzoals visuele\nbeperkingen of\nbeperkte\nmobiliteit. | Paragraaf 1, \"De\nwebsite moet\ntoegankelijk zijn voor\neen breed scala aan\nklanten.\" | ontwikkelaars,\neindgebruikers | Must"
+    },
+    {
+      "block_id": "b0084",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Betrouwbaarheid | De website moet\nconsistent\nbeschikbaar zijn\nmet minimale\ndowntime, waarbij\nklantbestellingen\nbetrouwbaar\nworden verwerkt. | Paragraaf 1,\n\"Daarnaast moet de\nwebsite betrouwbaar\nzijn.\" | ontwikkelaars,\neindgebruikers\n, Jolijn Berlage | Shoul\nd"
+    },
+    {
+      "block_id": "b0085",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Veiligheid | De website moet\nvoldoen aan\nprivacywetgeving\nen klantgegevens\nbeschermen\ntegen | Paragraaf 1, \"Ten\nslotte is veiligheid\neen belangrijk\nelement van website-\nontwikkeling.\" | Jolijn Berlage | Must"
+    },
+    {
+      "block_id": "b0086",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "ontwikkelaars"
+    },
+    {
+      "block_id": "b0087",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "eindgebruikers"
+    },
+    {
+      "block_id": "b0088",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "ontwikkelaars"
+    },
+    {
+      "block_id": "b0089",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "eindgebruikers"
+    },
+    {
+      "block_id": "b0090",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "ontwikkelaars"
+    },
+    {
+      "block_id": "b0091",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "eindgebruikers"
+    },
+    {
+      "block_id": "b0092",
+      "type": "table_row",
+      "page": 10,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Jolijn Berlage"
+    },
+    {
+      "block_id": "b0093",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "ongeautoriseerde\ntoegang of lekken."
+    },
+    {
+      "block_id": "b0094",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Aantrekkelijkheid | De website moet\nvisueel\naantrekkelijk zijn\nen aansluiten bij\nde merkidentiteit\nen het doel van de\nproducten, wat\nbijdraagt aan een\npositieve\ngebruikerservarin\ng. | Paragraaf 1, \"Ook\nmoet de website\naantrekkelijk zijn voor\nde klanten.\" | ontwikkelaars,\neindgebruikers | Could"
+    },
+    {
+      "block_id": "b0095",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Responsiviteit | De website moet\ngoed werken en\ner goed uitzien op\neen\nverscheidenheid\naan apparaten,\nwaaronder\ndesktops, tablets\nen smartphones,\nom een\nconsistente\ngebruikerservarin\ng te bieden. | Paragraaf 1, als\nonderdeel van\ngebruiksvriendelijkhei\nd en toegankelijkheid | ontwikkelaars,\neindgebruikers | Must"
+    },
+    {
+      "block_id": "b0096",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Taal | De website moet\nwereldwijd\ntoegankelijk zijn\nvoor bezoekers van\nover de hele\nwereld. | Opdrachtgever | Eindgebruiker | Could"
+    },
+    {
+      "block_id": "b0097",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "ontwikkelaars"
+    },
+    {
+      "block_id": "b0098",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "eindgebruikers"
+    },
+    {
+      "block_id": "b0099",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "ontwikkelaars"
+    },
+    {
+      "block_id": "b0100",
+      "type": "table_row",
+      "page": 11,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "eindgebruikers"
+    },
+    {
+      "block_id": "b0101",
+      "type": "paragraph",
+      "page": 12,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Use Case Diagram Use Case Diagram (Alleen de functionele requirements)"
+    },
+    {
+      "block_id": "b0102",
+      "type": "paragraph",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Use Case beschrijvingen Use Case beschrijvingen Een overzicht van alle uitgewerkte use-cases (functionele requirements) die uit de opdracht komen. Let hier weer goed op je nummering."
+    },
+    {
+      "block_id": "b0103",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "USC1: | Producten kopen"
+    },
+    {
+      "block_id": "b0104",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Actor | Klant"
+    },
+    {
+      "block_id": "b0105",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Preconditie | De klant moet ingelogd zijn en minstens één product in zijn\nwinkelmandje hebben"
+    },
+    {
+      "block_id": "b0106",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Beschrijving | Klanten moeten in staat zijn producten te kopen wanneer ze deze in hun"
+    },
+    {
+      "block_id": "b0107",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "winkelmandje hebben."
+    },
+    {
+      "block_id": "b0108",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De klant navigeert naar het gewenste product."
+    },
+    {
+      "block_id": "b0109",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "2. Het systeem toont de productpagina met alle relevante informatie."
+    },
+    {
+      "block_id": "b0110",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "3. De klant klikt op \"Koop Product\"."
+    },
+    {
+      "block_id": "b0111",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "4. Het systeem plaatst het product in het winkelmandje en leidt de klant\nnaar het winkelmandje."
+    },
+    {
+      "block_id": "b0112",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "5. De klant klikt op \"Bestellen\""
+    },
+    {
+      "block_id": "b0113",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "6. Het systeem presenteert beschikbare betaalmethoden.\n7. De klant voltooit de betaling voor het product.\n8. Binnen 10 minuten ontvangt de klant een sleutel voor het gekochte\nproduct via e-mail."
+    },
+    {
+      "block_id": "b0114",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Postconditie | De klant heeft succesvol een product aangeschaft en ontvangt binnen"
+    },
+    {
+      "block_id": "b0115",
+      "type": "table_row",
+      "page": 13,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "10 minuten de sleutel voor het product via e-mail."
+    },
+    {
+      "block_id": "b0116",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "USC3: | Inloggen"
+    },
+    {
+      "block_id": "b0117",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Actor | klant"
+    },
+    {
+      "block_id": "b0118",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Preconditie | Geen"
+    },
+    {
+      "block_id": "b0119",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Beschrijving | Klanten moeten moeiteloos kunnen inloggen op het platform."
+    },
+    {
+      "block_id": "b0120",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De klant navigeert naar de inlogoptie en selecteert \"Inloggen\".\n2. Het systeem toont de inlogpagina met de vereiste velden.\n3. De klant vult alle benodigde informatie in, zoals gebruikersnaam en\nwachtwoord, en klikt op \"Inloggen\".\n4. Het systeem controleert de ingevoerde gegevens en, indien correct,\nstuurt het de klant door naar de homepagina.\n5. De klant heeft nu toegang tot zijn of haar account en kan de website\ngerust bezoeken om producten te bekijken, bestellen en andere\nfunctionaliteiten te gebruiken."
+    },
+    {
+      "block_id": "b0121",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Postconditie | De klant heeft succesvol en moeiteloos ingelogd op het platform en heeft"
+    },
+    {
+      "block_id": "b0122",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "nu volledige toegang tot alle functies en mogelijkheden van de website."
+    },
+    {
+      "block_id": "b0123",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "USC3: | Registreren"
+    },
+    {
+      "block_id": "b0124",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Actor | Bezoeker"
+    },
+    {
+      "block_id": "b0125",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Preconditie | Geen"
+    },
+    {
+      "block_id": "b0126",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Beschrijving | Bezoekers moeten in staat zijn om een account aan te maken"
+    },
+    {
+      "block_id": "b0127",
+      "type": "table_row",
+      "page": 14,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De bezoeker navigeert naar de registratieoptie en selecteert\n\"Registreren\".\n2. Het systeem toont de registratiepagina met alle vereiste velden, zoals\nnaam, e-mailadres en wachtwoord.\n3. De bezoeker vult alle benodigde informatie in en klikt op \"Registreren\".\n4. Het systeem verwerkt de registratiegegevens en stuurt een\nbevestigingsmail naar het opgegeven e-mailadres van de bezoeker,\nmet een link om het account te activeren.\n5. De bezoeker opent de ontvangen e-mail en klikt op de activatielink om\nhet account te activeren.\n6. Na activatie keert de bezoeker terug naar de website, klikt op\n\"Inloggen\" en logt in met de gekozen gebruikersnaam en wachtwoord."
+    },
+    {
+      "block_id": "b0128",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Postconditie | De bezoeker heeft succesvol een account aangemaakt en kan nu inloggen\nen gebruikmaken van alle functionaliteiten van het platform."
+    },
+    {
+      "block_id": "b0129",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "en gebruikmaken van alle functionaliteiten van het platform."
+    },
+    {
+      "block_id": "b0130",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "USC6: | Winkelmandje bekijken"
+    },
+    {
+      "block_id": "b0131",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Actor | Klant"
+    },
+    {
+      "block_id": "b0132",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Preconditie | Klant moet ingelogd zijn."
+    },
+    {
+      "block_id": "b0133",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Beschrijving | Klanten moeten producten makkelijk toevoegen in hun winkelmand."
+    },
+    {
+      "block_id": "b0134",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De klant navigeert naar een product dat hij of zij wil toevoegen aan\nhet winkelmandje.\n2. Het systeem toont de productpagina met alle relevante informatie,\nzoals prijs, beschrijving en afbeeldingen.\n3. De klant beoordeelt het product en besluit om het toe te voegen aan\nhet winkelmandje door op de optie \"Toevoegen aan winkelmandje\" te\nklikken.\n4. Het systeem voegt het geselecteerde product toe aan het\nwinkelmandje van de klant.\n5. De klant navigeert naar het winkelmandje door bijvoorbeeld te\nklikken op de winkelmand-icoon of een specifieke link.\n6. In het winkelmandje vindt de klant alle toegevoegde producten,\nsamen met de totale prijs en eventuele andere relevante informatie,\nzoals verzendkosten of kortingen."
+    },
+    {
+      "block_id": "b0135",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Postconditie | De klant heeft met gemak een product kunnen toevoegen aan zijn"
+    },
+    {
+      "block_id": "b0136",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "winkelmandje en kan nu de inhoud van zijn of haar winkelmandje"
+    },
+    {
+      "block_id": "b0137",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "bekijken en eventueel doorgaan met het afrekenproces."
+    },
+    {
+      "block_id": "b0138",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "USC7: | Product beheren"
+    },
+    {
+      "block_id": "b0139",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Actor | Beheerder"
+    },
+    {
+      "block_id": "b0140",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Preconditie | Beheerder moet ingelogd zijn."
+    },
+    {
+      "block_id": "b0141",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Beschrijving | De beheerder moet in staat zijn om producten te beheren."
+    },
+    {
+      "block_id": "b0142",
+      "type": "table_row",
+      "page": 15,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De beheerder navigeert naar de sectie met alle producten.\n2. Het systeem toont een overzicht van alle beschikbare producten.\n3. De beheerder selecteert een specifiek product.\n4. Het systeem geeft alle informatie over het geselecteerde product\nweer.\n5. De beheerder klikt op de optie om het product te bewerken.\n6. Het systeem toont alle aanpasbare informatie van het product."
+    },
+    {
+      "block_id": "b0143",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "7. De beheerder wijzigt de benodigde informatie en klikt op de knop om\nde wijzigingen op te slaan."
+    },
+    {
+      "block_id": "b0144",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "8. Het systeem slaat alle aangebrachte wijzigingen op."
+    },
+    {
+      "block_id": "b0145",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Postconditie | De beheerder heeft de productinformatie eenvoudig kunnen aanpassen."
+    },
+    {
+      "block_id": "b0146",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "USC4: | Profiel bewerken"
+    },
+    {
+      "block_id": "b0147",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Actor | Klant"
+    },
+    {
+      "block_id": "b0148",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Preconditie | Klant moet ingelogd zijn."
+    },
+    {
+      "block_id": "b0149",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Beschrijving | De klant heeft de mogelijkheid om zijn eigen gegevens aan te passen,\nwaaronder persoonlijke informatie, adresgegevens, contactgegevens en\nvoorkeuren."
+    },
+    {
+      "block_id": "b0150",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De klant logt in op zijn account op de website of applicatie.\n2. Vanuit het startscherm navigeert de klant naar zijn profielpagina door\nte klikken op de link of knop met zijn naam of profielfoto.\n3. Het systeem laadt de profielpagina van de klant en toont alle\nbeschikbare informatie, waaronder naam, adres, telefoonnummer, e-\nmailadres, en andere relevante gegevens.\n4. De klant bekijkt zijn huidige gegevens en besluit deze aan te passen.\nHij klikt op de knop \"Gegevens bewerken\" of een vergelijkbare optie."
+    },
+    {
+      "block_id": "b0151",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "5. Klant wijzigt zijn gegevens en klikt op opslaan."
+    },
+    {
+      "block_id": "b0152",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Het systeem opent een formulier waarin de klant zijn gegevens kan\nbewerken. Elk veld dat bewerkbaar is, wordt weergegeven, zoals\nnaam, adres, telefoonnummer, e-mailadres, wachtwoord, en\neventuele extra voorkeuren of instellingen.\n6. De klant brengt de gewenste wijzigingen aan in de relevante velden,\nzoals het bijwerken van zijn adres na een verhuizing of het wijzigen\nvan zijn telefoonnummer.\n7. Nadat de klant alle gewenste wijzigingen heeft aangebracht, klikt hij\nop de knop \"Opslaan\" of een vergelijkbare optie om de wijzigingen\ndoor te voeren.\n8. Het systeem valideert de ingevoerde gegevens en slaat deze op in\nde database."
+    },
+    {
+      "block_id": "b0153",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "9. Een bevestigingsbericht wordt weergegeven om aan te geven dat de"
+    },
+    {
+      "block_id": "b0154",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "wijzigingen succesvol zijn opgeslagen."
+    },
+    {
+      "block_id": "b0155",
+      "type": "table_row",
+      "page": 16,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Postconditie | De klant heeft met succes zijn profielgegevens aangepast en deze\nupdates zijn nu van toepassing op zijn account. De klant kan nu verder\nnavigeren op de website of applicatie met de bijgewerkte informatie."
+    },
+    {
+      "block_id": "b0156",
+      "type": "paragraph",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "H5 Ethische aandachtspunten Mijn website zal daarom de volgende principes omarmen: • Gedetailleerde en accurate productbeschrijvingen: Ik zal zorgvuldig onderzoek doen naar de bronnen van informatie en ervoor zorgen dat de productbeschrijvingen op mijn website volledig kloppen en niet misleidend zijn. Dit zal het vertrouwen van mijn klanten vergroten en misverstanden verminderen. • Stimuleren van gebundelde aankopen: Klanten worden aangemoedigd om meerdere producten tegelijk te bestellen door middel van speciale kortingen voor bundelaankopen. Dit bevordert niet alleen een efficiënter gebruik van verzendmaterialen, maar vermindert ook de CO2-uitstoot door minder individuele pakketten te verzenden. • Verkoop van duurzame producten: Ik zal producten van hoge kwaliteit aanbieden die ontworpen zijn om lang mee te gaan. Door te investeren in duurzame producten die jarenlang meegaan, verminderen we de noodzaak van frequente vervanging en verminderen we de hoeveelheid afval die wordt geproduceerd."
+    },
+    {
+      "block_id": "b0157",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "USC5: | Gemakkelijk producten vinden"
+    },
+    {
+      "block_id": "b0158",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Actor | Klant"
+    },
+    {
+      "block_id": "b0159",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Preconditie | Klant moet ingelogd zijn."
+    },
+    {
+      "block_id": "b0160",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Beschrijving | Klanten moeten snel en eenvoudig producten kunnen vinden in de"
+    },
+    {
+      "block_id": "b0161",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "webshop, bijvoorbeeld door gebruik te maken van een zoekbalk"
+    },
+    {
+      "block_id": "b0162",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Scenario\nbeschrijving | 1. De klant logt in op zijn account op de webshop.\n2. Op de startpagina van de webshop gebruikt de klant de zoekbalk om\nhet gewenste product op naam te vinden.\n3. Het systeem toont alle producten die overeenkomen met de\nzoekopdracht van de klant.\n4. De klant bekijkt de zoekresultaten en selecteert het gewenste\nproduct."
+    },
+    {
+      "block_id": "b0163",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "5. De klant kan vervolgens meer details bekijken en het product"
+    },
+    {
+      "block_id": "b0164",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "toevoegen aan zijn winkelwagentje."
+    },
+    {
+      "block_id": "b0165",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Postconditie | De klant heeft succesvol het gezochte product kunnen vinden en"
+    },
+    {
+      "block_id": "b0166",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "eventueel toevoegen aan zijn winkelwagentje voor aankoop."
+    },
+    {
+      "block_id": "b0167",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Na het bijwonen van het college en het opdoen van inzicht in de recente nieuwsberichten over"
+    },
+    {
+      "block_id": "b0168",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "fraude en misleiding op online platforms, heb ik besloten extra nadruk te leggen op eerlijkheid"
+    },
+    {
+      "block_id": "b0169",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "en transparantie binnen mijn website. Mijn doel is niet alleen winstgericht, maar ook gericht op"
+    },
+    {
+      "block_id": "b0170",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "het verbeteren van de wereld, vooral omdat ik behoor tot Generatie Z, die meer waarde hech"
+    },
+    {
+      "block_id": "b0171",
+      "type": "table_row",
+      "page": 17,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "aan impact dan aan financieel gewin."
+    },
+    {
+      "block_id": "b0172",
+      "type": "paragraph",
+      "page": 18,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "H6 Security Encryptie is een essentieel onderdeel van beveiligingstechnologieën, waarbij gegevens worden omgezet in een onleesbare vorm voor iedereen die geen toegang heeft tot de juiste sleutel of token. Het wordt veel gebruikt om gevoelige informatie te beschermen tijdens opslag en overdracht, zoals wachtwoorden. Een veelvoorkomende methode van encryptie is hashing, waarbij gegevens worden omgezet in een unieke reeks karakters die niet omkeerbaar is, waardoor de oorspronkelijke gegevens niet direct terug te halen zijn."
+    },
+    {
+      "block_id": "b0173",
+      "type": "paragraph",
+      "page": 19,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "H7 Literatuurlijst • Xxl natrition voor mijn producten (https://xxlnutrition.com/nl) • Kleurblind (https://www.frankwatching.com/archive/2021/03/11/webdesign-voor- kleurenblinden/) • Webshop tips (https://succesmetjewebshop.nl/je-webshop-laten-vertalen-waarom-zou- je-dat-doen/) • Waarom moet de webshop meertalig zijn? (https://www.gwsmedia.com/articles/6- benefits-multilingual-websites)"
+    },
+    {
+      "block_id": "b0174",
+      "type": "paragraph",
+      "page": 20,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Bijlage I – Interview verslag Voor een optimale ervaring bij het online winkelen voor gymartikelen zijn verschillende factoren van belang. Klanten willen kunnen kiezen uit een breed assortiment aan gewenste artikelen, concurrerende prijzen en eventuele kortingen, en een website die betrouwbaar en veilig is. Ook hechten ze waarde aan een hoogwaardige klantenservice en een soepel retourbeleid. Klanten willen graag op de hoogte blijven van nieuwe releases en aanbiedingen, dus een duidelijke sectie op de website voor deze informatie en de mogelijkheid om zich aan te melden voor nieuwsbrieven of meldingen zijn belangrijk. Vooral interesse gaat uit naar recente gymartikelen en kwalitatieve accessoires. Hoewel prijs een rol speelt, zijn kortingen en aanbiedingen vaak doorslaggevend bij de aankoop van duurdere items. Functies die de ervaring kunnen verbeteren, zijn onder andere een aanbevelingssysteem, mogelijkheid tot vooraf bestellen en pre-downloaden van producten, en community-functies zoals forums. Wat betreft de gebruikerservaring verwachten klanten een intuïtieve website, snelle laadtijden, gedetailleerde productinformatie en goede zoek- en filteropties. Snelle en effectieve klantenservice is van essentieel belang, vooral bij problemen met aankopen, waarbij de voorkeur uitgaat naar live chat-ondersteuning of goed bereikbare klantenservicelijnen. Kortom : Een succesvolle online winkelervaring voor gymartikelen vereist een breed assortiment, concurrerende prijzen, betrouwbare websitefunctionaliteit, hoogwaardige klantenservice en duidelijke communicatie over nieuwe releases en aanbiedingen. Het integreren van handige functies zoals aanbevelingssystemen en community-interactie kan de gebruikerservaring verder verbeteren."
+    },
+    {
+      "block_id": "b0175",
+      "type": "paragraph",
+      "page": 21,
+      "level": null,
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Bijlage II – Poster"
+    }
+  ],
+  "warnings": [],
+  "status": "success"
+}

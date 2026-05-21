@@ -1,0 +1,750 @@
+{
+  "doc_id": "Requirements_Analyse_FusionFinds_variant",
+  "source_path": "INFIRST_requirements/onvoldoende/Requirements_Analyse_FusionFinds_variant.pdf",
+  "source_type": "pdf",
+  "quality_label": "onvoldoende",
+  "page_count": 7,
+  "blocks": [
+    {
+      "block_id": "b0001",
+      "type": "paragraph",
+      "page": 1,
+      "level": null,
+      "heading_path": [],
+      "text": "FIRST FULL STACK Requirements Analyse FusionFinds FUSION FINDS Opleiding: Informatica - First Full Stack Challenge week Datum: 09-04-2024 Namen: Fariha Ahmad, Ugur Kumas, Rami Al-Muhanna, Kane Luiten, Sam Heintz, Danny Yik Requirements Analyse - FusionFinds"
+    },
+    {
+      "block_id": "b0002",
+      "type": "paragraph",
+      "page": 2,
+      "level": null,
+      "heading_path": [],
+      "text": "Inhoud Introductie 3 Wensen, Eisen, Prioriteiten 4"
+    },
+    {
+      "block_id": "b0003",
+      "type": "heading",
+      "page": 2,
+      "level": 2,
+      "heading_path": [
+        "2.1 Constraints en requirements 4"
+      ],
+      "text": "2.1 Constraints en requirements 4"
+    },
+    {
+      "block_id": "b0004",
+      "type": "paragraph",
+      "page": 2,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4"
+      ],
+      "text": "Use Cases 7 Use Case Diagram 7 Use Case beschrijvingen 8 Beveiliging 11 Bronnen 12 Requirements Analyse - FusionFinds"
+    },
+    {
+      "block_id": "b0005",
+      "type": "paragraph",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4"
+      ],
+      "text": "Introductie FusionFinds is een webshop waar meerdere dingen gekocht kunnen worden zoals sneakers, posters, parfum, kleding en games. De webshop moet vooral modern zijn en er goed uit zien. Klanten kunnen producten bekijken en daarna eventueel bestellen. Het idee is een soort bol.com maar dan voor onze challenge week en met meerdere producten van verschillende webshops. De site is bedoeld voor eigenlijk iedereen die online wil shoppen. De doelgroep is breed omdat veel mensen online kopen. Daarom moet de website simpel zijn en er mooi uitzien. Er is niet veel extra onderzoek gedaan omdat de opdracht al duidelijk genoeg is en de meeste webshops hetzelfde werken. Belangrijke punten zijn dat de gebruiker producten moet kunnen vinden, bestellen en later terugkijken. Ook moet een beheerder dingen kunnen aanpassen. Verder moet het technisch werken met API’s, maar de precieze manier wordt later bepaald tijdens het maken. Wensen, Eisen, Prioriteiten In dit hoofdstuk staan de eisen en wensen voor de webshop. De prioriteiten zijn vooral gekozen op gevoel en op wat logisch lijkt voor een webshop. Sommige punten zijn nog algemeen omdat tijdens de ontwikkeling pas echt duidelijk wordt wat haalbaar is."
+    },
+    {
+      "block_id": "b0006",
+      "type": "heading",
+      "page": 3,
+      "level": 2,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "2.1 Constraints en requirements"
+    },
+    {
+      "block_id": "b0007",
+      "type": "paragraph",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Constraints Niet-functionele requirements Requirements Analyse - FusionFinds"
+    },
+    {
+      "block_id": "b0008",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Naam | Architecturale relevantie | Geadresseerd in"
+    },
+    {
+      "block_id": "b0009",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "CONSTR01: Budget | De webshop mag niet te duur worden.\nOngeveer 10.000 euro is genoemd, maar dit\nis niet verder uitgewerkt. | Opdracht"
+    },
+    {
+      "block_id": "b0010",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "CONSTR02: Tijd | Het project moet snel af zijn. De planning is\nkort dus sommige onderdelen worden\nalleen gemaakt als er tijd is. | -"
+    },
+    {
+      "block_id": "b0011",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "CONSTR03: API’s | De webshop moet met API’s werken. Welke\nAPI’s precies en wat ze teruggeven is nog\nniet helemaal bekend. | -"
+    },
+    {
+      "block_id": "b0012",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "CONSTR04: Producten | Er moeten genoeg producten zijn. Het\naantal is afhankelijk van wat de API’s\nteruggeven. | -"
+    },
+    {
+      "block_id": "b0013",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Naam | Categorie | Architecturale relevantie | Prio"
+    },
+    {
+      "block_id": "b0014",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "NFR01 | Gebruiksvriendelijkheid | De website moet makkelijk zijn\nvoor klanten. Als het onduidelijk\nis dan klikken gebruikers\nmisschien weg. | MUST"
+    },
+    {
+      "block_id": "b0015",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "NFR02 | Vormgeving | De webshop moet er goed\nuitzien omdat dit hoort bij een\nmoderne webshop. | MUST"
+    },
+    {
+      "block_id": "b0016",
+      "type": "table_row",
+      "page": 3,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "NFR03 | Responsief | De site moet ook op telefoon\nwerken, maar desktop is eerst | SHOULD"
+    },
+    {
+      "block_id": "b0017",
+      "type": "paragraph",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Functionele requirements Waarom MoSCoW De meeste dingen zijn Must Have omdat een webshop zonder deze dingen niet echt werkt. Sommige functies zoals zoeken en bestelgeschiedenis zijn minder belangrijk omdat het vooral gaat om bestellen. Vormgeving is ook belangrijk omdat de opdracht zegt dat het top moet zijn. De keuzes zijn niet apart onderzocht. We hebben gekeken naar wat bij webshops normaal is en daarna is besloten wat het belangrijkste lijkt. Use Cases Use Case Diagram Het diagram bestaat uit Klant, Geregistreerde klant en Admin. Klant kan registreren en producten bekijken. Geregistreerde klant kan inloggen, winkelmandje gebruiken en bestellen. Admin kan producten en bestellingen beheren. Requirements Analyse - FusionFinds"
+    },
+    {
+      "block_id": "b0018",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "belangrijk."
+    },
+    {
+      "block_id": "b0019",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "NFR04 | Beveiliging | De site moet veilig zijn met\nlogin. Dit wordt later technisch\ngedaan. | MUST"
+    },
+    {
+      "block_id": "b0020",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "NFR05 | Snelheid | Pagina’s moeten redelijk snel\nladen zodat gebruikers niet\nhoeven te wachten. | COULD"
+    },
+    {
+      "block_id": "b0021",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "NFR06 | Taal | De website is in het Nederlands\nomdat wij Nederlands\ngebruiken. | SHOULD"
+    },
+    {
+      "block_id": "b0022",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Naam | Categorie | Architecturale relevantie | Prio"
+    },
+    {
+      "block_id": "b0023",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "UC01 | Registreren | Gebruikers moeten een account\nkunnen maken. | MUST"
+    },
+    {
+      "block_id": "b0024",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "UC02 | Inloggen | Gebruikers moeten kunnen\ninloggen om verder te gaan. | MUST"
+    },
+    {
+      "block_id": "b0025",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "UC03 | Producten bekijken | Klanten moeten producten\nkunnen zien en details bekijken. | MUST"
+    },
+    {
+      "block_id": "b0026",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "UC04 | Winkelmandje | Klanten kunnen producten\ntoevoegen aan winkelmandje. | MUST"
+    },
+    {
+      "block_id": "b0027",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "UC05 | Bestellen | Klanten kunnen op bestellen\nklikken en de order plaatsen. | MUST"
+    },
+    {
+      "block_id": "b0028",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "UC06 | Admin | Admin kan producten en\nbestellingen beheren. | SHOULD"
+    },
+    {
+      "block_id": "b0029",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "UC07 | Zoeken/filteren | Gebruikers kunnen zoeken en\nfilteren als dit lukt met de data. | SHOULD"
+    },
+    {
+      "block_id": "b0030",
+      "type": "table_row",
+      "page": 4,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "UC08 | Geschiedenis | Gebruiker kan soms eerdere\nbestellingen bekijken. | COULD"
+    },
+    {
+      "block_id": "b0031",
+      "type": "paragraph",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Use Case beschrijvingen UC01: Registreren UC02: Inloggen UC03: Winkelmandje Requirements Analyse - FusionFinds"
+    },
+    {
+      "block_id": "b0032",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Actor | Use cases"
+    },
+    {
+      "block_id": "b0033",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Klant | Registreren, producten bekijken"
+    },
+    {
+      "block_id": "b0034",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Geregistreerde klant | Inloggen, winkelmandje, bestellen, bestelgeschiedenis"
+    },
+    {
+      "block_id": "b0035",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Admin | Producten beheren, bestellingen bekijken"
+    },
+    {
+      "block_id": "b0036",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Actor | Klant"
+    },
+    {
+      "block_id": "b0037",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Preconditie | Klant heeft website geopend."
+    },
+    {
+      "block_id": "b0038",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Beschrijving | Klant vult gegevens in en maakt account aan."
+    },
+    {
+      "block_id": "b0039",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Scenario beschrijving | 1. Klant gaat naar registratiepagina.\n2. Klant vult naam, e-mail en wachtwoord in.\n3. Systeem maakt account aan."
+    },
+    {
+      "block_id": "b0040",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Postconditie | Klant heeft account."
+    },
+    {
+      "block_id": "b0041",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Exceptie flow | Als gegevens fout zijn, komt er een melding."
+    },
+    {
+      "block_id": "b0042",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Actor | Geregistreerde klant"
+    },
+    {
+      "block_id": "b0043",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Preconditie | Klant heeft een account."
+    },
+    {
+      "block_id": "b0044",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Beschrijving | Klant logt in om de webshop te gebruiken."
+    },
+    {
+      "block_id": "b0045",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Scenario beschrijving | 1. Klant opent login.\n2. Klant vult gegevens in.\n3. Systeem controleert gegevens.\n4. Klant komt op de webshop."
+    },
+    {
+      "block_id": "b0046",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Postconditie | Klant is ingelogd."
+    },
+    {
+      "block_id": "b0047",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Exceptie flow | Als wachtwoord fout is, kan klant opnieuw proberen."
+    },
+    {
+      "block_id": "b0048",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Actor | Geregistreerde klant"
+    },
+    {
+      "block_id": "b0049",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Preconditie | Klant ziet producten."
+    },
+    {
+      "block_id": "b0050",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Beschrijving | Klant voegt producten toe of haalt ze weg."
+    },
+    {
+      "block_id": "b0051",
+      "type": "table_row",
+      "page": 5,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Scenario beschrijving | 1. Klant kiest product."
+    },
+    {
+      "block_id": "b0052",
+      "type": "paragraph",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "UC04: Bestellen UC05: Admin beheren Beveiliging Voor beveiliging gebruiken we login en wachtwoorden. Ook moet de website HTTPS gebruiken wanneer hij online staat. De klantgegevens mogen niet zomaar zichtbaar zijn voor anderen. AVG is belangrijk omdat klanten gegevens invullen zoals naam, e-mail en adres. De webshop moet daar netjes mee omgaan. In de code moeten wachtwoorden niet gewoon leesbaar opgeslagen worden. Verder moeten admins niet alle functies aan gewone klanten laten zien. Requirements Analyse - FusionFinds"
+    },
+    {
+      "block_id": "b0053",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "2. Klant klikt op toevoegen.\n3. Systeem zet product in winkelmandje.\n4. Klant kan verwijderen."
+    },
+    {
+      "block_id": "b0054",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Postconditie | Winkelmandje is aangepast."
+    },
+    {
+      "block_id": "b0055",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Exceptie flow | Als product er niet meer is, kan het niet toegevoegd worden."
+    },
+    {
+      "block_id": "b0056",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Actor | Geregistreerde klant"
+    },
+    {
+      "block_id": "b0057",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Preconditie | Klant heeft iets in winkelmandje."
+    },
+    {
+      "block_id": "b0058",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Beschrijving | Klant plaatst bestelling."
+    },
+    {
+      "block_id": "b0059",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Scenario beschrijving | 1. Klant klikt op bestellen.\n2. Systeem toont bestelling.\n3. Klant bevestigt.\n4. Systeem slaat bestelling op."
+    },
+    {
+      "block_id": "b0060",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Postconditie | Bestelling is geplaatst."
+    },
+    {
+      "block_id": "b0061",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Exceptie flow | Als winkelmandje leeg is, komt er een melding."
+    },
+    {
+      "block_id": "b0062",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Actor | Admin"
+    },
+    {
+      "block_id": "b0063",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Preconditie | Admin is ingelogd."
+    },
+    {
+      "block_id": "b0064",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Beschrijving | Admin past producten of bestellingen aan."
+    },
+    {
+      "block_id": "b0065",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Scenario beschrijving | 1. Admin opent dashboard.\n2. Admin zoekt product of bestelling.\n3. Admin wijzigt gegevens.\n4. Admin slaat op."
+    },
+    {
+      "block_id": "b0066",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Postconditie | Gegevens zijn aangepast."
+    },
+    {
+      "block_id": "b0067",
+      "type": "table_row",
+      "page": 6,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Exceptie flow | Als opslaan niet lukt, probeert admin later opnieuw."
+    },
+    {
+      "block_id": "b0068",
+      "type": "paragraph",
+      "page": 7,
+      "level": null,
+      "heading_path": [
+        "2.1 Constraints en requirements 4",
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Mogelijke risico’s zijn dat iemand probeert in te loggen op een ander account, of dat gegevens uit de database zichtbaar worden. Daarom is het goed om rollen en rechten te gebruiken. De precieze technische uitwerking staat niet in dit document. Bronnen Kinsta - Encryption Digital Guardian - Data Encryption Challengeweek kick-off presentatie Week 8 voorbereiding challengeweek Requirements Analyse - FusionFinds"
+    }
+  ],
+  "warnings": [],
+  "status": "success"
+}
