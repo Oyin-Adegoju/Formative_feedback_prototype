@@ -1,0 +1,394 @@
+# guardrails.yaml — centrale beleidsconfiguratie voor INFIRFS feedback-pipeline
+# versie: 0.1.0  (prototype-v1)
+#
+# Dit bestand beschrijft het BELEID, niet de implementatielogica.
+# Modules die dit bestand lezen: caps.py, llm_client.py, anonymizer.py,
+#   evidence_builder.py, section_splitter.py, app.py
+#
+# Vuistregel: als iets verandert in de parser of rubric,
+# verandert alleen het relevante blok hier — de rest blijft stabiel.
+
+# =============================================================================
+# 1. PROJECT
+# =============================================================================
+project:
+  naam: INFIRFS Formatieve Feedback Assistent
+  versie: "0.1.0"
+  fase: prototype-v1
+  scope: requirementsdeel INFIRFS-rubric
+  doelgroep: HBO-ICT studenten (First Full Stack)
+  omgeving: lokaal — geen externe API-calls, geen cloud-opslag
+
+# =============================================================================
+# 2. MODEL
+# =============================================================================
+model:
+  id: Qwen2.5-14B-Instruct
+  taak: feedback_schrijven
+  max_tokens: 1024
+  temperature: 0.3
+
+  # Qwen is UITSLUITEND de feedback-engine.
+  # caps.py is en blijft de judgement-engine.
+  verboden:
+    - stoplicht_bepalen           # stoplicht wordt altijd bepaald door caps.py
+    - hidden_score_bepalen        # numerieke eindscore wordt altijd bepaald door caps.py
+    - criterium_status_bepalen    # missing/partial/sufficient/strong is output van caps.py
+    - evidence_selecteren         # evidenceselectie is verantwoordelijkheid van caps.py
+
+  mag_alleen:
+    - feedbacktekst_schrijven_op_basis_van_scorecard
+    # Qwen ontvangt een ingevulde scorecard en schrijft alleen narratieve feedback.
+    # Het heeft nooit toegang tot ruwe documenttekst, studentgegevens of interne scores.
+
+# =============================================================================
+# 3. ROLLEN
+# =============================================================================
+rollen:
+  docent:
+    beschrijving: Beoordelaar met volledig inzicht in het scoreresultaat
+    mag_zien:
+      - stoplicht
+      - criterium_statussen       # missing / partial / sufficient / strong per criterium
+      - cap_redenen               # waarom een criterium de status heeft gekregen
+      - evidence                  # tekstfragmenten waarop de beoordeling is gebaseerd
+      - feedback_tekst
+      - manual_review_vlag
+    mag_niet:
+      - caps_overschrijven        # caps-uitkomsten zijn gezaghebbend en niet editbaar
+      - anonimisering_uitschakelen
+
+  student:
+    beschrijving: Ontvanger van formatieve feedback — geen inzicht in interne beoordeling
+    mag_zien:
+      - feedback_tekst            # narratieve feedbacktekst van Qwen
+      - stoplicht                 # groen / geel / rood als globale indicatie
+    mag_niet:
+      - hidden_score              # numerieke of gewogen eindscore
+      - criterium_statussen       # interne rubricstatussen
+      - cap_redenen               # technische motivatie van caps
+      - evidence                  # ruwe documentfragmenten
+      - manual_review_vlag
+
+  beheerder:
+    beschrijving: Technisch beheerder van de lokale installatie
+    mag_zien:
+      - alle_logs
+      - configuratiebestanden
+      - parse_reports
+    mag_doen:
+      - logging_configureren
+      - model_configureren
+      - anonimisering_configureren
+    mag_niet:
+      - caps_overschrijven        # caps-uitkomsten zijn altijd gezaghebbend
+      - stoplicht_overschrijven
+
+# =============================================================================
+# 4. TRANSPARANTIE
+# =============================================================================
+transparantie:
+  # Het systeem legt altijd uit waarom een cap of guardrail actief is.
+  cap_reden_verplicht: true           # caps.py geeft altijd een mensleesbare reden mee
+  stoplicht_motivatie_verplicht: true # bij rood of geel altijd uitleggen waarom
+  feedback_bevat_geen_score: true     # Qwen-output bevat nooit een numeriek oordeel
+  modelversie_in_log: true            # welk model welke feedback heeft gegenereerd
+  pipeline_stap_in_log: true          # logging per stap: parse → caps → feedback → output
+
+# =============================================================================
+# 5. RUBRIC
+# =============================================================================
+rubric:
+  naam: INFIRFS requirements-rubric
+  onderdeel: requirementsdeel (prototype-scope)
+  beschrijving: >
+    Vijf ontvankelijkheidscriteria waaraan een INFIRFS requirements-document
+    minimaal moet voldoen om als voldoende beoordeeld te worden.
+
+  criteria:
+    - key: scope_and_research
+      display_name: "Beperking & deskresearch"
+      beschrijving: >
+        Het document beschrijft een gekozen beperking van het project
+        én onderbouwt die keuze op basis van deskresearch
+        (literatuur, bestaande systemen of vergelijkbare oplossingen).
+      is_blocker: true
+
+    - key: stakeholders
+      display_name: Stakeholders
+      beschrijving: >
+        Het document identificeert minstens 4 stakeholders,
+        elk met een beschreven belang én invloed.
+      drempel_voldoende: 4
+      drempel_sterk: 6
+      is_blocker: true
+
+    - key: requirements
+      display_name: Requirements
+      beschrijving: >
+        Het document bevat minstens 15 aantoonbare requirements
+        (functioneel en/of niet-functioneel).
+      drempel_voldoende: 15
+      drempel_sterk: 25
+      is_blocker: true
+
+    - key: language_choice
+      display_name: "Taalkeuze & consequenties"
+      beschrijving: >
+        Het document beschrijft de taalkeuze van de webshop,
+        onderbouwt die keuze vanuit de opdracht en deskresearch,
+        én benoemt de consequenties van die keuze.
+      is_blocker: true
+
+    - key: security
+      display_name: Security
+      beschrijving: >
+        Het document bevat een sectie over beveiliging én beschrijft
+        minstens 1 concreet security-element
+        (bijv. authenticatie, autorisatie, encryptie, AVG/privacy, OWASP).
+      drempel_voldoende: 1
+      drempel_sterk: 3
+      is_blocker: true
+
+# =============================================================================
+# 6. CAPS
+# =============================================================================
+caps:
+  # caps.py voert harde checks uit en kent statussen toe.
+  # Statussen zijn gezaghebbend — Qwen mag deze nooit wijzigen of overschrijven.
+  engine: caps.py
+  statussen: [missing, partial, sufficient, strong]
+
+  regels:
+    - criterium: scope_and_research
+      missing_als: >
+        Geen enkele aanwijzing voor beperking of deskresearch gevonden
+        in de volledige documenttekst.
+      partial_als: >
+        Beperking of deskresearch aanwezig, maar slechts één van beide;
+        of aanwezig maar zonder onderbouwing.
+      sufficient_als: >
+        Zowel beperking als deskresearch aanwezig én onderbouwd.
+      strong_als: >
+        Beperking en deskresearch uitgebreid aanwezig, met meerdere bronnen
+        of een expliciete literatuurlijst.
+
+    - criterium: stakeholders
+      missing_als: Minder dan 2 herkenbare stakeholders gevonden.
+      partial_als: 2 of 3 stakeholders aanwezig; belang of invloed niet bij allemaal beschreven.
+      sufficient_als: Minstens 4 stakeholders met belang én invloed beschreven.
+      strong_als: Minstens 6 stakeholders met belang én invloed beschreven.
+
+    - criterium: requirements
+      missing_als: Minder dan 5 requirements herkenbaar.
+      partial_als: Tussen 5 en 14 requirements herkenbaar.
+      sufficient_als: Minstens 15 requirements herkenbaar.
+      strong_als: Minstens 25 requirements herkenbaar.
+
+    - criterium: language_choice
+      missing_als: Geen enkele verwijzing naar taalkeuze of consequenties.
+      partial_als: Taalkeuze benoemd maar consequenties niet uitgewerkt.
+      sufficient_als: Taalkeuze benoemd én consequenties beschreven.
+      strong_als: >
+        Taalkeuze uitgebreid onderbouwd met deskresearch,
+        consequenties concreet uitgewerkt.
+
+    - criterium: security
+      missing_als: Geen security-element herkenbaar.
+      partial_als: Security benoemd als onderwerp maar geen concreet element.
+      sufficient_als: Minstens 1 concreet security-element beschreven.
+      strong_als: 3 of meer concrete security-elementen beschreven.
+
+# =============================================================================
+# 7. STOPLICHT
+# =============================================================================
+stoplicht:
+  # caps.py bepaalt het stoplicht op basis van criteriumstatussen.
+  # Qwen mag het stoplicht nooit bepalen of beïnvloeden.
+  engine: caps.py
+
+  rood:
+    - Een of meer criteria hebben status "missing"
+    - Een of meer blocker-criteria zijn niet behaald
+    - Manual review is getriggerd
+
+  geel:
+    - Geen criteria zijn "missing"
+    - Minstens één criterium heeft status "partial"
+    - Geen blockers actief
+
+  groen:
+    - Alle criteria hebben minimaal status "sufficient"
+    - Geen manual review vereist
+
+  # Bij samenloop van regels geldt altijd het strengste signaal.
+  prioriteit: rood > geel > groen
+
+# =============================================================================
+# 8. SCORECARD_CONTRACT
+# =============================================================================
+scorecard_contract:
+  # De scorecard is de enige beoordelingsinput die Qwen ontvangt.
+  # De scorecard bevat nooit ruwe documenttekst of studentgegevens.
+
+  score_mapping:
+    missing: 0
+    partial: 1
+    sufficient: 2
+    strong: 3
+
+  scorecard_bevat:
+    - criterium_key
+    - criterium_display_name
+    - status               # missing / partial / sufficient / strong
+    - score                # 0–3 via bovenstaande mapping
+    - cap_reden            # mensleesbare motivatie (zichtbaar voor docent, niet voor student)
+
+  scorecard_bevat_niet:
+    - ruwe_documenttekst
+    - studentnaam
+    - studentnummer
+    - hidden_score          # totaalscore is niet zichtbaar voor Qwen
+    - stoplicht             # stoplicht wordt niet aan Qwen doorgegeven
+
+  qwen_output_contract:
+    type: feedback_tekst
+    bevat_geen: [cijfer, score, stoplicht, criterium_status_labels]
+    toon: formatief_en_constructief
+    taal: nl
+
+# =============================================================================
+# 9. MANUAL_REVIEW
+# =============================================================================
+manual_review:
+  # Wanneer het systeem onzeker is over de uitkomst, wordt manual review getriggerd.
+  # Bij manual review geldt altijd stoplicht rood totdat een docent heeft beoordeeld.
+  triggers:
+    - parse_status is "empty" of "error"
+    - block_count < 20                              # document te klein om betrouwbaar te beoordelen
+    - alle_criteria_status_missing: true            # niets gevonden — vermoedelijk parseprobleem
+
+  actie:
+    stoplicht: rood
+    feedback_voor_student: >
+      Je document kon niet volledig automatisch worden beoordeeld.
+      Een docent zal je document handmatig beoordelen.
+    log_reden: true
+
+# =============================================================================
+# 10. LOGGING
+# =============================================================================
+logging:
+  niveau: info              # debug / info / warning / error
+  output_map: logs/pipeline/
+
+  wel_loggen:
+    - doc_id                # anonieme documentidentificatie (bestandsnaam)
+    - tijdstip              # ISO 8601
+    - pipeline_stap         # parse / caps / feedback / output
+    - stoplicht_uitkomst
+    - criterium_statussen   # per criterium de toegekende status
+    - model_id              # welk model is gebruikt
+    - manual_review_vlag
+    - parse_warnings        # technische waarschuwingen van de parser
+
+  niet_loggen:
+    - studentnaam
+    - studentnummer
+    - email
+    - ruwe_documenttekst
+    - scorecard_inhoud      # de scorecard zelf wordt niet opgeslagen in de log
+    - feedback_tekst        # Qwen-output niet in log opslaan (kan herleidbaar zijn)
+
+  retentie:
+    periode_dagen: 90
+    verantwoordelijke: beheerder
+
+# =============================================================================
+# 11. ANONIMISERING
+# =============================================================================
+anonimisering:
+  # Anonimisering vindt plaats VOORDAT er iets gelogd of aan het model
+  # doorgegeven wordt. Volgorde is een harde systeemeis.
+  volgorde: voor_logging_en_voor_modelcall
+
+  verwijder_patronen:
+    - studentnummer          # bijv. S1234567
+    - email                  # standaard e-mailpatronen
+    - studentnaam_titelblok  # naam in de eerste blokken van het document (best-effort)
+
+  doc_id_strategie: >
+    Gebruik de bestandsnaam (zonder extensie, gesaniteerd) als doc_id.
+    Koppel geen doc_id aan een studentnummer in opgeslagen bestanden.
+
+  # Anonimisering op blokniveau is best-effort: namen verspreid over
+  # tabelrijen worden niet altijd herkend. Beheerder is verantwoordelijk
+  # voor invoercontrole bij gevoelige batchverwerking.
+  waarschuwing: best_effort_bij_gefragmenteerde_tabelinhoud
+
+# =============================================================================
+# 12. RETRIEVAL
+# =============================================================================
+retrieval:
+  # Evidence-selectie voor caps-checks.
+  # Aanname: veel documenten hebben nauwelijks headings (soms 0),
+  # het merendeel van de inhoud zit in table_rows,
+  # en heading_path is niet altijd betrouwbaar gevuld.
+
+  # Bij documenten zonder betrouwbare structuur: scan alle blokken,
+  # niet alleen blokken met een matching heading_path.
+  strategie: volledig_document_als_fallback
+
+  zoekvolgorde:
+    1: heading_path_match    # blokken waarvan heading_path de zoekterm bevat
+    2: text_match            # blokken waarvan block.text de zoekterm bevat
+    3: alle_blokken          # als bovenstaande niets oplevert: scan alles
+
+  block_type_prioriteit:
+    - table_row              # meeste inhoud zit in tabelrijen — altijd meenemen
+    - paragraph
+    - heading
+
+  max_evidence_blokken_per_criterium: 10
+  min_tekst_lengte_chars: 10    # blokken korter dan 10 tekens negeren
+
+  # heading_path is nuttig als hint, nooit als harde filter.
+  # caps.py en evidence_builder.py mogen nooit uitsluitend op heading_path vertrouwen.
+  heading_path_betrouwbaarheid: laag
+
+# =============================================================================
+# 13. PARSER_CONTRACT
+# =============================================================================
+parser_contract:
+  # Minimale, stabiele verwachtingen over parser-output.
+  # Bewust beperkt gehouden zodat parserverbeteringen de pipeline niet breken.
+  # Alleen de velden hieronder mogen door caps, retrieval en evidence_builder
+  # als gegarandeerd aanwezig worden beschouwd.
+
+  verplichte_velden_per_blok:
+    - block_id      # unieke string-identifier binnen het document
+    - type          # "heading" | "paragraph" | "table_row"
+    - page          # paginanummer (integer, 1-gebaseerd)
+    - text          # tekstinhoud van het blok (string; kan leeg zijn)
+
+  optionele_velden_per_blok:
+    - level         # integer of null; aanwezig bij heading, anders null
+    - heading_path  # lijst van strings; kan leeg zijn; niet altijd betrouwbaar
+
+  stabiele_invarianten:
+    - Elk document heeft een doc_id (string).
+    - Elk document heeft een blocks-lijst (kan leeg zijn bij lege PDF).
+    - block_id is uniek binnen één document.
+    - type is altijd één van de drie genoemde waarden.
+    - text is altijd een string, nooit null.
+
+  geen_garanties:
+    - heading_path is volledig of correct gevuld
+    - Alle headings in het document worden herkend
+    - Tabelinhoud is niet gefragmenteerd over meerdere blokken
+    - Documentstructuur weerspiegelt de visuele lay-out exact
+
+  # Als de parser later verbeterd wordt (bijv. betere heading-detectie,
+  # tabelfusie, extra metadata), veranderen alleen geen_garanties en
+  # eventueel optionele_velden_per_blok.
+  # verplichte_velden_per_blok en stabiele_invarianten blijven het contract.
