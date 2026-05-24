@@ -804,3 +804,67 @@ def _normalize_cell(text: str) -> str:
     return cleaned.strip()
 
 
+def _is_index_cell(cell: str | None) -> bool:
+    """True als de cel alleen een paginanummer / volgnummer bevat (puur getal)."""
+    if not cell:
+        return False
+    stripped = cell.strip()
+    return bool(stripped) and stripped.replace(".", "").isdigit()
+
+
+def _build_table_from_text(
+    text: str,
+    column_count: int | None,
+) -> tuple[list[list[str | None]], list[list[int]], str, int]:
+    """Parse + normaliseer het tabelblok-text.
+
+    Geeft (cells, index_cells, canonical_text, kept_row_count) terug.
+    """
+    rijen: list[list[str | None]] = []
+    for row_text in text.split("\n"):
+        if not row_text.strip():
+            continue
+        ruwe_cellen = [c.strip() for c in row_text.split("|")]
+        cells_norm: list[str | None] = []
+        for c in ruwe_cellen:
+            c_clean = _normalize_cell(c)
+            cells_norm.append(c_clean if c_clean else None)
+        if all(c is None for c in cells_norm):
+            continue
+        rijen.append(cells_norm)
+
+    index_cells: list[list[int]] = []
+    for r_idx, row in enumerate(rijen):
+        for c_idx, c in enumerate(row):
+            if _is_index_cell(c):
+                index_cells.append([r_idx, c_idx])
+
+    canonical = "\n".join(
+        " | ".join("" if c is None else c for c in row)
+        for row in rijen
+    )
+    return rijen, index_cells, canonical, len(rijen)
+
+
+def _table_meta_from_text(text: str, column_count: int | None) -> tuple[dict, str]:
+    """Genereer table_meta + canonical text op basis van het ruwe tabelblok-tekst.
+
+    Returnt (meta, canonical_text). De caller schrijft `canonical_text` terug naar
+    het Block.text-veld zodat tabel-formatting consistent is.
+    """
+    cells, index_cells, canonical_text, row_count = _build_table_from_text(text, column_count)
+    header_row: str | None = None
+    if cells:
+        eerste = [c if c is not None else "" for c in cells[0]]
+        if _looks_like_header(eerste):
+            header_row = " | ".join(eerste)
+    return (
+        {
+            "row_count": row_count,
+            "column_count": column_count,
+            "header_row": header_row,
+            "cells": cells,
+            "index_cells": index_cells,
+        },
+        canonical_text,
+    )
