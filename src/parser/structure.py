@@ -752,3 +752,55 @@ def _expand_front_matter_by_page(
                 new_flags[i] = True
     return new_flags
 
+
+# Probleem : tabel-header detectie 
+
+
+_FUNCTIE_WOORDEN = {
+    "de", "het", "een", "die", "deze", "dit", "deze", "voor", "naar",
+    "om", "en", "of", "maar", "want", "als", "dat", "dan", "ook",
+    "the", "a", "an", "of", "for", "to", "and", "or", "but",
+}
+
+
+def _looks_like_header(cells: list[str]) -> bool:
+    if not cells:
+        return False
+    if not all(c.strip() for c in cells):
+        return False
+    # Geen cell met alleen getallen.
+    for c in cells:
+        stripped = re.sub(r"[\s.,]", "", c)
+        if stripped and stripped.isdigit():
+            return False
+    # Alle cellen < 5 woorden.
+    if not all(len(c.split()) < 5 for c in cells):
+        return False
+    # Geen cel mag beginnen met een lowercase letter of typisch functiewoord
+    for c in cells:
+        first_word = c.strip().split()[0] if c.strip() else ""
+        if first_word and first_word[0].islower():
+            return False
+        if first_word.lower() in _FUNCTIE_WOORDEN:
+            return False
+    return True
+
+
+# Onzichtbare karakters die de LLM downstream verwarren.
+_INVISIBLE_CHARS = re.compile(r"[-‍⁠﻿­]")
+
+
+def _normalize_cell(text: str) -> str:
+    """Schoonmaakroutine per tabelcel:
+      - vervangt zero-width / soft-hyphen tekens door niets
+      - vervangt interne newlines en tabs door spaties
+      - collapse meerdere spaties tot één
+      - strip
+    """
+    if not text:
+        return ""
+    cleaned = _INVISIBLE_CHARS.sub("", text)
+    cleaned = re.sub(r"\s+", " ", cleaned)
+    return cleaned.strip()
+
+
