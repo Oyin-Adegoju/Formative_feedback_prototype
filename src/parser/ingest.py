@@ -72,3 +72,32 @@ def extract_tables(page) -> list[list[list[str]]]:
         return []
 
 
+# --- Helpers 
+
+
+def _is_bold(fontname: str | None) -> bool | None:
+    if not fontname:
+        return None
+    return "bold" in fontname.lower()
+
+
+def _group_words_to_lines(
+    words: list[dict],
+    y_tolerantie: float = 3.0,
+) -> list[list[dict]]:
+    """Groepeer woorden naar regels op basis van de y-positie."""
+    if not words:
+        return []
+    sorted_words = sorted(words, key=lambda w: (w["top"], w["x0"]))
+    lines: list[list[dict]] = []
+    current: list[dict] = [sorted_words[0]]
+    for w in sorted_words[1:]:
+        if abs(w["top"] - current[0]["top"]) <= y_tolerantie:
+            current.append(w)
+        else:
+            lines.append(sorted(current, key=lambda x: x["x0"]))
+            current = [w]
+    lines.append(sorted(current, key=lambda x: x["x0"]))
+    return lines
+
+
