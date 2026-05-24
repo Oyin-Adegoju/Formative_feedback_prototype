@@ -45,3 +45,11 @@ class Block:
     is_appendix: bool = False
     table_meta: dict | None = None
 
+
+# --- Patronen -----------------------------------------------------------------
+
+# Headings
+_H_PREFIX = re.compile(r"^\s*H([1-4])\b[\s:.\-]*(.+?)\s*$")
+_NUMBERED_HEADING = re.compile(r"^\s*(\d+(?:\.\d+){0,3})\.?\s+(\S.*?)\s*$")
+_ZIN_EINDE = ".,;:!?"
+
