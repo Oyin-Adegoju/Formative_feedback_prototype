@@ -53,3 +53,10 @@ _H_PREFIX = re.compile(r"^\s*H([1-4])\b[\s:.\-]*(.+?)\s*$")
 _NUMBERED_HEADING = re.compile(r"^\s*(\d+(?:\.\d+){0,3})\.?\s+(\S.*?)\s*$")
 _ZIN_EINDE = ".,;:!?"
 
+# Front-matter / inhoudsopgave
+_TOC_DOTS = re.compile(r"\.{4,}")
+_PAGE_NUMBER_ONLY = re.compile(r"^\s*\d{1,4}\s*$")
+_TOC_KEYWORDS = ("inhoudsopgave", "table of contents", "contents", "inhoud")
+# Regel die eindigt op een paginanummer, eventueel voorafgegaan door dots.
+_TOC_LINE = re.compile(r"(?:\.{3,}\s*|\s+)\d{1,4}\s*$")
+
