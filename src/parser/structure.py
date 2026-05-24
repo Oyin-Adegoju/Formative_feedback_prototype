@@ -301,3 +301,134 @@ def _heading_level(element: RawElement) -> int | None:
     return None
 
 
+def is_front_matter(element: RawElement, page_no: int) -> bool:
+    """Front-matter-detectie zonder doc-context (TOC-titels worden hier
+    niet gechecked; dat doen we in `build_blocks`).
+
+    Vangt: TOC-dots, expliciete keywords, korte regels op p1-p2 met
+    studentnummer/datum/versie/veldlabel, namenlijsten, module-keywords.
+    """
+    text = element.tekst.strip()
+    if not text:
+        return True
+
+    # Verbeterpunt 1 — harde stop: een lopende zin is nooit front_matter,
+    # ook niet op pagina 1-2.
+    if _is_running_sentence(text):
+        return False
+
+    if _TOC_DOTS.search(text):
+        return True
+    if text.lower() in _TOC_KEYWORDS:
+        return True
+
+    if page_no <= 2:
+        woorden = text.split()
+        # Korte regels op p1-p2 die geen lopende zin lijken.
+        kort = len(woorden) < 12
+        eindigt_op_punt = text.endswith(".") and len(woorden) > 3
+
+        if _STUDENTNR.search(text):
+            return True
+        if _DATUM.search(text) and len(woorden) < 8:
+            return True
+        if _VERSIE.search(text) and len(woorden) < 8:
+            return True
+        if _VELDLABEL.match(text):
+            return True
+        if _NAMENLIJST.match(text):
+            return True
+        if _MODULE_OPLEIDING_KW.search(text) and kort:
+            return True
+        # Heel korte regels op de titelpagina als fallback.
+        if kort and not eindigt_op_punt and len(woorden) < 4:
+            return True
+
+    return False
+
+
+def is_noise(element: RawElement) -> bool:
+    """Discard-predicate (paginanummers, eenvoudige decoratie)."""
+    text = element.tekst.strip()
+    if not text:
+        return True
+    if _PAGE_NUMBER_ONLY.match(text):
+        return True
+    if len(text) <= 2 and not text.isalnum():
+        return True
+    return False
+
+
+def is_toc_page(page_elements: list[RawElement]) -> bool:
+    """True als een pagina ≥ 5 regels heeft die eruitzien als TOC-entries.
+
+    TOC-entry = regel die eindigt op (puntjes + ) paginanummer.
+    """
+    if not page_elements:
+        return False
+    matches = 0
+    for el in page_elements:
+        if el.column_count is not None:
+            continue
+        if _TOC_LINE.search(el.tekst.strip()):
+            matches += 1
+            if matches >= 5:
+                return True
+    return matches >= 5
+
+
+def is_template(element: RawElement) -> bool:
+    """Strict template-/placeholder-detectie (probleem 3 + 8 + verbeterpunt 2)."""
+    text = element.tekst.strip()
+    if not text or element.column_count is not None:
+        return False
+
+    # Verbeterpunt 2: minimale lengte — < 3 tekens is geen template
+    # (te kort om als instructie te tellen). Wel mogelijk noise verderop.
+    if len(text) < 3:
+        return False
+
+    # Verbeterpunt 2: bevat het woord "placeholder" (case-insensitive).
+    if "placeholder" in text.lower():
+        return True
+
+    # a) Volledig tussen [ ] of < >
+    if _TEMPLATE_BRACKETS.match(text):
+        return True
+
+    # c) Alleen puntjes / underscores / streepjes (≥ 5 tekens)
+    if _TEMPLATE_ONLY_FILL.match(text):
+        return True
+
+    # Verbeterpunt 2: ALL-CAPS-woorden met dubbele punt, zonder inhoud.
+    if _TEMPLATE_ALLCAPS_COLON.match(text):
+        return True
+
+    #  "Label : ___" / "Label : ..." met alleen filler.
+    if _TEMPLATE_LABEL_FILLER.match(text):
+        return True
+
+    # Expliciete tags (probleem 8)
+    if _TEMPLATE_TAG.match(text):
+        return True
+
+    # b + d) Instructiezinnen met expliciete placeholderwoorden
+    if _TEMPLATE_PHRASES.search(text):
+        return True
+
+    #korte instructie- of placeholderregels herkennen zodat de parser het als template behandelt
+    if _IMPERATIVE_VERBS.match(text):
+        woorden = text.split()
+        if len(woorden) <= 8:
+            rest = " ".join(woorden[1:])
+            second_verb = bool(_VERB_HINTS.search(rest))
+            if not second_verb:
+                return True
+
+    # Korte labelregel zoals TODO:, NB: of Voorbeeld:
+    if _TEMPLATE_LABEL_PREFIX.match(text):
+        if len(text.split()) <= 6:
+            return True
+
+    return False
+
