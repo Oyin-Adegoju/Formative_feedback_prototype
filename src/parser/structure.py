@@ -868,3 +868,31 @@ def _table_meta_from_text(text: str, column_count: int | None) -> tuple[dict, st
         },
         canonical_text,
     )
+
+
+#  Classificatie helpers 
+
+
+def _classify_block_type(
+    element: RawElement,
+    in_appendix: bool,
+    in_front_matter: bool,
+    is_template_flag: bool,
+    is_noise_flag: bool,
+) -> BlockType:
+    text = element.tekst.strip()
+    if is_noise_flag:
+        return "noise"
+    if element.column_count is not None:
+        return "table"
+    if in_front_matter:
+        return "front_matter"
+    if is_template_flag:
+        return "template"
+    if _CAPTION_PREFIX.match(text):
+        return "caption"
+    if _BULLET_PREFIX.match(text):
+        return "bullet"
+    return "paragraph"
+
+
