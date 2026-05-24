@@ -115,3 +115,16 @@ _TEMPLATE_LABEL_PREFIX = re.compile(
 _TEMPLATE_TAG = re.compile(r"^\s*\[(todo|fixme|concept|placeholder)\]\s*$", re.IGNORECASE)
 _TEMPLATE_TRAILING_ELLIPSIS = re.compile(r"\.{3}\s*$")
 
+# Verbeterpunt 2: extra template-signalen.
+# ALL CAPS-woorden met dubbele punt, zonder verdere inhoud: "NAAM:" 
+_TEMPLATE_ALLCAPS_COLON = re.compile(r"^\s*[A-Z]{2,}(\s+[A-Z]{2,})*\s*:\s*$")
+# "Label : ___" of "Label : ..." waarbij na de label alleen filler staat.
+_TEMPLATE_LABEL_FILLER = re.compile(
+    r"^\s*[A-Za-z][A-Za-z\s\-]{0,40}\s*[:=]\s*[\._\-]{3,}\s*$"
+)
+# Imperatief: eerste woord is gebiedende wijs, korte regel zonder vorm-onderwerp.
+_IMPERATIVE_VERBS = re.compile(
+    r"^\s*(beschrijf|vul|geef|voeg|noteer|vermeld|plaats|zet|schrijf|maak|bedenk)\b",
+    re.IGNORECASE,
+)
+
