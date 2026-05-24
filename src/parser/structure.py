@@ -1156,4 +1156,13 @@ def _duplicate_heading_pass(blocks: list[Block]) -> list[Block]:
     return blocks
 
 
+# Pipeline-filter 
+
+
+_NIET_VOOR_PIPELINE = {"noise", "template", "front_matter"}
+
+
+def pipeline_blocks(blocks: list[Block]) -> list[Block]:
+    """Blokken die naar de anonymizer / LLM-router mogen."""
+    return [b for b in blocks if b.block_type not in _NIET_VOOR_PIPELINE]
 
