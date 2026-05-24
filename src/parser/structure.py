@@ -965,4 +965,73 @@ def build_blocks(raw_elements: list[RawElement], doc_id: str) -> list[Block]:
     # 6. Template-flags (na fm, omdat fm wint).
     template_flags = [is_template(el) for el in schoon]
 
+    # 7. Tabel-rijen samenvoegen met behoud van flags.
+    samengevoegd: list[RawElement] = []
+    sm_fm: list[bool] = []
+    sm_tpl: list[bool] = []
+    sm_noise: list[bool] = []
+    sm_toc: list[bool] = []
+    huidige: list[int] = []
+
+    def _flush() -> None:
+        if not huidige:
+            return
+        if len(huidige) == 1:
+            i = huidige[0]
+            samengevoegd.append(schoon[i])
+            sm_fm.append(fm_flags[i])
+            sm_tpl.append(template_flags[i])
+            sm_noise.append(i in noise_indices)
+            sm_toc.append(schoon[i].pagina in toc_pages)
+        else:
+            groep_els = [schoon[i] for i in huidige]
+            tekst = "\n".join(e.tekst for e in groep_els)
+            first = groep_els[0]
+            last = groep_els[-1]
+            samengevoegd.append(
+                RawElement(
+                    tekst=tekst,
+                    pagina=first.pagina,
+                    x0=min(e.x0 for e in groep_els),
+                    y0=first.y0,
+                    x1=max(e.x1 for e in groep_els),
+                    y1=last.y1,
+                    lettergrootte=None,
+                    vet=None,
+                    column_count=first.column_count,
+                )
+            )
+            sm_fm.append(fm_flags[huidige[0]])
+            sm_tpl.append(template_flags[huidige[0]])
+            sm_noise.append(huidige[0] in noise_indices)
+            sm_toc.append(first.pagina in toc_pages)
+        huidige.clear()
+
+    for i, el in enumerate(schoon):
+        if el.column_count is None:
+            _flush()
+            samengevoegd.append(el)
+            sm_fm.append(fm_flags[i])
+            sm_tpl.append(template_flags[i])
+            sm_noise.append(i in noise_indices)
+            sm_toc.append(el.pagina in toc_pages)
+            continue
+        if not huidige:
+            huidige.append(i)
+            continue
+        vorige_i = huidige[-1]
+        vorige_el = schoon[vorige_i]
+        rijhoogte = max(1.0, vorige_el.y1 - vorige_el.y0)
+        gap = el.y0 - vorige_el.y1
+        if (
+            vorige_el.pagina == el.pagina
+            and vorige_el.column_count == el.column_count
+            and gap < 1.8 * rijhoogte
+        ):
+            huidige.append(i)
+        else:
+            _flush()
+            huidige.append(i)
+    _flush()
+
     
