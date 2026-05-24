@@ -611,3 +611,73 @@ def _merge_candidate_lines(
         i = j
     return merged
 
+#  Probleem : herhalende header/footer-noise 
+
+def _normalize_for_compare(text: str) -> str:
+    s = re.sub(r"\d+", "", text)
+    return re.sub(r"\s+", " ", s).strip().lower()
+
+
+def _detect_repeated_noise(
+    elements: list[RawElement],
+    band: float = 0.07,
+    edit_distance_threshold: float = 0.8,
+    minimaal_andere_paginas: int = 2,
+) -> set[int]:
+    """Mark elementen als noise wanneer ze in een header/footer-positie
+    staan én op ≥ 2 andere pagina's met vergelijkbare tekst voorkomen
+    (probleem 1)."""
+    if not elements:
+        return set()
+
+    per_pagina: dict[int, list[tuple[int, RawElement]]] = defaultdict(list)
+    for i, el in enumerate(elements):
+        if el.column_count is not None:
+            continue
+        per_pagina[el.pagina].append((i, el))
+
+    if len(per_pagina) < 3:
+        return set()
+
+    page_heights: dict[int, float] = {
+        p: max(el.y1 for _, el in els) for p, els in per_pagina.items()
+    }
+
+    candidates_per_page: dict[int, list[tuple[int, RawElement]]] = {}
+    for p, els in per_pagina.items():
+        h = page_heights[p]
+        top_grens = h * band
+        bot_grens = h * (1 - band)
+        candidates_per_page[p] = [
+            (i, el) for i, el in els
+            if el.y1 <= top_grens or el.y0 >= bot_grens
+        ]
+
+    noise: set[int] = set()
+    pagina_lijst = sorted(per_pagina.keys())
+
+    for p in pagina_lijst:
+        for cand_i, cand_el in candidates_per_page.get(p, []):
+            cand_norm = _normalize_for_compare(cand_el.tekst)
+            if not cand_norm:
+                continue
+            other_matches = 0
+            for other_p in pagina_lijst:
+                if other_p == p:
+                    continue
+                gevonden = False
+                for _, other_el in candidates_per_page.get(other_p, []):
+                    other_norm = _normalize_for_compare(other_el.tekst)
+                    if not other_norm:
+                        continue
+                    if SequenceMatcher(None, cand_norm, other_norm).ratio() >= edit_distance_threshold:
+                        gevonden = True
+                        break
+                if gevonden:
+                    other_matches += 1
+                    if other_matches >= minimaal_andere_paginas:
+                        break
+            if other_matches >= minimaal_andere_paginas:
+                noise.add(cand_i)
+    return noise
+
