@@ -964,7 +964,7 @@ def build_blocks(raw_elements: list[RawElement], doc_id: str) -> list[Block]:
 
     # 6. Template-flags (na fm, omdat fm wint).
     template_flags = [is_template(el) for el in schoon]
-
+    
     # 7. Tabel-rijen samenvoegen met behoud van flags.
     samengevoegd: list[RawElement] = []
     sm_fm: list[bool] = []
@@ -1034,4 +1034,94 @@ def build_blocks(raw_elements: list[RawElement], doc_id: str) -> list[Block]:
             huidige.append(i)
     _flush()
 
-    
+    # 8. Classificeren + heading_path opbouwen.
+    blocks: list[Block] = []
+    stack = _LevelStack()
+    in_appendix = False
+    counter = 0
+
+    for el, fm, tpl, noise_flag, on_toc in zip(
+        samengevoegd, sm_fm, sm_tpl, sm_noise, sm_toc
+    ):
+        counter += 1
+        block_id = f"{doc_id}_{counter:04d}"
+        text = el.tekst.strip()
+
+     # Alleen body-elementen mogen als heading worden geclassificeerd.
+     # Front matter, TOC, noise en templates sluiten we uit om valse koppen te voorkomen.
+        kan_heading = (
+            not fm
+            and not on_toc
+            and not noise_flag
+            and not tpl
+            and _is_heading_in_ctx(el, page_avg.get(el.pagina), toc_titles)
+        )
+
+        if kan_heading:
+            level = _heading_level(el)
+            heading_path = stack.push(level, text)
+            if _APPENDIX_RE.match(text):
+                in_appendix = True
+            blocks.append(
+                Block(
+                    doc_id=doc_id,
+                    block_id=block_id,
+                    page_no=el.pagina,
+                    block_type="heading",
+                    heading_path=heading_path,
+                    text=text,
+                    token_estimate=_estimate_tokens(text),
+                    is_front_matter=fm,
+                    is_appendix=in_appendix,
+                    table_meta=None,
+                )
+            )
+            continue
+
+        block_type = _classify_block_type(
+            el,
+            in_appendix=in_appendix,
+            in_front_matter=fm or on_toc,
+            is_template_flag=tpl,
+            is_noise_flag=noise_flag,
+        )
+
+        table_meta: dict | None = None
+        block_text = text
+        if block_type == "table":
+            table_meta, canonical = _table_meta_from_text(el.tekst, el.column_count)
+            block_text = canonical or text
+
+        # Probleem : heading_path-guard. Front_matter / TOC / noise / template
+        # krijgen ALTIJD een lege heading_path.
+        if block_type in {"front_matter", "noise", "template"} or on_toc:
+            heading_path = []
+        else:
+            heading_path = list(stack.path())
+
+        blocks.append(
+            Block(
+                doc_id=doc_id,
+                block_id=block_id,
+                page_no=el.pagina,
+                block_type=block_type,
+                heading_path=heading_path,
+                text=block_text,
+                token_estimate=_estimate_tokens(block_text),
+                is_front_matter=fm or on_toc,
+                is_appendix=in_appendix,
+                table_meta=table_meta,
+            )
+        )
+
+    # Zet onafgemaakte placeholderregels met "..." om naar template.
+    for b in blocks:
+        if b.block_type == "paragraph" and _TEMPLATE_TRAILING_ELLIPSIS.search(b.text):
+            b.block_type = "template"
+
+    # Corrigeer dubbele opeenvolgende headings in de block-output.
+    blocks = _duplicate_heading_pass(blocks)
+
+    return blocks
+
+
