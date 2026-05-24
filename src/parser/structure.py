@@ -491,3 +491,35 @@ def merge_table_rows(elements: list[RawElement]) -> list[RawElement]:
     _flush()
     return result
 
+# Heading-path 
+
+
+def build_heading_path(
+    active_headings: list[str],
+    new_heading: str,
+    level: int,
+) -> list[str]:
+    """Pure helper: truncate naar level-1, push new_heading."""
+    new_path = active_headings[: max(0, level - 1)]
+    new_path.append(new_heading)
+    return new_path
+
+
+class _LevelStack:
+    """Expliciete (level, tekst)-stack voor heading_path (probleem 4)."""
+
+    def __init__(self) -> None:
+        self._entries: list[tuple[int, str]] = []
+
+    def push(self, level: int | None, text: str) -> list[str]:
+        if level is None:
+            level = self._entries[-1][0] if self._entries else 1
+        while self._entries and self._entries[-1][0] >= level:
+            self._entries.pop()
+        self._entries.append((level, text))
+        return self.path()
+
+    def path(self) -> list[str]:
+        return [t for _, t in self._entries]
+
+
