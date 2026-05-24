@@ -681,3 +681,74 @@ def _detect_repeated_noise(
                 noise.add(cand_i)
     return noise
 
+
+#  Probleem : pagina-niveau front_matter (50% rule) 
+
+
+def _detect_body_pages(
+    elements: list[RawElement],
+    toc_titles: list[str],
+) -> set[int]:
+    """Verbeterpunt 1: een pagina is een body-pagina als er een element op
+    staat dat (fuzzy) matcht met een TOC-entry. Op zulke pagina's mag de
+    pagina-drempel-uitbreiding geen extra front_matter labelen."""
+    body: set[int] = set()
+    if not toc_titles:
+        return body
+    for el in elements:
+        if el.column_count is not None:
+            continue
+        text = el.tekst.strip()
+        if not text:
+            continue
+        if _is_in_toc(text, toc_titles, threshold=0.85):
+            body.add(el.pagina)
+    return body
+
+
+def _expand_front_matter_by_page(
+    elements: list[RawElement],
+    fm_flags: list[bool],
+    toc_pages: set[int] | None = None,
+    body_pages: set[int] | None = None,
+    drempel: float = 0.5,
+    korte_regel_woorden: int = 12,
+    max_paginas: int = 2,
+) -> list[bool]:
+    """Verbeterpunt 1: uitbreiden mag op pagina 1-2 met guards.
+
+    - Skip TOC-pagina's (die zijn al volledig fm via een ander pad).
+    - Skip body-pages (echte content; niet platslaan).
+    - Lopende zinnen worden in elk geval niet bijgelabeld.
+    """
+    if not elements:
+        return fm_flags
+    toc_pages = toc_pages or set()
+    body_pages = body_pages or set()
+
+    per_pagina: dict[int, list[int]] = defaultdict(list)
+    for i, el in enumerate(elements):
+        per_pagina[el.pagina].append(i)
+
+    new_flags = list(fm_flags)
+    for p, idxs in per_pagina.items():
+        if p > max_paginas:
+            continue
+        if p in toc_pages or p in body_pages:
+            continue
+        if not idxs:
+            continue
+        fm_count = sum(1 for i in idxs if new_flags[i])
+        if fm_count / len(idxs) <= drempel:
+            continue
+        for i in idxs:
+            if new_flags[i]:
+                continue
+            tekst = elements[i].tekst.strip()
+            if _is_running_sentence(tekst):
+                continue
+            woorden = tekst.split()
+            if len(woorden) < korte_regel_woorden:
+                new_flags[i] = True
+    return new_flags
+
