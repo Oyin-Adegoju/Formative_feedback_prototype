@@ -1124,4 +1124,36 @@ def build_blocks(raw_elements: list[RawElement], doc_id: str) -> list[Block]:
 
     return blocks
 
+#  Verbeterpunt : heading-consistency post-pass 
+
+
+def _duplicate_heading_pass(blocks: list[Block]) -> list[Block]:
+    """Twee opeenvolgende identieke headings: de tweede wordt paragraph.
+
+    Identiek = exact dezelfde text. Front_matter/noise/template-blokken
+    tussen de twee worden genegeerd (die zijn niet 'inhoudelijk'). Andere
+    inhoudelijke blokken (paragraph, bullet, table, caption) breken de
+    aaneenschakeling, zodat dezelfde sectienaam later in het document niet
+    automatisch wordt gedemoteerd.
+    """
+    prev_heading_idx: int | None = None
+    for i, b in enumerate(blocks):
+        if b.block_type in ("front_matter", "noise", "template"):
+            continue
+        if b.block_type == "heading":
+            if (
+                prev_heading_idx is not None
+                and blocks[prev_heading_idx].text == b.text
+            ):
+                b.block_type = "paragraph"
+                # heading_path mag de eerste heading blijven referencen — die
+                # is nog steeds de geldige sectie-context.
+            else:
+                prev_heading_idx = i
+        else:
+            # Inhoudelijk blok tussen twee headings → reset de keten.
+            prev_heading_idx = None
+    return blocks
+
+
 
