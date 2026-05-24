@@ -76,3 +76,14 @@ def detect_layout_issues(blocks: list["Block"]) -> list[str]:
     return warnings
 
 
+# Hash 
+
+
+def hash_document(pad: str) -> str:
+    """SHA-256 van de PDF-bytes (volledig hex). Stabiele doc_id-bron."""
+    h = hashlib.sha256()
+    with open(pad, "rb") as f:
+        for chunk in iter(lambda: f.read(65536), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
