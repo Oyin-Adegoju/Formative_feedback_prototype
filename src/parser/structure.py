@@ -129,7 +129,6 @@ _IMPERATIVE_VERBS = re.compile(
 )
 
 # Verbeterpunt 1: werkwoord-hint voor de "lopende-zin"-detectie.
-# Niet exhaustief maar dekt de meeste hulpwerkwoorden + veelvoorkomende stamvormen.
 _VERB_HINTS = re.compile(
     r"\b("
     r"is|zijn|ben|bent|was|waren|wordt|werd|worden|"
@@ -161,5 +160,88 @@ def _is_running_sentence(text: str) -> bool:
     if len(woorden) <= 10:
         return False
     return bool(_VERB_HINTS.search(text))
+
+# Classificatie
+
+
+def is_heading(element: RawElement) -> bool:
+    """Heading-detectie zonder document-context.
+
+    Wordt door tests en losse calls gebruikt. In `build_blocks` gebruiken we
+    `_is_heading_in_ctx` met paginagemiddeldes en TOC-titels voor de
+    strikte numbered-heading-check (probleem 5).
+    """
+    text = element.tekst.strip()
+    if not text or element.column_count is not None:
+        return False
+
+    if _H_PREFIX.match(text):
+        return True
+
+    m = _NUMBERED_HEADING.match(text)
+    if m:
+        return _passes_numbered_heading(element, m, page_avg=None, in_toc=False)
+
+    if element.lettergrootte is not None and len(text) <= 80:
+        if element.lettergrootte >= 14:
+            return True
+        if element.lettergrootte >= 12 and element.vet:
+            return True
+
+    woorden = text.split()
+    if (
+        text.isupper()
+        and 2 <= len(woorden) <= 8
+        and len(text) <= 60
+        and text[-1] not in _ZIN_EINDE
+    ):
+        return True
+
+    return False
+
+
+def _passes_numbered_heading(
+    element: RawElement,
+    match: re.Match,
+    page_avg: float | None,
+    in_toc: bool,
+) -> bool:
+    """Strikte test voor genummerde regels als heading (probleem 5)."""
+    text = element.tekst.strip()
+    number = match.group(1)
+    woorden = text.split()
+
+    # Hard exclusies.
+    if text[-1] in ".,;":
+        return False
+    if len(woorden) < 2 and not in_toc:
+        return False
+
+    # Hiërarchische nummers ("1.1", "1.1.1") gedragen zich vrijwel altijd
+    # als heading — die mogen door op alleen de hard-excludes.
+    if number.count(".") >= 1:
+        return True
+
+    # Single-level genummerd ("1. Foo"): TOC-match is voldoende.
+    if in_toc:
+        return True
+
+    # Zonder TOC-match: lettergrootte boven paginagemiddelde is noodzakelijk
+    # (anders is het in de praktijk een vetgedrukt lijstitem-label, geen kop).
+    font_larger = (
+        page_avg is not None
+        and element.lettergrootte is not None
+        and element.lettergrootte > page_avg + 0.5
+    )
+    if not font_larger:
+        return False
+
+    # En minimaal één ondersteunende eigenschap (vet of geen zinseinde).
+    extras = 0
+    if element.vet:
+        extras += 1
+    if text[-1] not in _ZIN_EINDE:
+        extras += 1
+    return extras >= 1
 
 
