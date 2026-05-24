@@ -50,3 +50,29 @@ def estimate_text_quality(blocks: list["Block"]) -> float:
     return round((leeg_ratio + lengte_score + heading_score) / 3.0, 3)
 
 
+def detect_layout_issues(blocks: list["Block"]) -> list[str]:
+    """Geef warnings over verdachte parse-output."""
+    warnings: list[str] = []
+    if not blocks:
+        warnings.append("geen blokken geëxtraheerd (mogelijk gescande PDF)")
+        return warnings
+
+    headings = sum(1 for b in blocks if b.block_type == "heading")
+    if headings == 0:
+        warnings.append("0 headings gevonden")
+
+    tabel_blokken = sum(1 for b in blocks if b.block_type == "table")
+    if len(blocks) and tabel_blokken / len(blocks) > 0.8:
+        warnings.append("meer dan 80% van de blokken is een tabel — verdachte detectie")
+
+    paragraphs = sum(1 for b in blocks if b.block_type == "paragraph")
+    if paragraphs == 0 and len(blocks) > 5:
+        warnings.append("geen paragrafen — mogelijk gescande PDF of zware layout")
+
+    avg_len = mean(len(b.text) for b in blocks) if blocks else 0
+    if avg_len < 15:
+        warnings.append("gemiddelde tekstlengte erg kort — extractie wellicht onvolledig")
+
+    return warnings
+
+
