@@ -101,3 +101,53 @@ def _group_words_to_lines(
     return lines
 
 
+def _word_in_bbox(
+    w: dict,
+    bbox: tuple[float, float, float, float],
+    tolerance: float = 5.0,
+) -> bool:
+    """True als het centrum van het woord binnen `bbox` (met marge) valt.
+
+    De marge voorkomt dat tekst direct grenzend aan een tabelrand dubbel als
+    paragraph én table-rij in de output verschijnt.
+    """
+    x0, top, x1, bottom = bbox
+    cx = (w.get("x0", 0) + w.get("x1", 0)) / 2
+    cy = (w.get("top", 0) + w.get("bottom", 0)) / 2
+    return (
+        (x0 - tolerance) <= cx <= (x1 + tolerance)
+        and (top - tolerance) <= cy <= (bottom + tolerance)
+    )
+
+
+def _line_to_raw_element(line_words: list[dict], page_number: int) -> RawElement | None:
+    text = " ".join(w["text"] for w in line_words).strip()
+    if not text:
+        return None
+    x0 = min(w["x0"] for w in line_words)
+    x1 = max(w["x1"] for w in line_words)
+    y0 = min(w["top"] for w in line_words)
+    y1 = max(w["bottom"] for w in line_words)
+
+    sizes = [w.get("size") for w in line_words if w.get("size") is not None]
+    lettergrootte = median(sizes) if sizes else None
+
+    fontnames = [w.get("fontname") for w in line_words if w.get("fontname")]
+    if fontnames:
+        bold_hits = sum(1 for fn in fontnames if "bold" in fn.lower())
+        vet = bold_hits >= max(1, len(fontnames) // 2)
+    else:
+        vet = None
+
+    return RawElement(
+        tekst=text,
+        pagina=page_number,
+        x0=float(x0),
+        y0=float(y0),
+        x1=float(x1),
+        y1=float(y1),
+        lettergrootte=lettergrootte,
+        vet=vet,
+    )
+
+
