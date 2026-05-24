@@ -217,8 +217,8 @@ def _passes_numbered_heading(
     if len(woorden) < 2 and not in_toc:
         return False
 
-    # Hiërarchische nummers ("1.1", "1.1.1") gedragen zich vrijwel altijd
-    # als heading — die mogen door op alleen de hard-excludes.
+ # Hiërarchische nummering zoals "1.1" of "1.1.1" is meestal een sectiekop,
+ # daarom accepteren we die direct tenzij een hard-exclude geldt.
     if number.count(".") >= 1:
         return True
 
@@ -227,7 +227,6 @@ def _passes_numbered_heading(
         return True
 
     # Zonder TOC-match: lettergrootte boven paginagemiddelde is noodzakelijk
-    # (anders is het in de praktijk een vetgedrukt lijstitem-label, geen kop).
     font_larger = (
         page_avg is not None
         and element.lettergrootte is not None
@@ -243,5 +242,62 @@ def _passes_numbered_heading(
     if text[-1] not in _ZIN_EINDE:
         extras += 1
     return extras >= 1
+
+def _is_heading_in_ctx(
+    element: RawElement,
+    page_avg: float | None,
+    toc_titles: list[str],
+) -> bool:
+    """Heading-detectie met document-context (paginagemiddelde, TOC-titels)."""
+    text = element.tekst.strip()
+    if not text or element.column_count is not None:
+        return False
+
+    if _H_PREFIX.match(text):
+        return True
+
+    in_toc = _is_in_toc(text, toc_titles)
+
+    m = _NUMBERED_HEADING.match(text)
+    if m:
+        return _passes_numbered_heading(element, m, page_avg, in_toc)
+
+    # Font-gebaseerd voor niet-numbered: lettergrootte boven gemiddelde.
+    if element.lettergrootte is not None and len(text) <= 80:
+        if page_avg is not None and element.lettergrootte > page_avg + 1.5:
+            return True
+        if element.lettergrootte >= 14:
+            return True
+        if element.lettergrootte >= 12 and element.vet:
+            return True
+
+    woorden = text.split()
+    if (
+        text.isupper()
+        and 2 <= len(woorden) <= 8
+        and len(text) <= 60
+        and text[-1] not in _ZIN_EINDE
+    ):
+        return True
+
+    return in_toc and len(woorden) >= 2
+
+
+def _heading_level(element: RawElement) -> int | None:
+    text = element.tekst.strip()
+    m = _H_PREFIX.match(text)
+    if m:
+        return int(m.group(1))
+    m = _NUMBERED_HEADING.match(text)
+    if m:
+        return min(4, m.group(1).count(".") + 1)
+    if element.lettergrootte is not None:
+        if element.lettergrootte >= 18:
+            return 1
+        if element.lettergrootte >= 15:
+            return 2
+        if element.lettergrootte >= 13:
+            return 3
+    return None
 
 
