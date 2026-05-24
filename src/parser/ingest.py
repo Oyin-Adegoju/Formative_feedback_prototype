@@ -252,3 +252,57 @@ def _table_rows_to_raw_elements(
     return elements
 
 
+# --- Hoofdfunctie 
+
+
+def extract_raw_elements(pad: str) -> list[RawElement]:
+    """Lees een PDF in en lever een platte lijst van RawElements op.
+
+    Volgorde per pagina:
+      1. Tabellen vinden + bboxes verzamelen.
+      2. Words extraheren, woorden in tabel-bbox uitfilteren.
+      3. Overige woorden groeperen naar regels → RawElement per regel.
+      4. Tabellen toevoegen: één RawElement per rij (met column_count).
+    """
+    elements: list[RawElement] = []
+    p = Path(pad)
+    if not p.exists():
+        raise FileNotFoundError(f"PDF niet gevonden: {pad}")
+
+    with open_pdf(str(p)) as pdf:
+        for i, page in enumerate(pdf.pages, start=1):
+            # Tabellen detecteren via find_tables (geeft bbox + extract).
+            try:
+                tables = page.find_tables(table_settings=_TABLE_SETTINGS)
+            except Exception:
+                tables = []
+            # Twee sanity-checks: (1) tabellen die > 85% van de pagina bedekken
+            # zijn vrijwel zeker false positives, (2) styled tekstboxen die als
+            # tabel gedetecteerd worden, weren via _is_real_table.
+            page_area = max(1.0, float(page.width) * float(page.height))
+            tables = [
+                t for t in tables
+                if ((t.bbox[2] - t.bbox[0]) * (t.bbox[3] - t.bbox[1])) / page_area < 0.85
+                and _is_real_table(t)
+            ]
+            table_bboxes = [t.bbox for t in tables]
+
+            # Woorden ophalen en woorden binnen tabel-regio's uitsluiten.
+            words = extract_words(page)
+            if table_bboxes:
+                words = [
+                    w for w in words
+                    if not any(_word_in_bbox(w, b) for b in table_bboxes)
+                ]
+
+            # Regels opbouwen uit overige woorden.
+            for line_words in _group_words_to_lines(words):
+                el = _line_to_raw_element(line_words, page_number=i)
+                if el is not None:
+                    elements.append(el)
+
+            # Tabellen omzetten naar rij-RawElements.
+            for table in tables:
+                elements.extend(_table_rows_to_raw_elements(table, page_number=i))
+
+    return elements
