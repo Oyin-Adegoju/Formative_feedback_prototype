@@ -560,3 +560,54 @@ def _estimate_tokens(text: str) -> int:
         return 0
     return max(1, len(text) // 4)
 
+
+#  kandidaatregels samenvoegen 
+
+
+def _merge_candidate_lines(
+    elements: list[RawElement],
+    y_tol: float = 2.0,
+) -> list[RawElement]:
+    if not elements:
+        return []
+
+    merged: list[RawElement] = []
+    i = 0
+    while i < len(elements):
+        cur = elements[i]
+        if cur.column_count is not None:
+            merged.append(cur)
+            i += 1
+            continue
+        groep = [cur]
+        j = i + 1
+        while j < len(elements):
+            other = elements[j]
+            if other.pagina != cur.pagina or other.column_count is not None:
+                break
+            if abs(other.y0 - cur.y0) > y_tol:
+                break
+            groep.append(other)
+            j += 1
+        if len(groep) == 1:
+            merged.append(cur)
+        else:
+            ordered = sorted(groep, key=lambda e: e.x0)
+            text = " ".join(e.tekst for e in ordered)
+            sizes = [e.lettergrootte for e in ordered if e.lettergrootte is not None]
+            vetten = [e.vet for e in ordered if e.vet is not None]
+            merged.append(
+                RawElement(
+                    tekst=text,
+                    pagina=cur.pagina,
+                    x0=min(e.x0 for e in ordered),
+                    y0=min(e.y0 for e in ordered),
+                    x1=max(e.x1 for e in ordered),
+                    y1=max(e.y1 for e in ordered),
+                    lettergrootte=(sum(sizes) / len(sizes)) if sizes else None,
+                    vet=any(vetten) if vetten else None,
+                )
+            )
+        i = j
+    return merged
+
