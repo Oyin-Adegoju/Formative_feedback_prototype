@@ -128,3 +128,38 @@ _IMPERATIVE_VERBS = re.compile(
     re.IGNORECASE,
 )
 
+# Verbeterpunt 1: werkwoord-hint voor de "lopende-zin"-detectie.
+# Niet exhaustief maar dekt de meeste hulpwerkwoorden + veelvoorkomende stamvormen.
+_VERB_HINTS = re.compile(
+    r"\b("
+    r"is|zijn|ben|bent|was|waren|wordt|werd|worden|"
+    r"heb|hebt|heeft|hebben|had|hadden|"
+    r"kan|kun|kunt|kunnen|kon|konden|"
+    r"moet|moeten|moest|moesten|"
+    r"mag|mogen|mocht|mochten|"
+    r"zal|zullen|zou|zouden|"
+    r"wil|willen|wilde|wilden|wou|"
+    r"doe|doet|doen|deed|deden|"
+    r"ga|gaat|gaan|ging|gingen|"
+    r"komt|kom|komen|kwam|kwamen|"
+    r"maakt|maak|maken|maakte|maakten|"
+    r"streeft|streven|"
+    r"bevat|bevatten|"
+    r"are|is|was|were|be|been|being|"
+    r"have|has|had|having|"
+    r"do|does|did|done|"
+    r"will|would|shall|should|"
+    r"can|could|may|might|must"
+    r")\b",
+    re.IGNORECASE,
+)
+
+
+def _is_running_sentence(text: str) -> bool:
+    """Een lopende zin: > 10 woorden EN bevat een werkwoord-hint."""
+    woorden = text.split()
+    if len(woorden) <= 10:
+        return False
+    return bool(_VERB_HINTS.search(text))
+
+
