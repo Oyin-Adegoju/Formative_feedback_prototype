@@ -92,3 +92,26 @@ _CAPTION_PREFIX = re.compile(
 # Appendix-trigger
 _APPENDIX_RE = re.compile(r"^\s*(bijlage|appendix)\b", flags=re.IGNORECASE)
 
+# Template-patronen (probleem 3 + 8): strikt
+_TEMPLATE_BRACKETS = re.compile(r"^\s*[\[<].*[\]>]\s*$")
+_TEMPLATE_ONLY_FILL = re.compile(r"^\s*[\._\-]{5,}\s*$")
+_TEMPLATE_PHRASES = re.compile(
+    r"("
+    r"vul\s+(hier\s+)?in|"
+    r"beschrijf\s+hier|"
+    r"geef\s+hier\s+aan|"
+    r"voeg\s+hier\s+toe|"
+    r"noteer\s+hier|"
+    r"vermeld\s+hier|"
+    r"hier\s+komt|"
+    r"dit\s+is\s+een\s+voorbeeld"
+    r")",
+    re.IGNORECASE,
+)
+_TEMPLATE_LABEL_PREFIX = re.compile(
+    r"^\s*(voorbeeld|toelichting|opmerking|nb|todo|fixme|bijv|e\.g)\s*[:.\-]",
+    re.IGNORECASE,
+)
+_TEMPLATE_TAG = re.compile(r"^\s*\[(todo|fixme|concept|placeholder)\]\s*$", re.IGNORECASE)
+_TEMPLATE_TRAILING_ELLIPSIS = re.compile(r"\.{3}\s*$")
+
