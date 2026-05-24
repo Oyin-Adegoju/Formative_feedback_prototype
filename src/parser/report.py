@@ -87,3 +87,33 @@ def hash_document(pad: str) -> str:
             h.update(chunk)
     return h.hexdigest()
 
+
+#  Generatie en opslag 
+
+
+def generate_report(blocks: list["Block"], pad: str, doc_id: str) -> dict:
+    """Bouw een parse_report-dict voor één document.
+
+    Bevat metadata, telling per type, kwaliteitsindicator, waarschuwingen
+    én de geserialiseerde blokken zelf. Niets wordt weggegooid.
+    """
+    p = Path(pad)
+    return {
+        "doc_id": doc_id,
+        "source_path": str(p),
+        "source_name": p.name,
+        "page_count": max((b.page_no for b in blocks), default=0),
+        "block_count": len(blocks),
+        "counts_by_type": count_by_type(blocks),
+        "text_quality": estimate_text_quality(blocks),
+        "warnings": detect_layout_issues(blocks),
+        "blocks": [asdict(b) for b in blocks],
+    }
+
+
+def save_report(report: dict, output_pad: str) -> None:
+    """Schrijf het rapport als JSON naar output_pad (mappen worden aangemaakt)."""
+    out = Path(output_pad)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with out.open("w", encoding="utf-8") as f:
+        json.dump(report, f, ensure_ascii=False, indent=2)
