@@ -57,11 +57,11 @@ _ZIN_EINDE = ".,;:!?"
 _TOC_DOTS = re.compile(r"\.{4,}")
 _PAGE_NUMBER_ONLY = re.compile(r"^\s*\d{1,4}\s*$")
 _TOC_KEYWORDS = ("inhoudsopgave", "table of contents", "contents", "inhoud")
-# Regel die eindigt op een paginanummer, eventueel voorafgegaan door dots.
+# Regel die eindigt op een paginanummer
 _TOC_LINE = re.compile(r"(?:\.{3,}\s*|\s+)\d{1,4}\s*$")
 
 # Extra front-matter signalen (probleem 2)
-_STUDENTNR = re.compile(r"\b[sS]?\d{7}\b")  # s1234567 of 1234567
+_STUDENTNR = re.compile(r"\b[sS]?\d{7}\b") 
 _DATUM = re.compile(r"\b\d{1,2}[-/\.]\d{1,2}[-/\.]\d{2,4}\b")
 _VERSIE = re.compile(r"\b(v\d+(?:\.\d+)?|versie\s+\d+)\b", re.IGNORECASE)
 _VELDLABEL = re.compile(
@@ -77,4 +77,18 @@ _NAMENLIJST = re.compile(
     r"^\s*([A-Z][a-zÀ-ÿ\-']+(\s+[A-Z][a-zÀ-ÿ\-']+){0,3})"
     r"(\s*,\s*[A-Z][a-zÀ-ÿ\-']+(\s+[A-Z][a-zÀ-ÿ\-']+){0,3}){1,}\s*$"
 )
+
+# Bullets
+_BULLET_PREFIX = re.compile(
+    r"^\s*([•○●■□▪◦·\-\*–—]|[a-zA-Z]\)|\d+\))\s+\S"
+)
+
+# Captions
+_CAPTION_PREFIX = re.compile(
+    r"^\s*(figuur|figure|afbeelding|tabel|table)\s+\d+\b",
+    flags=re.IGNORECASE,
+)
+
+# Appendix-trigger
+_APPENDIX_RE = re.compile(r"^\s*(bijlage|appendix)\b", flags=re.IGNORECASE)
 
