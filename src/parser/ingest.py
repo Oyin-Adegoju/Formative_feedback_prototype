@@ -180,3 +180,75 @@ def _is_real_table(table) -> bool:
     return True
 
 
+def _format_cell(cell: str | None) -> str:
+    """Maak één cel single-line en collapse whitespace.
+
+    Cell-internal linebreaks zouden anders niet te onderscheiden zijn van
+    de row-separator `\\n` die we later in structure.py gebruiken.
+    """
+    if not cell:
+        return ""
+    return re.sub(r"\s+", " ", cell).strip()
+
+
+def _drop_empty_columns(rows: list[list[str]]) -> list[list[str]]:
+    """Verwijder kolommen waar elke rij leeg is."""
+    if not rows:
+        return rows
+    max_cols = max(len(r) for r in rows)
+    padded = [r + [""] * (max_cols - len(r)) for r in rows]
+    keep = [
+        i for i in range(max_cols)
+        if any(row[i].strip() for row in padded)
+    ]
+    return [[row[i] for i in keep] for row in padded]
+
+
+def _table_rows_to_raw_elements(
+    table,
+    page_number: int,
+) -> list[RawElement]:
+    """Zet een pdfplumber-Table om naar één RawElement per rij.
+
+    Voert tegelijk drie schoonmaakstappen uit:
+      - cell-internal whitespace collapsen (geen `\\n` meer binnen één cel)
+      - lege rijen overslaan
+      - kolommen waar elke rij leeg is verwijderen
+    """
+    try:
+        raw_rows = table.extract() or []
+    except Exception:
+        return []
+    if not raw_rows:
+        return []
+
+    cleaned = [[_format_cell(c) for c in row] for row in raw_rows]
+    cleaned = _drop_empty_columns(cleaned)
+
+    x0, top, x1, bottom = table.bbox
+    n_rijen = max(1, len(cleaned))
+    rij_hoogte = (bottom - top) / n_rijen
+    elements: list[RawElement] = []
+    for i, row in enumerate(cleaned):
+        non_empty = [c for c in row if c]
+        if not non_empty:
+            continue
+        text = " | ".join(non_empty)
+        y_top = top + i * rij_hoogte
+        y_bot = y_top + rij_hoogte
+        elements.append(
+            RawElement(
+                tekst=text,
+                pagina=page_number,
+                x0=float(x0),
+                y0=float(y_top),
+                x1=float(x1),
+                y1=float(y_bot),
+                lettergrootte=None,
+                vet=None,
+                column_count=len(row),
+            )
+        )
+    return elements
+
+
