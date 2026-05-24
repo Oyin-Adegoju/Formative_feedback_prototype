@@ -432,3 +432,62 @@ def is_template(element: RawElement) -> bool:
 
     return False
 
+# Tabellen samenvoegen 
+
+
+def merge_table_rows(elements: list[RawElement]) -> list[RawElement]:
+    """Voeg opeenvolgende tabelrijen samen die bij dezelfde tabel horen."""
+    if not elements:
+        return []
+
+    result: list[RawElement] = []
+    huidige_groep: list[RawElement] = []
+
+    def _flush() -> None:
+        if not huidige_groep:
+            return
+        if len(huidige_groep) == 1:
+            result.append(huidige_groep[0])
+        else:
+            samengevoegd = "\n".join(e.tekst for e in huidige_groep)
+            first = huidige_groep[0]
+            last = huidige_groep[-1]
+            result.append(
+                RawElement(
+                    tekst=samengevoegd,
+                    pagina=first.pagina,
+                    x0=min(e.x0 for e in huidige_groep),
+                    y0=first.y0,
+                    x1=max(e.x1 for e in huidige_groep),
+                    y1=last.y1,
+                    lettergrootte=None,
+                    vet=None,
+                    column_count=first.column_count,
+                )
+            )
+        huidige_groep.clear()
+
+    for el in elements:
+        if el.column_count is None:
+            _flush()
+            result.append(el)
+            continue
+        if not huidige_groep:
+            huidige_groep.append(el)
+            continue
+
+        vorige = huidige_groep[-1]
+        rijhoogte = max(1.0, vorige.y1 - vorige.y0)
+        gap = el.y0 - vorige.y1
+        if (
+            vorige.pagina == el.pagina
+            and vorige.column_count == el.column_count
+            and gap < 1.8 * rijhoogte
+        ):
+            huidige_groep.append(el)
+        else:
+            _flush()
+            huidige_groep.append(el)
+    _flush()
+    return result
+
