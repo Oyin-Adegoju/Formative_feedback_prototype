@@ -896,3 +896,73 @@ def _classify_block_type(
     return "paragraph"
 
 
+#  Block-bouw 
+
+
+def build_blocks(raw_elements: list[RawElement], doc_id: str) -> list[Block]:
+    """Volgorde:
+       1. is_noise (discard) → triviale ruis weg
+       2. _merge_candidate_lines → gesplitste regels samenvoegen
+       3. _detect_repeated_noise → herhalende header/footer als noise
+       4. is_toc_page detecteren → hele pagina front_matter
+       5. is_front_matter per element + 50% pagina-expansie
+       6. is_template (strict)
+       7. tabel-rijen samenvoegen (met behoud van flags)
+       8. classificeren + heading_path via level-stack, met TOC/FM-guard
+    """
+    
+    schoon = [el for el in raw_elements if not is_noise(el)]
+
+   
+    schoon = _merge_candidate_lines(schoon)
+
+   
+    noise_indices = _detect_repeated_noise(schoon)
+
+   
+    per_pagina: dict[int, list[int]] = defaultdict(list)
+    for i, el in enumerate(schoon):
+        per_pagina[el.pagina].append(i)
+
+    toc_pages: set[int] = set()
+    for p, idxs in per_pagina.items():
+        page_els = [schoon[i] for i in idxs]
+        if is_toc_page(page_els):
+            toc_pages.add(p)
+
+    # TOC-titels extraheren voor latere fuzzy-match in heading-check.
+    toc_elements = [schoon[i] for p in toc_pages for i in per_pagina[p]]
+    toc_titles = _extract_toc_titles(toc_elements)
+
+    # Paginagemiddelde lettergrootte (voor strict heading-check).
+    page_avg: dict[int, float | None] = {}
+    for p, idxs in per_pagina.items():
+        sizes = [
+            schoon[i].lettergrootte for i in idxs
+            if schoon[i].lettergrootte is not None and schoon[i].column_count is None
+        ]
+        page_avg[p] = (sum(sizes) / len(sizes)) if sizes else None
+
+    # 5. Front_matter per element. Elementen op TOC-pagina's zijn altijd fm.
+    fm_flags: list[bool] = []
+    for i, el in enumerate(schoon):
+        if el.pagina in toc_pages:
+            fm_flags.append(True)
+        else:
+            fm_flags.append(is_front_matter(el, el.pagina))
+
+    # Verbeterpunt : identificeer body-pages (pagina's met een TOC-heading).
+    body_pages = _detect_body_pages(schoon, toc_titles)
+
+    fm_flags = _expand_front_matter_by_page(
+        schoon,
+        fm_flags,
+        toc_pages=toc_pages,
+        body_pages=body_pages,
+        drempel=0.5,
+    )
+
+    # 6. Template-flags (na fm, omdat fm wint).
+    template_flags = [is_template(el) for el in schoon]
+
+    
