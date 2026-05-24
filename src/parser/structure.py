@@ -523,3 +523,40 @@ class _LevelStack:
         return [t for _, t in self._entries]
 
 
+# TOC-titels en fuzzy match 
+
+
+def _extract_toc_titles(elements: list[RawElement]) -> list[str]:
+    """Strip dots/puntjes + paginanummer aan einde; geef opgeschoonde titels."""
+    titels: list[str] = []
+    for el in elements:
+        if el.column_count is not None:
+            continue
+        text = el.tekst.strip()
+        # Verwijder trailing dots + getal.
+        opgeschoond = re.sub(r"[\.\s]*\.{2,}\s*\d{1,4}\s*$", "", text).strip()
+        opgeschoond = re.sub(r"\s+\d{1,4}\s*$", "", opgeschoond).strip()
+        opgeschoond = re.sub(r"\s+", " ", opgeschoond)
+        if opgeschoond:
+            titels.append(opgeschoond.lower())
+    return titels
+
+
+def _is_in_toc(text: str, toc_titles: list[str], threshold: float = 0.85) -> bool:
+    if not toc_titles:
+        return False
+    target = re.sub(r"\s+", " ", text.strip().lower())
+    for t in toc_titles:
+        if SequenceMatcher(None, target, t).ratio() >= threshold:
+            return True
+    return False
+
+
+# Token-schatting 
+
+
+def _estimate_tokens(text: str) -> int:
+    if not text:
+        return 0
+    return max(1, len(text) // 4)
+
