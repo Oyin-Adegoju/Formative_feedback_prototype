@@ -45,4 +45,3 @@ class Block:
     is_appendix: bool = False
     table_meta: dict | None = None
 
-
