@@ -151,3 +151,32 @@ def _line_to_raw_element(line_words: list[dict], page_number: int) -> RawElement
     )
 
 
+def _is_real_table(table) -> bool:
+    """True als de tabel er echt tabulair uitziet, geen styled tekstbox.
+
+    Eisen:
+      - minstens 2 rijen
+      - minstens 2 kolommen in op zijn minst één rij
+      - gemiddelde cel-lengte onder ~200 chars (anders is het een prose-blok)
+    """
+    try:
+        rows = table.extract() or []
+    except Exception:
+        return False
+    if len(rows) < 2:
+        return False
+    max_cols = max(
+        (sum(1 for c in row if c and c.strip()) for row in rows),
+        default=0,
+    )
+    if max_cols < 2:
+        return False
+    all_cells = [c for row in rows for c in row if c and c.strip()]
+    if not all_cells:
+        return False
+    avg_len = sum(len(c) for c in all_cells) / len(all_cells)
+    if avg_len > 200:
+        return False
+    return True
+
+
