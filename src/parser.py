@@ -42,10 +42,9 @@ class ParsedDocument:
     warnings: list[str]
     status: str  # "success" | "empty" | "error"
 
-
 # --- Heading-detectie ---------------------------------------------------------
 
-# Twee uitlegbare patronen:
+
 # 1) Expliciete schoolconventie: regel begint met H1..H4
 _H_PREFIX = re.compile(r"^\s*H([1-4])\b[\s:.\-]*(.+?)\s*$")
 # 2) Nummering vooraan: "1", "1.1", "1.1.1", "1.1.1.1"
@@ -86,7 +85,6 @@ def _update_heading_path(path: list[str], level: int, heading_text: str) -> list
     new_path.append(heading_text)
     return new_path
 
-
 # --- Tabellen -----------------------------------------------------------------
 
 
@@ -102,7 +100,6 @@ def _format_table_row(row: list[str | None]) -> str:
 def _slugify_doc_id(stem: str) -> str:
     s = re.sub(r"[^\w\-.]+", "_", stem)
     return s.strip("_") or "document"
-
 
 # --- Per-pagina extractie -----------------------------------------------------
 
@@ -124,7 +121,7 @@ def _extract_page_blocks(
     # 1. Tabellen detecteren + bboxes verzamelen.
     try:
         tables = page.find_tables()
-    except Exception as e:  # noqa: BLE001 - per-pagina robuust blijven
+    except Exception as e:  
         tables = []
         warnings.append(f"pagina {page_number}: tabel-detectie faalde ({e})")
 
@@ -139,7 +136,7 @@ def _extract_page_blocks(
         except Exception as e:  # noqa: BLE001
             warnings.append(f"pagina {page_number}: tabel-extractie faalde ({e})")
 
-    # 2. Tekst extraheren — objecten in tabel-bboxes overslaan.
+    # 2. Tekst extraheren  objecten in tabel-bboxes overslaan.
     def _buiten_tabellen(obj) -> bool:
         cx = (obj.get("x0", 0) + obj.get("x1", 0)) / 2
         cy = (obj.get("top", 0) + obj.get("bottom", 0)) / 2
@@ -153,7 +150,7 @@ def _extract_page_blocks(
             page_text = page.filter(_buiten_tabellen).extract_text() or ""
         else:
             page_text = page.extract_text() or ""
-    except Exception as e:  # noqa: BLE001
+    except Exception as e:  
         warnings.append(f"pagina {page_number}: tekst-extractie faalde ({e})")
         page_text = ""
 
@@ -224,7 +221,6 @@ def _extract_page_blocks(
     # Heading-path doorgeven aan volgende pagina.
     heading_path[:] = current_path
     return blocks
-
 
 # --- Hoofdfuncties ------------------------------------------------------------
 
@@ -334,7 +330,6 @@ def parse_directory(root: str | Path, output_dir: str | Path) -> list[dict]:
     with report_path.open("w", encoding="utf-8") as f:
         json.dump(reports, f, ensure_ascii=False, indent=2)
     return reports
-
 
 # --- CLI ---------------------------------------------------------------------
 
