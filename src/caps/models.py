@@ -90,3 +90,4 @@ class ParseReportDict(TypedDict):
     counts_by_type: NotRequired[dict[str, int]]
     text_quality: NotRequired[float]
     warnings: NotRequired[list[str]]
+    
