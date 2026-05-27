@@ -203,4 +203,67 @@ STAKEHOLDERS = CriterionSpec(
     ),
 )
 
+# ---------------------------------------------------------------------------
+# Criterion 3: Requirements
+# ---------------------------------------------------------------------------
+
+REQUIREMENTS = CriterionSpec(
+    key="requirements",
+    label="Requirements",
+    description=(
+        "Het document bevat minimaal 15 verifieerbare requirements "
+        "(functioneel en/of niet-functioneel). "
+        "Prioritering (bijv. MoSCoW) dient aanwezig te zijn."
+    ),
+    is_blocker=True,
+    relevant_block_types=_CONTENT_BLOCKS,
+    heading_hints=(
+        "requirement",
+        "eis",
+        "wensen",
+        "eisen",
+        "prioriteiten",
+        "functionele",
+        "niet-functionele",
+        "non-functional",
+        "non functioneel",
+        "moscow",
+        "constraints",
+        "use case",
+    ),
+    text_hints=(
+        "requirement",
+        "eis",
+        "must have",
+        "should have",
+        "could have",
+        "moscow",
+        "FR",
+        "NFR",
+        "functionele",
+        "niet-functioneel",
+        "constraints",
+        "moet",
+        "wens",
+        "use case",
+        "prioriteit",
+        "systeem moet",
+    ),
+    minimum_count=15,
+    strong_from=25,
+    notes=(
+        "Requirements komen voor in meerdere vormen: "
+        "genummerde lijsten (FR-01, NFR-01, USC-01), bullet points, tabelrijen "
+        "of use-case-omschrijvingen. Tel individuele requirement-items, niet secties. "
+        "MoSCoW-labels (must/should/could) in bullets of tabelcellen zijn sterke indicatoren. "
+        "Use-case-omschrijvingen tellen als requirement als ze systeemgedrag beschrijven. "
+        "Aanwezigheid van prioritering werkt als upgrade van gedeeltelijk naar voldoende bij grensgevallen. "
+        "minimum_count=15 voor voldoende; strong_from=25 voor goed."
+    ),
+    manual_review_trigger=(
+        "Activeer wanneer het aantal requirements tussen 12 en 17 ligt (Â±2 van de grenswaarde), "
+        "of wanneer requirements verspreid staan over secties zonder duidelijke structuur."
+    ),
+)
+
 
