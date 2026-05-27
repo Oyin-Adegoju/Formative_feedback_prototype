@@ -77,4 +77,17 @@ class CriterionSpec:
     """Condities die dit criterium markeren voor handmatige verificatie.
     Lege string betekent geen automatische trigger buiten de normale logica."""
 
+# ---------------------------------------------------------------------------
+# Shared block-type set for content-bearing blocks
+# ---------------------------------------------------------------------------
 
+_CONTENT_BLOCKS: frozenset[str] = frozenset(
+    {"heading", "paragraph", "bullet", "table"}
+)
+"""Substantive parser block types that carry document content.
+
+Excludes: front_matter, noise, template, caption, appendix.
+Captions and appendices are not primary retrieval sources,
+but may serve as secondary or supporting evidence for check functions
+and manual review â not excluded entirely.
+"""
