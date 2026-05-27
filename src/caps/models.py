@@ -91,3 +91,111 @@ class ParseReportDict(TypedDict):
     text_quality: NotRequired[float]
     warnings: NotRequired[list[str]]
     
+    # ---------------------------------------------------------------------------
+# Evidence references
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class EvidenceRef:
+    """Lightweight pointer to one block that supports a criterion verdict.
+
+    Deliberately holds no full Block object â only a stable reference.
+    This keeps CAPS output identical whether the input was parser-direct
+    or anonymized: the anonymizer preserves block_id, page_no, and block_type.
+
+    text_snippet: first ~120 chars of block.text at evaluation time.
+    Leave empty when no preview is needed or when operating on anonymized input.
+    """
+
+    block_id: str
+    page_no: int
+    block_type: str
+    text_snippet: str = ""
+
+
+# ---------------------------------------------------------------------------
+# Per-criterion result
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class CriterionResult:
+    """CAPS verdict for one rubric criterion.
+
+    Fields without defaults must always be provided; the rest are optional
+    because not every criterion has a meaningful count or needs manual review.
+
+    status is the authoritative verdict. stoplight is presentation-oriented
+    and derived from status by the scoring layer.
+    """
+
+    criterion_key: str            # matches CriterionSpec.key
+    status: CriterionStatus       # authoritative verdict
+    stoplight: StoplightLabel     # presentation label derived from status by the scoring layer
+    is_blocker: bool              # mirrors CriterionSpec.is_blocker
+    evidence: list[EvidenceRef] = field(default_factory=list)
+    count: int | None = None      # found count for countable criteria (e.g. stakeholders)
+    notes: list[str] = field(default_factory=list)
+    manual_review: bool = False   # True = human should verify this verdict
+
+# ---------------------------------------------------------------------------
+# Document-level scorecard
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class CapsScorecard:
+    """All criterion results for one document.
+
+    results is keyed by criterion_key (e.g. "stakeholders", "requirements").
+    hidden_score is populated by the scoring layer; None until scoring runs.
+    """
+
+    doc_id: str
+    results: dict[str, CriterionResult] = field(default_factory=dict)
+    hidden_score: int | None = None
+
+
+# ---------------------------------------------------------------------------
+# Run metadata
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class CapsRunMeta:
+    """Non-verdict metadata recorded for every CAPS run."""
+
+    input_source: InputSource       # parser_direct | anonymized
+    page_count: int
+    block_count: int
+    criteria_evaluated: list[str] = field(default_factory=list)
+    caps_version: str = "0.1.0"
+
+
+# ---------------------------------------------------------------------------
+# Full CAPS run result
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class CapsRunResult:
+    """Top-level output of one CAPS evaluation.
+
+    manual_review_required: document-level flag; True if any criterion carries
+        manual_review=True. Set by the scoring layer, not here.
+    manual_review_flags: criterion_keys that carry manual_review=True.
+        Kept alongside the boolean for fast iteration without scanning the scorecard.
+    blockers_triggered: criterion_keys where is_blocker=True and status is
+        "missing" or "partial". Populated by the scoring layer, not here.
+    """
+
+    doc_id: str
+    source_name: str
+    scorecard: CapsScorecard
+    overall_stoplight: StoplightLabel
+    run_meta: CapsRunMeta
+    manual_review_required: bool = False
+    blockers_triggered: list[str] = field(default_factory=list)
+    manual_review_flags: list[str] = field(default_factory=list)
+
