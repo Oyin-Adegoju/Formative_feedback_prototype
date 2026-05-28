@@ -153,4 +153,54 @@ BEPERKING = CriterionSpec(
         "dun of onduidelijk is (bijv. Ã©Ã©n vage verwijzing, geen URL, geen genoemde bron)."
     ),
 )
+# ---------------------------------------------------------------------------
+# Criterion 2: Stakeholders
+# ---------------------------------------------------------------------------
+
+STAKEHOLDERS = CriterionSpec(
+    key="stakeholders",
+    label="Stakeholders",
+    description=(
+        "Het document benoemt minimaal 4 stakeholders. "
+        "Elke stakeholder heeft een beschreven belang en invloed op het project."
+    ),
+    is_blocker=True,
+    relevant_block_types=_CONTENT_BLOCKS,
+    heading_hints=(
+        "stakeholder",
+        "belanghebbende",
+        "betrokkenen",
+        "actoren",
+        "gebruikers",
+        "stakeholder analyse",
+        "stakeholder quadrant",
+        "categorisatie",
+    ),
+    text_hints=(
+        "stakeholder",
+        "belang",
+        "invloed",
+        "concern",
+        "categorisatie",
+        "matrix",
+        "opdrachtgever",
+        "eindgebruiker",
+        "betrokken",
+        "actor",
+    ),
+    minimum_count=4,
+    strong_from=6,
+    notes=(
+        "Tel afzonderlijke benoemde stakeholderrollen, niet het aantal keer dat het woord voorkomt. "
+        "Een stakeholdervermelding zonder zowel belang als invloed telt als gedeeltelijk bewijs. "
+        "Stakeholdertabellen en kwadrantdiagrammen (block_type='table') zijn de primaire bron â "
+        "controleer tabelcellen op rolnamen en bijbehorende belang/invloed-kolommen. "
+        "minimum_count=4 voor voldoende; strong_from=6 voor goed."
+    ),
+    manual_review_trigger=(
+        "Activeer wanneer het aantal stakeholders exact op de grenswaarde ligt (4 of 6), "
+        "of wanneer belang/invloed-beschrijvingen aanwezig maar erg beknopt zijn."
+    ),
+)
+
 
