@@ -380,3 +380,45 @@ SECURITY = CriterionSpec(
 )
 
 
+# ---------------------------------------------------------------------------
+# Registry â ordered, stable
+# ---------------------------------------------------------------------------
+
+INFIRFS_REQUIREMENTS_CRITERIA: Final[tuple[CriterionSpec, ...]] = (
+    BEPERKING,
+    STAKEHOLDERS,
+    REQUIREMENTS,
+    TAALKEUZE,
+    SECURITY,
+)
+"""Ordered tuple of all 5 CAPS criteria for the INFIRFS requirements assignment.
+
+Order matches the typical document reading order and the logical dependency order
+for feedback generation. Stable across runs â do not reorder.
+"""
+
+
+# ---------------------------------------------------------------------------
+# Convenience lookups
+# ---------------------------------------------------------------------------
+
+CRITERIA_BY_KEY: Final[dict[str, CriterionSpec]] = {
+    c.key: c for c in INFIRFS_REQUIREMENTS_CRITERIA
+}
+"""Key â CriterionSpec mapping. Keys match CriterionResult.criterion_key in models.py."""
+
+CRITERIA_KEYS: Final[tuple[str, ...]] = tuple(
+    c.key for c in INFIRFS_REQUIREMENTS_CRITERIA
+)
+"""Ordered criterion keys. Iteration order is guaranteed stable."""
+
+BLOCKER_KEYS: Final[frozenset[str]] = frozenset(
+    c.key for c in INFIRFS_REQUIREMENTS_CRITERIA if c.is_blocker
+)
+"""Keys of all blocker criteria â O(1) membership test."""
+
+COUNTABLE_KEYS: Final[frozenset[str]] = frozenset(
+    c.key for c in INFIRFS_REQUIREMENTS_CRITERIA if c.minimum_count is not None
+)
+"""Keys of criteria that use a numeric count threshold (stakeholders, requirements, security)."""
+
