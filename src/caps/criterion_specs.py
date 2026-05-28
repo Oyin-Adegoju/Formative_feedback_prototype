@@ -266,4 +266,117 @@ REQUIREMENTS = CriterionSpec(
     ),
 )
 
+# ---------------------------------------------------------------------------
+# Criterion 4: Taalkeuze
+# ---------------------------------------------------------------------------
+
+TAALKEUZE = CriterionSpec(
+    key="taalkeuze",
+    label="Taalkeuze & consequenties",
+    description=(
+        "Het document vermeldt expliciet de taalkeuze voor de webshop "
+        "(bijv. Nederlands, Engels of meertalig), "
+        "en benoemt de gevolgen van die keuze "
+        "(bijv. bereik, vertaalkosten, toegankelijkheid, aansluiting bij de doelgroep)."
+    ),
+    is_blocker=True,
+    relevant_block_types=_CONTENT_BLOCKS,
+    heading_hints=(
+        "taalkeuze",
+        "taal",
+        "meertaligheid",
+        "internationalisatie",
+        "lokalisatie",
+        "keuze",
+        "taalversie",
+    ),
+    text_hints=(
+        "taalkeuze",
+        "taal",
+        "meertalig",
+        "nederlands",
+        "engels",
+        "internationaal",
+        "lokalisatie",
+        "consequentie",
+        "vertaling",
+        "begrijpelijk",
+        "taalversie",
+    ),
+    minimum_count=None,
+    strong_from=None,
+    notes=(
+        "Twee signalen moeten samen aanwezig zijn voor een voldoende verdict: "
+        "(1) een expliciete taalkeuze is vermeld (bijv. 'de webshop wordt in het Nederlands'), "
+        "en (2) de gevolgen van die keuze zijn besproken "
+        "(bijv. effect op bereik, vertaalkosten, toegankelijkheid of begrijpelijkheid). "
+        "Dit criterium is regelmatig afwezig of slechts gedeeltelijk uitgewerkt. "
+        "Een aparte heading wordt niet verwacht â inhoud staat doorgaans in "
+        "inleidende secties, afbakening of niet-functionele requirements. "
+        "Onderbouwing met een bron of deskresearch-verwijzing verhoogt naar goed."
+    ),
+    manual_review_trigger=(
+        "Activeer wanneer een taal is vermeld maar gevolgen ontbreken of triviaal zijn. "
+        "Activeer wanneer 'meertalig' staat maar de specifieke talen niet zijn benoemd."
+    ),
+)
+
+
+# ---------------------------------------------------------------------------
+# Criterion 5: Security
+# ---------------------------------------------------------------------------
+
+SECURITY = CriterionSpec(
+    key="security",
+    label="Security",
+    description=(
+        "Het document bevat een sectie over security en beschrijft "
+        "minimaal 1 concreet beveiligingselement "
+        "(bijv. authenticatie, autorisatie, encryptie, AVG/privacy, OWASP)."
+    ),
+    is_blocker=True,
+    relevant_block_types=_CONTENT_BLOCKS,
+    heading_hints=(
+        "security",
+        "beveiliging",
+        "veiligheid",
+        "privacy",
+        "avg",
+        "non-functional",
+        "niet-functioneel",
+        "risico",
+    ),
+    text_hints=(
+        "security",
+        "beveiliging",
+        "authenticatie",
+        "autorisatie",
+        "encryptie",
+        "avg",
+        "privacy",
+        "owasp",
+        "risicoanalyse",
+        "https",
+        "ssl",
+        "tls",
+        "wachtwoord",
+        "toegangscontrole",
+        "veilig",
+    ),
+    minimum_count=1,
+    strong_from=3,
+    notes=(
+        "Een heading 'Security' of 'Beveiliging' alleen is onvoldoende â "
+        "minimaal 1 concreet mechanisme moet worden benoemd in inhoudsblokken eronder. "
+        "Tel afzonderlijke beveiligingsmechanismen, niet het aantal keer dat een sleutelwoord voorkomt. "
+        "Security kan voorkomen binnen een niet-functionele requirements-sectie "
+        "in plaats van als aparte heading. "
+        "minimum_count=1 voor voldoende; strong_from=3 voor goed."
+    ),
+    manual_review_trigger=(
+        "Activeer wanneer een security-sectie aanwezig is maar alle inhoud generiek blijft "
+        "(bijv. 'de webshop moet veilig zijn') zonder een concreet mechanisme te noemen."
+    ),
+)
+
 
