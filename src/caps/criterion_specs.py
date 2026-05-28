@@ -91,3 +91,66 @@ Captions and appendices are not primary retrieval sources,
 but may serve as secondary or supporting evidence for check functions
 and manual review â not excluded entirely.
 """
+# ---------------------------------------------------------------------------
+# Criterion 1: Beperking & deskresearch
+# ---------------------------------------------------------------------------
+
+BEPERKING = CriterionSpec(
+    key="beperking",
+    label="Beperking & deskresearch",
+    description=(
+        "Het document beschrijft een gekozen beperking â "
+        "bijvoorbeeld een doelgroep met een beperking, een specifieke niche, "
+        "of een expliciete afbakening â "
+        "en onderbouwt die keuze met deskresearch: "
+        "verwijzingen naar literatuur, bestaande systemen of vergelijkbare oplossingen."
+    ),
+    is_blocker=True,
+    relevant_block_types=_CONTENT_BLOCKS,
+    heading_hints=(
+        "beperking",
+        "afbakening",
+        "deskresearch",
+        "onderzoek",
+        "doelgroep",
+        "keuze",
+        "inleiding",
+        "bron",
+        "literatuur",
+        "verkenning",
+    ),
+    text_hints=(
+        "beperking",
+        "gekozen beperking",
+        "deskresearch",
+        "desk research",
+        "afbakening",
+        "doelgroep met beperking",
+        "niet in scope",
+        "buiten scope",
+        "bron",
+        "literatuuronderzoek",
+        "onderbouwd",
+        "onderzoek",
+        "verkenning",
+    ),
+    minimum_count=None,
+    strong_from=None,
+    notes=(
+        "Twee signalen moeten samen aanwezig zijn voor een voldoende verdict: "
+        "(1) een expliciete gekozen beperking of doelgroepkeuze is beschreven â "
+        "bijv. een doelgroep met beperking, een niche of een afbakening â "
+        "en (2) minstens Ã©Ã©n onderbouwde bron of deskresearch-sectie is aanwezig "
+        "(bronvermelding, literatuurverwijzing of deskresearch-sectie). "
+        "Ontbreekt Ã©Ã©n van beide, dan is een gedeeltelijk verdict het maximale. "
+        "De sectie 'Onderzoek naar web gebruikers' is de meest voorkomende locatie. "
+        "Een Literatuurlijst-heading is ondersteunend bewijs voor signaal (2). "
+        "Documenten kunnen de beperking impliciet beschrijven via een specifieke doelgroep "
+        "zonder het woord 'beperking' zelf te gebruiken."
+    ),
+    manual_review_trigger=(
+        "Activeer wanneer de beperking is beschreven maar het onderzoeksbewijs "
+        "dun of onduidelijk is (bijv. Ã©Ã©n vage verwijzing, geen URL, geen genoemde bron)."
+    ),
+)
+
