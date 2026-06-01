@@ -228,6 +228,24 @@ def load_roster(csv_path: Path) -> list[dict[str, Any]]:
                 achternaam.lower(),
             ])
 
-            
+            if key in personen:
+                # Dezelfde persoon, mogelijk andere rol.
+                existing = personen[key]
+                if rol not in existing["rol"]:
+                    existing["rol"] = sorted({*existing["rol"], rol})
+            else:
+                personen[key] = {
+                    "voornaam": voornaam,
+                    "achternaam": achternaam,
+                    "tussenvoegsel": tussenvoegsel,
+                    "rol": [rol],
+                    "aliassen": _make_aliases(voornaam, achternaam, tussenvoegsel),
+                }
+
+    # Deterministische volgorde: achternaam → tussenvoegsel → voornaam.
+    return sorted(
+        personen.values(),
+        key=lambda p: (p["achternaam"], p["tussenvoegsel"] or "", p["voornaam"]),
+    )
 
 
