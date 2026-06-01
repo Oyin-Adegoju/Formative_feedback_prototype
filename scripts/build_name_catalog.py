@@ -145,3 +145,20 @@ def _make_aliases(
     return sorted(aliassen)
 
 
+#  Rol-normalisatie 
+
+
+def _normalize_role(rol: str) -> tuple[str | None, bool]:
+    """Zet rolwaarden om naar een vaste vorm en markeer onbekende rollen
+    """
+    r = rol.strip()
+    if not r:
+        return None, False
+    low = r.lower()
+    if low in {"lerende", "lerend", "student"}:
+        return "Lerende", True
+    if low in {"docent", "leerkracht"}:
+        return "Docent", True
+    return r, False
+
+
