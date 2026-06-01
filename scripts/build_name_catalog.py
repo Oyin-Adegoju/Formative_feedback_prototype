@@ -267,3 +267,33 @@ def _summarize(personen: list[dict[str, Any]]) -> tuple[int, int, int]:
     return n_lerend, n_docent, n_aliassen
 
 
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--input", type=Path, default=DEFAULT_INPUT,
+                        help=f"Roster-CSV (default: {DEFAULT_INPUT}).")
+    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT,
+                        help=f"Output JSON (default: {DEFAULT_OUTPUT}).")
+    args = parser.parse_args(argv)
+
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+
+    try:
+        personen = load_roster(args.input)
+    except FileNotFoundError as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        return 1
+
+    write_catalog(personen, args.output)
+
+    n_lerend, n_docent, n_aliassen = _summarize(personen)
+    print(f"Personen ingelezen: {len(personen)}")
+    print(f"  Lerenden:        {n_lerend}")
+    print(f"  Docenten:        {n_docent}")
+    print(f"Aliassen totaal:   {n_aliassen}")
+    print(f"Output:            {args.output}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+
