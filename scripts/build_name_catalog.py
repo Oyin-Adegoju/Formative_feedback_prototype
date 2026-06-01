@@ -248,4 +248,22 @@ def load_roster(csv_path: Path) -> list[dict[str, Any]]:
         key=lambda p: (p["achternaam"], p["tussenvoegsel"] or "", p["voornaam"]),
     )
 
+def write_catalog(personen: list[dict[str, Any]], output_path: Path) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("w", encoding="utf-8") as f:
+        json.dump(personen, f, ensure_ascii=False, indent=2)
+
+
+def _summarize(personen: list[dict[str, Any]]) -> tuple[int, int, int]:
+    n_lerend = 0
+    n_docent = 0
+    n_aliassen = 0
+    for p in personen:
+        if "Lerende" in p["rol"]:
+            n_lerend += 1
+        if "Docent" in p["rol"]:
+            n_docent += 1
+        n_aliassen += len(p["aliassen"])
+    return n_lerend, n_docent, n_aliassen
+
 
