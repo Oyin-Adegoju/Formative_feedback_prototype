@@ -125,3 +125,23 @@ def _alias_set_voor_naam(
     return out
 
 
+def _make_aliases(
+    voornaam: str,
+    achternaam: str,
+    tussenvoegsel: str | None,
+) -> list[str]:
+    """Geef alle aliassen (sorted, deduplicated) voor één persoon terug.
+
+    Voegt automatisch een ASCII-variant toe als de naam diacritics bevat.
+    """
+    aliassen = _alias_set_voor_naam(voornaam, achternaam, tussenvoegsel)
+
+    ascii_voor = _strip_diacritics(voornaam)
+    ascii_achter = _strip_diacritics(achternaam)
+    ascii_tussen = _strip_diacritics(tussenvoegsel) if tussenvoegsel else None
+    if (ascii_voor, ascii_achter, ascii_tussen) != (voornaam, achternaam, tussenvoegsel):
+        aliassen |= _alias_set_voor_naam(ascii_voor, ascii_achter, ascii_tussen)
+
+    return sorted(aliassen)
+
+
