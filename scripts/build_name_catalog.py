@@ -205,4 +205,29 @@ def load_roster(csv_path: Path) -> list[dict[str, Any]]:
                 )
                 continue
 
+            rol, rol_herkend = _normalize_role(rol_raw)
+            if not rol:
+                logger.warning("regel %d: lege rol overgeslagen: %r", line_no, row_norm)
+                continue
+            if not rol_herkend:
+                logger.warning(
+                    "regel %d: onbekende rol %r — behouden als-is in output",
+                    line_no, rol,
+                )
+
+            # Tussenvoegsel uitsplitsen.
+            tussen_raw, achter_core_raw = _split_tussenvoegsel(achternaam_raw)
+            # Titelcase voor naam-velden; tussenvoegsel blijft lowercase.
+            voornaam = _title_case(voornaam_raw)
+            achternaam = _title_case(achter_core_raw)
+            tussenvoegsel = tussen_raw.lower() if tussen_raw else None
+
+            key = "|".join([
+                voornaam.lower(),
+                tussenvoegsel or "",
+                achternaam.lower(),
+            ])
+
             
+
+
