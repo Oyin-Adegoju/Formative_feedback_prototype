@@ -77,3 +77,51 @@ def _split_tussenvoegsel(achternaam: str) -> tuple[str | None, str]:
     return None, achternaam
 
 
+#  Alias-generatie 
+
+
+def _alias_set_voor_naam(
+    voornaam: str,
+    achternaam: str,
+    tussenvoegsel: str | None,
+) -> set[str]:
+    """Bouw aliassen voor één concrete naamvariant (lowercase).
+
+    De caller roept deze functie twee keer aan voor namen met diacritics:
+    één keer met origineel, één keer met ASCII-gevouwen versie.
+    """
+    out: set[str] = set()
+    if not voornaam or not achternaam:
+        return out
+
+    voor = voornaam.lower()
+    achter = achternaam.lower()
+    voor_init = f"{voor[0]}."
+    achter_init = f"{achter[0]}."
+
+    if tussenvoegsel:
+        tussen = tussenvoegsel.lower()
+        full_achter = f"{tussen} {achter}"
+        # Met tussenvoegsel.
+        out.add(f"{voor} {full_achter}")
+        out.add(f"{full_achter} {voor}")
+        out.add(f"{full_achter}, {voor}")
+        out.add(f"{voor_init} {full_achter}")
+        # Zonder tussenvoegsel.
+        out.add(f"{voor} {achter}")
+        out.add(f"{achter} {voor}")
+        out.add(f"{achter}, {voor}")
+        out.add(f"{voor_init} {achter}")
+    else:
+        out.add(f"{voor} {achter}")
+        out.add(f"{achter} {voor}")
+        out.add(f"{achter}, {voor}")
+        out.add(f"{voor_init} {achter}")
+
+    # Voor namen met tussenvoegsel gebruiken we de initiaal van de
+    # kern-achternaam (Berg → "b."), niet van de tussenvoegsel-prefix.
+    out.add(f"{voor} {achter_init}")
+
+    return out
+
+
