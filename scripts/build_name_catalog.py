@@ -162,3 +162,47 @@ def _normalize_role(rol: str) -> tuple[str | None, bool]:
     return r, False
 
 
+# Hoofdroutine 
+
+
+def load_roster(csv_path: Path) -> list[dict[str, Any]]:
+    """Lees de roster-CSV en geef een lijst van genormaliseerde personen terug.
+
+    Verwachte kolommen (case-insensitive): achternaam, voornaam, rol.
+    Onvolledige rijen worden gelogd en overgeslagen. Volledig lege rijen
+    worden silent overgeslagen.
+    """
+    if not csv_path.exists():
+        raise FileNotFoundError(
+            f"Roster-CSV niet gevonden op verwachte pad: {csv_path}"
+        )
+
+    personen: dict[str, dict[str, Any]] = {}
+
+    with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        for line_no, row in enumerate(reader, start=2):
+            # Case-insensitive kolomnamen, strip alles.
+            row_norm: dict[str, str] = {}
+            for k, v in row.items():
+                if not k:
+                    continue
+                row_norm[k.lower().strip()] = (v or "").strip()
+
+            achternaam_raw = row_norm.get("achternaam", "")
+            voornaam_raw = row_norm.get("voornaam", "")
+            rol_raw = row_norm.get("rol", "")
+
+            # Volledig lege rij: silent skip.
+            if not any([achternaam_raw, voornaam_raw, rol_raw]):
+                continue
+
+            if not voornaam_raw or not achternaam_raw:
+                logger.warning(
+                    "regel %d: onvolledige rij overgeslagen (achternaam=%r, "
+                    "voornaam=%r, rol=%r)",
+                    line_no, achternaam_raw, voornaam_raw, rol_raw,
+                )
+                continue
+
+            
