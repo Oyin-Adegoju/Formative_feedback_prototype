@@ -357,3 +357,27 @@ def test_criterion_has_hint_match_in_at_least_one_report(criterion: CriterionSpe
         f"Criterion '{criterion.key}' found no hint match in any of the 3 parser reports. "
         "Check that heading_hints and text_hints are compatible with real parser output."
     )
+# ---------------------------------------------------------------------------
+# Smoke test 4: non-content blocks are ignored by the helper
+# ---------------------------------------------------------------------------
+
+
+def test_non_content_blocks_ignored_by_helper():
+    fake_report: dict = {
+        "blocks": [
+            {
+                "block_type": "front_matter",
+                "heading_path": ["beperking", "stakeholder", "security"],
+                "text": "beperking stakeholder security requirements taalkeuze",
+            },
+            {
+                "block_type": "noise",
+                "heading_path": ["beperking"],
+                "text": "must have should have FR NFR",
+            },
+        ]
+    }
+    for criterion in INFIRFS_REQUIREMENTS_CRITERIA:
+        assert not _criterion_has_hint_match(criterion, fake_report), (
+            f"Criterion '{criterion.key}': helper matched a non-content block"
+        )
