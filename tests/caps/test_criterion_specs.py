@@ -182,3 +182,28 @@ def test_stakeholders_heading_hints():
 def test_stakeholders_text_hints():
     for hint in ("stakeholder", "belang", "invloed"):
         assert hint in STAKEHOLDERS.text_hints, f"STAKEHOLDERS.text_hints missing '{hint}'"
+# ---------------------------------------------------------------------------
+# Individual criterion: REQUIREMENTS
+# ---------------------------------------------------------------------------
+
+
+def test_requirements_key():
+    assert REQUIREMENTS.key == "requirements"
+
+
+def test_requirements_minimum_count():
+    assert REQUIREMENTS.minimum_count == 15
+
+
+def test_requirements_strong_from():
+    assert REQUIREMENTS.strong_from == 25
+
+
+def test_requirements_heading_hints():
+    for hint in ("requirement", "functionele", "niet-functionele", "moscow", "use case"):
+        assert hint in REQUIREMENTS.heading_hints, f"REQUIREMENTS.heading_hints missing '{hint}'"
+
+
+def test_requirements_text_hints():
+    for hint in ("requirement", "must have", "should have", "could have", "FR", "NFR", "systeem moet"):
+        assert hint in REQUIREMENTS.text_hints, f"REQUIREMENTS.text_hints missing '{hint}'"
