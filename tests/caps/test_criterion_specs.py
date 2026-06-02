@@ -38,4 +38,36 @@ _REPORT_FILES = [
 def _load_report(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
+# ---------------------------------------------------------------------------
+# CriterionSpec dataclass
+# ---------------------------------------------------------------------------
 
+
+def test_criterion_spec_is_frozen():
+    spec = CriterionSpec(
+        key="test",
+        label="Test",
+        description="desc",
+        is_blocker=False,
+        relevant_block_types=frozenset({"paragraph"}),
+        heading_hints=("hint",),
+        text_hints=("hint",),
+    )
+    with pytest.raises((FrozenInstanceError, AttributeError)):
+        spec.key = "modified"  # type: ignore[misc]
+
+
+def test_criterion_spec_optional_defaults():
+    spec = CriterionSpec(
+        key="x",
+        label="X",
+        description="d",
+        is_blocker=True,
+        relevant_block_types=frozenset({"paragraph"}),
+        heading_hints=("h",),
+        text_hints=("t",),
+    )
+    assert spec.minimum_count is None
+    assert spec.strong_from is None
+    assert spec.notes == ""
+    assert spec.manual_review_trigger == ""
