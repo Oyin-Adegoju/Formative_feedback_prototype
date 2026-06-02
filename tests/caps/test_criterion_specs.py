@@ -128,3 +128,33 @@ def test_non_content_block_types_excluded():
                 f"{criterion.key}: '{excluded}' should not be in relevant_block_types"
             )
 
+# ---------------------------------------------------------------------------
+# Individual criterion: BEPERKING
+# ---------------------------------------------------------------------------
+
+
+def test_beperking_key():
+    assert BEPERKING.key == "beperking"
+
+
+def test_beperking_label():
+    assert BEPERKING.label == "Beperking & deskresearch"
+
+
+def test_beperking_minimum_count_is_none():
+    assert BEPERKING.minimum_count is None
+
+
+def test_beperking_strong_from_is_none():
+    assert BEPERKING.strong_from is None
+
+
+def test_beperking_heading_hints():
+    for hint in ("beperking", "deskresearch", "onderzoek", "doelgroep", "bron"):
+        assert hint in BEPERKING.heading_hints, f"BEPERKING.heading_hints missing '{hint}'"
+
+
+def test_beperking_text_hints():
+    for hint in ("beperking", "deskresearch", "doelgroep met beperking", "bron", "onderzoek"):
+        assert hint in BEPERKING.text_hints, f"BEPERKING.text_hints missing '{hint}'"
+
