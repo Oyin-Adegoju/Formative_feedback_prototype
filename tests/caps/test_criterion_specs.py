@@ -207,3 +207,56 @@ def test_requirements_heading_hints():
 def test_requirements_text_hints():
     for hint in ("requirement", "must have", "should have", "could have", "FR", "NFR", "systeem moet"):
         assert hint in REQUIREMENTS.text_hints, f"REQUIREMENTS.text_hints missing '{hint}'"
+# ---------------------------------------------------------------------------
+# Individual criterion: TAALKEUZE
+# ---------------------------------------------------------------------------
+
+
+def test_taalkeuze_key():
+    assert TAALKEUZE.key == "taalkeuze"
+
+
+def test_taalkeuze_minimum_count_is_none():
+    assert TAALKEUZE.minimum_count is None
+
+
+def test_taalkeuze_strong_from_is_none():
+    assert TAALKEUZE.strong_from is None
+
+
+def test_taalkeuze_heading_hints():
+    for hint in ("taalkeuze", "taal", "meertaligheid"):
+        assert hint in TAALKEUZE.heading_hints, f"TAALKEUZE.heading_hints missing '{hint}'"
+
+
+def test_taalkeuze_text_hints():
+    for hint in ("taal", "meertalig", "nederlands", "engels", "vertaling"):
+        assert hint in TAALKEUZE.text_hints, f"TAALKEUZE.text_hints missing '{hint}'"
+
+
+# ---------------------------------------------------------------------------
+# Individual criterion: SECURITY
+# ---------------------------------------------------------------------------
+
+
+def test_security_key():
+    assert SECURITY.key == "security"
+
+
+def test_security_minimum_count():
+    assert SECURITY.minimum_count == 1
+
+
+def test_security_strong_from():
+    assert SECURITY.strong_from == 3
+
+
+def test_security_heading_hints():
+    for hint in ("security", "beveiliging", "privacy", "avg"):
+        assert hint in SECURITY.heading_hints, f"SECURITY.heading_hints missing '{hint}'"
+
+
+def test_security_text_hints():
+    for hint in ("security", "beveiliging", "authenticatie", "autorisatie", "encryptie", "avg", "privacy", "owasp"):
+        assert hint in SECURITY.text_hints, f"SECURITY.text_hints missing '{hint}'"
+
