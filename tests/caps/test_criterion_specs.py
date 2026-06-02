@@ -340,3 +340,20 @@ def test_report_contains_at_least_one_content_block(report_path: Path):
     content_types = {"heading", "paragraph", "bullet", "table"}
     found = any(b.get("block_type") in content_types for b in report["blocks"])
     assert found, f"{report_path.name}: no content block found"
+# ---------------------------------------------------------------------------
+# Smoke test 2 + 3: every criterion has at least one hint match across reports
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize(
+    "criterion",
+    INFIRFS_REQUIREMENTS_CRITERIA,
+    ids=lambda c: c.key,
+)
+def test_criterion_has_hint_match_in_at_least_one_report(criterion: CriterionSpec):
+    reports = [_load_report(p) for p in _REPORT_FILES]
+    matched = any(_criterion_has_hint_match(criterion, r) for r in reports)
+    assert matched, (
+        f"Criterion '{criterion.key}' found no hint match in any of the 3 parser reports. "
+        "Check that heading_hints and text_hints are compatible with real parser output."
+    )
