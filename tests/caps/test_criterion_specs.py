@@ -260,3 +260,39 @@ def test_security_text_hints():
     for hint in ("security", "beveiliging", "authenticatie", "autorisatie", "encryptie", "avg", "privacy", "owasp"):
         assert hint in SECURITY.text_hints, f"SECURITY.text_hints missing '{hint}'"
 
+# ---------------------------------------------------------------------------
+# Lookup constants
+# ---------------------------------------------------------------------------
+
+
+def test_criteria_keys_order_matches_registry():
+    expected = tuple(c.key for c in INFIRFS_REQUIREMENTS_CRITERIA)
+    assert CRITERIA_KEYS == expected
+
+
+def test_criteria_by_key_contains_all_keys():
+    for criterion in INFIRFS_REQUIREMENTS_CRITERIA:
+        assert criterion.key in CRITERIA_BY_KEY
+
+
+def test_criteria_by_key_returns_same_object():
+    for criterion in INFIRFS_REQUIREMENTS_CRITERIA:
+        assert CRITERIA_BY_KEY[criterion.key] is criterion
+
+
+def test_blocker_keys_contains_all_5_keys():
+    assert BLOCKER_KEYS == {c.key for c in INFIRFS_REQUIREMENTS_CRITERIA}
+    assert len(BLOCKER_KEYS) == 5
+
+
+def test_countable_keys_exact_set():
+    assert COUNTABLE_KEYS == {"stakeholders", "requirements", "security"}
+
+
+def test_beperking_not_in_countable_keys():
+    assert "beperking" not in COUNTABLE_KEYS
+
+
+def test_taalkeuze_not_in_countable_keys():
+    assert "taalkeuze" not in COUNTABLE_KEYS
+
