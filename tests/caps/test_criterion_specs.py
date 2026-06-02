@@ -106,3 +106,25 @@ def test_registry_all_criteria_have_required_fields():
         assert criterion.text_hints, f"{criterion.key}: text_hints is empty"
         assert criterion.notes, f"{criterion.key}: notes is empty"
         assert criterion.manual_review_trigger, f"{criterion.key}: manual_review_trigger is empty"
+# ---------------------------------------------------------------------------
+# Relevant block types
+# ---------------------------------------------------------------------------
+
+_EXPECTED_CONTENT_TYPES = {"heading", "paragraph", "bullet", "table"}
+_EXCLUDED_BLOCK_TYPES = {"front_matter", "noise", "template", "caption", "appendix"}
+
+
+def test_all_criteria_use_exactly_content_block_types():
+    for criterion in INFIRFS_REQUIREMENTS_CRITERIA:
+        assert criterion.relevant_block_types == frozenset(_EXPECTED_CONTENT_TYPES), (
+            f"{criterion.key}: relevant_block_types differs from expected content types"
+        )
+
+
+def test_non_content_block_types_excluded():
+    for criterion in INFIRFS_REQUIREMENTS_CRITERIA:
+        for excluded in _EXCLUDED_BLOCK_TYPES:
+            assert excluded not in criterion.relevant_block_types, (
+                f"{criterion.key}: '{excluded}' should not be in relevant_block_types"
+            )
+
