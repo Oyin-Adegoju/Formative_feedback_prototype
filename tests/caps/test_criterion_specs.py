@@ -322,3 +322,21 @@ def _criterion_has_hint_match(criterion: CriterionSpec, report: dict) -> bool:
                 return True
     return False
 
+# ---------------------------------------------------------------------------
+# Smoke test 1: reports load and contain content blocks
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize("report_path", _REPORT_FILES, ids=lambda p: p.name)
+def test_report_has_blocks(report_path: Path):
+    report = _load_report(report_path)
+    assert isinstance(report.get("blocks"), list)
+    assert len(report["blocks"]) > 0
+
+
+@pytest.mark.parametrize("report_path", _REPORT_FILES, ids=lambda p: p.name)
+def test_report_contains_at_least_one_content_block(report_path: Path):
+    report = _load_report(report_path)
+    content_types = {"heading", "paragraph", "bullet", "table"}
+    found = any(b.get("block_type") in content_types for b in report["blocks"])
+    assert found, f"{report_path.name}: no content block found"
