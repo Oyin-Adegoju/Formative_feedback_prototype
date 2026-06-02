@@ -158,3 +158,27 @@ def test_beperking_text_hints():
     for hint in ("beperking", "deskresearch", "doelgroep met beperking", "bron", "onderzoek"):
         assert hint in BEPERKING.text_hints, f"BEPERKING.text_hints missing '{hint}'"
 
+# ---------------------------------------------------------------------------
+# Individual criterion: STAKEHOLDERS
+# ---------------------------------------------------------------------------
+
+
+def test_stakeholders_key():
+    assert STAKEHOLDERS.key == "stakeholders"
+
+
+def test_stakeholders_minimum_count():
+    assert STAKEHOLDERS.minimum_count == 4
+
+
+def test_stakeholders_strong_from():
+    assert STAKEHOLDERS.strong_from == 6
+
+
+def test_stakeholders_heading_hints():
+    assert "stakeholder" in STAKEHOLDERS.heading_hints
+
+
+def test_stakeholders_text_hints():
+    for hint in ("stakeholder", "belang", "invloed"):
+        assert hint in STAKEHOLDERS.text_hints, f"STAKEHOLDERS.text_hints missing '{hint}'"
