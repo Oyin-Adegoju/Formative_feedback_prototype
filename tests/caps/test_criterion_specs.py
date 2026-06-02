@@ -296,3 +296,29 @@ def test_beperking_not_in_countable_keys():
 def test_taalkeuze_not_in_countable_keys():
     assert "taalkeuze" not in COUNTABLE_KEYS
 
+# ---------------------------------------------------------------------------
+# Smoke test helpers
+# ---------------------------------------------------------------------------
+
+
+def _criterion_has_hint_match(criterion: CriterionSpec, report: dict) -> bool:
+    """Return True if any block in *report* matches a hint for *criterion*.
+
+    Only inspects blocks whose block_type is in criterion.relevant_block_types.
+    A match is:
+      - a heading_hints item found in any lowercase entry of block["heading_path"], or
+      - a text_hints item found in lowercase block["text"].
+    """
+    for block in report.get("blocks", []):
+        if block.get("block_type") not in criterion.relevant_block_types:
+            continue
+        heading_path_lower = [h.lower() for h in block.get("heading_path", [])]
+        text_lower = (block.get("text") or "").lower()
+        for hint in criterion.heading_hints:
+            if any(hint in entry for entry in heading_path_lower):
+                return True
+        for hint in criterion.text_hints:
+            if hint in text_lower:
+                return True
+    return False
+
