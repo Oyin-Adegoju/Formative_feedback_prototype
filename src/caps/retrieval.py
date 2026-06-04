@@ -168,3 +168,95 @@ def _searchable_text(block: BlockDict) -> str:
                     if cell:
                         parts.append(_normalize(cell))
     return " ".join(parts)
+
+
+# ---------------------------------------------------------------------------
+# Block scoring
+# ---------------------------------------------------------------------------
+
+
+def _score_block(
+    block: BlockDict,
+    criterion: CriterionSpec,
+) -> RetrievalHit | None:
+    """Score one block against one criterion.
+
+    Returns None when the block is excluded entirely (excluded type or
+    front matter) or when it has no hint signal (heading or text).
+
+    A block must match at least one heading hint or text hint to appear
+    in results. Type-match alone is not sufficient — this prevents flooding
+    results with every paragraph in the document just because paragraphs
+    are in relevant_block_types.
+
+    Scoring formula (before secondary-evidence factors):
+        score = type_match_bonus
+              + n_heading_hints × SCORE_HEADING_HINT
+              + n_text_hints    × SCORE_TEXT_HINT
+
+    Secondary-evidence factors (applied after, independently):
+        - is_appendix=True  → score × APPENDIX_FACTOR (0.4)
+        - block_type=caption → score × CAPTION_FACTOR  (0.6)
+    """
+    # --- hard exclusions ---
+    if block["block_type"] in _EXCLUDED_TYPES:
+        return None
+    if block["is_front_matter"]:
+        return None
+
+    # --- heading hint matching ---
+    # heading_path entries are the primary source; table header_row is
+    # treated as an equivalent structural label for table blocks.
+    heading_path = _heading_path_text(block)
+    table_header = _table_header_text(block)
+
+    matched_heading_hints: list[str] = []
+    for hint in criterion.heading_hints:
+        if hint in heading_path:
+            matched_heading_hints.append(hint)
+        elif table_header and hint in table_header:
+            matched_heading_hints.append(hint)
+
+    # --- text hint matching ---
+    searchable = _searchable_text(block)
+    matched_text_hints: list[str] = []
+    for hint in criterion.text_hints:
+        if hint in searchable:
+            matched_text_hints.append(hint)
+
+    # Require at least one signal — pure type-match blocks add noise.
+    if not matched_heading_hints and not matched_text_hints:
+        return None
+
+    # --- compute score ---
+    score: float = 0.0
+    reasons: list[str] = []
+
+    if block["block_type"] in criterion.relevant_block_types:
+        score += _SCORE_TYPE_MATCH
+        reasons.append(f"type:{block['block_type']}")
+
+    if matched_heading_hints:
+        score += len(matched_heading_hints) * _SCORE_HEADING_HINT
+        reasons.append(f"heading_hints:{matched_heading_hints}")
+
+    if matched_text_hints:
+        score += len(matched_text_hints) * _SCORE_TEXT_HINT
+        reasons.append(f"text_hints:{matched_text_hints}")
+
+    # --- secondary-evidence demotions (applied independently) ---
+    if block["is_appendix"]:
+        score *= _APPENDIX_FACTOR
+        reasons.append("appendix:downweighted")
+
+    if block["block_type"] == "caption":
+        score *= _CAPTION_FACTOR
+        reasons.append("caption:downweighted")
+
+    return RetrievalHit(
+        block=block,
+        score=round(score, 4),
+        matched_heading_hints=matched_heading_hints,
+        matched_text_hints=matched_text_hints,
+        reasons=reasons,
+    )
