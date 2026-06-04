@@ -260,3 +260,68 @@ def _score_block(
         matched_text_hints=matched_text_hints,
         reasons=reasons,
     )
+
+
+# ---------------------------------------------------------------------------
+# Public retrieval functions
+# ---------------------------------------------------------------------------
+
+
+def retrieve_for_criterion(
+    blocks: list[BlockDict],
+    criterion: CriterionSpec,
+    max_candidates: int = _DEFAULT_MAX_CANDIDATES,
+) -> list[RetrievalHit]:
+    """Retrieve and rank candidate blocks for one criterion.
+
+    Scores every block against the criterion, discards non-hits,
+    and returns at most max_candidates results sorted by:
+        1. score descending (highest relevance first)
+        2. block_id ascending (lexicographic, for stability across runs)
+
+    Args:
+        blocks: All blocks from a ParseReportDict.
+        criterion: The CriterionSpec to retrieve for.
+        max_candidates: Upper bound on returned results.
+
+    Returns:
+        Deterministically ordered list of RetrievalHit.
+        Empty list when no blocks match the criterion.
+    """
+    hits: list[RetrievalHit] = []
+    for block in blocks:
+        hit = _score_block(block, criterion)
+        if hit is not None:
+            hits.append(hit)
+
+    hits.sort(key=lambda h: (-h.score, h.block["block_id"]))
+    return hits[:max_candidates]
+
+
+def retrieve_all_criteria(
+    report: ParseReportDict,
+    criteria: tuple[CriterionSpec, ...] = INFIRFS_REQUIREMENTS_CRITERIA,
+    max_candidates: int = _DEFAULT_MAX_CANDIDATES,
+) -> CriterionCandidates:
+    """Retrieve and rank candidate blocks for all criteria in one document.
+
+    Iterates over all criteria and calls retrieve_for_criterion for each.
+    Every criterion in the input tuple is guaranteed to appear as a key
+    in the result (with an empty list when no blocks match).
+
+    Args:
+        report: A ParseReportDict — parser-direct JSON or anonymized variant.
+            Both satisfy the BlockDict contract and work without changes.
+        criteria: Tuple of CriterionSpec to evaluate.
+            Defaults to INFIRFS_REQUIREMENTS_CRITERIA (all 5 criteria).
+        max_candidates: Upper bound on candidates per criterion.
+
+    Returns:
+        dict[criterion_key → list[RetrievalHit]], one entry per criterion.
+        Suitable for direct consumption by checks.py.
+    """
+    blocks: list[BlockDict] = report["blocks"]
+    return {
+        criterion.key: retrieve_for_criterion(blocks, criterion, max_candidates)
+        for criterion in criteria
+    }
