@@ -109,3 +109,62 @@ class RetrievalHit:
 
 # Convenience alias used as the primary output type checks.py imports.
 CriterionCandidates = dict[str, list[RetrievalHit]]
+
+
+# ---------------------------------------------------------------------------
+# Text normalization helpers
+# ---------------------------------------------------------------------------
+
+
+def _normalize(text: str) -> str:
+    """Lowercase and strip a string for hint matching."""
+    return text.lower().strip()
+
+
+def _heading_path_text(block: BlockDict) -> str:
+    """Join all heading_path entries into one normalized string.
+
+    Entries are pipe-separated so a hint cannot accidentally span two
+    adjacent path entries (e.g. hint 'b c' won't match 'a b' + 'c d').
+    """
+    return " | ".join(_normalize(entry) for entry in block["heading_path"])
+
+
+def _table_header_text(block: BlockDict) -> str:
+    """Extract table_meta.header_row as a normalized string.
+
+    Returns an empty string when:
+    - the block is not a table
+    - table_meta is absent or None
+    - header_row is None (parser could not detect a header row)
+    """
+    if block["block_type"] != "table":
+        return ""
+    tm = block.get("table_meta")
+    if not tm:
+        return ""
+    header = tm.get("header_row")
+    return _normalize(header) if header else ""
+
+
+def _searchable_text(block: BlockDict) -> str:
+    """Build the full normalized searchable string for a block.
+
+    For table blocks: concatenates block.text, header_row, and all
+    non-empty cells. Cells overlap with the canonical block.text (the
+    parser already encodes them there), but explicit re-inclusion makes
+    intent clear and is robust to future canonical-text format changes.
+
+    For all other blocks: block.text normalized.
+    """
+    parts: list[str] = [_normalize(block["text"])]
+    if block["block_type"] == "table":
+        tm = block.get("table_meta")
+        if tm:
+            if tm.get("header_row"):
+                parts.append(_normalize(tm["header_row"]))
+            for row in tm.get("cells") or []:
+                for cell in row:
+                    if cell:
+                        parts.append(_normalize(cell))
+    return " ".join(parts)
