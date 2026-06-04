@@ -74,3 +74,38 @@ _DEFAULT_MAX_CANDIDATES: Final[int] = 20
 
 _EXCLUDED_TYPES: Final[frozenset[str]] = frozenset({"front_matter", "noise", "template"})
 """Block types that carry no rubric evidence and are never retrieved."""
+
+
+# ---------------------------------------------------------------------------
+# Output shape
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class RetrievalHit:
+    """One candidate evidence block for a rubric criterion.
+
+    Consumed by checks.py. Carries the full BlockDict so check functions
+    can do deeper inspection (e.g. cell-level counting for stakeholders)
+    without re-fetching the block from the report.
+
+    score: heuristic retrieval score; higher means more relevant.
+        Type-match alone is not enough to appear here — at least one
+        heading hint or text hint must have matched.
+    matched_heading_hints: heading hints that fired (via heading_path or
+        table header_row). Empty when only text hints matched.
+    matched_text_hints: text hints that fired in the block's searchable
+        text. Empty when only heading hints matched.
+    reasons: human-readable trace strings for debugging and explainability.
+        Format: "signal:detail", e.g. "heading_hints:['stakeholder']".
+    """
+
+    block: BlockDict
+    score: float
+    matched_heading_hints: list[str] = field(default_factory=list)
+    matched_text_hints: list[str] = field(default_factory=list)
+    reasons: list[str] = field(default_factory=list)
+
+
+# Convenience alias used as the primary output type checks.py imports.
+CriterionCandidates = dict[str, list[RetrievalHit]]
