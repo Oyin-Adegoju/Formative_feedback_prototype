@@ -111,4 +111,63 @@ def _valid_llm_output(stoplight: str = "green") -> dict:
 def _to_json(d: dict) -> str:
     return json.dumps(d)
 
+# ---------------------------------------------------------------------------
+# Internal helpers
+# ---------------------------------------------------------------------------
+
+
+def test_collect_known_block_ids_returns_all_ids():
+    caps = _make_caps_result(criterion_block_ids={
+        "beperking": [_BLOCK_A, _BLOCK_B],
+        "stakeholders": [_BLOCK_C],
+        "requirements": [],
+        "taalkeuze": [],
+        "security": [],
+    })
+    ids = _collect_known_block_ids(caps)
+    assert ids == {_BLOCK_A, _BLOCK_B, _BLOCK_C}
+
+
+def test_collect_known_block_ids_empty_when_no_evidence():
+    caps = _make_caps_result(criterion_block_ids={
+        k: [] for k in ("beperking", "stakeholders", "requirements", "taalkeuze", "security")
+    })
+    assert _collect_known_block_ids(caps) == frozenset()
+
+
+def test_llm_text_fields_concatenates_all_text_fields():
+    data = {
+        "student_samenvatting": "samenvatting",
+        "docent_toelichting": "toelichting",
+        "feed_up": "doel",
+        "taalgebruik": "stijl",
+        "feed_forward": ["tip1", "tip2"],
+        "feedback": [
+            {"observatie": "obs1", "evidence_ref": ["doc1_0001"]},
+            {"observatie": "obs2", "evidence_ref": []},
+        ],
+    }
+    result = _llm_text_fields(data)
+    assert "samenvatting" in result
+    assert "toelichting" in result
+    assert "doel" in result
+    assert "stijl" in result
+    assert "tip1" in result
+    assert "tip2" in result
+    assert "obs1" in result
+    assert "obs2" in result
+
+
+def test_llm_text_fields_excludes_evidence_ref_ids():
+    data = {
+        "student_samenvatting": "",
+        "docent_toelichting": "",
+        "feed_up": "",
+        "taalgebruik": "",
+        "feed_forward": [],
+        "feedback": [{"observatie": "", "evidence_ref": ["doc1_0001"]}],
+    }
+    result = _llm_text_fields(data)
+    assert "doc1_0001" not in result
+
 
