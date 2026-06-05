@@ -490,3 +490,40 @@ def test_evidence_ref_from_different_criterion_passes():
     ]
     result = validate(_to_json(payload), caps)
     assert result["feedback"][0]["evidence_ref"] == [_BLOCK_B]
+    # ---------------------------------------------------------------------------
+# feed_forward validation
+# ---------------------------------------------------------------------------
+
+
+def test_feed_forward_not_a_list_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["feed_forward"] = "geef meer bronnen op"
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "'feed_forward' must be a list" in exc_info.value.reason
+
+
+# ---------------------------------------------------------------------------
+# Output shape
+# ---------------------------------------------------------------------------
+
+
+def test_output_contains_all_required_keys():
+    caps = _make_caps_result(stoplight="green")
+    result = validate(_to_json(_valid_llm_output("green")), caps)
+    for key in (
+        "document_id", "stoplight", "student_samenvatting", "docent_toelichting",
+        "feed_up", "feedback", "feed_forward", "taalgebruik", "disclaimer",
+    ):
+        assert key in result, f"Missing key in FeedbackResult: {key}"
+
+
+def test_feedback_entries_have_correct_shape():
+    caps = _make_caps_result(stoplight="green")
+    result = validate(_to_json(_valid_llm_output("green")), caps)
+    for entry in result["feedback"]:
+        assert "criterium" in entry
+        assert "observatie" in entry
+        assert "evidence_ref" in entry
+        assert isinstance(entry["evidence_ref"], list)
