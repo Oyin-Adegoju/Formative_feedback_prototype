@@ -67,3 +67,41 @@ def normalize_whitelist_value(text: str) -> str:
     return _WHITESPACE_RE.sub(" ", text).strip().lower()
  
  
+# --- Whitelist --------------------------------------------------------------
+ 
+ 
+class Whitelist:
+    """Set-achtige container met exacte, genormaliseerde lookup."""
+ 
+    def __init__(self, allowed_values: Iterable[str]) -> None:
+        # genormaliseerde-key → eerst-geziene originele waarde (voor display).
+        self._norm_to_original: dict[str, str] = {}
+        for v in allowed_values:
+            if v is None:
+                continue
+            norm = normalize_whitelist_value(v)
+            if not norm:
+                continue
+            if norm not in self._norm_to_original:
+                self._norm_to_original[norm] = v.strip()
+ 
+    def is_allowed(self, value: str) -> bool:
+        """Staat `value` (na normalisatie) op de whitelist?"""
+        norm = normalize_whitelist_value(value)
+        if not norm:
+            return False
+        return norm in self._norm_to_original
+ 
+    def get_all(self) -> list[str]:
+        """Originele whitelist-waarden, alfabetisch gesorteerd."""
+        return sorted(self._norm_to_original.values(), key=lambda s: s.lower())
+ 
+    def count(self) -> int:
+        return len(self._norm_to_original)
+ 
+ 
+def build_whitelist(values: list[str]) -> Whitelist:
+    """Factory voor `Whitelist`."""
+    return Whitelist(values)
+ 
+ 
