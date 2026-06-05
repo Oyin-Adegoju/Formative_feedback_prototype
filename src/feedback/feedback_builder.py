@@ -39,3 +39,31 @@ _PROMPT_PATH: Final[Path] = (
     Path(__file__).parent.parent.parent / "prompts" / "feedback_writer_v1.txt"
 )
 
+# ---------------------------------------------------------------------------
+# Fallback output
+# ---------------------------------------------------------------------------
+
+
+def _fallback(caps_result: CapsRunResult, reason: str) -> FeedbackResult:
+    """Return a safe, deterministic FeedbackResult when generation fails.
+
+    Never raises. Always returns a structurally valid FeedbackResult so the
+    caller does not need to handle None or re-raise.
+    """
+    return FeedbackResult(
+        document_id=caps_result.doc_id,
+        stoplight=caps_result.overall_stoplight,
+        student_samenvatting=(
+            "De automatische feedbackgeneratie is tijdelijk niet beschikbaar. "
+            "Een docent zal je document handmatig beoordelen."
+        ),
+        docent_toelichting=(
+            f"Automatische feedback kon niet worden gegenereerd ({reason}). "
+            "Handmatige beoordeling is vereist."
+        ),
+        feed_up="",
+        feedback=[],
+        feed_forward=[],
+        taalgebruik="",
+        disclaimer=DISCLAIMER,
+    )
