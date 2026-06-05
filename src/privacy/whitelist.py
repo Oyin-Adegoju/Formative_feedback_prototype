@@ -52,3 +52,18 @@ class WhitelistSuggestion:
     reason: str   # mensleesbare uitleg
  
  
+# --- Normalisatie -----------------------------------------------------------
+ 
+ 
+def normalize_whitelist_value(text: str) -> str:
+    """Normaliseer een whitelist-waarde voor exact-match-vergelijking.
+ 
+    Dezelfde logica als `catalog.normalize_lookup_text`: lowercase,
+    strip, collapse interne whitespace. Wordt hier herhaald als een
+    aparte naam zodat callers semantisch onderscheid kunnen maken.
+    """
+    if not text:
+        return ""
+    return _WHITESPACE_RE.sub(" ", text).strip().lower()
+ 
+ 
