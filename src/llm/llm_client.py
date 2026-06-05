@@ -53,3 +53,23 @@ _TIMEOUT_SECONDS: Final[int] = 180
 """Request timeout. 14B models on modest hardware can be slow."""
 
 
+# ---------------------------------------------------------------------------
+# Exception
+# ---------------------------------------------------------------------------
+
+
+class LlmCallError(Exception):
+    """Raised when the inference server call fails for any reason.
+
+    Caught by feedback_builder.py to trigger fallback feedback output.
+
+    reason:      human-readable description of what went wrong.
+    status_code: HTTP status code if the server responded; None otherwise.
+    """
+
+    def __init__(self, reason: str, status_code: int | None = None) -> None:
+        super().__init__(reason)
+        self.reason = reason
+        self.status_code = status_code
+
+
