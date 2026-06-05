@@ -51,6 +51,21 @@ _PHONE_CANDIDATE_RE = re.compile(
     r"(?!\w)"
 )
 
+# Studentnummer — losse s-prefix (bv. "s1146131"), 6 tot 8 cijfers.
+_STUDENTNR_S_PREFIX_RE = re.compile(r"\b[sS]\d{6,8}\b")
+
+# Studentnummer met label, bv. "Studentnummer: 1146131" of
+# "studnr 1146131" of "S-nummer: s1146131".
+_STUDENTNR_LABEL_NAMES = (
+    r"student[\-\s]?nummer|studnr|studienummer|s[\-\s]?nummer"
+)
+_STUDENTNR_LABEL_RE = re.compile(
+    r"\b(" + _STUDENTNR_LABEL_NAMES + r")\b"
+    r"\s*[:=\-]?\s*"
+    r"([sS]?\d{6,8})\b",
+    re.IGNORECASE,
+)
+
 
 # --- Helpers ----------------------------------------------------------------
 
@@ -68,6 +83,11 @@ def _is_valid_dutch_phone(span_text: str) -> bool:
     if digits.startswith("0") and len(digits) == 10:
         return True
     return False
+
+
+def _normalize_label(label: str) -> str:
+    """Lowercase + collapsed whitespace, voor de `label`-metadata."""
+    return re.sub(r"\s+", " ", label).strip().lower()
 
 
 # --- Finders ----------------------------------------------------------------
@@ -109,4 +129,56 @@ def find_phone_numbers(text: str) -> list[RuleMatch]:
                 confidence="high",
             )
         )
+    return results
+
+
+def find_student_numbers(text: str) -> list[RuleMatch]:
+    """Geef studentnummer-matches terug.
+
+    Twee niveaus:
+      - met label ("Studentnummer: 1146131") → confidence='high'
+      - losse s-prefix ("s1146131") → confidence='low'
+
+    Bare 6-8-cijfer-getallen zonder label of s-prefix worden bewust
+    NIET gedetecteerd (zou te veel false positives geven op tabel-
+    cellen, pagina-codes en willekeurige IDs).
+    """
+    if not text:
+        return []
+
+    results: list[RuleMatch] = []
+    labeled_spans: set[tuple[int, int]] = set()
+
+    for m in _STUDENTNR_LABEL_RE.finditer(text):
+        label = _normalize_label(m.group(1))
+        nummer_start = m.start(2)
+        nummer_end = m.end(2)
+        labeled_spans.add((nummer_start, nummer_end))
+        results.append(
+            RuleMatch(
+                rule_type="student_number",
+                start=nummer_start,
+                end=nummer_end,
+                text=m.group(2),
+                label=label,
+                confidence="high",
+            )
+        )
+
+    for m in _STUDENTNR_S_PREFIX_RE.finditer(text):
+        span = (m.start(), m.end())
+        if span in labeled_spans:
+            continue  # al gevonden via label-route
+        results.append(
+            RuleMatch(
+                rule_type="student_number",
+                start=m.start(),
+                end=m.end(),
+                text=m.group(),
+                label=None,
+                confidence="low",
+            )
+        )
+
+    results.sort(key=lambda r: (r.start, r.end, r.confidence))
     return results
