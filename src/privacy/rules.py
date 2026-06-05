@@ -32,3 +32,32 @@ class RuleMatch:
     text: str
     label: str | None
     confidence: str  # "high" | "low"
+
+
+# --- Patronen ---------------------------------------------------------------
+
+# Email — pragmatische regex (geen volledig RFC 5322-monster, wel goed
+# genoeg voor student-/instellingsmailadressen).
+_EMAIL_RE = re.compile(
+    r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}"
+)
+
+
+# --- Finders ----------------------------------------------------------------
+
+
+def find_emails(text: str) -> list[RuleMatch]:
+    """Geef emailadres-matches terug, in volgorde van voorkomen."""
+    if not text:
+        return []
+    return [
+        RuleMatch(
+            rule_type="email",
+            start=m.start(),
+            end=m.end(),
+            text=m.group(),
+            label=None,
+            confidence="high",
+        )
+        for m in _EMAIL_RE.finditer(text)
+    ]
