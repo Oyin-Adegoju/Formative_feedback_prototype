@@ -8,6 +8,8 @@ from src.privacy.catalog import (
     PersonRecord,
     normalize_lookup_text,
 )
+from src.privacy.rules import find_all_rule_matches
+from src.privacy.whitelist import Whitelist
 
 
 # --- Placeholder-config -----------------------------------------------------
@@ -223,3 +225,38 @@ def _resolve_overlaps(spans: list[_Span]) -> list[_Span]:
         kept_generic.append(g)
 
     return sorted(kept_specific + kept_generic, key=lambda s: s.start)
+
+
+def _collect_spans(text: str, catalog: PeopleCatalog) -> list[_Span]:
+    if not text:
+        return []
+    spans: list[_Span] = list(_find_catalog_spans(text, catalog))
+    for rm in find_all_rule_matches(text):
+        ptype = _RULE_TYPE_TO_PTYPE.get(rm.rule_type)
+        if ptype is None:
+            continue
+        spans.append(
+            _Span(
+                start=rm.start,
+                end=rm.end,
+                text=rm.text,
+                ptype=ptype,
+                canonical_key=None,  # rule-matches groeperen we op tekst
+            )
+        )
+    return _resolve_overlaps(spans)
+
+
+def _filter_whitelisted_spans(
+    spans: list[_Span],
+    whitelist: Whitelist | None,
+) -> list[_Span]:
+    """Verwijder spans waarvan de matched text op de whitelist staat.
+
+
+    Whitelist-filtering gebeurt vóór placeholder-toewijzing, zodat
+    whitelisted waarden ook NIET in de mapping terechtkomen.
+    """
+    if whitelist is None:
+        return spans
+    return [s for s in spans if not whitelist.is_allowed(s.text)]
