@@ -145,5 +145,108 @@ def test_collect_block_ids_order_follows_criteria_keys():
     ids = _collect_block_ids(caps)
     # beperking comes before stakeholders in CRITERIA_KEYS
     assert ids.index(_BLOCK_A) < ids.index(_BLOCK_B)
+# ---------------------------------------------------------------------------
+# _format_scorecard
+# ---------------------------------------------------------------------------
 
+
+def test_format_scorecard_contains_all_criterion_keys():
+    caps = _make_caps_result()
+    output = _format_scorecard(caps)
+    for key in CRITERIA_KEYS:
+        assert key in output
+
+
+def test_format_scorecard_contains_status():
+    caps = _make_caps_result()
+    output = _format_scorecard(caps)
+    assert "sufficient" in output
+
+
+def test_format_scorecard_contains_count_when_present():
+    caps = _make_caps_result(criterion_overrides={
+        "stakeholders": _make_criterion_result("stakeholders", count=6),
+    })
+    output = _format_scorecard(caps)
+    assert "6" in output
+
+
+def test_format_scorecard_omits_count_when_none():
+    caps = _make_caps_result(criterion_overrides={
+        "beperking": _make_criterion_result("beperking", count=None),
+    })
+    output = _format_scorecard(caps)
+    # count line should not appear for beperking (no Aantal line)
+    beperking_section = output.split("CRITERIUM: stakeholders")[0]
+    assert "Aantal" not in beperking_section
+
+
+def test_format_scorecard_contains_notes():
+    caps = _make_caps_result(criterion_overrides={
+        "beperking": _make_criterion_result(
+            "beperking",
+            notes=["Onderbouwing aanwezig."],
+        ),
+    })
+    output = _format_scorecard(caps)
+    assert "Onderbouwing aanwezig." in output
+
+
+def test_format_scorecard_contains_evidence_block_ids():
+    caps = _make_caps_result()
+    output = _format_scorecard(caps)
+    assert _BLOCK_A in output
+    assert _BLOCK_B in output
+
+
+def test_format_scorecard_shows_geen_when_no_evidence():
+    caps = _make_caps_result(criterion_overrides={
+        "taalkeuze": _make_criterion_result("taalkeuze", block_ids=[]),
+    })
+    output = _format_scorecard(caps)
+    assert "(geen)" in output
+
+
+def test_format_scorecard_shows_manual_review_warning():
+    caps = _make_caps_result(criterion_overrides={
+        "beperking": _make_criterion_result("beperking", manual_review=True),
+    })
+    output = _format_scorecard(caps)
+    assert "Handmatige verificatie" in output
+
+
+def test_format_scorecard_handles_missing_criterion_gracefully():
+    caps = _make_caps_result()
+    caps.scorecard.results.pop("taalkeuze", None)
+    output = _format_scorecard(caps)
+    assert "taalkeuze" in output
+    assert "niet geëvalueerd" in output
+
+
+# ---------------------------------------------------------------------------
+# _manual_review_section
+# ---------------------------------------------------------------------------
+
+
+def test_manual_review_section_empty_when_not_required():
+    caps = _make_caps_result(manual_review_required=False)
+    assert _manual_review_section(caps) == ""
+
+
+def test_manual_review_section_contains_flag_names():
+    caps = _make_caps_result(
+        manual_review_required=True,
+        manual_review_flags=["beperking", "taalkeuze"],
+    )
+    section = _manual_review_section(caps)
+    assert "beperking" in section
+    assert "taalkeuze" in section
+
+
+def test_manual_review_section_contains_warning_symbol():
+    caps = _make_caps_result(
+        manual_review_required=True,
+        manual_review_flags=["security"],
+    )
+    assert "⚠" in _manual_review_section(caps)
 
