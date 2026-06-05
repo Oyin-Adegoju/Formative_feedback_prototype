@@ -382,3 +382,111 @@ def test_legitimate_numbers_do_not_trigger_score_leak():
     )
     result = validate(_to_json(payload), caps)
     assert result is not None
+# ---------------------------------------------------------------------------
+# Disclaimer
+# ---------------------------------------------------------------------------
+
+
+def test_modified_disclaimer_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["disclaimer"] = "Dit is een officiële beoordeling."
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "Disclaimer was modified" in exc_info.value.reason
+
+
+def test_correct_disclaimer_in_output_passes():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["disclaimer"] = DISCLAIMER
+    result = validate(_to_json(payload), caps)
+    assert result["disclaimer"] == DISCLAIMER
+
+
+def test_absent_disclaimer_is_injected():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    assert "disclaimer" not in payload
+    result = validate(_to_json(payload), caps)
+    assert result["disclaimer"] == DISCLAIMER
+
+
+# ---------------------------------------------------------------------------
+# feedback list validation
+# ---------------------------------------------------------------------------
+
+
+def test_feedback_not_a_list_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["feedback"] = "not a list"
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "'feedback' must be a list" in exc_info.value.reason
+
+
+def test_unknown_criterion_key_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["feedback"] = [
+        {"criterium": "verzonnen_criterium", "observatie": "ok", "evidence_ref": []}
+    ]
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "Unknown criterion key" in exc_info.value.reason
+    assert "verzonnen_criterium" in exc_info.value.reason
+
+
+def test_missing_criterium_field_in_entry_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["feedback"] = [{"observatie": "ok", "evidence_ref": []}]
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "criterium" in exc_info.value.reason
+
+
+def test_unknown_evidence_ref_block_id_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["feedback"] = [
+        {
+            "criterium": "beperking",
+            "observatie": "ok",
+            "evidence_ref": ["hallucinated_block_id"],
+        }
+    ]
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "Unknown evidence_ref block ID" in exc_info.value.reason
+    assert "hallucinated_block_id" in exc_info.value.reason
+
+
+def test_known_evidence_ref_passes():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["feedback"] = [
+        {
+            "criterium": "beperking",
+            "observatie": "ok",
+            "evidence_ref": [_BLOCK_A],
+        }
+    ]
+    result = validate(_to_json(payload), caps)
+    assert result["feedback"][0]["evidence_ref"] == [_BLOCK_A]
+
+
+def test_evidence_ref_from_different_criterion_passes():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    # _BLOCK_B belongs to stakeholders, but beperking entry references it — still valid
+    payload["feedback"] = [
+        {
+            "criterium": "beperking",
+            "observatie": "ok",
+            "evidence_ref": [_BLOCK_B],
+        }
+    ]
+    result = validate(_to_json(payload), caps)
+    assert result["feedback"][0]["evidence_ref"] == [_BLOCK_B]
