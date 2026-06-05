@@ -332,3 +332,44 @@ def test_assemble_prompt_contains_no_raw_document_text():
             for ref in cr.evidence:
                 assert ref.text_snippet not in prompt or ref.text_snippet == ""
 
+# ---------------------------------------------------------------------------
+# _fallback
+# ---------------------------------------------------------------------------
+
+
+def test_fallback_has_correct_doc_id():
+    caps = _make_caps_result(doc_id="my_doc")
+    result = _fallback(caps, "some reason")
+    assert result["document_id"] == "my_doc"
+
+
+def test_fallback_has_correct_stoplight():
+    caps = _make_caps_result(stoplight="red")
+    result = _fallback(caps, "some reason")
+    assert result["stoplight"] == "red"
+
+
+def test_fallback_has_correct_disclaimer():
+    caps = _make_caps_result()
+    result = _fallback(caps, "some reason")
+    assert result["disclaimer"] == DISCLAIMER
+
+
+def test_fallback_contains_reason_in_docent_toelichting():
+    caps = _make_caps_result()
+    result = _fallback(caps, "LLM call failed")
+    assert "LLM call failed" in result["docent_toelichting"]
+
+
+def test_fallback_has_empty_feedback_and_feed_forward():
+    caps = _make_caps_result()
+    result = _fallback(caps, "reason")
+    assert result["feedback"] == []
+    assert result["feed_forward"] == []
+
+
+def test_fallback_student_samenvatting_is_not_empty():
+    caps = _make_caps_result()
+    result = _fallback(caps, "reason")
+    assert result["student_samenvatting"].strip() != ""
+
