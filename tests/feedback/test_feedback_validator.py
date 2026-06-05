@@ -235,5 +235,73 @@ def test_valid_output_empty_evidence_ref_is_allowed():
     result = validate(_to_json(payload), caps)
     assert result["feedback"][0]["evidence_ref"] == []
 
+# ---------------------------------------------------------------------------
+# JSON parse failure
+# ---------------------------------------------------------------------------
 
 
+def test_malformed_json_raises():
+    caps = _make_caps_result()
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate("this is not json", caps)
+    assert "JSON parse error" in exc_info.value.reason
+
+
+def test_json_array_instead_of_object_raises():
+    caps = _make_caps_result()
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate("[]", caps)
+    assert "not a JSON object" in exc_info.value.reason
+
+
+def test_validation_error_carries_raw_string():
+    caps = _make_caps_result()
+    raw = "not json at all"
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(raw, caps)
+    assert exc_info.value.raw == raw
+
+# ---------------------------------------------------------------------------
+# Missing required fields
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize("field", [
+    "student_samenvatting",
+    "docent_toelichting",
+    "feed_up",
+    "feedback",
+    "feed_forward",
+    "taalgebruik",
+])
+def test_missing_required_field_raises(field: str):
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    del payload[field]
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "Missing required fields" in exc_info.value.reason
+    assert field in exc_info.value.reason
+
+
+# ---------------------------------------------------------------------------
+# Empty student_samenvatting
+# ---------------------------------------------------------------------------
+
+
+def test_empty_student_samenvatting_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["student_samenvatting"] = ""
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "student_samenvatting is empty" in exc_info.value.reason
+
+
+def test_whitespace_only_student_samenvatting_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["student_samenvatting"] = "   "
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "student_samenvatting is empty" in exc_info.value.reason
