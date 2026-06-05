@@ -486,3 +486,163 @@ def check_stakeholders(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
         notes=notes,
         manual_review=manual_review,
     )
+
+
+# ---------------------------------------------------------------------------
+# Criterion 3: Requirements
+# ---------------------------------------------------------------------------
+
+
+def _count_requirement_like_sentences(text: str) -> int:
+    """Count requirement-like narrative sentences in a non-table block.
+
+    Conservative: both a system/entity subject (_NARRATIVE_SUBJECT_RE) AND a
+    requirement modal verb (_NARRATIVE_VERB_RE) must appear in the same
+    sentence. Fragments shorter than 6 words are excluded. Duplicate
+    sentences are counted once.
+
+    Only used when neither explicit requirement IDs nor numbered bullet lines
+    were found in a block.
+    """
+    seen: set[str] = set()
+    count = 0
+    for part in re.split(r"[\n]+|(?<=[.!?])\s+", text):
+        norm = part.lower().strip()
+        if len(norm.split()) < 6:
+            continue
+        if not _NARRATIVE_SUBJECT_RE.search(norm):
+            continue
+        if not _NARRATIVE_VERB_RE.search(norm):
+            continue
+        if norm not in seen:
+            seen.add(norm)
+            count += 1
+    return count
+
+
+def _req_count_from_block(hit: RetrievalHit) -> tuple[int, bool]:
+    """Estimate the number of requirement items in one block.
+
+    Returns (count, has_prioritization).
+
+    For table blocks: count compound MoSCoW label occurrences in the full
+    block text. One label normally corresponds to exactly one requirement row.
+
+    For paragraph/bullet blocks: count unique requirement IDs (FR-01, NFR-01,
+    UC-01, etc.). Fall back to MoSCoW labels if no IDs are found.
+
+    has_prioritization is True when any MoSCoW pattern is detected.
+    """
+    text = hit.block["text"]
+    moscow_count = len(_MOSCOW_RE.findall(text))
+    req_ids = {m.group(0).upper() for m in _REQ_ID_RE.finditer(text)}
+    has_prio = moscow_count > 0
+
+    if hit.block["block_type"] == "table":
+        # Table rows with MoSCoW labels are the most reliable count source.
+        return max(moscow_count, len(req_ids)), has_prio
+    else:
+        # Req IDs are more precise than MoSCoW in narrative blocks
+        # (MoSCoW may appear in explanatory text, not just requirement labels).
+        if req_ids:
+            return len(req_ids), has_prio
+        # Numbered bullet lines as a fallback (e.g. "1. De website moet...")
+        bullets = sum(
+            1
+            for line in text.splitlines()
+            if re.match(r"^\s*(\d{1,3}[.)]\s|\([a-z\d]\)\s)", line, re.IGNORECASE)
+            and len(line.split()) >= 4
+        )
+        if bullets > 0:
+            return max(moscow_count, bullets), has_prio
+        # Narrative fallback: only when neither IDs nor numbered bullets found.
+        narrative = _count_requirement_like_sentences(text)
+        return max(moscow_count, narrative), has_prio
+
+
+def _count_use_case_blocks(hits: list[RetrievalHit]) -> int:
+    """Count distinct use case description blocks (heading-level not counted)."""
+    uc_re = re.compile(r"\buse\s*case\b", re.IGNORECASE)
+    return sum(
+        1
+        for h in hits
+        if h.block["block_type"] in ("paragraph", "bullet")
+        and uc_re.search(h.block["text"])
+        and len(h.block["text"].split()) >= 10
+    )
+
+
+def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionResult:
+    """Count distinct requirements and detect prioritization evidence.
+
+    Counts are estimates: table MoSCoW labels and explicit requirement IDs
+    are the most reliable signals. Use cases and numbered bullets supplement.
+
+    Verdicts follow minimum_count=15 and strong_from=25 from the spec.
+    """
+    evidence: list[EvidenceRef] = []
+    total = 0
+    has_prio = False
+    notes: list[str] = []
+    manual_review = False
+
+    for hit in hits:
+        evidence.append(_make_ref(hit))
+        n, p = _req_count_from_block(hit)
+        total += n
+        has_prio = has_prio or p
+
+    # Supplementary prioritization signal from headings / MoSCoW-labeled sections.
+    all_text = _all_text(hits)
+    if any(t in all_text for t in ("prioriteit", "moscow", "prioritering", "prio")):
+        has_prio = True
+
+    # Add use case blocks only when the primary count is very low,
+    # to avoid double-counting with table rows that already include use cases.
+    uc_count = _count_use_case_blocks(hits)
+    if uc_count > 0 and total < 5:
+        total += uc_count
+        notes.append(
+            f"Use case beschrijvingen ({uc_count}) meegeteld als requirements "
+            "bij laag primair aantal."
+        )
+
+    prio_str = f"Prioritering: {'ja' if has_prio else 'nee'}."
+    minimum = spec.minimum_count or 15
+    strong_from = spec.strong_from or 25
+
+    if total == 0:
+        status: CriterionStatus = "missing"
+        notes.append("Geen herkenbare requirements gevonden.")
+
+    elif total < minimum:
+        status = "partial"
+        notes.append(f"Geschat {total} requirement-items (minimum {minimum}). {prio_str}")
+        # Flag edge cases near the threshold.
+        if minimum - 3 <= total <= minimum + 2:
+            manual_review = True
+            notes.append(
+                f"Telling ({total}) dicht bij minimum ({minimum}) — handmatig verificeren."
+            )
+
+    elif total < strong_from:
+        status = "sufficient"
+        notes.append(f"Geschat {total} requirement-items. {prio_str}")
+        if total <= minimum + 2:
+            manual_review = True
+            notes.append(f"Telling ({total}) net boven minimum — grenswaardegeval.")
+
+    else:
+        status = "strong"
+        notes.append(f"Geschat {total} requirement-items — ruim gedekt. {prio_str}")
+
+    return CriterionResult(
+        criterion_key=spec.key,
+        status=status,
+        stoplight=_status_to_stoplight(status),
+        is_blocker=spec.is_blocker,
+        evidence=evidence[:8],
+        count=total,
+        notes=notes,
+        manual_review=manual_review,
+    )
