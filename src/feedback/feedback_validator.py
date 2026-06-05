@@ -191,4 +191,55 @@ def validate(raw_json: str, caps_result: CapsRunResult) -> FeedbackResult:
         raise FeedbackValidationError(
             "Disclaimer was modified by the LLM.", raw=raw_json
         )
+# --- 7. feedback must be a list ---
+    if not isinstance(data.get("feedback"), list):
+        raise FeedbackValidationError(
+            "'feedback' must be a list.", raw=raw_json
+        )
+
+    # --- 8. feedback entries: known criterion keys and known evidence refs ---
+    known_block_ids = _collect_known_block_ids(caps_result)
+    known_keys = frozenset(CRITERIA_KEYS)
+
+    for entry in data["feedback"]:
+        crit_key = entry.get("criterium")
+        if crit_key is None:
+            raise FeedbackValidationError(
+                "A feedback entry is missing the 'criterium' field.", raw=raw_json
+            )
+        if crit_key not in known_keys:
+            raise FeedbackValidationError(
+                f"Unknown criterion key in feedback: '{crit_key}'.", raw=raw_json
+            )
+        for block_id in entry.get("evidence_ref") or []:
+            if block_id not in known_block_ids:
+                raise FeedbackValidationError(
+                    f"Unknown evidence_ref block ID: '{block_id}'.", raw=raw_json
+                )
+
+    # --- 9. feed_forward must be a list ---
+    if not isinstance(data.get("feed_forward"), list):
+        raise FeedbackValidationError(
+            "'feed_forward' must be a list.", raw=raw_json
+        )
+
+    # --- All checks passed: build FeedbackResult with deterministic overrides ---
+    return FeedbackResult(
+        document_id=caps_result.doc_id,
+        stoplight=caps_result.overall_stoplight,
+        student_samenvatting=data["student_samenvatting"],
+        docent_toelichting=data["docent_toelichting"],
+        feed_up=data["feed_up"],
+        feedback=[
+            CriterionFeedback(
+                criterium=entry["criterium"],
+                observatie=entry.get("observatie") or "",
+                evidence_ref=list(entry.get("evidence_ref") or []),
+            )
+            for entry in data["feedback"]
+        ],
+        feed_forward=list(data["feed_forward"]),
+        taalgebruik=data["taalgebruik"],
+        disclaimer=DISCLAIMER,
+    )
 
