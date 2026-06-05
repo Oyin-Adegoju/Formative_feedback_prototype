@@ -105,3 +105,75 @@ def build_whitelist(values: list[str]) -> Whitelist:
     return Whitelist(values)
  
  
+# --- Suggestie-pijplijn -----------------------------------------------------
+ 
+ 
+_ALIAS_REGEX_CACHE: dict[str, re.Pattern[str]] = {}
+ 
+ 
+def _alias_to_regex(alias: str) -> re.Pattern[str] | None:
+    if not alias:
+        return None
+    cached = _ALIAS_REGEX_CACHE.get(alias)
+    if cached is not None:
+        return cached
+    escaped = re.escape(alias).replace(r"\ ", r"\s+")
+    prefix = r"\b" if alias[0].isalnum() else r"(?<!\w)"
+    suffix = r"\b" if alias[-1].isalnum() else r"(?!\w)"
+    pattern = re.compile(prefix + escaped + suffix, re.IGNORECASE)
+    _ALIAS_REGEX_CACHE[alias] = pattern
+    return pattern
+ 
+ 
+def _scan_catalog_matches(
+    text: str,
+    catalog: PeopleCatalog,
+) -> list[tuple[str, str]]:
+    """Geef unieke (matched_text, canonical_name)-paren terug.
+ 
+    Alleen aliassen die exact één persoon teruggeven worden meegenomen —
+    ambigue matches zijn te onzeker voor een suggestie.
+    """
+    if not text:
+        return []
+    aliases_seen: set[str] = set()
+    aliases: list[str] = []
+    for p in catalog.get_all_people():
+        for alias in p.aliassen:
+            n = normalize_lookup_text(alias)
+            if not n or n in aliases_seen:
+                continue
+            aliases_seen.add(n)
+            aliases.append(alias)
+    # Langer eerst zodat "Sara Denno" voor "Sara" gevonden wordt.
+    aliases.sort(key=lambda a: (-len(a), a))
+ 
+    found: dict[str, str] = {}  # canonical → eerst-gevonden matched_text
+    for alias in aliases:
+        pattern = _alias_to_regex(alias)
+        if pattern is None:
+            continue
+        for m in pattern.finditer(text):
+            persons = catalog.find_by_alias(m.group())
+            if len(persons) != 1:
+                continue
+            p = persons[0]
+            parts = [p.voornaam]
+            if p.tussenvoegsel:
+                parts.append(p.tussenvoegsel)
+            parts.append(p.achternaam)
+            canonical = " ".join(parts)
+            if canonical not in found:
+                found[canonical] = m.group()
+    return [(matched, canonical) for canonical, matched in found.items()]
+ 
+ 
+def _iter_fragments(block: Block) -> Iterable[tuple[str, str]]:
+    """Yield (fragment_text, source_name) voor block.text + heading_path-items."""
+    if block.text:
+        yield block.text, "block_text"
+    for item in block.heading_path:
+        if item:
+            yield item, "heading_path"
+ 
+ 
