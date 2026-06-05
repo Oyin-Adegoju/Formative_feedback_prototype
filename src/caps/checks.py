@@ -186,3 +186,128 @@ def _iter_cells(hit: RetrievalHit):
         for cell in row:
             if cell:
                 yield cell
+
+
+# ---------------------------------------------------------------------------
+# Criterion 1: Beperking & deskresearch
+# ---------------------------------------------------------------------------
+
+
+def _negated_research(block_text: str) -> bool:
+    """True if the block explicitly negates its own research signal."""
+    return any(neg in block_text for neg in _NEGATION_RESEARCH)
+
+
+def check_beperking(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionResult:
+    """Detect co-occurrence: explicit limitation signal + research support.
+
+    Verdicts:
+    - missing:    neither signal found
+    - partial:    only one signal found (limitation OR research, not both)
+    - sufficient: both signals present in at least one block each
+    - strong:     both signals each appear in ≥ 2 distinct blocks
+    """
+    evidence: list[EvidenceRef] = []
+    limitation_hits: list[RetrievalHit] = []
+    research_hits: list[RetrievalHit] = []
+    negated_research_count = 0
+
+    for hit in hits:
+        text = _text_of(hit)
+        has_lim = bool(_found_terms(_LIMITATION_TERMS, text))
+        has_res = bool(_found_terms(_RESEARCH_TERMS, text))
+        has_neg = _negated_research(text)
+
+        if has_lim or has_res:
+            evidence.append(_make_ref(hit))
+        if has_lim:
+            limitation_hits.append(hit)
+        if has_res:
+            if has_neg:
+                negated_research_count += 1
+            else:
+                research_hits.append(hit)
+
+    # Separate body (paragraph/bullet) research hits from heading-only signals.
+    # Headings signal a research section exists but do not prove research content.
+    # Very short fragments (< 8 words) are unlikely to be substantive research evidence
+    # (e.g. "deskresearch gebruikt." or "geen koppeling met bronnen.").
+    research_body_hits = [
+        h for h in research_hits
+        if h.block["block_type"] not in ("heading", "caption")
+        and len(h.block["text"].split()) >= 8
+    ]
+
+    notes: list[str] = []
+    manual_review = False
+
+    has_limitation = bool(limitation_hits)
+    has_research = bool(research_hits)
+
+    if not has_limitation and not has_research:
+        status: CriterionStatus = "missing"
+        notes.append("Geen beperking- of onderbouwingssignaal gevonden.")
+        if negated_research_count:
+            notes.append(
+                f"{negated_research_count} blok(ken) bevatten onderbouwingstermen "
+                "maar ontkenden die in dezelfde zin."
+            )
+
+    elif not has_limitation:
+        status = "partial"
+        found = _found_terms(_RESEARCH_TERMS, _all_text(research_hits))
+        notes.append(
+            f"Onderbouwing aanwezig ({', '.join(found[:3])}), "
+            "maar geen expliciete beperking of doelgroepkeuze beschreven."
+        )
+
+    elif not has_research:
+        status = "partial"
+        found = _found_terms(_LIMITATION_TERMS, _all_text(limitation_hits))
+        notes.append(
+            f"Beperking beschreven ({', '.join(found[:3])}), "
+            "maar geen onderbouwende bronnen of deskresearch gevonden."
+        )
+        if negated_research_count:
+            notes.append(
+                "Onderbouwingstermen aanwezig maar expliciet ontkend in context."
+            )
+        manual_review = True
+
+    else:
+        # Both signals present
+        lim_signals = _found_terms(_LIMITATION_TERMS, _all_text(limitation_hits))
+        res_signals = _found_terms(_RESEARCH_TERMS, _all_text(research_hits))
+
+        # "Strong" requires substantive body evidence (paragraphs, not just headings/fragments).
+        if len(limitation_hits) >= 2 and len(research_body_hits) >= 2:
+            status = "strong"
+            notes.append(
+                f"Beperking in meerdere blokken beschreven ({', '.join(lim_signals[:3])}) "
+                f"en meerdere onderbouwingsblokken aanwezig ({', '.join(res_signals[:3])})."
+            )
+        else:
+            status = "sufficient"
+            notes.append(
+                f"Beperking beschreven ({', '.join(lim_signals[:3])}) "
+                f"en onderbouwing aanwezig ({', '.join(res_signals[:3])})."
+            )
+            # Thin research: only headings or short fragments → flag for review.
+            if len(research_body_hits) == 0 or (
+                len(research_body_hits) == 1 and len(res_signals) == 1
+            ):
+                manual_review = True
+                notes.append(
+                    "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
+                )
+
+    return CriterionResult(
+        criterion_key=spec.key,
+        status=status,
+        stoplight=_status_to_stoplight(status),
+        is_blocker=spec.is_blocker,
+        evidence=evidence[:8],
+        count=None,
+        notes=notes,
+        manual_review=manual_review,
+    )
