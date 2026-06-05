@@ -1,8 +1,11 @@
+
+
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace as _dc_replace
 
+from src.parser.structure import Block
 from src.privacy.catalog import (
     PeopleCatalog,
     PersonRecord,
@@ -260,3 +263,72 @@ def _filter_whitelisted_spans(
     if whitelist is None:
         return spans
     return [s for s in spans if not whitelist.is_allowed(s.text)]
+
+
+# --- Public API 
+
+
+def anonymize_text(
+    text: str,
+    catalog: PeopleCatalog,
+    state: AnonymizationState,
+    whitelist: Whitelist | None = None,
+) -> str:
+    """Vervang gevoelige spans in `text` door placeholders.
+
+    Volgorde:
+      1. spans verzamelen (catalog + rules)
+      2. whitelist-filtering — spans op de whitelist worden weggelaten
+      3. placeholders toewijzen (links-naar-rechts voor nummervolgorde)
+      4. tekst vervangen (rechts-naar-links zodat indices niet schuiven)
+    """
+    if not text:
+        return text
+    spans = _collect_spans(text, catalog)
+    spans = _filter_whitelisted_spans(spans, whitelist)
+    if not spans:
+        return text
+
+    placeholders = [
+        state.get_or_create(s.text, s.ptype, canonical_key=s.canonical_key)
+        for s in spans
+    ]
+    result = text
+    for s, p in reversed(list(zip(spans, placeholders))):
+        result = result[: s.start] + p + result[s.end :]
+    return result
+
+
+def anonymize_heading_path(
+    path: list[str],
+    catalog: PeopleCatalog,
+    state: AnonymizationState,
+    whitelist: Whitelist | None = None,
+) -> list[str]:
+    """Anonymiseer elk item in een heading_path los, return een nieuwe lijst."""
+    if not path:
+        return []
+    return [anonymize_text(item, catalog, state, whitelist) for item in path]
+
+
+def anonymize_blocks(
+    blocks: list[Block],
+    catalog: PeopleCatalog,
+    whitelist: Whitelist | None = None,
+) -> tuple[list[Block], dict[str, dict[str, str]]]:
+    """Hoofdentry: anonymize elke block + heading_path, return nieuwe blocks.
+
+    De originele Block-objecten worden NIET gemuteerd; via
+    `dataclasses.replace` worden nieuwe instances aangemaakt met aangepaste
+    `text` en `heading_path`. Andere velden blijven gelijk.
+
+    Met een `whitelist`-argument worden waarden op die whitelist
+    ongemoeid gelaten én zijn ze ook niet aanwezig in de mapping.
+    """
+    state = AnonymizationState()
+    new_blocks: list[Block] = []
+    for b in blocks:
+        new_text = anonymize_text(b.text, catalog, state, whitelist)
+        new_path = anonymize_heading_path(b.heading_path, catalog, state, whitelist)
+        new_blocks.append(_dc_replace(b, text=new_text, heading_path=new_path))
+    return new_blocks, state.to_mapping()
