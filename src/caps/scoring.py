@@ -51,6 +51,32 @@ _BLOCKER_TRIGGERING_STATUSES: Final[frozenset[str]] = frozenset({"missing", "par
 
 
 # ---------------------------------------------------------------------------
+# Input validation
+# ---------------------------------------------------------------------------
+
+
+def _validate_criterion_result_keys(
+    criterion_results: dict[str, CriterionResult],
+) -> None:
+    """Verify that criterion_results contains exactly the expected criterion keys.
+
+    Raises ValueError if any expected key is absent or any unexpected key is present.
+    CRITERIA_KEYS from criterion_specs is the single source of truth.
+    """
+    actual: set[str] = set(criterion_results.keys())
+    expected: set[str] = set(CRITERIA_KEYS)
+    missing = expected - actual
+    extra = actual - expected
+    if missing or extra:
+        parts: list[str] = []
+        if missing:
+            parts.append(f"missing: {sorted(missing)}")
+        if extra:
+            parts.append(f"unexpected: {sorted(extra)}")
+        raise ValueError(f"criterion_results key mismatch — {'; '.join(parts)}")
+
+
+# ---------------------------------------------------------------------------
 # Pure helpers
 # ---------------------------------------------------------------------------
 
