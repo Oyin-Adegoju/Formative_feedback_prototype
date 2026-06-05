@@ -305,3 +305,80 @@ def test_whitespace_only_student_samenvatting_raises():
     with pytest.raises(FeedbackValidationError) as exc_info:
         validate(_to_json(payload), caps)
     assert "student_samenvatting is empty" in exc_info.value.reason
+# ---------------------------------------------------------------------------
+# Stoplight mismatch
+# ---------------------------------------------------------------------------
+
+
+def test_stoplight_mismatch_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("red")
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "Stoplight mismatch" in exc_info.value.reason
+    assert "red" in exc_info.value.reason
+    assert "green" in exc_info.value.reason
+
+
+def test_stoplight_missing_from_llm_output_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    del payload["stoplight"]
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "Stoplight mismatch" in exc_info.value.reason
+
+
+# ---------------------------------------------------------------------------
+# Score leak detection
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize("text,field", [
+    ("Je hebt 8/10 gehaald op dit onderdeel.", "student_samenvatting"),
+    ("De score is score: 12 punten.", "docent_toelichting"),
+    ("Het cijfer: 7 is voldoende.", "feed_up"),
+    ("Goed gedaan, score: 3 voor security.", "taalgebruik"),
+    ("Je scoort 12/15 op de rubric.", "student_samenvatting"),
+])
+def test_score_leak_in_text_field_raises(text: str, field: str):
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload[field] = text
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "Score leak" in exc_info.value.reason
+
+
+def test_score_leak_in_feed_forward_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["feed_forward"] = ["Goed gedaan!", "Je hebt score: 9 gehaald."]
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "Score leak" in exc_info.value.reason
+
+
+def test_score_leak_in_observatie_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["feedback"] = [
+        {
+            "criterium": "beperking",
+            "observatie": "Je hebt 4/10 voor dit criterium.",
+            "evidence_ref": [],
+        }
+    ]
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "Score leak" in exc_info.value.reason
+
+
+def test_legitimate_numbers_do_not_trigger_score_leak():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["student_samenvatting"] = (
+        "Je document bevat 4 stakeholders en 15 requirements."
+    )
+    result = validate(_to_json(payload), caps)
+    assert result is not None
