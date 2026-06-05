@@ -176,3 +176,108 @@ class TestRunCaps:
         result = run_caps(report)
         artifacts = run_caps_with_artifacts(report)
         assert result == artifacts.result
+
+
+# ---------------------------------------------------------------------------
+# input_source forwarding
+# ---------------------------------------------------------------------------
+
+
+class TestInputSourceForwarding:
+    def test_default_input_source_is_parser_direct(self, report, patched):
+        run_caps(report)
+        assert patched["score_input_source"] == "parser_direct"
+
+    def test_anonymized_input_source_forwarded_to_score_document(self, report, patched):
+        run_caps(report, input_source="anonymized")
+        assert patched["score_input_source"] == "anonymized"
+
+    def test_input_source_appears_in_run_meta(self, report, patched):
+        result = run_caps(report, input_source="anonymized")
+        assert result.run_meta.input_source == "anonymized"
+
+
+# ---------------------------------------------------------------------------
+# max_candidates forwarding
+# ---------------------------------------------------------------------------
+
+
+class TestMaxCandidatesForwarding:
+    def test_default_max_candidates_is_20(self, report, patched):
+        run_caps(report)
+        assert patched["retrieve_max_candidates"] == 20
+
+    def test_custom_max_candidates_forwarded_to_retrieval(self, report, patched):
+        run_caps(report, max_candidates=5)
+        assert patched["retrieve_max_candidates"] == 5
+
+    def test_max_candidates_forwarded_via_run_caps_with_artifacts(self, report, patched):
+        run_caps_with_artifacts(report, max_candidates=12)
+        assert patched["retrieve_max_candidates"] == 12
+
+
+# ---------------------------------------------------------------------------
+# Criteria coverage
+# ---------------------------------------------------------------------------
+
+
+class TestCriteriaCoverage:
+    def test_candidates_cover_all_rubric_criteria(self, report, patched):
+        artifacts = run_caps_with_artifacts(report)
+        assert set(artifacts.candidates.keys()) == set(CRITERIA_KEYS)
+
+    def test_criterion_results_cover_all_rubric_criteria(self, report, patched):
+        artifacts = run_caps_with_artifacts(report)
+        assert set(artifacts.criterion_results.keys()) == set(CRITERIA_KEYS)
+
+    def test_scorecard_covers_all_rubric_criteria(self, report, monkeypatch):
+        """Use the real score_document so the scorecard reflects actual criteria."""
+        from src.caps.scoring import score_document as real_score
+
+        monkeypatch.setattr("src.caps.caps.retrieve_all_criteria", lambda *a, **kw: _stub_candidates())
+        monkeypatch.setattr("src.caps.caps.run_all_checks", lambda *a, **kw: _stub_criterion_results())
+        monkeypatch.setattr("src.caps.caps.score_document", real_score)
+
+        result = run_caps(report)
+        assert set(result.scorecard.results.keys()) == set(CRITERIA_KEYS)
+
+    def test_run_meta_criteria_evaluated_covers_all(self, report, monkeypatch):
+        from src.caps.scoring import score_document as real_score
+
+        monkeypatch.setattr("src.caps.caps.retrieve_all_criteria", lambda *a, **kw: _stub_candidates())
+        monkeypatch.setattr("src.caps.caps.run_all_checks", lambda *a, **kw: _stub_criterion_results())
+        monkeypatch.setattr("src.caps.caps.score_document", real_score)
+
+        result = run_caps(report)
+        assert set(result.run_meta.criteria_evaluated) == set(CRITERIA_KEYS)
+
+
+# ---------------------------------------------------------------------------
+# Determinism
+# ---------------------------------------------------------------------------
+
+
+class TestDeterminism:
+    def test_pipeline_deterministic_with_stubs(self, report, patched):
+        result_a = run_caps(report)
+        result_b = run_caps(report)
+        assert result_a == result_b
+
+    def test_pipeline_deterministic_real_path(self):
+        """Real end-to-end smoke: empty-block report must produce identical outputs twice."""
+        smoke_report: ParseReportDict = {
+            "doc_id": "smoke-001",
+            "source_name": "smoke.pdf",
+            "page_count": 1,
+            "block_count": 0,
+            "blocks": [],
+        }
+        result_a = run_caps(smoke_report)
+        result_b = run_caps(smoke_report)
+
+        assert result_a.doc_id == result_b.doc_id
+        assert result_a.overall_stoplight == result_b.overall_stoplight
+        assert result_a.scorecard.results.keys() == result_b.scorecard.results.keys()
+        assert {k: r.status for k, r in result_a.scorecard.results.items()} == {
+            k: r.status for k, r in result_b.scorecard.results.items()
+        }
