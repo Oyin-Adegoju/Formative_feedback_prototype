@@ -72,4 +72,80 @@ class LlmCallError(Exception):
         self.reason = reason
         self.status_code = status_code
 
+# ---------------------------------------------------------------------------
+# Public API
+# ---------------------------------------------------------------------------
+
+
+def complete(
+    prompt: str,
+    temperature: float = _DEFAULT_TEMPERATURE,
+    model: str | None = None,
+    max_tokens: int = _DEFAULT_MAX_TOKENS,
+) -> str:
+    """Send a prompt to the local inference server and return the raw response text.
+
+    Uses the OpenAI-compatible POST /v1/chat/completions endpoint.
+    The full prompt is sent as a single user message — no system/user split,
+    because the prompt template already contains all role and guardrail context.
+
+    Args:
+        prompt:      The fully assembled prompt from feedback_builder.py.
+        temperature: Sampling temperature. Keep low (0.1–0.2) for structured output.
+        model:       Model name override. Defaults to Qwen2.5-14B-Instruct.
+        max_tokens:  Maximum tokens in the response.
+
+    Returns:
+        Raw string content of the model's first response choice.
+
+    Raises:
+        LlmCallError: on HTTP error, connection failure, timeout, or unexpected
+            response shape from the inference server.
+    """
+    base_url = os.environ.get("LLM_BASE_URL", _DEFAULT_BASE_URL).rstrip("/")
+    model_id = model or os.environ.get("LLM_MODEL", _DEFAULT_MODEL)
+    endpoint = f"{base_url}/chat/completions"
+
+    payload = json.dumps({
+        "model": model_id,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+    }).encode("utf-8")
+
+    req = urllib.request.Request(
+        url=endpoint,
+        data=payload,
+        method="POST",
+        headers={"Content-Type": "application/json"},
+    )
+
+    try:
+        with urllib.request.urlopen(req, timeout=_TIMEOUT_SECONDS) as response:
+            body = json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        raise LlmCallError(
+            f"HTTP {exc.code} from inference server at {endpoint}: {exc.reason}",
+            status_code=exc.code,
+        ) from exc
+    except urllib.error.URLError as exc:
+        raise LlmCallError(
+            f"Could not reach inference server at {base_url}: {exc.reason}"
+        ) from exc
+    except TimeoutError as exc:
+        raise LlmCallError(
+            f"Inference server timed out after {_TIMEOUT_SECONDS}s ({endpoint})."
+        ) from exc
+    except json.JSONDecodeError as exc:
+        raise LlmCallError(
+            f"Inference server returned non-JSON response: {exc}"
+        ) from exc
+
+    try:
+        return body["choices"][0]["message"]["content"]
+    except (KeyError, IndexError, TypeError) as exc:
+        raise LlmCallError(
+            f"Unexpected response shape from inference server: {exc}\nBody: {body}"
+        ) from exc
+
 
