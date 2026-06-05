@@ -66,6 +66,26 @@ _STUDENTNR_LABEL_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Gevoelige labels — label + (':' of '=') + waarde. De waarde stopt bij
+# regeleinde, komma, puntkomma of pijp (typische tabel-/lijst-separators).
+_SENSITIVE_LABEL_NAMES = (
+    r"naam|"
+    r"student[\-\s]?nummer|studnr|studienummer|s[\-\s]?nummer|"
+    r"opdrachtgever|"
+    r"respondent|"
+    r"geïnterviewde|geinterviewde|interviewee|"
+    r"docent|"
+    r"student"
+)
+# Greedy chars tot een stopper; eventuele trailing whitespace wordt in de
+# finder-code afgeknipt (en de end-positie aangepast).
+_SENSITIVE_LABEL_RE = re.compile(
+    r"\b(" + _SENSITIVE_LABEL_NAMES + r")\b"
+    r"\s*[:=]\s*"
+    r"([^\n,;|]+)",
+    re.IGNORECASE,
+)
+
 
 # --- Helpers ----------------------------------------------------------------
 
@@ -181,4 +201,35 @@ def find_student_numbers(text: str) -> list[RuleMatch]:
         )
 
     results.sort(key=lambda r: (r.start, r.end, r.confidence))
+    return results
+
+
+def find_labeled_sensitive_fields(text: str) -> list[RuleMatch]:
+    """Detecteer "Label: Waarde"-paren voor bekende gevoelige labels.
+
+    De match-`text` is de WAARDE (na de dubbele punt of `=`), de `label`-
+    metadata bevat de canonieke label-naam. Zo kan de anonymizer de
+    waarde direct vervangen.
+    """
+    if not text:
+        return []
+    results: list[RuleMatch] = []
+    for m in _SENSITIVE_LABEL_RE.finditer(text):
+        raw_value = m.group(2)
+        stripped = raw_value.rstrip()
+        if not stripped:
+            continue
+        # rstrip kan de end-positie verkort hebben — opnieuw berekenen.
+        start = m.start(2)
+        end = start + len(stripped)
+        results.append(
+            RuleMatch(
+                rule_type="labeled_sensitive_field",
+                start=start,
+                end=end,
+                text=stripped,
+                label=_normalize_label(m.group(1)),
+                confidence="high",
+            )
+        )
     return results
