@@ -67,3 +67,22 @@ def _fallback(caps_result: CapsRunResult, reason: str) -> FeedbackResult:
         taalgebruik="",
         disclaimer=DISCLAIMER,
     )
+# ---------------------------------------------------------------------------
+# Prompt assembly helpers
+# ---------------------------------------------------------------------------
+
+
+def _collect_block_ids(caps_result: CapsRunResult) -> list[str]:
+    """Return all unique evidence block IDs from the scorecard, in stable order."""
+    seen: set[str] = set()
+    ids: list[str] = []
+    for key in CRITERIA_KEYS:
+        cr = caps_result.scorecard.results.get(key)
+        if not cr:
+            continue
+        for ref in cr.evidence:
+            if ref.block_id not in seen:
+                seen.add(ref.block_id)
+                ids.append(ref.block_id)
+    return ids
+
