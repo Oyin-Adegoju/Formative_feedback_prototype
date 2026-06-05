@@ -250,3 +250,85 @@ def test_manual_review_section_contains_warning_symbol():
     )
     assert "⚠" in _manual_review_section(caps)
 
+# ---------------------------------------------------------------------------
+# _assemble_prompt
+# ---------------------------------------------------------------------------
+
+_SIMPLE_TEMPLATE = (
+    "doc:<<DOC_ID>> stop:<<STOPLIGHT>> keys:<<CRITERION_KEYS>> "
+    "ids:<<KNOWN_BLOCK_IDS>> review:<<MANUAL_REVIEW_SECTION>> card:<<SCORECARD>>"
+)
+
+
+def test_assemble_prompt_replaces_doc_id():
+    caps = _make_caps_result(doc_id="testdoc")
+    prompt = _assemble_prompt(caps, _SIMPLE_TEMPLATE)
+    assert "testdoc" in prompt
+    assert "<<DOC_ID>>" not in prompt
+
+
+def test_assemble_prompt_replaces_stoplight():
+    caps = _make_caps_result(stoplight="red")
+    prompt = _assemble_prompt(caps, _SIMPLE_TEMPLATE)
+    assert "red" in prompt
+    assert "<<STOPLIGHT>>" not in prompt
+
+
+def test_assemble_prompt_replaces_criterion_keys():
+    caps = _make_caps_result()
+    prompt = _assemble_prompt(caps, _SIMPLE_TEMPLATE)
+    for key in CRITERIA_KEYS:
+        assert key in prompt
+    assert "<<CRITERION_KEYS>>" not in prompt
+
+
+def test_assemble_prompt_replaces_known_block_ids():
+    caps = _make_caps_result()
+    prompt = _assemble_prompt(caps, _SIMPLE_TEMPLATE)
+    assert _BLOCK_A in prompt
+    assert "<<KNOWN_BLOCK_IDS>>" not in prompt
+
+
+def test_assemble_prompt_no_placeholders_remain():
+    caps = _make_caps_result()
+    prompt = _assemble_prompt(caps, _SIMPLE_TEMPLATE)
+    assert "<<" not in prompt
+    assert ">>" not in prompt
+
+
+def test_assemble_prompt_shows_geen_evidence_when_empty():
+    caps = _make_caps_result(criterion_overrides={
+        key: _make_criterion_result(key, block_ids=[])
+        for key in CRITERIA_KEYS
+    })
+    prompt = _assemble_prompt(caps, _SIMPLE_TEMPLATE)
+    assert "geen evidence beschikbaar" in prompt
+
+
+def test_assemble_prompt_manual_review_empty_when_not_required():
+    caps = _make_caps_result(manual_review_required=False)
+    prompt = _assemble_prompt(caps, "review:<<MANUAL_REVIEW_SECTION>>end")
+    assert "review:end" in prompt
+
+
+def test_assemble_prompt_uses_real_template_file():
+    caps = _make_caps_result()
+    from src.feedback.feedback_builder import _PROMPT_PATH
+    template = _PROMPT_PATH.read_text(encoding="utf-8")
+    prompt = _assemble_prompt(caps, template)
+    assert "<<" not in prompt
+    assert ">>" not in prompt
+
+
+def test_assemble_prompt_contains_no_raw_document_text():
+    caps = _make_caps_result()
+    from src.feedback.feedback_builder import _PROMPT_PATH
+    template = _PROMPT_PATH.read_text(encoding="utf-8")
+    prompt = _assemble_prompt(caps, template)
+    # The prompt must not contain block text (text_snippet) — only block IDs
+    for key in CRITERIA_KEYS:
+        cr = caps.scorecard.results.get(key)
+        if cr:
+            for ref in cr.evidence:
+                assert ref.text_snippet not in prompt or ref.text_snippet == ""
+
