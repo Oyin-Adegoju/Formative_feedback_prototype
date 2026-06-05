@@ -48,4 +48,22 @@ Only applied to LLM-written text fields (student_samenvatting, docent_toelichtin
 feed_up, feedback[].observatie, feed_forward, taalgebruik).
 Not applied to evidence_ref (block IDs legitimately contain numbers).
 """
+# ---------------------------------------------------------------------------
+# Required fields
+# ---------------------------------------------------------------------------
+
+_REQUIRED_FIELDS: Final[frozenset[str]] = frozenset({
+    "student_samenvatting",
+    "docent_toelichting",
+    "feed_up",
+    "feedback",
+    "feed_forward",
+    "taalgebruik",
+})
+"""Fields that must be present in the LLM output dict.
+
+document_id, stoplight, and disclaimer are not required from the LLM —
+they are always injected deterministically by this validator.
+"""
+
 
