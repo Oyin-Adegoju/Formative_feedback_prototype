@@ -169,5 +169,71 @@ def test_llm_text_fields_excludes_evidence_ref_ids():
     }
     result = _llm_text_fields(data)
     assert "doc1_0001" not in result
+# ---------------------------------------------------------------------------
+# Valid output passes
+# ---------------------------------------------------------------------------
+
+
+def test_valid_output_returns_feedback_result():
+    caps = _make_caps_result(stoplight="green")
+    result = validate(_to_json(_valid_llm_output("green")), caps)
+    assert result["document_id"] == "doc1"
+    assert result["stoplight"] == "green"
+    assert result["disclaimer"] == DISCLAIMER
+
+
+def test_valid_output_document_id_from_caps_not_llm():
+    caps = _make_caps_result(stoplight="green", doc_id="real_doc_id")
+    payload = _valid_llm_output("green")
+    payload["document_id"] = "fake_doc_id"
+    result = validate(_to_json(payload), caps)
+    assert result["document_id"] == "real_doc_id"
+
+
+def test_valid_output_stoplight_from_caps_not_llm():
+    caps = _make_caps_result(stoplight="yellow")
+    result = validate(_to_json(_valid_llm_output("yellow")), caps)
+    assert result["stoplight"] == "yellow"
+
+
+def test_valid_output_disclaimer_always_injected():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload.pop("disclaimer", None)
+    result = validate(_to_json(payload), caps)
+    assert result["disclaimer"] == DISCLAIMER
+
+
+def test_valid_output_with_red_stoplight():
+    caps = _make_caps_result(stoplight="red")
+    result = validate(_to_json(_valid_llm_output("red")), caps)
+    assert result["stoplight"] == "red"
+
+
+def test_valid_output_empty_feedback_list_is_allowed():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["feedback"] = []
+    result = validate(_to_json(payload), caps)
+    assert result["feedback"] == []
+
+
+def test_valid_output_empty_feed_forward_is_allowed():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["feed_forward"] = []
+    result = validate(_to_json(payload), caps)
+    assert result["feed_forward"] == []
+
+
+def test_valid_output_empty_evidence_ref_is_allowed():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["feedback"] = [
+        {"criterium": "beperking", "observatie": "ok", "evidence_ref": []}
+    ]
+    result = validate(_to_json(payload), caps)
+    assert result["feedback"][0]["evidence_ref"] == []
+
 
 
