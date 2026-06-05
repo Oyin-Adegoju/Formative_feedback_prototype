@@ -111,5 +111,39 @@ def _valid_llm_json(stoplight: str = "green") -> str:
         "feed_forward": ["Voeg meer bronnen toe."],
         "taalgebruik": "Helder geschreven.",
     })
+# ---------------------------------------------------------------------------
+# _collect_block_ids
+# ---------------------------------------------------------------------------
+
+
+def test_collect_block_ids_returns_ids_in_stable_order():
+    caps = _make_caps_result()
+    ids = _collect_block_ids(caps)
+    assert _BLOCK_A in ids
+    assert _BLOCK_B in ids
+    assert _BLOCK_C in ids
+
+
+def test_collect_block_ids_no_duplicates():
+    caps = _make_caps_result(criterion_overrides={
+        "beperking": _make_criterion_result("beperking", block_ids=[_BLOCK_A, _BLOCK_A]),
+    })
+    ids = _collect_block_ids(caps)
+    assert ids.count(_BLOCK_A) == 1
+
+
+def test_collect_block_ids_empty_when_no_evidence():
+    caps = _make_caps_result(criterion_overrides={
+        key: _make_criterion_result(key, block_ids=[])
+        for key in CRITERIA_KEYS
+    })
+    assert _collect_block_ids(caps) == []
+
+
+def test_collect_block_ids_order_follows_criteria_keys():
+    caps = _make_caps_result()
+    ids = _collect_block_ids(caps)
+    # beperking comes before stakeholders in CRITERIA_KEYS
+    assert ids.index(_BLOCK_A) < ids.index(_BLOCK_B)
 
 
