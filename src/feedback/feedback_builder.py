@@ -145,3 +145,73 @@ def _assemble_prompt(caps_result: CapsRunResult, template: str) -> str:
         .replace("<<MANUAL_REVIEW_SECTION>>", _manual_review_section(caps_result))
     )
 
+# ---------------------------------------------------------------------------
+# Public API
+# ---------------------------------------------------------------------------
+
+
+def generate_feedback(caps_result: CapsRunResult) -> FeedbackResult:
+    """Generate formative feedback from a CapsRunResult.
+
+    Pipeline:
+        1. Load prompt template from prompts/feedback_writer_v1.txt.
+        2. Assemble prompt with scorecard data.
+        3. Call the local LLM via llm_client.complete().
+        4. Validate the raw response via feedback_validator.validate().
+        5. Return the validated FeedbackResult.
+
+    On any failure (missing template, LLM error, validation error) the
+    function logs the failure and returns a safe fallback FeedbackResult.
+    It never raises.
+
+    Args:
+        caps_result: The complete output of one CAPS evaluation run.
+
+    Returns:
+        A validated FeedbackResult, or a deterministic fallback on failure.
+    """
+    doc_id = caps_result.doc_id
+    stoplight = caps_result.overall_stoplight
+    model_id = os.environ.get("LLM_MODEL", "Qwen2.5-14B-Instruct")
+
+    # --- 1. Load template ---
+    try:
+        template = _PROMPT_PATH.read_text(encoding="utf-8")
+    except OSError as exc:
+        logger.error(
+            "doc_id=%s prompt_version=%s | template_missing: %s",
+            doc_id, _PROMPT_VERSION, exc,
+        )
+        return _fallback(caps_result, f"prompt template not found: {exc}")
+
+    # --- 2. Assemble prompt ---
+    prompt = _assemble_prompt(caps_result, template)
+
+    # --- 3. LLM call ---
+    try:
+        raw_json = llm_client.complete(prompt)
+    except LlmCallError as exc:
+        logger.error(
+            "doc_id=%s prompt_version=%s model=%s stoplight=%s | llm_call_failed: %s",
+            doc_id, _PROMPT_VERSION, model_id, stoplight, exc.reason,
+        )
+        return _fallback(caps_result, f"LLM call failed: {exc.reason}")
+
+    # --- 4. Validate ---
+    try:
+        result = validate(raw_json, caps_result)
+    except FeedbackValidationError as exc:
+        logger.warning(
+            "doc_id=%s prompt_version=%s model=%s stoplight=%s "
+            "| validation_failed: %s | raw_preview=%.200s",
+            doc_id, _PROMPT_VERSION, model_id, stoplight,
+            exc.reason, exc.raw,
+        )
+        return _fallback(caps_result, f"validation failed: {exc.reason}")
+
+    # --- 5. Return validated result ---
+    logger.info(
+        "doc_id=%s prompt_version=%s model=%s stoplight=%s | validation_ok",
+        doc_id, _PROMPT_VERSION, model_id, stoplight,
+    )
+    return result
