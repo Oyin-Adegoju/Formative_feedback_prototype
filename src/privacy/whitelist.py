@@ -41,3 +41,14 @@ _STAKEHOLDER_LABELS: frozenset[str] = frozenset({
 _WHITESPACE_RE = re.compile(r"\s+")
  
  
+# --- Datamodel --------------------------------------------------------------
+ 
+ 
+@dataclass(frozen=True)
+class WhitelistSuggestion:
+    """Een mogelijke whitelist-kandidaat, nog niet bevestigd door de docent."""
+    value: str
+    source: str   # "block_text" | "heading_path"
+    reason: str   # mensleesbare uitleg
+ 
+ 
