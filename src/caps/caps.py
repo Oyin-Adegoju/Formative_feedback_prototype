@@ -33,7 +33,7 @@ from src.caps.scoring import score_document
 # ---------------------------------------------------------------------------
 
 _REQUIRED_REPORT_KEYS: frozenset[str] = frozenset(
-    {"doc_id", "source_name", "page_count", "block_count", "blocks"}
+    {"doc_id", "source_name", "block_count", "blocks"}
 )
 
 
