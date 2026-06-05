@@ -5,3 +5,6 @@ __pycache__/
 *.pyc
 .DS_Store
 .venv/
+
+# Geanonimiseerde output bevat originele namen in het mapping-veld -> niet committen
+data/anonymized/
