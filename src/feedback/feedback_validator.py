@@ -32,4 +32,20 @@ from typing import Final
 from src.caps.criterion_specs import CRITERIA_KEYS
 from src.caps.models import CapsRunResult
 from src.feedback.output_schema import DISCLAIMER, CriterionFeedback, FeedbackResult
+# ---------------------------------------------------------------------------
+# Score-leak detection patterns
+# ---------------------------------------------------------------------------
+
+_SCORE_PATTERNS: Final[list[re.Pattern[str]]] = [
+    re.compile(r"\b\d+\s*/\s*1[0-5]\b"),                          # e.g. 8/10, 12/15
+    re.compile(r"\b(hidden[_\s])?score\s*[:=]\s*\d+", re.IGNORECASE),  # score: 7
+    re.compile(r"\bcijfer\s*[:=]\s*\d+", re.IGNORECASE),          # cijfer: 8
+    re.compile(r"\b\d+\s*punt(?:en)?\b", re.IGNORECASE),          # 12 punten
+]
+"""Regex patterns that indicate a numeric score has leaked into LLM output.
+
+Only applied to LLM-written text fields (student_samenvatting, docent_toelichting,
+feed_up, feedback[].observatie, feed_forward, taalgebruik).
+Not applied to evidence_ref (block IDs legitimately contain numbers).
+"""
 
