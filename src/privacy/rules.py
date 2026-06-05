@@ -233,3 +233,24 @@ def find_labeled_sensitive_fields(text: str) -> list[RuleMatch]:
             )
         )
     return results
+
+
+# --- Aggregator -------------------------------------------------------------
+
+
+def find_all_rule_matches(text: str) -> list[RuleMatch]:
+    """Roep alle finders aan, sorteer deterministisch op (start, end, rule_type).
+
+    Meerdere rules die exact dezelfde span vinden blijven apart bestaan —
+    de anonymizer kan ze later dedupliceren op basis van eigen prioriteiten.
+    """
+    if not text:
+        return []
+    matches = (
+        find_emails(text)
+        + find_phone_numbers(text)
+        + find_student_numbers(text)
+        + find_labeled_sensitive_fields(text)
+    )
+    matches.sort(key=lambda r: (r.start, r.end, r.rule_type))
+    return matches
