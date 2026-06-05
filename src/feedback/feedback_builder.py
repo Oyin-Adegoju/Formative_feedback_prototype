@@ -86,3 +86,37 @@ def _collect_block_ids(caps_result: CapsRunResult) -> list[str]:
                 ids.append(ref.block_id)
     return ids
 
+def _format_scorecard(caps_result: CapsRunResult) -> str:
+    """Render all criteria as a compact human-readable block for the prompt."""
+    lines: list[str] = []
+    for key in CRITERIA_KEYS:
+        cr = caps_result.scorecard.results.get(key)
+        spec = CRITERIA_BY_KEY[key]
+
+        lines.append(f"CRITERIUM: {key} — {spec.label}")
+
+        if cr is None:
+            lines.append("  Status  : (niet geëvalueerd)")
+            lines.append("")
+            continue
+
+        lines.append(f"  Status  : {cr.status}")
+
+        if cr.count is not None:
+            lines.append(f"  Aantal  : {cr.count}")
+
+        for note in cr.notes:
+            lines.append(f"  Notitie : {note}")
+
+        if cr.evidence:
+            ids = ", ".join(ref.block_id for ref in cr.evidence)
+            lines.append(f"  Evidence: {ids}")
+        else:
+            lines.append("  Evidence: (geen)")
+
+        if cr.manual_review:
+            lines.append("  ⚠ Handmatige verificatie aanbevolen")
+
+        lines.append("")
+
+    return "\n".join(lines).strip()
