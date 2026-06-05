@@ -170,3 +170,56 @@ def _find_catalog_spans(text: str, catalog: PeopleCatalog) -> list[_Span]:
                 )
             )
     return spans
+
+
+# --- Overlapping spans ------------------------------------------------------
+
+
+def _greedy_nonoverlap(spans: list[_Span]) -> list[_Span]:
+    """Greedy non-overlap binnen één tier: langer wint, daarna prioriteit."""
+    sorted_spans = sorted(
+        spans,
+        key=lambda s: (
+            -(s.end - s.start),
+            _PTYPE_PRIORITY.get(s.ptype, 99),
+            s.start,
+            s.ptype,
+        ),
+    )
+    kept: list[_Span] = []
+    for s in sorted_spans:
+        if any(s.start < k.end and k.start < s.end for k in kept):
+            continue
+        kept.append(s)
+    return kept
+
+
+def _resolve_overlaps(spans: list[_Span]) -> list[_Span]:
+    """Twee-tier resolutie:
+
+    1. Specifieke types (person/email/phone/student_number) krijgen
+       voorrang — onderling lost de langste het op.
+    2. Het generieke `labeled_sensitive` wordt alleen toegevoegd wanneer
+       het géén overlap heeft met een al gekozen specifieke span.
+
+    Dit voorkomt dat een te-greedy labeled_sensitive-span (bv. "1146131
+    hier.") een specifieke student_number-detectie overschaduwt.
+    """
+    specific = [s for s in spans if s.ptype != "labeled_sensitive"]
+    generic = [s for s in spans if s.ptype == "labeled_sensitive"]
+
+    kept_specific = _greedy_nonoverlap(specific)
+    kept_generic: list[_Span] = []
+
+    generic_sorted = sorted(
+        generic,
+        key=lambda s: (-(s.end - s.start), s.start, s.ptype),
+    )
+    for g in generic_sorted:
+        if any(g.start < k.end and k.start < g.end for k in kept_specific):
+            continue
+        if any(g.start < k.end and k.start < g.end for k in kept_generic):
+            continue
+        kept_generic.append(g)
+
+    return sorted(kept_specific + kept_generic, key=lambda s: s.start)
