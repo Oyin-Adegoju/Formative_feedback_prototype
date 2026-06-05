@@ -311,3 +311,178 @@ def check_beperking(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionR
         notes=notes,
         manual_review=manual_review,
     )
+
+
+# ---------------------------------------------------------------------------
+# Criterion 2: Stakeholders
+# ---------------------------------------------------------------------------
+
+
+def _extract_roles_from_table(hit: RetrievalHit) -> list[str]:
+    """Extract plausible stakeholder role entries from a table block.
+
+    Strategy: examine each row's first non-None cell. A cell is a role
+    candidate when:
+    - Not a known header keyword (Stakeholder, Naam, Rol, etc.)
+    - Starts with a capital letter (proper noun or role title)
+    - 1–5 words, 3–50 characters (not a continuation fragment)
+    - Not purely numeric
+
+    This is robust to messy PDF table parsing where rows are split into
+    many partial-row fragments: fragments start lowercase and are skipped.
+    """
+    tm = hit.block.get("table_meta")
+    if not tm or not tm.get("cells"):
+        return []
+
+    roles: list[str] = []
+    for row in tm["cells"]:
+        if not row:
+            continue
+        first = row[0]
+        if not first:
+            continue
+        text = first.strip()
+        if not text or len(text) < 3 or len(text) > 50:
+            continue
+        if text.replace(".", "").replace(" ", "").isdigit():
+            continue
+        if _norm(text) in _STAKEHOLDER_HEADER_KW:
+            continue
+        # Continuation fragments start with a lowercase letter.
+        if text[0].islower():
+            continue
+        words = text.split()
+        if 1 <= len(words) <= 5:
+            roles.append(text)
+
+    return roles
+
+
+def _belang_invloed(hit: RetrievalHit) -> tuple[bool, bool]:
+    """Detect 'belang' and 'invloed' signals in one retrieval hit."""
+    text = _text_of(hit)
+    has_belang = any(t in text for t in ("belang", "concern", "interesse"))
+    has_invloed = any(t in text for t in ("invloed", "prioriter", "macht", "power"))
+    return has_belang, has_invloed
+
+
+def check_stakeholders(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionResult:
+    """Count distinct stakeholder roles; verify belang + invloed coverage.
+
+    Primary source: first-column cells of table blocks.
+    Supplementary: keyword matches in paragraph/bullet blocks.
+
+    Verdicts follow minimum_count=4 and strong_from=6 from the spec.
+    Belang AND invloed must both be present for sufficient/strong.
+    """
+    evidence: list[EvidenceRef] = []
+    all_roles: list[str] = []
+    has_belang = False
+    has_invloed = False
+
+    table_roles: list[str] = []
+    kw_roles: list[str] = []
+
+    for hit in hits:
+        evidence.append(_make_ref(hit))
+        b, i = _belang_invloed(hit)
+        has_belang = has_belang or b
+        has_invloed = has_invloed or i
+
+        if hit.block["block_type"] == "table":
+            table_roles.extend(_extract_roles_from_table(hit))
+        else:
+            text = _text_of(hit)
+            for kw in _STAKEHOLDER_ROLE_KW:
+                if kw in text:
+                    kw_roles.append(kw)
+
+    # Prefer table-extracted roles when available: keyword matching from narrative
+    # blocks inflates counts (e.g. "klant" mentioned in passing ≠ a listed stakeholder).
+    # Fall back to keyword counting only when no table provides roles.
+    all_roles = table_roles if table_roles else kw_roles
+
+    # Deduplicate case-insensitively; discard very short entries.
+    seen: set[str] = set()
+    unique_roles: list[str] = []
+    for r in all_roles:
+        key = _norm(r)
+        if len(key) >= 3 and key not in seen:
+            seen.add(key)
+            unique_roles.append(r)
+
+    count = len(unique_roles)
+    notes: list[str] = []
+    manual_review = False
+
+    minimum = spec.minimum_count or 4
+    strong_from = spec.strong_from or 6
+    has_bi = has_belang and has_invloed
+
+    bi_str = (
+        f"Belang: {'ja' if has_belang else 'nee'}, "
+        f"Invloed: {'ja' if has_invloed else 'nee'}."
+    )
+
+    if count == 0:
+        status: CriterionStatus = "missing"
+        notes.append("Geen stakeholders herkend in de retrievalhits.")
+
+    elif count < minimum:
+        status = "partial"
+        notes.append(
+            f"{count} unieke stakeholder(s) herkend (minimum {minimum}). {bi_str}"
+        )
+        if count >= minimum - 1:
+            manual_review = True
+            notes.append("Één stakeholder onder het minimum — grenswaardegeval.")
+
+    elif count < strong_from:
+        if has_bi:
+            status = "sufficient"
+            notes.append(
+                f"{count} stakeholder(s) herkend met belang en invloed beschreven."
+            )
+            if count == minimum:
+                manual_review = True
+                notes.append(
+                    "Exact op minimum (4) — verifieer tabel op volledigheid."
+                )
+        else:
+            # Count reached minimum but belang/invloed missing → partial.
+            status = "partial"
+            notes.append(
+                f"{count} stakeholder(s) herkend, maar belang en/of invloed "
+                f"ontbreekt. {bi_str}"
+            )
+            manual_review = True
+
+    else:  # count >= strong_from
+        if has_bi:
+            status = "strong"
+            notes.append(
+                f"{count} stakeholder(s) herkend — boven drempel, "
+                "met belang en invloed gedocumenteerd."
+            )
+            if count == strong_from:
+                manual_review = True
+                notes.append("Exact op grenswaarde voor 'goed' (6).")
+        else:
+            status = "sufficient"
+            notes.append(
+                f"{count} stakeholder(s) herkend, maar belang en/of invloed "
+                f"ontbreekt. {bi_str}"
+            )
+            manual_review = True
+
+    return CriterionResult(
+        criterion_key=spec.key,
+        status=status,
+        stoplight=_status_to_stoplight(status),
+        is_blocker=spec.is_blocker,
+        evidence=evidence[:8],
+        count=count,
+        notes=notes,
+        manual_review=manual_review,
+    )
