@@ -646,3 +646,213 @@ def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
         notes=notes,
         manual_review=manual_review,
     )
+
+
+# ---------------------------------------------------------------------------
+# Criterion 4: Taalkeuze & consequenties
+# ---------------------------------------------------------------------------
+
+
+def check_taalkeuze(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionResult:
+    """Detect language choice + consequences of that choice.
+
+    Verdicts:
+    - missing:    neither signal found
+    - partial:    only one signal found (language OR consequence)
+    - sufficient: both language choice and consequences present
+    - strong:     both present + either research support or ≥ 3 consequence signals
+    """
+    all_text = _all_text(hits)
+
+    language_found = _found_terms(_LANGUAGE_TERMS, all_text)
+    consequence_found = _found_terms(_CONSEQUENCE_TERMS, all_text)
+    research_found = _found_terms(_RESEARCH_TERMS, all_text)
+
+    evidence: list[EvidenceRef] = []
+    for hit in hits:
+        text = _text_of(hit)
+        if _found_terms(_LANGUAGE_TERMS, text) or _found_terms(_CONSEQUENCE_TERMS, text):
+            evidence.append(_make_ref(hit))
+
+    notes: list[str] = []
+    manual_review = False
+
+    has_language = bool(language_found)
+    has_consequence = bool(consequence_found)
+
+    if not has_language and not has_consequence:
+        status: CriterionStatus = "missing"
+        notes.append("Geen taalkeuze of gevolgen van die keuze gevonden.")
+
+    elif not has_language:
+        status = "partial"
+        notes.append(
+            f"Gevolg-signalen aanwezig ({', '.join(consequence_found[:3])}), "
+            "maar geen expliciete taalkeuze vermeld."
+        )
+        manual_review = True
+
+    elif not has_consequence:
+        status = "partial"
+        notes.append(
+            f"Taalkeuze vermeld ({', '.join(language_found[:2])}), "
+            "maar geen gevolgen van die keuze beschreven."
+        )
+        manual_review = True
+
+    else:
+        # Both signals present; upgrade to strong when well-underpinned.
+        if research_found:
+            status = "strong"
+            notes.append(
+                f"Taalkeuze ({', '.join(language_found[:2])}) en gevolgen "
+                f"({', '.join(consequence_found[:3])}) aanwezig, onderbouwd met onderzoek."
+            )
+        elif len(consequence_found) >= 3:
+            status = "strong"
+            notes.append(
+                f"Taalkeuze ({', '.join(language_found[:2])}) en meerdere gevolgen "
+                f"({', '.join(consequence_found[:3])}) goed uitgewerkt."
+            )
+        else:
+            status = "sufficient"
+            notes.append(
+                f"Taalkeuze ({', '.join(language_found[:2])}) en gevolgen "
+                f"({', '.join(consequence_found[:2])}) aanwezig."
+            )
+
+    return CriterionResult(
+        criterion_key=spec.key,
+        status=status,
+        stoplight=_status_to_stoplight(status),
+        is_blocker=spec.is_blocker,
+        evidence=evidence[:8],
+        count=None,
+        notes=notes,
+        manual_review=manual_review,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Criterion 5: Security
+# ---------------------------------------------------------------------------
+
+
+def check_security(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionResult:
+    """Count distinct concrete security mechanisms.
+
+    Verdicts:
+    - missing:    no security signal at all
+    - partial:    generic security language only (no concrete mechanism)
+    - sufficient: ≥ 1 concrete mechanism (minimum_count=1 from spec)
+    - strong:     ≥ 3 distinct concrete mechanisms (strong_from=3 from spec)
+    """
+    all_text = _all_text(hits)
+
+    concrete_found = _found_terms(_CONCRETE_SECURITY, all_text)
+    generic_found = _found_terms(_GENERIC_SECURITY, all_text)
+
+    evidence: list[EvidenceRef] = []
+    for hit in hits:
+        text = _text_of(hit)
+        if _found_terms(_CONCRETE_SECURITY, text) or _found_terms(_GENERIC_SECURITY, text):
+            evidence.append(_make_ref(hit))
+
+    count = len(concrete_found)
+    notes: list[str] = []
+    manual_review = False
+
+    minimum = spec.minimum_count or 1
+    strong_from = spec.strong_from or 3
+
+    if count == 0 and not generic_found:
+        status: CriterionStatus = "missing"
+        notes.append("Geen security-signalen gevonden.")
+
+    elif count == 0:
+        status = "partial"
+        notes.append(
+            f"Generieke security-termen aanwezig ({', '.join(generic_found[:3])}), "
+            "maar geen concreet beveiligingsmechanisme benoemd."
+        )
+        manual_review = True
+
+    elif count < strong_from:
+        status = "sufficient"
+        notes.append(
+            f"{count} concreet beveiligingsmechanisme(n) gevonden: "
+            f"{', '.join(concrete_found[:5])}."
+        )
+        if count == minimum:
+            manual_review = True
+            notes.append(
+                "Exact één concreet mechanisme — grenswaardegeval, verifieer inhoud."
+            )
+
+    else:
+        status = "strong"
+        notes.append(
+            f"{count} concrete beveiligingsmechanismen gevonden: "
+            f"{', '.join(concrete_found[:6])}."
+        )
+
+    return CriterionResult(
+        criterion_key=spec.key,
+        status=status,
+        stoplight=_status_to_stoplight(status),
+        is_blocker=spec.is_blocker,
+        evidence=evidence[:8],
+        count=count,
+        notes=notes,
+        manual_review=manual_review,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Dispatcher
+# ---------------------------------------------------------------------------
+
+_CHECKS: Final[dict] = {
+    "beperking": check_beperking,
+    "stakeholders": check_stakeholders,
+    "requirements": check_requirements,
+    "taalkeuze": check_taalkeuze,
+    "security": check_security,
+}
+
+
+def run_check_for_criterion(
+    criterion_key: str,
+    hits: list[RetrievalHit],
+) -> CriterionResult:
+    """Run the deterministic check for one criterion by key.
+
+    Args:
+        criterion_key: One of the 5 CAPS criterion keys
+            (beperking, stakeholders, requirements, taalkeuze, security).
+        hits: Retrieval hits for this criterion, as returned by
+            retrieve_for_criterion or retrieve_all_criteria.
+
+    Returns:
+        CriterionResult with verdict, stoplight, evidence, and notes.
+
+    Raises:
+        KeyError: if criterion_key is not one of the 5 known keys.
+    """
+    spec = CRITERIA_BY_KEY[criterion_key]
+    return _CHECKS[criterion_key](spec, hits)
+
+
+def run_all_checks(
+    candidates: dict[str, list[RetrievalHit]],
+) -> dict[str, CriterionResult]:
+    """Run all 5 criterion checks in one call.
+
+    Args:
+        candidates: Output of retrieve_all_criteria —
+            dict[criterion_key → list[RetrievalHit]].
+
+    Returns:
+        dict[criterion_key → CriterionResult], one entry per criterion.
+    """
+    return {key: run_check_for_criterion(key, hits) for key, hits in candidates.items()}
