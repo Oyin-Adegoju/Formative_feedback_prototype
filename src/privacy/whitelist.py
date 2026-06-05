@@ -27,3 +27,17 @@ from src.privacy.catalog import PeopleCatalog, normalize_lookup_text
 from src.privacy.rules import find_labeled_sensitive_fields
  
  
+# Stakeholder-labels die in interviews/projecten vaak een naam bevatten
+# die de docent expliciet wil bewaren (niet anonimiseren).
+_STAKEHOLDER_LABELS: frozenset[str] = frozenset({
+    "opdrachtgever",
+    "respondent",
+    "docent",
+    "geïnterviewde",
+    "geinterviewde",
+    "interviewee",
+})
+ 
+_WHITESPACE_RE = re.compile(r"\s+")
+ 
+ 
