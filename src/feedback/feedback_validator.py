@@ -65,5 +65,23 @@ _REQUIRED_FIELDS: Final[frozenset[str]] = frozenset({
 document_id, stoplight, and disclaimer are not required from the LLM —
 they are always injected deterministically by this validator.
 """
+# ---------------------------------------------------------------------------
+# Exception
+# ---------------------------------------------------------------------------
+
+
+class FeedbackValidationError(Exception):
+    """Raised when LLM output violates one or more guardrails.
+
+    Caught by feedback_builder.py to trigger fallback output.
+
+    reason: human-readable description of the violated guardrail.
+    raw:    the raw LLM string that caused the failure (for logging).
+    """
+
+    def __init__(self, reason: str, raw: str = "") -> None:
+        super().__init__(reason)
+        self.reason = reason
+        self.raw = raw
 
 
