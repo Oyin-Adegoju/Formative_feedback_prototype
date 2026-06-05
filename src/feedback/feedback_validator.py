@@ -117,4 +117,78 @@ def _llm_text_fields(data: dict) -> str:
     ]
     return " ".join(parts)
 
+# ---------------------------------------------------------------------------
+# Public API
+# ---------------------------------------------------------------------------
+
+
+def validate(raw_json: str, caps_result: CapsRunResult) -> FeedbackResult:
+    """Validate raw LLM output and return a clean FeedbackResult.
+
+    Applies all guardrails in order. Raises FeedbackValidationError on the
+    first violation found.
+
+    document_id, stoplight, and disclaimer are always set from caps_result
+    and DISCLAIMER — the LLM's own values for these fields are ignored.
+
+    Args:
+        raw_json: The raw string returned by the LLM (expected to be JSON).
+        caps_result: The CapsRunResult that produced this feedback request.
+            Used to verify stoplight, evidence block IDs, and document_id.
+
+    Returns:
+        A fully validated FeedbackResult ready for the caller.
+
+    Raises:
+        FeedbackValidationError: on any guardrail violation.
+    """
+    # --- 1. JSON parse ---
+    try:
+        data = json.loads(raw_json)
+    except json.JSONDecodeError as exc:
+        raise FeedbackValidationError(
+            f"JSON parse error: {exc}", raw=raw_json
+        ) from exc
+
+    if not isinstance(data, dict):
+        raise FeedbackValidationError(
+            "LLM output is not a JSON object.", raw=raw_json
+        )
+
+    # --- 2. Required fields ---
+    missing = _REQUIRED_FIELDS - set(data.keys())
+    if missing:
+        raise FeedbackValidationError(
+            f"Missing required fields: {sorted(missing)}", raw=raw_json
+        )
+
+    # --- 3. Non-empty student_samenvatting ---
+    if not (data.get("student_samenvatting") or "").strip():
+        raise FeedbackValidationError(
+            "student_samenvatting is empty.", raw=raw_json
+        )
+
+    # --- 4. Stoplight must match CAPS ---
+    llm_stoplight = data.get("stoplight")
+    if llm_stoplight != caps_result.overall_stoplight:
+        raise FeedbackValidationError(
+            f"Stoplight mismatch: LLM returned '{llm_stoplight}', "
+            f"CAPS determined '{caps_result.overall_stoplight}'.",
+            raw=raw_json,
+        )
+
+    # --- 5. No numeric score leak ---
+    combined_text = _llm_text_fields(data)
+    for pattern in _SCORE_PATTERNS:
+        if pattern.search(combined_text):
+            raise FeedbackValidationError(
+                f"Score leak detected in LLM output (pattern: '{pattern.pattern}').",
+                raw=raw_json,
+            )
+
+    # --- 6. Disclaimer: if present it must be unmodified ---
+    if "disclaimer" in data and data["disclaimer"] != DISCLAIMER:
+        raise FeedbackValidationError(
+            "Disclaimer was modified by the LLM.", raw=raw_json
+        )
 
