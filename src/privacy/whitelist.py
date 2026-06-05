@@ -177,3 +177,61 @@ def _iter_fragments(block: Block) -> Iterable[tuple[str, str]]:
             yield item, "heading_path"
  
  
+def suggest_whitelist_candidates(
+    blocks: list[Block],
+    catalog: PeopleCatalog | None = None,
+) -> list[WhitelistSuggestion]:
+    """Verzamel kandidaat-waarden voor whitelisting.
+ 
+    Twee soorten bron:
+      - gelabelde stakeholder-velden (`opdrachtgever`, `respondent`,
+        `docent`, `geïnterviewde`) gedetecteerd via `rules.py`
+      - unieke catalogusmatches (één-op-één met een PersonRecord)
+ 
+    Conservatief: ambigue catalogusmatches en niet-stakeholder labels
+    worden weggelaten. Liever minder ruis dan onterecht-gesuggereerde
+    whitelisting.
+ 
+    Inputblokken worden niet gemuteerd.
+    """
+    seen: set[str] = set()
+    suggestions: list[WhitelistSuggestion] = []
+ 
+    def _add(value: str, source: str, reason: str) -> None:
+        key = normalize_whitelist_value(value)
+        if not key or key in seen:
+            return
+        seen.add(key)
+        suggestions.append(WhitelistSuggestion(value=value, source=source, reason=reason))
+ 
+    has_catalog = catalog is not None and catalog.person_count() > 0
+ 
+    for block in blocks:
+        for fragment, source_name in _iter_fragments(block):
+            # 1. Gelabelde stakeholder-velden.
+            for rm in find_labeled_sensitive_fields(fragment):
+                if rm.label and rm.label in _STAKEHOLDER_LABELS:
+                    _add(
+                        rm.text,
+                        source=source_name,
+                        reason=f"gevonden na label '{rm.label}'",
+                    )
+ 
+            # 2. Unieke catalogusmatches.
+            if has_catalog:
+                for matched_text, _canonical in _scan_catalog_matches(fragment, catalog):
+                    _add(
+                        matched_text,
+                        source=source_name,
+                        reason="gevonden als unieke catalogusmatch",
+                    )
+ 
+    # Deterministische sortering op genormaliseerde waarde + source + reason.
+    suggestions.sort(
+        key=lambda s: (
+            normalize_whitelist_value(s.value),
+            s.source,
+            s.reason,
+        )
+    )
+    return suggestions
