@@ -24,4 +24,23 @@ from src.caps.models import StoplightLabel
 
 DISCLAIMER: Final[str] = "Dit is formatieve feedback en geen officiële beoordeling."
 """Fixed disclaimer text injected by feedback_validator, never written by the LLM."""
+# ---------------------------------------------------------------------------
+# Output contract
+# ---------------------------------------------------------------------------
 
+
+class CriterionFeedback(TypedDict):
+    """Feedback for one rubric criterion inside FeedbackResult.feedback."""
+
+    criterium: str
+    """Criterion key, e.g. 'stakeholders'. Must match a known CAPS criterion key."""
+
+    observatie: str
+    """LLM-written observation for this criterion. Student-facing, no scores."""
+
+    evidence_ref: list[str]
+    """Block IDs from EvidenceRef that support this observation.
+
+    Only block IDs that appear in the CAPS scorecard evidence are valid.
+    feedback_validator enforces this.
+    """
