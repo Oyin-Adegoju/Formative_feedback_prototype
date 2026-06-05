@@ -434,3 +434,102 @@ def test_generate_feedback_prompt_contains_no_raw_document_text():
             for ref in cr.evidence:
                 if ref.text_snippet:
                     assert ref.text_snippet not in captured_prompt[0]
+# ---------------------------------------------------------------------------
+# generate_feedback — failure paths
+# ---------------------------------------------------------------------------
+
+
+def test_generate_feedback_returns_fallback_on_llm_error():
+    caps = _make_caps_result(stoplight="red")
+    with patch("src.feedback.feedback_builder.llm_client.complete") as mock_llm:
+        mock_llm.side_effect = LlmCallError("Connection refused")
+        result = generate_feedback(caps)
+    assert result["stoplight"] == "red"
+    assert result["disclaimer"] == DISCLAIMER
+    assert result["feedback"] == []
+
+
+def test_generate_feedback_returns_fallback_on_validation_error():
+    caps = _make_caps_result(stoplight="green")
+    with patch("src.feedback.feedback_builder.llm_client.complete") as mock_llm:
+        mock_llm.return_value = '{"stoplight": "red"}'  # wrong stoplight → validation fails
+        result = generate_feedback(caps)
+    assert result["stoplight"] == "green"
+    assert result["disclaimer"] == DISCLAIMER
+    assert result["feedback"] == []
+
+
+def test_generate_feedback_returns_fallback_on_malformed_json():
+    caps = _make_caps_result(stoplight="green")
+    with patch("src.feedback.feedback_builder.llm_client.complete") as mock_llm:
+        mock_llm.return_value = "this is not json"
+        result = generate_feedback(caps)
+    assert result["document_id"] == "doc1"
+    assert result["disclaimer"] == DISCLAIMER
+
+
+def test_generate_feedback_returns_fallback_when_template_missing():
+    caps = _make_caps_result()
+    with patch(
+        "src.feedback.feedback_builder._PROMPT_PATH",
+        Path("/nonexistent/path/feedback_writer_v1.txt"),
+    ):
+        result = generate_feedback(caps)
+    assert result["document_id"] == "doc1"
+    assert result["disclaimer"] == DISCLAIMER
+    assert result["feedback"] == []
+
+
+def test_generate_feedback_never_raises():
+    caps = _make_caps_result()
+    with patch("src.feedback.feedback_builder.llm_client.complete") as mock_llm:
+        mock_llm.side_effect = RuntimeError("unexpected crash")
+        # RuntimeError is not caught — but LlmCallError is. Verify it still raises
+        # so that only typed errors are swallowed, not arbitrary exceptions.
+        with pytest.raises(RuntimeError):
+            generate_feedback(caps)
+
+
+def test_generate_feedback_fallback_doc_id_matches_caps():
+    caps = _make_caps_result(doc_id="specific_doc", stoplight="yellow")
+    with patch("src.feedback.feedback_builder.llm_client.complete") as mock_llm:
+        mock_llm.side_effect = LlmCallError("timeout")
+        result = generate_feedback(caps)
+    assert result["document_id"] == "specific_doc"
+    assert result["stoplight"] == "yellow"
+
+
+# ---------------------------------------------------------------------------
+# generate_feedback — logging
+# ---------------------------------------------------------------------------
+
+
+def test_generate_feedback_logs_validation_ok(caplog):
+    import logging
+    caps = _make_caps_result(stoplight="green")
+    with patch("src.feedback.feedback_builder.llm_client.complete") as mock_llm:
+        mock_llm.return_value = _valid_llm_json("green")
+        with caplog.at_level(logging.INFO, logger="src.feedback.feedback_builder"):
+            generate_feedback(caps)
+    assert any("validation_ok" in r.message for r in caplog.records)
+
+
+def test_generate_feedback_logs_llm_failure(caplog):
+    import logging
+    caps = _make_caps_result(stoplight="green")
+    with patch("src.feedback.feedback_builder.llm_client.complete") as mock_llm:
+        mock_llm.side_effect = LlmCallError("timeout")
+        with caplog.at_level(logging.ERROR, logger="src.feedback.feedback_builder"):
+            generate_feedback(caps)
+    assert any("llm_call_failed" in r.message for r in caplog.records)
+
+
+def test_generate_feedback_logs_validation_failure(caplog):
+    import logging
+    caps = _make_caps_result(stoplight="green")
+    with patch("src.feedback.feedback_builder.llm_client.complete") as mock_llm:
+        mock_llm.return_value = "not json"
+        with caplog.at_level(logging.WARNING, logger="src.feedback.feedback_builder"):
+            generate_feedback(caps)
+    assert any("validation_failed" in r.message for r in caplog.records)
+
