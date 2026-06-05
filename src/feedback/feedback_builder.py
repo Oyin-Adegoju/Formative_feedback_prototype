@@ -120,3 +120,28 @@ def _format_scorecard(caps_result: CapsRunResult) -> str:
         lines.append("")
 
     return "\n".join(lines).strip()
+def _manual_review_section(caps_result: CapsRunResult) -> str:
+    """Return a warning line when manual review is required, else empty string."""
+    if not caps_result.manual_review_required:
+        return ""
+    flags = ", ".join(caps_result.manual_review_flags)
+    return f"⚠ Handmatige verificatie vereist voor: {flags}\n"
+
+
+def _assemble_prompt(caps_result: CapsRunResult, template: str) -> str:
+    """Fill all placeholders in the prompt template with scorecard data."""
+    block_ids = _collect_block_ids(caps_result)
+    known_ids_str = (
+        ", ".join(block_ids) if block_ids else "(geen evidence beschikbaar)"
+    )
+
+    return (
+        template
+        .replace("<<DOC_ID>>", caps_result.doc_id)
+        .replace("<<STOPLIGHT>>", caps_result.overall_stoplight)
+        .replace("<<CRITERION_KEYS>>", ", ".join(CRITERIA_KEYS))
+        .replace("<<KNOWN_BLOCK_IDS>>", known_ids_str)
+        .replace("<<SCORECARD>>", _format_scorecard(caps_result))
+        .replace("<<MANUAL_REVIEW_SECTION>>", _manual_review_section(caps_result))
+    )
+
