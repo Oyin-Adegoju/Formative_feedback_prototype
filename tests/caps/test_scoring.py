@@ -235,3 +235,90 @@ class TestValidateCriterionResultKeys:
         msg = str(exc_info.value)
         assert "missing" in msg
         assert "unexpected" in msg
+
+
+# ---------------------------------------------------------------------------
+# 7. score_document
+# ---------------------------------------------------------------------------
+
+
+class TestScoreDocument:
+    def test_doc_id_set_from_report(self):
+        run = score_document(_minimal_report(doc_id="doc-99"), _all_sufficient())
+        assert run.doc_id == "doc-99"
+
+    def test_source_name_set_from_report(self):
+        run = score_document(_minimal_report(source_name="myfile.pdf"), _all_sufficient())
+        assert run.source_name == "myfile.pdf"
+
+    def test_hidden_score_is_sum_of_criterion_scores(self):
+        # all sufficient → 2 * 5 = 10
+        run = score_document(_minimal_report(), _all_sufficient())
+        assert run.scorecard.hidden_score == 10
+
+    def test_manual_review_required_false_when_no_flags(self):
+        run = score_document(_minimal_report(), _all_sufficient())
+        assert run.manual_review_required is False
+
+    def test_manual_review_required_true_when_any_flag(self):
+        results = _all_sufficient()
+        results["beperking"] = _make_result("beperking", "sufficient", manual_review=True)
+        run = score_document(_minimal_report(), results)
+        assert run.manual_review_required is True
+
+    def test_blockers_triggered_empty_when_all_sufficient(self):
+        run = score_document(_minimal_report(), _all_sufficient())
+        assert run.blockers_triggered == []
+
+    def test_blockers_triggered_contains_failing_blocker(self):
+        results = _all_sufficient()
+        results["stakeholders"] = _make_result("stakeholders", "missing", is_blocker=True)
+        run = score_document(_minimal_report(), results)
+        assert "stakeholders" in run.blockers_triggered
+
+    def test_manual_review_flags_correct(self):
+        results = _all_sufficient()
+        results["taalkeuze"] = _make_result("taalkeuze", "sufficient", manual_review=True)
+        run = score_document(_minimal_report(), results)
+        assert run.manual_review_flags == ["taalkeuze"]
+
+    def test_criteria_evaluated_is_rubric_order(self):
+        run = score_document(_minimal_report(), _all_sufficient())
+        assert run.run_meta.criteria_evaluated == list(CRITERIA_KEYS)
+
+    def test_scorecard_results_preserve_rubric_order_regardless_of_input_order(self):
+        reversed_results = {k: _all_sufficient()[k] for k in reversed(CRITERIA_KEYS)}
+        run = score_document(_minimal_report(), reversed_results)
+        assert list(run.scorecard.results.keys()) == list(CRITERIA_KEYS)
+
+    def test_overall_stoplight_green_when_all_sufficient(self):
+        run = score_document(_minimal_report(), _all_sufficient())
+        assert run.overall_stoplight == "green"
+
+    def test_overall_stoplight_red_when_blocker_triggered(self):
+        results = _all_sufficient()
+        results["requirements"] = _make_result("requirements", "missing", is_blocker=True)
+        run = score_document(_minimal_report(), results)
+        assert run.overall_stoplight == "red"
+
+    def test_overall_stoplight_red_when_manual_review_required(self):
+        results = _all_sufficient()
+        results["security"] = _make_result("security", "sufficient", manual_review=True)
+        run = score_document(_minimal_report(), results)
+        assert run.overall_stoplight == "red"
+
+    def test_input_source_forwarded_to_run_meta(self):
+        run = score_document(_minimal_report(), _all_sufficient(), input_source="anonymized")
+        assert run.run_meta.input_source == "anonymized"
+
+    def test_page_and_block_count_in_run_meta(self):
+        report = _minimal_report()
+        report["page_count"] = 7
+        report["block_count"] = 33
+        run = score_document(report, _all_sufficient())
+        assert run.run_meta.page_count == 7
+        assert run.run_meta.block_count == 33
+
+    def test_scorecard_doc_id_matches_report(self):
+        run = score_document(_minimal_report(doc_id="x-42"), _all_sufficient())
+        assert run.scorecard.doc_id == "x-42"
