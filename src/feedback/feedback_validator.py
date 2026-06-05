@@ -84,4 +84,37 @@ class FeedbackValidationError(Exception):
         self.reason = reason
         self.raw = raw
 
+# ---------------------------------------------------------------------------
+# Internal helpers
+# ---------------------------------------------------------------------------
+
+
+def _collect_known_block_ids(caps_result: CapsRunResult) -> frozenset[str]:
+    """Collect all EvidenceRef block IDs from the CAPS scorecard."""
+    ids: set[str] = set()
+    for cr in caps_result.scorecard.results.values():
+        for ref in cr.evidence:
+            ids.add(ref.block_id)
+    return frozenset(ids)
+
+
+def _llm_text_fields(data: dict) -> str:
+    """Concatenate all LLM-written text fields into one string for score-leak scanning.
+
+    Excludes evidence_ref values — block IDs legitimately contain digits.
+    """
+    parts: list[str] = [
+        data.get("student_samenvatting") or "",
+        data.get("docent_toelichting") or "",
+        data.get("feed_up") or "",
+        data.get("taalgebruik") or "",
+        " ".join(data.get("feed_forward") or []),
+        " ".join(
+            entry.get("observatie") or ""
+            for entry in (data.get("feedback") or [])
+            if isinstance(entry, dict)
+        ),
+    ]
+    return " ".join(parts)
+
 
