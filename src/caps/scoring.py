@@ -126,3 +126,87 @@ def determine_overall_stoplight(
         return "green"
 
     return "yellow"
+
+
+# ---------------------------------------------------------------------------
+# Scorecard and run-level builders
+# ---------------------------------------------------------------------------
+
+
+def build_scorecard(
+    doc_id: str,
+    results: dict[str, CriterionResult],
+    hidden_score: int,
+) -> CapsScorecard:
+    """Construct a CapsScorecard from aggregated criterion results."""
+    return CapsScorecard(
+        doc_id=doc_id,
+        results=results,
+        hidden_score=hidden_score,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Main entrypoint
+# ---------------------------------------------------------------------------
+
+
+def score_document(
+    report: ParseReportDict,
+    criterion_results: dict[str, CriterionResult],
+    input_source: InputSource = "parser_direct",
+) -> CapsRunResult:
+    """Aggregate criterion results into a complete CapsRunResult.
+
+    Args:
+        report: ParseReportDict from the parser (or anonymizer).
+            Only doc_id, source_name, page_count, and block_count are read here —
+            no block-level inspection occurs in this layer.
+        criterion_results: dict[criterion_key → CriterionResult] from checks.py.
+            Expected to contain one entry per evaluated criterion.
+        input_source: Whether CAPS received parser-direct or anonymized input.
+            Forwarded unchanged into CapsRunMeta for auditability.
+
+    Returns:
+        CapsRunResult — the complete, document-level scoring output.
+    """
+    _validate_criterion_result_keys(criterion_results)
+
+    doc_id: str = report["doc_id"]
+    source_name: str = report["source_name"]
+    page_count: int = report["page_count"]
+    block_count: int = report["block_count"]
+
+    # Build a rubric-ordered view so all downstream lists are stable regardless
+    # of how the caller constructed criterion_results.
+    ordered: dict[str, CriterionResult] = {k: criterion_results[k] for k in CRITERIA_KEYS}
+
+    hidden_score = compute_hidden_score(ordered)
+    blockers_triggered = collect_blockers(ordered)
+    manual_review_flags = collect_manual_review_flags(ordered)
+    manual_review_required = bool(manual_review_flags)
+    overall_stoplight = determine_overall_stoplight(
+        blockers_triggered,
+        manual_review_required,
+        ordered,
+    )
+
+    scorecard = build_scorecard(doc_id, ordered, hidden_score)
+
+    run_meta = CapsRunMeta(
+        input_source=input_source,
+        page_count=page_count,
+        block_count=block_count,
+        criteria_evaluated=list(CRITERIA_KEYS),
+    )
+
+    return CapsRunResult(
+        doc_id=doc_id,
+        source_name=source_name,
+        scorecard=scorecard,
+        overall_stoplight=overall_stoplight,
+        run_meta=run_meta,
+        manual_review_required=manual_review_required,
+        blockers_triggered=blockers_triggered,
+        manual_review_flags=manual_review_flags,
+    )
