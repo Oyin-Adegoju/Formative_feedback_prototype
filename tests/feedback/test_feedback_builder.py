@@ -373,3 +373,64 @@ def test_fallback_student_samenvatting_is_not_empty():
     result = _fallback(caps, "reason")
     assert result["student_samenvatting"].strip() != ""
 
+# ---------------------------------------------------------------------------
+# generate_feedback — happy path
+# ---------------------------------------------------------------------------
+
+
+def test_generate_feedback_returns_feedback_result_on_success():
+    caps = _make_caps_result(stoplight="green")
+    with patch("src.feedback.feedback_builder.llm_client.complete") as mock_llm:
+        mock_llm.return_value = _valid_llm_json("green")
+        result = generate_feedback(caps)
+    assert result["document_id"] == "doc1"
+    assert result["stoplight"] == "green"
+    assert result["disclaimer"] == DISCLAIMER
+
+
+def test_generate_feedback_prompt_contains_doc_id():
+    caps = _make_caps_result(doc_id="target_doc")
+    captured_prompt: list[str] = []
+
+    def capture(prompt: str, **kwargs) -> str:
+        captured_prompt.append(prompt)
+        return _valid_llm_json("green")
+
+    with patch("src.feedback.feedback_builder.llm_client.complete", side_effect=capture):
+        generate_feedback(caps)
+
+    assert captured_prompt, "LLM was never called"
+    assert "target_doc" in captured_prompt[0]
+
+
+def test_generate_feedback_prompt_contains_stoplight():
+    caps = _make_caps_result(stoplight="yellow")
+    captured_prompt: list[str] = []
+
+    def capture(prompt: str, **kwargs) -> str:
+        captured_prompt.append(prompt)
+        return _valid_llm_json("yellow")
+
+    with patch("src.feedback.feedback_builder.llm_client.complete", side_effect=capture):
+        generate_feedback(caps)
+
+    assert "yellow" in captured_prompt[0]
+
+
+def test_generate_feedback_prompt_contains_no_raw_document_text():
+    caps = _make_caps_result()
+    captured_prompt: list[str] = []
+
+    def capture(prompt: str, **kwargs) -> str:
+        captured_prompt.append(prompt)
+        return _valid_llm_json("green")
+
+    with patch("src.feedback.feedback_builder.llm_client.complete", side_effect=capture):
+        generate_feedback(caps)
+
+    for key in CRITERIA_KEYS:
+        cr = caps.scorecard.results.get(key)
+        if cr:
+            for ref in cr.evidence:
+                if ref.text_snippet:
+                    assert ref.text_snippet not in captured_prompt[0]
