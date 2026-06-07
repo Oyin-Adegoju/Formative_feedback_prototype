@@ -108,3 +108,39 @@ def _result_to_dict(filename: str, result: CapsRunResult) -> dict:
         "manual_review_flags": result.manual_review_flags,
         "criteria": criteria,
     }
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+
+def main() -> None:
+    json_files = sorted(_DATA_DIR.glob("*_anonymized.json"))
+    if not json_files:
+        print(f"No *_anonymized.json files found in {_DATA_DIR}")
+        sys.exit(1)
+
+    all_results = []
+
+    for path in json_files:
+        filename = path.name
+        try:
+            raw = json.loads(path.read_text(encoding="utf-8"))
+            report = _normalize_report(raw)
+            result = run_caps(report, input_source="anonymized")
+            _print_result(filename, result)
+            all_results.append(_result_to_dict(filename, result))
+        except Exception as exc:  # noqa: BLE001
+            print(f"\n[ERROR] {filename}: {exc}")
+
+    # Write machine-readable summary.
+    _RESULTS_FILE.write_text(
+        json.dumps(all_results, indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    print(f"\n[saved] {_RESULTS_FILE}")
+
+
+if __name__ == "__main__":
+    main()
