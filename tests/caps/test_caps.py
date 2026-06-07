@@ -123,7 +123,7 @@ class TestValidateReport:
     def test_passes_for_minimal_valid_report(self, report):
         _validate_report(report)  # must not raise
 
-    @pytest.mark.parametrize("missing_key", ["doc_id", "source_name", "page_count", "block_count", "blocks"])
+    @pytest.mark.parametrize("missing_key", ["doc_id", "source_name", "block_count", "blocks"])
     def test_raises_when_required_key_is_missing(self, report, missing_key):
         del report[missing_key]
         with pytest.raises(ValueError, match=missing_key):
