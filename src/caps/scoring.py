@@ -174,7 +174,9 @@ def score_document(
 
     doc_id: str = report["doc_id"]
     source_name: str = report["source_name"]
-    page_count: int = report["page_count"]
+    page_count: int = report.get("page_count") or max(  # type: ignore[union-attr]
+        (b["page_no"] for b in report["blocks"]), default=0
+    )
     block_count: int = report["block_count"]
 
     # Build a rubric-ordered view so all downstream lists are stable regardless
