@@ -171,38 +171,72 @@ class TestCollectManualReviewFlags:
 
 
 class TestDetermineOverallStoplight:
-    def test_red_when_blocker_triggered(self):
-        assert determine_overall_stoplight(["beperking"], False, _all_sufficient()) == "red"
+    # --- red: blockers ---
 
-    def test_red_when_manual_review_required(self):
-        assert determine_overall_stoplight([], True, _all_sufficient()) == "red"
+    def test_red_when_blocker_triggered(self):
+        assert determine_overall_stoplight(["beperking"], _all_sufficient()) == "red"
 
     def test_red_when_both_blocker_and_manual_review(self):
-        assert determine_overall_stoplight(["beperking"], True, _all_sufficient()) == "red"
+        # Blockers override everything; manual_review on top does not change the outcome.
+        results = {k: _make_result(k, "sufficient") for k in CRITERIA_KEYS}
+        results["beperking"] = _make_result("beperking", "sufficient", manual_review=True)
+        assert determine_overall_stoplight(["beperking"], results) == "red"
+
+    # --- red: manual review threshold (half or more) ---
+
+    def test_red_when_manual_reviews_reach_exactly_half(self):
+        # 2 of 4 criteria: 2*2=4 >= 4 → red
+        results = {
+            f"c{i}": _make_result(f"c{i}", "sufficient", is_blocker=False, manual_review=(i < 2))
+            for i in range(4)
+        }
+        assert determine_overall_stoplight([], results) == "red"
+
+    def test_red_when_manual_reviews_exceed_half(self):
+        # 3 of 5 criteria: 3*2=6 >= 5 → red
+        results = {
+            f"c{i}": _make_result(f"c{i}", "sufficient", is_blocker=False, manual_review=(i < 3))
+            for i in range(5)
+        }
+        assert determine_overall_stoplight([], results) == "red"
+
+    # --- yellow: at least one flag, fewer than half ---
+
+    def test_yellow_when_one_manual_review_of_five(self):
+        # 1 of 5: 1*2=2 < 5 → yellow
+        results = {k: _make_result(k, "sufficient") for k in CRITERIA_KEYS}
+        results["beperking"] = _make_result("beperking", "sufficient", manual_review=True)
+        assert determine_overall_stoplight([], results) == "yellow"
+
+    def test_yellow_when_fewer_than_half_manual_reviews(self):
+        # 1 of 4: 1*2=2 < 4 → yellow
+        results = {
+            f"c{i}": _make_result(f"c{i}", "sufficient", is_blocker=False, manual_review=(i < 1))
+            for i in range(4)
+        }
+        assert determine_overall_stoplight([], results) == "yellow"
+
+    # --- green: no blockers, zero manual review flags ---
 
     def test_green_when_all_sufficient_no_flags(self):
         results = {k: _make_result(k, "sufficient") for k in CRITERIA_KEYS}
-        assert determine_overall_stoplight([], False, results) == "green"
+        assert determine_overall_stoplight([], results) == "green"
 
     def test_green_when_all_strong_no_flags(self):
         results = {k: _make_result(k, "strong") for k in CRITERIA_KEYS}
-        assert determine_overall_stoplight([], False, results) == "green"
+        assert determine_overall_stoplight([], results) == "green"
 
     def test_green_with_mixed_sufficient_and_strong(self):
         statuses = ["sufficient", "strong", "sufficient", "strong", "sufficient"]
         results = {k: _make_result(k, s) for k, s in zip(CRITERIA_KEYS, statuses)}
-        assert determine_overall_stoplight([], False, results) == "green"
+        assert determine_overall_stoplight([], results) == "green"
 
-    def test_yellow_when_partial_non_blocker_not_in_blockers_list(self):
-        # Non-blocker with partial: blockers_triggered stays empty, but not all sufficient.
+    def test_green_when_partial_non_blocker_no_manual_review(self):
+        # Criterion status alone does not drive the overall stoplight under the new policy.
+        # A partial non-blocker with no manual_review flag produces green, not yellow.
         results = {k: _make_result(k, "sufficient") for k in CRITERIA_KEYS}
         results["beperking"] = _make_result("beperking", "partial", is_blocker=False)
-        assert determine_overall_stoplight([], False, results) == "yellow"
-
-    def test_yellow_when_missing_non_blocker(self):
-        results = {k: _make_result(k, "sufficient") for k in CRITERIA_KEYS}
-        results["beperking"] = _make_result("beperking", "missing", is_blocker=False)
-        assert determine_overall_stoplight([], False, results) == "yellow"
+        assert determine_overall_stoplight([], results) == "green"
 
 
 # ---------------------------------------------------------------------------
@@ -301,9 +335,18 @@ class TestScoreDocument:
         run = score_document(_minimal_report(), results)
         assert run.overall_stoplight == "red"
 
-    def test_overall_stoplight_red_when_manual_review_required(self):
+    def test_overall_stoplight_yellow_when_one_of_five_manual_review(self):
+        # 1 of 5 criteria → 1*2=2 < 5 → yellow, not red
         results = _all_sufficient()
         results["security"] = _make_result("security", "sufficient", manual_review=True)
+        run = score_document(_minimal_report(), results)
+        assert run.overall_stoplight == "yellow"
+
+    def test_overall_stoplight_red_when_manual_reviews_reach_half(self):
+        # 3 of 5 criteria → 3*2=6 >= 5 → red
+        results = _all_sufficient()
+        for key in list(CRITERIA_KEYS)[:3]:
+            results[key] = _make_result(key, "sufficient", manual_review=True)
         run = score_document(_minimal_report(), results)
         assert run.overall_stoplight == "red"
 
