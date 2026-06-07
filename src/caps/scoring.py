@@ -43,9 +43,6 @@ hidden_score range (5 criteria): 0–15.
 Belongs here, not in criterion_specs.py — scoring concern, not rubric metadata.
 """
 
-_SUFFICIENT_STATUSES: Final[frozenset[str]] = frozenset({"sufficient", "strong"})
-"""Statuses that satisfy 'at least sufficient' for the green stoplight condition."""
-
 _BLOCKER_TRIGGERING_STATUSES: Final[frozenset[str]] = frozenset({"missing", "partial"})
 """Statuses that activate a blocker when the criterion has is_blocker=True."""
 
@@ -110,22 +107,23 @@ def collect_manual_review_flags(results: dict[str, CriterionResult]) -> list[str
 
 def determine_overall_stoplight(
     blockers_triggered: list[str],
-    manual_review_required: bool,
     results: dict[str, CriterionResult],
 ) -> StoplightLabel:
     """Apply the document-level stoplight policy.
 
-    red:    any blocker triggered, or manual_review_required is True
-    green:  every criterion is at least 'sufficient', no blockers, no manual review
-    yellow: everything else (non-blocker edge states)
+    red:    any blocker triggered, or manual review applies to half or more of the
+            evaluated criteria (manual_review_count * 2 >= total_criteria)
+    yellow: no blockers, and at least one manual review flag on fewer than half the criteria
+    green:  no blockers, and zero manual review flags
     """
-    if blockers_triggered or manual_review_required:
+    total_criteria = len(results)
+    manual_review_count = sum(1 for r in results.values() if r.manual_review)
+
+    if blockers_triggered or manual_review_count * 2 >= total_criteria:
         return "red"
-
-    if all(r.status in _SUFFICIENT_STATUSES for r in results.values()):
-        return "green"
-
-    return "yellow"
+    if manual_review_count > 0:
+        return "yellow"
+    return "green"
 
 
 # ---------------------------------------------------------------------------
@@ -189,7 +187,6 @@ def score_document(
     manual_review_required = bool(manual_review_flags)
     overall_stoplight = determine_overall_stoplight(
         blockers_triggered,
-        manual_review_required,
         ordered,
     )
 
