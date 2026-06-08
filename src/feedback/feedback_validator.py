@@ -53,6 +53,7 @@ Not applied to evidence_ref (block IDs legitimately contain numbers).
 # ---------------------------------------------------------------------------
 
 _REQUIRED_FIELDS: Final[frozenset[str]] = frozenset({
+    "stoplight",
     "student_samenvatting",
     "docent_toelichting",
     "feed_up",
@@ -62,8 +63,20 @@ _REQUIRED_FIELDS: Final[frozenset[str]] = frozenset({
 })
 """Fields that must be present in the LLM output dict.
 
-document_id, stoplight, and disclaimer are not required from the LLM —
-they are always injected deterministically by this validator.
+stoplight is required here so that a missing field raises "Missing required
+field: stoplight" rather than a confusing "Stoplight mismatch: None".
+document_id and disclaimer are not required from the LLM — they are always
+injected deterministically by this validator.
+"""
+
+_STATUS_LABELS: Final[frozenset[str]] = frozenset({
+    "missing", "partial", "sufficient", "strong",
+})
+"""Internal CAPS CriterionStatus values that must not appear in LLM-written output.
+
+Applied only to LLM text fields (student_samenvatting, docent_toelichting,
+feed_up, feedback[].observatie, feed_forward, taalgebruik).
+Not applied to evidence_ref — block IDs legitimately contain alphanumerics.
 """
 # ---------------------------------------------------------------------------
 # Exception
@@ -183,6 +196,14 @@ def validate(raw_json: str, caps_result: CapsRunResult) -> FeedbackResult:
         if pattern.search(combined_text):
             raise FeedbackValidationError(
                 f"Score leak detected in LLM output (pattern: '{pattern.pattern}').",
+                raw=raw_json,
+            )
+
+    # --- 5b. No internal CAPS status label leak ---
+    for label in _STATUS_LABELS:
+        if re.search(rf"\b{label}\b", combined_text, re.IGNORECASE):
+            raise FeedbackValidationError(
+                f"Internal status label leaked into feedback output: {label}",
                 raw=raw_json,
             )
 
