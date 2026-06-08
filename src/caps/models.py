@@ -83,7 +83,7 @@ class ParseReportDict(TypedDict):
 
     doc_id: str
     source_name: str
-    page_count: int
+    page_count: NotRequired[int]
     block_count: int
     blocks: list[BlockDict]
     source_path: NotRequired[str]
