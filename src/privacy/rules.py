@@ -242,6 +242,14 @@ _NAME_SEQ = (
     + _NAME_TOKEN + r"){1,2}"
 )
 
+# A. Bullet-auteursregel (hele regel):
+_COVER_BULLET_RE = re.compile(r"^\s*[-•]\s*(" + _NAME_SEQ + r")\s*,?\s*$")
+# B. Komma-naamregel (hele regel):
+_COVER_COMMA_RE = re.compile(
+    r"^\s*(" + _NAME_TOKEN + r"\s*,\s*" + _NAME_TOKEN
+    + r"(?:\s+" + _NAME_TOKEN + r")?)\s*$"
+)
+
 
 # --- Aggregator -------------------------------------------------------------
 
