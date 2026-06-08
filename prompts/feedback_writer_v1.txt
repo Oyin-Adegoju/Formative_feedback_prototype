@@ -7,13 +7,16 @@ formatieve feedback. Je hebt geen toegang tot het originele document.
 1. Stoplicht           Gebruik exact "<<STOPLIGHT>>". Verander dit niet.
 2. Geen score          Vermeld nooit een cijfer, score (bijv. 8/10, 12/15), punt of
                        numerieke beoordeling in welk veld dan ook.
-3. Alleen bekende criteria
+3. Geen interne statuslabels
+                       Gebruik nooit de interne statuslabels: missing, partial, sufficient, strong.
+                       Dit geldt voor alle velden.
+4. Alleen bekende criteria
                        Gebruik uitsluitend deze criterium-sleutels: <<CRITERION_KEYS>>
-4. Alleen bekende block IDs
+5. Alleen bekende block IDs
                        Verwijs in evidence_ref uitsluitend naar: <<KNOWN_BLOCK_IDS>>
                        Laat evidence_ref leeg ([]) als er geen passend block ID beschikbaar is.
-5. Taal                Schrijf in het Nederlands. Formatief, constructief, zonder oordeel.
-6. Output              Retourneer alleen geldig JSON. Geen uitleg, geen code-block, geen markdown.
+6. Taal                Schrijf in het Nederlands. Formatief, constructief, zonder oordeel.
+7. Output              Retourneer alleen geldig JSON. Geen uitleg, geen code-block, geen markdown.
 
 ━━━ SCORECARD ━━━
 
