@@ -43,12 +43,16 @@ Output is written to:
         input_copy.json          exact copy of the input file
         anonymized_report.json   normalized report passed to CAPS
         caps_result_summary.json CAPS verdict (same shape as caps_results.json)
-        feedback_result.json     validated feedback from LLM (or fallback)
+        feedback_result.json     validated LLM feedback, or skipped marker if --no-llm
         run_summary.json         machine-readable run metadata + check results
 
 Exit codes:
     0 — all steps completed and all integration checks passed
-    1 — fatal error OR one or more integration checks failed
+    1 — fatal error OR LLM call / validation failed OR one or more integration checks failed
+
+Note: in full LLM mode this script does NOT accept fallback feedback.
+If the LLM call, timeout, or validation fails the script stops with exit code 1.
+Use --no-llm to run CAPS only without requiring a live Ollama instance.
 """
 
 from __future__ import annotations
@@ -73,8 +77,15 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from src.caps.caps import run_caps
 from src.caps.criterion_specs import CRITERIA_KEYS
 from src.caps.models import CapsRunResult, ParseReportDict
-from src.feedback.feedback_builder import generate_feedback
+from src.feedback.feedback_builder import (
+    _PROMPT_PATH,
+    _PROMPT_VERSION,
+    _assemble_prompt,
+)
+from src.feedback.feedback_validator import FeedbackValidationError, validate
 from src.feedback.output_schema import DISCLAIMER, FeedbackResult
+from src.llm import llm_client
+from src.llm.llm_client import LlmCallError
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -158,6 +169,16 @@ def _parse_args() -> argparse.Namespace:
         "--no-llm",
         action="store_true",
         help="Skip feedback generation. Run CAPS only, no LLM call.",
+    )
+    parser.add_argument(
+        "--llm-timeout",
+        type=int,
+        default=800,
+        metavar="SECONDS",
+        help=(
+            "LLM request timeout in seconds (default: 800). "
+            "Increase further if Qwen2.5-14B is slow to load on the server."
+        ),
     )
     parser.add_argument(
         "--debug",
@@ -459,6 +480,76 @@ def _is_fallback(fb: FeedbackResult) -> bool:
 
 
 # ---------------------------------------------------------------------------
+# Strict LLM generation (no fallback accepted)
+# ---------------------------------------------------------------------------
+
+
+def _generate_feedback_strict(
+    caps_result: CapsRunResult,
+    llm_base_url: str,
+    llm_model: str,
+    timeout: int = 800,
+    max_tokens: int = 2048,
+) -> FeedbackResult:
+    """Call the LLM pipeline directly with step-by-step progress logging.
+
+    Does NOT use generate_feedback() — that swallows errors and returns fallback output.
+    This function is strict: any failure raises RuntimeError so main() can exit with code 1.
+
+    Sequence: load template → assemble prompt → llm_client.complete() → validate()
+    """
+    # ── Load template ─────────────────────────────────────────────────────────
+    print(f"  prompt version : {_PROMPT_VERSION}")
+    try:
+        rel_path = _PROMPT_PATH.relative_to(_PROJECT_ROOT)
+    except ValueError:
+        rel_path = _PROMPT_PATH
+    print(f"  template path  : {rel_path}")
+    try:
+        template = _PROMPT_PATH.read_text(encoding="utf-8")
+    except OSError as exc:
+        raise RuntimeError(f"Could not load prompt template: {exc}") from exc
+    print("  template       : loaded")
+
+    # ── Assemble prompt ───────────────────────────────────────────────────────
+    prompt = _assemble_prompt(caps_result, template)
+    print("  prompt         : assembled")
+    print(f"  prompt chars   : {len(prompt)}")
+    print(f"  model          : {llm_model}")
+    print(f"  base URL       : {llm_base_url}")
+    print(f"  timeout        : {timeout} s")
+    print(f"  max_tokens     : {max_tokens}")
+    print()
+
+    # ── LLM call ──────────────────────────────────────────────────────────────
+    print("[LLM] Starting Ollama call...")
+    print("[LLM] This may take several minutes on the server.")
+    t_start = datetime.datetime.now()
+    try:
+        raw_json = llm_client.complete(
+            prompt, model=llm_model, max_tokens=max_tokens, timeout=timeout,
+        )
+    except LlmCallError as exc:
+        raise RuntimeError(f"LLM call failed: {exc.reason}") from exc
+    elapsed = (datetime.datetime.now() - t_start).total_seconds()
+    print(f"[LLM] Ollama call completed in {elapsed:.1f} seconds.")
+    print("[LLM] Raw response received.")
+    print(f"[LLM] Raw response chars: {len(raw_json)}")
+    print()
+
+    # ── Validation ────────────────────────────────────────────────────────────
+    print("[VALIDATION] Starting feedback validation...")
+    try:
+        result = validate(raw_json, caps_result)
+    except FeedbackValidationError as exc:
+        raise RuntimeError(f"Feedback validation failed: {exc.reason}") from exc
+    print("[VALIDATION] Feedback JSON validated successfully.")
+    print("[OK] Feedback received and validated.")
+
+    return result
+
+
+# ---------------------------------------------------------------------------
 # File writing helper
 # ---------------------------------------------------------------------------
 
@@ -553,6 +644,12 @@ def main() -> int:
 
     _print_caps_result(caps_result)
 
+    # Create the output directory here — before Step 4 — so we can write a
+    # partial run_summary.json even when the LLM call fails.
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    run_dir = pathlib.Path(args.output_dir) / f"{caps_result.doc_id}_{timestamp}"
+    run_dir.mkdir(parents=True, exist_ok=True)
+
     # ── Step 4: Feedback generation ───────────────────────────────────────────
     feedback_result: FeedbackResult | None = None
 
@@ -561,28 +658,36 @@ def main() -> int:
         print("  Feedback generation skipped.")
     else:
         _section("Step 4 — Feedback generation")
-        print(f"  model        : {llm_model}")
-        print(f"  base URL     : {llm_base_url}")
-        print("  Calling LLM … (may take 60–180 s on first call)")
-
         try:
-            feedback_result = generate_feedback(caps_result)
-        except Exception as exc:
-            # generate_feedback() must never raise; this is a last-resort safety net.
-            msg = f"generate_feedback() raised unexpectedly: {exc}"
-            print(f"  [WARNING] {msg}")
+            feedback_result = _generate_feedback_strict(
+                caps_result, llm_base_url, llm_model,
+                timeout=args.llm_timeout,
+            )
+        except RuntimeError as exc:
+            msg = str(exc)
+            print(f"\n[FATAL] {msg}")
             if debug:
                 traceback.print_exc()
-            warnings.append(msg)
-
-        if feedback_result is not None:
-            if _is_fallback(feedback_result):
-                print("  [WARNING] Response is fallback output — LLM call or validation likely failed")
-                warnings.append("Feedback is fallback (LLM call failed or validation failed)")
-            else:
-                print("  [OK] Feedback received and validated")
-            print()
-            _print_feedback_result(feedback_result)
+            fatal_errors.append(msg)
+            _write_json(run_dir / "run_summary.json", {
+                "input_path": str(input_path.resolve()),
+                "input_type": args.input_type,
+                "doc_id": caps_result.doc_id,
+                "source_name": caps_result.source_name,
+                "output_directory": str(run_dir),
+                "stoplight": caps_result.overall_stoplight,
+                "feedback_skipped": False,
+                "feedback_is_fallback": None,
+                "llm_base_url": llm_base_url,
+                "llm_model": llm_model,
+                "integration_checks": {},
+                "integration_checks_all_passed": False,
+                "errors": [msg],
+                "warnings": warnings,
+            })
+            return 1
+        print()
+        _print_feedback_result(feedback_result)
 
     # ── Step 5: Integration checks ─────────────────────────────────────────────
     _section("Step 5 — Integration checks")
@@ -609,9 +714,7 @@ def main() -> int:
     # ── Step 6: Write outputs ──────────────────────────────────────────────────
     _section("Step 6 — Writing outputs")
 
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    run_dir = pathlib.Path(args.output_dir) / f"{caps_result.doc_id}_{timestamp}"
-    run_dir.mkdir(parents=True, exist_ok=True)
+    # run_dir was created before Step 4 so error state could be written there.
     print(f"  Output directory: {run_dir}")
     print()
 
@@ -632,11 +735,7 @@ def main() -> int:
     else:
         _write_json(run_dir / "feedback_result.json", {
             "skipped": True,
-            "reason": (
-                "--no-llm flag set"
-                if args.no_llm
-                else "generate_feedback() failed unexpectedly"
-            ),
+            "reason": "--no-llm flag set",
         })
 
     # run_summary.json — full machine-readable run metadata

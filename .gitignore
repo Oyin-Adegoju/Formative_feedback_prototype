@@ -5,6 +5,7 @@ __pycache__/
 *.pyc
 .DS_Store
 .venv/
+data/full_pipeline_runs/ 
 
 # Geanonimiseerde output bevat originele namen in het mapping-veld -> niet committen
 data/anonymized/
