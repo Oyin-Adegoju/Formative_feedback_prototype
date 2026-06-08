@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import logging
 import os
+import re
 from pathlib import Path
 from typing import Final
 
@@ -38,6 +39,22 @@ _PROMPT_VERSION: Final[str] = "feedback_writer_v1"
 _PROMPT_PATH: Final[Path] = (
     Path(__file__).parent.parent.parent / "prompts" / "feedback_writer_v1.txt"
 )
+
+# ---------------------------------------------------------------------------
+# Status display mapping
+# ---------------------------------------------------------------------------
+
+_STATUS_DISPLAY: Final[dict[str, str]] = {
+    "missing":    "niet zichtbaar in de aangeleverde evidence",
+    "partial":    "deels zichtbaar, maar nog onvoldoende concreet",
+    "sufficient": "voldoende zichtbaar",
+    "strong":     "sterk uitgewerkt",
+}
+"""Student-safe Dutch phrases for CriterionStatus values, used in prompt context.
+
+Raw status labels (missing/partial/sufficient/strong) must never reach the LLM
+so they cannot leak into student-facing output.
+"""
 
 # ---------------------------------------------------------------------------
 # Fallback output
@@ -96,17 +113,15 @@ def _format_scorecard(caps_result: CapsRunResult) -> str:
         lines.append(f"CRITERIUM: {key} — {spec.label}")
 
         if cr is None:
-            lines.append("  Status  : (niet geëvalueerd)")
+            lines.append("  Bevinding : (niet geëvalueerd)")
             lines.append("")
             continue
 
-        lines.append(f"  Status  : {cr.status}")
-
-        if cr.count is not None:
-            lines.append(f"  Aantal  : {cr.count}")
+        lines.append(f"  Bevinding : {_STATUS_DISPLAY.get(cr.status, cr.status)}")
 
         for note in cr.notes:
-            lines.append(f"  Notitie : {note}")
+            if not re.search(r"\d", note):
+                lines.append(f"  Notitie : {note}")
 
         if cr.evidence:
             ids = ", ".join(ref.block_id for ref in cr.evidence)
