@@ -280,6 +280,30 @@ _NON_NAME_TOKENS = {
 }
 
 
+def _inline_namelist_spans(text: str) -> list[tuple[int, int, str]]:
+    """Vind namen in een komma-gescheiden auteurslijst (>=2 namen)."""
+    base = 0
+    m = _COVER_LIST_LABEL_RE.match(text)
+    if m:
+        base = m.end()
+    rest = text[base:]
+    if "," not in rest:
+        return []
+    found: list[tuple[int, int, str]] = []
+    pos = base
+    for part in rest.split(","):
+        seg_start = pos
+        pos += len(part) + 1  # +1 voor de komma
+        mm = _NAME_ONLY_RE.match(part)
+        if not mm:
+            continue
+        naam = mm.group(1)
+        if any(tok.lower() in _NON_NAME_TOKENS for tok in naam.split()):
+            continue
+        found.append((seg_start + mm.start(1), seg_start + mm.end(1), naam))
+    return found if len(found) >= 2 else []
+
+
 # --- Aggregator -------------------------------------------------------------
 
 
