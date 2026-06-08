@@ -137,7 +137,7 @@ def complete(
         ) from exc
     except TimeoutError as exc:
         raise LlmCallError(
-            f"Inference server timed out after {_TIMEOUT_SECONDS}s ({endpoint})."
+            f"Inference server timed out after {timeout}s ({endpoint})."
         ) from exc
     except json.JSONDecodeError as exc:
         raise LlmCallError(
