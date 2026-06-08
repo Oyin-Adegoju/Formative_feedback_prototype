@@ -1,0 +1,60 @@
+{
+  "file": "2e138dc4_anonymized.json",
+  "doc_id": "2e138dc4",
+  "source_name": "Requirements_student5.pdf",
+  "overall_stoplight": "yellow",
+  "hidden_score": 13,
+  "manual_review_required": true,
+  "blockers_triggered": [],
+  "manual_review_flags": [
+    "beperking"
+  ],
+  "criteria": {
+    "beperking": {
+      "status": "sufficient",
+      "stoplight": "yellow",
+      "count": null,
+      "manual_review": true,
+      "notes": [
+        "Beperking beschreven (blind, visuele beperking, slechtziend) en onderbouwing aanwezig (bronnen, bron).",
+        "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
+      ]
+    },
+    "stakeholders": {
+      "status": "strong",
+      "stoplight": "green",
+      "count": 17,
+      "manual_review": false,
+      "notes": [
+        "17 stakeholder(s) herkend — boven drempel, met belang en invloed gedocumenteerd."
+      ]
+    },
+    "requirements": {
+      "status": "strong",
+      "stoplight": "green",
+      "count": 29,
+      "manual_review": false,
+      "notes": [
+        "Geschat 29 requirement-items — ruim gedekt. Prioritering: ja."
+      ]
+    },
+    "taalkeuze": {
+      "status": "sufficient",
+      "stoplight": "yellow",
+      "count": null,
+      "manual_review": false,
+      "notes": [
+        "Taalkeuze (meertalig) en gevolgen (beïnvloed, bereik) aanwezig."
+      ]
+    },
+    "security": {
+      "status": "strong",
+      "stoplight": "green",
+      "count": 5,
+      "manual_review": false,
+      "notes": [
+        "5 concrete beveiligingsmechanismen gevonden: ssl, tls, encryptie, risicoanalyse, avg."
+      ]
+    }
+  }
+}

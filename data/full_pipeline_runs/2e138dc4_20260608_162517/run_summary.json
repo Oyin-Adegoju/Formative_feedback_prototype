@@ -1,0 +1,35 @@
+{
+  "input_path": "/Users/user/bpdee2-formatieve-feedback-assistent/data/anonymised/2e138dc4_anonymized.json",
+  "input_type": "anonymized-json",
+  "doc_id": "2e138dc4",
+  "source_name": "Requirements_student5.pdf",
+  "output_directory": "/Users/user/bpdee2-formatieve-feedback-assistent/data/full_pipeline_runs/2e138dc4_20260608_162517",
+  "stoplight": "yellow",
+  "hidden_score": 13,
+  "manual_review_required": true,
+  "blockers_triggered": [],
+  "manual_review_flags": [
+    "beperking"
+  ],
+  "feedback_skipped": true,
+  "feedback_is_fallback": null,
+  "llm_base_url": "http://localhost:11434/v1",
+  "llm_model": "Qwen2.5-14B-Instruct",
+  "integration_checks": {
+    "caps_summary_top_level_keys": {
+      "passed": true,
+      "detail": "all present"
+    },
+    "caps_criteria_keys": {
+      "passed": true,
+      "detail": "all 5 present"
+    },
+    "caps_criterion_internal_fields": {
+      "passed": true,
+      "detail": "all fields present"
+    }
+  },
+  "integration_checks_all_passed": true,
+  "errors": [],
+  "warnings": []
+}
