@@ -304,6 +304,55 @@ def _inline_namelist_spans(text: str) -> list[tuple[int, int, str]]:
     return found if len(found) >= 2 else []
 
 
+def find_cover_name_entries(text: str) -> list[RuleMatch]:
+    """Detecteer namen (en aanliggende studentnummers) op cover/front-matter.
+
+    """
+    if not text:
+        return []
+    results: list[RuleMatch] = []
+    seen: set[tuple[int, int]] = set()
+
+    def add(rule_type: str, start: int, end: int, value: str) -> None:
+        if start >= end or (start, end) in seen:
+            return
+        seen.add((start, end))
+        results.append(
+            RuleMatch(
+                rule_type=rule_type,
+                start=start,
+                end=end,
+                text=value,
+                label=None,
+                confidence="high",
+            )
+        )
+
+    # C eerst: het studentnummer-anchor maakt dit het betrouwbaarst.
+    for m in _COVER_NAME_NR_RE.finditer(text):
+        raw = m.group(1)
+        # Knip een eventueel mee-gevangen trailing label van de naam af.
+        trimmed = _TRAILING_LABEL_RE.sub("", raw)
+        if trimmed:
+            add("cover_name", m.start(1), m.start(1) + len(trimmed), trimmed)
+        add("student_number", m.start(2), m.end(2), m.group(2))
+
+    # A: bullet-auteursregel.
+    for m in _COVER_BULLET_RE.finditer(text):
+        add("cover_name", m.start(1), m.end(1), m.group(1))
+
+    # B: komma-naamregel.
+    for m in _COVER_COMMA_RE.finditer(text):
+        add("cover_name", m.start(1), m.end(1), m.group(1))
+
+    # D: inline auteurslijst ("Namen: A B, C D, E F").
+    for start, end, naam in _inline_namelist_spans(text):
+        add("cover_name", start, end, naam)
+
+    results.sort(key=lambda r: (r.start, r.end, r.rule_type))
+    return results
+
+
 # --- Aggregator -------------------------------------------------------------
 
 
