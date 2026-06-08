@@ -49,7 +49,7 @@ _DEFAULT_TEMPERATURE: Final[float] = 0.15
 """Low temperature for consistent, structured output.
 Callers may override per-call; feedback_builder uses this default."""
 
-_TIMEOUT_SECONDS: Final[int] = 180
+_TIMEOUT_SECONDS: Final[int] = 800
 """Request timeout. 14B models on modest hardware can be slow."""
 
 
