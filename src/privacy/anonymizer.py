@@ -1,23 +1,24 @@
 
 
+ 
 from __future__ import annotations
-
+ 
 import re
 from dataclasses import dataclass, field, replace as _dc_replace
-
+ 
 from src.parser.structure import Block
 from src.privacy.catalog import (
     PeopleCatalog,
     PersonRecord,
     normalize_lookup_text,
 )
-from src.privacy.rules import find_all_rule_matches
+from src.privacy.rules import find_all_rule_matches, find_cover_name_entries
 from src.privacy.whitelist import Whitelist
-
-
-# --- Placeholder-config -----------------------------------------------------
-
-
+ 
+ 
+# --- Placeholder-config
+ 
+ 
 _PLACEHOLDER_PREFIXES: dict[str, str] = {
     "person": "PERSOON",
     "email": "EMAIL",
@@ -25,17 +26,18 @@ _PLACEHOLDER_PREFIXES: dict[str, str] = {
     "student_number": "STUDENTNR",
     "labeled_sensitive": "GEVOELIG",
 }
-
+ 
 # Mapping van rule_type (uit rules.RuleMatch) naar onze interne ptype.
 _RULE_TYPE_TO_PTYPE: dict[str, str] = {
     "email": "email",
     "phone_nl": "phone",
     "student_number": "student_number",
     "labeled_sensitive_field": "labeled_sensitive",
+    "cover_name": "person",
+    "interview_name": "person",
 }
-
+ 
 # Prioriteit bij gelijke span: lager = belangrijker. Person wint van
-# labeled_sensitive zodat "Naam: Sara Denno" als persoon wordt gemarkeerd
 # en niet als generic GEVOELIG.
 _PTYPE_PRIORITY: dict[str, int] = {
     "person": 0,
@@ -44,11 +46,11 @@ _PTYPE_PRIORITY: dict[str, int] = {
     "student_number": 3,
     "labeled_sensitive": 4,
 }
-
-
+ 
+ 
 # --- Datamodel
-
-
+ 
+ 
 @dataclass(frozen=True)
 class _Span:
     start: int
@@ -59,15 +61,15 @@ class _Span:
     # groepeert. Voor rule-matches is dit None → de genormaliseerde tekst
     # wordt dan als sleutel gebruikt.
     canonical_key: str | None = None
-
-
+ 
+ 
 @dataclass
 class AnonymizationState:
     """Houdt mapping en counters bij over de levensduur van één document."""
     _key_to_placeholder: dict[str, str] = field(default_factory=dict)
     _entries: dict[str, dict[str, str]] = field(default_factory=dict)
     _counters: dict[str, int] = field(default_factory=dict)
-
+ 
     def get_or_create(
         self,
         original_text: str,
@@ -78,10 +80,10 @@ class AnonymizationState:
         key = canonical_key if canonical_key is not None else normalize_lookup_text(original_text)
         if not key:
             return original_text  # safety net, geen kapot ID-aanmaak
-
+ 
         if key in self._key_to_placeholder:
             return self._key_to_placeholder[key]
-
+ 
         prefix = _PLACEHOLDER_PREFIXES.get(ptype, ptype.upper())
         self._counters[ptype] = self._counters.get(ptype, 0) + 1
         placeholder = f"[{prefix}_{self._counters[ptype]:02d}]"
@@ -92,7 +94,7 @@ class AnonymizationState:
             "type": ptype,
         }
         return placeholder
-
+ 
     def to_mapping(self) -> dict[str, dict[str, str]]:
         """Mapping van eerst-geziene originele tekst naar {placeholder, type}."""
         return {
@@ -102,11 +104,11 @@ class AnonymizationState:
             }
             for entry in self._entries.values()
         }
-
-
+ 
+ 
 # --- Catalogus-matching
-
-
+ 
+ 
 def _alias_to_regex(alias: str) -> re.Pattern[str] | None:
     """Bouw een case-insensitive regex met flexibele inter-woord whitespace
     en defensieve woord-/lookahead-grenzen aan beide kanten."""
@@ -118,8 +120,8 @@ def _alias_to_regex(alias: str) -> re.Pattern[str] | None:
     prefix = r"\b" if alias[0].isalnum() else r"(?<!\w)"
     suffix = r"\b" if alias[-1].isalnum() else r"(?!\w)"
     return re.compile(prefix + escaped + suffix, re.IGNORECASE)
-
-
+ 
+ 
 def _person_canonical_key(p: PersonRecord) -> str:
     """Genormaliseerde 'identiteit' van een persoon — gebruikt om alle
     aliassen van dezelfde persoon onder dezelfde placeholder te groeperen."""
@@ -128,11 +130,11 @@ def _person_canonical_key(p: PersonRecord) -> str:
         parts.append(p.tussenvoegsel)
     parts.append(p.achternaam)
     return normalize_lookup_text(" ".join(parts))
-
-
+ 
+ 
 def _find_catalog_spans(text: str, catalog: PeopleCatalog) -> list[_Span]:
     """Scan de tekst op alle aliassen uit de catalogus.
-
+ 
     PoC-aanpak: iteratie over alle aliassen, gesorteerd op lengte aflopend,
     elk vertaald naar een regex. Aliassen die door meerdere personen
     gedeeld worden (ambigu) worden bewust **niet** vervangen — dat zou
@@ -140,7 +142,7 @@ def _find_catalog_spans(text: str, catalog: PeopleCatalog) -> list[_Span]:
     """
     if not text:
         return []
-
+ 
     aliases_seen: set[str] = set()
     aliases: list[str] = []
     for p in catalog.get_all_people():
@@ -153,7 +155,7 @@ def _find_catalog_spans(text: str, catalog: PeopleCatalog) -> list[_Span]:
     # Langer eerst → minder kans dat een korte alias binnen een langere wordt
     # gematcht voordat de langere de kans krijgt.
     aliases.sort(key=lambda a: (-len(a), a))
-
+ 
     spans: list[_Span] = []
     for alias in aliases:
         pattern = _alias_to_regex(alias)
@@ -175,11 +177,11 @@ def _find_catalog_spans(text: str, catalog: PeopleCatalog) -> list[_Span]:
                 )
             )
     return spans
-
-
-# --- Overlapping spans ------------------------------------------------------
-
-
+ 
+ 
+# --- Overlapping spans
+ 
+ 
 def _greedy_nonoverlap(spans: list[_Span]) -> list[_Span]:
     """Greedy non-overlap binnen één tier: langer wint, daarna prioriteit."""
     sorted_spans = sorted(
@@ -197,25 +199,24 @@ def _greedy_nonoverlap(spans: list[_Span]) -> list[_Span]:
             continue
         kept.append(s)
     return kept
-
-
+ 
+ 
 def _resolve_overlaps(spans: list[_Span]) -> list[_Span]:
     """Twee-tier resolutie:
-
+ 
     1. Specifieke types (person/email/phone/student_number) krijgen
-       voorrang — onderling lost de langste het op.
+       voorrang onderling lost de langste het op.
     2. Het generieke `labeled_sensitive` wordt alleen toegevoegd wanneer
        het géén overlap heeft met een al gekozen specifieke span.
-
-    Dit voorkomt dat een te-greedy labeled_sensitive-span (bv. "1146131
-    hier.") een specifieke student_number-detectie overschaduwt.
+ 
+    Dit voorkomt dat een te-greedy labeled_sensitive-span een specifieke student_number-detectie overschaduwt.
     """
     specific = [s for s in spans if s.ptype != "labeled_sensitive"]
     generic = [s for s in spans if s.ptype == "labeled_sensitive"]
-
+ 
     kept_specific = _greedy_nonoverlap(specific)
     kept_generic: list[_Span] = []
-
+ 
     generic_sorted = sorted(
         generic,
         key=lambda s: (-(s.end - s.start), s.start, s.ptype),
@@ -226,15 +227,25 @@ def _resolve_overlaps(spans: list[_Span]) -> list[_Span]:
         if any(g.start < k.end and k.start < g.end for k in kept_generic):
             continue
         kept_generic.append(g)
-
+ 
     return sorted(kept_specific + kept_generic, key=lambda s: s.start)
-
-
-def _collect_spans(text: str, catalog: PeopleCatalog) -> list[_Span]:
+ 
+ 
+def _collect_spans(
+    text: str,
+    catalog: PeopleCatalog,
+    *,
+    is_cover: bool = False,
+) -> list[_Span]:
     if not text:
         return []
     spans: list[_Span] = list(_find_catalog_spans(text, catalog))
-    for rm in find_all_rule_matches(text):
+    rule_matches = find_all_rule_matches(text)
+    if is_cover:
+        # Extra, agressievere naamdetectie — alleen zinvol/veilig op
+        # front-matter (cover, namenlijst, "naam + studentnummer").
+        rule_matches = rule_matches + find_cover_name_entries(text)
+    for rm in rule_matches:
         ptype = _RULE_TYPE_TO_PTYPE.get(rm.rule_type)
         if ptype is None:
             continue
@@ -248,47 +259,45 @@ def _collect_spans(text: str, catalog: PeopleCatalog) -> list[_Span]:
             )
         )
     return _resolve_overlaps(spans)
-
-
+ 
+ 
 def _filter_whitelisted_spans(
     spans: list[_Span],
     whitelist: Whitelist | None,
 ) -> list[_Span]:
     """Verwijder spans waarvan de matched text op de whitelist staat.
-
-
-    Whitelist-filtering gebeurt vóór placeholder-toewijzing, zodat
-    whitelisted waarden ook NIET in de mapping terechtkomen.
     """
     if whitelist is None:
         return spans
     return [s for s in spans if not whitelist.is_allowed(s.text)]
-
-
-# --- Public API 
-
-
+ 
+ 
+# --- Public API
+ 
+ 
 def anonymize_text(
     text: str,
     catalog: PeopleCatalog,
     state: AnonymizationState,
     whitelist: Whitelist | None = None,
+    *,
+    is_cover: bool = False,
 ) -> str:
     """Vervang gevoelige spans in `text` door placeholders.
-
+ 
     Volgorde:
       1. spans verzamelen (catalog + rules)
       2. whitelist-filtering — spans op de whitelist worden weggelaten
-      3. placeholders toewijzen (links-naar-rechts voor nummervolgorde)
+      3. placeholders toewijzen
       4. tekst vervangen (rechts-naar-links zodat indices niet schuiven)
     """
     if not text:
         return text
-    spans = _collect_spans(text, catalog)
+    spans = _collect_spans(text, catalog, is_cover=is_cover)
     spans = _filter_whitelisted_spans(spans, whitelist)
     if not spans:
         return text
-
+ 
     placeholders = [
         state.get_or_create(s.text, s.ptype, canonical_key=s.canonical_key)
         for s in spans
@@ -297,8 +306,8 @@ def anonymize_text(
     for s, p in reversed(list(zip(spans, placeholders))):
         result = result[: s.start] + p + result[s.end :]
     return result
-
-
+ 
+ 
 def anonymize_heading_path(
     path: list[str],
     catalog: PeopleCatalog,
@@ -309,26 +318,71 @@ def anonymize_heading_path(
     if not path:
         return []
     return [anonymize_text(item, catalog, state, whitelist) for item in path]
-
-
+ 
+ 
+def _anonymize_table_meta(
+    table_meta: dict | None,
+    catalog: PeopleCatalog,
+    state: AnonymizationState,
+    whitelist: Whitelist | None,
+    *,
+    is_cover: bool,
+) -> dict | None:
+    """Anonimiseer de tekstvelden van een `table_meta`-dict met dezelfde
+    `state`, zodat placeholders consistent zijn met `Block.text`.
+    """
+    if not table_meta:
+        return table_meta
+ 
+    def _anon(value: str) -> str:
+        return anonymize_text(value, catalog, state, whitelist, is_cover=is_cover)
+ 
+    new_meta = dict(table_meta)
+ 
+    header = table_meta.get("header_row")
+    if isinstance(header, str):
+        new_meta["header_row"] = _anon(header)
+ 
+    cells = table_meta.get("cells")
+    if isinstance(cells, list):
+        new_meta["cells"] = [
+            [_anon(c) if isinstance(c, str) else c for c in row]
+            if isinstance(row, list)
+            else row
+            for row in cells
+        ]
+ 
+    index_cells = table_meta.get("index_cells")
+    if isinstance(index_cells, list):
+        new_meta["index_cells"] = [
+            _anon(c) if isinstance(c, str) else c for c in index_cells
+        ]
+ 
+    return new_meta
+ 
+ 
 def anonymize_blocks(
     blocks: list[Block],
     catalog: PeopleCatalog,
     whitelist: Whitelist | None = None,
 ) -> tuple[list[Block], dict[str, dict[str, str]]]:
     """Hoofdentry: anonymize elke block + heading_path, return nieuwe blocks.
-
-    De originele Block-objecten worden NIET gemuteerd; via
-    `dataclasses.replace` worden nieuwe instances aangemaakt met aangepaste
-    `text` en `heading_path`. Andere velden blijven gelijk.
-
-    Met een `whitelist`-argument worden waarden op die whitelist
-    ongemoeid gelaten én zijn ze ook niet aanwezig in de mapping.
+ 
+ 
     """
     state = AnonymizationState()
     new_blocks: list[Block] = []
     for b in blocks:
-        new_text = anonymize_text(b.text, catalog, state, whitelist)
+        new_text = anonymize_text(
+            b.text, catalog, state, whitelist, is_cover=b.is_front_matter
+        )
         new_path = anonymize_heading_path(b.heading_path, catalog, state, whitelist)
-        new_blocks.append(_dc_replace(b, text=new_text, heading_path=new_path))
+        new_meta = _anonymize_table_meta(
+            b.table_meta, catalog, state, whitelist, is_cover=b.is_front_matter
+        )
+        new_blocks.append(
+            _dc_replace(b, text=new_text, heading_path=new_path, table_meta=new_meta)
+        )
     return new_blocks, state.to_mapping()
+ 
+ 
