@@ -353,14 +353,42 @@ def find_cover_name_entries(text: str) -> list[RuleMatch]:
     return results
 
 
-# --- Aggregator -------------------------------------------------------------
+# --- Interview / appendix (trigger = anker, dus globaal veilig)
+
+_INTERVIEW_NAME_RE = re.compile(
+    r"(?i:\binterview\s+(?:met|verslag))"
+    r"\s*[–\-:]?\s*"
+    r"(" + _NAME_TOKEN
+    + r"(?:\s+(?:(?:" + _NAME_CONNECTORS + r")\s+)?" + _NAME_TOKEN + r"){0,2})"
+)
+
+
+def find_interview_names(text: str) -> list[RuleMatch]:
+    """Detecteer namen van geïnterviewden via een trigger-frase.
+    """
+    if not text:
+        return []
+    results: list[RuleMatch] = []
+    for m in _INTERVIEW_NAME_RE.finditer(text):
+        results.append(
+            RuleMatch(
+                rule_type="interview_name",
+                start=m.start(1),
+                end=m.end(1),
+                text=m.group(1),
+                label=None,
+                confidence="high",
+            )
+        )
+    return results
+
+
+# --- Aggregator
 
 
 def find_all_rule_matches(text: str) -> list[RuleMatch]:
     """Roep alle finders aan, sorteer deterministisch op (start, end, rule_type).
 
-    Meerdere rules die exact dezelfde span vinden blijven apart bestaan —
-    de anonymizer kan ze later dedupliceren op basis van eigen prioriteiten.
     """
     if not text:
         return []
@@ -369,6 +397,7 @@ def find_all_rule_matches(text: str) -> list[RuleMatch]:
         + find_phone_numbers(text)
         + find_student_numbers(text)
         + find_labeled_sensitive_fields(text)
+        + find_interview_names(text)
     )
     matches.sort(key=lambda r: (r.start, r.end, r.rule_type))
     return matches
