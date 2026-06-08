@@ -262,6 +262,23 @@ _TRAILING_LABEL_RE = re.compile(
     r"(?:\s+(?:student\w*|studnr|studienummer|namen?))+\s*$", re.IGNORECASE
 )
 
+# D. Inline auteurslijst: "Namen: A B, C D, E F" in één front-matter block.
+# Optioneel label-prefix dat we afknippen vóór we op komma's splitsen.
+_COVER_LIST_LABEL_RE = re.compile(
+    r"^\s*(?:namen|naam|auteurs?|studenten|leden|groepsleden|door)\s*[:\-]\s*",
+    re.IGNORECASE,
+)
+# Een segment is een naam als het — na trim — exact een 2–3-token naam is.
+_NAME_ONLY_RE = re.compile(r"^\s*(" + _NAME_SEQ + r")\s*$")
+# Tokens die een segment diskwalificeren als naam (titels/sectiewoorden), zodat
+# bv. "Requirements Analyse, Design Document" geen personen worden.
+_NON_NAME_TOKENS = {
+    "requirements", "requirement", "analyse", "analysis", "design", "document",
+    "inhoud", "introductie", "wensen", "eisen", "prioriteiten", "challenge",
+    "week", "opleiding", "datum", "module", "titel", "webshop", "full", "stack",
+    "first", "table", "contents", "bijlage", "hoofdstuk", "versie", "use", "case",
+}
+
 
 # --- Aggregator -------------------------------------------------------------
 
