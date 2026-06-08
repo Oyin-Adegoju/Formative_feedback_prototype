@@ -249,6 +249,13 @@ _COVER_COMMA_RE = re.compile(
     r"^\s*(" + _NAME_TOKEN + r"\s*,\s*" + _NAME_TOKEN
     + r"(?:\s+" + _NAME_TOKEN + r")?)\s*$"
 )
+# C. Naam + studentnummer (label optioneel; case-insensitief ALLEEN op het
+
+_COVER_NAME_NR_RE = re.compile(
+    r"(" + _NAME_SEQ + r")"
+    r"\s+(?:(?i:" + _STUDENTNR_LABEL_NAMES + r")\s*[:.]?\s*)?"
+    r"(\d{6,8})\b"
+)
 
 
 # --- Aggregator -------------------------------------------------------------
