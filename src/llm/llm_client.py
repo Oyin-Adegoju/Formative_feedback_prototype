@@ -82,6 +82,7 @@ def complete(
     temperature: float = _DEFAULT_TEMPERATURE,
     model: str | None = None,
     max_tokens: int = _DEFAULT_MAX_TOKENS,
+    timeout: int = _TIMEOUT_SECONDS,
 ) -> str:
     """Send a prompt to the local inference server and return the raw response text.
 
@@ -94,6 +95,8 @@ def complete(
         temperature: Sampling temperature. Keep low (0.1–0.2) for structured output.
         model:       Model name override. Defaults to Qwen2.5-14B-Instruct.
         max_tokens:  Maximum tokens in the response.
+        timeout:     Request timeout in seconds. Default matches _TIMEOUT_SECONDS (800 s).
+                     Pass a higher value for very slow cold-starts on modest hardware.
 
     Returns:
         Raw string content of the model's first response choice.
@@ -121,7 +124,7 @@ def complete(
     )
 
     try:
-        with urllib.request.urlopen(req, timeout=_TIMEOUT_SECONDS) as response:
+        with urllib.request.urlopen(req, timeout=timeout) as response:
             body = json.loads(response.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
         raise LlmCallError(
