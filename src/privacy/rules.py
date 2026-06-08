@@ -257,6 +257,11 @@ _COVER_NAME_NR_RE = re.compile(
     r"(\d{6,8})\b"
 )
 
+# Trailing label-tokens die per ongeluk in de naam kunnen belanden.
+_TRAILING_LABEL_RE = re.compile(
+    r"(?:\s+(?:student\w*|studnr|studienummer|namen?))+\s*$", re.IGNORECASE
+)
+
 
 # --- Aggregator -------------------------------------------------------------
 
