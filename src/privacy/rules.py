@@ -19,7 +19,7 @@ import re
 from dataclasses import dataclass
 
 
-# --- Datamodel --------------------------------------------------------------
+# --- Datamodel
 
 
 @dataclass(frozen=True)
@@ -34,7 +34,7 @@ class RuleMatch:
     confidence: str  # "high" | "low"
 
 
-# --- Patronen ---------------------------------------------------------------
+# --- Patronen
 
 # Email — pragmatische regex (geen volledig RFC 5322-monster, wel goed
 # genoeg voor student-/instellingsmailadressen).
@@ -45,9 +45,9 @@ _EMAIL_RE = re.compile(
 # Telefoon — kandidaten met +31-prefix of leading 0; daarna achteraf
 # valideren op exact 10 (0-prefix) of 11 (+31-prefix) digits.
 _PHONE_CANDIDATE_RE = re.compile(
-    r"(?<![\w.])"                       # niet midden in een woord/getal
-    r"(?:\+\s*31|0)"                    # landcode of binnenlandse 0
-    r"(?:[\s\-()]?\d){8,10}"            # 8–10 vervolgcijfers met optionele sep
+    r"(?<![\w.])"
+    r"(?:\+\s*31|0)"
+    r"(?:[\s\-()]?\d){8,10}"
     r"(?!\w)"
 )
 
@@ -87,7 +87,7 @@ _SENSITIVE_LABEL_RE = re.compile(
 )
 
 
-# --- Helpers ----------------------------------------------------------------
+# --- Helpers
 
 
 def _is_valid_dutch_phone(span_text: str) -> bool:
@@ -110,7 +110,7 @@ def _normalize_label(label: str) -> str:
     return re.sub(r"\s+", " ", label).strip().lower()
 
 
-# --- Finders ----------------------------------------------------------------
+# --- Finders
 
 
 def find_emails(text: str) -> list[RuleMatch]:
@@ -159,9 +159,6 @@ def find_student_numbers(text: str) -> list[RuleMatch]:
       - met label ("Studentnummer: 1146131") → confidence='high'
       - losse s-prefix ("s1146131") → confidence='low'
 
-    Bare 6-8-cijfer-getallen zonder label of s-prefix worden bewust
-    NIET gedetecteerd (zou te veel false positives geven op tabel-
-    cellen, pagina-codes en willekeurige IDs).
     """
     if not text:
         return []
@@ -207,9 +204,6 @@ def find_student_numbers(text: str) -> list[RuleMatch]:
 def find_labeled_sensitive_fields(text: str) -> list[RuleMatch]:
     """Detecteer "Label: Waarde"-paren voor bekende gevoelige labels.
 
-    De match-`text` is de WAARDE (na de dubbele punt of `=`), de `label`-
-    metadata bevat de canonieke label-naam. Zo kan de anonymizer de
-    waarde direct vervangen.
     """
     if not text:
         return []
@@ -233,6 +227,20 @@ def find_labeled_sensitive_fields(text: str) -> list[RuleMatch]:
             )
         )
     return results
+
+
+# --- Cover / namenlijst (context-gated: alleen front-matter)
+
+
+_NAME_TOKEN = r"[A-ZÀ-Ý][a-zà-ÿ'']+(?:-[A-ZÀ-Ý][a-zà-ÿ'']+)?"
+_NAME_CONNECTORS = r"van|de|der|den|ter|te|el|al|von|du|la|le"
+# 2–3 naamtokens; tussen tokens een komma OF whitespace (met optioneel
+# tussenvoegsel).
+_NAME_SEQ = (
+    _NAME_TOKEN
+    + r"(?:(?:\s*,\s*|\s+(?:(?:" + _NAME_CONNECTORS + r")\s+)?)"
+    + _NAME_TOKEN + r"){1,2}"
+)
 
 
 # --- Aggregator -------------------------------------------------------------
