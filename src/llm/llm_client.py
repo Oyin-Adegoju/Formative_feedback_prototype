@@ -38,7 +38,7 @@ from typing import Final
 _DEFAULT_BASE_URL: Final[str] = "http://localhost:11434/v1"
 """Ollama default. Override with LLM_BASE_URL environment variable."""
 
-_DEFAULT_MODEL: Final[str] = "Qwen2.5-14B-Instruct"
+_DEFAULT_MODEL: Final[str] = "qwen2.5:14b"
 """Must match the model name as the inference server knows it.
 Override with LLM_MODEL environment variable."""
 
