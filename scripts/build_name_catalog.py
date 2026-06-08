@@ -1,14 +1,14 @@
 """
 Geen runtime dependency van de anonymizer. De anonymizer leest alleen
 het resulterende JSON-bestand, nooit de originele CSV.
-
+ 
 Run:
     python scripts/build_name_catalog.py
     python scripts/build_name_catalog.py --input <csv> --output <json>
 """
-
+ 
 from __future__ import annotations
-
+ 
 import argparse
 import csv
 import json
@@ -17,11 +17,15 @@ import sys
 import unicodedata
 from pathlib import Path
 from typing import Any
-
-
+ 
+ 
 DEFAULT_INPUT = Path("data/reference/people_software_advanced_2026.csv")
 DEFAULT_OUTPUT = Path("data/reference/people_catalog.json")
-
+# Optionele extra namen die niet in de officiële studentroster horen
+# (stakeholders/personas, geïnterviewden, gemiste auteurs). Zelfde kolommen
+# als de roster-CSV; wordt mee-gemerged als het bestand bestaat.
+DEFAULT_EXTRA = Path("data/reference/people_extra.csv")
+ 
 # Nederlandse + Arabische-romeinse tussenvoegsels die we vooraan een
 # achternaam kunnen tegenkomen. Gebruikt voor het splitsen "van der Berg"
 # naar (tussenvoegsel='van der', achternaam='Berg').
@@ -35,31 +39,31 @@ _TUSSENVOEGSELS: frozenset[str] = frozenset({
     "le", "la", "el", "al", "abu", "ibn", "ben",
     "of",
 })
-
+ 
 logger = logging.getLogger(__name__)
-
-
-# Normalisatie 
-
-
+ 
+ 
+# Normalisatie
+ 
+ 
 def _strip_diacritics(s: str) -> str:
     """Verwijder combining diacritics (Daniël → Daniel, Böhre → Bohre)."""
     if not s:
         return s
     nfkd = unicodedata.normalize("NFKD", s)
     return "".join(c for c in nfkd if not unicodedata.combining(c))
-
-
+ 
+ 
 def _title_case(s: str) -> str:
     """. Bewaart diacritics."""
     if not s:
         return s
     return s.strip().title()
-
-
+ 
+ 
 def _split_tussenvoegsel(achternaam: str) -> tuple[str | None, str]:
     """Splits achternaam in (tussenvoegsel, kern-achternaam).
-
+ 
     Probeert eerst de langst mogelijke prefix (tot 3 woorden) te matchen
     tegen `_TUSSENVOEGSELS`. Returnt (None, achternaam) als er geen
     tussenvoegsel herkend wordt.
@@ -75,30 +79,30 @@ def _split_tussenvoegsel(achternaam: str) -> tuple[str | None, str]:
         if prefix in _TUSSENVOEGSELS:
             return prefix, " ".join(parts[n:])
     return None, achternaam
-
-
-#  Alias-generatie 
-
-
+ 
+ 
+#  Alias-generatie
+ 
+ 
 def _alias_set_voor_naam(
     voornaam: str,
     achternaam: str,
     tussenvoegsel: str | None,
 ) -> set[str]:
     """Bouw aliassen voor één concrete naamvariant (lowercase).
-
+ 
     De caller roept deze functie twee keer aan voor namen met diacritics:
     één keer met origineel, één keer met ASCII-gevouwen versie.
     """
     out: set[str] = set()
     if not voornaam or not achternaam:
         return out
-
+ 
     voor = voornaam.lower()
     achter = achternaam.lower()
     voor_init = f"{voor[0]}."
     achter_init = f"{achter[0]}."
-
+ 
     if tussenvoegsel:
         tussen = tussenvoegsel.lower()
         full_achter = f"{tussen} {achter}"
@@ -117,37 +121,37 @@ def _alias_set_voor_naam(
         out.add(f"{achter} {voor}")
         out.add(f"{achter}, {voor}")
         out.add(f"{voor_init} {achter}")
-
+ 
     # Voor namen met tussenvoegsel gebruiken we de initiaal van de
     # kern-achternaam (Berg → "b."), niet van de tussenvoegsel-prefix.
     out.add(f"{voor} {achter_init}")
-
+ 
     return out
-
-
+ 
+ 
 def _make_aliases(
     voornaam: str,
     achternaam: str,
     tussenvoegsel: str | None,
 ) -> list[str]:
     """Geef alle aliassen (sorted, deduplicated) voor één persoon terug.
-
+ 
     Voegt automatisch een ASCII-variant toe als de naam diacritics bevat.
     """
     aliassen = _alias_set_voor_naam(voornaam, achternaam, tussenvoegsel)
-
+ 
     ascii_voor = _strip_diacritics(voornaam)
     ascii_achter = _strip_diacritics(achternaam)
     ascii_tussen = _strip_diacritics(tussenvoegsel) if tussenvoegsel else None
     if (ascii_voor, ascii_achter, ascii_tussen) != (voornaam, achternaam, tussenvoegsel):
         aliassen |= _alias_set_voor_naam(ascii_voor, ascii_achter, ascii_tussen)
-
+ 
     return sorted(aliassen)
-
-
-#  Rol-normalisatie 
-
-
+ 
+ 
+#  Rol-normalisatie
+ 
+ 
 def _normalize_role(rol: str) -> tuple[str | None, bool]:
     """Zet rolwaarden om naar een vaste vorm en markeer onbekende rollen
     """
@@ -160,14 +164,14 @@ def _normalize_role(rol: str) -> tuple[str | None, bool]:
     if low in {"docent", "leerkracht"}:
         return "Docent", True
     return r, False
-
-
-# Hoofdroutine 
-
-
+ 
+ 
+# Hoofdroutine
+ 
+ 
 def load_roster(csv_path: Path) -> list[dict[str, Any]]:
     """Lees de roster-CSV en geef een lijst van genormaliseerde personen terug.
-
+ 
     Verwachte kolommen (case-insensitive): achternaam, voornaam, rol.
     Onvolledige rijen worden gelogd en overgeslagen. Volledig lege rijen
     worden silent overgeslagen.
@@ -176,9 +180,9 @@ def load_roster(csv_path: Path) -> list[dict[str, Any]]:
         raise FileNotFoundError(
             f"Roster-CSV niet gevonden op verwachte pad: {csv_path}"
         )
-
+ 
     personen: dict[str, dict[str, Any]] = {}
-
+ 
     with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
         for line_no, row in enumerate(reader, start=2):
@@ -188,15 +192,15 @@ def load_roster(csv_path: Path) -> list[dict[str, Any]]:
                 if not k:
                     continue
                 row_norm[k.lower().strip()] = (v or "").strip()
-
+ 
             achternaam_raw = row_norm.get("achternaam", "")
             voornaam_raw = row_norm.get("voornaam", "")
             rol_raw = row_norm.get("rol", "")
-
+ 
             # Volledig lege rij: silent skip.
             if not any([achternaam_raw, voornaam_raw, rol_raw]):
                 continue
-
+ 
             if not voornaam_raw or not achternaam_raw:
                 logger.warning(
                     "regel %d: onvolledige rij overgeslagen (achternaam=%r, "
@@ -204,7 +208,7 @@ def load_roster(csv_path: Path) -> list[dict[str, Any]]:
                     line_no, achternaam_raw, voornaam_raw, rol_raw,
                 )
                 continue
-
+ 
             rol, rol_herkend = _normalize_role(rol_raw)
             if not rol:
                 logger.warning("regel %d: lege rol overgeslagen: %r", line_no, row_norm)
@@ -214,20 +218,20 @@ def load_roster(csv_path: Path) -> list[dict[str, Any]]:
                     "regel %d: onbekende rol %r — behouden als-is in output",
                     line_no, rol,
                 )
-
+ 
             # Tussenvoegsel uitsplitsen.
             tussen_raw, achter_core_raw = _split_tussenvoegsel(achternaam_raw)
             # Titelcase voor naam-velden; tussenvoegsel blijft lowercase.
             voornaam = _title_case(voornaam_raw)
             achternaam = _title_case(achter_core_raw)
             tussenvoegsel = tussen_raw.lower() if tussen_raw else None
-
+ 
             key = "|".join([
                 voornaam.lower(),
                 tussenvoegsel or "",
                 achternaam.lower(),
             ])
-
+ 
             if key in personen:
                 # Dezelfde persoon, mogelijk andere rol.
                 existing = personen[key]
@@ -241,19 +245,47 @@ def load_roster(csv_path: Path) -> list[dict[str, Any]]:
                     "rol": [rol],
                     "aliassen": _make_aliases(voornaam, achternaam, tussenvoegsel),
                 }
-
+ 
     # Deterministische volgorde: achternaam → tussenvoegsel → voornaam.
     return sorted(
         personen.values(),
         key=lambda p: (p["achternaam"], p["tussenvoegsel"] or "", p["voornaam"]),
     )
-
+ 
+def _person_key(p: dict[str, Any]) -> str:
+    return "|".join([
+        p["voornaam"].lower(),
+        p["tussenvoegsel"] or "",
+        p["achternaam"].lower(),
+    ])
+ 
+ 
+def merge_rosters(
+    base: list[dict[str, Any]],
+    extra: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Voeg `extra` bij `base`; dedupliceer op (voornaam, tussenvoegsel,
+    achternaam) en union de rollen. Zelfde sortering als load_roster."""
+    by_key: dict[str, dict[str, Any]] = {_person_key(p): p for p in base}
+    for p in extra:
+        k = _person_key(p)
+        if k in by_key:
+            existing = by_key[k]
+            existing["rol"] = sorted({*existing["rol"], *p["rol"]})
+        else:
+            by_key[k] = p
+    return sorted(
+        by_key.values(),
+        key=lambda p: (p["achternaam"], p["tussenvoegsel"] or "", p["voornaam"]),
+    )
+ 
+ 
 def write_catalog(personen: list[dict[str, Any]], output_path: Path) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open("w", encoding="utf-8") as f:
         json.dump(personen, f, ensure_ascii=False, indent=2)
-
-
+ 
+ 
 def _summarize(personen: list[dict[str, Any]]) -> tuple[int, int, int]:
     n_lerend = 0
     n_docent = 0
@@ -265,35 +297,45 @@ def _summarize(personen: list[dict[str, Any]]) -> tuple[int, int, int]:
             n_docent += 1
         n_aliassen += len(p["aliassen"])
     return n_lerend, n_docent, n_aliassen
-
-
+ 
+ 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--input", type=Path, default=DEFAULT_INPUT,
                         help=f"Roster-CSV (default: {DEFAULT_INPUT}).")
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT,
                         help=f"Output JSON (default: {DEFAULT_OUTPUT}).")
+    parser.add_argument("--extra", type=Path, default=DEFAULT_EXTRA,
+                        help=f"Optionele extra-namen CSV (default: {DEFAULT_EXTRA}). "
+                             "Wordt overgeslagen als het bestand niet bestaat.")
     args = parser.parse_args(argv)
-
+ 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-
+ 
     try:
         personen = load_roster(args.input)
     except FileNotFoundError as e:
         print(f"ERROR: {e}", file=sys.stderr)
         return 1
-
+ 
+    n_extra = 0
+    if args.extra and args.extra.exists():
+        extra = load_roster(args.extra)
+        n_extra = len(extra)
+        personen = merge_rosters(personen, extra)
+ 
     write_catalog(personen, args.output)
-
+ 
     n_lerend, n_docent, n_aliassen = _summarize(personen)
     print(f"Personen ingelezen: {len(personen)}")
     print(f"  Lerenden:        {n_lerend}")
     print(f"  Docenten:        {n_docent}")
+    if n_extra:
+        print(f"  Extra-namen:     {n_extra}  (uit {args.extra})")
     print(f"Aliassen totaal:   {n_aliassen}")
     print(f"Output:            {args.output}")
     return 0
-
-
+ 
+ 
 if __name__ == "__main__":
     sys.exit(main())
-
