@@ -711,3 +711,90 @@ def _build_taalkeuze_packet(
     )
  
  
+# ---------------------------------------------------------------------------
+# Criterion 5: Security
+# ---------------------------------------------------------------------------
+ 
+ 
+def _build_security_packet(
+    spec: CriterionSpec,
+    hits: list[RetrievalHit],
+    cr: CriterionResult,
+) -> EvidencePacket:
+    """Select up to 3 items, preferring blocks with concrete security mechanisms.
+ 
+    Concrete mechanisms (authenticatie, encryptie, AVG, …) rank above generic
+    security language (beveiliging, veilig).  Generic-only blocks map to "weak".
+    """
+    MAX = _MAX_ITEMS["security"]
+    status = cr.status
+    items: list[EvidenceItem] = []
+    missing_sigs: list[str] = []
+ 
+    def _n_concrete(h: RetrievalHit) -> int:
+        text = h.block["text"].lower()
+        return sum(1 for t in _SEC_CONCRETE if t in text)
+ 
+    concrete_hits = _sort_content_first([
+        h for h in hits
+        if _n_concrete(h) >= 1 and not _is_heading_only(h)
+    ])
+    generic_hits = _sort_content_first([
+        h for h in hits
+        if _has_terms(h, _SEC_GENERIC)
+        and _n_concrete(h) == 0
+        and not _is_heading_only(h)
+    ])
+    heading_hits = [h for h in hits if _is_heading_only(h)]
+ 
+    if status == "missing":
+        for h in heading_hits[:1]:
+            items.append(_make_item(
+                h,
+                "Security-sectieheading gevonden maar geen inhoud herkend",
+                "absent_marker",
+            ))
+        missing_sigs.append("Geen beveiligingsinhoud aangetroffen")
+        missing_sigs.append(
+            "Geen concrete beveiligingsmechanismen benoemd (bijv. authenticatie, encryptie, AVG)"
+        )
+ 
+    elif status == "partial":
+        if generic_hits:
+            h = generic_hits[0]
+            terms = _matched_terms(h, _SEC_GENERIC)
+            items.append(_make_item(
+                h,
+                f"Generieke beveiligingstaal aangetroffen: {', '.join(terms)}",
+                "weak",
+            ))
+        elif concrete_hits:
+            h = concrete_hits[0]
+            terms = _matched_terms(h, _SEC_CONCRETE)
+            items.append(_make_item(
+                h,
+                f"Security-bewijs (beperkt): {', '.join(terms)}",
+                "weak",
+            ))
+        missing_sigs.append(
+            "Geen concrete beveiligingsmechanismen benoemd (bijv. authenticatie, encryptie, AVG)"
+        )
+ 
+    else:  # sufficient / strong
+        for h in concrete_hits[:MAX]:
+            terms = _matched_terms(h, _SEC_CONCRETE)
+            items.append(_make_item(
+                h,
+                f"Concrete beveiligingsmechanisme(n): {', '.join(terms)}",
+                "positive",
+            ))
+ 
+    return EvidencePacket(
+        criterion_key=spec.key,
+        manual_review=cr.manual_review,
+        notes=cr.notes,
+        evidence_items=items,
+        missing_signals=missing_sigs,
+    )
+ 
+ 
