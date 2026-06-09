@@ -1,0 +1,1892 @@
+[
+  {
+    "file": "2e138dc4_anonymized.json",
+    "doc_id": "2e138dc4",
+    "criteria": {
+      "beperking": {
+        "manual_review": true,
+        "notes": [
+          "Beperking beschreven (slechtziend, beperking, visuele beperking) en onderbouwing aanwezig (bron, bronnen).",
+          "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "2e138dc4_0075",
+            "page_no": 14,
+            "block_type": "heading",
+            "heading_path": [
+              "Use Cases",
+              "Use case08: Klanten met beperkingen"
+            ],
+            "excerpt": "Use case08: Klanten met beperkingen",
+            "selection_reason": "Beperking/doelgroep: beperking",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2e138dc4_0140",
+            "page_no": 20,
+            "block_type": "heading",
+            "heading_path": [
+              "Bronnen:"
+            ],
+            "excerpt": "Bronnen:",
+            "selection_reason": "Onderbouwing/deskresearch: bron, bronnen",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2e138dc4_0077",
+            "page_no": 14,
+            "block_type": "table",
+            "heading_path": [
+              "Use Cases",
+              "Use case08: Klanten met beperkingen"
+            ],
+            "excerpt": "Preconditie | De geregistreerde Admin heeft ingelogd op zijn/haar gebruikersaccount. De Admin bevindt zich op de pagina met het parfumassortiment.\nBeschrijving | Deze use case beschrijft hoe een geregistreerde Admin producten kan toevoegen verwijderen, aanmaken en aanpassen\nScenario beschrijving | Verwijderen: 1. De Admin selecteert het product dat hij wil verwijderen. 2. Het systeem verwijdert het product uit de product lijst Aanpassen: 1. De Admin kiest de product dat hij wilt aanpassen. 2. Het systeem laad de product gegevens op. 3. De Admin past de gewenste gegevens aan. 4. Het systeem slaat de gegevens op in de product lijst. Aanmaken: 1. De Admin kiest om een nieuwe product aan te maken. 2. Het systeem creëert een leeg formulier. 3. De Admin vult de gewenste gegevens die benodigd zijn. 4. Het systeem slaat de gegevens van de product op in de product lijst.\nPostconditie | Verwijderen: er is een product uit een lijst verwijderd. Aanpassen: er is een product aangepast in de producten lijst. Toevoegen: er is een product toegevoegd in de producten lijst\n… (1 meer rijen)",
+            "selection_reason": "Aanvullende context",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "stakeholders": {
+        "manual_review": false,
+        "notes": [
+          "17 stakeholder(s) herkend — boven drempel, met belang en invloed gedocumenteerd."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "2e138dc4_0048",
+            "page_no": 5,
+            "block_type": "table",
+            "heading_path": [
+              "Wensen, Eisen, Prioriteiten",
+              "2.1 Constraints en (non-) Functionele eisen",
+              "Functionele requirements"
+            ],
+            "excerpt": "NFR01: | Gebruiksvriendelijkheid | De website moet gebruiksvriendelijk zijn, met specifieke aandacht voor een soepele gebruikerservaring. | Alinea 3 Regel 8 Pagina | MUST HAVE Een gebruiksvriendelijke website is essentieel om klanten een soepele ervaring te bieden. Dit draagt bij aan tevredenheid en klantloyaliteit.\nNFR02: | Betrouwbaarheid | De website moet altijd bereikbaar zijn voor klanten, en bestellingen moeten betrouwbaar worden verwerkt. | Alinea 5 Regel 20 Pagina | MUST HAVE Betrouwbaarheid is kritiek om het vertrouwen van klanten te behouden. Een altijd bereikbare website en betrouwbare orderverwerking zijn van vitaal belang.\nNFR03: | Veiligheid en Gegevensbescherming | Het systeem moet voldoen aan de Algemene Verordening Gegevensbescherming (AVG) en een grondige beveiligings en risicoanalyse ondergaan om klantgegevens te beschermen. | Alinea 9 Regel 3739 Pagina | MUST HAVE In overeenstemming zijn met AVG en zorgen voor gegevensbescherming is van cruciaal belang om het vertrouwen van klanten te winnen en wettelijke vereisten te voldoen.\nNFR04: | Responsief | De website moet toegankelijk zijn op verschillende apparaten, ongeacht het device waarop klanten het bekijken (responsief). | Alinea 6 Regel 24 Pagina | MUST HAVE Een responsief ontwerp is noodzakelijk voor toegankelijkheid op verschillende apparaten, waardoor klanten de website kunnen bekijken ongeacht het device dat ze gebruiken.\n… (10 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (14 rijen)",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2e138dc4_0062",
+            "page_no": 9,
+            "block_type": "table",
+            "heading_path": [
+              "Use Cases",
+              "Use Case beschrijvingen"
+            ],
+            "excerpt": "Actor | Klant\nActor | Klant\nPreconditie | Het systeem is operationeel. De klant heeft toegang tot het registratie en inlogscherm.\nBeschrijving | Het proces wordt beschreven waarin een klant een nieuw account aanmaakt, het account valideert en inlogt om toegang te krijgen tot een gepersonaliseerde winkelervaring.\nScenario beschrijving | 1. De klant opent de registratie pagina en kiest voor het aanmaken van een nieuw account. 2. Het systeem vraagt de klant om benodigde informatie, zoals naam, emailadres en wachtwoord, in te voeren. 3. De klant vult de vereiste gegevens in en klikt op \"Registreren\". 4. Het systeem valideert de ingevoerde informatie en maakt een uniek gebruikersprofiel aan. 5. Een bevestigingsbericht wordt weergegeven, en het systeem stuurt een verificatieemail naar het opgegeven e mailadres.\n… (3 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (7 rijen)",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "requirements": {
+        "manual_review": false,
+        "notes": [
+          "Geschat 29 requirement-items — ruim gedekt. Prioritering: ja.",
+          "Functioneel: ~23, Niet-functioneel: ~6.",
+          "Prioriteitsverdeling: Must: 14, Should: 6, Could: 1."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "2e138dc4_0048",
+            "page_no": 5,
+            "block_type": "table",
+            "heading_path": [
+              "Wensen, Eisen, Prioriteiten",
+              "2.1 Constraints en (non-) Functionele eisen",
+              "Functionele requirements"
+            ],
+            "excerpt": "NFR01: | Gebruiksvriendelijkheid | De website moet gebruiksvriendelijk zijn, met specifieke aandacht voor een soepele gebruikerservaring. | Alinea 3 Regel 8 Pagina | MUST HAVE Een gebruiksvriendelijke website is essentieel om klanten een soepele ervaring te bieden. Dit draagt bij aan tevredenheid en klantloyaliteit.\nNFR02: | Betrouwbaarheid | De website moet altijd bereikbaar zijn voor klanten, en bestellingen moeten betrouwbaar worden verwerkt. | Alinea 5 Regel 20 Pagina | MUST HAVE Betrouwbaarheid is kritiek om het vertrouwen van klanten te behouden. Een altijd bereikbare website en betrouwbare orderverwerking zijn van vitaal belang.\nNFR03: | Veiligheid en Gegevensbescherming | Het systeem moet voldoen aan de Algemene Verordening Gegevensbescherming (AVG) en een grondige beveiligings en risicoanalyse ondergaan om klantgegevens te beschermen. | Alinea 9 Regel 3739 Pagina | MUST HAVE In overeenstemming zijn met AVG en zorgen voor gegevensbescherming is van cruciaal belang om het vertrouwen van klanten te winnen en wettelijke vereisten te voldoen.\nNFR04: | Responsief | De website moet toegankelijk zijn op verschillende apparaten, ongeacht het device waarop klanten het bekijken (responsief). | Alinea 6 Regel 24 Pagina | MUST HAVE Een responsief ontwerp is noodzakelijk voor toegankelijkheid op verschillende apparaten, waardoor klanten de website kunnen bekijken ongeacht het device dat ze gebruiken.\n… (10 meer rijen)",
+            "selection_reason": "Requirements-tabel: 14 rijen, 12 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2e138dc4_0049",
+            "page_no": 6,
+            "block_type": "table",
+            "heading_path": [
+              "Wensen, Eisen, Prioriteiten",
+              "2.1 Constraints en (non-) Functionele eisen",
+              "Functionele requirements"
+            ],
+            "excerpt": "UC01: Gebruikersprofiel aanmaken/registrere n | Gebruikersregistratie | Het systeem moet in staat zijn een profiel aan te maken voor nieuwe gebruikers. | Alinea 4 Regel 14 Pagina | MUST HAVE Zonder gebruikersregistratie kunnen klanten geen profiel aanmaken en geen gebruikmaken van de webshop.\nUC02: Inloggen gebruiker | Inloggen | Gebruikers loggen in voor een gepersonaliseerde winkelervaring van de webshop. | Alinea 4 Regel 14 Pagina | MUST HAVE Inloggen is essentieel voor het bieden van een gepersonaliseerde winkelervaring, zonder in te loggen kan je niet in de webshop.\nUC03: Beheren van winkelmandje | Winkelmandfunction aliteit | Klanten moeten de producten in hun winkelmand kunnen bekijken, toevoegen en verwijderen. | Alinea 4 Regel 16 Pagina | MUST HAVE Aangezien het beheren van het winkelmandje cruciaal is voor het aankoopproces. Klanten moeten producten kunnen toevoegen, bekijken en verwijderen voor een soepele afhandeling van bestellingen.\nUC04: Beheer van klantgegevens | Beheerinterface | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig kunnen worden beheerd. | Alinea 8 Regel 33 34 Pagina | MUST HAVE Een intuïtieve beheerinterface nodig is om efficiënt producten, klanten en bestellingen te beheren. Dit is essentieel voor het succesvol runnen van de webshop.\n… (5 meer rijen)",
+            "selection_reason": "Requirements-tabel: 9 rijen, 9 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2e138dc4_0045",
+            "page_no": 4,
+            "block_type": "table",
+            "heading_path": [
+              "Wensen, Eisen, Prioriteiten",
+              "2.1 Constraints en (non-) Functionele eisen",
+              "Niet-functionele requirements"
+            ],
+            "excerpt": "Naam | Architecturale relevantie | Geadresseerd in:\nNaam | Architecturale relevantie | Geadresseerd in:\nCONSTR01: Budget | De ontwikkeling van de website moet binnen een budget van 10.000 euro worden voltooid | Alinea 11 Regel 51 Pagina\nCONSTR02: Betaalbeperkingen | Klanten mogen artikelen niet betalen met giftcards en kunnen geen gebruik maken van promocodes in de webshop. | Alinea 3 Regel 1213 Pagina\nCONSTR03: Verzendkosten | Hierbij zijn de verzendkosten niet afhankelijk van het formaat of de locatie, maar een standaardbedrag. | Alinea 5 Regel 2021 Pagina\n… (3 meer rijen)",
+            "selection_reason": "Requirements-tabel: 7 rijen, 6 req-IDs",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "taalkeuze": {
+        "manual_review": false,
+        "notes": [
+          "Taalkeuze (meertalig) en gevolgen (bereik, beïnvloed) aanwezig."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "2e138dc4_0048",
+            "page_no": 5,
+            "block_type": "table",
+            "heading_path": [
+              "Wensen, Eisen, Prioriteiten",
+              "2.1 Constraints en (non-) Functionele eisen",
+              "Functionele requirements"
+            ],
+            "excerpt": "NFR01: | Gebruiksvriendelijkheid | De website moet gebruiksvriendelijk zijn, met specifieke aandacht voor een soepele gebruikerservaring. | Alinea 3 Regel 8 Pagina | MUST HAVE Een gebruiksvriendelijke website is essentieel om klanten een soepele ervaring te bieden. Dit draagt bij aan tevredenheid en klantloyaliteit.\nNFR02: | Betrouwbaarheid | De website moet altijd bereikbaar zijn voor klanten, en bestellingen moeten betrouwbaar worden verwerkt. | Alinea 5 Regel 20 Pagina | MUST HAVE Betrouwbaarheid is kritiek om het vertrouwen van klanten te behouden. Een altijd bereikbare website en betrouwbare orderverwerking zijn van vitaal belang.\nNFR03: | Veiligheid en Gegevensbescherming | Het systeem moet voldoen aan de Algemene Verordening Gegevensbescherming (AVG) en een grondige beveiligings en risicoanalyse ondergaan om klantgegevens te beschermen. | Alinea 9 Regel 3739 Pagina | MUST HAVE In overeenstemming zijn met AVG en zorgen voor gegevensbescherming is van cruciaal belang om het vertrouwen van klanten te winnen en wettelijke vereisten te voldoen.\nNFR04: | Responsief | De website moet toegankelijk zijn op verschillende apparaten, ongeacht het device waarop klanten het bekijken (responsief). | Alinea 6 Regel 24 Pagina | MUST HAVE Een responsief ontwerp is noodzakelijk voor toegankelijkheid op verschillende apparaten, waardoor klanten de website kunnen bekijken ongeacht het device dat ze gebruiken.\n… (10 meer rijen)",
+            "selection_reason": "Taalkeuze (meertalig) én gevolgen (beïnvloed, bereik)",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "security": {
+        "manual_review": false,
+        "notes": [
+          "5 concrete beveiligingsmechanismen gevonden: risicoanalyse, ssl, avg, encryptie, tls."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "2e138dc4_0087",
+            "page_no": 18,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Securityelement: Data Encryptie"
+            ],
+            "excerpt": "Ik heb een securityelement (data encryptie) onderbouwd rondom de AVG-regels.",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): avg, encryptie",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2e138dc4_0125",
+            "page_no": 19,
+            "block_type": "paragraph",
+            "heading_path": [
+              "AVG-naleving:"
+            ],
+            "excerpt": "encryptie voldoet aan deze vereiste door te zorgen voor een beveiligingsniveau dat",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): encryptie",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2e138dc4_0048",
+            "page_no": 5,
+            "block_type": "table",
+            "heading_path": [
+              "Wensen, Eisen, Prioriteiten",
+              "2.1 Constraints en (non-) Functionele eisen",
+              "Functionele requirements"
+            ],
+            "excerpt": "NFR01: | Gebruiksvriendelijkheid | De website moet gebruiksvriendelijk zijn, met specifieke aandacht voor een soepele gebruikerservaring. | Alinea 3 Regel 8 Pagina | MUST HAVE Een gebruiksvriendelijke website is essentieel om klanten een soepele ervaring te bieden. Dit draagt bij aan tevredenheid en klantloyaliteit.\nNFR02: | Betrouwbaarheid | De website moet altijd bereikbaar zijn voor klanten, en bestellingen moeten betrouwbaar worden verwerkt. | Alinea 5 Regel 20 Pagina | MUST HAVE Betrouwbaarheid is kritiek om het vertrouwen van klanten te behouden. Een altijd bereikbare website en betrouwbare orderverwerking zijn van vitaal belang.\nNFR03: | Veiligheid en Gegevensbescherming | Het systeem moet voldoen aan de Algemene Verordening Gegevensbescherming (AVG) en een grondige beveiligings en risicoanalyse ondergaan om klantgegevens te beschermen. | Alinea 9 Regel 3739 Pagina | MUST HAVE In overeenstemming zijn met AVG en zorgen voor gegevensbescherming is van cruciaal belang om het vertrouwen van klanten te winnen en wettelijke vereisten te voldoen.\nNFR04: | Responsief | De website moet toegankelijk zijn op verschillende apparaten, ongeacht het device waarop klanten het bekijken (responsief). | Alinea 6 Regel 24 Pagina | MUST HAVE Een responsief ontwerp is noodzakelijk voor toegankelijkheid op verschillende apparaten, waardoor klanten de website kunnen bekijken ongeacht het device dat ze gebruiken.\n… (10 meer rijen)",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): risicoanalyse, avg",
+            "signal_class": "positive"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "file": "8e5ee17e_anonymized.json",
+    "doc_id": "8e5ee17e",
+    "criteria": {
+      "beperking": {
+        "manual_review": false,
+        "notes": [
+          "Beperking in meerdere blokken beschreven (slechtziend, beperking, visuele beperking) en meerdere onderbouwingsblokken aanwezig (literatuur, onderzoek, literatuurlijst)."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "8e5ee17e_0128",
+            "page_no": 14,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse",
+              "Ik Richt Me Dus Op Deze Doelgroep."
+            ],
+            "excerpt": "groep bestaat uit jongvolwassenen die ondanks hun visuele beperkingen actief betrokken zijn bij studeren en technologie. Hun behoeften omvatten hoogwaardige toegankelijkheidsfuncties om informatie eff…",
+            "selection_reason": "Beperking/doelgroep: visuele beperking, beperking",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "8e5ee17e_0094",
+            "page_no": 13,
+            "block_type": "heading",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse",
+              "H3 Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "H3 Onderzoek naar web gebruikers",
+            "selection_reason": "Onderbouwing/deskresearch: onderzoek",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "8e5ee17e_0100",
+            "page_no": 13,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse",
+              "H3 Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "en voorkeuren te onderzoeken, kunnen we een webshop ontwikkelen die niet alleen",
+            "selection_reason": "Aanvullend bewijs: onderzoek",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "stakeholders": {
+        "manual_review": false,
+        "notes": [
+          "9 stakeholder(s) herkend — boven drempel, met belang en invloed gedocumenteerd."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "8e5ee17e_0084",
+            "page_no": 8,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse"
+            ],
+            "excerpt": "de prestaties van hun marketingstrategieën of afdeling, zorgen voor de technische vereisten. ontwikkeling van hun team, en implementeren verbeteringen om de efficiëntie en effectiviteit te verhogen. Investeerders Verschaffen van het verstrekken van de Veel invloed. Hun besliss benodigde kapitaal benodigde financiële over financiering kunnen voor de ontwikkeling middelen en hebben een de scope, richting, en en lancering van het stem in belangrijke levensvatbaarheid van h project. beslissingen binnen het project beïnvloeden. bedrijf of project, afhankelijk van hun investeringsaandeel. Slechtziende Hun primaire functie Hun rol vanuit het Veel invloed:toegankel is een perspectief van de webshop is een wettelijke vereis gebruikersgroep is op zoek zijn inclusiviteit in veel gebieden en een voor een webshop. de webshop voor hun fundamenteel aspect v slechtziendheid behoeften maatschappelijke verantwoordelijkheid e klantenservice. Belanghebbende Concern Categorisering [PERSOON_04] Zorg voor de ontwikkeling Primaire belanghebbende, omdat ze direct vera van een innovatieve en voor het initiëren van het project en het definiëre competitieve website. Focus vereisten. op gebruiksvriendelijkheid, toegankelijkheid, veiligheid, en betrouwbaarheid. Intern omdat ze namens de opdrachtgever hand verantwoordelijk is voor het initiëren en begeleid project binnen de organisatie. Websiteontwikkelaars Technische realisatie van een gebruiksvriendelijke en Primaire belanghebbende, aangezien ze direct toegankelijke website die bij de creatie en ontwikkeling van de website. aan de gestelde eisen voldoet, binnen het gestelde budget en tijdsbestek. En Intern Extern omdat ze niet direct deel uitmaken houden aan de AVGregels organisatiestructuur, maar zijn ingehuurd of geco buiten de organisatie om specifieke diensten te v de ontwikkeling van de website Eindgebruikers Een soepele, toegankelijke (Klanten) winkelervaring ongeacht Primaire belanghebbende, omdat het succes v technologische of direct afhangt van hun tevredenheid en gebruik. persoonlijke beperkingen. Requirements Analyse pag. 7\nde prestaties van hun afdeling, zorgen voor de ontwikkeling van hun team, en implementeren verbeteringen om de efficiëntie en effectiviteit te verhogen. | marketingstrategieën of technische vereisten.\nInvesteerders | Verschaffen van het benodigde kapitaal voor de ontwikkeling en lancering van het project. | Verschaffen van het | verstrekken van de | Veel invloed. Hun besliss over financiering kunnen de scope, richting, en levensvatbaarheid van h project beïnvloeden. | Veel invloed. Hun besliss | ingen\nbenodigde kapitaal | benodigde financiële | over financiering kunnen | direct\n… (26 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (30 rijen)",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "8e5ee17e_0083",
+            "page_no": 7,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse"
+            ],
+            "excerpt": "Stakeholder Functie Rol Prioritering [PERSOON_04] Initiator van het Bepaalt Middelmatig invloed: Als project projectdoelstellingen en vertegenwoordiger van d budget, en is het primaire opdrachtgever heeft zij g aanspreekpunt voor directe invloed op de voortgang en projectdoelen en budge kwaliteitscontrole. ze heeft invloed op richti het project Websiteontwikkelaars Uitvoerders van het Verantwoordelijk voor het Middelmatige invloed: H project. ontwerpen, ontwikkelen, en ze het project uitvoeren e testen van de website essentieel zijn voor de kw volgens de gestelde eisen zijn ze meer beïnvloed do van toegankelijkheid, beslissingen van hogerop gebruiksvriendelijkheid, dat ze zelf beslissingen n veiligheid, en betrouwbaarheid. Eindgebruikers Gebruikers van de Het gebruiken van de Variërende invloed: Hun (Klanten) website. website voor het doorzoeken feedback is cruciaal voor en kopen van producten, lange termijn succes van waarbij hun ervaringen project, maar hun directe feedback bieden voor invloed tijdens de verdere verbeteringen. ontwikkelingsfase is bep vergeleken met de ander stakeholders. Directieleden Ze bepalen van de Zij zijn verantwoordelijk strategische richting voor het maken van en het beleid van besluiten die de richting van Veel invloed: Bepalen de strategische richting en een organisatie. het bedrijf op lange termijn goedkeuring van het proj bepalen, zoals het betreden hoog niveau. van nieuwe markten of het lanceren van nieuwe productlijnen. Ze spelen een cruciale rol in het definiëren van de bedrijfscultuur en het leiden van belangrijke organisatorische veranderingen. Projectmanagers projecten van begin Ze plannen het project, Veel invloed: Verantwoor tot eind te beheren. samenstellen van het voor het dagelijks beheer projectteam, het beheren het project, waardoor ze van middelen, het bewaken invloed hebben op de uit van de voortgang, en het en succes. zorgen voor de levering van het project binnen de gestelde tijd en budget. Afdelingshoofden Het operationeel Hun rol is het vertalen van de Middelmatige tot veel inv beheer van hun strategische doelen van de Afhankelijk van hun afdel specifieke directie naar concrete kunnen ze aanzienlijke in afdelingen. plannen en acties binnen hebben op specifieke as hun afdeling. Ze monitoren van het project, zoals Requirements Analyse pag. 6\nStakeholder | Functie | Rol | Prioritering\n[PERSOON_04] | Initiator van het project | Bepaalt projectdoelstellingen en budget, en is het primaire aanspreekpunt voor voortgang en kwaliteitscontrole. | Middelmatig invloed: Als\nvertegenwoordiger van d | e\n… (35 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (39 rijen)",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "requirements": {
+        "manual_review": false,
+        "notes": [
+          "Geschat 26 requirement-items — ruim gedekt. Prioritering: ja.",
+          "Functioneel: ~26.",
+          "Prioriteitsverdeling: Must: 12, Should: 7, Could: 1."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "8e5ee17e_0212",
+            "page_no": 20,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "Niet-functionele requirements"
+            ],
+            "excerpt": "WCAG de website moet Bijlage I , Must Inclusiviteit Als een website niet voldoen aan de onder have voldoet aan WCAG, WCAG (Web “Checkout dit leiden tot uitsluit Content Proces en van een aanzienlijk Accessibility Klantenservic van de potentiële Guidelines) e” , blz 34. gebruikers en klante standaarden Functionele requirements Naam Architecturale Geadres Prio Thema Uitleg prio relevantie seerd in Winkelmandfu Klanten moeten Must have Ecommerce Essentieel voor ee nctionaliteit producten kunnen Core commerce websit bekijken en in hun Operaties omdat het klanten winkelmand plaatsen, stelt producten te bekijken, en selecteren en te ko verwijderen indien Dit is direct gekop nodig. aan de verkoopfun Gebruikersregi Klanten moeten een Must have Klantbeheer Het vermogen voo stratie profiel kunnen en klanten om een pr aanmaken voor een Personalisatie aan te maken en in gepersonaliseerde loggen cruciaal is winkelervaring. aankoopproces bi webshop. Inlogfunctiona Klanten moeten Must have Klantbeheer Zonder in te kunne liteit kunnen inloggen in de en loggen kunnen kla webshop om Personalisatie geen aankopen do producten te kunnen betekent dat deze kopen. functionaliteit ess is voor de werking webshop. Beheerinterfa Een intuïtieve interface Should Administratie Belangrijk voor he ce voor het beheren van have en onderhouden van producten, klanten, en Contentbehe website en het be bestellingen. er van orders, produ en klanten. Het he het soepel laten v van de operaties, de website kan in zeer basale vorm functioneren zond vanaf het begin. Filterfunctiona De website moet een Interview Must have Gebruikersger Een filterfunctie st liteit filterfunctie bieden die , Bijlage II ichte in staat om produc gebruikers in staat , blz 34, Navigatie bekijken die binne stelt om producten te onder interesse vallen, filteren op “Winkelg waardoor ze efficië Requirements Analyse pag. 19 | kan ing deel n.\nNaam | Architecturale relevantie | Geadres seerd in | Prio | Thema | Uitleg prio\nWinkelmandfu nctionaliteit | Klanten moeten | Must have | Ecommerce Core Operaties | Ecommerce | Essentieel voor ee | n e\nproducten kunnen | Core | commerce websit | e,\n… (29 meer rijen)",
+            "selection_reason": "Requirements-tabel: 33 rijen, 5 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "8e5ee17e_0211",
+            "page_no": 19,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "Niet-functionele requirements"
+            ],
+            "excerpt": "het klantbinding doo gepersonaliseerde winkelervaring te cr | r een eëren.\nProductverkoop | Mogelijkheid om uit één soort categorie 10 producten te verkopen uit | Should have | Ecommerce Core Operations | Een gefocust aanbo | d kan\nhelpen om de\ncomplexiteit van de\n… (21 meer rijen)",
+            "selection_reason": "Requirements-tabel: 25 rijen, 4 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "8e5ee17e_0207",
+            "page_no": 17,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "Niet-functionele requirements"
+            ],
+            "excerpt": "Naam | Architecturale relevantie | Geadresseer d in | Prio | T hema | Uitleg prio\nNaam | Architecturale relevantie | Geadresseer d in | Prio | T hema | Uitleg prio\nGebruiksvriendelij kheid | De website moet soepel en gemakkelijk te navigeren zijn. | Must have | Gebruikerserv aring | Een soepele en\ngemakkelijke naviga | tie is\nessentieel voor een\n… (18 meer rijen)",
+            "selection_reason": "Requirements-tabel: 22 rijen, 3 MoSCoW-labels",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "taalkeuze": {
+        "manual_review": false,
+        "notes": [
+          "Taalkeuze (meertalig) en gevolgen (beïnvloeden, beïnvloed) aanwezig."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "8e5ee17e_0211",
+            "page_no": 19,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "Niet-functionele requirements"
+            ],
+            "excerpt": "het klantbinding doo gepersonaliseerde winkelervaring te cr | r een eëren.\nProductverkoop | Mogelijkheid om uit één soort categorie 10 producten te verkopen uit | Should have | Ecommerce Core Operations | Een gefocust aanbo | d kan\nhelpen om de\ncomplexiteit van de\n… (21 meer rijen)",
+            "selection_reason": "Taalkeuze: meertalig",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "8e5ee17e_0084",
+            "page_no": 8,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse"
+            ],
+            "excerpt": "de prestaties van hun marketingstrategieën of afdeling, zorgen voor de technische vereisten. ontwikkeling van hun team, en implementeren verbeteringen om de efficiëntie en effectiviteit te verhogen. Investeerders Verschaffen van het verstrekken van de Veel invloed. Hun besliss benodigde kapitaal benodigde financiële over financiering kunnen voor de ontwikkeling middelen en hebben een de scope, richting, en en lancering van het stem in belangrijke levensvatbaarheid van h project. beslissingen binnen het project beïnvloeden. bedrijf of project, afhankelijk van hun investeringsaandeel. Slechtziende Hun primaire functie Hun rol vanuit het Veel invloed:toegankel is een perspectief van de webshop is een wettelijke vereis gebruikersgroep is op zoek zijn inclusiviteit in veel gebieden en een voor een webshop. de webshop voor hun fundamenteel aspect v slechtziendheid behoeften maatschappelijke verantwoordelijkheid e klantenservice. Belanghebbende Concern Categorisering [PERSOON_04] Zorg voor de ontwikkeling Primaire belanghebbende, omdat ze direct vera van een innovatieve en voor het initiëren van het project en het definiëre competitieve website. Focus vereisten. op gebruiksvriendelijkheid, toegankelijkheid, veiligheid, en betrouwbaarheid. Intern omdat ze namens de opdrachtgever hand verantwoordelijk is voor het initiëren en begeleid project binnen de organisatie. Websiteontwikkelaars Technische realisatie van een gebruiksvriendelijke en Primaire belanghebbende, aangezien ze direct toegankelijke website die bij de creatie en ontwikkeling van de website. aan de gestelde eisen voldoet, binnen het gestelde budget en tijdsbestek. En Intern Extern omdat ze niet direct deel uitmaken houden aan de AVGregels organisatiestructuur, maar zijn ingehuurd of geco buiten de organisatie om specifieke diensten te v de ontwikkeling van de website Eindgebruikers Een soepele, toegankelijke (Klanten) winkelervaring ongeacht Primaire belanghebbende, omdat het succes v technologische of direct afhangt van hun tevredenheid en gebruik. persoonlijke beperkingen. Requirements Analyse pag. 7\nde prestaties van hun afdeling, zorgen voor de ontwikkeling van hun team, en implementeren verbeteringen om de efficiëntie en effectiviteit te verhogen. | marketingstrategieën of technische vereisten.\nInvesteerders | Verschaffen van het benodigde kapitaal voor de ontwikkeling en lancering van het project. | Verschaffen van het | verstrekken van de | Veel invloed. Hun besliss over financiering kunnen de scope, richting, en levensvatbaarheid van h project beïnvloeden. | Veel invloed. Hun besliss | ingen\nbenodigde kapitaal | benodigde financiële | over financiering kunnen | direct\n… (26 meer rijen)",
+            "selection_reason": "Gevolgen: beïnvloeden, beïnvloed",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "security": {
+        "manual_review": false,
+        "notes": [
+          "2 concreet beveiligingsmechanisme(n) gevonden: risicoanalyse, avg."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "8e5ee17e_0209",
+            "page_no": 18,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "Niet-functionele requirements"
+            ],
+            "excerpt": "toegankelijkheid te\nwaarborgen. Toch n | eigt de\ntrend naar het\nbeschouwen van\n… (17 meer rijen)",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): risicoanalyse, avg",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "8e5ee17e_0314",
+            "page_no": 29,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "Security"
+            ],
+            "excerpt": "respecteren van uw privacy. Overeenkomstig de AVG-regelgeving hanteer ik duidelijke",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): avg",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "8e5ee17e_0343",
+            "page_no": 29,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "Security"
+            ],
+            "excerpt": "Bij TechTrove wordt toegewijd aan het naleven van de AVG en het beschermen van de",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): avg",
+            "signal_class": "positive"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "file": "c90afb25_anonymized.json",
+    "doc_id": "c90afb25",
+    "criteria": {
+      "beperking": {
+        "manual_review": false,
+        "notes": [
+          "Beperking in meerdere blokken beschreven (slechtziend, beperking, specifieke doelgroep) en meerdere onderbouwingsblokken aanwezig (bron, desk research, bronnen)."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "c90afb25_0079",
+            "page_no": 10,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "Velen die kampen met een visuele beperking vertrouwen op vergrotingssoftware om een",
+            "selection_reason": "Beperking/doelgroep: visuele beperking, beperking",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "c90afb25_0438",
+            "page_no": 28,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H6 Literatuurlijst"
+            ],
+            "excerpt": "[PERSOON_05] (2024, 02, 17) Bijlage 1 [Onderzoek interview]. [PERSOON_06] Sam Adegoju (2024, 02, 18) Bijlage 2 [Onderzoek interview]. [PERSOON_06] Desk Research Onderzoek web gebruikers :",
+            "selection_reason": "Onderbouwing/deskresearch: desk research, onderzoek",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "c90afb25_0054",
+            "page_no": 10,
+            "block_type": "heading",
+            "heading_path": [
+              "Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "Onderzoek naar web gebruikers",
+            "selection_reason": "Aanvullend bewijs: onderzoek",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "stakeholders": {
+        "manual_review": false,
+        "notes": [
+          "18 stakeholder(s) herkend — boven drempel, met belang en invloed gedocumenteerd."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "c90afb25_0045",
+            "page_no": 6,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse"
+            ],
+            "excerpt": "Stakeholder | Category (primair, secundair) | Intern/extern/interface | Invloed\nStakeholder | Category (primair, secundair) | Intern/extern/interface | Invloed\n[PERSOON_04] | Primair Haar rol als vertegenwoordiger van het investeringsbedrijf maakt haar essentieel voor het project. | Intern Ze is intern verbonden met het bedrijf en heeft directe invloed op het project. | Gemiddeld: Als\nvertegenwoordiger van\nhet investeringsbedrijf\n… (23 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (27 rijen)",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "c90afb25_0050",
+            "page_no": 8,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse"
+            ],
+            "excerpt": "Stakeholder | Belangen | Concerns\nStakeholder | Belangen | Concerns\n[PERSOON_04] | [PERSOON_04] | Succesvolle afronding van het project om de reputatie van het investeringsbedrijf te behouden. | Succesvolle afronding van het project | Het vinden van\nom de reputatie van het | competente\ninvesteringsbedrijf te behouden. | websiteontwikkelaars en\n… (17 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (21 rijen)",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "requirements": {
+        "manual_review": false,
+        "notes": [
+          "Geschat 32 requirement-items — ruim gedekt. Prioritering: ja.",
+          "Functioneel: ~23, Niet-functioneel: ~9.",
+          "Prioriteitsverdeling: Must: 16, Should: 9, Could: 6."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "c90afb25_0177",
+            "page_no": 16,
+            "block_type": "table",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Geadres | Prio\nNaam | Architecturele relevantie | Geadres | Prio\nseerd in:\nNFR06: Gegevensbesc herming en naleving van de AVG | Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essentieel om de gegevens van klanten te beschermen en risico's te minimaliseren. | Should Have\nNFR07: Beoordeling systeem website | Implementeer een beoordelingssysteem op de website, zodat gebruikers reviews kunnen lezen en achterlaten voor producten. | Could Have\n… (9 meer rijen)",
+            "selection_reason": "Requirements-tabel: 13 rijen, 11 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "c90afb25_0248",
+            "page_no": 18,
+            "block_type": "table",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Prio\nNaam | Architecturele relevantie | Prio\nUC01: Registratie functionaliteit | Klanten moeten in staat zijn om te registreren en een profiel aan te maken bij de webshop | MUST HAVE\nUC02: inlogfunctionalitei | Klanten moeten in staat zijn te loggen om een gepersonaliseerde winkelervaring te hebben | MUST HAVE\nUC03:Winkelmandfu nctionaliteit | Klanten moeten producten kunnen toevoegen aan hun winkelmandje, het mandje kunnen bekijken, producten kunnen verwijderen en de bestelling kunnen afronden. | MUST HAVE\n… (3 meer rijen)",
+            "selection_reason": "Requirements-tabel: 7 rijen, 6 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "c90afb25_0165",
+            "page_no": 15,
+            "block_type": "table",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Geadres | Prio\nNaam | Architecturele relevantie | Geadres | Prio\nseerd in:\nNFR01: Beschikbaarhei d en betrouwbaarhei d: | De website moet te allen tijde beschikbaar zijn voor klanten en bestellingen moeten betrouwbaar worden verwerkt en afgehandeld. | Must Have\nNFR02 | Producten moeten makkelijk te vinden zijn klant | Should have\n… (3 meer rijen)",
+            "selection_reason": "Requirements-tabel: 7 rijen, 5 MoSCoW-labels",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "taalkeuze": {
+        "manual_review": false,
+        "notes": [
+          "Taalkeuze (taal van de website, engels) en gevolgen (meertaligheid) aanwezig."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "c90afb25_0218",
+            "page_no": 17,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "Meertaligheid verbetert de gebruikservaring en vergroot de kans dat gebruikers langer op de",
+            "selection_reason": "Taalkeuze (meertalig) én gevolgen (meertaligheid)",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "c90afb25_0177",
+            "page_no": 16,
+            "block_type": "table",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Geadres | Prio\nNaam | Architecturele relevantie | Geadres | Prio\nseerd in:\nNFR06: Gegevensbesc herming en naleving van de AVG | Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essentieel om de gegevens van klanten te beschermen en risico's te minimaliseren. | Should Have\nNFR07: Beoordeling systeem website | Implementeer een beoordelingssysteem op de website, zodat gebruikers reviews kunnen lezen en achterlaten voor producten. | Could Have\n… (9 meer rijen)",
+            "selection_reason": "Taalkeuze: engels, nederlands, meertalig",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "c90afb25_0194",
+            "page_no": 17,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "NFR10: Meerdere betaalmethoden (Could Have) NFR16: Taal (Should Have) voor gebruikers die een andere taal dan de standaardtaal van de website spreken.",
+            "selection_reason": "Taalkeuze: taal van de",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "security": {
+        "manual_review": false,
+        "notes": [
+          "6 concrete beveiligingsmechanismen gevonden: wachtwoord, beveiligingsaudit, ssl, firewall, https, avg."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "c90afb25_0177",
+            "page_no": 16,
+            "block_type": "table",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Geadres | Prio\nNaam | Architecturele relevantie | Geadres | Prio\nseerd in:\nNFR06: Gegevensbesc herming en naleving van de AVG | Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essentieel om de gegevens van klanten te beschermen en risico's te minimaliseren. | Should Have\nNFR07: Beoordeling systeem website | Implementeer een beoordelingssysteem op de website, zodat gebruikers reviews kunnen lezen en achterlaten voor producten. | Could Have\n… (9 meer rijen)",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): beveiligingsaudit, ssl, firewall",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "c90afb25_0450",
+            "page_no": 29,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H6 Literatuurlijst"
+            ],
+            "excerpt": "Geraadpleegd van https://www.kvk.nl/wetten-en-regels/privacywetgeving-avg-wanneer-ben-je-",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): https, avg",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "c90afb25_0449",
+            "page_no": 29,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H6 Literatuurlijst"
+            ],
+            "excerpt": "Kamer van Koophandel. ( 9 november 2022 .). Privacywetgeving AVG: wanneer ben je compliant?",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): avg",
+            "signal_class": "positive"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "file": "23276484_anonymized.json",
+    "doc_id": "23276484",
+    "criteria": {
+      "beperking": {
+        "manual_review": true,
+        "notes": [
+          "Beperking beschreven (slechtziend, beperking) en onderbouwing aanwezig (bron, bronnen, literatuur).",
+          "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "23276484_0034",
+            "page_no": 3,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse",
+              "H3 Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "Slechtziende mensen hebben grote letters nodig. Verder heb ik geen bronnen gebruikt.",
+            "selection_reason": "Beperking/doelgroep: slechtziend",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "23276484_0032",
+            "page_no": 3,
+            "block_type": "heading",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse",
+              "H3 Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "H3 Onderzoek naar web gebruikers",
+            "selection_reason": "Onderbouwing/deskresearch: onderzoek",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "23276484_0033",
+            "page_no": 3,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse",
+              "H3 Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "Ik heb geen echt onderzoek gedaan naar webgebruikers. Ik heb zelf bedacht dat studenten vaak online shoppen.",
+            "selection_reason": "Aanvullend bewijs: onderzoek",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "stakeholders": {
+        "manual_review": true,
+        "notes": [
+          "3 unieke stakeholder(s) herkend (minimum 4). Belang: ja, Invloed: ja.",
+          "Één stakeholder onder het minimum — grenswaardegeval."
+        ],
+        "missing_signals": [
+          "Slechts 3 stakeholder(s) gevonden (minimum 4)"
+        ],
+        "evidence_items": [
+          {
+            "block_id": "23276484_0039",
+            "page_no": 3,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse",
+              "H3 Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "Stakeholder | Belang | Invloed | Waarom\nStakeholder | Belang | Invloed | Waarom\nKlant | Wil iets kopen | Laag | Klanten klikken alleen maar.\nIk / developer | Moet de website maken | Hoog | Ik bepaal eigenlijk alles.\nInvesteerder | Investeerder | Wil winst | Wil winst | Hoog/laag | Hoog/laag | Niet duidelijk, want ik heb het\n… (1 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (5 rijen) — onvolledig (3 van 4 min.)",
+            "signal_class": "weak"
+          }
+        ]
+      },
+      "requirements": {
+        "manual_review": false,
+        "notes": [
+          "Geschat 7 requirement-items (minimum 15). Prioritering: ja.",
+          "Niet-functioneel: ~6.",
+          "Prioriteitsverdeling: Must: 1."
+        ],
+        "missing_signals": [
+          "Slechts ~7 requirements gevonden (minimum 15)"
+        ],
+        "evidence_items": [
+          {
+            "block_id": "23276484_0041",
+            "page_no": 4,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse",
+              "H3 Onderzoek naar web gebruikers",
+              "H4 Wensen, Eisen, Prioriteiten"
+            ],
+            "excerpt": "Deze eisen zijn snel bedacht. De prioriteiten zijn niet echt onderbouwd. Bijna alles is Must Have omdat alles",
+            "selection_reason": "Requirements in tekst",
+            "signal_class": "weak"
+          },
+          {
+            "block_id": "23276484_0044",
+            "page_no": 4,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "4.1 Constraints en niet-functionele eisen"
+            ],
+            "excerpt": "Naam Eis Onderbouwing Prio",
+            "selection_reason": "Requirements in tekst",
+            "signal_class": "weak"
+          },
+          {
+            "block_id": "23276484_0049",
+            "page_no": 4,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "4.1 Constraints en niet-functionele eisen"
+            ],
+            "excerpt": "NFR01 Website moet altijd werken. Dat is handig. Must",
+            "selection_reason": "Requirements in tekst",
+            "signal_class": "weak"
+          }
+        ]
+      },
+      "taalkeuze": {
+        "manual_review": true,
+        "notes": [
+          "Taalkeuze vermeld (engels, nederlands), maar geen gevolgen van die keuze beschreven."
+        ],
+        "missing_signals": [
+          "Gevolgen van taalkeuze niet beschreven (bijv. bereik, vertaalkosten, begrijpelijkheid)"
+        ],
+        "evidence_items": [
+          {
+            "block_id": "23276484_0052",
+            "page_no": 4,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "4.1 Constraints en niet-functionele eisen"
+            ],
+            "excerpt": "NFR03 Taal is Nederlands/Engels. Geen keuze gemaakt. Should",
+            "selection_reason": "Taalkeuze: engels, nederlands",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "23276484_0021",
+            "page_no": 3,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie"
+            ],
+            "excerpt": "De webshop wordt paars, zwart, wit, groen en misschien geel. De taal wordt Nederlands of",
+            "selection_reason": "Taalkeuze: nederlands",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "security": {
+        "manual_review": false,
+        "notes": [
+          "2 concreet beveiligingsmechanisme(n) gevonden: wachtwoord, avg."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "23276484_0053",
+            "page_no": 4,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "4.1 Constraints en niet-functionele eisen"
+            ],
+            "excerpt": "NFR04 Security moet veilig zijn. Wachtwoorden mogen niet Must",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): wachtwoord",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "23276484_0097",
+            "page_no": 6,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H5 Ethische aandachtspunten"
+            ],
+            "excerpt": "AVG: gegevens moeten veilig zijn. Ik weet niet precies welke gegevens. Ik sla misschien naam, adres en",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): avg",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "23276484_0098",
+            "page_no": 6,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H5 Ethische aandachtspunten"
+            ],
+            "excerpt": "wachtwoord op. Security wordt later gedaan.",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): wachtwoord",
+            "signal_class": "positive"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "file": "35baf7d3_anonymized.json",
+    "doc_id": "35baf7d3",
+    "criteria": {
+      "beperking": {
+        "manual_review": true,
+        "notes": [
+          "Beperking beschreven (slechtziend, specifieke doelgroep) en onderbouwing aanwezig (onderzoek).",
+          "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "35baf7d3_0047",
+            "page_no": 11,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "De website moet dit gaan doen: Zich richten op twee specifieke doelgroepen, namelijk meisjes",
+            "selection_reason": "Beperking/doelgroep: specifieke doelgroep",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "35baf7d3_0046",
+            "page_no": 11,
+            "block_type": "heading",
+            "heading_path": [
+              "Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "Onderzoek naar web gebruikers",
+            "selection_reason": "Onderbouwing/deskresearch: onderzoek",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "35baf7d3_0048",
+            "page_no": 11,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "rond universiteitsleeftijd die op zoek zijn naar unieke brillen en slechtziende mensen die",
+            "selection_reason": "Aanvullend bewijs: slechtziend",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "stakeholders": {
+        "manual_review": false,
+        "notes": [
+          "12 stakeholder(s) herkend — boven drempel, met belang en invloed gedocumenteerd."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "35baf7d3_0036",
+            "page_no": 6,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse"
+            ],
+            "excerpt": "Stakeholder | Category (primair, secundair) | Intern/extern/interface | Invloed\nStakeholder | Category (primair, secundair) | Intern/extern/interface | Invloed\n[PERSOON_03] | Primair Haar rol als vertegenwoordiger van het investeringsbedrijf maakt haar essentieel voor het project. | Intern Ze is intern verbonden met het bedrijf en heeft directe invloed op het project. | Gemiddeld: Als\nvertegenwoordiger van\nhet investeringsbedrijf\n… (32 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (36 rijen)",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "35baf7d3_0041",
+            "page_no": 8,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse"
+            ],
+            "excerpt": "Stakeholder | Category (primair, secundair) | Intern/extern/interface | Invloed\nStakeholder | Category (primair, secundair) | Intern/extern/interface | Invloed\n[PERSOON_03] | Primair Haar rol als vertegenwoordiger van het investeringsbedrijf maakt haar essentieel voor het project. | Intern Ze is intern verbonden met het bedrijf en heeft directe invloed op het project. | Gemiddeld: Als\nvertegenwoordiger van\nhet investeringsbedrijf\n… (32 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (36 rijen)",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "requirements": {
+        "manual_review": true,
+        "notes": [
+          "Geschat 16 requirement-items. Prioritering: ja.",
+          "Telling (16) net boven minimum — grenswaardegeval.",
+          "Niet-functioneel: ~16.",
+          "Prioriteitsverdeling: Must: 8, Should: 4."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "35baf7d3_0109",
+            "page_no": 13,
+            "block_type": "table",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Architecturele relevantie | Geadres | Prio\nNaam | Architecturele relevantie | Architecturele relevantie | Geadres | Prio\nseerd in:\nNFR01: Beschikbaarhei d en betrouwbaarhei d: | De website moet te allen tijde beschikbaar zijn voor klanten en bestellingen moeten betrouwbaar worden verwerkt en afgehandeld. | Pag6:par5: HR | Must Have\nNFR02 | Producten moeten makkelijk te vinden zijn klant | Should have\n… (4 meer rijen)",
+            "selection_reason": "Requirements-tabel: 8 rijen, 6 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "35baf7d3_0174",
+            "page_no": 15,
+            "block_type": "table",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "beoogde klanten."
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Geadresseerd | Prio\nNaam | Architecturele relevantie | Geadresseerd | Prio\nin:\nUC01: Registratie functionaliteit | Klanten moeten in staat zijn om te registreren en een profiel aan te maken bij de webshop | Pag7:par2:US R | MUST HAVE\nUC02: inlogfunctionalitei | Klanten moeten in staat zijn te loggen om een gepersonaliseerde winkelervaring te hebben | MUST HAVE\n… (3 meer rijen)",
+            "selection_reason": "Requirements-tabel: 7 rijen, 5 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "35baf7d3_0108",
+            "page_no": 13,
+            "block_type": "table",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Geadresseerd in:\nNaam | Architecturele relevantie | Geadresseerd in:\nCONSTR01: Budget | De applicatie inclusief ontwikkeling mag niet meer dan 10.000 euro kosten.\nCONSTR02: Verzend kosten | De verzendkosten zijn niet afhankelijk van het formaat of de locatie, maar een standaardbedrag\nCONSTR03: Tijdsduur | De tijdduur van het project is zes weken\n… (1 meer rijen)",
+            "selection_reason": "Requirements-tabel: 5 rijen, 4 req-IDs",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "taalkeuze": {
+        "manual_review": true,
+        "notes": [
+          "Gevolg-signalen aanwezig (beïnvloeden, beïnvloed), maar geen expliciete taalkeuze vermeld."
+        ],
+        "missing_signals": [
+          "Geen expliciete taalkeuze vermeld (bijv. 'de webshop is in het Nederlands')"
+        ],
+        "evidence_items": [
+          {
+            "block_id": "35baf7d3_0033",
+            "page_no": 5,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse"
+            ],
+            "excerpt": "Medewerkers | Alle werknemers van investeringsbedrijf Plenty.\nHoewel ze niet direct betrokken zijn\nbij het project voor de ontwikkeling\nvan de webshop, dragen ze bij aan\n… (21 meer rijen)",
+            "selection_reason": "Gevolgen beschreven: beïnvloeden, beïnvloed",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "security": {
+        "manual_review": false,
+        "notes": [
+          "2 concreet beveiligingsmechanisme(n) gevonden: wachtwoord, avg."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "35baf7d3_0109",
+            "page_no": 13,
+            "block_type": "table",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Architecturele relevantie | Geadres | Prio\nNaam | Architecturele relevantie | Architecturele relevantie | Geadres | Prio\nseerd in:\nNFR01: Beschikbaarhei d en betrouwbaarhei d: | De website moet te allen tijde beschikbaar zijn voor klanten en bestellingen moeten betrouwbaar worden verwerkt en afgehandeld. | Pag6:par5: HR | Must Have\nNFR02 | Producten moeten makkelijk te vinden zijn klant | Should have\n… (4 meer rijen)",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): avg",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "35baf7d3_0117",
+            "page_no": 14,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "moeten betrouwbaar worden verwerkt en afgehandeld."
+            ],
+            "excerpt": "2. M: Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG)",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): avg",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "35baf7d3_0190",
+            "page_no": 18,
+            "block_type": "table",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "Use Case beschrijvingen"
+            ],
+            "excerpt": "Exceptie flow 1: Ongeldige gebruikersnaam of wachtwoord | Als de klant een ongeldige gebruikersnaam of wachtwoord invoert tijdens het aanmaken van het profiel, wordt er een foutmelding weergegeven en wordt de klant gevraagd om de informatie opnieuw in te voeren.\nExceptie flow 2: Profielinformatie ontbreekt | Als de klant verplichte informatie mist bij het aanmaken van het profiel, wordt er een foutmelding weergegeven en wordt de klant gevraagd om alle vereiste velden in te vullen.\nActor | Geregistreerde Klant\nPreconditie | Klant heeft toegang tot de website\n… (5 meer rijen)",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): wachtwoord",
+            "signal_class": "positive"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "file": "f14254dd_anonymized.json",
+    "doc_id": "f14254dd",
+    "criteria": {
+      "beperking": {
+        "manual_review": false,
+        "notes": [
+          "Onderbouwing aanwezig (bron, bronnen, onderzoek), maar geen expliciete beperking of doelgroepkeuze beschreven."
+        ],
+        "missing_signals": [
+          "Geen expliciete beperking of doelgroepkeuze beschreven"
+        ],
+        "evidence_items": [
+          {
+            "block_id": "f14254dd_0080",
+            "page_no": 7,
+            "block_type": "heading",
+            "heading_path": [
+              "2.1 Constraints en requirements",
+              "Bronnen"
+            ],
+            "excerpt": "Bronnen",
+            "selection_reason": "Onderbouwing: bron, bronnen",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "f14254dd_0027",
+            "page_no": 3,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Introductie"
+            ],
+            "excerpt": "online kopen. Daarom moet de website simpel zijn en er mooi uitzien. Er is niet veel extra onderzoek gedaan",
+            "selection_reason": "Onderbouwing: onderzoek",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "stakeholders": {
+        "manual_review": true,
+        "notes": [
+          "18 stakeholder(s) herkend, maar belang en/of invloed ontbreekt. Belang: ja, Invloed: nee."
+        ],
+        "missing_signals": [
+          "Invloed per stakeholder niet expliciet beschreven"
+        ],
+        "evidence_items": [
+          {
+            "block_id": "f14254dd_0055",
+            "page_no": 4,
+            "block_type": "table",
+            "heading_path": [
+              "2.1 Constraints en requirements",
+              "Use Case Diagram"
+            ],
+            "excerpt": "belangrijk.\nNFR04 | Beveiliging | De site moet veilig zijn met login. Dit wordt later technisch gedaan. | MUST\nNFR05 | Snelheid | Pagina’s moeten redelijk snel laden zodat gebruikers niet hoeven te wachten. | COULD\nNFR06 | Taal | De website is in het Nederlands omdat wij Nederlands gebruiken. | SHOULD\n… (9 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (13 rijen)",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "f14254dd_0061",
+            "page_no": 5,
+            "block_type": "table",
+            "heading_path": [
+              "2.1 Constraints en requirements",
+              "Use Case beschrijvingen"
+            ],
+            "excerpt": "Actor | Use cases\nActor | Use cases\nKlant | Registreren, producten bekijken\nGeregistreerde klant | Inloggen, winkelmandje, bestellen, bestelgeschiedenis\nAdmin | Producten beheren, bestellingen bekijken",
+            "selection_reason": "Stakeholder-tabel (4 rijen)",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "requirements": {
+        "manual_review": true,
+        "notes": [
+          "Geschat 14 requirement-items (minimum 15). Prioritering: ja.",
+          "Telling (14) dicht bij minimum (15) — handmatig verificeren.",
+          "Functioneel: ~1, Use cases: ~13.",
+          "Prioriteitsverdeling: Must: 7, Should: 3, Could: 2."
+        ],
+        "missing_signals": [
+          "Slechts ~14 requirements gevonden (minimum 15)"
+        ],
+        "evidence_items": [
+          {
+            "block_id": "f14254dd_0055",
+            "page_no": 4,
+            "block_type": "table",
+            "heading_path": [
+              "2.1 Constraints en requirements",
+              "Use Case Diagram"
+            ],
+            "excerpt": "belangrijk.\nNFR04 | Beveiliging | De site moet veilig zijn met login. Dit wordt later technisch gedaan. | MUST\nNFR05 | Snelheid | Pagina’s moeten redelijk snel laden zodat gebruikers niet hoeven te wachten. | COULD\nNFR06 | Taal | De website is in het Nederlands omdat wij Nederlands gebruiken. | SHOULD\n… (9 meer rijen)",
+            "selection_reason": "Requirements-tabel met 11 MoSCoW-rijen",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "f14254dd_0061",
+            "page_no": 5,
+            "block_type": "table",
+            "heading_path": [
+              "2.1 Constraints en requirements",
+              "Use Case beschrijvingen"
+            ],
+            "excerpt": "Actor | Use cases\nActor | Use cases\nKlant | Registreren, producten bekijken\nGeregistreerde klant | Inloggen, winkelmandje, bestellen, bestelgeschiedenis\nAdmin | Producten beheren, bestellingen bekijken",
+            "selection_reason": "Requirements-tabel (beperkte inhoud herkend)",
+            "signal_class": "weak"
+          },
+          {
+            "block_id": "f14254dd_0033",
+            "page_no": 3,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Wensen, Eisen, Prioriteiten"
+            ],
+            "excerpt": "In dit hoofdstuk staan de eisen en wensen voor de webshop. De prioriteiten zijn vooral gekozen op gevoel en op",
+            "selection_reason": "Requirements in tekst",
+            "signal_class": "weak"
+          }
+        ]
+      },
+      "taalkeuze": {
+        "manual_review": true,
+        "notes": [
+          "Taalkeuze vermeld (in het nederlands, nederlands), maar geen gevolgen van die keuze beschreven."
+        ],
+        "missing_signals": [
+          "Gevolgen van taalkeuze niet beschreven (bijv. bereik, vertaalkosten, begrijpelijkheid)"
+        ],
+        "evidence_items": [
+          {
+            "block_id": "f14254dd_0055",
+            "page_no": 4,
+            "block_type": "table",
+            "heading_path": [
+              "2.1 Constraints en requirements",
+              "Use Case Diagram"
+            ],
+            "excerpt": "belangrijk.\nNFR04 | Beveiliging | De site moet veilig zijn met login. Dit wordt later technisch gedaan. | MUST\nNFR05 | Snelheid | Pagina’s moeten redelijk snel laden zodat gebruikers niet hoeven te wachten. | COULD\nNFR06 | Taal | De website is in het Nederlands omdat wij Nederlands gebruiken. | SHOULD\n… (9 meer rijen)",
+            "selection_reason": "Taalkeuze: in het nederlands, nederlands",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "security": {
+        "manual_review": false,
+        "notes": [
+          "3 concrete beveiligingsmechanismen gevonden: wachtwoord, https, avg."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "f14254dd_0068",
+            "page_no": 6,
+            "block_type": "paragraph",
+            "heading_path": [
+              "2.1 Constraints en requirements",
+              "Beveiliging"
+            ],
+            "excerpt": "Voor beveiliging gebruiken we login en wachtwoorden. Ook moet de website HTTPS gebruiken wanneer hij online",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): wachtwoord, https",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "f14254dd_0070",
+            "page_no": 6,
+            "block_type": "paragraph",
+            "heading_path": [
+              "2.1 Constraints en requirements",
+              "Beveiliging"
+            ],
+            "excerpt": "AVG is belangrijk omdat klanten gegevens invullen zoals naam, e-mail en adres. De webshop moet daar netjes",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): avg",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "f14254dd_0071",
+            "page_no": 6,
+            "block_type": "paragraph",
+            "heading_path": [
+              "2.1 Constraints en requirements",
+              "Beveiliging"
+            ],
+            "excerpt": "mee omgaan. In de code moeten wachtwoorden niet gewoon leesbaar opgeslagen worden. Verder moeten",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): wachtwoord",
+            "signal_class": "positive"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "file": "1023e8a9_anonymized.json",
+    "doc_id": "1023e8a9",
+    "criteria": {
+      "beperking": {
+        "manual_review": true,
+        "notes": [
+          "Beperking beschreven (beperking) en onderbouwing aanwezig (onderzoek).",
+          "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "1023e8a9_0028",
+            "page_no": 5,
+            "block_type": "table",
+            "heading_path": [
+              "Belangen en zorgen"
+            ],
+            "excerpt": "Naam | Zorgen: | Belangen:\nNaam | Zorgen: | Belangen:\n[PERSOON_01] (vertegenwoordiger) | [PERSOON_01] zou zich zorgen kunnen maken over het succes van het project, aangezien dit de reputatie van het investeerdersbedrijf Plenty kan beïnvloeden. | Haar belangen liggen waarschijnlijk in het veiligstellen van een investering, het aantrekken van klanten naar de website en het waarborgen van een positieve indruk van het investeerdersbedrijf\nEigenaar Investeerdersbedrijf Plenty | Het investeerdersbedrijf kan zich zorgen maken over het rendement op hun investering, de effectiviteit van de websiteontwikkeling, en de naleving van het vastgestelde budget en de deadlines. | Het investeerdersbedrijf heeft belangen bij een succesvolle en winstgevende investering. Ze willen dat de website voldoet aan kwaliteitsnormen, binnen het budget blijft en op tijd wordt opgeleverd.\nWebsiteontwikkelaars | Websiteontwikkelaars kunnen zich zorgen maken over de technische uitdagingen, tijdsdruk en eventuele wijzigingen in de vereisten tijdens de ontwikkelingsfase. | Hun belangen liggen in het creëren van een hoogwaardige website die voldoet aan de opgestelde eisen.\n… (5 meer rijen)",
+            "selection_reason": "Beperking/doelgroep: beperking",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "1023e8a9_0074",
+            "page_no": 16,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Use cases",
+              "Tekstanalyse"
+            ],
+            "excerpt": "deze groep klanten. De websiteontwikkelaar zal onderzoek uit moeten voeren naar hoe de website",
+            "selection_reason": "Onderbouwing/deskresearch: onderzoek",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "1023e8a9_0037",
+            "page_no": 9,
+            "block_type": "table",
+            "heading_path": [
+              "Constraints"
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Geadresseerd in:\nNaam | Architecturele relevantie | Geadresseerd in:\nCONSTR01: Budget | De ontwikkeling van de website moet binnen een budget van 10.000 euro worden voltooid | Alinea 11 Regel 51 Pagina\nCONSTR02: Tijd | De webshop moet ontworpen, ontwikkeld en getest zijn binnen deze zes weken. | Alinea 11 Regel 51 Pagina\nCONSTR03: Betaalbeperkingen | Klanten mogen artikelen niet betalen met giftcards en kunnen geen gebruik maken van promocodes in de webshop. | Alinea 3 Regel 1213 Pagina\n… (1 meer rijen)",
+            "selection_reason": "Aanvullend bewijs: beperking",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "stakeholders": {
+        "manual_review": false,
+        "notes": [
+          "22 stakeholder(s) herkend — boven drempel, met belang en invloed gedocumenteerd."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "1023e8a9_0024",
+            "page_no": 3,
+            "block_type": "table",
+            "heading_path": [
+              "Stakeholder analyse"
+            ],
+            "excerpt": "Naam | Rol: | Functie:\nNaam | Rol: | Functie:\n[PERSOON_01] (vertegenwoordiger) | Projectleider | Vertegenwoordigt de belangen van het investeringsbedrijf, beheert de projectvoortgang.\nEigenaar Investeerdersbedrijf Plenty | Opdrachtgever en Financier | Stelt de vereisten voor de website, keurt budgetten goed, neemt strategische beslissingen, en beoordeelt de projectvoortgang en uiteindelijke resultaten.\nWebsiteontwikkelaars | Uitvoerders van het webshop prototype. | Verantwoordelijk om een prototype webshop te ontwikkelen. Zij zijn de directe uitvoerders van het project.\n… (5 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (9 rijen)",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "1023e8a9_0026",
+            "page_no": 4,
+            "block_type": "table",
+            "heading_path": [
+              "Categoriseren en prioriteren"
+            ],
+            "excerpt": "Naam | Categorie: | Prioriteer:\nNaam | Categorie: | Prioriteer:\n[PERSOON_01] (vertegenwoordiger) | Intern: [PERSOON_01] wordt geïdentificeerd als een interne stakeholder omdat ze de vertegenwoordiger is van het investeringsbedrijf Plenty. Haar rol ligt binnen de organisatie. | Gemiddelde invloed: Haar invloed wordt als gemiddeld beschouwd, wat suggereert dat ze invloed heeft op bepaalde aspecten van het project, maar niet op het hoogste besluitvormingsniveau.\nEigenaar Investeerdersbedrijf Plenty | Intern: Als eigenaar van het investeringsbedrijf Plenty wordt deze stakeholder beschouwd als intern, omdat de eigenaar deel uitmaakt van de organisatiestructuur | Veel invloed: Aangezien het de eigenaar betreft, wordt aangenomen dat deze stakeholder aanzienlijke invloed heeft op besluitvormingsprocessen en strategische richting.\nWebsiteontwikkelaars | Extern: Websiteontwikkelaars worden als externe stakeholders beschouwd omdat ze niet rechtstreeks deel uitmaken van de organisatie Plenty, maar extern worden ingehuurd. | Gemiddelde invloed: Ze hebben invloed op de ontwikkeling van de website, maar hun invloed wordt als gemiddeld beschouwd in vergelijking met interne stakeholders.\n… (5 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (9 rijen)",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "requirements": {
+        "manual_review": true,
+        "notes": [
+          "Geschat 17 requirement-items. Prioritering: ja.",
+          "Telling (17) net boven minimum — grenswaardegeval.",
+          "Functioneel: ~6, Niet-functioneel: ~11.",
+          "Prioriteitsverdeling: Must: 9, Should: 1, Could: 1."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "1023e8a9_0035",
+            "page_no": 8,
+            "block_type": "table",
+            "heading_path": [
+              "Niet-functionele requirements"
+            ],
+            "excerpt": "Naam | Categorie | Architecturele relevantie | Geadresseerd | Prio\nNaam | Categorie | Architecturele relevantie | Geadresseerd | Prio\nin:\nNFR01: | Toegankelijkheid: | De website moet toegankelijk zijn voor een breed scala aan klanten, waaronder mensen met beperkte financiële middelen. | Alinea 3 Regel 912 Pagina | MUST HAVE Toegankelijkheid is cruciaal om een breed scala aan klanten te bereiken, inclusief mensen met beperkte financiële middelen. Het maakt de website beschikbaar voor een grotere doelgroep.\nNFR02: | Gebruiksvriendelij kheid | De website moet gebruiksvriendelijk zijn, met specifieke aandacht voor een soepele gebruikerservaring. | Alinea 3 Regel 8 Pagina | MUST HAVE Een gebruiksvriendelijke website is essentieel om klanten een soepele ervaring te bieden. Dit draagt bij aan tevredenheid en klantloyaliteit.\n… (4 meer rijen)",
+            "selection_reason": "Requirements-tabel: 8 rijen, 6 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "1023e8a9_0032",
+            "page_no": 7,
+            "block_type": "table",
+            "heading_path": [
+              "Functional requirements"
+            ],
+            "excerpt": "Naam | Categorie | Architecturele relevantie | Geadresseerd | Prio\nNaam | Categorie | Architecturele relevantie | Geadresseerd | Prio\nin:\nUC01: Gebruikersprofiel aanmaken/registrer en | Gebruikersregistratie | Het systeem moet gebruikers in staat stellen een profiel aan te maken voor nieuwe gebruikers. | Alinea 4 Regel 14 Pagina | MUST HAVE: Zonder gebruikersregistratie kunnen klanten geen profiel aanmaken en geen gebruikmaken van de webshop.\nUC02: Inloggen gebruiker | Inloggen | Gebruikers loggen in voor een gepersonaliseerde winkelervaring. | Alinea 4 Regel 14 Pagina | MUST HAVE Inloggen is essentieel voor het bieden van een gepersonaliseerde winkelervaring, zonder in te loggen kan je niet in de webshop.\n… (3 meer rijen)",
+            "selection_reason": "Requirements-tabel: 7 rijen, 5 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "1023e8a9_0046",
+            "page_no": 13,
+            "block_type": "table",
+            "heading_path": [
+              "Use cases",
+              "Use case04: Beheren van winkelmandje"
+            ],
+            "excerpt": "Actor | Geregistreerde klant\nActor | Geregistreerde klant\nPreconditie | De geregistreerde klant heeft ingelogd op zijn/haar gebruikersaccount. De geregistreerde klant heeft één of meer producten toegevoegd aan het winkelmandje.\nBeschrijving | Deze use case beschrijft hoe klanten producten kunnen bekijken, toevoegen en verwijderen uit hun winkelmandje in de webshop.\nScenario beschrijving | 1. De klant navigeert naar het winkelmandje. 2. Het systeem toont een overzicht van de producten die momenteel in het winkelmandje van de klant zitten. 3. De klant kan extra producten toevoegen aan het winkelmandje door op de knop \"Toevoegen aan winkelmandje\" te klikken bij het gewenste product. 4. De klant heeft de mogelijkheid om producten te verwijderen uit het winkelmandje door op de knop \"Verwijderen\" of \"Aantal verminderen\" te klikken. 5. Na het bekijken, toevoegen of verwijderen van producten, wordt het gewijzigde winkelmandje weergegeven aan de klant.\n… (2 meer rijen)",
+            "selection_reason": "Requirements-tabel: 6 rijen, 0 req-IDs",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "taalkeuze": {
+        "manual_review": false,
+        "notes": [
+          "Taalkeuze (meertalig) en meerdere gevolgen (bereik, beïnvloeden, beïnvloed) goed uitgewerkt."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "1023e8a9_0019",
+            "page_no": 2,
+            "block_type": "paragraph",
+            "heading_path": [],
+            "excerpt": "zijn. Dit omvat subgroepen van klanten zoals laaggeletterden, meertaligen, slechtzienden, kleurenblinden,",
+            "selection_reason": "Taalkeuze: meertalig",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "1023e8a9_0072",
+            "page_no": 16,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Use cases",
+              "Tekstanalyse"
+            ],
+            "excerpt": "meertalige mensen, slechtziende mensen, mensen die kleurenblind zijn, ouderen, en mensen met",
+            "selection_reason": "Taalkeuze: meertalig",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "1023e8a9_0028",
+            "page_no": 5,
+            "block_type": "table",
+            "heading_path": [
+              "Belangen en zorgen"
+            ],
+            "excerpt": "Naam | Zorgen: | Belangen:\nNaam | Zorgen: | Belangen:\n[PERSOON_01] (vertegenwoordiger) | [PERSOON_01] zou zich zorgen kunnen maken over het succes van het project, aangezien dit de reputatie van het investeerdersbedrijf Plenty kan beïnvloeden. | Haar belangen liggen waarschijnlijk in het veiligstellen van een investering, het aantrekken van klanten naar de website en het waarborgen van een positieve indruk van het investeerdersbedrijf\nEigenaar Investeerdersbedrijf Plenty | Het investeerdersbedrijf kan zich zorgen maken over het rendement op hun investering, de effectiviteit van de websiteontwikkeling, en de naleving van het vastgestelde budget en de deadlines. | Het investeerdersbedrijf heeft belangen bij een succesvolle en winstgevende investering. Ze willen dat de website voldoet aan kwaliteitsnormen, binnen het budget blijft en op tijd wordt opgeleverd.\nWebsiteontwikkelaars | Websiteontwikkelaars kunnen zich zorgen maken over de technische uitdagingen, tijdsdruk en eventuele wijzigingen in de vereisten tijdens de ontwikkelingsfase. | Hun belangen liggen in het creëren van een hoogwaardige website die voldoet aan de opgestelde eisen.\n… (5 meer rijen)",
+            "selection_reason": "Gevolgen: beïnvloeden, beïnvloed",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "security": {
+        "manual_review": false,
+        "notes": [
+          "3 concrete beveiligingsmechanismen gevonden: wachtwoord, risicoanalyse, avg."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "1023e8a9_0035",
+            "page_no": 8,
+            "block_type": "table",
+            "heading_path": [
+              "Niet-functionele requirements"
+            ],
+            "excerpt": "Naam | Categorie | Architecturele relevantie | Geadresseerd | Prio\nNaam | Categorie | Architecturele relevantie | Geadresseerd | Prio\nin:\nNFR01: | Toegankelijkheid: | De website moet toegankelijk zijn voor een breed scala aan klanten, waaronder mensen met beperkte financiële middelen. | Alinea 3 Regel 912 Pagina | MUST HAVE Toegankelijkheid is cruciaal om een breed scala aan klanten te bereiken, inclusief mensen met beperkte financiële middelen. Het maakt de website beschikbaar voor een grotere doelgroep.\nNFR02: | Gebruiksvriendelij kheid | De website moet gebruiksvriendelijk zijn, met specifieke aandacht voor een soepele gebruikerservaring. | Alinea 3 Regel 8 Pagina | MUST HAVE Een gebruiksvriendelijke website is essentieel om klanten een soepele ervaring te bieden. Dit draagt bij aan tevredenheid en klantloyaliteit.\n… (4 meer rijen)",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): risicoanalyse, avg",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "1023e8a9_0085",
+            "page_no": 17,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Use cases",
+              "Tekstanalyse"
+            ],
+            "excerpt": "Gegevensbescherming (AVG) en vragen om een grondige beveiligings- en risicoanalyse om de",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): risicoanalyse, avg",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "1023e8a9_0040",
+            "page_no": 10,
+            "block_type": "table",
+            "heading_path": [
+              "Use cases",
+              "Use case01: Gebruikers profiel aanmaken/ registreren"
+            ],
+            "excerpt": "Actor | Klant\nActor | Klant\nPreconditie | Het systeem is operationeel. De klant heeft toegang tot het registratie en inlogscherm.\nBeschrijving | Het proces wordt beschreven waarin een klant een nieuw account aanmaakt, het account valideert en inlogt om toegang te krijgen tot een gepersonaliseerde winkelervaring.\nScenario beschrijving | 1. De klant opent de registratie pagina en kiest voor het aanmaken van een nieuw account. 2. Het systeem vraagt de klant om benodigde informatie, zoals naam, emailadres en wachtwoord, in te voeren. 3. De klant vult de vereiste gegevens in en klikt op \"Registreren\". 4. Het systeem valideert de ingevoerde informatie en maakt een uniek gebruikersprofiel aan. 5. Een bevestigingsbericht wordt weergegeven, en het systeem stuurt een verificatieemail naar het opgegeven emailadres.\n… (3 meer rijen)",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): wachtwoord",
+            "signal_class": "positive"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "file": "104812d2_anonymized.json",
+    "doc_id": "104812d2",
+    "criteria": {
+      "beperking": {
+        "manual_review": true,
+        "notes": [
+          "Beperking beschreven (beperking, visuele beperking, blind) en onderbouwing aanwezig (onderzoek).",
+          "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "104812d2_0082",
+            "page_no": 7,
+            "block_type": "table",
+            "heading_path": [
+              "Stakeholder quadrant",
+              "H3 Onderzoek naar web gebruikers",
+              "H4 Wensen, Eisen, Prioriteiten"
+            ],
+            "excerpt": "Budgetbeperking | De totale kosten voor de ontwikkeling en implementatie van de applicatie mogen niet meer dan 10.000 euro bedragen, om binnen het budgettaire kader van het project te blijven. | Paragraaf 2 We stellen voor dat de ontwikkeling van de website wordt voltooid binnen een budget van 10.000 euro een redelijke termijn van zes weken | Investment Company Plenty / [PERSOON_02]\nTijdbeperking | Het project moet binnen een tijdsbestek van zes weken worden voltooid, van concept tot lancering, om aan de projectdeadlines te voldoen. | Paragraaf 2 | Investment Company Plenty / [PERSOON_02]\nGeen giftcards of promotiecodes | Het systeem mag geen gebruik maken van giftcards of promotiecodes, om de eenvoud en uniformiteit in prijsstelling te waarborgen. | Paragraaf 3 Klanten mogen deze artikelen alleen niet betalen met giftcards en zij kunnen niet gebruik maken van promocodes in de webshop | Eindgebruikers / Klanten\nStandaard verzendkosten | De verzendkosten moeten gestandaardiseerd zijn, ongeacht de grootte van de bestelling of de bestemming, om het bestelproces te vereenvoudigen. | Hierbij zijn de verzendkosten niet afhankelijk van het formaat of de locatie, maar een standaardbedrag | Eindgebruikers / Klanten\n… (2 meer rijen)",
+            "selection_reason": "Beperking/doelgroep: beperking",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "104812d2_0051",
+            "page_no": 5,
+            "block_type": "heading",
+            "heading_path": [
+              "Stakeholder quadrant",
+              "H3 Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "H3 Onderzoek naar web gebruikers",
+            "selection_reason": "Onderbouwing/deskresearch: onderzoek",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "104812d2_0095",
+            "page_no": 10,
+            "block_type": "table",
+            "heading_path": [
+              "Stakeholder quadrant",
+              "H3 Onderzoek naar web gebruikers",
+              "Functionele requirements"
+            ],
+            "excerpt": "voor latere aankoop.\nOrder Tracking | Klanten moeten de status van hun bestellingen kunnen volgen voor een betere klantenservice. | Opdrachtgever | Eindgebruiker | Shoul d\nNaam Requirement | Architecturele relevantie | Geadresseerd in | Stakeholder | Prio\nGebruiksvriendelijkhei d | De website moet intuïtief en eenvoudig te navigeren zijn, zodat gebruikers moeiteloos kunnen vinden wat ze nodig hebben. | Paragraaf 1, \"De website moet gebruiksvriendelijk zijn.\" | ontwikkelaars, eindgebruikers | Must\n… (3 meer rijen)",
+            "selection_reason": "Aanvullend bewijs: visuele beperking, beperking",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "stakeholders": {
+        "manual_review": true,
+        "notes": [
+          "27 stakeholder(s) herkend, maar belang en/of invloed ontbreekt. Belang: ja, Invloed: nee."
+        ],
+        "missing_signals": [
+          "Invloed per stakeholder niet expliciet beschreven"
+        ],
+        "evidence_items": [
+          {
+            "block_id": "104812d2_0095",
+            "page_no": 10,
+            "block_type": "table",
+            "heading_path": [
+              "Stakeholder quadrant",
+              "H3 Onderzoek naar web gebruikers",
+              "Functionele requirements"
+            ],
+            "excerpt": "voor latere aankoop.\nOrder Tracking | Klanten moeten de status van hun bestellingen kunnen volgen voor een betere klantenservice. | Opdrachtgever | Eindgebruiker | Shoul d\nNaam Requirement | Architecturele relevantie | Geadresseerd in | Stakeholder | Prio\nGebruiksvriendelijkhei d | De website moet intuïtief en eenvoudig te navigeren zijn, zodat gebruikers moeiteloos kunnen vinden wat ze nodig hebben. | Paragraaf 1, \"De website moet gebruiksvriendelijk zijn.\" | ontwikkelaars, eindgebruikers | Must\n… (3 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (7 rijen)",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "104812d2_0092",
+            "page_no": 8,
+            "block_type": "table",
+            "heading_path": [
+              "Stakeholder quadrant",
+              "H3 Onderzoek naar web gebruikers",
+              "Functionele requirements"
+            ],
+            "excerpt": "Naam Requirement | Architecturele | Geadresseerd in | Stakeholder | Prio\nNaam Requirement | Architecturele | Geadresseerd in | Stakeholder | Prio\nrelevantie\nProducten kopen | Klanten moeten in staat zijn diverse producten te kopen, wat een kernfunctionalitei t van de webshop is. | Algemene beschrijving van de webshopfunctionaliteit | Eindgebruike r | Must\nVerschillende productcategorieë | Het aanbod moet divers zijn om aan de behoeften van een breed klantenspectrum te voldoen. | Vermelding van diverse productcategorieën | Must\n… (3 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (7 rijen)",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "requirements": {
+        "manual_review": false,
+        "notes": [
+          "Geschat 18 requirement-items. Prioritering: ja.",
+          "Functioneel: ~10, Niet-functioneel: ~8.",
+          "Prioriteitsverdeling: Must: 9, Should: 6, Could: 3."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "104812d2_0093",
+            "page_no": 9,
+            "block_type": "table",
+            "heading_path": [
+              "Stakeholder quadrant",
+              "H3 Onderzoek naar web gebruikers",
+              "Functionele requirements"
+            ],
+            "excerpt": "moeten geoptimaliseerd zijn voor gebruiksgemak.\nWinkelmandje | Een functioneel winkelmandje is essentieel voor een soepele aankoopervaring. | Beschrijving van winkelmandfunctionalit eit. moeten producten gemakkelijk kunnen vinden, op de website bekijken en in hun winkelmand plaatsen | Eindgebruiker | Must\nProduct aanpassen | De websitebeheerde r kan producten aanpassen naar behoefte. | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. Het doel is om efficiënt beheer van de website mogelijk te maken.” | Ontwikkelaar | Shoul d have\nProduct verwijderen | De beheerder heeft de mogelijkheid om specifieke producten te verwijderen van de website. | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. Het doel is om efficiënt beheer van de website mogelijk te maken.” | Ontwikkelaar | Shoul d have\n… (2 meer rijen)",
+            "selection_reason": "Requirements-tabel: 6 rijen, 5 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "104812d2_0092",
+            "page_no": 8,
+            "block_type": "table",
+            "heading_path": [
+              "Stakeholder quadrant",
+              "H3 Onderzoek naar web gebruikers",
+              "Functionele requirements"
+            ],
+            "excerpt": "Naam Requirement | Architecturele | Geadresseerd in | Stakeholder | Prio\nNaam Requirement | Architecturele | Geadresseerd in | Stakeholder | Prio\nrelevantie\nProducten kopen | Klanten moeten in staat zijn diverse producten te kopen, wat een kernfunctionalitei t van de webshop is. | Algemene beschrijving van de webshopfunctionaliteit | Eindgebruike r | Must\nVerschillende productcategorieë | Het aanbod moet divers zijn om aan de behoeften van een breed klantenspectrum te voldoen. | Vermelding van diverse productcategorieën | Must\n… (3 meer rijen)",
+            "selection_reason": "Requirements-tabel: 7 rijen, 5 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "104812d2_0095",
+            "page_no": 10,
+            "block_type": "table",
+            "heading_path": [
+              "Stakeholder quadrant",
+              "H3 Onderzoek naar web gebruikers",
+              "Functionele requirements"
+            ],
+            "excerpt": "voor latere aankoop.\nOrder Tracking | Klanten moeten de status van hun bestellingen kunnen volgen voor een betere klantenservice. | Opdrachtgever | Eindgebruiker | Shoul d\nNaam Requirement | Architecturele relevantie | Geadresseerd in | Stakeholder | Prio\nGebruiksvriendelijkhei d | De website moet intuïtief en eenvoudig te navigeren zijn, zodat gebruikers moeiteloos kunnen vinden wat ze nodig hebben. | Paragraaf 1, \"De website moet gebruiksvriendelijk zijn.\" | ontwikkelaars, eindgebruikers | Must\n… (3 meer rijen)",
+            "selection_reason": "Requirements-tabel: 7 rijen, 5 MoSCoW-labels",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "taalkeuze": {
+        "manual_review": false,
+        "notes": [
+          "Taalkeuze (taalkeuze, meertalig) en gevolgen (internationaal, begrijpelijk) aanwezig."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "104812d2_0070",
+            "page_no": 6,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Stakeholder quadrant",
+              "H3 Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "taalkeuzeknop toe waarmee bezoekers de taal van de webshop kunnen aanpassen aan hun",
+            "selection_reason": "Taalkeuze: taalkeuze, taal van de",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "104812d2_0143",
+            "page_no": 19,
+            "block_type": "bullet",
+            "heading_path": [
+              "H7 Literatuurlijst"
+            ],
+            "excerpt": "• Waarom moet de webshop meertalig zijn? (https://www.gwsmedia.com/articles/6-",
+            "selection_reason": "Taalkeuze: meertalig",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "104812d2_0071",
+            "page_no": 6,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Stakeholder quadrant",
+              "H3 Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "voorkeur. Dit vergroot de kans op internationaal succes en maakt de inhoud begrijpelijker voor",
+            "selection_reason": "Gevolgen: internationaal, begrijpelijk",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "security": {
+        "manual_review": false,
+        "notes": [
+          "5 concrete beveiligingsmechanismen gevonden: wachtwoord, hashing, ssl, https, encryptie."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "104812d2_0131",
+            "page_no": 18,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H6 Security"
+            ],
+            "excerpt": "Encryptie is een essentieel onderdeel van beveiligingstechnologieën, waarbij gegevens worden",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): encryptie",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "104812d2_0134",
+            "page_no": 18,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H6 Security"
+            ],
+            "excerpt": "overdracht, zoals wachtwoorden. Een veelvoorkomende methode van encryptie is hashing,",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): wachtwoord, hashing, encryptie",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "104812d2_0054",
+            "page_no": 5,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Stakeholder quadrant",
+              "H3 Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "uit fitnessliefhebbers van alle leeftijden en niveaus, van beginners die net beginnen met hun",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): ssl",
+            "signal_class": "positive"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "file": "2f4d9d91_anonymized.json",
+    "doc_id": "2f4d9d91",
+    "criteria": {
+      "beperking": {
+        "manual_review": false,
+        "notes": [
+          "Beperking in meerdere blokken beschreven (beperking) en meerdere onderbouwingsblokken aanwezig (bron, bronvermelding, onderzoek)."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "2f4d9d91_0227",
+            "page_no": 16,
+            "block_type": "heading",
+            "heading_path": [
+              "H1 Introductie",
+              "3.2 Webshopgebruiker met beperking"
+            ],
+            "excerpt": "3.2 Webshopgebruiker met beperking",
+            "selection_reason": "Beperking/doelgroep: beperking",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2f4d9d91_0212",
+            "page_no": 15,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "3.1 Webshopgebruiker van mijn product/Doelgroep"
+            ],
+            "excerpt": "Uit deskresearch onderzoek blijkt dat mensen wegens verschillende redenen de gym",
+            "selection_reason": "Onderbouwing/deskresearch: deskresearch, onderzoek",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2f4d9d91_0167",
+            "page_no": 14,
+            "block_type": "heading",
+            "heading_path": [
+              "H1 Introductie",
+              "2.5 Communicatiestrategie Stakeholders",
+              "H3 Onderzoek naar web gebruikers"
+            ],
+            "excerpt": "H3 Onderzoek naar web gebruikers",
+            "selection_reason": "Aanvullend bewijs: onderzoek",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "stakeholders": {
+        "manual_review": true,
+        "notes": [
+          "4 stakeholder(s) herkend met belang en invloed beschreven.",
+          "Exact op minimum (4) — verifieer tabel op volledigheid."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "2f4d9d91_0101",
+            "page_no": 6,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "2.2 Stakeholder Tabel"
+            ],
+            "excerpt": "Stakeholder | Taak/Rol | Belang\nStakeholder | Taak/Rol | Belang\n1. Overheid | Houdt in de gaten of de AVG wet en regelgeving wordt gehandhaafd en het innen van belasting. | Willen dat het AVG wet en regelgeving wordt nageleefd. Willen dat de belasting wordt betaald.\n2.1 Gebruikers | Het vinden van de website en het kopen van de Gym artikelen. | Verlangen naar een betrouwbare en veilige transactie. Verlangen naar een goede gebruikerservaring.\n2.2 Gebruikers met Dyslexie/kleurenblindheid | Het vinden van de website en het kopen van de Gym artikelen. | Verlangen naar een betrouwbare en veilige transactie. Verlangen naar een goede gebruikerservaring.\n… (1 meer rijen)",
+            "selection_reason": "Stakeholder-tabel (5 rijen)",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2f4d9d91_0049",
+            "page_no": 4,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "H2 Stakeholders analyse"
+            ],
+            "excerpt": "is opgedeeld in 5 onderdelen; de mindmap, de stakeholdertabel, betrokkenheid",
+            "selection_reason": "Stakeholder-beschrijving in lopende tekst",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "requirements": {
+        "manual_review": false,
+        "notes": [
+          "Geschat 24 requirement-items. Prioritering: ja.",
+          "Functioneel: ~9, Niet-functioneel: ~10, Use cases: ~5.",
+          "Prioriteitsverdeling: Must: 9, Should: 8."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "2f4d9d91_0309",
+            "page_no": 20,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Geadresseerd in: | Prio\nNaam | Architecturele relevantie | Geadresseerd in: | Prio\nFR01: Uitstraling, opmaak & responsiveness | De uitstraling en opmaak van de website dien te passen bij de beoogde klanten van het soort product. Zij moeten de website en de producten daarop kunnen verkennen, ongeacht het device waarop ze het bekijken. | Casus_Website_First Full Stack_v.1.pdf paragraaf 6 Stakeholder: Opdrachtgever | MUST HAVE\nFR02: Beheer ** | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. | Casus_Website_First Full Stack_v.1.pdf paragraaf 8 Stakeholder: Opdrachtgever | SHOULD HAVE\nFR03: Online | Dit betekent dat de website al bereikbaar is voor klanten. En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen | Casus_Website_First Full Stack_v.1.pdf paragraaf 5 Stakeholder: Opdrachtgever | SHOULD HAVE\n… (4 meer rijen)",
+            "selection_reason": "Requirements-tabel: 8 rijen, 7 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2f4d9d91_0312",
+            "page_no": 21,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Geadresseerd in: | Prio\nNaam | Architecturele relevantie | Geadresseerd in: | Prio\nUC01: aanmaak profiel | De gebruiker moet een profiel aan kunnen maken | Casus_Website_First Full Stack_v.1.pdf paragraaf 4 Stakeholder: Opdrachtgever | MUST HAVE\nUC02: login | De gebruiker moet kunnen inloggen op zijn aangemaakte profiel | Casus_Website_First Full Stack_v.1.pdf paragraaf 4 Stakeholder: Opdrachtgever | MUST HAVE\nUC03: product toevoegen | De klant moet een product in hun winkelmand kunnen plaatsen, en deze bij de winkelmand inhoud kunnen bekijken | Casus_Website_First Full Stack_v.1.pdf paragraaf 4 Stakeholder: Opdrachtgever | MUST HAVE\n… (2 meer rijen)",
+            "selection_reason": "Requirements-tabel: 6 rijen, 5 MoSCoW-labels",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2f4d9d91_0315",
+            "page_no": 22,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "4.2 Use Case Diagram"
+            ],
+            "excerpt": "UC06: Delete | De admin moet de mogelijkheid hebben om producten en categorieën te kunnen verwijderen | Interview Stakeholder: Gebruiker | SHOULD HAVE\nUC07: Dashboard | De admin moet de mogelijkheid hebben om belangrijke informatie zoals het aantal geplaatste orders, het aantal gebruikers, en de best verkochte product te zien. | Interview Stakeholder: Gebruiker | SHOULD HAVE\nUC08: categorieën | In de applicatie moet er de mogelijkheid zijn om een product op basis van de categorie te vinden | Casus_Website_First Full Stack_v.1.pdf paragraaf 4 Stakeholder: Opdrachtgever | SHOULD HAVE\nUC09: Dyslexie | In de applicatie moet er een knop zijn die de website voor ernstige dyslecten makkelijker te gebruiken maakt | Interview Stakeholder: Gebruiker | SHOULD HAVE\n… (1 meer rijen)",
+            "selection_reason": "Requirements-tabel: 5 rijen, 5 MoSCoW-labels",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "taalkeuze": {
+        "manual_review": false,
+        "notes": [
+          "Taalkeuze (in het nederlands, nederlands) en gevolgen (bereik, meertaligheid) aanwezig, onderbouwd met onderzoek."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "2f4d9d91_0309",
+            "page_no": 20,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Geadresseerd in: | Prio\nNaam | Architecturele relevantie | Geadresseerd in: | Prio\nFR01: Uitstraling, opmaak & responsiveness | De uitstraling en opmaak van de website dien te passen bij de beoogde klanten van het soort product. Zij moeten de website en de producten daarop kunnen verkennen, ongeacht het device waarop ze het bekijken. | Casus_Website_First Full Stack_v.1.pdf paragraaf 6 Stakeholder: Opdrachtgever | MUST HAVE\nFR02: Beheer ** | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. | Casus_Website_First Full Stack_v.1.pdf paragraaf 8 Stakeholder: Opdrachtgever | SHOULD HAVE\nFR03: Online | Dit betekent dat de website al bereikbaar is voor klanten. En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen | Casus_Website_First Full Stack_v.1.pdf paragraaf 5 Stakeholder: Opdrachtgever | SHOULD HAVE\n… (4 meer rijen)",
+            "selection_reason": "Taalkeuze (meertalig) én gevolgen (meertaligheid, bereik)",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2f4d9d91_0207",
+            "page_no": 15,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "3.1 Webshopgebruiker van mijn product/Doelgroep"
+            ],
+            "excerpt": "Vertaalbureau Perfect, n.d.) spreken slechts 22 miljoen mensen op de wereld Nederlands.",
+            "selection_reason": "Taalkeuze: nederlands",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2f4d9d91_0208",
+            "page_no": 15,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "3.1 Webshopgebruiker van mijn product/Doelgroep"
+            ],
+            "excerpt": "Als de website alleen in het nederlands beschikbaar is, zal dit de gebruikers vriendelijkheid",
+            "selection_reason": "Taalkeuze: in het nederlands, nederlands",
+            "signal_class": "positive"
+          }
+        ]
+      },
+      "security": {
+        "manual_review": false,
+        "notes": [
+          "4 concrete beveiligingsmechanismen gevonden: risicoanalyse, https, avg, owasp."
+        ],
+        "missing_signals": [],
+        "evidence_items": [
+          {
+            "block_id": "2f4d9d91_0309",
+            "page_no": 20,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "4.1 Constraints en (non-) Functionele eisen"
+            ],
+            "excerpt": "Naam | Architecturele relevantie | Geadresseerd in: | Prio\nNaam | Architecturele relevantie | Geadresseerd in: | Prio\nFR01: Uitstraling, opmaak & responsiveness | De uitstraling en opmaak van de website dien te passen bij de beoogde klanten van het soort product. Zij moeten de website en de producten daarop kunnen verkennen, ongeacht het device waarop ze het bekijken. | Casus_Website_First Full Stack_v.1.pdf paragraaf 6 Stakeholder: Opdrachtgever | MUST HAVE\nFR02: Beheer ** | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. | Casus_Website_First Full Stack_v.1.pdf paragraaf 8 Stakeholder: Opdrachtgever | SHOULD HAVE\nFR03: Online | Dit betekent dat de website al bereikbaar is voor klanten. En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen | Casus_Website_First Full Stack_v.1.pdf paragraaf 5 Stakeholder: Opdrachtgever | SHOULD HAVE\n… (4 meer rijen)",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): risicoanalyse, avg, owasp",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2f4d9d91_0101",
+            "page_no": 6,
+            "block_type": "table",
+            "heading_path": [
+              "H1 Introductie",
+              "2.2 Stakeholder Tabel"
+            ],
+            "excerpt": "Stakeholder | Taak/Rol | Belang\nStakeholder | Taak/Rol | Belang\n1. Overheid | Houdt in de gaten of de AVG wet en regelgeving wordt gehandhaafd en het innen van belasting. | Willen dat het AVG wet en regelgeving wordt nageleefd. Willen dat de belasting wordt betaald.\n2.1 Gebruikers | Het vinden van de website en het kopen van de Gym artikelen. | Verlangen naar een betrouwbare en veilige transactie. Verlangen naar een goede gebruikerservaring.\n2.2 Gebruikers met Dyslexie/kleurenblindheid | Het vinden van de website en het kopen van de Gym artikelen. | Verlangen naar een betrouwbare en veilige transactie. Verlangen naar een goede gebruikerservaring.\n… (1 meer rijen)",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): avg",
+            "signal_class": "positive"
+          },
+          {
+            "block_id": "2f4d9d91_0365",
+            "page_no": 29,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H5 Ethische aandachtspunten",
+              "OWASP top 10"
+            ],
+            "excerpt": "Ik wil speciaal aandacht geven aan een security aspect van de owasp top 10 waar ik goed",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): owasp",
+            "signal_class": "positive"
+          }
+        ]
+      }
+    }
+  }
+]

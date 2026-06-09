@@ -83,6 +83,11 @@ Je hebt geen toegang tot het originele document, maar wel tot relevante geanonim
 * Counts uit CAPS mag je gebruiken als inhoudelijke telling, bijvoorbeeld:
   "CAPS herkent ongeveer 12 requirements."
   Schrijf dit nooit als score, puntentotaal of slash-verhouding.
+* Gebruik missing_signals per criterium als directe basis voor feed_forward.
+  Elk item in missing_signals is een concreet verbeterpunt dat je kunt omzetten
+  naar een aanbeveling. Als missing_signals leeg is, zijn er geen bekende lacunes.
+* Weeg signal_class mee: baseer sterke bewoordingen op positive-blokken;
+  nuanceer bij weak-blokken; benoem absent_marker-blokken als verbeterkans.
 * Verwijs alleen met block IDs in evidence_ref.
 * Citeer geen lange tekstfragmenten letterlijk.
 * Ook criteria zonder handmatige verificatie moeten feedback krijgen.
@@ -111,7 +116,20 @@ Gebruik deze om de feedback concreter en documentgebondener te maken.
 <<EVIDENCE_PACK>>
 
 Per criterium zijn maximaal 3 blokken opgenomen. Elk blok bevat:
-  block_id, criterium, heading_path, block_type, excerpt (max. 150 tekens).
+  block_id, page_no, block_type, heading_path, excerpt (~200 tekens),
+  selection_reason, signal_class.
+
+signal_class geeft aan hoe sterk het blok het criterium ondersteunt:
+  positive      — blok bevat een duidelijk, concreet signaal; veilig te benoemen.
+  weak          — dun of generiek signaal; wees voorzichtig en nuanceer je toon.
+  absent_marker — sectiekopregel zonder inhoud; de student noemde het onderwerp
+                  maar vulde de sectie niet in. Gebruik dit als verbeterpunt.
+
+Elk criterium-pakket bevat ook een missing_signals-lijst. Dit zijn verwachte
+signalen die ontbreken in het document, bijvoorbeeld:
+  "Gevolgen van taalkeuze niet beschreven"
+  "Geen expliciete taalkeuze vermeld"
+Gebruik missing_signals als basis voor concrete feed_forward-aanbevelingen.
 
 Gebruik alleen evidence die echt relevant is voor dat criterium.
 Als EVIDENCE_PACK leeg is of geen blokken bevat voor een bepaald criterium,

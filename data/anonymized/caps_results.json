@@ -17,7 +17,7 @@
         "count": null,
         "manual_review": true,
         "notes": [
-          "Beperking beschreven (blind, slechtziend, beperking) en onderbouwing aanwezig (bron, bronnen).",
+          "Beperking beschreven (slechtziend, beperking, visuele beperking) en onderbouwing aanwezig (bron, bronnen).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ]
       },
@@ -56,7 +56,7 @@
         "count": 5,
         "manual_review": false,
         "notes": [
-          "5 concrete beveiligingsmechanismen gevonden: tls, risicoanalyse, ssl, avg, encryptie."
+          "5 concrete beveiligingsmechanismen gevonden: risicoanalyse, ssl, avg, encryptie, tls."
         ]
       }
     }
@@ -77,7 +77,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Beperking in meerdere blokken beschreven (slechtziend, beperking, visuele beperking) en meerdere onderbouwingsblokken aanwezig (literatuur, literatuurlijst, onderzoek)."
+          "Beperking in meerdere blokken beschreven (slechtziend, beperking, visuele beperking) en meerdere onderbouwingsblokken aanwezig (literatuur, onderzoek, literatuurlijst)."
         ]
       },
       "stakeholders": {
@@ -165,7 +165,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Taalkeuze (meertalig, nederlands) en gevolgen (meertaligheid) aanwezig."
+          "Taalkeuze (taal van de website, engels) en gevolgen (meertaligheid) aanwezig."
         ]
       },
       "security": {
@@ -174,7 +174,7 @@
         "count": 6,
         "manual_review": false,
         "notes": [
-          "6 concrete beveiligingsmechanismen gevonden: https, ssl, wachtwoord, firewall, avg, beveiligingsaudit."
+          "6 concrete beveiligingsmechanismen gevonden: wachtwoord, beveiligingsaudit, ssl, firewall, https, avg."
         ]
       }
     }
@@ -203,7 +203,7 @@
         "count": null,
         "manual_review": true,
         "notes": [
-          "Beperking beschreven (slechtziend, beperking) en onderbouwing aanwezig (bron, literatuur, literatuurlijst).",
+          "Beperking beschreven (slechtziend, beperking) en onderbouwing aanwezig (bron, bronnen, literatuur).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ]
       },
@@ -234,7 +234,7 @@
         "count": null,
         "manual_review": true,
         "notes": [
-          "Taalkeuze vermeld (nederlands, engels), maar geen gevolgen van die keuze beschreven."
+          "Taalkeuze vermeld (engels, nederlands), maar geen gevolgen van die keuze beschreven."
         ]
       },
       "security": {
@@ -378,7 +378,7 @@
         "count": 3,
         "manual_review": false,
         "notes": [
-          "3 concrete beveiligingsmechanismen gevonden: https, wachtwoord, avg."
+          "3 concrete beveiligingsmechanismen gevonden: wachtwoord, https, avg."
         ]
       }
     }
@@ -433,7 +433,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Taalkeuze (meertalig) en meerdere gevolgen (beïnvloeden, bereik, beïnvloed) goed uitgewerkt."
+          "Taalkeuze (meertalig) en meerdere gevolgen (bereik, beïnvloeden, beïnvloed) goed uitgewerkt."
         ]
       },
       "security": {
@@ -442,7 +442,7 @@
         "count": 3,
         "manual_review": false,
         "notes": [
-          "3 concrete beveiligingsmechanismen gevonden: risicoanalyse, wachtwoord, avg."
+          "3 concrete beveiligingsmechanismen gevonden: wachtwoord, risicoanalyse, avg."
         ]
       }
     }
@@ -466,7 +466,7 @@
         "count": null,
         "manual_review": true,
         "notes": [
-          "Beperking beschreven (blind, beperking, visuele beperking) en onderbouwing aanwezig (onderzoek).",
+          "Beperking beschreven (beperking, visuele beperking, blind) en onderbouwing aanwezig (onderzoek).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ]
       },
@@ -496,7 +496,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Taalkeuze (taalkeuze, meertalig) en gevolgen (begrijpelijk, internationaal) aanwezig."
+          "Taalkeuze (taalkeuze, meertalig) en gevolgen (internationaal, begrijpelijk) aanwezig."
         ]
       },
       "security": {
@@ -505,7 +505,7 @@
         "count": 5,
         "manual_review": false,
         "notes": [
-          "5 concrete beveiligingsmechanismen gevonden: hashing, https, ssl, wachtwoord, encryptie."
+          "5 concrete beveiligingsmechanismen gevonden: wachtwoord, hashing, ssl, https, encryptie."
         ]
       }
     }
@@ -528,7 +528,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Beperking in meerdere blokken beschreven (beperking) en meerdere onderbouwingsblokken aanwezig (bron, bronvermelding, deskresearch)."
+          "Beperking in meerdere blokken beschreven (beperking) en meerdere onderbouwingsblokken aanwezig (bron, bronvermelding, onderzoek)."
         ]
       },
       "stakeholders": {
@@ -558,7 +558,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Taalkeuze (in het nederlands, meertalig) en gevolgen (bereik, meertaligheid) aanwezig, onderbouwd met onderzoek."
+          "Taalkeuze (in het nederlands, nederlands) en gevolgen (bereik, meertaligheid) aanwezig, onderbouwd met onderzoek."
         ]
       },
       "security": {
@@ -567,7 +567,7 @@
         "count": 4,
         "manual_review": false,
         "notes": [
-          "4 concrete beveiligingsmechanismen gevonden: risicoanalyse, owasp, https, avg."
+          "4 concrete beveiligingsmechanismen gevonden: risicoanalyse, https, avg, owasp."
         ]
       }
     }
