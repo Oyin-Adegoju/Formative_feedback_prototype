@@ -38,3 +38,21 @@ DEFAULT_CATALOG = Path("data/reference/people_catalog.json")
  
 # Alleen deze submappen zijn student-documenten (sla bv. 'rubrik/' over).
 _LABELS = {"Goed", "Voldoende", "onvoldoende"}
+ 
+ 
+def build_anonymized_report(
+    meta: dict,
+    new_blocks: list,
+    mapping: dict,
+) -> dict:
+    """Bouw de (interne) anonymized-report dict — het huidige schema."""
+    return {
+        "doc_id": meta["doc_id"],
+        "source_path": meta["source_path"],
+        "source_name": meta["source_name"],
+        "quality_label": meta["quality_label"],
+        "block_count": len(new_blocks),
+        "mapping_count": len(mapping),
+        "mapping": mapping,
+        "blocks": [asdict(b) for b in new_blocks],
+    }
