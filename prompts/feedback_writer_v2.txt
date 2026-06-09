@@ -51,8 +51,8 @@ Retourneer exact dit JSON-object. Geen tekst ervoor of erna.
 
 Veldtoelichting:
 - student_samenvatting : 2–3 zinnen over de algehele stand van het document. Studentgericht, geen score.
-- docent_toelichting   : Toelichting voor de docent. Moet het exacte stoplicht noemen ("green",
-                         "yellow" of "red") en kort uitleggen hoe diep de docent het document moet
+- docent_toelichting   : Toelichting voor de docent. Moet het exacte stoplicht noemen ("groen",
+                         "geel" of "rood") en kort uitleggen hoe diep de docent het document moet
                          controleren. Als handmatige verificatie vereist is, gebruik dan letterlijk
                          de term "handmatige verificatie" en noem welke criteria dit betreft.
                          Max 3 zinnen.
