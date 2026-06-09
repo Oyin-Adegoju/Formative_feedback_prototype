@@ -56,3 +56,15 @@ def build_anonymized_report(
         "mapping": mapping,
         "blocks": [asdict(b) for b in new_blocks],
     }
+ 
+ 
+def to_public_report(report: dict) -> dict:
+    """Geef een kopie van `report` zonder zichtbare mapping terug.
+ 
+    `mapping` wordt leeggemaakt; `mapping_count` en `blocks` blijven
+    ongewijzigd (blocks zijn dezelfde objecten -> identiek in beide
+    outputs). Het origineel wordt NIET gemuteerd.
+    """
+    public = dict(report)
+    public["mapping"] = {}
+    return public
