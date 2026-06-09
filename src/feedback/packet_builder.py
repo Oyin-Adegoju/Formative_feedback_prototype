@@ -376,3 +376,97 @@ def _build_beperking_packet(
         evidence_items=items,
         missing_signals=missing_sigs,
     )
+# ---------------------------------------------------------------------------
+# Criterion 2: Stakeholders
+# ---------------------------------------------------------------------------
+ 
+ 
+def _build_stakeholders_packet(
+    spec: CriterionSpec,
+    hits: list[RetrievalHit],
+    cr: CriterionResult,
+) -> EvidencePacket:
+    """Select up to 2 items, strongly preferring table blocks with role data.
+ 
+    Table blocks with belang/invloed columns are the primary source.
+    Paragraph/bullet blocks with role keywords serve as fallback.
+    """
+    MAX = _MAX_ITEMS["stakeholders"]
+    status = cr.status
+    items: list[EvidenceItem] = []
+    missing_sigs: list[str] = []
+ 
+    table_hits = _sort_content_first(
+        [h for h in hits if h.block["block_type"] == "table"]
+    )
+    para_hits = _sort_content_first(
+        [h for h in hits if h.block["block_type"] in ("paragraph", "bullet")]
+    )
+    heading_hits = [h for h in hits if _is_heading_only(h)]
+ 
+    all_text = " ".join(h.block["text"].lower() for h in hits)
+    has_belang = any(t in all_text for t in ("belang", "concern", "interesse"))
+    has_invloed = any(t in all_text for t in ("invloed", "prioriter", "macht"))
+ 
+    count = cr.count or 0
+    minimum = spec.minimum_count or 4
+ 
+    if status == "missing":
+        for h in heading_hits[:1]:
+            items.append(_make_item(
+                h,
+                "Stakeholder-sectieheading gevonden maar geen tabelinhoud herkend",
+                "absent_marker",
+            ))
+        missing_sigs.append("Geen stakeholders herkend in de aangeleverde evidence")
+ 
+    elif status == "partial":
+        if table_hits:
+            h = table_hits[0]
+            tm = h.block.get("table_meta")
+            n_rows = len(tm.get("cells") or []) if tm else 0
+            items.append(_make_item(
+                h,
+                f"Stakeholder-tabel ({n_rows} rijen) — onvolledig ({count} van {minimum} min.)",
+                "weak",
+            ))
+        elif para_hits:
+            h = para_hits[0]
+            items.append(_make_item(
+                h,
+                f"Stakeholder-vermelding in tekst ({count} herkend)",
+                "weak",
+            ))
+        if count < minimum:
+            missing_sigs.append(
+                f"Slechts {count} stakeholder(s) gevonden (minimum {minimum})"
+            )
+        if not has_belang:
+            missing_sigs.append("Belang per stakeholder niet beschreven")
+        if not has_invloed:
+            missing_sigs.append("Invloed per stakeholder niet beschreven")
+ 
+    else:  # sufficient / strong
+        candidates = (table_hits + para_hits)[:MAX]
+        for h in candidates:
+            if h.block["block_type"] == "table":
+                tm = h.block.get("table_meta")
+                n_rows = len(tm.get("cells") or []) if tm else 0
+                reason = f"Stakeholder-tabel ({n_rows} rijen)"
+            else:
+                reason = "Stakeholder-beschrijving in lopende tekst"
+            items.append(_make_item(h, reason, "positive"))
+ 
+        if not has_belang:
+            missing_sigs.append("Belang per stakeholder niet expliciet beschreven")
+        if not has_invloed:
+            missing_sigs.append("Invloed per stakeholder niet expliciet beschreven")
+ 
+    return EvidencePacket(
+        criterion_key=spec.key,
+        manual_review=cr.manual_review,
+        notes=cr.notes,
+        evidence_items=items,
+        missing_signals=missing_sigs,
+    )
+ 
