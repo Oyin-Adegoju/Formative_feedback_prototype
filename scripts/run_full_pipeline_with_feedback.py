@@ -43,6 +43,7 @@ Output is written to:
         input_copy.json          exact copy of the input file
         anonymized_report.json   normalized report passed to CAPS
         caps_result_summary.json CAPS verdict (same shape as caps_results.json)
+        evidence_packets.json    curated evidence blocks per criterion
         feedback_result.json     validated LLM feedback, or skipped marker if --no-llm
         run_summary.json         machine-readable run metadata + check results
 
@@ -74,7 +75,7 @@ if hasattr(sys.stdout, "reconfigure"):
 # Allow running from the project root without installing the package.
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
-from src.caps.caps import run_caps
+from src.caps.caps import run_caps_with_artifacts
 from src.caps.criterion_specs import CRITERIA_KEYS
 from src.caps.models import CapsRunResult, ParseReportDict
 from src.feedback.feedback_builder import (
@@ -82,6 +83,7 @@ from src.feedback.feedback_builder import (
     _PROMPT_VERSION,
     _assemble_prompt,
 )
+from src.feedback.packet_builder import build_evidence_packets
 from src.feedback.feedback_validator import FeedbackValidationError, validate
 from src.feedback.output_schema import DISCLAIMER, FeedbackResult
 from src.llm import llm_client
@@ -209,6 +211,29 @@ def _normalize_report(raw: dict) -> ParseReportDict:
 # ---------------------------------------------------------------------------
 # Serialization — same shape as caps_results.json
 # ---------------------------------------------------------------------------
+
+
+def _packets_to_dict(doc_id: str, packets: dict) -> dict:
+    criteria = {}
+    for key, pkt in packets.items():
+        criteria[key] = {
+            "manual_review": pkt.manual_review,
+            "notes": pkt.notes,
+            "missing_signals": pkt.missing_signals,
+            "evidence_items": [
+                {
+                    "block_id": item.block_id,
+                    "page_no": item.page_no,
+                    "block_type": item.block_type,
+                    "heading_path": item.heading_path,
+                    "excerpt": item.excerpt,
+                    "selection_reason": item.selection_reason,
+                    "signal_class": item.signal_class,
+                }
+                for item in pkt.evidence_items
+            ],
+        }
+    return {"doc_id": doc_id, "criteria": criteria}
 
 
 def _caps_result_to_dict(filename: str, result: CapsRunResult) -> dict:
@@ -486,6 +511,7 @@ def _is_fallback(fb: FeedbackResult) -> bool:
 
 def _generate_feedback_strict(
     caps_result: CapsRunResult,
+    packets: dict,
     llm_base_url: str,
     llm_model: str,
     timeout: int = 800,
@@ -512,7 +538,7 @@ def _generate_feedback_strict(
     print("  template       : loaded")
 
     # ── Assemble prompt ───────────────────────────────────────────────────────
-    prompt = _assemble_prompt(caps_result, template)
+    prompt = _assemble_prompt(caps_result, template, packets=packets)
     print("  prompt         : assembled")
     print(f"  prompt chars   : {len(prompt)}")
     print(f"  model          : {llm_model}")
@@ -629,11 +655,13 @@ def main() -> int:
     _section("Step 3 — CAPS evaluation")
 
     try:
-        caps_result = run_caps(
+        artifacts = run_caps_with_artifacts(
             report,
             input_source="anonymized",
             max_candidates=args.max_candidates,
         )
+        caps_result = artifacts.result
+        packets = build_evidence_packets(artifacts)
     except Exception as exc:
         msg = f"CAPS raised: {exc}"
         print(f"[FATAL] {msg}")
@@ -660,7 +688,7 @@ def main() -> int:
         _section("Step 4 — Feedback generation")
         try:
             feedback_result = _generate_feedback_strict(
-                caps_result, llm_base_url, llm_model,
+                caps_result, packets, llm_base_url, llm_model,
                 timeout=args.llm_timeout,
             )
         except RuntimeError as exc:
@@ -728,6 +756,9 @@ def main() -> int:
 
     # caps_result_summary.json — same shape as caps_results.json
     _write_json(run_dir / "caps_result_summary.json", caps_summary)
+
+    # evidence_packets.json — curated evidence blocks per criterion
+    _write_json(run_dir / "evidence_packets.json", _packets_to_dict(caps_result.doc_id, packets))
 
     # feedback_result.json
     if feedback_result is not None:

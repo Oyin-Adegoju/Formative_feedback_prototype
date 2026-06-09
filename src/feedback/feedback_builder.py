@@ -16,6 +16,7 @@ Architecture position:
 
 from __future__ import annotations
 
+import json
 import logging
 import os
 import re
@@ -24,6 +25,7 @@ from typing import Final
 
 from src.caps.criterion_specs import CRITERIA_BY_KEY, CRITERIA_KEYS
 from src.caps.models import CapsRunResult
+from src.feedback.evidence import EvidencePacket
 from src.feedback.feedback_validator import FeedbackValidationError, validate
 from src.feedback.output_schema import DISCLAIMER, CriterionFeedback, FeedbackResult
 from src.llm import llm_client
@@ -35,9 +37,9 @@ logger = logging.getLogger(__name__)
 # Prompt template
 # ---------------------------------------------------------------------------
 
-_PROMPT_VERSION: Final[str] = "feedback_writer_v2"
+_PROMPT_VERSION: Final[str] = "feedback_writer_v3"
 _PROMPT_PATH: Final[Path] = (
-    Path(__file__).parent.parent.parent / "prompts" / "feedback_writer_v2.txt"
+    Path(__file__).parent.parent.parent / "prompts" / "feedback_writer_v3.txt"
 )
 
 # ---------------------------------------------------------------------------
@@ -103,52 +105,61 @@ def _collect_block_ids(caps_result: CapsRunResult) -> list[str]:
                 ids.append(ref.block_id)
     return ids
 
-def _format_scorecard(caps_result: CapsRunResult) -> str:
-    """Render all criteria as a compact human-readable block for the prompt."""
+def _format_caps_criteria_summary(caps_result: CapsRunResult) -> str:
+    """Render all criteria for <<CAPS_CRITERIA_SUMMARY>> in the v3 prompt."""
     lines: list[str] = []
     for key in CRITERIA_KEYS:
         cr = caps_result.scorecard.results.get(key)
         spec = CRITERIA_BY_KEY[key]
-
-        lines.append(f"CRITERIUM: {key} — {spec.label}")
-
         if cr is None:
-            lines.append("  Bevinding : (niet geëvalueerd)")
+            lines.append(f"{key} ({spec.label}): niet geëvalueerd")
             lines.append("")
             continue
-
-        lines.append(f"  Bevinding : {_STATUS_DISPLAY.get(cr.status, cr.status)}")
-
+        lines.append(f"{key} ({spec.label})")
+        lines.append(f"  stoplight    : {cr.stoplight}")
+        if cr.count is not None:
+            lines.append(f"  count        : {cr.count}")
+        lines.append(f"  manual_review: {cr.manual_review}")
         for note in cr.notes:
-            if not re.search(r"\d", note):
-                lines.append(f"  Notitie : {note}")
-
-        if cr.evidence:
-            ids = ", ".join(ref.block_id for ref in cr.evidence)
-            lines.append(f"  Evidence: {ids}")
-        else:
-            lines.append("  Evidence: (geen)")
-
-        if cr.manual_review:
-            lines.append("  ⚠ Handmatige verificatie aanbevolen")
-
+            lines.append(f"  note: {note}")
         lines.append("")
-
     return "\n".join(lines).strip()
-def _manual_review_section(caps_result: CapsRunResult) -> str:
-    """Return a warning line when manual review is required, else empty string."""
-    if not caps_result.manual_review_required:
-        return ""
-    flags = ", ".join(caps_result.manual_review_flags)
-    return f"⚠ Handmatige verificatie vereist voor: {flags}\n"
 
 
-def _assemble_prompt(caps_result: CapsRunResult, template: str) -> str:
-    """Fill all placeholders in the prompt template with scorecard data."""
+def _format_evidence_pack(packets: dict[str, EvidencePacket]) -> str:
+    """Serialise evidence packets to JSON for <<EVIDENCE_PACK>> in the v3 prompt."""
+    data: dict = {}
+    for key, pkt in packets.items():
+        data[key] = {
+            "missing_signals": pkt.missing_signals,
+            "evidence_items": [
+                {
+                    "block_id": item.block_id,
+                    "page_no": item.page_no,
+                    "block_type": item.block_type,
+                    "heading_path": item.heading_path,
+                    "excerpt": item.excerpt,
+                    "selection_reason": item.selection_reason,
+                    "signal_class": item.signal_class,
+                }
+                for item in pkt.evidence_items
+            ],
+        }
+    return json.dumps(data, indent=2, ensure_ascii=False)
+
+
+def _assemble_prompt(
+    caps_result: CapsRunResult,
+    template: str,
+    packets: dict[str, EvidencePacket] | None = None,
+) -> str:
+    """Fill all placeholders in the v3 prompt template."""
     block_ids = _collect_block_ids(caps_result)
-    known_ids_str = (
-        ", ".join(block_ids) if block_ids else "(geen evidence beschikbaar)"
-    )
+    known_ids_str = ", ".join(block_ids) if block_ids else "(geen evidence beschikbaar)"
+    evidence_pack_str = _format_evidence_pack(packets) if packets else "(geen evidence beschikbaar)"
+    manual_review_str = "ja" if caps_result.manual_review_required else "nee"
+    flags_str = ", ".join(caps_result.manual_review_flags) if caps_result.manual_review_flags else "geen"
+    blockers_str = ", ".join(caps_result.blockers_triggered) if caps_result.blockers_triggered else "geen"
 
     return (
         template
@@ -156,8 +167,11 @@ def _assemble_prompt(caps_result: CapsRunResult, template: str) -> str:
         .replace("<<STOPLIGHT>>", caps_result.overall_stoplight)
         .replace("<<CRITERION_KEYS>>", ", ".join(CRITERIA_KEYS))
         .replace("<<KNOWN_BLOCK_IDS>>", known_ids_str)
-        .replace("<<SCORECARD>>", _format_scorecard(caps_result))
-        .replace("<<MANUAL_REVIEW_SECTION>>", _manual_review_section(caps_result))
+        .replace("<<MANUAL_REVIEW_REQUIRED>>", manual_review_str)
+        .replace("<<MANUAL_REVIEW_FLAGS>>", flags_str)
+        .replace("<<BLOCKERS_TRIGGERED>>", blockers_str)
+        .replace("<<CAPS_CRITERIA_SUMMARY>>", _format_caps_criteria_summary(caps_result))
+        .replace("<<EVIDENCE_PACK>>", evidence_pack_str)
     )
 
 # ---------------------------------------------------------------------------
@@ -165,7 +179,10 @@ def _assemble_prompt(caps_result: CapsRunResult, template: str) -> str:
 # ---------------------------------------------------------------------------
 
 
-def generate_feedback(caps_result: CapsRunResult) -> FeedbackResult:
+def generate_feedback(
+    caps_result: CapsRunResult,
+    packets: dict[str, EvidencePacket] | None = None,
+) -> FeedbackResult:
     """Generate formative feedback from a CapsRunResult.
 
     Pipeline:
@@ -200,7 +217,7 @@ def generate_feedback(caps_result: CapsRunResult) -> FeedbackResult:
         return _fallback(caps_result, f"prompt template not found: {exc}")
 
     # --- 2. Assemble prompt ---
-    prompt = _assemble_prompt(caps_result, template)
+    prompt = _assemble_prompt(caps_result, template, packets=packets)
 
     # --- 3. LLM call ---
     try:
