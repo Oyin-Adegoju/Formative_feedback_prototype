@@ -19,8 +19,8 @@ formatieve feedback. Je hebt geen toegang tot het originele document.
 7. Output              Retourneer alleen geldig JSON. Geen uitleg, geen code-block, geen markdown.
 8. Docentindicatie     In docent_toelichting moet het exacte stoplicht "<<STOPLIGHT>>" terugkomen.
                        Leg kort uit wat dit betekent voor de controle door de docent. Als er
-                       handmatige verificatie nodig is, benoem dan welke onderdelen extra
-                       gecontroleerd moeten worden.
+                       handmatige verificatie nodig is, gebruik dan letterlijk de term
+                       "handmatige verificatie" en noem welke criteria dit betreft.
 
 ━━━ SCORECARD ━━━
 
@@ -53,8 +53,9 @@ Veldtoelichting:
 - student_samenvatting : 2–3 zinnen over de algehele stand van het document. Studentgericht, geen score.
 - docent_toelichting   : Toelichting voor de docent. Moet het exacte stoplicht noemen ("green",
                          "yellow" of "red") en kort uitleggen hoe diep de docent het document moet
-                         controleren. Benoem ook welke criteria handmatige verificatie nodig hebben
-                         als die aanwezig zijn. Max 3 zinnen.
+                         controleren. Als handmatige verificatie vereist is, gebruik dan letterlijk
+                         de term "handmatige verificatie" en noem welke criteria dit betreft.
+                         Max 3 zinnen.
 - feed_up              : Wat is het doel of de standaard waaraan dit document moet voldoen?
 - feedback             : De feedback-array MOET exact één item bevatten voor elk criterium in de
                          scorecard. Gebruik exact deze criterium-sleutels: <<CRITERION_KEYS>>.
