@@ -407,9 +407,15 @@ def _check_caps_summary(summary: dict) -> list[CheckResult]:
     return results
 
 
-def _check_feedback(fb: FeedbackResult, caps_result: CapsRunResult) -> list[CheckResult]:
+def _check_feedback(fb: FeedbackResult, caps_result: CapsRunResult, packets: dict | None = None) -> list[CheckResult]:
     results: list[CheckResult] = []
     known_ids = _collect_known_block_ids(caps_result)
+    if packets:
+        known_ids = known_ids | frozenset(
+            item.block_id
+            for pkt in packets.values()
+            for item in pkt.evidence_items
+        )
 
     doc_id_ok = fb["document_id"] == caps_result.doc_id
     results.append((
@@ -565,8 +571,13 @@ def _generate_feedback_strict(
 
     # ── Validation ────────────────────────────────────────────────────────────
     print("[VALIDATION] Starting feedback validation...")
+    packet_ids: frozenset[str] = frozenset(
+        item.block_id
+        for pkt in packets.values()
+        for item in pkt.evidence_items
+    )
     try:
-        result = validate(raw_json, caps_result)
+        result = validate(raw_json, caps_result, extra_known_ids=packet_ids)
     except FeedbackValidationError as exc:
         raise RuntimeError(f"Feedback validation failed: {exc.reason}") from exc
     print("[VALIDATION] Feedback JSON validated successfully.")
@@ -726,7 +737,7 @@ def main() -> int:
     all_checks.extend(_check_caps_summary(caps_summary))
 
     if feedback_result is not None:
-        all_checks.extend(_check_feedback(feedback_result, caps_result))
+        all_checks.extend(_check_feedback(feedback_result, caps_result, packets=packets))
         all_checks.extend(_check_leaks(feedback_result))
     else:
         print("  (feedback checks skipped — no feedback result)")

@@ -12,7 +12,7 @@ Guardrails enforced here:
   - All required fields must be present and non-empty where expected.
   - stoplight must equal CapsRunResult.overall_stoplight (LLM may not change it).
   - No numeric score pattern may appear in any LLM-written text field.
-  - Every evidence_ref block ID must exist in the CAPS scorecard evidence.
+  - Every evidence_ref block ID must exist in the CAPS scorecard evidence or evidence packets.
   - Every criterium key in feedback[] must be a known CAPS criterion key.
   - feedback[] must contain exactly one entry per CAPS criterion (no missing, no duplicates).
   - docent_toelichting must contain the exact CAPS stoplight word.
@@ -149,7 +149,11 @@ def _llm_text_fields(data: dict) -> str:
 # ---------------------------------------------------------------------------
 
 
-def validate(raw_json: str, caps_result: CapsRunResult) -> FeedbackResult:
+def validate(
+    raw_json: str,
+    caps_result: CapsRunResult,
+    extra_known_ids: frozenset[str] | None = None,
+) -> FeedbackResult:
     """Validate raw LLM output and return a clean FeedbackResult.
 
     Applies all guardrails in order. Raises FeedbackValidationError on the
@@ -254,6 +258,8 @@ def validate(raw_json: str, caps_result: CapsRunResult) -> FeedbackResult:
 
     # --- 8. feedback entries: known criterion keys and known evidence refs ---
     known_block_ids = _collect_known_block_ids(caps_result)
+    if extra_known_ids:
+        known_block_ids = known_block_ids | extra_known_ids
     known_keys = frozenset(CRITERIA_KEYS)
 
     for entry in data["feedback"]:

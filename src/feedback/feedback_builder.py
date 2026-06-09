@@ -230,8 +230,13 @@ def generate_feedback(
         return _fallback(caps_result, f"LLM call failed: {exc.reason}")
 
     # --- 4. Validate ---
+    packet_ids: frozenset[str] = frozenset(
+        item.block_id
+        for pkt in (packets or {}).values()
+        for item in pkt.evidence_items
+    )
     try:
-        result = validate(raw_json, caps_result)
+        result = validate(raw_json, caps_result, extra_known_ids=packet_ids)
     except FeedbackValidationError as exc:
         logger.warning(
             "doc_id=%s prompt_version=%s model=%s stoplight=%s "
