@@ -798,3 +798,16 @@ def _build_security_packet(
     )
  
  
+# ---------------------------------------------------------------------------
+# Per-criterion dispatch table
+# ---------------------------------------------------------------------------
+ 
+_PACKET_BUILDERS = {
+    "beperking":    _build_beperking_packet,
+    "stakeholders": _build_stakeholders_packet,
+    "requirements": _build_requirements_packet,
+    "taalkeuze":    _build_taalkeuze_packet,
+    "security":     _build_security_packet,
+}
+ 
+ 
