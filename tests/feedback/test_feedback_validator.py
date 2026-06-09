@@ -15,6 +15,7 @@ from src.caps.models import (
 )
 from src.feedback.feedback_validator import (
     FeedbackValidationError,
+    _MANUAL_REVIEW_PHRASES,
     _collect_known_block_ids,
     _llm_text_fields,
     validate,
@@ -54,6 +55,8 @@ def _make_caps_result(
     stoplight: str = "green",
     doc_id: str = "doc1",
     criterion_block_ids: dict[str, list[str]] | None = None,
+    manual_review_required: bool = False,
+    manual_review_flags: list[str] | None = None,
 ) -> CapsRunResult:
     """Build a minimal CapsRunResult for testing."""
     bids = criterion_block_ids or {
@@ -73,6 +76,8 @@ def _make_caps_result(
         source_name="test.pdf",
         scorecard=scorecard,
         overall_stoplight=stoplight,
+        manual_review_required=manual_review_required,
+        manual_review_flags=manual_review_flags or [],
         run_meta=CapsRunMeta(
             input_source="parser_direct",
             page_count=5,
@@ -82,11 +87,11 @@ def _make_caps_result(
 
 
 def _valid_llm_output(stoplight: str = "green") -> dict:
-    """Return a dict that passes all guardrails."""
+    """Return a dict that passes all guardrails (all 5 CAPS criteria present)."""
     return {
         "stoplight": stoplight,
         "student_samenvatting": "Je document voldoet aan de basisvereisten.",
-        "docent_toelichting": "Het document is volledig en goed onderbouwd.",
+        "docent_toelichting": f"Het CAPS-stoplicht is {stoplight}, de docent kan een globale controle uitvoeren.",
         "feed_up": "Het doel is een volledig requirements-document met alle vijf criteria.",
         "feedback": [
             {
@@ -98,6 +103,21 @@ def _valid_llm_output(stoplight: str = "green") -> dict:
                 "criterium": "stakeholders",
                 "observatie": "De stakeholders zijn goed in kaart gebracht.",
                 "evidence_ref": [_BLOCK_B],
+            },
+            {
+                "criterium": "requirements",
+                "observatie": "De requirements zijn volledig uitgewerkt.",
+                "evidence_ref": [_BLOCK_C],
+            },
+            {
+                "criterium": "taalkeuze",
+                "observatie": "De taalkeuze is verantwoord.",
+                "evidence_ref": [],
+            },
+            {
+                "criterium": "security",
+                "observatie": "De beveiligingsmaatregelen zijn beschreven.",
+                "evidence_ref": [],
             },
         ],
         "feed_forward": [
@@ -210,12 +230,13 @@ def test_valid_output_with_red_stoplight():
     assert result["stoplight"] == "red"
 
 
-def test_valid_output_empty_feedback_list_is_allowed():
+def test_empty_feedback_list_raises():
     caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
     payload["feedback"] = []
-    result = validate(_to_json(payload), caps)
-    assert result["feedback"] == []
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "Missing feedback criteria" in exc_info.value.reason
 
 
 def test_valid_output_empty_feed_forward_is_allowed():
@@ -229,11 +250,10 @@ def test_valid_output_empty_feed_forward_is_allowed():
 def test_valid_output_empty_evidence_ref_is_allowed():
     caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
-    payload["feedback"] = [
-        {"criterium": "beperking", "observatie": "ok", "evidence_ref": []}
-    ]
+    for entry in payload["feedback"]:
+        entry["evidence_ref"] = []
     result = validate(_to_json(payload), caps)
-    assert result["feedback"][0]["evidence_ref"] == []
+    assert all(entry["evidence_ref"] == [] for entry in result["feedback"])
 
 # ---------------------------------------------------------------------------
 # JSON parse failure
@@ -312,7 +332,10 @@ def test_whitespace_only_student_samenvatting_raises():
 
 def test_stoplight_mismatch_raises():
     caps = _make_caps_result(stoplight="green")
-    payload = _valid_llm_output("red")
+    payload = _valid_llm_output("red")  # LLM returns wrong stoplight value
+    # Step 3b checks docent_toelichting for the CAPS stoplight ("green"),
+    # so keep docent_toelichting correct to let the mismatch check at step 4 fire.
+    payload["docent_toelichting"] = "Het stoplicht is green, lichte controle volstaat."
     with pytest.raises(FeedbackValidationError) as exc_info:
         validate(_to_json(payload), caps)
     assert "Stoplight mismatch" in exc_info.value.reason
@@ -326,7 +349,9 @@ def test_stoplight_missing_from_llm_output_raises():
     del payload["stoplight"]
     with pytest.raises(FeedbackValidationError) as exc_info:
         validate(_to_json(payload), caps)
-    assert "Stoplight mismatch" in exc_info.value.reason
+    # stoplight is in _REQUIRED_FIELDS, so step 2 catches it before the mismatch check
+    assert "Missing required fields" in exc_info.value.reason
+    assert "stoplight" in exc_info.value.reason
 
 
 # ---------------------------------------------------------------------------
@@ -336,7 +361,8 @@ def test_stoplight_missing_from_llm_output_raises():
 
 @pytest.mark.parametrize("text,field", [
     ("Je hebt 8/10 gehaald op dit onderdeel.", "student_samenvatting"),
-    ("De score is score: 12 punten.", "docent_toelichting"),
+    # docent_toelichting must include the stoplight (green) to pass step 3b first
+    ("Het stoplicht is green, score: 12 punten.", "docent_toelichting"),
     ("Het cijfer: 7 is voldoende.", "feed_up"),
     ("Goed gedaan, score: 3 voor security.", "taalgebruik"),
     ("Je scoort 12/15 op de rubric.", "student_samenvatting"),
@@ -466,13 +492,8 @@ def test_unknown_evidence_ref_block_id_raises():
 def test_known_evidence_ref_passes():
     caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
-    payload["feedback"] = [
-        {
-            "criterium": "beperking",
-            "observatie": "ok",
-            "evidence_ref": [_BLOCK_A],
-        }
-    ]
+    # Only override beperking's evidence_ref; keep all other criteria intact
+    payload["feedback"][0]["evidence_ref"] = [_BLOCK_A]
     result = validate(_to_json(payload), caps)
     assert result["feedback"][0]["evidence_ref"] == [_BLOCK_A]
 
@@ -481,13 +502,7 @@ def test_evidence_ref_from_different_criterion_passes():
     caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
     # _BLOCK_B belongs to stakeholders, but beperking entry references it — still valid
-    payload["feedback"] = [
-        {
-            "criterium": "beperking",
-            "observatie": "ok",
-            "evidence_ref": [_BLOCK_B],
-        }
-    ]
+    payload["feedback"][0]["evidence_ref"] = [_BLOCK_B]
     result = validate(_to_json(payload), caps)
     assert result["feedback"][0]["evidence_ref"] == [_BLOCK_B]
     # ---------------------------------------------------------------------------
@@ -527,3 +542,128 @@ def test_feedback_entries_have_correct_shape():
         assert "observatie" in entry
         assert "evidence_ref" in entry
         assert isinstance(entry["evidence_ref"], list)
+
+
+# ---------------------------------------------------------------------------
+# Criteria completeness (step 8b)
+# ---------------------------------------------------------------------------
+
+
+def test_all_five_criteria_present_passes():
+    caps = _make_caps_result(stoplight="green")
+    result = validate(_to_json(_valid_llm_output("green")), caps)
+    returned = {e["criterium"] for e in result["feedback"]}
+    assert returned == {"beperking", "stakeholders", "requirements", "taalkeuze", "security"}
+
+
+def test_missing_criteria_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["feedback"] = [
+        {"criterium": "beperking", "observatie": "ok", "evidence_ref": []}
+    ]
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "Missing feedback criteria" in exc_info.value.reason
+    for key in ("requirements", "security", "stakeholders", "taalkeuze"):
+        assert key in exc_info.value.reason
+
+
+def test_duplicate_criterion_raises():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    # Replace the first entry with a duplicate of itself
+    payload["feedback"] = [
+        {"criterium": "beperking", "observatie": "eerste", "evidence_ref": []},
+        {"criterium": "beperking", "observatie": "duplicaat", "evidence_ref": []},
+        {"criterium": "stakeholders", "observatie": "ok", "evidence_ref": []},
+        {"criterium": "requirements", "observatie": "ok", "evidence_ref": []},
+        {"criterium": "taalkeuze", "observatie": "ok", "evidence_ref": []},
+        {"criterium": "security", "observatie": "ok", "evidence_ref": []},
+    ]
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "Duplicate" in exc_info.value.reason
+    assert "beperking" in exc_info.value.reason
+
+
+def test_unknown_criterion_still_rejected_before_completeness_check():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["feedback"][0]["criterium"] = "verzonnen_criterium"
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "Unknown criterion key" in exc_info.value.reason
+
+
+# ---------------------------------------------------------------------------
+# docent_toelichting stoplight check (step 3b)
+# ---------------------------------------------------------------------------
+
+
+def test_docent_toelichting_must_contain_stoplight():
+    for stoplight in ("green", "yellow", "red"):
+        caps = _make_caps_result(stoplight=stoplight)
+        payload = _valid_llm_output(stoplight)
+        payload["docent_toelichting"] = "Geen stoplicht vermeld hier."
+        with pytest.raises(FeedbackValidationError) as exc_info:
+            validate(_to_json(payload), caps)
+        assert "docent_toelichting does not mention the CAPS stoplight" in exc_info.value.reason
+        assert stoplight in exc_info.value.reason
+
+
+def test_docent_toelichting_with_stoplight_passes():
+    caps = _make_caps_result(stoplight="yellow")
+    payload = _valid_llm_output("yellow")
+    payload["docent_toelichting"] = "Het stoplicht is yellow, controleer het document gericht."
+    result = validate(_to_json(payload), caps)
+    assert result["stoplight"] == "yellow"
+
+
+def test_docent_toelichting_stoplight_case_insensitive():
+    caps = _make_caps_result(stoplight="green")
+    payload = _valid_llm_output("green")
+    payload["docent_toelichting"] = "Stoplicht: GREEN — lichte controle volstaat."
+    result = validate(_to_json(payload), caps)
+    assert result is not None
+
+
+# ---------------------------------------------------------------------------
+# docent_toelichting manual review check (step 3c)
+# ---------------------------------------------------------------------------
+
+
+def test_manual_review_required_must_be_mentioned():
+    caps = _make_caps_result(
+        stoplight="yellow",
+        manual_review_required=True,
+        manual_review_flags=["beperking"],
+    )
+    payload = _valid_llm_output("yellow")
+    # docent_toelichting has the stoplight but no manual review phrase
+    payload["docent_toelichting"] = "Het stoplicht is yellow. Alles ziet er goed uit."
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), caps)
+    assert "manual review" in exc_info.value.reason.lower()
+
+
+@pytest.mark.parametrize("phrase", list(_MANUAL_REVIEW_PHRASES))
+def test_each_manual_review_phrase_is_accepted(phrase: str):
+    caps = _make_caps_result(
+        stoplight="yellow",
+        manual_review_required=True,
+        manual_review_flags=["beperking"],
+    )
+    payload = _valid_llm_output("yellow")
+    payload["docent_toelichting"] = f"Het stoplicht is yellow. Beperking vraagt {phrase}."
+    result = validate(_to_json(payload), caps)
+    assert result is not None
+
+
+def test_manual_review_not_required_no_phrase_needed():
+    caps = _make_caps_result(stoplight="green", manual_review_required=False)
+    payload = _valid_llm_output("green")
+    # No manual review phrase — fine because manual_review_required is False
+    payload["docent_toelichting"] = "Het stoplicht is green, lichte controle volstaat."
+    result = validate(_to_json(payload), caps)
+    assert result is not None
