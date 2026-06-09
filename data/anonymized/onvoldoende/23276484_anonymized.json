@@ -1,0 +1,1585 @@
+{
+  "doc_id": "23276484",
+  "source_path": "INFIRST_requirements/onvoldoende/student_7_requirements.pdf",
+  "source_name": "student_7_requirements.pdf",
+  "quality_label": "onvoldoende",
+  "block_count": 107,
+  "mapping_count": 4,
+  "mapping": {},
+  "blocks": [
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0001",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Requirements analyse",
+      "token_estimate": 5,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0002",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Student: [PERSOON_01] Studentnummer: [STUDENTNR_01]",
+      "token_estimate": 10,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0003",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Module: INFIRFS?",
+      "token_estimate": 4,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0004",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Datum: morgen misschien",
+      "token_estimate": 5,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0005",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Titel: webshop ding",
+      "token_estimate": 4,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0006",
+      "page_no": 1,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Slechte Requirements Analyse - anti-voorbeeld",
+      "token_estimate": 11,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0007",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Inhoud",
+      "token_estimate": 1,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0008",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H1 Introductie ........................................ 3",
+      "token_estimate": 14,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0009",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H2 Stakeholders analyse ............................... 9",
+      "token_estimate": 14,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0010",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H3 Onderzoek naar web gebruikers ...................... 2",
+      "token_estimate": 14,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0011",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H4 Eisen enzo ......................................... 15",
+      "token_estimate": 14,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0012",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Use cases ergens ...................................... ??",
+      "token_estimate": 14,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0013",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Literatuurlijst ....................................... vergeten",
+      "token_estimate": 16,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0014",
+      "page_no": 2,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Slechte Requirements Analyse - anti-voorbeeld",
+      "token_estimate": 11,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0015",
+      "page_no": 3,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "H1 Introductie",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0016",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "Ik ga een webshop maken voor brillen. Het is vooral gewoon een website waar mensen dingen kunnen kopen. De",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0017",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "site moet mooi zijn en werken. Ik heb niet echt onderzocht waarom dit nodig is, maar ik denk dat mensen brillen",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0018",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "leuk vinden.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0019",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "De doelgroep is iedereen. Eigenlijk vooral jonge mensen, maar ook oude mensen en slechtzienden en",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0020",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "investeerders en mensen die goedkoop willen kopen. Dit is heel breed maar dat maakt niet uit.",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0021",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "De webshop wordt paars, zwart, wit, groen en misschien geel. De taal wordt Nederlands of",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0022",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "Engels of allebei, dat beslis ik later. De beperking is dat er weinig producten zijn omdat dat",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0023",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "sneller is.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0024",
+      "page_no": 3,
+      "block_type": "caption",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "Figuur 1: ontwerp komt later. Ik had geen tijd om Figma toe te voegen.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0025",
+      "page_no": 3,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "H2 Stakeholders analyse",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0026",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "De stakeholders zijn gewoon de belangrijkste mensen. Ik heb er niet veel gekozen omdat dat overzichtelijker is.",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0027",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Categorisatie: primair/secundair heb ik niet helemaal gedaan. Klant is primair, developer ook, investeerder",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0028",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "misschien. Verder zijn er geen echte concerns uitgewerkt.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0029",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Belangen en concerns: iedereen wil dat de website goed is. Dat is het eigenlijk. Er is geen interview gedaan of",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0030",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "deskresearch gebruikt.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0031",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Stakeholder matrix: niet gemaakt. Ik denk dat de investeerder ergens rechtsboven staat.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0032",
+      "page_no": 3,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "H3 Onderzoek naar web gebruikers",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0033",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "Ik heb geen echt onderzoek gedaan naar webgebruikers. Ik heb zelf bedacht dat studenten vaak online shoppen.",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0034",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "Slechtziende mensen hebben grote letters nodig. Verder heb ik geen bronnen gebruikt.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0035",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "Persona: Emma, 19 jaar. Ze houdt van brillen en TikTok. Ze wil goedkope brillen. Ze gebruikt mobiel. Dit profiel is",
+      "token_estimate": 28,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0036",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "niet gebaseerd op interviews of bronnen, maar klinkt logisch.",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0037",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "Conclusie: maak een website met filters en een winkelmandje. Dan is iedereen tevreden.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0038",
+      "page_no": 3,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Slechte Requirements Analyse - anti-voorbeeld",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0039",
+      "page_no": 3,
+      "block_type": "table",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "Stakeholder | Belang | Invloed | Waarom\nKlant | Wil iets kopen | Laag | Klanten klikken alleen maar.\nIk / developer | Moet de website maken | Hoog | Ik bepaal eigenlijk alles.\nInvesteerder | Investeerder | Wil winst | Wil winst | Hoog/laag | Hoog/laag | Niet duidelijk, want ik heb het\nniet gevraagd.",
+      "token_estimate": 75,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 5,
+        "column_count": 7,
+        "header_row": "Stakeholder | Belang | Invloed | Waarom",
+        "cells": [
+          [
+            "Stakeholder",
+            "Belang",
+            "Invloed",
+            "Waarom"
+          ],
+          [
+            "Klant",
+            "Wil iets kopen",
+            "Laag",
+            "Klanten klikken alleen maar."
+          ],
+          [
+            "Ik / developer",
+            "Moet de website maken",
+            "Hoog",
+            "Ik bepaal eigenlijk alles."
+          ],
+          [
+            "Investeerder",
+            "Investeerder",
+            "Wil winst",
+            "Wil winst",
+            "Hoog/laag",
+            "Hoog/laag",
+            "Niet duidelijk, want ik heb het"
+          ],
+          [
+            "niet gevraagd."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0040",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "H4 Wensen, Eisen, Prioriteiten",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0041",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Deze eisen zijn snel bedacht. De prioriteiten zijn niet echt onderbouwd. Bijna alles is Must Have omdat alles",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0042",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "belangrijk lijkt.",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0043",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "4.1 Constraints en niet-functionele eisen",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0044",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "Naam Eis Onderbouwing Prio",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0045",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "CONSTR01 Budget maximaal 10.000 of Niet onderzocht. Must",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0046",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "100.000 euro.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0047",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "CONSTR02 Project duurt 6 weken of langer Omdat school dat ongeveer Could",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0048",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "als nodig. zegt.",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0049",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "NFR01 Website moet altijd werken. Dat is handig. Must",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0050",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "NFR02 Website moet mooi zijn. Mensen houden van mooie Must",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0051",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "dingen.",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0052",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "NFR03 Taal is Nederlands/Engels. Geen keuze gemaakt. Should",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0053",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "NFR04 Security moet veilig zijn. Wachtwoorden mogen niet Must",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0054",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "makkelijk zijn.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0055",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "Waarom MoSCoW: ik heb gekozen op gevoel. Must betekent belangrijk, should betekent minder belangrijk. Er is",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0056",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.1 Constraints en niet-functionele eisen"
+      ],
+      "text": "geen koppeling met stakeholders of bronnen.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0057",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie",
+        "Functionele requirements"
+      ],
+      "text": "Functionele requirements",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0058",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "Functionele requirements"
+      ],
+      "text": "Naam Requirement Geadresseerd in Prio",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0059",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "Functionele requirements"
+      ],
+      "text": "UC01 Gebruiker kan registreren. MUST",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0060",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "Functionele requirements"
+      ],
+      "text": "UC02 Gebruiker kan inloggen. MUST",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0061",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "Functionele requirements"
+      ],
+      "text": "UC03 Gebruiker kan producten zien. MUST",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0062",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "Functionele requirements"
+      ],
+      "text": "UC04 Gebruiker kan winkelmandje MUST",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0063",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "Functionele requirements"
+      ],
+      "text": "gebruiken.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0064",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "Functionele requirements"
+      ],
+      "text": "UC05 Admin kan producten beheren. MUST",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0065",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "Functionele requirements"
+      ],
+      "text": "UC06 Gebruiker kan betalen SHOULD",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0066",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "Functionele requirements"
+      ],
+      "text": "misschien.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0067",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "Functionele requirements"
+      ],
+      "text": "Er zijn minder dan 15 requirements en de toelichting is kort. Sommige eisen zijn eigenlijk dubbel of onduidelijk.",
+      "token_estimate": 28,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0068",
+      "page_no": 4,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Slechte Requirements Analyse - anti-voorbeeld",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0069",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie",
+        "4.2 Use Case Diagram"
+      ],
+      "text": "4.2 Use Case Diagram",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0070",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "4.2 Use Case Diagram"
+      ],
+      "text": "Diagram: vergeten. De actors zijn klant en admin. Use cases zijn registreren, inloggen, kopen en beheren.",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0071",
+      "page_no": 5,
+      "block_type": "template",
+      "heading_path": [],
+      "text": "[hier had een UML diagram moeten staan]",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0072",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "4.3 Use Case beschrijvingen",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0073",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie",
+        "USC1 Registratie"
+      ],
+      "text": "USC1 Registratie",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0074",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC1 Registratie"
+      ],
+      "text": "Actor Klant",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0075",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC1 Registratie"
+      ],
+      "text": "Preconditie website staat open",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0076",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC1 Registratie"
+      ],
+      "text": "Beschrijving De gebruiker doet iets in de webshop.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0077",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC1 Registratie"
+      ],
+      "text": "Scenario 1. Klant klikt. 2. Klant vult gegevens in. 3. Klaar.",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0078",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC1 Registratie"
+      ],
+      "text": "Postconditie Het is gelukt of niet.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0079",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC1 Registratie"
+      ],
+      "text": "Exceptie flow Als het niet lukt komt er een foutmelding.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0080",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie",
+        "USC2 Winkelmand"
+      ],
+      "text": "USC2 Winkelmand",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0081",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC2 Winkelmand"
+      ],
+      "text": "Actor Klant",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0082",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC2 Winkelmand"
+      ],
+      "text": "Preconditie website staat open",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0083",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC2 Winkelmand"
+      ],
+      "text": "Beschrijving De gebruiker doet iets in de webshop.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0084",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC2 Winkelmand"
+      ],
+      "text": "Scenario 1. Product kiezen. 2. Toevoegen. 3. Betalen.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0085",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC2 Winkelmand"
+      ],
+      "text": "Postconditie Het is gelukt of niet.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0086",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC2 Winkelmand"
+      ],
+      "text": "Exceptie flow Als het niet lukt komt er een foutmelding.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0087",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie",
+        "USC3 Beheer"
+      ],
+      "text": "USC3 Beheer",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0088",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC3 Beheer"
+      ],
+      "text": "Actor Admin",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0089",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC3 Beheer"
+      ],
+      "text": "Preconditie website staat open",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0090",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC3 Beheer"
+      ],
+      "text": "Beschrijving De gebruiker doet iets in de webshop.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0091",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC3 Beheer"
+      ],
+      "text": "Scenario 1. Admin zoekt product. 2. Admin verandert iets.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0092",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC3 Beheer"
+      ],
+      "text": "Postconditie Het is gelukt of niet.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0093",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "USC3 Beheer"
+      ],
+      "text": "Exceptie flow Als het niet lukt komt er een foutmelding.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0094",
+      "page_no": 5,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Slechte Requirements Analyse - anti-voorbeeld",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0095",
+      "page_no": 6,
+      "block_type": "heading",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "H5 Ethische aandachtspunten",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0096",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Ethisch is dat de site niet moet oplichten. Ook minder plastic is goed. Verder heb ik hier niet veel over uitgewerkt.",
+      "token_estimate": 29,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0097",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "AVG: gegevens moeten veilig zijn. Ik weet niet precies welke gegevens. Ik sla misschien naam, adres en",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0098",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "wachtwoord op. Security wordt later gedaan.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0099",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Maatschappelijk: brillen zijn belangrijk. Goedkope brillen helpen studenten. Dure brillen zijn ook goed voor winst.",
+      "token_estimate": 28,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0100",
+      "page_no": 6,
+      "block_type": "heading",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "H6 Literatuurlijst",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0101",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "Misschien Google en TikTok.",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0102",
+      "page_no": 6,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Slechte Requirements Analyse - anti-voorbeeld",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0103",
+      "page_no": 7,
+      "block_type": "heading",
+      "heading_path": [
+        "Bijlage I - Interview verslag [PERSOON_02]"
+      ],
+      "text": "Bijlage I - Interview verslag [PERSOON_02]",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0104",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I - Interview verslag [PERSOON_02]"
+      ],
+      "text": "Niet gedaan. Marcel was niet beschikbaar.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0105",
+      "page_no": 7,
+      "block_type": "heading",
+      "heading_path": [
+        "Bijlage II - Interview verslag [PERSOON_03]"
+      ],
+      "text": "Bijlage II - Interview verslag [PERSOON_03]",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0106",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage II - Interview verslag [PERSOON_03]"
+      ],
+      "text": "Niet gedaan. Daphne was ook niet beschikbaar.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "23276484",
+      "block_id": "23276484_0107",
+      "page_no": 7,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Slechte Requirements Analyse - anti-voorbeeld",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    }
+  ]
+}
