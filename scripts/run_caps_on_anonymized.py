@@ -6,7 +6,7 @@ Usage:
 Compatibility shim applied here (no production CAPS files changed):
     The anonymized JSON is missing `page_count` at the top level.
     _normalize_report() injects it from max(block.page_no) before
-    passing the report to run_caps().
+    passing the report to run_caps_with_artifacts().
 """
 
 from __future__ import annotations
@@ -22,8 +22,9 @@ if hasattr(sys.stdout, "reconfigure"):
 # Allow running from the project root without installing the package.
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
-from src.caps.caps import run_caps
+from src.caps.caps import run_caps_with_artifacts
 from src.caps.models import CapsRunResult, ParseReportDict
+from src.feedback.packet_builder import build_evidence_packets
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -31,6 +32,7 @@ from src.caps.models import CapsRunResult, ParseReportDict
 
 _DATA_DIR = pathlib.Path(__file__).resolve().parents[1] / "data" / "anonymized"
 _RESULTS_FILE = _DATA_DIR / "caps_results.json"
+_EVIDENCE_FILE = _DATA_DIR / "evidence_packets.json"
 
 
 # ---------------------------------------------------------------------------
@@ -110,6 +112,29 @@ def _result_to_dict(filename: str, result: CapsRunResult) -> dict:
     }
 
 
+def _packets_to_dict(filename: str, doc_id: str, packets: dict) -> dict:
+    criteria = {}
+    for key, pkt in packets.items():
+        criteria[key] = {
+            "manual_review": pkt.manual_review,
+            "notes": pkt.notes,
+            "missing_signals": pkt.missing_signals,
+            "evidence_items": [
+                {
+                    "block_id": item.block_id,
+                    "page_no": item.page_no,
+                    "block_type": item.block_type,
+                    "heading_path": item.heading_path,
+                    "excerpt": item.excerpt,
+                    "selection_reason": item.selection_reason,
+                    "signal_class": item.signal_class,
+                }
+                for item in pkt.evidence_items
+            ],
+        }
+    return {"file": filename, "doc_id": doc_id, "criteria": criteria}
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -122,24 +147,33 @@ def main() -> None:
         sys.exit(1)
 
     all_results = []
+    all_evidence = []
 
     for path in json_files:
         filename = path.name
         try:
             raw = json.loads(path.read_text(encoding="utf-8"))
             report = _normalize_report(raw)
-            result = run_caps(report, input_source="anonymized")
+            artifacts = run_caps_with_artifacts(report, input_source="anonymized")
+            result = artifacts.result
+            packets = build_evidence_packets(artifacts)
             _print_result(filename, result)
             all_results.append(_result_to_dict(filename, result))
+            all_evidence.append(_packets_to_dict(filename, result.doc_id, packets))
         except Exception as exc:  # noqa: BLE001
             print(f"\n[ERROR] {filename}: {exc}")
 
-    # Write machine-readable summary.
+    # Write machine-readable summaries.
     _RESULTS_FILE.write_text(
         json.dumps(all_results, indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
     print(f"\n[saved] {_RESULTS_FILE}")
+    _EVIDENCE_FILE.write_text(
+        json.dumps(all_evidence, indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    print(f"[saved] {_EVIDENCE_FILE}")
 
 
 if __name__ == "__main__":
