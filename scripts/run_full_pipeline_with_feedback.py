@@ -117,7 +117,7 @@ _SCORE_PATTERNS: Final[list[re.Pattern[str]]] = [
 ]
 
 _STOPLIGHT_SYMBOL: Final[dict[str, str]] = {
-    "green": "[GREEN]", "yellow": "[YELLOW]", "red": "[RED]",
+    "groen": "[GROEN]", "geel": "[GEEL]", "rood": "[ROOD]",
 }
 
 _FALLBACK_MARKER: Final[str] = (
