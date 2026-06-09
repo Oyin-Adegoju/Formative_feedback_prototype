@@ -14,6 +14,9 @@ Guardrails enforced here:
   - No numeric score pattern may appear in any LLM-written text field.
   - Every evidence_ref block ID must exist in the CAPS scorecard evidence.
   - Every criterium key in feedback[] must be a known CAPS criterion key.
+  - feedback[] must contain exactly one entry per CAPS criterion (no missing, no duplicates).
+  - docent_toelichting must contain the exact CAPS stoplight word.
+  - If manual_review_required, docent_toelichting must mention manual review in Dutch.
   - disclaimer, document_id, and stoplight are always overwritten with
     deterministic values — never trusted from LLM output.
 
@@ -77,6 +80,17 @@ _STATUS_LABELS: Final[frozenset[str]] = frozenset({
 Applied only to LLM text fields (student_samenvatting, docent_toelichting,
 feed_up, feedback[].observatie, feed_forward, taalgebruik).
 Not applied to evidence_ref — block IDs legitimately contain alphanumerics.
+"""
+
+_MANUAL_REVIEW_PHRASES: Final[tuple[str, ...]] = (
+    "handmatige verificatie",
+    "handmatig controleren",
+    "extra controleren",
+    "docent moet controleren",
+)
+"""Dutch phrases accepted as evidence that docent_toelichting acknowledges manual review.
+
+At least one must appear (case-insensitive) when caps_result.manual_review_required is True.
 """
 # ---------------------------------------------------------------------------
 # Exception
@@ -181,6 +195,26 @@ def validate(raw_json: str, caps_result: CapsRunResult) -> FeedbackResult:
             "student_samenvatting is empty.", raw=raw_json
         )
 
+    # --- 3b. docent_toelichting must contain the exact CAPS stoplight word ---
+    docent = (data.get("docent_toelichting") or "").strip()
+    stoplight_word = caps_result.overall_stoplight
+    if not re.search(rf"\b{re.escape(stoplight_word)}\b", docent, re.IGNORECASE):
+        raise FeedbackValidationError(
+            f"docent_toelichting does not mention the CAPS stoplight: {stoplight_word}",
+            raw=raw_json,
+        )
+
+    # --- 3c. If manual review required, docent_toelichting must acknowledge it ---
+    if caps_result.manual_review_required:
+        docent_lower = docent.lower()
+        if not any(phrase in docent_lower for phrase in _MANUAL_REVIEW_PHRASES):
+            raise FeedbackValidationError(
+                "docent_toelichting does not mention manual review, "
+                f"but manual_review_required is True "
+                f"(flags: {caps_result.manual_review_flags}).",
+                raw=raw_json,
+            )
+
     # --- 4. Stoplight must match CAPS ---
     llm_stoplight = data.get("stoplight")
     if llm_stoplight != caps_result.overall_stoplight:
@@ -237,6 +271,29 @@ def validate(raw_json: str, caps_result: CapsRunResult) -> FeedbackResult:
                 raise FeedbackValidationError(
                     f"Unknown evidence_ref block ID: '{block_id}'.", raw=raw_json
                 )
+
+    # --- 8b. feedback must contain exactly one entry per CAPS criterion ---
+    returned_keys = [
+        entry.get("criterium")
+        for entry in data["feedback"]
+        if isinstance(entry, dict)
+    ]
+    expected_keys = set(CRITERIA_KEYS)
+
+    missing_criteria = sorted(expected_keys - set(returned_keys))
+    if missing_criteria:
+        raise FeedbackValidationError(
+            f"Missing feedback criteria: {missing_criteria}", raw=raw_json
+        )
+
+    seen: set[str] = set()
+    for key in returned_keys:
+        if key in seen:
+            raise FeedbackValidationError(
+                f"Duplicate feedback criterion: '{key}'.", raw=raw_json
+            )
+        if key is not None:
+            seen.add(key)
 
     # --- 9. feed_forward must be a list ---
     if not isinstance(data.get("feed_forward"), list):
