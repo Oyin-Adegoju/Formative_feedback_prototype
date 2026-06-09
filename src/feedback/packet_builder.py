@@ -280,4 +280,99 @@ def _make_item(
         selection_reason=reason,
         signal_class=signal_class,
     )
+ # ---------------------------------------------------------------------------
+# Criterion 1: Beperking & deskresearch
+# ---------------------------------------------------------------------------
  
+ 
+def _build_beperking_packet(
+    spec: CriterionSpec,
+    hits: list[RetrievalHit],
+    cr: CriterionResult,
+) -> EvidencePacket:
+    """Select up to 3 items: best limitation block + best research block + one extra.
+ 
+    Merges consecutive short fragments (constraint lists) before selection so
+    that PDF-split label/value pairs appear as one readable excerpt.
+    """
+    MAX = _MAX_ITEMS["beperking"]
+    status = cr.status
+    items: list[EvidenceItem] = []
+    missing_sigs: list[str] = []
+ 
+    processed = _merge_consecutive_fragments(hits)
+ 
+    lim_hits = _sort_content_first([
+        h for h in processed
+        if _has_terms(h, _BEP_LIMITATION) and not _is_heading_only(h)
+    ])
+    res_hits = _sort_content_first([
+        h for h in processed
+        if _has_terms(h, _BEP_RESEARCH) and not _is_heading_only(h)
+    ])
+    heading_hits = [h for h in processed if _is_heading_only(h)]
+ 
+    if status == "missing":
+        # Show one weak content hit + one absent_marker heading when available.
+        content = _sort_content_first([h for h in processed if not _is_heading_only(h)])
+        for h in content[:1]:
+            items.append(_make_item(h, "Geen voldoende bewijs gevonden", "weak"))
+        for h in heading_hits[:1]:
+            items.append(_make_item(
+                h,
+                "Sectieheading gevonden maar geen inhoud herkend",
+                "absent_marker",
+            ))
+        missing_sigs.append("Geen expliciete beperking of doelgroepkeuze beschreven")
+        missing_sigs.append("Geen deskresearch of bronvermelding aangetroffen")
+ 
+    elif status == "partial":
+        if lim_hits and not res_hits:
+            for h in lim_hits[:2]:
+                terms = _matched_terms(h, _BEP_LIMITATION)
+                items.append(_make_item(h, f"Beperking/doelgroep: {', '.join(terms)}", "positive"))
+            missing_sigs.append("Geen deskresearch of bronvermelding aangetroffen")
+        elif res_hits and not lim_hits:
+            for h in res_hits[:2]:
+                terms = _matched_terms(h, _BEP_RESEARCH)
+                items.append(_make_item(h, f"Onderbouwing: {', '.join(terms)}", "positive"))
+            missing_sigs.append("Geen expliciete beperking of doelgroepkeuze beschreven")
+        else:
+            for h in _sort_content_first(processed)[:2]:
+                items.append(_make_item(h, "Partieel bewijs aangetroffen", "weak"))
+ 
+    else:  # sufficient / strong
+        seen: set[str] = set()
+ 
+        def _add(h: RetrievalHit, reason: str) -> None:
+            if len(items) < MAX and h.block["block_id"] not in seen:
+                seen.add(h.block["block_id"])
+                items.append(_make_item(h, reason, "positive"))
+ 
+        for h in lim_hits[:1]:
+            terms = _matched_terms(h, _BEP_LIMITATION)
+            _add(h, f"Beperking/doelgroep: {', '.join(terms)}")
+ 
+        for h in res_hits:
+            if h.block["block_id"] not in seen:
+                terms = _matched_terms(h, _BEP_RESEARCH)
+                _add(h, f"Onderbouwing/deskresearch: {', '.join(terms)}")
+                break
+ 
+        for h in _sort_content_first(processed):
+            if len(items) >= MAX:
+                break
+            if h.block["block_id"] not in seen:
+                l_t = _matched_terms(h, _BEP_LIMITATION)
+                r_t = _matched_terms(h, _BEP_RESEARCH)
+                all_t = l_t + r_t
+                reason = f"Aanvullend bewijs: {', '.join(all_t[:3])}" if all_t else "Aanvullende context"
+                _add(h, reason)
+ 
+    return EvidencePacket(
+        criterion_key=spec.key,
+        manual_review=cr.manual_review,
+        notes=cr.notes,
+        evidence_items=items,
+        missing_signals=missing_sigs,
+    )
