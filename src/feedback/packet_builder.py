@@ -811,3 +811,47 @@ _PACKET_BUILDERS = {
 }
  
  
+# ---------------------------------------------------------------------------
+# Public API
+# ---------------------------------------------------------------------------
+ 
+ 
+def build_evidence_packets(
+    artifacts: CapsPipelineArtifacts,
+) -> dict[str, EvidencePacket]:
+    """Build one EvidencePacket per criterion from CapsPipelineArtifacts.
+ 
+    CAPS is the source of truth for all judgements.  This function only
+    SELECTS and SHAPES evidence — it never re-judges or overrides any CAPS
+    decision.
+ 
+    Args:
+        artifacts: The full output of run_caps_with_artifacts, containing
+            retrieval candidates (candidates), per-criterion verdicts
+            (criterion_results), and the final CapsRunResult (result).
+ 
+    Returns:
+        dict[criterion_key → EvidencePacket], one entry per CAPS criterion,
+        in CRITERIA_KEYS order.
+    """
+    packets: dict[str, EvidencePacket] = {}
+ 
+    for key in CRITERIA_KEYS:
+        spec = CRITERIA_BY_KEY[key]
+        hits = artifacts.candidates.get(key, [])
+        cr = artifacts.criterion_results.get(key)
+ 
+        if cr is None:
+            packets[key] = EvidencePacket(
+                criterion_key=key,
+                manual_review=False,
+                notes=[],
+                evidence_items=[],
+                missing_signals=["Criterium niet geëvalueerd door CAPS"],
+            )
+            continue
+ 
+        builder = _PACKET_BUILDERS[key]
+        packets[key] = builder(spec, hits, cr)
+ 
+    return packets 
