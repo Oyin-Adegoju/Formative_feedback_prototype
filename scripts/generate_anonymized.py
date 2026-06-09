@@ -74,3 +74,31 @@ def _write_json(obj: dict, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, indent=2)
+        
+ 
+ 
+def generate_one(
+    pdf_path: Path,
+    quality_label: str | None,
+    catalog,
+    public_dir: Path,
+    internal_dir: Path,
+) -> tuple[str, int]:
+    """Parse + anonimiseer één PDF en schrijf public + internal output."""
+    doc_id = hash_document(str(pdf_path))[:8]
+    raw = extract_raw_elements(str(pdf_path))
+    blocks = build_blocks(raw, doc_id=doc_id)
+    new_blocks, mapping = anonymize_blocks(blocks, catalog)
+ 
+    meta = {
+        "doc_id": doc_id,
+        "source_path": str(pdf_path),
+        "source_name": pdf_path.name,
+        "quality_label": quality_label,
+    }
+    report = build_anonymized_report(meta, new_blocks, mapping)
+ 
+    sub = quality_label or ""
+    _write_json(report, internal_dir / sub / f"{doc_id}_anonymized.json")
+    _write_json(to_public_report(report), public_dir / sub / f"{doc_id}_anonymized.json")
+    return doc_id, len(mapping)
