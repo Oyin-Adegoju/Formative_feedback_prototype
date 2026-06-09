@@ -1,0 +1,1929 @@
+{
+  "doc_id": "1023e8a9",
+  "source_path": "INFIRST_requirements/Voldoende/requirements anaylse first full stack_student3.pdf",
+  "source_name": "requirements anaylse first full stack_student3.pdf",
+  "quality_label": "Voldoende",
+  "block_count": 99,
+  "mapping_count": 1,
+  "mapping": {},
+  "blocks": [
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0001",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Requirements- analyse First Full Stack",
+      "token_estimate": 9,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0002",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "1. Inleiding",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0003",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "2. Stakeholders",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0004",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "3. Stakeholders analyse",
+      "token_estimate": 5,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0005",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "4. Functionele requirements",
+      "token_estimate": 6,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0006",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "5. Niet-funtionele requirements",
+      "token_estimate": 7,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0007",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "6. Constraints",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0008",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "7. Use case Beschrijvingen",
+      "token_estimate": 6,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0009",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "8. Use cases Diagram",
+      "token_estimate": 5,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0010",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "9. Tekstanalyse",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0011",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Stakeholders",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0012",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "[PERSOON_01] : Vertegenwoordiger van investeringsbedrijf Plenty, zij is de directe contactpersoon voor het",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0013",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "project.",
+      "token_estimate": 2,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0014",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Investeerdersbedrijf Plenty : Het bedrijf dat de ontwikkeling van de nieuwe website financiert en als",
+      "token_estimate": 25,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0015",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "opdrachtgever functioneert.",
+      "token_estimate": 6,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0016",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "Individuele websiteontwikkelaars : De partij die wordt uitgenodigd om de webshop te ontwikkelen, met",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0017",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "het doel om later mogelijk de grotere website te bouwen.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0018",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "Klanten van de website : Eindgebruikers voor wie de website toegankelijk en gebruiksvriendelijk moet",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0019",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "zijn. Dit omvat subgroepen van klanten zoals laaggeletterden, meertaligen, slechtzienden, kleurenblinden,",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0020",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "ouderen en mensen met beperkte financiële middelen.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0021",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Beheerders van de website : Verantwoordelijk voor het beheer van producten, klanten en bestellingen",
+      "token_estimate": 24,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0022",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "binnen het systeem.",
+      "token_estimate": 4,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0023",
+      "page_no": 3,
+      "block_type": "heading",
+      "heading_path": [
+        "Stakeholder analyse"
+      ],
+      "text": "Stakeholder analyse",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0024",
+      "page_no": 3,
+      "block_type": "table",
+      "heading_path": [
+        "Stakeholder analyse"
+      ],
+      "text": "Naam | Rol: | Functie:\n[PERSOON_01] (vertegenwoordiger) | Projectleider | Vertegenwoordigt de belangen van het investeringsbedrijf, beheert de projectvoortgang.\nEigenaar Investeerdersbedrijf Plenty | Opdrachtgever en Financier | Stelt de vereisten voor de website, keurt budgetten goed, neemt strategische beslissingen, en beoordeelt de projectvoortgang en uiteindelijke resultaten.\nWebsiteontwikkelaars | Uitvoerders van het webshop prototype. | Verantwoordelijk om een prototype webshop te ontwikkelen. Zij zijn de directe uitvoerders van het project.\nKlanten (van de website) | Consumenten en gebruikers van de webshop. | De eindgebruikers waarvoor de website bedoeld is. Hun ervaring en feedback zijn cruciaal voor de aanpassing en verbetering van de website. De website moet afgestemd zijn op hun behoeften, met name de specifieke subgroepen klanten.\nBeheerders van de website | Dagelijks management van de website. | Verantwoordelijk voor het dagelijks beheer van de webshop, inclusief het beheren van producten, klanten en bestellingen.\nKlanten met specifieke behoeften (beperkte financiële middelen) | Het creëren van een positieve en inclusieve koopervaring voor deze specifieke doelgroep. | De functie van mensen met beperkte financiële middelen als stakeholders is om ervoor te zorgen dat hun specifieke behoeften worden erkend, begrepen en geïntegreerd in de ontwikkeling van de webshop, waardoor een meer inclusieve en klantgerichte benadering ontstaat.\nOperationeel team (Plenty) | Het operationele team is verantwoordelijk voor het dagelijkse beheer en de coördinatie van activiteiten met betrekking tot de ontwikkeling van de website. | Operationele team heeft als verantwoordelijk ervoor te zorgen dat het project soepel verloopt, binnen het budget blijft en voldoet aan de gestelde doelen en deadlines zoals uiteengezet in de casus.\nWerknemers investeerdersbedrijf Plenty | Ze zijn betrokken bij verschillende aspecten van de ontwikkeling en implementatie van de webshop. | De functie van werknemers binnen het investeringsbedrijf Plenty gericht op het succesvol uitvoeren van het project, waarbij ze een coördinerende, communicatieve en kwaliteit borgende rol spelen.",
+      "token_estimate": 547,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 9,
+        "column_count": 6,
+        "header_row": "Naam | Rol: | Functie:",
+        "cells": [
+          [
+            "Naam",
+            "Rol:",
+            "Functie:"
+          ],
+          [
+            "[PERSOON_01] (vertegenwoordiger)",
+            "Projectleider",
+            "Vertegenwoordigt de belangen van het investeringsbedrijf, beheert de projectvoortgang."
+          ],
+          [
+            "Eigenaar Investeerdersbedrijf Plenty",
+            "Opdrachtgever en Financier",
+            "Stelt de vereisten voor de website, keurt budgetten goed, neemt strategische beslissingen, en beoordeelt de projectvoortgang en uiteindelijke resultaten."
+          ],
+          [
+            "Websiteontwikkelaars",
+            "Uitvoerders van het webshop prototype.",
+            "Verantwoordelijk om een prototype webshop te ontwikkelen. Zij zijn de directe uitvoerders van het project."
+          ],
+          [
+            "Klanten (van de website)",
+            "Consumenten en gebruikers van de webshop.",
+            "De eindgebruikers waarvoor de website bedoeld is. Hun ervaring en feedback zijn cruciaal voor de aanpassing en verbetering van de website. De website moet afgestemd zijn op hun behoeften, met name de specifieke subgroepen klanten."
+          ],
+          [
+            "Beheerders van de website",
+            "Dagelijks management van de website.",
+            "Verantwoordelijk voor het dagelijks beheer van de webshop, inclusief het beheren van producten, klanten en bestellingen."
+          ],
+          [
+            "Klanten met specifieke behoeften (beperkte financiële middelen)",
+            "Het creëren van een positieve en inclusieve koopervaring voor deze specifieke doelgroep.",
+            "De functie van mensen met beperkte financiële middelen als stakeholders is om ervoor te zorgen dat hun specifieke behoeften worden erkend, begrepen en geïntegreerd in de ontwikkeling van de webshop, waardoor een meer inclusieve en klantgerichte benadering ontstaat."
+          ],
+          [
+            "Operationeel team (Plenty)",
+            "Het operationele team is verantwoordelijk voor het dagelijkse beheer en de coördinatie van activiteiten met betrekking tot de ontwikkeling van de website.",
+            "Operationele team heeft als verantwoordelijk ervoor te zorgen dat het project soepel verloopt, binnen het budget blijft en voldoet aan de gestelde doelen en deadlines zoals uiteengezet in de casus."
+          ],
+          [
+            "Werknemers investeerdersbedrijf Plenty",
+            "Ze zijn betrokken bij verschillende aspecten van de ontwikkeling en implementatie van de webshop.",
+            "De functie van werknemers binnen het investeringsbedrijf Plenty gericht op het succesvol uitvoeren van het project, waarbij ze een coördinerende, communicatieve en kwaliteit borgende rol spelen."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0025",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "Categoriseren en prioriteren"
+      ],
+      "text": "Categoriseren en prioriteren",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0026",
+      "page_no": 4,
+      "block_type": "table",
+      "heading_path": [
+        "Categoriseren en prioriteren"
+      ],
+      "text": "Naam | Categorie: | Prioriteer:\n[PERSOON_01] (vertegenwoordiger) | Intern: [PERSOON_01] wordt geïdentificeerd als een interne stakeholder omdat ze de vertegenwoordiger is van het investeringsbedrijf Plenty. Haar rol ligt binnen de organisatie. | Gemiddelde invloed: Haar invloed wordt als gemiddeld beschouwd, wat suggereert dat ze invloed heeft op bepaalde aspecten van het project, maar niet op het hoogste besluitvormingsniveau.\nEigenaar Investeerdersbedrijf Plenty | Intern: Als eigenaar van het investeringsbedrijf Plenty wordt deze stakeholder beschouwd als intern, omdat de eigenaar deel uitmaakt van de organisatiestructuur | Veel invloed: Aangezien het de eigenaar betreft, wordt aangenomen dat deze stakeholder aanzienlijke invloed heeft op besluitvormingsprocessen en strategische richting.\nWebsiteontwikkelaars | Extern: Websiteontwikkelaars worden als externe stakeholders beschouwd omdat ze niet rechtstreeks deel uitmaken van de organisatie Plenty, maar extern worden ingehuurd. | Gemiddelde invloed: Ze hebben invloed op de ontwikkeling van de website, maar hun invloed wordt als gemiddeld beschouwd in vergelijking met interne stakeholders.\nKlanten (van de website) | Extern: Klanten zijn externe stakeholders omdat ze buiten de organisatie staan en gebruikmaken van de diensten of producten van de website. | Lage invloed: Klanten hebben invloed als eindgebruikers, maar hun invloed wordt als laag beschouwd in vergelijking met interne besluitvormers.\nBeheerders van de website | Extern: Beheerders van de website worden als externe stakeholders beschouwd omdat ze specifieke taken uitvoeren die extern zijn uitbesteed. | Lage invloed: Hun invloed wordt als laag beschouwd in vergelijking met interne besluitvormers.\nKlanten met specifieke behoeften (beperkte financiële middelen) | Extern: Deze klanten vertegenwoordigen een specifieke externe doelgroep met bijzondere behoeften. | Lage invloed: Hun invloed wordt als laag beschouwd, maar het erkennen van hun behoeften is nog steeds belangrijk voor klanttevredenheid.\nOperationeel team (Plenty) | Intern: Het operationele team maakt deel uit van de interne organisatiestructuur van Plenty. | Gemiddelde invloed: Het team heeft invloed op de dagelijkse operationele aspecten, maar de invloed wordt als gemiddeld beschouwd.\nWerknemers investeerdersbedrijf Plenty | Intern: Werknemers van het investeringsbedrijf Plenty zijn intern betrokken bij de organisatie. | Lage invloed: Hun invloed wordt als laag beschouwd in vergelijking met hoger management en besluitvormers.",
+      "token_estimate": 635,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 9,
+        "column_count": 6,
+        "header_row": "Naam | Categorie: | Prioriteer:",
+        "cells": [
+          [
+            "Naam",
+            "Categorie:",
+            "Prioriteer:"
+          ],
+          [
+            "[PERSOON_01] (vertegenwoordiger)",
+            "Intern: [PERSOON_01] wordt geïdentificeerd als een interne stakeholder omdat ze de vertegenwoordiger is van het investeringsbedrijf Plenty. Haar rol ligt binnen de organisatie.",
+            "Gemiddelde invloed: Haar invloed wordt als gemiddeld beschouwd, wat suggereert dat ze invloed heeft op bepaalde aspecten van het project, maar niet op het hoogste besluitvormingsniveau."
+          ],
+          [
+            "Eigenaar Investeerdersbedrijf Plenty",
+            "Intern: Als eigenaar van het investeringsbedrijf Plenty wordt deze stakeholder beschouwd als intern, omdat de eigenaar deel uitmaakt van de organisatiestructuur",
+            "Veel invloed: Aangezien het de eigenaar betreft, wordt aangenomen dat deze stakeholder aanzienlijke invloed heeft op besluitvormingsprocessen en strategische richting."
+          ],
+          [
+            "Websiteontwikkelaars",
+            "Extern: Websiteontwikkelaars worden als externe stakeholders beschouwd omdat ze niet rechtstreeks deel uitmaken van de organisatie Plenty, maar extern worden ingehuurd.",
+            "Gemiddelde invloed: Ze hebben invloed op de ontwikkeling van de website, maar hun invloed wordt als gemiddeld beschouwd in vergelijking met interne stakeholders."
+          ],
+          [
+            "Klanten (van de website)",
+            "Extern: Klanten zijn externe stakeholders omdat ze buiten de organisatie staan en gebruikmaken van de diensten of producten van de website.",
+            "Lage invloed: Klanten hebben invloed als eindgebruikers, maar hun invloed wordt als laag beschouwd in vergelijking met interne besluitvormers."
+          ],
+          [
+            "Beheerders van de website",
+            "Extern: Beheerders van de website worden als externe stakeholders beschouwd omdat ze specifieke taken uitvoeren die extern zijn uitbesteed.",
+            "Lage invloed: Hun invloed wordt als laag beschouwd in vergelijking met interne besluitvormers."
+          ],
+          [
+            "Klanten met specifieke behoeften (beperkte financiële middelen)",
+            "Extern: Deze klanten vertegenwoordigen een specifieke externe doelgroep met bijzondere behoeften.",
+            "Lage invloed: Hun invloed wordt als laag beschouwd, maar het erkennen van hun behoeften is nog steeds belangrijk voor klanttevredenheid."
+          ],
+          [
+            "Operationeel team (Plenty)",
+            "Intern: Het operationele team maakt deel uit van de interne organisatiestructuur van Plenty.",
+            "Gemiddelde invloed: Het team heeft invloed op de dagelijkse operationele aspecten, maar de invloed wordt als gemiddeld beschouwd."
+          ],
+          [
+            "Werknemers investeerdersbedrijf Plenty",
+            "Intern: Werknemers van het investeringsbedrijf Plenty zijn intern betrokken bij de organisatie.",
+            "Lage invloed: Hun invloed wordt als laag beschouwd in vergelijking met hoger management en besluitvormers."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0027",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "Belangen en zorgen"
+      ],
+      "text": "Belangen en zorgen",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0028",
+      "page_no": 5,
+      "block_type": "table",
+      "heading_path": [
+        "Belangen en zorgen"
+      ],
+      "text": "Naam | Zorgen: | Belangen:\n[PERSOON_01] (vertegenwoordiger) | [PERSOON_01] zou zich zorgen kunnen maken over het succes van het project, aangezien dit de reputatie van het investeerdersbedrijf Plenty kan beïnvloeden. | Haar belangen liggen waarschijnlijk in het veiligstellen van een investering, het aantrekken van klanten naar de website en het waarborgen van een positieve indruk van het investeerdersbedrijf\nEigenaar Investeerdersbedrijf Plenty | Het investeerdersbedrijf kan zich zorgen maken over het rendement op hun investering, de effectiviteit van de websiteontwikkeling, en de naleving van het vastgestelde budget en de deadlines. | Het investeerdersbedrijf heeft belangen bij een succesvolle en winstgevende investering. Ze willen dat de website voldoet aan kwaliteitsnormen, binnen het budget blijft en op tijd wordt opgeleverd.\nWebsiteontwikkelaars | Websiteontwikkelaars kunnen zich zorgen maken over de technische uitdagingen, tijdsdruk en eventuele wijzigingen in de vereisten tijdens de ontwikkelingsfase. | Hun belangen liggen in het creëren van een hoogwaardige website die voldoet aan de opgestelde eisen.\nKlanten (van de website) | Klanten kunnen zich zorgen maken over de gebruiksvriendelijkheid, betrouwbaarheid van transacties, veiligheid van persoonlijke gegevens en de beschikbaarheid van diverse producten op de website. | Hun belangen liggen in een naadloze en veilige winkelervaring, toegang tot een breed scala aan producten, en duidelijke communicatie over prijzen en voorwaarden.\nBeheerders van de website | Beheerders kunnen zich zorgen maken over technische problemen, beveiligingskwesties, en de algehele effectiviteit van het beheer van de website. | Hun belangen liggen in een goed functionerende website, effectief beheer van producten en bestellingen, en het waarborgen van de veiligheid van klantgegevens.\nKlanten met specifieke behoeften (beperkte financiële middelen) | Deze klantengroep kan zich zorgen maken over de betaalbaarheid van producten en de beschikbaarheid van betalingsmogelijkheden die aansluiten bij hun financiële situatie. | Hun belangen liggen in betaalbare producten, duidelijke prijsinformatie, en een gebruiksvriendelijke website die toegankelijk is ondanks financiële beperkingen.\nOperationeel team (Plenty) | Het operationele team kan zich zorgen maken over de haalbaarheid van het project binnen het gestelde budget en de gestelde termijn, evenals de effectiviteit van dagelijkse operationele processen. | Hun belangen liggen in een efficiënte uitvoering van het project, het behouden van operationele stabiliteit, en het waarborgen van een positieve uitkomst voor het bedrijf.\nWerknemers investeerdersbedrijf Plenty | Specifieke zorgen van de werknemers worden niet vermeld in de gegeven casus. | Ze willen mogelijk ook een positieve werkomgeving en carrièremogelijkheden binnen het bedrijf.",
+      "token_estimate": 715,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 9,
+        "column_count": 6,
+        "header_row": "Naam | Zorgen: | Belangen:",
+        "cells": [
+          [
+            "Naam",
+            "Zorgen:",
+            "Belangen:"
+          ],
+          [
+            "[PERSOON_01] (vertegenwoordiger)",
+            "[PERSOON_01] zou zich zorgen kunnen maken over het succes van het project, aangezien dit de reputatie van het investeerdersbedrijf Plenty kan beïnvloeden.",
+            "Haar belangen liggen waarschijnlijk in het veiligstellen van een investering, het aantrekken van klanten naar de website en het waarborgen van een positieve indruk van het investeerdersbedrijf"
+          ],
+          [
+            "Eigenaar Investeerdersbedrijf Plenty",
+            "Het investeerdersbedrijf kan zich zorgen maken over het rendement op hun investering, de effectiviteit van de websiteontwikkeling, en de naleving van het vastgestelde budget en de deadlines.",
+            "Het investeerdersbedrijf heeft belangen bij een succesvolle en winstgevende investering. Ze willen dat de website voldoet aan kwaliteitsnormen, binnen het budget blijft en op tijd wordt opgeleverd."
+          ],
+          [
+            "Websiteontwikkelaars",
+            "Websiteontwikkelaars kunnen zich zorgen maken over de technische uitdagingen, tijdsdruk en eventuele wijzigingen in de vereisten tijdens de ontwikkelingsfase.",
+            "Hun belangen liggen in het creëren van een hoogwaardige website die voldoet aan de opgestelde eisen."
+          ],
+          [
+            "Klanten (van de website)",
+            "Klanten kunnen zich zorgen maken over de gebruiksvriendelijkheid, betrouwbaarheid van transacties, veiligheid van persoonlijke gegevens en de beschikbaarheid van diverse producten op de website.",
+            "Hun belangen liggen in een naadloze en veilige winkelervaring, toegang tot een breed scala aan producten, en duidelijke communicatie over prijzen en voorwaarden."
+          ],
+          [
+            "Beheerders van de website",
+            "Beheerders kunnen zich zorgen maken over technische problemen, beveiligingskwesties, en de algehele effectiviteit van het beheer van de website.",
+            "Hun belangen liggen in een goed functionerende website, effectief beheer van producten en bestellingen, en het waarborgen van de veiligheid van klantgegevens."
+          ],
+          [
+            "Klanten met specifieke behoeften (beperkte financiële middelen)",
+            "Deze klantengroep kan zich zorgen maken over de betaalbaarheid van producten en de beschikbaarheid van betalingsmogelijkheden die aansluiten bij hun financiële situatie.",
+            "Hun belangen liggen in betaalbare producten, duidelijke prijsinformatie, en een gebruiksvriendelijke website die toegankelijk is ondanks financiële beperkingen."
+          ],
+          [
+            "Operationeel team (Plenty)",
+            "Het operationele team kan zich zorgen maken over de haalbaarheid van het project binnen het gestelde budget en de gestelde termijn, evenals de effectiviteit van dagelijkse operationele processen.",
+            "Hun belangen liggen in een efficiënte uitvoering van het project, het behouden van operationele stabiliteit, en het waarborgen van een positieve uitkomst voor het bedrijf."
+          ],
+          [
+            "Werknemers investeerdersbedrijf Plenty",
+            "Specifieke zorgen van de werknemers worden niet vermeld in de gegeven casus.",
+            "Ze willen mogelijk ook een positieve werkomgeving en carrièremogelijkheden binnen het bedrijf."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0029",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Belangen en zorgen"
+      ],
+      "text": "1. Prioritsering Matrix",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0030",
+      "page_no": 7,
+      "block_type": "heading",
+      "heading_path": [
+        "Functional requirements"
+      ],
+      "text": "Functional requirements",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0031",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functional requirements"
+      ],
+      "text": "Alle functionele requirements uit het systeem",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0032",
+      "page_no": 7,
+      "block_type": "table",
+      "heading_path": [
+        "Functional requirements"
+      ],
+      "text": "Naam | Categorie | Architecturele relevantie | Geadresseerd | Prio\nin:\nUC01: Gebruikersprofiel aanmaken/registrer en | Gebruikersregistratie | Het systeem moet gebruikers in staat stellen een profiel aan te maken voor nieuwe gebruikers. | Alinea 4 Regel 14 Pagina | MUST HAVE: Zonder gebruikersregistratie kunnen klanten geen profiel aanmaken en geen gebruikmaken van de webshop.\nUC02: Inloggen gebruiker | Inloggen | Gebruikers loggen in voor een gepersonaliseerde winkelervaring. | Alinea 4 Regel 14 Pagina | MUST HAVE Inloggen is essentieel voor het bieden van een gepersonaliseerde winkelervaring, zonder in te loggen kan je niet in de webshop.\nUC03: Geregistreerde klant selecteert product binnen categorie | Productbeheer | De webshop heeft één soort categorie waarbij er voor de klanten de mogelijkheid is om te kiezen uit tien producten. | Alinea 3 Regel 912 Pagina | SHOULD HAVE Het biedt de mogelijkheid om producten te selecteren binnen een specifieke categorie. Dit is belangrijk maar mogelijk niet zo kritiek als de inlog en registratiefuncties.\nUC04: Beheren van winkelmandje | Winkelmandfunction aliteit | Klanten moeten de producten in hun winkelmand kunnen bekijken, toevoegen en verwijderen. | Alinea 4 Regel 16 Pagina | MUST HAVE Aangezien het beheren van het winkelmandje cruciaal is voor het aankoopproces. Klanten moeten producten kunnen toevoegen, bekijken en verwijderen voor een soepele afhandeling van bestellingen.\nUC05: Beheer van klantgegevens | Beheerinterface | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig kunnen worden beheerd. | Alinea 8 Regel 3334 Pagina | MUST HAVE Een intuïtieve beheerinterface nodig is om efficiënt producten, klanten en bestellingen te beheren. Dit is essentieel voor het succesvol runnen van de webshop.",
+      "token_estimate": 456,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 7,
+        "column_count": 6,
+        "header_row": "Naam | Categorie | Architecturele relevantie | Geadresseerd | Prio",
+        "cells": [
+          [
+            "Naam",
+            "Categorie",
+            "Architecturele relevantie",
+            "Geadresseerd",
+            "Prio"
+          ],
+          [
+            "in:"
+          ],
+          [
+            "UC01: Gebruikersprofiel aanmaken/registrer en",
+            "Gebruikersregistratie",
+            "Het systeem moet gebruikers in staat stellen een profiel aan te maken voor nieuwe gebruikers.",
+            "Alinea 4 Regel 14 Pagina",
+            "MUST HAVE: Zonder gebruikersregistratie kunnen klanten geen profiel aanmaken en geen gebruikmaken van de webshop."
+          ],
+          [
+            "UC02: Inloggen gebruiker",
+            "Inloggen",
+            "Gebruikers loggen in voor een gepersonaliseerde winkelervaring.",
+            "Alinea 4 Regel 14 Pagina",
+            "MUST HAVE Inloggen is essentieel voor het bieden van een gepersonaliseerde winkelervaring, zonder in te loggen kan je niet in de webshop."
+          ],
+          [
+            "UC03: Geregistreerde klant selecteert product binnen categorie",
+            "Productbeheer",
+            "De webshop heeft één soort categorie waarbij er voor de klanten de mogelijkheid is om te kiezen uit tien producten.",
+            "Alinea 3 Regel 912 Pagina",
+            "SHOULD HAVE Het biedt de mogelijkheid om producten te selecteren binnen een specifieke categorie. Dit is belangrijk maar mogelijk niet zo kritiek als de inlog en registratiefuncties."
+          ],
+          [
+            "UC04: Beheren van winkelmandje",
+            "Winkelmandfunction aliteit",
+            "Klanten moeten de producten in hun winkelmand kunnen bekijken, toevoegen en verwijderen.",
+            "Alinea 4 Regel 16 Pagina",
+            "MUST HAVE Aangezien het beheren van het winkelmandje cruciaal is voor het aankoopproces. Klanten moeten producten kunnen toevoegen, bekijken en verwijderen voor een soepele afhandeling van bestellingen."
+          ],
+          [
+            "UC05: Beheer van klantgegevens",
+            "Beheerinterface",
+            "Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig kunnen worden beheerd.",
+            "Alinea 8 Regel 3334 Pagina",
+            "MUST HAVE Een intuïtieve beheerinterface nodig is om efficiënt producten, klanten en bestellingen te beheren. Dit is essentieel voor het succesvol runnen van de webshop."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0033",
+      "page_no": 8,
+      "block_type": "heading",
+      "heading_path": [
+        "Niet-functionele requirements"
+      ],
+      "text": "Niet-functionele requirements",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0034",
+      "page_no": 8,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Niet-functionele requirements"
+      ],
+      "text": "Alle niet- functionele requirements uit het systeem",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0035",
+      "page_no": 8,
+      "block_type": "table",
+      "heading_path": [
+        "Niet-functionele requirements"
+      ],
+      "text": "Naam | Categorie | Architecturele relevantie | Geadresseerd | Prio\nin:\nNFR01: | Toegankelijkheid: | De website moet toegankelijk zijn voor een breed scala aan klanten, waaronder mensen met beperkte financiële middelen. | Alinea 3 Regel 912 Pagina | MUST HAVE Toegankelijkheid is cruciaal om een breed scala aan klanten te bereiken, inclusief mensen met beperkte financiële middelen. Het maakt de website beschikbaar voor een grotere doelgroep.\nNFR02: | Gebruiksvriendelij kheid | De website moet gebruiksvriendelijk zijn, met specifieke aandacht voor een soepele gebruikerservaring. | Alinea 3 Regel 8 Pagina | MUST HAVE Een gebruiksvriendelijke website is essentieel om klanten een soepele ervaring te bieden. Dit draagt bij aan tevredenheid en klantloyaliteit.\nNFR03: | Betrouwbaarheid | De website moet altijd bereikbaar zijn voor klanten, en bestellingen moeten betrouwbaar worden verwerkt. | Alinea 5 Regel 20 Pagina | MUST HAVE Betrouwbaarheid is kritiek om het vertrouwen van klanten te behouden. Een altijd bereikbare website en betrouwbare orderverwerking zijn van vitaal belang.\nNFR04: | Veiligheid en Gegevensbescher ming | Het systeem moet voldoen aan de Algemene Verordening Gegevensbescherming (AVG) en een grondige beveiligings en risicoanalyse ondergaan om klantgegevens te beschermen. | Alinea 9 Regel 3739 Pagina | MUST HAVE In overeenstemming zijn met AVG en zorgen voor gegevensbescherming is van cruciaal belang om het vertrouwen van klanten te winnen en wettelijke vereisten te voldoen.\nNFR05: | Toegankelijkheid | De website moet toegankelijk zijn op verschillende apparaten, ongeacht het device waarop klanten het bekijken (responsief). | Alinea 6 Regel 24 Pagina | MUST HAVE Een responsief ontwerp is noodzakelijk voor toegankelijkheid op verschillende apparaten, waardoor klanten de website kunnen bekijken ongeacht het device dat ze gebruiken.\nNFR06: | Aantrekkelijkheid | Ook moet de website aantrekkelijk zijn voor de klanten. De uitstraling en opmaak van de website dien te passen bij de beoogde klanten van het soort product. | Alinea 6 Regel 23 Pagina | COULD HAVE Hoewel een aantrekkelijke website belangrijk is, kan het als “COULD HAVE” worden beschouwd omdat het niet de kernfunctionaliteit van de website beïnvloedt.",
+      "token_estimate": 563,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 8,
+        "column_count": 6,
+        "header_row": "Naam | Categorie | Architecturele relevantie | Geadresseerd | Prio",
+        "cells": [
+          [
+            "Naam",
+            "Categorie",
+            "Architecturele relevantie",
+            "Geadresseerd",
+            "Prio"
+          ],
+          [
+            "in:"
+          ],
+          [
+            "NFR01:",
+            "Toegankelijkheid:",
+            "De website moet toegankelijk zijn voor een breed scala aan klanten, waaronder mensen met beperkte financiële middelen.",
+            "Alinea 3 Regel 912 Pagina",
+            "MUST HAVE Toegankelijkheid is cruciaal om een breed scala aan klanten te bereiken, inclusief mensen met beperkte financiële middelen. Het maakt de website beschikbaar voor een grotere doelgroep."
+          ],
+          [
+            "NFR02:",
+            "Gebruiksvriendelij kheid",
+            "De website moet gebruiksvriendelijk zijn, met specifieke aandacht voor een soepele gebruikerservaring.",
+            "Alinea 3 Regel 8 Pagina",
+            "MUST HAVE Een gebruiksvriendelijke website is essentieel om klanten een soepele ervaring te bieden. Dit draagt bij aan tevredenheid en klantloyaliteit."
+          ],
+          [
+            "NFR03:",
+            "Betrouwbaarheid",
+            "De website moet altijd bereikbaar zijn voor klanten, en bestellingen moeten betrouwbaar worden verwerkt.",
+            "Alinea 5 Regel 20 Pagina",
+            "MUST HAVE Betrouwbaarheid is kritiek om het vertrouwen van klanten te behouden. Een altijd bereikbare website en betrouwbare orderverwerking zijn van vitaal belang."
+          ],
+          [
+            "NFR04:",
+            "Veiligheid en Gegevensbescher ming",
+            "Het systeem moet voldoen aan de Algemene Verordening Gegevensbescherming (AVG) en een grondige beveiligings en risicoanalyse ondergaan om klantgegevens te beschermen.",
+            "Alinea 9 Regel 3739 Pagina",
+            "MUST HAVE In overeenstemming zijn met AVG en zorgen voor gegevensbescherming is van cruciaal belang om het vertrouwen van klanten te winnen en wettelijke vereisten te voldoen."
+          ],
+          [
+            "NFR05:",
+            "Toegankelijkheid",
+            "De website moet toegankelijk zijn op verschillende apparaten, ongeacht het device waarop klanten het bekijken (responsief).",
+            "Alinea 6 Regel 24 Pagina",
+            "MUST HAVE Een responsief ontwerp is noodzakelijk voor toegankelijkheid op verschillende apparaten, waardoor klanten de website kunnen bekijken ongeacht het device dat ze gebruiken."
+          ],
+          [
+            "NFR06:",
+            "Aantrekkelijkheid",
+            "Ook moet de website aantrekkelijk zijn voor de klanten. De uitstraling en opmaak van de website dien te passen bij de beoogde klanten van het soort product.",
+            "Alinea 6 Regel 23 Pagina",
+            "COULD HAVE Hoewel een aantrekkelijke website belangrijk is, kan het als “COULD HAVE” worden beschouwd omdat het niet de kernfunctionaliteit van de website beïnvloedt."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0036",
+      "page_no": 9,
+      "block_type": "heading",
+      "heading_path": [
+        "Constraints"
+      ],
+      "text": "Constraints",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0037",
+      "page_no": 9,
+      "block_type": "table",
+      "heading_path": [
+        "Constraints"
+      ],
+      "text": "Naam | Architecturele relevantie | Geadresseerd in:\nCONSTR01: Budget | De ontwikkeling van de website moet binnen een budget van 10.000 euro worden voltooid | Alinea 11 Regel 51 Pagina\nCONSTR02: Tijd | De webshop moet ontworpen, ontwikkeld en getest zijn binnen deze zes weken. | Alinea 11 Regel 51 Pagina\nCONSTR03: Betaalbeperkingen | Klanten mogen artikelen niet betalen met giftcards en kunnen geen gebruik maken van promocodes in de webshop. | Alinea 3 Regel 1213 Pagina\nCONSTR04: Verzendkosten | Hierbij zijn de verzendkosten niet afhankelijk van het formaat of de locatie, maar een standaardbedrag. | Alinea 5 Regel 2021 Pagina",
+      "token_estimate": 158,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 5,
+        "column_count": 6,
+        "header_row": "Naam | Architecturele relevantie | Geadresseerd in:",
+        "cells": [
+          [
+            "Naam",
+            "Architecturele relevantie",
+            "Geadresseerd in:"
+          ],
+          [
+            "CONSTR01: Budget",
+            "De ontwikkeling van de website moet binnen een budget van 10.000 euro worden voltooid",
+            "Alinea 11 Regel 51 Pagina"
+          ],
+          [
+            "CONSTR02: Tijd",
+            "De webshop moet ontworpen, ontwikkeld en getest zijn binnen deze zes weken.",
+            "Alinea 11 Regel 51 Pagina"
+          ],
+          [
+            "CONSTR03: Betaalbeperkingen",
+            "Klanten mogen artikelen niet betalen met giftcards en kunnen geen gebruik maken van promocodes in de webshop.",
+            "Alinea 3 Regel 1213 Pagina"
+          ],
+          [
+            "CONSTR04: Verzendkosten",
+            "Hierbij zijn de verzendkosten niet afhankelijk van het formaat of de locatie, maar een standaardbedrag.",
+            "Alinea 5 Regel 2021 Pagina"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0038",
+      "page_no": 10,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases"
+      ],
+      "text": "Use cases",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0039",
+      "page_no": 10,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Use case01: Gebruikers profiel aanmaken/ registreren"
+      ],
+      "text": "Use case01: Gebruikers profiel aanmaken/ registreren",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0040",
+      "page_no": 10,
+      "block_type": "table",
+      "heading_path": [
+        "Use cases",
+        "Use case01: Gebruikers profiel aanmaken/ registreren"
+      ],
+      "text": "Actor | Klant\nPreconditie | Het systeem is operationeel. De klant heeft toegang tot het registratie en inlogscherm.\nBeschrijving | Het proces wordt beschreven waarin een klant een nieuw account aanmaakt, het account valideert en inlogt om toegang te krijgen tot een gepersonaliseerde winkelervaring.\nScenario beschrijving | 1. De klant opent de registratie pagina en kiest voor het aanmaken van een nieuw account. 2. Het systeem vraagt de klant om benodigde informatie, zoals naam, emailadres en wachtwoord, in te voeren. 3. De klant vult de vereiste gegevens in en klikt op \"Registreren\". 4. Het systeem valideert de ingevoerde informatie en maakt een uniek gebruikersprofiel aan. 5. Een bevestigingsbericht wordt weergegeven, en het systeem stuurt een verificatieemail naar het opgegeven emailadres.\nPostconditie | Het systeem slaat het gebruikersprofiel op met de verstrekte informatie. De geregistreerde klant heeft toegang tot de gepersonaliseerde winkelomgeving.\nExceptie flow 1: | Als de geregistreerde klant al een geregistreerd account heeft, krijgt de klant een foutmelding met “deze account bestaat al, probeer opnieuw in te loggen”. De geregistreerde klant kan direct inloggen zonder het registratieproces opnieuw te doorlopen.\nExceptie flow 2: | Als de geregistreerde klant onjuiste inloggegevens invoert (bijvoorbeeld een verkeerd emailadres of wachtwoord), krijgt de gebruiker een foutmelding. Het systeem geeft aan welke inloggegevens incorrect zijn en biedt de mogelijkheid om opnieuw in te loggen.",
+      "token_estimate": 378,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 7,
+        "column_count": 2,
+        "header_row": "Actor | Klant",
+        "cells": [
+          [
+            "Actor",
+            "Klant"
+          ],
+          [
+            "Preconditie",
+            "Het systeem is operationeel. De klant heeft toegang tot het registratie en inlogscherm."
+          ],
+          [
+            "Beschrijving",
+            "Het proces wordt beschreven waarin een klant een nieuw account aanmaakt, het account valideert en inlogt om toegang te krijgen tot een gepersonaliseerde winkelervaring."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De klant opent de registratie pagina en kiest voor het aanmaken van een nieuw account. 2. Het systeem vraagt de klant om benodigde informatie, zoals naam, emailadres en wachtwoord, in te voeren. 3. De klant vult de vereiste gegevens in en klikt op \"Registreren\". 4. Het systeem valideert de ingevoerde informatie en maakt een uniek gebruikersprofiel aan. 5. Een bevestigingsbericht wordt weergegeven, en het systeem stuurt een verificatieemail naar het opgegeven emailadres."
+          ],
+          [
+            "Postconditie",
+            "Het systeem slaat het gebruikersprofiel op met de verstrekte informatie. De geregistreerde klant heeft toegang tot de gepersonaliseerde winkelomgeving."
+          ],
+          [
+            "Exceptie flow 1:",
+            "Als de geregistreerde klant al een geregistreerd account heeft, krijgt de klant een foutmelding met “deze account bestaat al, probeer opnieuw in te loggen”. De geregistreerde klant kan direct inloggen zonder het registratieproces opnieuw te doorlopen."
+          ],
+          [
+            "Exceptie flow 2:",
+            "Als de geregistreerde klant onjuiste inloggegevens invoert (bijvoorbeeld een verkeerd emailadres of wachtwoord), krijgt de gebruiker een foutmelding. Het systeem geeft aan welke inloggegevens incorrect zijn en biedt de mogelijkheid om opnieuw in te loggen."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0041",
+      "page_no": 11,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Use case02: Inloggen - gebruiker"
+      ],
+      "text": "Use case02: Inloggen - gebruiker",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0042",
+      "page_no": 11,
+      "block_type": "table",
+      "heading_path": [
+        "Use cases",
+        "Use case02: Inloggen - gebruiker"
+      ],
+      "text": "Actor | Geregistreerde klant\nPreconditie | De klant heeft een geregistreerd account. Het systeem is operationeel en biedt de inlogfunctionaliteit.\nBeschrijving | Deze use case beschrijft hoe geregistreerde klanten kunnen inloggen om toegang te krijgen tot de webshop en een gepersonaliseerde winkelervaring.\nScenario beschrijving | 1. De geregistreerde klant opent de webshop en navigeert naar de inlogpagina. 2. De geregistreerde klant voert zijn/haar gebruikersnaam en wachtwoord in en klikt op de inlogknop. 3. Het systeem valideert de ingevoerde gegevens. 4. Na een succesvolle validatie wordt de geregistreerde klant doorgestuurd naar de webshop. 5. De geregistreerde klant kan door productcategorieën scrollen, aanbiedingen bekijken en producten toevoegen aan het winkelmandje.\nPostconditie | De geregistreerde klant heeft met succes ingelogd en heeft toegang tot de webshop.\nExceptie flow 1: | Als de klant onjuiste inloggegevens invoert, ontvangt de klant een melding en wordt gevraagd om de juiste gegevens in te voeren.\nExceptie flow 2: | Als het account van de geregistreerde klant is vergrendeld vanwege te veel inlogpogingen, ontvangt de klant instructies over het ontgrendelen van het account of het resetten van het wachtwoord.",
+      "token_estimate": 310,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 7,
+        "column_count": 2,
+        "header_row": "Actor | Geregistreerde klant",
+        "cells": [
+          [
+            "Actor",
+            "Geregistreerde klant"
+          ],
+          [
+            "Preconditie",
+            "De klant heeft een geregistreerd account. Het systeem is operationeel en biedt de inlogfunctionaliteit."
+          ],
+          [
+            "Beschrijving",
+            "Deze use case beschrijft hoe geregistreerde klanten kunnen inloggen om toegang te krijgen tot de webshop en een gepersonaliseerde winkelervaring."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De geregistreerde klant opent de webshop en navigeert naar de inlogpagina. 2. De geregistreerde klant voert zijn/haar gebruikersnaam en wachtwoord in en klikt op de inlogknop. 3. Het systeem valideert de ingevoerde gegevens. 4. Na een succesvolle validatie wordt de geregistreerde klant doorgestuurd naar de webshop. 5. De geregistreerde klant kan door productcategorieën scrollen, aanbiedingen bekijken en producten toevoegen aan het winkelmandje."
+          ],
+          [
+            "Postconditie",
+            "De geregistreerde klant heeft met succes ingelogd en heeft toegang tot de webshop."
+          ],
+          [
+            "Exceptie flow 1:",
+            "Als de klant onjuiste inloggegevens invoert, ontvangt de klant een melding en wordt gevraagd om de juiste gegevens in te voeren."
+          ],
+          [
+            "Exceptie flow 2:",
+            "Als het account van de geregistreerde klant is vergrendeld vanwege te veel inlogpogingen, ontvangt de klant instructies over het ontgrendelen van het account of het resetten van het wachtwoord."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0043",
+      "page_no": 12,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Use case03: Geregistreerde klant selecteert product binnen categorie"
+      ],
+      "text": "Use case03: Geregistreerde klant selecteert product binnen categorie",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0044",
+      "page_no": 12,
+      "block_type": "table",
+      "heading_path": [
+        "Use cases",
+        "Use case03: Geregistreerde klant selecteert product binnen categorie"
+      ],
+      "text": "Actor | Geregistreerde klant\nPreconditie | Geregistreerde Klant is ingelogd Geregistreerde klanten hebben toegang tot de webshop\nBeschrijving | Deze use case beschrijft hoe geregistreerde klanten de mogelijkheid hebben om uit tien verschillende producten te kiezen.\nScenario beschrijving | 1. De Geregistreerde klant opent de webshop en logt in op zijn/haar account 2. Het systeem toont tien verschillende producten binnen de geselecteerde categorie 3. De Geregistreerde klant bekijkt de beschikbare producten binnen de categorie. 4. De Geregistreerde klant heeft de mogelijkheid om producten toe te voegen aan zijn/haar winkelmandje. 5. Het systeem registreert de geselecteerde producten voor het afrekenproces.\nPostconditie | Geregistreerde Klanten kunnen de categorie selecteren en uit tien verschillende producten kiezen. De geselecteerde producten zijn toegevoegd aan het winkelmandje van de klant.\nExceptie flow 1: | Als de beheerder de categorie van de producten niet succesvol toevoegt, ontvangt de beheerder een foutmelding en kan de publicatie niet plaatsvinden.",
+      "token_estimate": 268,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 6,
+        "column_count": 2,
+        "header_row": "Actor | Geregistreerde klant",
+        "cells": [
+          [
+            "Actor",
+            "Geregistreerde klant"
+          ],
+          [
+            "Preconditie",
+            "Geregistreerde Klant is ingelogd Geregistreerde klanten hebben toegang tot de webshop"
+          ],
+          [
+            "Beschrijving",
+            "Deze use case beschrijft hoe geregistreerde klanten de mogelijkheid hebben om uit tien verschillende producten te kiezen."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De Geregistreerde klant opent de webshop en logt in op zijn/haar account 2. Het systeem toont tien verschillende producten binnen de geselecteerde categorie 3. De Geregistreerde klant bekijkt de beschikbare producten binnen de categorie. 4. De Geregistreerde klant heeft de mogelijkheid om producten toe te voegen aan zijn/haar winkelmandje. 5. Het systeem registreert de geselecteerde producten voor het afrekenproces."
+          ],
+          [
+            "Postconditie",
+            "Geregistreerde Klanten kunnen de categorie selecteren en uit tien verschillende producten kiezen. De geselecteerde producten zijn toegevoegd aan het winkelmandje van de klant."
+          ],
+          [
+            "Exceptie flow 1:",
+            "Als de beheerder de categorie van de producten niet succesvol toevoegt, ontvangt de beheerder een foutmelding en kan de publicatie niet plaatsvinden."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0045",
+      "page_no": 13,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Use case04: Beheren van winkelmandje"
+      ],
+      "text": "Use case04: Beheren van winkelmandje",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0046",
+      "page_no": 13,
+      "block_type": "table",
+      "heading_path": [
+        "Use cases",
+        "Use case04: Beheren van winkelmandje"
+      ],
+      "text": "Actor | Geregistreerde klant\nPreconditie | De geregistreerde klant heeft ingelogd op zijn/haar gebruikersaccount. De geregistreerde klant heeft één of meer producten toegevoegd aan het winkelmandje.\nBeschrijving | Deze use case beschrijft hoe klanten producten kunnen bekijken, toevoegen en verwijderen uit hun winkelmandje in de webshop.\nScenario beschrijving | 1. De klant navigeert naar het winkelmandje. 2. Het systeem toont een overzicht van de producten die momenteel in het winkelmandje van de klant zitten. 3. De klant kan extra producten toevoegen aan het winkelmandje door op de knop \"Toevoegen aan winkelmandje\" te klikken bij het gewenste product. 4. De klant heeft de mogelijkheid om producten te verwijderen uit het winkelmandje door op de knop \"Verwijderen\" of \"Aantal verminderen\" te klikken. 5. Na het bekijken, toevoegen of verwijderen van producten, wordt het gewijzigde winkelmandje weergegeven aan de klant.\nPostconditie | De klant heeft het winkelmandje beheerd door producten te bekijken, toe te voegen en/of te verwijderen. Het systeem toont het bijgewerkte winkelmandje met de gemaakte wijzigingen.\nExceptie flow 1: | Als de klant probeert een product toe te voegen aan het winkelmandje dat tijdelijk niet beschikbaar is (bijv. uitverkocht), ontvangt de klant een melding en wordt geadviseerd om op een later tijdstip terug te komen of een alternatief product te selecteren.",
+      "token_estimate": 349,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 6,
+        "column_count": 2,
+        "header_row": "Actor | Geregistreerde klant",
+        "cells": [
+          [
+            "Actor",
+            "Geregistreerde klant"
+          ],
+          [
+            "Preconditie",
+            "De geregistreerde klant heeft ingelogd op zijn/haar gebruikersaccount. De geregistreerde klant heeft één of meer producten toegevoegd aan het winkelmandje."
+          ],
+          [
+            "Beschrijving",
+            "Deze use case beschrijft hoe klanten producten kunnen bekijken, toevoegen en verwijderen uit hun winkelmandje in de webshop."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De klant navigeert naar het winkelmandje. 2. Het systeem toont een overzicht van de producten die momenteel in het winkelmandje van de klant zitten. 3. De klant kan extra producten toevoegen aan het winkelmandje door op de knop \"Toevoegen aan winkelmandje\" te klikken bij het gewenste product. 4. De klant heeft de mogelijkheid om producten te verwijderen uit het winkelmandje door op de knop \"Verwijderen\" of \"Aantal verminderen\" te klikken. 5. Na het bekijken, toevoegen of verwijderen van producten, wordt het gewijzigde winkelmandje weergegeven aan de klant."
+          ],
+          [
+            "Postconditie",
+            "De klant heeft het winkelmandje beheerd door producten te bekijken, toe te voegen en/of te verwijderen. Het systeem toont het bijgewerkte winkelmandje met de gemaakte wijzigingen."
+          ],
+          [
+            "Exceptie flow 1:",
+            "Als de klant probeert een product toe te voegen aan het winkelmandje dat tijdelijk niet beschikbaar is (bijv. uitverkocht), ontvangt de klant een melding en wordt geadviseerd om op een later tijdstip terug te komen of een alternatief product te selecteren."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0047",
+      "page_no": 14,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Use case05: Beheer van de klantgegevens"
+      ],
+      "text": "Use case05: Beheer van de klantgegevens",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0048",
+      "page_no": 14,
+      "block_type": "table",
+      "heading_path": [
+        "Use cases",
+        "Use case05: Beheer van de klantgegevens"
+      ],
+      "text": "Actor | Beheer\nPreconditie | De beheerder heeft met succes ingelogd op het beheerdersaccount. Het systeem is operationeel en heeft toegang tot de database met producten, klantgegevens en bestellingen.\nBeschrijving | Deze use case beschrijft hoe de beheerder producten, klanten en bestellingen kan beheren via de intuïtieve beheerinterface.\nScenario beschrijving | 1. Na succesvol inloggen, wordt de beheerder doorgestuurd naar de intuïtieve beheerinterface. 2. De beheerder kan producten bekijken, toevoegen, bewerken of verwijderen. Het systeem biedt eenvoudige navigatie en zoekmogelijkheden om specifieke producten te vinden. 3. De beheerder heeft toegang tot klantgegevens en kan nieuwe klanten toevoegen, bestaande klantgegevens bewerken of klanten verwijderen. 4. De beheerder logt in op het beheerdersaccount met geldige referenties. • Navigeren naar Beheerinterface: • Beheren van Producten: • Beheren van Klantgegevens: • Beheren van Bestellingen: 5. De beheerder kan bestellingen bekijken, statussen bijwerken, bestellingen verwerken en gegevens analyseren.\nPostconditie | De beheerder heeft met succes producten, klanten en bestellingen beheerd via de intuïtieve beheerinterface.\nExceptie flow 1: | Als de beheerder probeert wijzigingen op te slaan zonder vereiste velden in te vullen, ontvangt de beheerder een melding en wordt gevraagd om ontbrekende informatie in te vullen.",
+      "token_estimate": 347,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 6,
+        "column_count": 2,
+        "header_row": "Actor | Beheer",
+        "cells": [
+          [
+            "Actor",
+            "Beheer"
+          ],
+          [
+            "Preconditie",
+            "De beheerder heeft met succes ingelogd op het beheerdersaccount. Het systeem is operationeel en heeft toegang tot de database met producten, klantgegevens en bestellingen."
+          ],
+          [
+            "Beschrijving",
+            "Deze use case beschrijft hoe de beheerder producten, klanten en bestellingen kan beheren via de intuïtieve beheerinterface."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Na succesvol inloggen, wordt de beheerder doorgestuurd naar de intuïtieve beheerinterface. 2. De beheerder kan producten bekijken, toevoegen, bewerken of verwijderen. Het systeem biedt eenvoudige navigatie en zoekmogelijkheden om specifieke producten te vinden. 3. De beheerder heeft toegang tot klantgegevens en kan nieuwe klanten toevoegen, bestaande klantgegevens bewerken of klanten verwijderen. 4. De beheerder logt in op het beheerdersaccount met geldige referenties. • Navigeren naar Beheerinterface: • Beheren van Producten: • Beheren van Klantgegevens: • Beheren van Bestellingen: 5. De beheerder kan bestellingen bekijken, statussen bijwerken, bestellingen verwerken en gegevens analyseren."
+          ],
+          [
+            "Postconditie",
+            "De beheerder heeft met succes producten, klanten en bestellingen beheerd via de intuïtieve beheerinterface."
+          ],
+          [
+            "Exceptie flow 1:",
+            "Als de beheerder probeert wijzigingen op te slaan zonder vereiste velden in te vullen, ontvangt de beheerder een melding en wordt gevraagd om ontbrekende informatie in te vullen."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0049",
+      "page_no": 15,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Use case diagram"
+      ],
+      "text": "Use case diagram",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0050",
+      "page_no": 16,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Rood = Functionele requirements"
+      ],
+      "text": "Rood = Functionele requirements",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0051",
+      "page_no": 16,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Paars = Niet-funtionele requirement"
+      ],
+      "text": "Paars = Niet-funtionele requirement",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0052",
+      "page_no": 16,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Groen = Constraints"
+      ],
+      "text": "Groen = Constraints",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0053",
+      "page_no": 16,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Tekstanalyse",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0054",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Mijn naam is [PERSOON_01], vertegenwoordiger van investeringsbedrijf Plenty. We zijn op zoek naar",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0055",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "een bekwame groep websiteontwikkelaars om een innovateve website te cre ë ren die in de kern lijkt",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0056",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "op 'bol.com'. Het doel is om een plaform te ontwikkelen waar klanten diverse producten kunnen",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0057",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "aanschaffen, met specifieke aandacht voor gebruiksvriendelijkheid, toegankelijkheid, veiligheid en",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0058",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "betrouwbaarheid.",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0059",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Maar, daarvoor nodigen we eerst individuele websiteontwikkelaars uit om een eigen webshop te",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0060",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "ontwikkelen waarop éé n soort product wordt verkocht.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0061",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Het hoofddoel van de individuele webshop is om klanten een soepele ervaring te bieden als zij een",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0062",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "gevarieerd aanbod van tien producten doorzoeken en kopen. Deze tien producten vallen binnen éé n",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0063",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Het is de bedoeling dat de klanten op de website een gepersonaliseerde winkelervaringen hebben.",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0064",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "ontworpen winkelmandfunctionaliteit is essentieel voor soepele afhandeling van bestellingen.",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0065",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Klanten moeten de producten in hun winkelmand kunnen bekijken en verwijderen indien nodig.",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0066",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Kortom, de website moet gebruiksvriendelijk zijn.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0067",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Ook moet de website aantrekkelijk zijn voor de klanten. De uitstraling en opmaak van de website",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0068",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "dien te passen bij de beoogde klanten van het soort product. Zij moeten de website en de producten",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0069",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "daarop kunnen verkennen, ongeacht het device waarop ze het bekijken.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0070",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Hierbij moet de websiteontwikkelaar tevens rekening houden met verschillende klanten. We willen",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0071",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "dat onze website toegankelijk is voor een breed scala aan klanten, inclusief laaggeletterde mensen,",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0072",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "meertalige mensen, slechtziende mensen, mensen die kleurenblind zijn, ouderen, en mensen met",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0073",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "beperkte financi ë le middelen. Daarom moet de individuele website toegankelijk zijn voor éé n van",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0074",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "deze groep klanten. De websiteontwikkelaar zal onderzoek uit moeten voeren naar hoe de website",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0075",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "toegankelijk is voor de gekozen groep klanten.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0076",
+      "page_no": 16,
+      "block_type": "table",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "soort artikelen. De categorieën waaruit gekozen kan worden zijn: schoenen, petten, games,\nsportartikelen, computers, computeraccessoires, eten, drinken, muziek, films, crypto, kleding en een\ncategorie ‘overig in overleg’ | . | Klanten mogen deze artikelen alleen niet betalen met giftcards en zij\nkunnen niet gebruik maken van promocodes in de webshop.",
+      "token_estimate": 88,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 4,
+        "column_count": 3,
+        "header_row": null,
+        "cells": [
+          [
+            "soort artikelen. De categorieën waaruit gekozen kan worden zijn: schoenen, petten, games,"
+          ],
+          [
+            "sportartikelen, computers, computeraccessoires, eten, drinken, muziek, films, crypto, kleding en een"
+          ],
+          [
+            "categorie ‘overig in overleg’",
+            ".",
+            "Klanten mogen deze artikelen alleen niet betalen met giftcards en zij"
+          ],
+          [
+            "kunnen niet gebruik maken van promocodes in de webshop."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0077",
+      "page_no": 16,
+      "block_type": "table",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Daarom moeten zij een profiel aan kunnen maken en in kunnen loggen. | Zij moeten producten\ngemakkelijk kunnen vinden, op de website bekijken en in hun winkelmand plaatsen",
+      "token_estimate": 42,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 2,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "Daarom moeten zij een profiel aan kunnen maken en in kunnen loggen.",
+            "Zij moeten producten"
+          ],
+          [
+            "gemakkelijk kunnen vinden, op de website bekijken en in hun winkelmand plaatsen"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0078",
+      "page_no": 16,
+      "block_type": "table",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Daarnaast moet de website betrouwbaar zijn. Dit betekent dat de website altijd bereikbaar is voor\nklanten | . En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen. | Hierbij zijn de\nverzendkosten niet afhankelijk van het formaat of de locatie, maar een standaardbedrag.",
+      "token_estimate": 72,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 3,
+        "column_count": 3,
+        "header_row": null,
+        "cells": [
+          [
+            "Daarnaast moet de website betrouwbaar zijn. Dit betekent dat de website altijd bereikbaar is voor"
+          ],
+          [
+            "klanten",
+            ". En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen.",
+            "Hierbij zijn de"
+          ],
+          [
+            "verzendkosten niet afhankelijk van het formaat of de locatie, maar een standaardbedrag."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0079",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Uiteraard is het beheer van een website essentieel om mee te nemen in de ontwikkeling. Het",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0080",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "systeem moet een intu ï teve beheerinterface hebben waarmee producten, klanten en bestellingen",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0081",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "eenvoudig worden beheerd. Het doel is om effici ë nt beheer van de website mogelijk te maken.",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0082",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Ten slott e is veiligheid een belangrijk element van website-ontwikkeling. Ook al is er geen",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0083",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "daadwerkelijke financi ë le transactie, de gegevens van onze bezoekers moeten veilig zijn. We",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0084",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "benadrukken daarom het belang van strikte naleving van de Algemene Verordening",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0085",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "Gegevensbescherming (AVG) en vragen om een grondige beveiligings- en risicoanalyse om de",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0086",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "gegevens van onze klanten te beschermen.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0087",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "We stellen voor dat de ontwikkeling van de website wordt voltooid binnen een budget van 10.000",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0088",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "euro een redelijke termijn van zes weken. Hierbinnen is de webshop ontworpen, ontwikkeld en",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0089",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "getest. Op relevante momenten willen wij op de hoogte gebracht worden van de voortgang. Aan het",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0090",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "einde van de zes weken moet er een werkende webshop kunnen worden getoond. In een",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0091",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "adviespresentatie willen wij als opdrachtgever overtuigd worden hoe de website aansluit bij de",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0092",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use cases",
+        "Tekstanalyse"
+      ],
+      "text": "wensen en eisen van zowel ons als opdrachtgever als van de gekozen groep eindgebruikers.",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0093",
+      "page_no": 18,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Interview"
+      ],
+      "text": "Interview",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0094",
+      "page_no": 18,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Analyse doelgroep:"
+      ],
+      "text": "Analyse doelgroep:",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0095",
+      "page_no": 18,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Inleiding"
+      ],
+      "text": "Inleiding",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0096",
+      "page_no": 18,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Analyseren van de doelgroep"
+      ],
+      "text": "Analyseren van de doelgroep",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0097",
+      "page_no": 18,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Wat het budet is,"
+      ],
+      "text": "Wat het budet is,",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0098",
+      "page_no": 18,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Diensten die ze leuk vinden"
+      ],
+      "text": "Diensten die ze leuk vinden",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "1023e8a9",
+      "block_id": "1023e8a9_0099",
+      "page_no": 18,
+      "block_type": "heading",
+      "heading_path": [
+        "Use cases",
+        "Waarom hij/zij mijn website bezoeken?"
+      ],
+      "text": "Waarom hij/zij mijn website bezoeken?",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    }
+  ]
+}
