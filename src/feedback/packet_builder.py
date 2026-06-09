@@ -469,4 +469,126 @@ def _build_stakeholders_packet(
         evidence_items=items,
         missing_signals=missing_sigs,
     )
+ # ---------------------------------------------------------------------------
+# Criterion 3: Requirements
+# ---------------------------------------------------------------------------
+ 
+ 
+def _prio_row_count(hit: RetrievalHit) -> int:
+    """Count rows in a table block whose first matching cell starts with a MoSCoW label."""
+    tm = hit.block.get("table_meta")
+    if not tm or not tm.get("cells"):
+        return 0
+    count = 0
+    for row in tm["cells"]:
+        for cell in row:
+            if cell and any(
+                cell.strip().lower().startswith(w)
+                for w in ("must", "should", "could", "shoul", "won")
+            ):
+                count += 1
+                break
+    return count
+ 
+ 
+def _req_id_count(hit: RetrievalHit) -> int:
+    """Count requirement IDs (FR-01, NFR-01, …) in a block's text."""
+    return len(_REQ_ID_RE.findall(hit.block["text"]))
+ 
+ 
+def _build_requirements_packet(
+    spec: CriterionSpec,
+    hits: list[RetrievalHit],
+    cr: CriterionResult,
+) -> EvidencePacket:
+    """Select up to 3 items, preferring tables with MoSCoW priority labels.
+ 
+    Tables with the most prio-rows rank first; ties broken by retrieval score.
+    Paragraph / bullet blocks fill remaining slots.
+    """
+    MAX = _MAX_ITEMS["requirements"]
+    status = cr.status
+    items: list[EvidenceItem] = []
+    missing_sigs: list[str] = []
+ 
+    table_hits = sorted(
+        [h for h in hits if h.block["block_type"] == "table"],
+        key=lambda h: (-_prio_row_count(h), -h.score, h.block["block_id"]),
+    )
+    para_hits = _sort_content_first(
+        [h for h in hits if h.block["block_type"] in ("paragraph", "bullet")]
+    )
+    heading_hits = [h for h in hits if _is_heading_only(h)]
+ 
+    all_text = " ".join(h.block["text"].lower() for h in hits)
+    has_prio = any(
+        t in all_text for t in ("must", "should", "could", "moscow", "prioriteit")
+    )
+    count = cr.count or 0
+    minimum = spec.minimum_count or 15
+ 
+    if status == "missing":
+        for h in heading_hits[:1]:
+            items.append(_make_item(
+                h,
+                "Requirements-sectieheading gevonden maar geen inhoud herkend",
+                "absent_marker",
+            ))
+        missing_sigs.append(f"Geen herkenbare requirements gevonden (minimum {minimum})")
+        if not has_prio:
+            missing_sigs.append("Geen MoSCoW-prioritering aangetroffen")
+ 
+    elif status == "partial":
+        candidates = (table_hits + para_hits)[:MAX]
+        for h in candidates:
+            pcount = _prio_row_count(h)
+            rcount = _req_id_count(h)
+            if h.block["block_type"] == "table":
+                if pcount > 0:
+                    reason = f"Requirements-tabel met {pcount} MoSCoW-rijen"
+                    sc: SignalClass = "positive"
+                elif rcount > 0:
+                    reason = f"Requirements-tabel ({rcount} req-IDs)"
+                    sc = "positive"
+                else:
+                    reason = "Requirements-tabel (beperkte inhoud herkend)"
+                    sc = "weak"
+            else:
+                reason = "Requirements in tekst"
+                sc = "weak"
+            items.append(_make_item(h, reason, sc))
+        missing_sigs.append(f"Slechts ~{count} requirements gevonden (minimum {minimum})")
+        if not has_prio:
+            missing_sigs.append("Geen MoSCoW-prioritering aangetroffen")
+ 
+    else:  # sufficient / strong
+        candidates = (table_hits + para_hits)[:MAX]
+        seen: set[str] = set()
+        for h in candidates:
+            bid = h.block["block_id"]
+            if bid in seen:
+                continue
+            seen.add(bid)
+            pcount = _prio_row_count(h)
+            rcount = _req_id_count(h)
+            tm = h.block.get("table_meta")
+            n_rows = len(tm.get("cells") or []) if tm else 0
+            if h.block["block_type"] == "table":
+                if pcount > 0:
+                    reason = f"Requirements-tabel: {n_rows} rijen, {pcount} MoSCoW-labels"
+                else:
+                    reason = f"Requirements-tabel: {n_rows} rijen, {rcount} req-IDs"
+            else:
+                reason = f"Requirements in tekst ({rcount} IDs herkend)"
+            items.append(_make_item(h, reason, "positive"))
+        if not has_prio:
+            missing_sigs.append("Geen MoSCoW-prioritering aangetroffen")
+ 
+    return EvidencePacket(
+        criterion_key=spec.key,
+        manual_review=cr.manual_review,
+        notes=cr.notes,
+        evidence_items=items,
+        missing_signals=missing_sigs,
+    )
  
