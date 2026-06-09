@@ -1,0 +1,559 @@
+[
+  {
+    "file": "2e138dc4_anonymized.json",
+    "doc_id": "2e138dc4",
+    "source_name": "Requirements_student5.pdf",
+    "overall_stoplight": "yellow",
+    "hidden_score": 13,
+    "manual_review_required": true,
+    "blockers_triggered": [],
+    "manual_review_flags": [
+      "beperking"
+    ],
+    "criteria": {
+      "beperking": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": null,
+        "manual_review": true,
+        "notes": [
+          "Beperking beschreven (visuele beperking, beperking, blind) en onderbouwing aanwezig (bron, bronnen).",
+          "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
+        ]
+      },
+      "stakeholders": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 17,
+        "manual_review": false,
+        "notes": [
+          "17 stakeholder(s) herkend — boven drempel, met belang en invloed gedocumenteerd."
+        ]
+      },
+      "requirements": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 29,
+        "manual_review": false,
+        "notes": [
+          "Geschat 29 requirement-items — ruim gedekt. Prioritering: ja."
+        ]
+      },
+      "taalkeuze": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": null,
+        "manual_review": false,
+        "notes": [
+          "Taalkeuze (meertalig) en gevolgen (beïnvloed, bereik) aanwezig."
+        ]
+      },
+      "security": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 5,
+        "manual_review": false,
+        "notes": [
+          "5 concrete beveiligingsmechanismen gevonden: encryptie, avg, tls, risicoanalyse, ssl."
+        ]
+      }
+    }
+  },
+  {
+    "file": "8e5ee17e_anonymized.json",
+    "doc_id": "8e5ee17e",
+    "source_name": "requirement analyse fullstack_student2.pdf",
+    "overall_stoplight": "green",
+    "hidden_score": 13,
+    "manual_review_required": false,
+    "blockers_triggered": [],
+    "manual_review_flags": [],
+    "criteria": {
+      "beperking": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": null,
+        "manual_review": false,
+        "notes": [
+          "Beperking in meerdere blokken beschreven (visuele beperking, beperking, slechtziend) en meerdere onderbouwingsblokken aanwezig (onderzoek, literatuurlijst, literatuur)."
+        ]
+      },
+      "stakeholders": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 9,
+        "manual_review": false,
+        "notes": [
+          "9 stakeholder(s) herkend — boven drempel, met belang en invloed gedocumenteerd."
+        ]
+      },
+      "requirements": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 26,
+        "manual_review": false,
+        "notes": [
+          "Geschat 26 requirement-items — ruim gedekt. Prioritering: ja."
+        ]
+      },
+      "taalkeuze": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": null,
+        "manual_review": false,
+        "notes": [
+          "Taalkeuze (meertalig) en gevolgen (beïnvloed, beïnvloeden) aanwezig."
+        ]
+      },
+      "security": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": 2,
+        "manual_review": false,
+        "notes": [
+          "2 concreet beveiligingsmechanisme(n) gevonden: avg, risicoanalyse."
+        ]
+      }
+    }
+  },
+  {
+    "file": "c90afb25_anonymized.json",
+    "doc_id": "c90afb25",
+    "source_name": "requirments_student1_Versie2.pdf",
+    "overall_stoplight": "green",
+    "hidden_score": 14,
+    "manual_review_required": false,
+    "blockers_triggered": [],
+    "manual_review_flags": [],
+    "criteria": {
+      "beperking": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": null,
+        "manual_review": false,
+        "notes": [
+          "Beperking in meerdere blokken beschreven (visuele beperking, beperking, slechtziend) en meerdere onderbouwingsblokken aanwezig (desk research, bron, onderzoek)."
+        ]
+      },
+      "stakeholders": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 18,
+        "manual_review": false,
+        "notes": [
+          "18 stakeholder(s) herkend — boven drempel, met belang en invloed gedocumenteerd."
+        ]
+      },
+      "requirements": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 32,
+        "manual_review": false,
+        "notes": [
+          "Geschat 32 requirement-items — ruim gedekt. Prioritering: ja."
+        ]
+      },
+      "taalkeuze": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": null,
+        "manual_review": false,
+        "notes": [
+          "Taalkeuze (nederlands, taal van de website) en gevolgen (meertaligheid) aanwezig."
+        ]
+      },
+      "security": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 6,
+        "manual_review": false,
+        "notes": [
+          "6 concrete beveiligingsmechanismen gevonden: avg, https, beveiligingsaudit, firewall, wachtwoord, ssl."
+        ]
+      }
+    }
+  },
+  {
+    "file": "23276484_anonymized.json",
+    "doc_id": "23276484",
+    "source_name": "student_7_requirements.pdf",
+    "overall_stoplight": "red",
+    "hidden_score": 7,
+    "manual_review_required": true,
+    "blockers_triggered": [
+      "stakeholders",
+      "requirements",
+      "taalkeuze"
+    ],
+    "manual_review_flags": [
+      "beperking",
+      "stakeholders",
+      "taalkeuze"
+    ],
+    "criteria": {
+      "beperking": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": null,
+        "manual_review": true,
+        "notes": [
+          "Beperking beschreven (beperking, slechtziend) en onderbouwing aanwezig (bron, onderzoek, literatuurlijst).",
+          "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
+        ]
+      },
+      "stakeholders": {
+        "status": "partial",
+        "stoplight": "red",
+        "count": 3,
+        "manual_review": true,
+        "notes": [
+          "3 unieke stakeholder(s) herkend (minimum 4). Belang: ja, Invloed: ja.",
+          "Één stakeholder onder het minimum — grenswaardegeval."
+        ]
+      },
+      "requirements": {
+        "status": "partial",
+        "stoplight": "red",
+        "count": 7,
+        "manual_review": false,
+        "notes": [
+          "Geschat 7 requirement-items (minimum 15). Prioritering: ja."
+        ]
+      },
+      "taalkeuze": {
+        "status": "partial",
+        "stoplight": "red",
+        "count": null,
+        "manual_review": true,
+        "notes": [
+          "Taalkeuze vermeld (nederlands, engels), maar geen gevolgen van die keuze beschreven."
+        ]
+      },
+      "security": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": 2,
+        "manual_review": false,
+        "notes": [
+          "2 concreet beveiligingsmechanisme(n) gevonden: avg, wachtwoord."
+        ]
+      }
+    }
+  },
+  {
+    "file": "35baf7d3_anonymized.json",
+    "doc_id": "35baf7d3",
+    "source_name": "Requirement_student1 .pdf",
+    "overall_stoplight": "red",
+    "hidden_score": 10,
+    "manual_review_required": true,
+    "blockers_triggered": [
+      "taalkeuze"
+    ],
+    "manual_review_flags": [
+      "beperking",
+      "requirements",
+      "taalkeuze"
+    ],
+    "criteria": {
+      "beperking": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": null,
+        "manual_review": true,
+        "notes": [
+          "Beperking beschreven (slechtziend, specifieke doelgroep) en onderbouwing aanwezig (onderzoek).",
+          "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
+        ]
+      },
+      "stakeholders": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 12,
+        "manual_review": false,
+        "notes": [
+          "12 stakeholder(s) herkend — boven drempel, met belang en invloed gedocumenteerd."
+        ]
+      },
+      "requirements": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": 16,
+        "manual_review": true,
+        "notes": [
+          "Geschat 16 requirement-items. Prioritering: ja.",
+          "Telling (16) net boven minimum — grenswaardegeval."
+        ]
+      },
+      "taalkeuze": {
+        "status": "partial",
+        "stoplight": "red",
+        "count": null,
+        "manual_review": true,
+        "notes": [
+          "Gevolg-signalen aanwezig (beïnvloed, beïnvloeden), maar geen expliciete taalkeuze vermeld."
+        ]
+      },
+      "security": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": 2,
+        "manual_review": false,
+        "notes": [
+          "2 concreet beveiligingsmechanisme(n) gevonden: avg, wachtwoord."
+        ]
+      }
+    }
+  },
+  {
+    "file": "f14254dd_anonymized.json",
+    "doc_id": "f14254dd",
+    "source_name": "Requirements_Analyse_FusionFinds_variant.pdf",
+    "overall_stoplight": "red",
+    "hidden_score": 8,
+    "manual_review_required": true,
+    "blockers_triggered": [
+      "beperking",
+      "requirements",
+      "taalkeuze"
+    ],
+    "manual_review_flags": [
+      "stakeholders",
+      "requirements",
+      "taalkeuze"
+    ],
+    "criteria": {
+      "beperking": {
+        "status": "partial",
+        "stoplight": "red",
+        "count": null,
+        "manual_review": false,
+        "notes": [
+          "Onderbouwing aanwezig (bron, onderzoek, bronnen), maar geen expliciete beperking of doelgroepkeuze beschreven."
+        ]
+      },
+      "stakeholders": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": 18,
+        "manual_review": true,
+        "notes": [
+          "18 stakeholder(s) herkend, maar belang en/of invloed ontbreekt. Belang: ja, Invloed: nee."
+        ]
+      },
+      "requirements": {
+        "status": "partial",
+        "stoplight": "red",
+        "count": 14,
+        "manual_review": true,
+        "notes": [
+          "Geschat 14 requirement-items (minimum 15). Prioritering: ja.",
+          "Telling (14) dicht bij minimum (15) — handmatig verificeren."
+        ]
+      },
+      "taalkeuze": {
+        "status": "partial",
+        "stoplight": "red",
+        "count": null,
+        "manual_review": true,
+        "notes": [
+          "Taalkeuze vermeld (nederlands, in het nederlands), maar geen gevolgen van die keuze beschreven."
+        ]
+      },
+      "security": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 3,
+        "manual_review": false,
+        "notes": [
+          "3 concrete beveiligingsmechanismen gevonden: avg, https, wachtwoord."
+        ]
+      }
+    }
+  },
+  {
+    "file": "1023e8a9_anonymized.json",
+    "doc_id": "1023e8a9",
+    "source_name": "requirements anaylse first full stack_student3.pdf",
+    "overall_stoplight": "yellow",
+    "hidden_score": 13,
+    "manual_review_required": true,
+    "blockers_triggered": [],
+    "manual_review_flags": [
+      "beperking",
+      "requirements"
+    ],
+    "criteria": {
+      "beperking": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": null,
+        "manual_review": true,
+        "notes": [
+          "Beperking beschreven (beperking) en onderbouwing aanwezig (onderzoek).",
+          "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
+        ]
+      },
+      "stakeholders": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 22,
+        "manual_review": false,
+        "notes": [
+          "22 stakeholder(s) herkend — boven drempel, met belang en invloed gedocumenteerd."
+        ]
+      },
+      "requirements": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": 17,
+        "manual_review": true,
+        "notes": [
+          "Geschat 17 requirement-items. Prioritering: ja.",
+          "Telling (17) net boven minimum — grenswaardegeval."
+        ]
+      },
+      "taalkeuze": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": null,
+        "manual_review": false,
+        "notes": [
+          "Taalkeuze (meertalig) en meerdere gevolgen (beïnvloed, bereik, beïnvloeden) goed uitgewerkt."
+        ]
+      },
+      "security": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 3,
+        "manual_review": false,
+        "notes": [
+          "3 concrete beveiligingsmechanismen gevonden: avg, risicoanalyse, wachtwoord."
+        ]
+      }
+    }
+  },
+  {
+    "file": "104812d2_anonymized.json",
+    "doc_id": "104812d2",
+    "source_name": "requirments_student4.pdf",
+    "overall_stoplight": "red",
+    "hidden_score": 9,
+    "manual_review_required": true,
+    "blockers_triggered": [
+      "requirements"
+    ],
+    "manual_review_flags": [
+      "beperking",
+      "stakeholders"
+    ],
+    "criteria": {
+      "beperking": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": null,
+        "manual_review": true,
+        "notes": [
+          "Beperking beschreven (visuele beperking, beperking, blind) en onderbouwing aanwezig (onderzoek).",
+          "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
+        ]
+      },
+      "stakeholders": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": 27,
+        "manual_review": true,
+        "notes": [
+          "27 stakeholder(s) herkend, maar belang en/of invloed ontbreekt. Belang: ja, Invloed: nee."
+        ]
+      },
+      "requirements": {
+        "status": "missing",
+        "stoplight": "red",
+        "count": 0,
+        "manual_review": false,
+        "notes": [
+          "Geen herkenbare requirements gevonden."
+        ]
+      },
+      "taalkeuze": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": null,
+        "manual_review": false,
+        "notes": [
+          "Taalkeuze (meertalig, taalkeuze) en gevolgen (begrijpelijk, internationaal) aanwezig."
+        ]
+      },
+      "security": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 5,
+        "manual_review": false,
+        "notes": [
+          "5 concrete beveiligingsmechanismen gevonden: encryptie, https, hashing, wachtwoord, ssl."
+        ]
+      }
+    }
+  },
+  {
+    "file": "2f4d9d91_anonymized.json",
+    "doc_id": "2f4d9d91",
+    "source_name": "Requirements_Engineering_student6.pdf",
+    "overall_stoplight": "yellow",
+    "hidden_score": 13,
+    "manual_review_required": true,
+    "blockers_triggered": [],
+    "manual_review_flags": [
+      "stakeholders"
+    ],
+    "criteria": {
+      "beperking": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": null,
+        "manual_review": false,
+        "notes": [
+          "Beperking in meerdere blokken beschreven (beperking) en meerdere onderbouwingsblokken aanwezig (bron, bronvermelding, onderzoek)."
+        ]
+      },
+      "stakeholders": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": 4,
+        "manual_review": true,
+        "notes": [
+          "4 stakeholder(s) herkend met belang en invloed beschreven.",
+          "Exact op minimum (4) — verifieer tabel op volledigheid."
+        ]
+      },
+      "requirements": {
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": 24,
+        "manual_review": false,
+        "notes": [
+          "Geschat 24 requirement-items. Prioritering: ja."
+        ]
+      },
+      "taalkeuze": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": null,
+        "manual_review": false,
+        "notes": [
+          "Taalkeuze (nederlands, in het nederlands) en gevolgen (bereik, meertaligheid) aanwezig, onderbouwd met onderzoek."
+        ]
+      },
+      "security": {
+        "status": "strong",
+        "stoplight": "green",
+        "count": 4,
+        "manual_review": false,
+        "notes": [
+          "4 concrete beveiligingsmechanismen gevonden: owasp, avg, https, risicoanalyse."
+        ]
+      }
+    }
+  }
+]
