@@ -1,4 +1,4 @@
-"""Run the CAPS pipeline on all anonymized JSON reports in data/anonymised/.
+"""Run the CAPS pipeline on all anonymized JSON reports in data/anonymized/.
 
 Usage:
     py -3 scripts/run_caps_on_anonymized.py
@@ -29,7 +29,7 @@ from src.caps.models import CapsRunResult, ParseReportDict
 # Paths
 # ---------------------------------------------------------------------------
 
-_DATA_DIR = pathlib.Path(__file__).resolve().parents[1] / "data" / "anonymised"
+_DATA_DIR = pathlib.Path(__file__).resolve().parents[1] / "data" / "anonymized"
 _RESULTS_FILE = _DATA_DIR / "caps_results.json"
 
 
@@ -116,7 +116,7 @@ def _result_to_dict(filename: str, result: CapsRunResult) -> dict:
 
 
 def main() -> None:
-    json_files = sorted(_DATA_DIR.glob("*_anonymized.json"))
+    json_files = sorted(_DATA_DIR.rglob("*_anonymized.json"))
     if not json_files:
         print(f"No *_anonymized.json files found in {_DATA_DIR}")
         sys.exit(1)
