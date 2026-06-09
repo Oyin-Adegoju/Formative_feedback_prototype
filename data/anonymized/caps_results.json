@@ -17,7 +17,7 @@
         "count": null,
         "manual_review": true,
         "notes": [
-          "Beperking beschreven (visuele beperking, beperking, blind) en onderbouwing aanwezig (bron, bronnen).",
+          "Beperking beschreven (blind, slechtziend, beperking) en onderbouwing aanwezig (bron, bronnen).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ]
       },
@@ -36,7 +36,9 @@
         "count": 29,
         "manual_review": false,
         "notes": [
-          "Geschat 29 requirement-items — ruim gedekt. Prioritering: ja."
+          "Geschat 29 requirement-items — ruim gedekt. Prioritering: ja.",
+          "Functioneel: ~23, Niet-functioneel: ~6.",
+          "Prioriteitsverdeling: Must: 14, Should: 6, Could: 1."
         ]
       },
       "taalkeuze": {
@@ -45,7 +47,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Taalkeuze (meertalig) en gevolgen (beïnvloed, bereik) aanwezig."
+          "Taalkeuze (meertalig) en gevolgen (bereik, beïnvloed) aanwezig."
         ]
       },
       "security": {
@@ -54,7 +56,7 @@
         "count": 5,
         "manual_review": false,
         "notes": [
-          "5 concrete beveiligingsmechanismen gevonden: encryptie, avg, tls, risicoanalyse, ssl."
+          "5 concrete beveiligingsmechanismen gevonden: tls, risicoanalyse, ssl, avg, encryptie."
         ]
       }
     }
@@ -75,7 +77,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Beperking in meerdere blokken beschreven (visuele beperking, beperking, slechtziend) en meerdere onderbouwingsblokken aanwezig (onderzoek, literatuurlijst, literatuur)."
+          "Beperking in meerdere blokken beschreven (slechtziend, beperking, visuele beperking) en meerdere onderbouwingsblokken aanwezig (literatuur, literatuurlijst, onderzoek)."
         ]
       },
       "stakeholders": {
@@ -93,7 +95,9 @@
         "count": 26,
         "manual_review": false,
         "notes": [
-          "Geschat 26 requirement-items — ruim gedekt. Prioritering: ja."
+          "Geschat 26 requirement-items — ruim gedekt. Prioritering: ja.",
+          "Functioneel: ~26.",
+          "Prioriteitsverdeling: Must: 12, Should: 7, Could: 1."
         ]
       },
       "taalkeuze": {
@@ -102,7 +106,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Taalkeuze (meertalig) en gevolgen (beïnvloed, beïnvloeden) aanwezig."
+          "Taalkeuze (meertalig) en gevolgen (beïnvloeden, beïnvloed) aanwezig."
         ]
       },
       "security": {
@@ -111,7 +115,7 @@
         "count": 2,
         "manual_review": false,
         "notes": [
-          "2 concreet beveiligingsmechanisme(n) gevonden: avg, risicoanalyse."
+          "2 concreet beveiligingsmechanisme(n) gevonden: risicoanalyse, avg."
         ]
       }
     }
@@ -132,7 +136,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Beperking in meerdere blokken beschreven (visuele beperking, beperking, slechtziend) en meerdere onderbouwingsblokken aanwezig (desk research, bron, onderzoek)."
+          "Beperking in meerdere blokken beschreven (slechtziend, beperking, specifieke doelgroep) en meerdere onderbouwingsblokken aanwezig (bron, desk research, bronnen)."
         ]
       },
       "stakeholders": {
@@ -150,7 +154,9 @@
         "count": 32,
         "manual_review": false,
         "notes": [
-          "Geschat 32 requirement-items — ruim gedekt. Prioritering: ja."
+          "Geschat 32 requirement-items — ruim gedekt. Prioritering: ja.",
+          "Functioneel: ~23, Niet-functioneel: ~9.",
+          "Prioriteitsverdeling: Must: 16, Should: 9, Could: 6."
         ]
       },
       "taalkeuze": {
@@ -159,7 +165,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Taalkeuze (nederlands, taal van de website) en gevolgen (meertaligheid) aanwezig."
+          "Taalkeuze (meertalig, nederlands) en gevolgen (meertaligheid) aanwezig."
         ]
       },
       "security": {
@@ -168,7 +174,7 @@
         "count": 6,
         "manual_review": false,
         "notes": [
-          "6 concrete beveiligingsmechanismen gevonden: avg, https, beveiligingsaudit, firewall, wachtwoord, ssl."
+          "6 concrete beveiligingsmechanismen gevonden: https, ssl, wachtwoord, firewall, avg, beveiligingsaudit."
         ]
       }
     }
@@ -197,7 +203,7 @@
         "count": null,
         "manual_review": true,
         "notes": [
-          "Beperking beschreven (beperking, slechtziend) en onderbouwing aanwezig (bron, onderzoek, literatuurlijst).",
+          "Beperking beschreven (slechtziend, beperking) en onderbouwing aanwezig (bron, literatuur, literatuurlijst).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ]
       },
@@ -217,7 +223,9 @@
         "count": 7,
         "manual_review": false,
         "notes": [
-          "Geschat 7 requirement-items (minimum 15). Prioritering: ja."
+          "Geschat 7 requirement-items (minimum 15). Prioritering: ja.",
+          "Niet-functioneel: ~6.",
+          "Prioriteitsverdeling: Must: 1."
         ]
       },
       "taalkeuze": {
@@ -235,7 +243,7 @@
         "count": 2,
         "manual_review": false,
         "notes": [
-          "2 concreet beveiligingsmechanisme(n) gevonden: avg, wachtwoord."
+          "2 concreet beveiligingsmechanisme(n) gevonden: wachtwoord, avg."
         ]
       }
     }
@@ -282,7 +290,9 @@
         "manual_review": true,
         "notes": [
           "Geschat 16 requirement-items. Prioritering: ja.",
-          "Telling (16) net boven minimum — grenswaardegeval."
+          "Telling (16) net boven minimum — grenswaardegeval.",
+          "Niet-functioneel: ~16.",
+          "Prioriteitsverdeling: Must: 8, Should: 4."
         ]
       },
       "taalkeuze": {
@@ -291,7 +301,7 @@
         "count": null,
         "manual_review": true,
         "notes": [
-          "Gevolg-signalen aanwezig (beïnvloed, beïnvloeden), maar geen expliciete taalkeuze vermeld."
+          "Gevolg-signalen aanwezig (beïnvloeden, beïnvloed), maar geen expliciete taalkeuze vermeld."
         ]
       },
       "security": {
@@ -300,7 +310,7 @@
         "count": 2,
         "manual_review": false,
         "notes": [
-          "2 concreet beveiligingsmechanisme(n) gevonden: avg, wachtwoord."
+          "2 concreet beveiligingsmechanisme(n) gevonden: wachtwoord, avg."
         ]
       }
     }
@@ -329,7 +339,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Onderbouwing aanwezig (bron, onderzoek, bronnen), maar geen expliciete beperking of doelgroepkeuze beschreven."
+          "Onderbouwing aanwezig (bron, bronnen, onderzoek), maar geen expliciete beperking of doelgroepkeuze beschreven."
         ]
       },
       "stakeholders": {
@@ -348,7 +358,9 @@
         "manual_review": true,
         "notes": [
           "Geschat 14 requirement-items (minimum 15). Prioritering: ja.",
-          "Telling (14) dicht bij minimum (15) — handmatig verificeren."
+          "Telling (14) dicht bij minimum (15) — handmatig verificeren.",
+          "Functioneel: ~1, Use cases: ~13.",
+          "Prioriteitsverdeling: Must: 7, Should: 3, Could: 2."
         ]
       },
       "taalkeuze": {
@@ -357,7 +369,7 @@
         "count": null,
         "manual_review": true,
         "notes": [
-          "Taalkeuze vermeld (nederlands, in het nederlands), maar geen gevolgen van die keuze beschreven."
+          "Taalkeuze vermeld (in het nederlands, nederlands), maar geen gevolgen van die keuze beschreven."
         ]
       },
       "security": {
@@ -366,7 +378,7 @@
         "count": 3,
         "manual_review": false,
         "notes": [
-          "3 concrete beveiligingsmechanismen gevonden: avg, https, wachtwoord."
+          "3 concrete beveiligingsmechanismen gevonden: https, wachtwoord, avg."
         ]
       }
     }
@@ -410,7 +422,9 @@
         "manual_review": true,
         "notes": [
           "Geschat 17 requirement-items. Prioritering: ja.",
-          "Telling (17) net boven minimum — grenswaardegeval."
+          "Telling (17) net boven minimum — grenswaardegeval.",
+          "Functioneel: ~6, Niet-functioneel: ~11.",
+          "Prioriteitsverdeling: Must: 9, Should: 1, Could: 1."
         ]
       },
       "taalkeuze": {
@@ -419,7 +433,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Taalkeuze (meertalig) en meerdere gevolgen (beïnvloed, bereik, beïnvloeden) goed uitgewerkt."
+          "Taalkeuze (meertalig) en meerdere gevolgen (beïnvloeden, bereik, beïnvloed) goed uitgewerkt."
         ]
       },
       "security": {
@@ -428,7 +442,7 @@
         "count": 3,
         "manual_review": false,
         "notes": [
-          "3 concrete beveiligingsmechanismen gevonden: avg, risicoanalyse, wachtwoord."
+          "3 concrete beveiligingsmechanismen gevonden: risicoanalyse, wachtwoord, avg."
         ]
       }
     }
@@ -437,12 +451,10 @@
     "file": "104812d2_anonymized.json",
     "doc_id": "104812d2",
     "source_name": "requirments_student4.pdf",
-    "overall_stoplight": "red",
-    "hidden_score": 9,
+    "overall_stoplight": "yellow",
+    "hidden_score": 11,
     "manual_review_required": true,
-    "blockers_triggered": [
-      "requirements"
-    ],
+    "blockers_triggered": [],
     "manual_review_flags": [
       "beperking",
       "stakeholders"
@@ -454,7 +466,7 @@
         "count": null,
         "manual_review": true,
         "notes": [
-          "Beperking beschreven (visuele beperking, beperking, blind) en onderbouwing aanwezig (onderzoek).",
+          "Beperking beschreven (blind, beperking, visuele beperking) en onderbouwing aanwezig (onderzoek).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ]
       },
@@ -468,12 +480,14 @@
         ]
       },
       "requirements": {
-        "status": "missing",
-        "stoplight": "red",
-        "count": 0,
+        "status": "sufficient",
+        "stoplight": "yellow",
+        "count": 18,
         "manual_review": false,
         "notes": [
-          "Geen herkenbare requirements gevonden."
+          "Geschat 18 requirement-items. Prioritering: ja.",
+          "Functioneel: ~10, Niet-functioneel: ~8.",
+          "Prioriteitsverdeling: Must: 9, Should: 6, Could: 3."
         ]
       },
       "taalkeuze": {
@@ -482,7 +496,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Taalkeuze (meertalig, taalkeuze) en gevolgen (begrijpelijk, internationaal) aanwezig."
+          "Taalkeuze (taalkeuze, meertalig) en gevolgen (begrijpelijk, internationaal) aanwezig."
         ]
       },
       "security": {
@@ -491,7 +505,7 @@
         "count": 5,
         "manual_review": false,
         "notes": [
-          "5 concrete beveiligingsmechanismen gevonden: encryptie, https, hashing, wachtwoord, ssl."
+          "5 concrete beveiligingsmechanismen gevonden: hashing, https, ssl, wachtwoord, encryptie."
         ]
       }
     }
@@ -514,7 +528,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Beperking in meerdere blokken beschreven (beperking) en meerdere onderbouwingsblokken aanwezig (bron, bronvermelding, onderzoek)."
+          "Beperking in meerdere blokken beschreven (beperking) en meerdere onderbouwingsblokken aanwezig (bron, bronvermelding, deskresearch)."
         ]
       },
       "stakeholders": {
@@ -533,7 +547,9 @@
         "count": 24,
         "manual_review": false,
         "notes": [
-          "Geschat 24 requirement-items. Prioritering: ja."
+          "Geschat 24 requirement-items. Prioritering: ja.",
+          "Functioneel: ~9, Niet-functioneel: ~10, Use cases: ~5.",
+          "Prioriteitsverdeling: Must: 9, Should: 8."
         ]
       },
       "taalkeuze": {
@@ -542,7 +558,7 @@
         "count": null,
         "manual_review": false,
         "notes": [
-          "Taalkeuze (nederlands, in het nederlands) en gevolgen (bereik, meertaligheid) aanwezig, onderbouwd met onderzoek."
+          "Taalkeuze (in het nederlands, meertalig) en gevolgen (bereik, meertaligheid) aanwezig, onderbouwd met onderzoek."
         ]
       },
       "security": {
@@ -551,7 +567,7 @@
         "count": 4,
         "manual_review": false,
         "notes": [
-          "4 concrete beveiligingsmechanismen gevonden: owasp, avg, https, risicoanalyse."
+          "4 concrete beveiligingsmechanismen gevonden: risicoanalyse, owasp, https, avg."
         ]
       }
     }

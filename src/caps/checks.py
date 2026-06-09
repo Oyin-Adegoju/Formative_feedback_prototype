@@ -117,6 +117,28 @@ _MOSCOW_RE: Final[re.Pattern[str]] = re.compile(
     re.IGNORECASE,
 )
 
+# Bare MoSCoW cell match — used only for individual table cells, not free text.
+# `should?` deliberately matches both "should" and the PDF-split artifact "shoul"
+# (e.g. "Shoul d have") so that broken priority cells are still recognised.
+# This pattern is ONLY applied after retrieval has already identified the block
+# as a requirements candidate, keeping the false-positive risk low.
+_MOSCOW_BARE_CELL_RE: Final[re.Pattern[str]] = re.compile(
+    r"^(must|should?|could|won'?t)\b",
+    re.IGNORECASE,
+)
+
+# Section classification — used to attribute requirement counts to FR / NFR / UC.
+# Checked in order UC → NFR → FR to prevent "functionele" matching "niet-functionele".
+_SECTION_UC_RE: Final[re.Pattern[str]] = re.compile(
+    r"\buse[\s\-]?case\b", re.IGNORECASE
+)
+_SECTION_NFR_RE: Final[re.Pattern[str]] = re.compile(
+    r"niet[\s\-]functionele?|non[\s\-]functional", re.IGNORECASE
+)
+_SECTION_FR_RE: Final[re.Pattern[str]] = re.compile(
+    r"\bfunctionele?\b", re.IGNORECASE
+)
+
 # Requirement ID patterns: FR-01, NFR-01, UC-01, USC-01, REQ-01, CONSTR-01, etc.
 _REQ_ID_RE: Final[re.Pattern[str]] = re.compile(
     r"\b(FR|NFR|USC|UC|US|REQ|CONSTR|CON|F|NF)[-\s]?\d{1,3}\b",
@@ -540,7 +562,12 @@ def _req_count_from_block(hit: RetrievalHit) -> tuple[int, bool]:
 
     if hit.block["block_type"] == "table":
         # Table rows with MoSCoW labels are the most reliable count source.
-        return max(moscow_count, len(req_ids)), has_prio
+        # Also count rows that carry a bare priority label ("Must", "Could",
+        # "Shoul d have") for tables that omit the "have" suffix or where the
+        # PDF parser split "should have" into two fragments.
+        prio_rows = _count_prio_rows_from_table(hit)
+        has_prio = has_prio or (prio_rows > 0)
+        return max(moscow_count, len(req_ids), prio_rows), has_prio
     else:
         # Req IDs are more precise than MoSCoW in narrative blocks
         # (MoSCoW may appear in explanatory text, not just requirement labels).
@@ -572,6 +599,76 @@ def _count_use_case_blocks(hits: list[RetrievalHit]) -> int:
     )
 
 
+def _count_prio_rows_from_table(hit: RetrievalHit) -> int:
+    """Count table rows that carry a bare MoSCoW priority label in any cell.
+
+    Handles requirements tables that use bare labels ("Must", "Could",
+    "Should") instead of the compound "must have" form, including
+    PDF-parse split artifacts such as "Shoul d have" or "Shoul d".
+
+    Each row is counted at most once — only the first matching cell per row
+    is used. Header rows and continuation fragments (no priority cell) are
+    skipped automatically because they contain no priority-like value.
+
+    Only called for table blocks that already passed retrieval for the
+    requirements criterion, so the surrounding retrieval filter provides
+    the primary guard against false positives.
+    """
+    tm = hit.block.get("table_meta")
+    if not tm or not tm.get("cells"):
+        return 0
+    count = 0
+    for row in tm["cells"]:
+        for cell in row:
+            if cell and _MOSCOW_BARE_CELL_RE.match(cell.strip()):
+                count += 1
+                break  # count each row at most once
+    return count
+
+
+def _count_moscow_distribution(hits: list[RetrievalHit]) -> dict[str, int]:
+    """Count Must / Should / Could priority labels across all retrieved blocks.
+
+    For table blocks: iterates cells using _MOSCOW_BARE_CELL_RE, which handles
+    bare labels ("Must", "Could"), compound ones ("MUST HAVE"), and PDF-split
+    artifacts ("Shoul d have").
+    For paragraph/bullet blocks: applies _MOSCOW_RE on block text.
+
+    Returns {"must": n, "should": n, "could": n}.
+    Won't-have is folded into "could" (same MoSCoW tier, uncommon in student work).
+    """
+    dist: dict[str, int] = {"must": 0, "should": 0, "could": 0}
+    for hit in hits:
+        if hit.block["block_type"] == "table":
+            tm = hit.block.get("table_meta")
+            if not tm or not tm.get("cells"):
+                continue
+            for row in tm["cells"]:
+                for cell in row:
+                    if not cell:
+                        continue
+                    m = _MOSCOW_BARE_CELL_RE.match(cell.strip())
+                    if m:
+                        label = m.group(1).lower()
+                        if label.startswith("must"):
+                            dist["must"] += 1
+                        elif label.startswith("could") or label.startswith("won"):
+                            dist["could"] += 1
+                        else:  # "should" or "shoul" (PDF artifact)
+                            dist["should"] += 1
+                        break  # one count per row
+        else:
+            for m in _MOSCOW_RE.finditer(hit.block["text"]):
+                label = m.group(0).lower()
+                if label.startswith("must"):
+                    dist["must"] += 1
+                elif label.startswith("should"):
+                    dist["should"] += 1
+                else:  # "could" / "won't"
+                    dist["could"] += 1
+    return dist
+
+
 def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionResult:
     """Count distinct requirements and detect prioritization evidence.
 
@@ -586,11 +683,31 @@ def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
     notes: list[str] = []
     manual_review = False
 
-    for hit in hits:
+    # Process in document order so zero-count section-label blocks (e.g. a
+    # "Niet-functionele requirements" heading paragraph) correctly govern the
+    # counting blocks that follow them in the document.
+    sections: dict[str, int] = {"fr": 0, "nfr": 0, "uc": 0, "other": 0}
+    req_section = "other"
+
+    for hit in sorted(hits, key=lambda h: h.block["block_id"]):
         evidence.append(_make_ref(hit))
         n, p = _req_count_from_block(hit)
         total += n
         has_prio = has_prio or p
+
+        combined = (
+            " ".join(hit.block["heading_path"]) + " " + hit.block["text"]
+        ).lower()
+        if n == 0:
+            # Update the running section context from marker blocks.
+            if _SECTION_UC_RE.search(combined):
+                req_section = "uc"
+            elif _SECTION_NFR_RE.search(combined):
+                req_section = "nfr"
+            elif _SECTION_FR_RE.search(combined):
+                req_section = "fr"
+        else:
+            sections[req_section] += n
 
     # Supplementary prioritization signal from headings / MoSCoW-labeled sections.
     all_text = _all_text(hits)
@@ -602,6 +719,7 @@ def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
     uc_count = _count_use_case_blocks(hits)
     if uc_count > 0 and total < 5:
         total += uc_count
+        sections["uc"] += uc_count
         notes.append(
             f"Use case beschrijvingen ({uc_count}) meegeteld als requirements "
             "bij laag primair aantal."
@@ -635,6 +753,32 @@ def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
     else:
         status = "strong"
         notes.append(f"Geschat {total} requirement-items — ruim gedekt. {prio_str}")
+
+    # Note A: FR / NFR / UC breakdown — only when at least one named section was found.
+    if total > 0:
+        fr, nfr, uc = sections["fr"], sections["nfr"], sections["uc"]
+        type_parts: list[str] = []
+        if fr:
+            type_parts.append(f"Functioneel: ~{fr}")
+        if nfr:
+            type_parts.append(f"Niet-functioneel: ~{nfr}")
+        if uc:
+            type_parts.append(f"Use cases: ~{uc}")
+        if type_parts:
+            notes.append(", ".join(type_parts) + ".")
+
+    # Note B: MoSCoW distribution — only when prioritization was detected.
+    if has_prio and total > 0:
+        dist = _count_moscow_distribution(hits)
+        dist_parts: list[str] = []
+        if dist["must"]:
+            dist_parts.append(f"Must: {dist['must']}")
+        if dist["should"]:
+            dist_parts.append(f"Should: {dist['should']}")
+        if dist["could"]:
+            dist_parts.append(f"Could: {dist['could']}")
+        if dist_parts:
+            notes.append("Prioriteitsverdeling: " + ", ".join(dist_parts) + ".")
 
     return CriterionResult(
         criterion_key=spec.key,
