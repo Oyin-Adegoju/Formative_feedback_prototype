@@ -227,3 +227,57 @@ def _merge_consecutive_fragments(
     return result
  
  
+ # ---------------------------------------------------------------------------
+# Hit classification helpers
+# ---------------------------------------------------------------------------
+ 
+ 
+def _is_heading_only(hit: RetrievalHit) -> bool:
+    """True when the block is a heading with no text-hint matches.
+ 
+    These blocks signal section structure but carry no substantive content
+    evidence — candidates for absent_marker classification.
+    """
+    return hit.block["block_type"] == "heading" and not hit.matched_text_hints
+ 
+ 
+def _has_terms(hit: RetrievalHit, terms: frozenset[str]) -> bool:
+    """Check whether any term from the set appears in the block's text."""
+    text = hit.block["text"].lower()
+    return any(t in text for t in terms)
+ 
+ 
+def _matched_terms(hit: RetrievalHit, terms: frozenset[str], max_n: int = 3) -> list[str]:
+    """Return up to max_n terms from the set that appear in the block's text."""
+    text = hit.block["text"].lower()
+    return [t for t in terms if t in text][:max_n]
+ 
+ 
+def _sort_content_first(hits: list[RetrievalHit]) -> list[RetrievalHit]:
+    """Sort: content blocks before heading-only blocks; within each, higher score first.
+ 
+    Stable on block_id as a tiebreaker for deterministic ordering across runs.
+    """
+    return sorted(
+        hits,
+        key=lambda h: (int(_is_heading_only(h)), -h.score, h.block["block_id"]),
+    )
+ 
+ 
+def _make_item(
+    hit: RetrievalHit,
+    reason: str,
+    signal_class: SignalClass,
+) -> EvidenceItem:
+    """Construct an EvidenceItem from a RetrievalHit."""
+    b = hit.block
+    return EvidenceItem(
+        block_id=b["block_id"],
+        page_no=b["page_no"],
+        block_type=b["block_type"],
+        heading_path=list(b["heading_path"]),
+        excerpt=_excerpt_for(hit),
+        selection_reason=reason,
+        signal_class=signal_class,
+    )
+ 
