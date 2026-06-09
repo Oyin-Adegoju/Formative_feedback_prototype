@@ -102,3 +102,36 @@ def generate_one(
     _write_json(report, internal_dir / sub / f"{doc_id}_anonymized.json")
     _write_json(to_public_report(report), public_dir / sub / f"{doc_id}_anonymized.json")
     return doc_id, len(mapping)
+ 
+ 
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE,
+                        help=f"Map met bron-PDF's (default: {DEFAULT_SOURCE}).")
+    parser.add_argument("--public-dir", type=Path, default=DEFAULT_PUBLIC_DIR,
+                        help=f"Public output (default: {DEFAULT_PUBLIC_DIR}).")
+    parser.add_argument("--internal-dir", type=Path, default=DEFAULT_INTERNAL_DIR,
+                        help=f"Internal/debug output (default: {DEFAULT_INTERNAL_DIR}).")
+    parser.add_argument("--catalog", type=Path, default=DEFAULT_CATALOG,
+                        help=f"People-catalogus (default: {DEFAULT_CATALOG}).")
+    args = parser.parse_args(argv)
+ 
+    catalog = load_catalog(str(args.catalog))
+    n = 0
+    for pdf in sorted(args.source.rglob("*.pdf")):
+        rel = pdf.relative_to(args.source)
+        label = rel.parts[0] if len(rel.parts) > 1 else None
+        if label not in _LABELS:
+            continue
+        doc_id, mc = generate_one(pdf, label, catalog, args.public_dir, args.internal_dir)
+        print(f"  {label:12s} {doc_id}  mapping={mc:2d}  <- {pdf.name}")
+        n += 1
+ 
+    print(f"Gegenereerd: {n} documenten")
+    print(f"  public  : {args.public_dir}")
+    print(f"  internal: {args.internal_dir}")
+    return 0
+ 
+ 
+if __name__ == "__main__":
+    raise SystemExit(main())
