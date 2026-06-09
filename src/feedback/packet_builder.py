@@ -143,3 +143,87 @@ def _excerpt_for(hit: RetrievalHit) -> str:
         return _excerpt_table(b)
     return _excerpt_paragraph(b["text"])
 
+# ---------------------------------------------------------------------------
+# Consecutive fragment merging
+# ---------------------------------------------------------------------------
+ 
+ 
+def _merge_consecutive_fragments(
+    hits: list[RetrievalHit],
+    max_fragment_chars: int = 80,
+    max_total_chars: int = 240,
+) -> list[RetrievalHit]:
+    """Merge consecutive short paragraph/bullet fragments sharing the same heading_path.
+ 
+    PDF parsers sometimes split a section into many tiny blocks (e.g. a
+    label on one line, its value on the next).  Merging produces a readable
+    excerpt without dumping many near-empty items.
+ 
+    Only merges when:
+      - both blocks are paragraph or bullet
+      - both are ≤ max_fragment_chars chars
+      - both share the same heading_path
+      - the combined length stays ≤ max_total_chars
+ 
+    Returns a new list; input hits are not mutated.
+    """
+    if not hits:
+        return []
+ 
+    ordered = sorted(hits, key=lambda h: h.block["block_id"])
+    result: list[RetrievalHit] = []
+    i = 0
+ 
+    while i < len(ordered):
+        hit = ordered[i]
+        bt = hit.block["block_type"]
+        t_len = len(hit.block["text"].strip())
+ 
+        if bt not in ("paragraph", "bullet") or t_len > max_fragment_chars:
+            result.append(hit)
+            i += 1
+            continue
+ 
+        fragments = [hit]
+        j = i + 1
+        running = t_len
+ 
+        while j < len(ordered):
+            nxt = ordered[j]
+            n_len = len(nxt.block["text"].strip())
+            if (
+                nxt.block["block_type"] in ("paragraph", "bullet")
+                and n_len <= max_fragment_chars
+                and nxt.block["heading_path"] == hit.block["heading_path"]
+                and running + n_len + 1 <= max_total_chars
+            ):
+                fragments.append(nxt)
+                running += n_len + 1
+                j += 1
+            else:
+                break
+ 
+        if len(fragments) > 1:
+            merged_text = " ".join(f.block["text"].strip() for f in fragments)
+            merged_block: dict = dict(fragments[0].block)
+            merged_block["text"] = merged_text
+            merged_hit = RetrievalHit(
+                block=merged_block,  # type: ignore[arg-type]
+                score=max(f.score for f in fragments),
+                matched_heading_hints=list(
+                    dict.fromkeys(h for f in fragments for h in f.matched_heading_hints)
+                ),
+                matched_text_hints=list(
+                    dict.fromkeys(h for f in fragments for h in f.matched_text_hints)
+                ),
+                reasons=fragments[0].reasons,
+            )
+            result.append(merged_hit)
+            i = j
+        else:
+            result.append(hit)
+            i += 1
+ 
+    return result
+ 
+ 
