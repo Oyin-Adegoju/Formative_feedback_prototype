@@ -35,9 +35,9 @@ logger = logging.getLogger(__name__)
 # Prompt template
 # ---------------------------------------------------------------------------
 
-_PROMPT_VERSION: Final[str] = "feedback_writer_v1"
+_PROMPT_VERSION: Final[str] = "feedback_writer_v2"
 _PROMPT_PATH: Final[Path] = (
-    Path(__file__).parent.parent.parent / "prompts" / "feedback_writer_v1.txt"
+    Path(__file__).parent.parent.parent / "prompts" / "feedback_writer_v2.txt"
 )
 
 # ---------------------------------------------------------------------------
