@@ -7,7 +7,7 @@ Tests the complete pipeline for one anonymized document:
 ────────────────────────────────────────────────────────────────────────────
 Usage — local, CAPS only (no LLM required):
     python scripts/run_full_pipeline_with_feedback.py \\
-        --input data/anonymised/2e138dc4_anonymized.json \\
+        --input data/anonymized/2e138dc4_anonymized.json \\
         --input-type anonymized-json \\
         --no-llm
 
@@ -15,12 +15,12 @@ Usage — server with Ollama / Qwen2.5-14B:
     LLM_BASE_URL=http://localhost:11434/v1 \\
     LLM_MODEL=qwen2.5:14b \\
     python scripts/run_full_pipeline_with_feedback.py \\
-        --input data/anonymised/2e138dc4_anonymized.json \\
+        --input data/anonymized/2e138dc4_anonymized.json \\
         --input-type anonymized-json
 
 Debug mode (full stack traces on failure):
     python scripts/run_full_pipeline_with_feedback.py \\
-        --input data/anonymised/2e138dc4_anonymized.json \\
+        --input data/anonymized/2e138dc4_anonymized.json \\
         --input-type anonymized-json \\
         --debug
 
@@ -34,7 +34,7 @@ Server quick-start (Debian, HS Leiden):
     LLM_BASE_URL=http://localhost:11434/v1 \\
     LLM_MODEL=qwen2.5:14b \\
     python scripts/run_full_pipeline_with_feedback.py \\
-        --input data/anonymised/2e138dc4_anonymized.json \\
+        --input data/anonymized/2e138dc4_anonymized.json \\
         --input-type anonymized-json
 
 ────────────────────────────────────────────────────────────────────────────
@@ -143,7 +143,7 @@ def _parse_args() -> argparse.Namespace:
         "--input",
         required=True,
         metavar="PATH",
-        help="Path to the input file (e.g. data/anonymised/2e138dc4_anonymized.json).",
+        help="Path to the input file (e.g. data/anonymized/2e138dc4_anonymized.json).",
     )
     parser.add_argument(
         "--input-type",
