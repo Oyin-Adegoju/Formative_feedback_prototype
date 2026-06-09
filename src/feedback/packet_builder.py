@@ -592,3 +592,122 @@ def _build_requirements_packet(
         missing_signals=missing_sigs,
     )
  
+# ---------------------------------------------------------------------------
+# Criterion 4: Taalkeuze & consequenties
+# ---------------------------------------------------------------------------
+ 
+ 
+def _build_taalkeuze_packet(
+    spec: CriterionSpec,
+    hits: list[RetrievalHit],
+    cr: CriterionResult,
+) -> EvidencePacket:
+    """Select up to 3 items, preferring blocks with BOTH choice AND consequence signals.
+ 
+    Merges short consecutive fragments before selection to handle documents
+    where the language section is split into many small paragraphs.
+    """
+    MAX = _MAX_ITEMS["taalkeuze"]
+    status = cr.status
+    items: list[EvidenceItem] = []
+    missing_sigs: list[str] = []
+ 
+    processed = _merge_consecutive_fragments(hits)
+ 
+    choice_hits = _sort_content_first([
+        h for h in processed
+        if _has_terms(h, _TAAL_CHOICE) and not _is_heading_only(h)
+    ])
+    cons_hits = _sort_content_first([
+        h for h in processed
+        if _has_terms(h, _TAAL_CONSEQUENCE) and not _is_heading_only(h)
+    ])
+    heading_hits = [h for h in processed if _is_heading_only(h)]
+ 
+    all_text = " ".join(h.block["text"].lower() for h in hits)
+    has_choice = any(t in all_text for t in _TAAL_CHOICE)
+    has_consequence = any(t in all_text for t in _TAAL_CONSEQUENCE)
+ 
+    if status == "missing":
+        for h in heading_hits[:1]:
+            items.append(_make_item(
+                h,
+                "Taalkeuze-sectieheading zonder inhoud aangetroffen",
+                "absent_marker",
+            ))
+        missing_sigs.append("Geen expliciete taalkeuze vermeld")
+        missing_sigs.append("Geen gevolgen van de taalkeuze beschreven")
+ 
+    elif status == "partial":
+        if has_choice and not has_consequence:
+            for h in choice_hits[:2]:
+                terms = _matched_terms(h, _TAAL_CHOICE)
+                items.append(_make_item(h, f"Taalkeuze: {', '.join(terms)}", "positive"))
+            missing_sigs.append(
+                "Gevolgen van taalkeuze niet beschreven (bijv. bereik, vertaalkosten, begrijpelijkheid)"
+            )
+        elif has_consequence and not has_choice:
+            for h in cons_hits[:2]:
+                terms = _matched_terms(h, _TAAL_CONSEQUENCE)
+                items.append(_make_item(h, f"Gevolgen beschreven: {', '.join(terms)}", "positive"))
+            missing_sigs.append(
+                "Geen expliciete taalkeuze vermeld (bijv. 'de webshop is in het Nederlands')"
+            )
+        else:
+            for h in _sort_content_first(processed)[:2]:
+                if not _is_heading_only(h):
+                    items.append(_make_item(h, "Partieel taalkeuze-bewijs", "weak"))
+            # Ensure missing_signals is always populated for partial status even
+            # when our detection set diverges slightly from checks.py's detection.
+            notes_lower = " ".join(cr.notes).lower()
+            if "geen gevolgen" in notes_lower or "geen consequen" in notes_lower:
+                missing_sigs.append("Gevolgen van taalkeuze niet beschreven")
+            elif "geen expliciete" in notes_lower or "geen taalkeuze" in notes_lower:
+                missing_sigs.append("Geen expliciete taalkeuze vermeld")
+            else:
+                missing_sigs.append("Taalkeuze of gevolgen niet volledig beschreven")
+ 
+    else:  # sufficient / strong
+        seen: set[str] = set()
+ 
+        # Blocks with BOTH signals are the most informative — pick first.
+        both = _sort_content_first([
+            h for h in processed
+            if _has_terms(h, _TAAL_CHOICE)
+            and _has_terms(h, _TAAL_CONSEQUENCE)
+            and not _is_heading_only(h)
+        ])
+        for h in both[:1]:
+            c_terms = _matched_terms(h, _TAAL_CHOICE)
+            k_terms = _matched_terms(h, _TAAL_CONSEQUENCE)
+            reason = (
+                f"Taalkeuze ({', '.join(c_terms)}) én gevolgen ({', '.join(k_terms)})"
+            )
+            seen.add(h.block["block_id"])
+            items.append(_make_item(h, reason, "positive"))
+ 
+        # Fill remaining slots with the best choice/consequence hits.
+        for h in (choice_hits + cons_hits):
+            if len(items) >= MAX:
+                break
+            bid = h.block["block_id"]
+            if bid in seen:
+                continue
+            seen.add(bid)
+            c_terms = _matched_terms(h, _TAAL_CHOICE)
+            k_terms = _matched_terms(h, _TAAL_CONSEQUENCE)
+            if c_terms:
+                reason = f"Taalkeuze: {', '.join(c_terms)}"
+            else:
+                reason = f"Gevolgen: {', '.join(k_terms)}"
+            items.append(_make_item(h, reason, "positive"))
+ 
+    return EvidencePacket(
+        criterion_key=spec.key,
+        manual_review=cr.manual_review,
+        notes=cr.notes,
+        evidence_items=items,
+        missing_signals=missing_sigs,
+    )
+ 
+ 
