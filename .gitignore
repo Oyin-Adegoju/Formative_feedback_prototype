@@ -8,4 +8,7 @@ __pycache__/
 data/full_pipeline_runs/ 
 
 # Geanonimiseerde output bevat originele namen in het mapping-veld -> niet committen
-data/anonymized/
+
+data/anonymized_internal/
+# Referentiedata bevat de echte studentroster + gebouwde catalogus (PII) -> niet committen
+data/reference/

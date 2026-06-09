@@ -1,0 +1,1523 @@
+{
+  "doc_id": "f14254dd",
+  "source_path": "INFIRST_requirements/onvoldoende/Requirements_Analyse_FusionFinds_variant.pdf",
+  "source_name": "Requirements_Analyse_FusionFinds_variant.pdf",
+  "quality_label": "onvoldoende",
+  "block_count": 85,
+  "mapping_count": 6,
+  "mapping": {},
+  "blocks": [
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0001",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "FIRST FULL STACK",
+      "token_estimate": 4,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0002",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Requirements Analyse",
+      "token_estimate": 5,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0003",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "FusionFinds",
+      "token_estimate": 2,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0004",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "FUSION",
+      "token_estimate": 1,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0005",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "FINDS",
+      "token_estimate": 1,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0006",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Opleiding: Informatica - First Full Stack",
+      "token_estimate": 10,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0007",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Challenge week",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0008",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Datum: 09-04-2024",
+      "token_estimate": 4,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0009",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Namen: [PERSOON_01], [PERSOON_02], [PERSOON_03], [PERSOON_04], [PERSOON_05], [PERSOON_06]",
+      "token_estimate": 21,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0010",
+      "page_no": 1,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse - FusionFinds",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0011",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Inhoud",
+      "token_estimate": 1,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0012",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Introductie 3",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0013",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Wensen, Eisen, Prioriteiten 4",
+      "token_estimate": 7,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0014",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "2.1 Constraints en requirements 4",
+      "token_estimate": 8,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0015",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Use Cases 7",
+      "token_estimate": 2,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0016",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Use Case Diagram 7",
+      "token_estimate": 4,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0017",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Use Case beschrijvingen 8",
+      "token_estimate": 6,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0018",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Beveiliging 11",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0019",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Bronnen 12",
+      "token_estimate": 2,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0020",
+      "page_no": 2,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse - FusionFinds",
+      "token_estimate": 8,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0021",
+      "page_no": 3,
+      "block_type": "heading",
+      "heading_path": [
+        "Introductie"
+      ],
+      "text": "Introductie",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0022",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Introductie"
+      ],
+      "text": "FusionFinds is een webshop waar meerdere dingen gekocht kunnen worden zoals sneakers, posters, parfum,",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0023",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Introductie"
+      ],
+      "text": "kleding en games. De webshop moet vooral modern zijn en er goed uit zien. Klanten kunnen producten bekijken",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0024",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Introductie"
+      ],
+      "text": "en daarna eventueel bestellen. Het idee is een soort bol.com maar dan voor onze challenge week en met",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0025",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Introductie"
+      ],
+      "text": "meerdere producten van verschillende webshops.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0026",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Introductie"
+      ],
+      "text": "De site is bedoeld voor eigenlijk iedereen die online wil shoppen. De doelgroep is breed omdat veel mensen",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0027",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Introductie"
+      ],
+      "text": "online kopen. Daarom moet de website simpel zijn en er mooi uitzien. Er is niet veel extra onderzoek gedaan",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0028",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Introductie"
+      ],
+      "text": "omdat de opdracht al duidelijk genoeg is en de meeste webshops hetzelfde werken.",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0029",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Introductie"
+      ],
+      "text": "Belangrijke punten zijn dat de gebruiker producten moet kunnen vinden, bestellen en later terugkijken. Ook moet",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0030",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Introductie"
+      ],
+      "text": "een beheerder dingen kunnen aanpassen. Verder moet het technisch werken met API’s, maar de precieze",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0031",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Introductie"
+      ],
+      "text": "manier wordt later bepaald tijdens het maken.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0032",
+      "page_no": 3,
+      "block_type": "heading",
+      "heading_path": [
+        "Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Wensen, Eisen, Prioriteiten",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0033",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "In dit hoofdstuk staan de eisen en wensen voor de webshop. De prioriteiten zijn vooral gekozen op gevoel en op",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0034",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "wat logisch lijkt voor een webshop. Sommige punten zijn nog algemeen omdat tijdens de ontwikkeling pas echt",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0035",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "duidelijk wordt wat haalbaar is.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0036",
+      "page_no": 3,
+      "block_type": "heading",
+      "heading_path": [
+        "2.1 Constraints en requirements"
+      ],
+      "text": "2.1 Constraints en requirements",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0037",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Constraints",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0038",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Niet-functionele requirements",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0039",
+      "page_no": 3,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse - FusionFinds",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0040",
+      "page_no": 3,
+      "block_type": "table",
+      "heading_path": [
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Naam | Architecturale relevantie | Geadresseerd in\nCONSTR01: Budget | De webshop mag niet te duur worden. Ongeveer 10.000 euro is genoemd, maar dit is niet verder uitgewerkt. | Opdracht\nCONSTR02: Tijd | Het project moet snel af zijn. De planning is kort dus sommige onderdelen worden alleen gemaakt als er tijd is. | \nCONSTR03: API’s | De webshop moet met API’s werken. Welke API’s precies en wat ze teruggeven is nog niet helemaal bekend. | \nCONSTR04: Producten | Er moeten genoeg producten zijn. Het aantal is afhankelijk van wat de API’s teruggeven. | ",
+      "token_estimate": 138,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 5,
+        "column_count": 3,
+        "header_row": "Naam | Architecturale relevantie | Geadresseerd in",
+        "cells": [
+          [
+            "Naam",
+            "Architecturale relevantie",
+            "Geadresseerd in"
+          ],
+          [
+            "CONSTR01: Budget",
+            "De webshop mag niet te duur worden. Ongeveer 10.000 euro is genoemd, maar dit is niet verder uitgewerkt.",
+            "Opdracht"
+          ],
+          [
+            "CONSTR02: Tijd",
+            "Het project moet snel af zijn. De planning is kort dus sommige onderdelen worden alleen gemaakt als er tijd is.",
+            null
+          ],
+          [
+            "CONSTR03: API’s",
+            "De webshop moet met API’s werken. Welke API’s precies en wat ze teruggeven is nog niet helemaal bekend.",
+            null
+          ],
+          [
+            "CONSTR04: Producten",
+            "Er moeten genoeg producten zijn. Het aantal is afhankelijk van wat de API’s teruggeven.",
+            null
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0041",
+      "page_no": 3,
+      "block_type": "table",
+      "heading_path": [
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Naam | Categorie | Architecturale relevantie | Prio\nNFR01 | Gebruiksvriendelijkheid | De website moet makkelijk zijn voor klanten. Als het onduidelijk is dan klikken gebruikers misschien weg. | MUST\nNFR02 | Vormgeving | De webshop moet er goed uitzien omdat dit hoort bij een moderne webshop. | MUST\nNFR03 | Responsief | De site moet ook op telefoon werken, maar desktop is eerst | SHOULD",
+      "token_estimate": 97,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 4,
+        "column_count": 4,
+        "header_row": "Naam | Categorie | Architecturale relevantie | Prio",
+        "cells": [
+          [
+            "Naam",
+            "Categorie",
+            "Architecturale relevantie",
+            "Prio"
+          ],
+          [
+            "NFR01",
+            "Gebruiksvriendelijkheid",
+            "De website moet makkelijk zijn voor klanten. Als het onduidelijk is dan klikken gebruikers misschien weg.",
+            "MUST"
+          ],
+          [
+            "NFR02",
+            "Vormgeving",
+            "De webshop moet er goed uitzien omdat dit hoort bij een moderne webshop.",
+            "MUST"
+          ],
+          [
+            "NFR03",
+            "Responsief",
+            "De site moet ook op telefoon werken, maar desktop is eerst",
+            "SHOULD"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0042",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements"
+      ],
+      "text": "Functionele requirements",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0043",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Waarom MoSCoW"
+      ],
+      "text": "Waarom MoSCoW",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0044",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Waarom MoSCoW"
+      ],
+      "text": "De meeste dingen zijn Must Have omdat een webshop zonder deze dingen niet echt werkt. Sommige functies",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0045",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Waarom MoSCoW"
+      ],
+      "text": "zoals zoeken en bestelgeschiedenis zijn minder belangrijk omdat het vooral gaat om bestellen. Vormgeving is ook",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0046",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Waarom MoSCoW"
+      ],
+      "text": "belangrijk omdat de opdracht zegt dat het top moet zijn.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0047",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Waarom MoSCoW"
+      ],
+      "text": "De keuzes zijn niet apart onderzocht. We hebben gekeken naar wat bij webshops normaal is en daarna is",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0048",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Waarom MoSCoW"
+      ],
+      "text": "besloten wat het belangrijkste lijkt.",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0049",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Cases"
+      ],
+      "text": "Use Cases",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0050",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case Diagram"
+      ],
+      "text": "Use Case Diagram",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0051",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case Diagram"
+      ],
+      "text": "Het diagram bestaat uit Klant, Geregistreerde klant en Admin. Klant kan registreren en producten bekijken.",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0052",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case Diagram"
+      ],
+      "text": "Geregistreerde klant kan inloggen, winkelmandje gebruiken en bestellen. Admin kan producten en bestellingen",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0053",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case Diagram"
+      ],
+      "text": "beheren.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0054",
+      "page_no": 4,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse - FusionFinds",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0055",
+      "page_no": 4,
+      "block_type": "table",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case Diagram"
+      ],
+      "text": "belangrijk.\nNFR04 | Beveiliging | De site moet veilig zijn met login. Dit wordt later technisch gedaan. | MUST\nNFR05 | Snelheid | Pagina’s moeten redelijk snel laden zodat gebruikers niet hoeven te wachten. | COULD\nNFR06 | Taal | De website is in het Nederlands omdat wij Nederlands gebruiken. | SHOULD\nNaam | Categorie | Architecturale relevantie | Prio\nUC01 | Registreren | Gebruikers moeten een account kunnen maken. | MUST\nUC02 | Inloggen | Gebruikers moeten kunnen inloggen om verder te gaan. | MUST\nUC03 | Producten bekijken | Klanten moeten producten kunnen zien en details bekijken. | MUST\nUC04 | Winkelmandje | Klanten kunnen producten toevoegen aan winkelmandje. | MUST\nUC05 | Bestellen | Klanten kunnen op bestellen klikken en de order plaatsen. | MUST\nUC06 | Admin | Admin kan producten en bestellingen beheren. | SHOULD\nUC07 | Zoeken/filteren | Gebruikers kunnen zoeken en filteren als dit lukt met de data. | SHOULD\nUC08 | Geschiedenis | Gebruiker kan soms eerdere bestellingen bekijken. | COULD",
+      "token_estimate": 252,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 13,
+        "column_count": 4,
+        "header_row": null,
+        "cells": [
+          [
+            "belangrijk."
+          ],
+          [
+            "NFR04",
+            "Beveiliging",
+            "De site moet veilig zijn met login. Dit wordt later technisch gedaan.",
+            "MUST"
+          ],
+          [
+            "NFR05",
+            "Snelheid",
+            "Pagina’s moeten redelijk snel laden zodat gebruikers niet hoeven te wachten.",
+            "COULD"
+          ],
+          [
+            "NFR06",
+            "Taal",
+            "De website is in het Nederlands omdat wij Nederlands gebruiken.",
+            "SHOULD"
+          ],
+          [
+            "Naam",
+            "Categorie",
+            "Architecturale relevantie",
+            "Prio"
+          ],
+          [
+            "UC01",
+            "Registreren",
+            "Gebruikers moeten een account kunnen maken.",
+            "MUST"
+          ],
+          [
+            "UC02",
+            "Inloggen",
+            "Gebruikers moeten kunnen inloggen om verder te gaan.",
+            "MUST"
+          ],
+          [
+            "UC03",
+            "Producten bekijken",
+            "Klanten moeten producten kunnen zien en details bekijken.",
+            "MUST"
+          ],
+          [
+            "UC04",
+            "Winkelmandje",
+            "Klanten kunnen producten toevoegen aan winkelmandje.",
+            "MUST"
+          ],
+          [
+            "UC05",
+            "Bestellen",
+            "Klanten kunnen op bestellen klikken en de order plaatsen.",
+            "MUST"
+          ],
+          [
+            "UC06",
+            "Admin",
+            "Admin kan producten en bestellingen beheren.",
+            "SHOULD"
+          ],
+          [
+            "UC07",
+            "Zoeken/filteren",
+            "Gebruikers kunnen zoeken en filteren als dit lukt met de data.",
+            "SHOULD"
+          ],
+          [
+            "UC08",
+            "Geschiedenis",
+            "Gebruiker kan soms eerdere bestellingen bekijken.",
+            "COULD"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0056",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Use Case beschrijvingen",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0057",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "UC01: Registreren",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0058",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "UC02: Inloggen",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0059",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "UC03: Winkelmandje",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0060",
+      "page_no": 5,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse - FusionFinds",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0061",
+      "page_no": 5,
+      "block_type": "table",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Actor | Use cases\nKlant | Registreren, producten bekijken\nGeregistreerde klant | Inloggen, winkelmandje, bestellen, bestelgeschiedenis\nAdmin | Producten beheren, bestellingen bekijken",
+      "token_estimate": 45,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 4,
+        "column_count": 2,
+        "header_row": "Actor | Use cases",
+        "cells": [
+          [
+            "Actor",
+            "Use cases"
+          ],
+          [
+            "Klant",
+            "Registreren, producten bekijken"
+          ],
+          [
+            "Geregistreerde klant",
+            "Inloggen, winkelmandje, bestellen, bestelgeschiedenis"
+          ],
+          [
+            "Admin",
+            "Producten beheren, bestellingen bekijken"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0062",
+      "page_no": 5,
+      "block_type": "table",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Actor | Klant\nPreconditie | Klant heeft website geopend.\nBeschrijving | Klant vult gegevens in en maakt account aan.\nScenario beschrijving | 1. Klant gaat naar registratiepagina. 2. Klant vult naam, email en wachtwoord in. 3. Systeem maakt account aan.\nPostconditie | Klant heeft account.\nExceptie flow | Als gegevens fout zijn, komt er een melding.",
+      "token_estimate": 87,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 6,
+        "column_count": 2,
+        "header_row": "Actor | Klant",
+        "cells": [
+          [
+            "Actor",
+            "Klant"
+          ],
+          [
+            "Preconditie",
+            "Klant heeft website geopend."
+          ],
+          [
+            "Beschrijving",
+            "Klant vult gegevens in en maakt account aan."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Klant gaat naar registratiepagina. 2. Klant vult naam, email en wachtwoord in. 3. Systeem maakt account aan."
+          ],
+          [
+            "Postconditie",
+            "Klant heeft account."
+          ],
+          [
+            "Exceptie flow",
+            "Als gegevens fout zijn, komt er een melding."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0063",
+      "page_no": 5,
+      "block_type": "table",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Actor | Geregistreerde klant\nPreconditie | Klant heeft een account.\nBeschrijving | Klant logt in om de webshop te gebruiken.\nScenario beschrijving | 1. Klant opent login. 2. Klant vult gegevens in. 3. Systeem controleert gegevens. 4. Klant komt op de webshop.\nPostconditie | Klant is ingelogd.\nExceptie flow | Als wachtwoord fout is, kan klant opnieuw proberen.",
+      "token_estimate": 90,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 6,
+        "column_count": 2,
+        "header_row": "Actor | Geregistreerde klant",
+        "cells": [
+          [
+            "Actor",
+            "Geregistreerde klant"
+          ],
+          [
+            "Preconditie",
+            "Klant heeft een account."
+          ],
+          [
+            "Beschrijving",
+            "Klant logt in om de webshop te gebruiken."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Klant opent login. 2. Klant vult gegevens in. 3. Systeem controleert gegevens. 4. Klant komt op de webshop."
+          ],
+          [
+            "Postconditie",
+            "Klant is ingelogd."
+          ],
+          [
+            "Exceptie flow",
+            "Als wachtwoord fout is, kan klant opnieuw proberen."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0064",
+      "page_no": 5,
+      "block_type": "table",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Actor | Geregistreerde klant\nPreconditie | Klant ziet producten.\nBeschrijving | Klant voegt producten toe of haalt ze weg.\nScenario beschrijving | 1. Klant kiest product.",
+      "token_estimate": 42,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 4,
+        "column_count": 2,
+        "header_row": "Actor | Geregistreerde klant",
+        "cells": [
+          [
+            "Actor",
+            "Geregistreerde klant"
+          ],
+          [
+            "Preconditie",
+            "Klant ziet producten."
+          ],
+          [
+            "Beschrijving",
+            "Klant voegt producten toe of haalt ze weg."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Klant kiest product."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0065",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "UC04: Bestellen",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0066",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "UC05: Admin beheren",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0067",
+      "page_no": 6,
+      "block_type": "heading",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Beveiliging"
+      ],
+      "text": "Beveiliging",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0068",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Beveiliging"
+      ],
+      "text": "Voor beveiliging gebruiken we login en wachtwoorden. Ook moet de website HTTPS gebruiken wanneer hij online",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0069",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Beveiliging"
+      ],
+      "text": "staat. De klantgegevens mogen niet zomaar zichtbaar zijn voor anderen.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0070",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Beveiliging"
+      ],
+      "text": "AVG is belangrijk omdat klanten gegevens invullen zoals naam, e-mail en adres. De webshop moet daar netjes",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0071",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Beveiliging"
+      ],
+      "text": "mee omgaan. In de code moeten wachtwoorden niet gewoon leesbaar opgeslagen worden. Verder moeten",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0072",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Beveiliging"
+      ],
+      "text": "admins niet alle functies aan gewone klanten laten zien.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0073",
+      "page_no": 6,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse - FusionFinds",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0074",
+      "page_no": 6,
+      "block_type": "table",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Beveiliging"
+      ],
+      "text": "2. Klant klikt op toevoegen. 3. Systeem zet product in winkelmandje. 4. Klant kan verwijderen.\nPostconditie | Winkelmandje is aangepast.\nExceptie flow | Als product er niet meer is, kan het niet toegevoegd worden.",
+      "token_estimate": 53,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 3,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "2. Klant klikt op toevoegen. 3. Systeem zet product in winkelmandje. 4. Klant kan verwijderen."
+          ],
+          [
+            "Postconditie",
+            "Winkelmandje is aangepast."
+          ],
+          [
+            "Exceptie flow",
+            "Als product er niet meer is, kan het niet toegevoegd worden."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0075",
+      "page_no": 6,
+      "block_type": "table",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Beveiliging"
+      ],
+      "text": "Actor | Geregistreerde klant\nPreconditie | Klant heeft iets in winkelmandje.\nBeschrijving | Klant plaatst bestelling.\nScenario beschrijving | 1. Klant klikt op bestellen. 2. Systeem toont bestelling. 3. Klant bevestigt. 4. Systeem slaat bestelling op.\nPostconditie | Bestelling is geplaatst.\nExceptie flow | Als winkelmandje leeg is, komt er een melding.",
+      "token_estimate": 88,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 6,
+        "column_count": 2,
+        "header_row": "Actor | Geregistreerde klant",
+        "cells": [
+          [
+            "Actor",
+            "Geregistreerde klant"
+          ],
+          [
+            "Preconditie",
+            "Klant heeft iets in winkelmandje."
+          ],
+          [
+            "Beschrijving",
+            "Klant plaatst bestelling."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Klant klikt op bestellen. 2. Systeem toont bestelling. 3. Klant bevestigt. 4. Systeem slaat bestelling op."
+          ],
+          [
+            "Postconditie",
+            "Bestelling is geplaatst."
+          ],
+          [
+            "Exceptie flow",
+            "Als winkelmandje leeg is, komt er een melding."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0076",
+      "page_no": 6,
+      "block_type": "table",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Beveiliging"
+      ],
+      "text": "Actor | Admin\nPreconditie | Admin is ingelogd.\nBeschrijving | Admin past producten of bestellingen aan.\nScenario beschrijving | 1. Admin opent dashboard. 2. Admin zoekt product of bestelling. 3. Admin wijzigt gegevens. 4. Admin slaat op.\nPostconditie | Gegevens zijn aangepast.\nExceptie flow | Als opslaan niet lukt, probeert admin later opnieuw.",
+      "token_estimate": 86,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 6,
+        "column_count": 2,
+        "header_row": "Actor | Admin",
+        "cells": [
+          [
+            "Actor",
+            "Admin"
+          ],
+          [
+            "Preconditie",
+            "Admin is ingelogd."
+          ],
+          [
+            "Beschrijving",
+            "Admin past producten of bestellingen aan."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Admin opent dashboard. 2. Admin zoekt product of bestelling. 3. Admin wijzigt gegevens. 4. Admin slaat op."
+          ],
+          [
+            "Postconditie",
+            "Gegevens zijn aangepast."
+          ],
+          [
+            "Exceptie flow",
+            "Als opslaan niet lukt, probeert admin later opnieuw."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0077",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Beveiliging"
+      ],
+      "text": "Mogelijke risico’s zijn dat iemand probeert in te loggen op een ander account, of dat gegevens uit de database",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0078",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Beveiliging"
+      ],
+      "text": "zichtbaar worden. Daarom is het goed om rollen en rechten te gebruiken. De precieze technische uitwerking staat",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0079",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Beveiliging"
+      ],
+      "text": "niet in dit document.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0080",
+      "page_no": 7,
+      "block_type": "heading",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Bronnen"
+      ],
+      "text": "Bronnen",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0081",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Bronnen"
+      ],
+      "text": "Kinsta - Encryption",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0082",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Bronnen"
+      ],
+      "text": "Digital Guardian - Data Encryption",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0083",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Bronnen"
+      ],
+      "text": "Challengeweek kick-off presentatie",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0084",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2.1 Constraints en requirements",
+        "Bronnen"
+      ],
+      "text": "Week 8 voorbereiding challengeweek",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f14254dd",
+      "block_id": "f14254dd_0085",
+      "page_no": 7,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse - FusionFinds",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    }
+  ]
+}
