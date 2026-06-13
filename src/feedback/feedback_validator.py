@@ -1,28 +1,31 @@
 """feedback_validator.py — deterministic validation of LLM feedback output.
 
-Parses the raw JSON string returned by the LLM and enforces all guardrails
-before the result reaches the caller.
+Parses the raw JSON string returned by the feedback writer (Stage B) and
+enforces all guardrails before the result reaches the caller.
 
 No LLM calls. No prompt logic. No fallback generation.
 Raises FeedbackValidationError on any guardrail violation so the caller
-(feedback_builder.py) can decide whether to retry or return fallback output.
+(feedback_builder.py) fails hard.
+
+Source of truth is the MERGED feedback input (src/feedback/merge_builder.py),
+NOT a raw CapsRunResult. The validator never touches CAPS runtime objects.
 
 Guardrails enforced here:
   - Output must be valid JSON.
   - All required fields must be present and non-empty where expected.
-  - stoplight must equal CapsRunResult.overall_stoplight (LLM may not change it).
+  - stoplight must equal merged["final_stoplight"] (LLM may not change it).
   - No numeric score pattern may appear in any LLM-written text field.
-  - Every evidence_ref block ID must exist in the CAPS scorecard evidence or evidence packets.
+  - Every evidence_ref block ID must exist in the merged evidence_items.
   - Every criterium key in feedback[] must be a known CAPS criterion key.
-  - feedback[] must contain exactly one entry per CAPS criterion (no missing, no duplicates).
-  - docent_toelichting must contain the exact CAPS stoplight word.
+  - feedback[] must contain exactly one entry per criterion (no missing, no dupes).
+  - docent_toelichting must contain the exact final stoplight word.
   - disclaimer, document_id, and stoplight are always overwritten with
     deterministic values — never trusted from LLM output.
 
 Architecture position:
-    CapsRunResult → feedback_builder → [llm_client] → feedback_validator → FeedbackResult
-                                                       ^^^^^^^^^^^^^^^^^^
-                                                       this file
+    merged_feedback_input.json → feedback_builder → [llm_client] → feedback_validator → FeedbackResult
+                                                                    ^^^^^^^^^^^^^^^^^^
+                                                                    this file
 """
 
 from __future__ import annotations
@@ -32,8 +35,9 @@ import re
 from typing import Final
 
 from src.caps.criterion_specs import CRITERIA_KEYS
-from src.caps.models import CapsRunResult
+from src.feedback.merge_builder import collect_known_block_ids
 from src.feedback.output_schema import DISCLAIMER, CriterionFeedback, FeedbackResult
+
 # ---------------------------------------------------------------------------
 # Score-leak detection patterns
 # ---------------------------------------------------------------------------
@@ -50,6 +54,7 @@ Only applied to LLM-written text fields (student_samenvatting, docent_toelichtin
 feed_up, feedback[].observatie, feed_forward, taalgebruik).
 Not applied to evidence_ref (block IDs legitimately contain numbers).
 """
+
 # ---------------------------------------------------------------------------
 # Required fields
 # ---------------------------------------------------------------------------
@@ -81,11 +86,6 @@ feed_up, feedback[].observatie, feed_forward, taalgebruik).
 Not applied to evidence_ref — block IDs legitimately contain alphanumerics.
 """
 
-# Manual-review enforcement has been removed: CAPS no longer produces
-# manual_review_required / manual_review_flags. Deciding (and validating) manual
-# review is deferred to the future Qwen stage. No replacement guardrail is added
-# here so the validator does not fabricate a manual-review contract.
-
 # ---------------------------------------------------------------------------
 # Exception
 # ---------------------------------------------------------------------------
@@ -94,7 +94,7 @@ Not applied to evidence_ref — block IDs legitimately contain alphanumerics.
 class FeedbackValidationError(Exception):
     """Raised when LLM output violates one or more guardrails.
 
-    Caught by feedback_builder.py to trigger fallback output.
+    Caught by feedback_builder.py, which re-raises as a hard failure.
 
     reason: human-readable description of the violated guardrail.
     raw:    the raw LLM string that caused the failure (for logging).
@@ -105,22 +105,14 @@ class FeedbackValidationError(Exception):
         self.reason = reason
         self.raw = raw
 
+
 # ---------------------------------------------------------------------------
 # Internal helpers
 # ---------------------------------------------------------------------------
 
 
-def _collect_known_block_ids(caps_result: CapsRunResult) -> frozenset[str]:
-    """Collect all EvidenceRef block IDs from the CAPS scorecard."""
-    ids: set[str] = set()
-    for cr in caps_result.scorecard.results.values():
-        for ref in cr.evidence:
-            ids.add(ref.block_id)
-    return frozenset(ids)
-
-
 def _llm_text_fields(data: dict) -> str:
-    """Concatenate all LLM-written text fields into one string for score-leak scanning.
+    """Concatenate all LLM-written text fields into one string for leak scanning.
 
     Excludes evidence_ref values — block IDs legitimately contain digits.
     """
@@ -138,28 +130,26 @@ def _llm_text_fields(data: dict) -> str:
     ]
     return " ".join(parts)
 
+
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
 
 
-def validate(
-    raw_json: str,
-    caps_result: CapsRunResult,
-    extra_known_ids: frozenset[str] | None = None,
-) -> FeedbackResult:
+def validate(raw_json: str, merged: dict) -> FeedbackResult:
     """Validate raw LLM output and return a clean FeedbackResult.
 
     Applies all guardrails in order. Raises FeedbackValidationError on the
     first violation found.
 
-    document_id, stoplight, and disclaimer are always set from caps_result
+    document_id, stoplight, and disclaimer are always set from the merged input
     and DISCLAIMER — the LLM's own values for these fields are ignored.
 
     Args:
         raw_json: The raw string returned by the LLM (expected to be JSON).
-        caps_result: The CapsRunResult that produced this feedback request.
-            Used to verify stoplight, evidence block IDs, and document_id.
+        merged: The merged feedback input (build_merged_feedback_input output).
+            Source of truth for final_stoplight, evidence block IDs, and
+            document_id.
 
     Returns:
         A fully validated FeedbackResult ready for the caller.
@@ -167,6 +157,9 @@ def validate(
     Raises:
         FeedbackValidationError: on any guardrail violation.
     """
+    final_stoplight = merged["final_stoplight"]
+    document_id = merged["document_id"]
+
     # --- 1. JSON parse ---
     try:
         data = json.loads(raw_json)
@@ -193,21 +186,20 @@ def validate(
             "student_samenvatting is empty.", raw=raw_json
         )
 
-    # --- 3b. docent_toelichting must contain the exact CAPS stoplight word ---
+    # --- 3b. docent_toelichting must contain the exact final stoplight word ---
     docent = (data.get("docent_toelichting") or "").strip()
-    stoplight_word = caps_result.overall_stoplight
-    if not re.search(rf"\b{re.escape(stoplight_word)}\b", docent, re.IGNORECASE):
+    if not re.search(rf"\b{re.escape(final_stoplight)}\b", docent, re.IGNORECASE):
         raise FeedbackValidationError(
-            f"docent_toelichting does not mention the CAPS stoplight: {stoplight_word}",
+            f"docent_toelichting does not mention the final stoplight: {final_stoplight}",
             raw=raw_json,
         )
 
-    # --- 4. Stoplight must match CAPS ---
+    # --- 4. Stoplight must match the merged final stoplight ---
     llm_stoplight = data.get("stoplight")
-    if llm_stoplight != caps_result.overall_stoplight:
+    if llm_stoplight != final_stoplight:
         raise FeedbackValidationError(
             f"Stoplight mismatch: LLM returned '{llm_stoplight}', "
-            f"CAPS determined '{caps_result.overall_stoplight}'.",
+            f"merged input determined '{final_stoplight}'.",
             raw=raw_json,
         )
 
@@ -233,16 +225,15 @@ def validate(
         raise FeedbackValidationError(
             "Disclaimer was modified by the LLM.", raw=raw_json
         )
-# --- 7. feedback must be a list ---
+
+    # --- 7. feedback must be a list ---
     if not isinstance(data.get("feedback"), list):
         raise FeedbackValidationError(
             "'feedback' must be a list.", raw=raw_json
         )
 
     # --- 8. feedback entries: known criterion keys and known evidence refs ---
-    known_block_ids = _collect_known_block_ids(caps_result)
-    if extra_known_ids:
-        known_block_ids = known_block_ids | extra_known_ids
+    known_block_ids = collect_known_block_ids(merged)
     known_keys = frozenset(CRITERIA_KEYS)
 
     for entry in data["feedback"]:
@@ -292,8 +283,8 @@ def validate(
 
     # --- All checks passed: build FeedbackResult with deterministic overrides ---
     return FeedbackResult(
-        document_id=caps_result.doc_id,
-        stoplight=caps_result.overall_stoplight,
+        document_id=document_id,
+        stoplight=final_stoplight,
         student_samenvatting=data["student_samenvatting"],
         docent_toelichting=data["docent_toelichting"],
         feed_up=data["feed_up"],
@@ -309,4 +300,3 @@ def validate(
         taalgebruik=data["taalgebruik"],
         disclaimer=DISCLAIMER,
     )
-
