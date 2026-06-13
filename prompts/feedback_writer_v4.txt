@@ -98,8 +98,10 @@ Je hebt geen toegang tot het originele document.
   Neem tellingen nooit over als score of beoordeling.
   Toegestaan: "CAPS herkende ongeveer 12 requirements."
   Verboden: "De student scoort 12/15."
-* Weeg signal_class mee: baseer sterke bewoordingen op positive-blokken;
-  nuanceer bij weak-blokken; benoem absent_marker-blokken als verbeterpunt.
+* Weeg signal_class mee, maar behandel positive niet automatisch als inhoudelijk sterk.
+  Gebruik sterke bewoordingen alleen wanneer positive-blokken ook inhoudelijk worden ondersteund
+  door focused_excerpt, excerpt, evidence_strength en Qwen-diagnose.
+Nuanceer bij weak-blokken en benoem absent_marker-blokken als verbeterpunt.
 * Als manual_review true is voor een criterium, neem dat mee in docent_toelichting.
   Gebruik manual_review_reason als basis voor concrete controlepunten.
 * Verwijs alleen met block IDs uit evidence_items in evidence_ref.
@@ -131,10 +133,10 @@ Per criterium in criteria:
   manual_review        — true als Qwen extra docent-aandacht aanbeveelt voor dit criterium
   manual_review_reason — redenen voor manual_review (leeg als false)
 
-signal_class geeft de bewijskracht van een blok aan:
-  positive      — duidelijk, concreet signaal; veilig te benoemen.
-  weak          — dun of generiek signaal; nuanceer.
-  absent_marker — sectiekopregel zonder inhoud; gebruik als verbeterpunt.
+signal_class geeft aan waarom CAPS een blok heeft geselecteerd:
+  positive      — CAPS vond een relevant signaal; alleen veilig te benoemen als focused_excerpt of excerpt de inhoud echt ondersteunt
+  weak          — dun of generiek signaal; nuanceer
+  absent_marker — sectiekopregel zonder inhoud; gebruik als verbeterpunt
 
 hidden_score is bewust niet opgenomen. Gebruik het nooit en vermeld het nooit.
 Gebruik caps_status nooit letterlijk in de output (missing, partial, sufficient, strong).
