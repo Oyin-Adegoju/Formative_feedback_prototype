@@ -16,7 +16,6 @@ Guardrails enforced here:
   - Every criterium key in feedback[] must be a known CAPS criterion key.
   - feedback[] must contain exactly one entry per CAPS criterion (no missing, no duplicates).
   - docent_toelichting must contain the exact CAPS stoplight word.
-  - If manual_review_required, docent_toelichting must mention manual review in Dutch.
   - disclaimer, document_id, and stoplight are always overwritten with
     deterministic values — never trusted from LLM output.
 
@@ -82,16 +81,11 @@ feed_up, feedback[].observatie, feed_forward, taalgebruik).
 Not applied to evidence_ref — block IDs legitimately contain alphanumerics.
 """
 
-_MANUAL_REVIEW_PHRASES: Final[tuple[str, ...]] = (
-    "handmatige verificatie",
-    "handmatig controleren",
-    "extra controleren",
-    "docent moet controleren",
-)
-"""Dutch phrases accepted as evidence that docent_toelichting acknowledges manual review.
+# Manual-review enforcement has been removed: CAPS no longer produces
+# manual_review_required / manual_review_flags. Deciding (and validating) manual
+# review is deferred to the future Qwen stage. No replacement guardrail is added
+# here so the validator does not fabricate a manual-review contract.
 
-At least one must appear (case-insensitive) when caps_result.manual_review_required is True.
-"""
 # ---------------------------------------------------------------------------
 # Exception
 # ---------------------------------------------------------------------------
@@ -207,17 +201,6 @@ def validate(
             f"docent_toelichting does not mention the CAPS stoplight: {stoplight_word}",
             raw=raw_json,
         )
-
-    # --- 3c. If manual review required, docent_toelichting must acknowledge it ---
-    if caps_result.manual_review_required:
-        docent_lower = docent.lower()
-        if not any(phrase in docent_lower for phrase in _MANUAL_REVIEW_PHRASES):
-            raise FeedbackValidationError(
-                "docent_toelichting does not mention manual review, "
-                f"but manual_review_required is True "
-                f"(flags: {caps_result.manual_review_flags}).",
-                raw=raw_json,
-            )
 
     # --- 4. Stoplight must match CAPS ---
     llm_stoplight = data.get("stoplight")

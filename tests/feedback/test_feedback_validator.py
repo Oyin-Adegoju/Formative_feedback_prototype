@@ -15,7 +15,6 @@ from src.caps.models import (
 )
 from src.feedback.feedback_validator import (
     FeedbackValidationError,
-    _MANUAL_REVIEW_PHRASES,
     _collect_known_block_ids,
     _llm_text_fields,
     validate,
@@ -35,7 +34,6 @@ def _make_criterion_result(
     key: str,
     status: str = "sufficient",
     block_ids: list[str] | None = None,
-    manual_review: bool = False,
 ) -> CriterionResult:
     evidence = [
         EvidenceRef(block_id=bid, page_no=1, block_type="paragraph")
@@ -47,7 +45,6 @@ def _make_criterion_result(
         stoplight="yellow" if status == "sufficient" else "green" if status == "strong" else "red",
         is_blocker=True,
         evidence=evidence,
-        manual_review=manual_review,
     )
 
 
@@ -55,8 +52,6 @@ def _make_caps_result(
     stoplight: str = "green",
     doc_id: str = "doc1",
     criterion_block_ids: dict[str, list[str]] | None = None,
-    manual_review_required: bool = False,
-    manual_review_flags: list[str] | None = None,
 ) -> CapsRunResult:
     """Build a minimal CapsRunResult for testing."""
     bids = criterion_block_ids or {
@@ -76,8 +71,6 @@ def _make_caps_result(
         source_name="test.pdf",
         scorecard=scorecard,
         overall_stoplight=stoplight,
-        manual_review_required=manual_review_required,
-        manual_review_flags=manual_review_flags or [],
         run_meta=CapsRunMeta(
             input_source="parser_direct",
             page_count=5,
@@ -629,41 +622,9 @@ def test_docent_toelichting_stoplight_case_insensitive():
 
 
 # ---------------------------------------------------------------------------
-# docent_toelichting manual review check (step 3c)
+# Manual-review enforcement removed (deferred to the Qwen stage)
 # ---------------------------------------------------------------------------
-
-
-def test_manual_review_required_must_be_mentioned():
-    caps = _make_caps_result(
-        stoplight="yellow",
-        manual_review_required=True,
-        manual_review_flags=["beperking"],
-    )
-    payload = _valid_llm_output("yellow")
-    # docent_toelichting has the stoplight but no manual review phrase
-    payload["docent_toelichting"] = "Het stoplicht is yellow. Alles ziet er goed uit."
-    with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
-    assert "manual review" in exc_info.value.reason.lower()
-
-
-@pytest.mark.parametrize("phrase", list(_MANUAL_REVIEW_PHRASES))
-def test_each_manual_review_phrase_is_accepted(phrase: str):
-    caps = _make_caps_result(
-        stoplight="yellow",
-        manual_review_required=True,
-        manual_review_flags=["beperking"],
-    )
-    payload = _valid_llm_output("yellow")
-    payload["docent_toelichting"] = f"Het stoplicht is yellow. Beperking vraagt {phrase}."
-    result = validate(_to_json(payload), caps)
-    assert result is not None
-
-
-def test_manual_review_not_required_no_phrase_needed():
-    caps = _make_caps_result(stoplight="green", manual_review_required=False)
-    payload = _valid_llm_output("green")
-    # No manual review phrase — fine because manual_review_required is False
-    payload["docent_toelichting"] = "Het stoplicht is green, lichte controle volstaat."
-    result = validate(_to_json(payload), caps)
-    assert result is not None
+# CAPS no longer produces manual_review_required / manual_review_flags, so the
+# validator no longer enforces a manual-review acknowledgement. The previous
+# tests for step 3c were removed with that guardrail; the manual-review decision
+# and its validation will return with the future Qwen stage.

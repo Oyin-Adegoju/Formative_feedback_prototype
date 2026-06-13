@@ -8,7 +8,6 @@ from src.caps.models import CriterionResult, ParseReportDict
 from src.caps.scoring import (
     _validate_criterion_result_keys,
     collect_blockers,
-    collect_manual_review_flags,
     compute_hidden_score,
     determine_overall_stoplight,
     score_document,
@@ -25,7 +24,6 @@ def _make_result(
     key: str,
     status: str,
     is_blocker: bool = True,
-    manual_review: bool = False,
 ) -> CriterionResult:
     stoplight = "green" if status in ("sufficient", "strong") else "red"
     return CriterionResult(
@@ -33,7 +31,6 @@ def _make_result(
         status=status,
         stoplight=stoplight,
         is_blocker=is_blocker,
-        manual_review=manual_review,
     )
 
 
@@ -140,33 +137,7 @@ class TestCollectBlockers:
 
 
 # ---------------------------------------------------------------------------
-# 4. collect_manual_review_flags
-# ---------------------------------------------------------------------------
-
-
-class TestCollectManualReviewFlags:
-    def test_manual_review_true_is_included(self):
-        results = {"beperking": _make_result("beperking", "sufficient", manual_review=True)}
-        assert collect_manual_review_flags(results) == ["beperking"]
-
-    def test_manual_review_false_is_excluded(self):
-        results = {"beperking": _make_result("beperking", "sufficient", manual_review=False)}
-        assert collect_manual_review_flags(results) == []
-
-    def test_multiple_flags_all_returned(self):
-        results = {
-            "beperking": _make_result("beperking", "partial", manual_review=True),
-            "stakeholders": _make_result("stakeholders", "sufficient", manual_review=False),
-            "requirements": _make_result("requirements", "sufficient", manual_review=True),
-        }
-        assert set(collect_manual_review_flags(results)) == {"beperking", "requirements"}
-
-    def test_no_flags_returns_empty(self):
-        assert collect_manual_review_flags(_all_sufficient()) == []
-
-
-# ---------------------------------------------------------------------------
-# 5. determine_overall_stoplight
+# 4. determine_overall_stoplight
 # ---------------------------------------------------------------------------
 
 
@@ -176,53 +147,15 @@ class TestDetermineOverallStoplight:
     def test_red_when_blocker_triggered(self):
         assert determine_overall_stoplight(["beperking"], _all_sufficient()) == "red"
 
-    def test_red_when_both_blocker_and_manual_review(self):
-        # Blockers override everything; manual_review on top does not change the outcome.
-        results = {k: _make_result(k, "sufficient") for k in CRITERIA_KEYS}
-        results["beperking"] = _make_result("beperking", "sufficient", manual_review=True)
-        assert determine_overall_stoplight(["beperking"], results) == "red"
+    def test_red_when_multiple_blockers(self):
+        assert determine_overall_stoplight(["beperking", "stakeholders"], _all_sufficient()) == "red"
 
-    # --- red: manual review threshold (half or more) ---
+    # --- green: no blockers ---
 
-    def test_red_when_manual_reviews_reach_exactly_half(self):
-        # 2 of 4 criteria: 2*2=4 >= 4 → red
-        results = {
-            f"c{i}": _make_result(f"c{i}", "sufficient", is_blocker=False, manual_review=(i < 2))
-            for i in range(4)
-        }
-        assert determine_overall_stoplight([], results) == "red"
+    def test_green_when_all_sufficient_no_blockers(self):
+        assert determine_overall_stoplight([], _all_sufficient()) == "green"
 
-    def test_red_when_manual_reviews_exceed_half(self):
-        # 3 of 5 criteria: 3*2=6 >= 5 → red
-        results = {
-            f"c{i}": _make_result(f"c{i}", "sufficient", is_blocker=False, manual_review=(i < 3))
-            for i in range(5)
-        }
-        assert determine_overall_stoplight([], results) == "red"
-
-    # --- yellow: at least one flag, fewer than half ---
-
-    def test_yellow_when_one_manual_review_of_five(self):
-        # 1 of 5: 1*2=2 < 5 → yellow
-        results = {k: _make_result(k, "sufficient") for k in CRITERIA_KEYS}
-        results["beperking"] = _make_result("beperking", "sufficient", manual_review=True)
-        assert determine_overall_stoplight([], results) == "yellow"
-
-    def test_yellow_when_fewer_than_half_manual_reviews(self):
-        # 1 of 4: 1*2=2 < 4 → yellow
-        results = {
-            f"c{i}": _make_result(f"c{i}", "sufficient", is_blocker=False, manual_review=(i < 1))
-            for i in range(4)
-        }
-        assert determine_overall_stoplight([], results) == "yellow"
-
-    # --- green: no blockers, zero manual review flags ---
-
-    def test_green_when_all_sufficient_no_flags(self):
-        results = {k: _make_result(k, "sufficient") for k in CRITERIA_KEYS}
-        assert determine_overall_stoplight([], results) == "green"
-
-    def test_green_when_all_strong_no_flags(self):
+    def test_green_when_all_strong_no_blockers(self):
         results = {k: _make_result(k, "strong") for k in CRITERIA_KEYS}
         assert determine_overall_stoplight([], results) == "green"
 
@@ -231,16 +164,19 @@ class TestDetermineOverallStoplight:
         results = {k: _make_result(k, s) for k, s in zip(CRITERIA_KEYS, statuses)}
         assert determine_overall_stoplight([], results) == "green"
 
-    def test_green_when_partial_non_blocker_no_manual_review(self):
-        # Criterion status alone does not drive the overall stoplight under the new policy.
-        # A partial non-blocker with no manual_review flag produces green, not yellow.
+    def test_green_when_partial_non_blocker(self):
+        # Criterion status alone does not drive the overall stoplight.
+        # A partial non-blocker with no active blocker produces green.
         results = {k: _make_result(k, "sufficient") for k in CRITERIA_KEYS}
         results["beperking"] = _make_result("beperking", "partial", is_blocker=False)
         assert determine_overall_stoplight([], results) == "green"
 
+    def test_empty_blockers_list_gives_green(self):
+        assert determine_overall_stoplight([], {}) == "green"
+
 
 # ---------------------------------------------------------------------------
-# 6. _validate_criterion_result_keys
+# 5. _validate_criterion_result_keys
 # ---------------------------------------------------------------------------
 
 
@@ -272,7 +208,7 @@ class TestValidateCriterionResultKeys:
 
 
 # ---------------------------------------------------------------------------
-# 7. score_document
+# 6. score_document
 # ---------------------------------------------------------------------------
 
 
@@ -290,16 +226,6 @@ class TestScoreDocument:
         run = score_document(_minimal_report(), _all_sufficient())
         assert run.scorecard.hidden_score == 10
 
-    def test_manual_review_required_false_when_no_flags(self):
-        run = score_document(_minimal_report(), _all_sufficient())
-        assert run.manual_review_required is False
-
-    def test_manual_review_required_true_when_any_flag(self):
-        results = _all_sufficient()
-        results["beperking"] = _make_result("beperking", "sufficient", manual_review=True)
-        run = score_document(_minimal_report(), results)
-        assert run.manual_review_required is True
-
     def test_blockers_triggered_empty_when_all_sufficient(self):
         run = score_document(_minimal_report(), _all_sufficient())
         assert run.blockers_triggered == []
@@ -309,12 +235,6 @@ class TestScoreDocument:
         results["stakeholders"] = _make_result("stakeholders", "missing", is_blocker=True)
         run = score_document(_minimal_report(), results)
         assert "stakeholders" in run.blockers_triggered
-
-    def test_manual_review_flags_correct(self):
-        results = _all_sufficient()
-        results["taalkeuze"] = _make_result("taalkeuze", "sufficient", manual_review=True)
-        run = score_document(_minimal_report(), results)
-        assert run.manual_review_flags == ["taalkeuze"]
 
     def test_criteria_evaluated_is_rubric_order(self):
         run = score_document(_minimal_report(), _all_sufficient())
@@ -335,20 +255,23 @@ class TestScoreDocument:
         run = score_document(_minimal_report(), results)
         assert run.overall_stoplight == "red"
 
-    def test_overall_stoplight_yellow_when_one_of_five_manual_review(self):
-        # 1 of 5 criteria → 1*2=2 < 5 → yellow, not red
+    def test_overall_stoplight_red_when_partial_blocker(self):
         results = _all_sufficient()
-        results["security"] = _make_result("security", "sufficient", manual_review=True)
-        run = score_document(_minimal_report(), results)
-        assert run.overall_stoplight == "yellow"
-
-    def test_overall_stoplight_red_when_manual_reviews_reach_half(self):
-        # 3 of 5 criteria → 3*2=6 >= 5 → red
-        results = _all_sufficient()
-        for key in list(CRITERIA_KEYS)[:3]:
-            results[key] = _make_result(key, "sufficient", manual_review=True)
+        results["security"] = _make_result("security", "partial", is_blocker=True)
         run = score_document(_minimal_report(), results)
         assert run.overall_stoplight == "red"
+
+    def test_no_manual_review_required_field_on_result(self):
+        run = score_document(_minimal_report(), _all_sufficient())
+        assert not hasattr(run, "manual_review_required"), (
+            "manual_review_required must not be present on CapsRunResult"
+        )
+
+    def test_no_manual_review_flags_field_on_result(self):
+        run = score_document(_minimal_report(), _all_sufficient())
+        assert not hasattr(run, "manual_review_flags"), (
+            "manual_review_flags must not be present on CapsRunResult"
+        )
 
     def test_input_source_forwarded_to_run_meta(self):
         run = score_document(_minimal_report(), _all_sufficient(), input_source="anonymized")

@@ -73,9 +73,16 @@ class CriterionSpec:
     """Toelichting voor check- en retrieval-lagen: subtiliteiten, co-voorkomensregels,
     veelvoorkomende patronen en aandachtspunten buiten sleutelwoordmatching."""
 
-    manual_review_trigger: str = ""
-    """Condities die dit criterium markeren voor handmatige verificatie.
-    Lege string betekent geen automatische trigger buiten de normale logica."""
+    downstream_review_hint: str = ""
+    """Rubric/context metadata ONLY — NOT active CAPS runtime judgement.
+
+    CAPS no longer owns manual review. This optional string is pure rubric
+    context describing borderline situations that a *later* stage (Qwen
+    content diagnosis / docent manual review) may want to watch for.
+    CAPS retrieval, checks, and scoring never read this field and never act
+    on it — leaving it empty has no effect on any CAPS verdict.
+
+    Lege string = geen extra context voor de downstream review-fase."""
 
 # ---------------------------------------------------------------------------
 # Shared block-type set for content-bearing blocks
@@ -148,7 +155,7 @@ BEPERKING = CriterionSpec(
         "Documenten kunnen de beperking impliciet beschrijven via een specifieke doelgroep "
         "zonder het woord 'beperking' zelf te gebruiken."
     ),
-    manual_review_trigger=(
+    downstream_review_hint=(
         "Activeer wanneer de beperking is beschreven maar het onderzoeksbewijs "
         "dun of onduidelijk is (bijv. Ã©Ã©n vage verwijzing, geen URL, geen genoemde bron)."
     ),
@@ -197,7 +204,7 @@ STAKEHOLDERS = CriterionSpec(
         "controleer tabelcellen op rolnamen en bijbehorende belang/invloed-kolommen. "
         "minimum_count=4 voor voldoende; strong_from=6 voor goed."
     ),
-    manual_review_trigger=(
+    downstream_review_hint=(
         "Activeer wanneer het aantal stakeholders exact op de grenswaarde ligt (4 of 6), "
         "of wanneer belang/invloed-beschrijvingen aanwezig maar erg beknopt zijn."
     ),
@@ -260,7 +267,7 @@ REQUIREMENTS = CriterionSpec(
         "Aanwezigheid van prioritering werkt als upgrade van gedeeltelijk naar voldoende bij grensgevallen. "
         "minimum_count=15 voor voldoende; strong_from=25 voor goed."
     ),
-    manual_review_trigger=(
+    downstream_review_hint=(
         "Activeer wanneer het aantal requirements tussen 12 en 17 ligt (Â±2 van de grenswaarde), "
         "of wanneer requirements verspreid staan over secties zonder duidelijke structuur."
     ),
@@ -315,7 +322,7 @@ TAALKEUZE = CriterionSpec(
         "inleidende secties, afbakening of niet-functionele requirements. "
         "Onderbouwing met een bron of deskresearch-verwijzing verhoogt naar goed."
     ),
-    manual_review_trigger=(
+    downstream_review_hint=(
         "Activeer wanneer een taal is vermeld maar gevolgen ontbreken of triviaal zijn. "
         "Activeer wanneer 'meertalig' staat maar de specifieke talen niet zijn benoemd."
     ),
@@ -373,7 +380,7 @@ SECURITY = CriterionSpec(
         "in plaats van als aparte heading. "
         "minimum_count=1 voor voldoende; strong_from=3 voor goed."
     ),
-    manual_review_trigger=(
+    downstream_review_hint=(
         "Activeer wanneer een security-sectie aanwezig is maar alle inhoud generiek blijft "
         "(bijv. 'de webshop moet veilig zijn') zonder een concreet mechanisme te noemen."
     ),

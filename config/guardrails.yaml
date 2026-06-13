@@ -208,21 +208,22 @@ stoplicht:
   engine: caps.py
 
   rood:
-    - Een of meer criteria hebben status "missing"
-    - Een of meer blocker-criteria zijn niet behaald
-    - Manual review is getriggerd
+    - Een of meer blocker-criteria hebben status "missing" of "partial"
 
   geel:
-    - Geen criteria zijn "missing"
-    - Minstens één criterium heeft status "partial"
-    - Geen blockers actief
+    - Gereserveerd voor toekomstige Qwen content-kwaliteitsdiagnose
+    - CAPS alleen produceert nooit geel; alle huidige criteria zijn blockers
 
   groen:
-    - Alle criteria hebben minimaal status "sufficient"
-    - Geen manual review vereist
+    - Alle blocker-criteria hebben minimaal status "sufficient"
+    - Geen enkel blocker-criterium is gefaald
 
   # Bij samenloop van regels geldt altijd het strengste signaal.
   prioriteit: rood > geel > groen
+
+  # Verantwoordelijkheidsverdeling:
+  # CAPS = structurele detectie (rood/groen op basis van blockers)
+  # Qwen = content-kwaliteitsdiagnose (geel zal later door Qwen worden toegevoegd)
 
 # =============================================================================
 # 8. SCORECARD_CONTRACT
@@ -261,8 +262,11 @@ scorecard_contract:
 # 9. MANUAL_REVIEW
 # =============================================================================
 manual_review:
-  # Wanneer het systeem onzeker is over de uitkomst, wordt manual review getriggerd.
-  # Bij manual review geldt altijd stoplicht rood totdat een docent heeft beoordeeld.
+  # Manual review is GEEN verantwoordelijkheid van CAPS meer.
+  # CAPS levert missing_signals per criterium — Qwen gebruikt die om te bepalen
+  # wanneer een docent moet controleren.
+  #
+  # Infrastructurele triggers (parse-fouten, lege documenten) blijven pipeline-niveau:
   triggers:
     - parse_status is "empty" of "error"
     - block_count < 20                              # document te klein om betrouwbaar te beoordelen
@@ -274,6 +278,10 @@ manual_review:
       Je document kon niet volledig automatisch worden beoordeeld.
       Een docent zal je document handmatig beoordelen.
     log_reden: true
+
+  # Noot: inhoudelijke manual-review-logica (grensgevallen per criterium) is
+  # verplaatst naar de Qwen-diagnosefase. CAPS levert missing_signals als input
+  # voor die diagnose; de eindoordeel over handmatige controle is aan Qwen.
 
 # =============================================================================
 # 10. LOGGING

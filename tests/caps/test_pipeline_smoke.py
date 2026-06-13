@@ -85,12 +85,16 @@ _STRONG_BLOCKS = [
             "index_cells": [],
         },
     ),
-    # Criterion 3 – requirements: 26 unique requirement IDs (20 FR + 6 NFR)
+    # Criterion 3 – requirements: 26 unique requirement IDs (20 FR + 6 NFR) + MoSCoW prio
     _block(
         "s04", 7, "paragraph",
-        "FR-01 FR-02 FR-03 FR-04 FR-05 FR-06 FR-07 FR-08 FR-09 FR-10 "
-        "FR-11 FR-12 FR-13 FR-14 FR-15 FR-16 FR-17 FR-18 FR-19 FR-20 "
-        "NFR-01 NFR-02 NFR-03 NFR-04 NFR-05 NFR-06",
+        "FR-01 must have FR-02 must have FR-03 should have FR-04 should have "
+        "FR-05 could have FR-06 must have FR-07 must have FR-08 should have "
+        "FR-09 could have FR-10 must have FR-11 must have FR-12 should have "
+        "FR-13 could have FR-14 must have FR-15 must have FR-16 should have "
+        "FR-17 should have FR-18 could have FR-19 must have FR-20 should have "
+        "NFR-01 must have NFR-02 should have NFR-03 could have "
+        "NFR-04 must have NFR-05 should have NFR-06 could have",
         ["Requirements", "Functionele eisen"],
     ),
     # Criterion 4 – taalkeuze: explicit language choice + 4 consequence signals
@@ -207,3 +211,69 @@ def test_strong_stoplight_not_worse_than_weak():
     weak = run_caps(WEAK_REPORT)
 
     assert _STOPLIGHT_RANK[strong.overall_stoplight] >= _STOPLIGHT_RANK[weak.overall_stoplight]
+
+
+# ---------------------------------------------------------------------------
+# missing_signals and evidence availability (downstream Qwen contract)
+# ---------------------------------------------------------------------------
+
+
+def test_criterion_result_output_fields_always_present():
+    """Every criterion result must expose notes, missing_signals, and evidence as lists."""
+    result = run_caps(STRONG_REPORT)
+    for key, r in result.scorecard.results.items():
+        assert isinstance(r.notes, list), f"{key}: notes must be a list"
+        assert isinstance(r.missing_signals, list), f"{key}: missing_signals must be a list"
+        assert isinstance(r.evidence, list), f"{key}: evidence must be a list"
+
+
+def test_strong_report_has_no_unexpected_missing_signals():
+    """Strong report provides full evidence — all criteria should have empty missing_signals."""
+    result = run_caps(STRONG_REPORT)
+    for key, r in result.scorecard.results.items():
+        assert r.missing_signals == [], (
+            f"{key}: expected no missing_signals for strong report, got {r.missing_signals}"
+        )
+
+
+def test_weak_report_has_missing_signals_on_most_criteria():
+    """Weak report has thin evidence — most criteria should report missing signals."""
+    result = run_caps(WEAK_REPORT)
+    criteria_with_missing = [
+        key for key, r in result.scorecard.results.items() if r.missing_signals
+    ]
+    assert len(criteria_with_missing) >= 3, (
+        f"Expected ≥3 criteria with missing_signals in weak report, "
+        f"got {len(criteria_with_missing)}: {criteria_with_missing}"
+    )
+
+
+def test_no_manual_review_fields_on_run_result():
+    """CapsRunResult must not expose manual_review_required or manual_review_flags."""
+    result = run_caps(STRONG_REPORT)
+    assert not hasattr(result, "manual_review_required")
+    assert not hasattr(result, "manual_review_flags")
+
+
+def test_no_manual_review_field_on_criterion_result():
+    """CriterionResult must not expose manual_review."""
+    result = run_caps(STRONG_REPORT)
+    for key, r in result.scorecard.results.items():
+        assert not hasattr(r, "manual_review"), (
+            f"{key}: manual_review must not be present on CriterionResult"
+        )
+
+
+def test_caps_overall_stoplight_is_never_yellow():
+    """Document-level CAPS stoplight is red or green only — never yellow.
+
+    All current criteria are blockers, so CAPS alone yields only red (blocked)
+    or green (all pass). Document-level yellow is reserved for the downstream
+    Qwen stage. (Per-criterion stoplight may still be yellow — that is a
+    separate level; see models.StoplightLabel.)
+    """
+    for report in (STRONG_REPORT, WEAK_REPORT):
+        result = run_caps(report)
+        assert result.overall_stoplight in ("red", "green"), (
+            f"unexpected document stoplight {result.overall_stoplight!r}"
+        )

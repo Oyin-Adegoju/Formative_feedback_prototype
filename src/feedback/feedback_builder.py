@@ -116,10 +116,11 @@ def _format_caps_criteria_summary(caps_result: CapsRunResult) -> str:
             lines.append("")
             continue
         lines.append(f"{key} ({spec.label})")
-        lines.append(f"  stoplight    : {cr.stoplight}")
+        lines.append(f"  stoplight      : {cr.stoplight}")
         if cr.count is not None:
-            lines.append(f"  count        : {cr.count}")
-        lines.append(f"  manual_review: {cr.manual_review}")
+            lines.append(f"  count          : {cr.count}")
+        missing = ", ".join(cr.missing_signals) if cr.missing_signals else "-"
+        lines.append(f"  missing_signals: {missing}")
         for note in cr.notes:
             lines.append(f"  note: {note}")
         lines.append("")
@@ -157,9 +158,12 @@ def _assemble_prompt(
     block_ids = _collect_block_ids(caps_result)
     known_ids_str = ", ".join(block_ids) if block_ids else "(geen evidence beschikbaar)"
     evidence_pack_str = _format_evidence_pack(packets) if packets else "(geen evidence beschikbaar)"
-    manual_review_str = "ja" if caps_result.manual_review_required else "nee"
-    flags_str = ", ".join(caps_result.manual_review_flags) if caps_result.manual_review_flags else "geen"
     blockers_str = ", ".join(caps_result.blockers_triggered) if caps_result.blockers_triggered else "geen"
+
+    # Manual review is no longer produced by CAPS — it is deferred to the future
+    # Qwen stage. The v3 template still carries the placeholders, so we fill them
+    # with an explicit "deferred" marker rather than fabricating a verdict.
+    manual_review_deferred = "n.v.t. (volgt in Qwen-fase)"
 
     return (
         template
@@ -167,8 +171,8 @@ def _assemble_prompt(
         .replace("<<STOPLIGHT>>", caps_result.overall_stoplight)
         .replace("<<CRITERION_KEYS>>", ", ".join(CRITERIA_KEYS))
         .replace("<<KNOWN_BLOCK_IDS>>", known_ids_str)
-        .replace("<<MANUAL_REVIEW_REQUIRED>>", manual_review_str)
-        .replace("<<MANUAL_REVIEW_FLAGS>>", flags_str)
+        .replace("<<MANUAL_REVIEW_REQUIRED>>", manual_review_deferred)
+        .replace("<<MANUAL_REVIEW_FLAGS>>", manual_review_deferred)
         .replace("<<BLOCKERS_TRIGGERED>>", blockers_str)
         .replace("<<CAPS_CRITERIA_SUMMARY>>", _format_caps_criteria_summary(caps_result))
         .replace("<<EVIDENCE_PACK>>", evidence_pack_str)

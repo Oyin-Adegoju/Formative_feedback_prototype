@@ -70,7 +70,7 @@ def test_criterion_spec_optional_defaults():
     assert spec.minimum_count is None
     assert spec.strong_from is None
     assert spec.notes == ""
-    assert spec.manual_review_trigger == ""
+    assert spec.downstream_review_hint == ""
 # ---------------------------------------------------------------------------
 # Registry
 # ---------------------------------------------------------------------------
@@ -105,7 +105,7 @@ def test_registry_all_criteria_have_required_fields():
         assert criterion.heading_hints, f"{criterion.key}: heading_hints is empty"
         assert criterion.text_hints, f"{criterion.key}: text_hints is empty"
         assert criterion.notes, f"{criterion.key}: notes is empty"
-        assert criterion.manual_review_trigger, f"{criterion.key}: manual_review_trigger is empty"
+        assert criterion.downstream_review_hint, f"{criterion.key}: downstream_review_hint is empty"
 # ---------------------------------------------------------------------------
 # Relevant block types
 # ---------------------------------------------------------------------------

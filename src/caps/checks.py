@@ -16,6 +16,15 @@ They do not read any file, call any model, or inspect any global state.
 Future anonymized input: because anonymized blocks preserve block_id,
 page_no, block_type, heading_path, text, and table_meta structure (only
 text content changes), these checks require no redesign for that path.
+
+Output contract per CriterionResult:
+    status, stoplight, is_blocker  — objective CAPS verdict
+    evidence                       — block pointers supporting the verdict
+    count                          — found count for countable criteria
+    notes                          — human-readable diagnostic observations
+    missing_signals                — short English identifiers for absent signals
+                                     (e.g. "research_evidence", "stakeholder_count")
+                                     Consumed by downstream Qwen diagnosis.
 """
 
 from __future__ import annotations
@@ -261,7 +270,6 @@ def check_beperking(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionR
     ]
 
     notes: list[str] = []
-    manual_review = False
 
     has_limitation = bool(limitation_hits)
     has_research = bool(research_hits)
@@ -294,7 +302,6 @@ def check_beperking(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionR
             notes.append(
                 "Onderbouwingstermen aanwezig maar expliciet ontkend in context."
             )
-        manual_review = True
 
     else:
         # Both signals present
@@ -314,14 +321,18 @@ def check_beperking(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionR
                 f"Beperking beschreven ({', '.join(lim_signals[:3])}) "
                 f"en onderbouwing aanwezig ({', '.join(res_signals[:3])})."
             )
-            # Thin research: only headings or short fragments → flag for review.
             if len(research_body_hits) == 0 or (
                 len(research_body_hits) == 1 and len(res_signals) == 1
             ):
-                manual_review = True
                 notes.append(
                     "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
                 )
+
+    missing_signals: list[str] = []
+    if not has_limitation:
+        missing_signals.append("limitation_signal")
+    if not has_research:
+        missing_signals.append("research_evidence")
 
     return CriterionResult(
         criterion_key=spec.key,
@@ -331,7 +342,7 @@ def check_beperking(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionR
         evidence=evidence[:8],
         count=None,
         notes=notes,
-        manual_review=manual_review,
+        missing_signals=missing_signals,
     )
 
 
@@ -436,7 +447,6 @@ def check_stakeholders(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
 
     count = len(unique_roles)
     notes: list[str] = []
-    manual_review = False
 
     minimum = spec.minimum_count or 4
     strong_from = spec.strong_from or 6
@@ -457,7 +467,6 @@ def check_stakeholders(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
             f"{count} unieke stakeholder(s) herkend (minimum {minimum}). {bi_str}"
         )
         if count >= minimum - 1:
-            manual_review = True
             notes.append("Één stakeholder onder het minimum — grenswaardegeval.")
 
     elif count < strong_from:
@@ -467,7 +476,6 @@ def check_stakeholders(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
                 f"{count} stakeholder(s) herkend met belang en invloed beschreven."
             )
             if count == minimum:
-                manual_review = True
                 notes.append(
                     "Exact op minimum (4) — verifieer tabel op volledigheid."
                 )
@@ -478,7 +486,6 @@ def check_stakeholders(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
                 f"{count} stakeholder(s) herkend, maar belang en/of invloed "
                 f"ontbreekt. {bi_str}"
             )
-            manual_review = True
 
     else:  # count >= strong_from
         if has_bi:
@@ -488,7 +495,6 @@ def check_stakeholders(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
                 "met belang en invloed gedocumenteerd."
             )
             if count == strong_from:
-                manual_review = True
                 notes.append("Exact op grenswaarde voor 'goed' (6).")
         else:
             status = "sufficient"
@@ -496,7 +502,14 @@ def check_stakeholders(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
                 f"{count} stakeholder(s) herkend, maar belang en/of invloed "
                 f"ontbreekt. {bi_str}"
             )
-            manual_review = True
+
+    missing_signals: list[str] = []
+    if count < minimum:
+        missing_signals.append("stakeholder_count")
+    if not has_belang:
+        missing_signals.append("belang_signal")
+    if not has_invloed:
+        missing_signals.append("invloed_signal")
 
     return CriterionResult(
         criterion_key=spec.key,
@@ -506,7 +519,7 @@ def check_stakeholders(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
         evidence=evidence[:8],
         count=count,
         notes=notes,
-        manual_review=manual_review,
+        missing_signals=missing_signals,
     )
 
 
@@ -681,7 +694,6 @@ def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
     total = 0
     has_prio = False
     notes: list[str] = []
-    manual_review = False
 
     # Process in document order so zero-count section-label blocks (e.g. a
     # "Niet-functionele requirements" heading paragraph) correctly govern the
@@ -736,18 +748,15 @@ def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
     elif total < minimum:
         status = "partial"
         notes.append(f"Geschat {total} requirement-items (minimum {minimum}). {prio_str}")
-        # Flag edge cases near the threshold.
         if minimum - 3 <= total <= minimum + 2:
-            manual_review = True
             notes.append(
-                f"Telling ({total}) dicht bij minimum ({minimum}) — handmatig verificeren."
+                f"Telling ({total}) dicht bij minimum ({minimum}) — grenswaardegeval."
             )
 
     elif total < strong_from:
         status = "sufficient"
         notes.append(f"Geschat {total} requirement-items. {prio_str}")
         if total <= minimum + 2:
-            manual_review = True
             notes.append(f"Telling ({total}) net boven minimum — grenswaardegeval.")
 
     else:
@@ -780,6 +789,12 @@ def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
         if dist_parts:
             notes.append("Prioriteitsverdeling: " + ", ".join(dist_parts) + ".")
 
+    missing_signals: list[str] = []
+    if total < minimum:
+        missing_signals.append("requirement_count")
+    if not has_prio:
+        missing_signals.append("prioritization")
+
     return CriterionResult(
         criterion_key=spec.key,
         status=status,
@@ -788,7 +803,7 @@ def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
         evidence=evidence[:8],
         count=total,
         notes=notes,
-        manual_review=manual_review,
+        missing_signals=missing_signals,
     )
 
 
@@ -819,7 +834,6 @@ def check_taalkeuze(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionR
             evidence.append(_make_ref(hit))
 
     notes: list[str] = []
-    manual_review = False
 
     has_language = bool(language_found)
     has_consequence = bool(consequence_found)
@@ -834,7 +848,6 @@ def check_taalkeuze(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionR
             f"Gevolg-signalen aanwezig ({', '.join(consequence_found[:3])}), "
             "maar geen expliciete taalkeuze vermeld."
         )
-        manual_review = True
 
     elif not has_consequence:
         status = "partial"
@@ -842,7 +855,6 @@ def check_taalkeuze(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionR
             f"Taalkeuze vermeld ({', '.join(language_found[:2])}), "
             "maar geen gevolgen van die keuze beschreven."
         )
-        manual_review = True
 
     else:
         # Both signals present; upgrade to strong when well-underpinned.
@@ -865,6 +877,12 @@ def check_taalkeuze(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionR
                 f"({', '.join(consequence_found[:2])}) aanwezig."
             )
 
+    missing_signals: list[str] = []
+    if not has_language:
+        missing_signals.append("language_choice")
+    if not has_consequence:
+        missing_signals.append("consequences")
+
     return CriterionResult(
         criterion_key=spec.key,
         status=status,
@@ -873,7 +891,7 @@ def check_taalkeuze(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionR
         evidence=evidence[:8],
         count=None,
         notes=notes,
-        manual_review=manual_review,
+        missing_signals=missing_signals,
     )
 
 
@@ -904,7 +922,6 @@ def check_security(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionRe
 
     count = len(concrete_found)
     notes: list[str] = []
-    manual_review = False
 
     minimum = spec.minimum_count or 1
     strong_from = spec.strong_from or 3
@@ -919,7 +936,6 @@ def check_security(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionRe
             f"Generieke security-termen aanwezig ({', '.join(generic_found[:3])}), "
             "maar geen concreet beveiligingsmechanisme benoemd."
         )
-        manual_review = True
 
     elif count < strong_from:
         status = "sufficient"
@@ -928,7 +944,6 @@ def check_security(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionRe
             f"{', '.join(concrete_found[:5])}."
         )
         if count == minimum:
-            manual_review = True
             notes.append(
                 "Exact één concreet mechanisme — grenswaardegeval, verifieer inhoud."
             )
@@ -940,6 +955,10 @@ def check_security(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionRe
             f"{', '.join(concrete_found[:6])}."
         )
 
+    missing_signals: list[str] = []
+    if count == 0:
+        missing_signals.append("concrete_mechanism")
+
     return CriterionResult(
         criterion_key=spec.key,
         status=status,
@@ -948,7 +967,7 @@ def check_security(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionRe
         evidence=evidence[:8],
         count=count,
         notes=notes,
-        manual_review=manual_review,
+        missing_signals=missing_signals,
     )
 
 
@@ -978,7 +997,7 @@ def run_check_for_criterion(
             retrieve_for_criterion or retrieve_all_criteria.
 
     Returns:
-        CriterionResult with verdict, stoplight, evidence, and notes.
+        CriterionResult with verdict, stoplight, evidence, notes, and missing_signals.
 
     Raises:
         KeyError: if criterion_key is not one of the 5 known keys.

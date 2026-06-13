@@ -83,11 +83,14 @@ class EvidencePacket:
     formulate improvement suggestions.
 
     notes is copied verbatim from CriterionResult.notes.
-    manual_review is copied verbatim from CriterionResult.manual_review.
+
+    Manual-review flagging is intentionally NOT carried on this packet. CAPS
+    no longer owns manual review; deciding whether a docent must verify a
+    criterion is deferred to the downstream Qwen stage. Until that stage
+    exists, the packet simply omits any manual-review field.
     """
 
     criterion_key: str
-    manual_review: bool
     notes: list[str]
     evidence_items: list[EvidenceItem] = field(default_factory=list)
     missing_signals: list[str] = field(default_factory=list)

@@ -8,6 +8,14 @@ Deterministic and stateless: same inputs always produce the same outputs.
 
 Architecture position:
     parser output → [anonymizer] → CAPS retrieval → CAPS checks → CAPS scoring
+
+Stoplight policy (CAPS-only, objective):
+    red:    any blocker criterion is missing or partial.
+    green:  no blockers triggered.
+    yellow: reserved for future Qwen-informed quality signals.
+            CAPS alone never produces yellow because all current criteria are
+            blockers — yellow will be introduced when Qwen adds content-quality
+            diagnosis on top of CAPS structural detection.
 """
 
 from __future__ import annotations
@@ -100,29 +108,21 @@ def collect_blockers(results: dict[str, CriterionResult]) -> list[str]:
     ]
 
 
-def collect_manual_review_flags(results: dict[str, CriterionResult]) -> list[str]:
-    """Return criterion keys where manual_review=True."""
-    return [key for key, r in results.items() if r.manual_review]
-
-
 def determine_overall_stoplight(
     blockers_triggered: list[str],
-    results: dict[str, CriterionResult],
+    results: dict[str, CriterionResult],  # reserved for future Qwen-informed scoring
 ) -> StoplightLabel:
     """Apply the document-level stoplight policy.
 
-    red:    any blocker triggered, or manual review applies to half or more of the
-            evaluated criteria (manual_review_count * 2 >= total_criteria)
-    yellow: no blockers, and at least one manual review flag on fewer than half the criteria
-    green:  no blockers, and zero manual review flags
+    red:    any blocker criterion is missing or partial.
+    green:  no blockers triggered.
+    yellow: reserved for future use — Qwen content-quality diagnosis will
+            introduce yellow when it layers on top of CAPS structural detection.
+            CAPS alone never produces yellow: all current criteria are blockers,
+            so only red (blocked) or green (all pass) are reachable.
     """
-    total_criteria = len(results)
-    manual_review_count = sum(1 for r in results.values() if r.manual_review)
-
-    if blockers_triggered or manual_review_count * 2 >= total_criteria:
+    if blockers_triggered:
         return "red"
-    if manual_review_count > 0:
-        return "yellow"
     return "green"
 
 
@@ -183,12 +183,7 @@ def score_document(
 
     hidden_score = compute_hidden_score(ordered)
     blockers_triggered = collect_blockers(ordered)
-    manual_review_flags = collect_manual_review_flags(ordered)
-    manual_review_required = bool(manual_review_flags)
-    overall_stoplight = determine_overall_stoplight(
-        blockers_triggered,
-        ordered,
-    )
+    overall_stoplight = determine_overall_stoplight(blockers_triggered, ordered)
 
     scorecard = build_scorecard(doc_id, ordered, hidden_score)
 
@@ -205,7 +200,5 @@ def score_document(
         scorecard=scorecard,
         overall_stoplight=overall_stoplight,
         run_meta=run_meta,
-        manual_review_required=manual_review_required,
         blockers_triggered=blockers_triggered,
-        manual_review_flags=manual_review_flags,
     )

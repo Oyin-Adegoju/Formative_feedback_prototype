@@ -12,6 +12,12 @@ Contains no rubric logic, no scoring formulae, and no retrieval heuristics —
 those live in their respective modules. This file only wires them together
 in the correct order.
 
+Output contract reminder: the returned CapsRunResult.overall_stoplight is
+CAPS-only — "red" when a blocker is triggered, otherwise "green". CAPS alone
+never produces document-level "yellow"; that label is reserved for the
+downstream Qwen stage. CAPS also no longer owns manual review. See
+models.StoplightLabel and scoring.determine_overall_stoplight.
+
 Architecture position:
     parser output → [anonymizer] → CAPS retrieval → CAPS checks → CAPS scoring
                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

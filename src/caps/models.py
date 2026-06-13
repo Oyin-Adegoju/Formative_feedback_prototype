@@ -24,7 +24,21 @@ CriterionStatus = Literal["missing", "partial", "sufficient", "strong"]
 """Verdict for one criterion."""
 
 StoplightLabel = Literal["red", "yellow", "green"]
-"""Document-level or per-criterion traffic-light label."""
+"""Traffic-light label. The same type is used at two levels with two contracts:
+
+Per-criterion (CriterionResult.stoplight), derived from status by the scoring
+layer's mapping:
+    strong              -> green
+    sufficient          -> yellow
+    missing | partial   -> red
+
+Document-level (CapsRunResult.overall_stoplight), CAPS-only contract:
+    red    -> one or more blocker criteria are missing or partial
+    green  -> no blockers triggered
+    yellow -> NOT produced by CAPS alone. All current criteria are blockers,
+              so document-level is only ever red or green. Document-level
+              yellow is reserved for the downstream Qwen content-quality stage.
+"""
 
 InputSource = Literal["parser_direct", "anonymized"]
 """Tracks whether CAPS received raw parser output or anonymizer output."""
@@ -124,10 +138,23 @@ class CriterionResult:
     """CAPS verdict for one rubric criterion.
 
     Fields without defaults must always be provided; the rest are optional
-    because not every criterion has a meaningful count or needs manual review.
+    because not every criterion has a meaningful count.
 
     status is the authoritative verdict. stoplight is presentation-oriented
-    and derived from status by the scoring layer.
+    and derived from status (strong->green, sufficient->yellow,
+    missing|partial->red). Note: a per-criterion stoplight may be yellow even
+    though the document-level CapsRunResult.overall_stoplight never is — see
+    StoplightLabel for the two-level contract.
+
+    evidence is the CAPS contract's evidence field, named consistently as
+    "evidence" across models, checks, scoring, and caps. The downstream
+    feedback layer later enriches these EvidenceRef pointers into
+    EvidencePacket.evidence_items (a separate, richer type in a separate
+    layer); the two names are intentionally not unified here.
+
+    missing_signals: short English identifiers for signals that are absent and
+        affect this criterion's verdict (e.g. "research_evidence", "stakeholder_count").
+        Populated by checks.py; consumed by downstream Qwen diagnosis.
     """
 
     criterion_key: str            # matches CriterionSpec.key
@@ -137,7 +164,7 @@ class CriterionResult:
     evidence: list[EvidenceRef] = field(default_factory=list)
     count: int | None = None      # found count for countable criteria (e.g. stakeholders)
     notes: list[str] = field(default_factory=list)
-    manual_review: bool = False   # True = human should verify this verdict
+    missing_signals: list[str] = field(default_factory=list)
 
 # ---------------------------------------------------------------------------
 # Document-level scorecard
@@ -182,12 +209,16 @@ class CapsRunMeta:
 class CapsRunResult:
     """Top-level output of one CAPS evaluation.
 
-    manual_review_required: document-level flag; True if any criterion carries
-        manual_review=True. Set by the scoring layer, not here.
-    manual_review_flags: criterion_keys that carry manual_review=True.
-        Kept alongside the boolean for fast iteration without scanning the scorecard.
+    overall_stoplight: CAPS-only document verdict — "red" when any blocker is
+        triggered, otherwise "green". CAPS alone never emits "yellow" at this
+        level (all current criteria are blockers); document-level yellow is
+        reserved for the downstream Qwen stage. See StoplightLabel.
     blockers_triggered: criterion_keys where is_blocker=True and status is
         "missing" or "partial". Populated by the scoring layer, not here.
+
+    manual_review_required and manual_review_flags have been removed from CAPS
+    ownership. Content-quality diagnosis and manual review flagging are now
+    Qwen's responsibility in the downstream stage.
     """
 
     doc_id: str
@@ -195,7 +226,5 @@ class CapsRunResult:
     scorecard: CapsScorecard
     overall_stoplight: StoplightLabel
     run_meta: CapsRunMeta
-    manual_review_required: bool = False
     blockers_triggered: list[str] = field(default_factory=list)
-    manual_review_flags: list[str] = field(default_factory=list)
 

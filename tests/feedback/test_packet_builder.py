@@ -267,13 +267,6 @@ def test_criterion_key_matches_packet_key(strong_packets):
         assert pkt.criterion_key == key
 
 
-def test_manual_review_copied_from_caps(strong_packets):
-    packets, artifacts = strong_packets
-    for key in CRITERIA_KEYS:
-        cr = artifacts.criterion_results[key]
-        assert packets[key].manual_review == cr.manual_review
-
-
 def test_notes_copied_from_caps(strong_packets):
     packets, artifacts = strong_packets
     for key in CRITERIA_KEYS:

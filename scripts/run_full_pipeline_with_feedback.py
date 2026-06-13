@@ -100,11 +100,11 @@ _EXPECTED_CRITERIA: Final[frozenset[str]] = frozenset(CRITERIA_KEYS)
 
 _CAPS_SUMMARY_TOP_LEVEL_KEYS: Final[frozenset[str]] = frozenset({
     "file", "doc_id", "source_name", "overall_stoplight", "hidden_score",
-    "manual_review_required", "blockers_triggered", "manual_review_flags", "criteria",
+    "blockers_triggered", "criteria",
 })
 
 _CRITERION_REQUIRED_FIELDS: Final[frozenset[str]] = frozenset({
-    "status", "stoplight", "count", "manual_review", "notes",
+    "status", "stoplight", "count", "missing_signals", "notes",
 })
 
 _STATUS_LABELS: Final[frozenset[str]] = frozenset({
@@ -217,7 +217,6 @@ def _packets_to_dict(doc_id: str, packets: dict) -> dict:
     criteria = {}
     for key, pkt in packets.items():
         criteria[key] = {
-            "manual_review": pkt.manual_review,
             "notes": pkt.notes,
             "missing_signals": pkt.missing_signals,
             "evidence_items": [
@@ -248,7 +247,7 @@ def _caps_result_to_dict(filename: str, result: CapsRunResult) -> dict:
             "status": cr.status,
             "stoplight": cr.stoplight,
             "count": cr.count,
-            "manual_review": cr.manual_review,
+            "missing_signals": cr.missing_signals,
             "notes": cr.notes,
         }
     return {
@@ -257,9 +256,7 @@ def _caps_result_to_dict(filename: str, result: CapsRunResult) -> dict:
         "source_name": result.source_name,
         "overall_stoplight": result.overall_stoplight,
         "hidden_score": result.scorecard.hidden_score,
-        "manual_review_required": result.manual_review_required,
         "blockers_triggered": result.blockers_triggered,
-        "manual_review_flags": result.manual_review_flags,
         "criteria": criteria,
     }
 
@@ -281,20 +278,18 @@ def _print_caps_result(result: CapsRunResult) -> None:
     print(f"  source_name         : {result.source_name}")
     print(f"  overall_stoplight   : {sym} {result.overall_stoplight}")
     print(f"  hidden_score        : {result.scorecard.hidden_score} / 15")
-    print(f"  manual_review       : {result.manual_review_required}")
 
     blockers_str = ", ".join(result.blockers_triggered) if result.blockers_triggered else "none"
-    flags_str = ", ".join(result.manual_review_flags) if result.manual_review_flags else "none"
     print(f"  blockers_triggered  : {blockers_str}")
-    print(f"  manual_review_flags : {flags_str}")
     print()
 
     for key, cr in result.scorecard.results.items():
         sym_c = _STOPLIGHT_SYMBOL.get(cr.stoplight, "?")
         count_str = f"  count={cr.count}" if cr.count is not None else ""
+        missing_str = ", ".join(cr.missing_signals) or "-"
         print(
             f"  {sym_c} {key:<14} status={cr.status:<12}"
-            f"{count_str}  manual_review={cr.manual_review}"
+            f"{count_str}  missing_signals={missing_str}"
         )
         for note in cr.notes[:2]:
             short = note[:100] + ("…" if len(note) > 100 else "")
@@ -793,9 +788,7 @@ def main() -> int:
         "output_directory": str(run_dir),
         "stoplight": caps_result.overall_stoplight,
         "hidden_score": caps_result.scorecard.hidden_score,
-        "manual_review_required": caps_result.manual_review_required,
         "blockers_triggered": caps_result.blockers_triggered,
-        "manual_review_flags": caps_result.manual_review_flags,
         "feedback_skipped": feedback_result is None,
         "feedback_is_fallback": (
             _is_fallback(feedback_result) if feedback_result is not None else None

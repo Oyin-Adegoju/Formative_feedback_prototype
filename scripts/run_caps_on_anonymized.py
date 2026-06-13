@@ -67,7 +67,6 @@ def _print_result(filename: str, result: CapsRunResult) -> None:
     print(f"  doc_id       : {result.doc_id}")
     print(f"  stoplight    : {sym} {result.overall_stoplight}")
     print(f"  hidden_score : {result.scorecard.hidden_score} / 15")
-    print(f"  manual_review: {result.manual_review_required}")
     blockers = result.blockers_triggered or ["none"]
     print(f"  blockers     : {', '.join(blockers)}")
     print()
@@ -75,9 +74,10 @@ def _print_result(filename: str, result: CapsRunResult) -> None:
     for key, cr in result.scorecard.results.items():
         sym_c = _STOPLIGHT_SYMBOL.get(cr.stoplight, "?")
         count_str = f"count={cr.count}  " if cr.count is not None else ""
+        missing_str = ", ".join(cr.missing_signals) or "-"
         print(
             f"  {sym_c} {key:<14}  status={cr.status:<11} "
-            f"{count_str}manual_review={cr.manual_review}"
+            f"{count_str}missing_signals={missing_str}"
         )
         for note in cr.notes[:2]:
             short = note[:100] + ("…" if len(note) > 100 else "")
@@ -96,7 +96,7 @@ def _result_to_dict(filename: str, result: CapsRunResult) -> dict:
             "status": cr.status,
             "stoplight": cr.stoplight,
             "count": cr.count,
-            "manual_review": cr.manual_review,
+            "missing_signals": cr.missing_signals,
             "notes": cr.notes,
         }
     return {
@@ -105,9 +105,7 @@ def _result_to_dict(filename: str, result: CapsRunResult) -> dict:
         "source_name": result.source_name,
         "overall_stoplight": result.overall_stoplight,
         "hidden_score": result.scorecard.hidden_score,
-        "manual_review_required": result.manual_review_required,
         "blockers_triggered": result.blockers_triggered,
-        "manual_review_flags": result.manual_review_flags,
         "criteria": criteria,
     }
 
@@ -116,7 +114,6 @@ def _packets_to_dict(filename: str, doc_id: str, packets: dict) -> dict:
     criteria = {}
     for key, pkt in packets.items():
         criteria[key] = {
-            "manual_review": pkt.manual_review,
             "notes": pkt.notes,
             "missing_signals": pkt.missing_signals,
             "evidence_items": [

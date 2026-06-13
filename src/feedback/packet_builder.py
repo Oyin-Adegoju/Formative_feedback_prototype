@@ -6,9 +6,10 @@ results + final run result) and produces one EvidencePacket per criterion.
 Architecture position:
     CapsPipelineArtifacts → build_evidence_packets → dict[str, EvidencePacket]
 
-CAPS is the source of truth for every verdict (status, count, stoplight,
-manual_review).  This module only SELECTS and SHAPES evidence — it never
-re-judges, re-scores, or overrides any CAPS decision.
+CAPS is the source of truth for every verdict (status, count, stoplight).
+This module only SELECTS and SHAPES evidence — it never re-judges,
+re-scores, or overrides any CAPS decision.  Manual review is no longer a
+CAPS concept and is not carried on the packet (deferred to the Qwen stage).
 
 Selection limits (evidence items per criterion):
     beperking      3   — limitation block + research block + one more
@@ -371,7 +372,6 @@ def _build_beperking_packet(
  
     return EvidencePacket(
         criterion_key=spec.key,
-        manual_review=cr.manual_review,
         notes=cr.notes,
         evidence_items=items,
         missing_signals=missing_sigs,
@@ -464,7 +464,6 @@ def _build_stakeholders_packet(
  
     return EvidencePacket(
         criterion_key=spec.key,
-        manual_review=cr.manual_review,
         notes=cr.notes,
         evidence_items=items,
         missing_signals=missing_sigs,
@@ -586,7 +585,6 @@ def _build_requirements_packet(
  
     return EvidencePacket(
         criterion_key=spec.key,
-        manual_review=cr.manual_review,
         notes=cr.notes,
         evidence_items=items,
         missing_signals=missing_sigs,
@@ -704,7 +702,6 @@ def _build_taalkeuze_packet(
  
     return EvidencePacket(
         criterion_key=spec.key,
-        manual_review=cr.manual_review,
         notes=cr.notes,
         evidence_items=items,
         missing_signals=missing_sigs,
@@ -791,7 +788,6 @@ def _build_security_packet(
  
     return EvidencePacket(
         criterion_key=spec.key,
-        manual_review=cr.manual_review,
         notes=cr.notes,
         evidence_items=items,
         missing_signals=missing_sigs,
@@ -844,7 +840,6 @@ def build_evidence_packets(
         if cr is None:
             packets[key] = EvidencePacket(
                 criterion_key=key,
-                manual_review=False,
                 notes=[],
                 evidence_items=[],
                 missing_signals=["Criterium niet geëvalueerd door CAPS"],

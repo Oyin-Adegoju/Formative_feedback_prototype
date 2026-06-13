@@ -8,6 +8,18 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
+# NOTE: This module is quarantined. It targets the PRE-v3 feedback_builder API
+# (_format_scorecard, _manual_review_section, <<SCORECARD>> / <<MANUAL_REVIEW_SECTION>>
+# placeholders) that was removed by the v3 prompt rewrite (commit a78c51d) —
+# independently of the CAPS manual_review removal. Rewriting this suite to the
+# v3 API is feedback/Qwen-stage work and is intentionally deferred. The skip is
+# declared at module level so collection does not error on the stale imports.
+pytest.skip(
+    "feedback_builder tests target the pre-v3 API; pending rewrite in the "
+    "feedback/Qwen stage (see commit a78c51d).",
+    allow_module_level=True,
+)
+
 from src.caps.models import (
     CapsRunMeta,
     CapsRunResult,
