@@ -140,6 +140,16 @@ BEPERKING = CriterionSpec(
         "onderbouwd",
         "onderzoek",
         "verkenning",
+        # Accessibility / limitation-specific signals: high-precision, rarely
+        # appear outside an explicit beperking context. Added in place of the
+        # rejected generic doelgroep words (gebruikers, persona, interview, ...)
+        # and document-specific niches (keukenapparatuur, star wars fans, ...).
+        "visuele beperking",
+        "kleurenblindheid",
+        "schermlezer",
+        "screenreader",
+        "toetsenbordnavigatie",
+        "wcag",
     ),
     minimum_count=None,
     strong_from=None,
@@ -175,21 +185,33 @@ STAKEHOLDERS = CriterionSpec(
     relevant_block_types=_CONTENT_BLOCKS,
     heading_hints=(
         "stakeholder",
-        "belanghebbende",
+        "belanghebbende",  # substring of "belanghebbenden" — covers plural too
         "betrokkenen",
         "actoren",
-        "gebruikers",
         "stakeholder analyse",
         "stakeholder quadrant",
         "categorisatie",
     ),
+    # NB: "gebruikers" is deliberately NOT a stakeholder heading hint. As a
+    # section heading it overlaps heavily with the beperking doelgroep section
+    # ("Onderzoek naar web gebruikers") and floods stakeholder retrieval with
+    # non-stakeholder content. Stakeholder tables are still reached via
+    # "stakeholder"/"matrix" and the role text hints below.
     text_hints=(
         "stakeholder",
+        # belang + invloed are the two defining axes of a stakeholder/Mendelow
+        # analysis. Generic in the abstract, but criterion-defining here and
+        # required by check_stakeholders — kept on purpose.
         "belang",
         "invloed",
         "concern",
         "categorisatie",
         "matrix",
+        # Power/interest quadrant labels — distinctive, almost never occur
+        # outside a stakeholder analysis. Preferred over the rejected generic
+        # terms (gebruikers, klant, rol, functie, primair, intern, ...).
+        "keep satisfied",
+        "high power",
         "opdrachtgever",
         "eindgebruiker",
         "betrokken",
@@ -244,6 +266,7 @@ REQUIREMENTS = CriterionSpec(
         "must have",
         "should have",
         "could have",
+        "won't have",  # completes the MoSCoW set (must/should/could already present)
         "moscow",
         "FR",
         "NFR",
@@ -253,8 +276,15 @@ REQUIREMENTS = CriterionSpec(
         "moet",
         "wens",
         "use case",
+        "preconditie",  # standard use-case field names — precise, low-noise
+        "postconditie",
         "prioriteit",
         "systeem moet",
+        "website moet",
+        # Rejected: bare "uc"/"constr" (substring-match "product", "structuur",
+        # "constructie"), and webshop-domain content (filteropties, reviews,
+        # wenslijst, giftcards, bol.com, Angular) — case content, not a
+        # general requirement signal.
     ),
     minimum_count=15,
     strong_from=25,

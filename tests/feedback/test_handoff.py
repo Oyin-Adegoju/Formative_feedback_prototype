@@ -45,9 +45,25 @@ _CRITERION_REQUIRED_FIELDS: frozenset[str] = frozenset({
 })
 
 _EVIDENCE_ITEM_FIELDS: frozenset[str] = frozenset({
+    # original stable contract
+    "block_id", "page_no", "block_type", "heading_path",
+    "excerpt", "selection_reason", "signal_class",
+    # rule-based enrichment (always present, may be empty)
+    "focused_excerpt", "matched_signals", "criterion_subtype",
+    "classification_source", "evidence_strength", "matched_row_count",
+    "matched_row_ids", "local_section_label", "context_warning",
+})
+
+# The seven fields the contract guarantees were always present, kept separate so
+# a test can assert the original shape is still a strict subset.
+_EVIDENCE_ITEM_CORE_FIELDS: frozenset[str] = frozenset({
     "block_id", "page_no", "block_type", "heading_path",
     "excerpt", "selection_reason", "signal_class",
 })
+
+_VALID_EVIDENCE_STRENGTHS: frozenset[str] = frozenset(
+    {"strong", "moderate", "thin", "absent"}
+)
 
 # Manual-review ownership was removed from CAPS — these must never reappear.
 _FORBIDDEN_KEYS: frozenset[str] = frozenset({
@@ -276,6 +292,59 @@ def test_to_dict_evidence_item_fields(strong_handoff):
     for key in CRITERIA_KEYS:
         for item in d["criteria"][key]["evidence_items"]:
             assert set(item.keys()) == _EVIDENCE_ITEM_FIELDS
+
+
+def test_to_dict_evidence_item_core_fields_still_present(strong_handoff):
+    """The original seven-field contract must remain a strict subset."""
+    handoff, _ = strong_handoff
+    d = to_dict(handoff)
+    for key in CRITERIA_KEYS:
+        for item in d["criteria"][key]["evidence_items"]:
+            assert _EVIDENCE_ITEM_CORE_FIELDS <= set(item.keys())
+
+
+def test_to_dict_evidence_strength_is_valid(strong_handoff):
+    """evidence_strength is always one of the documented labels."""
+    handoff, _ = strong_handoff
+    d = to_dict(handoff)
+    for key in CRITERIA_KEYS:
+        for item in d["criteria"][key]["evidence_items"]:
+            assert item["evidence_strength"] in _VALID_EVIDENCE_STRENGTHS
+
+
+def test_to_dict_enrichment_field_types(strong_handoff):
+    """Enrichment fields keep stable JSON types (lists/strings/int|None)."""
+    handoff, _ = strong_handoff
+    d = to_dict(handoff)
+    for key in CRITERIA_KEYS:
+        for item in d["criteria"][key]["evidence_items"]:
+            assert isinstance(item["matched_signals"], list)
+            assert isinstance(item["matched_row_ids"], list)
+            assert isinstance(item["focused_excerpt"], str)
+            assert isinstance(item["criterion_subtype"], str)
+            assert isinstance(item["classification_source"], str)
+            assert isinstance(item["local_section_label"], str)
+            assert isinstance(item["context_warning"], str)
+            assert item["matched_row_count"] is None or isinstance(
+                item["matched_row_count"], int
+            )
+
+
+def test_requirements_evidence_exposes_structure(strong_handoff):
+    """The synthetic strong report has a Functionele requirements table: its
+    subtype, MoSCoW signal, and matched row count must surface on the item."""
+    handoff, _ = strong_handoff
+    d = to_dict(handoff)
+    req_items = d["criteria"]["requirements"]["evidence_items"]
+    assert req_items, "expected requirements evidence in the strong report"
+    subtypes = {it["criterion_subtype"] for it in req_items}
+    assert "functional" in subtypes
+    # At least one table item reports a MoSCoW signal and a matched row count.
+    assert any(
+        any(s.startswith("moscow:") for s in it["matched_signals"])
+        and it["matched_row_count"]
+        for it in req_items
+    )
 
 
 def test_to_dict_is_json_serializable(strong_handoff):

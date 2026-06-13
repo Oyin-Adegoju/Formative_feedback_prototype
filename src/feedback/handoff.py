@@ -148,7 +148,13 @@ def build_handoff_from_artifacts(artifacts: CapsPipelineArtifacts) -> CapsHandof
 
 
 def _evidence_item_to_dict(item: EvidenceItem) -> dict:
-    """Serialise one EvidenceItem to its stable downstream dict shape."""
+    """Serialise one EvidenceItem to its stable downstream dict shape.
+
+    The first seven fields are the original stable contract. The remaining
+    fields are the rule-based enrichment exposed for the downstream Qwen stage;
+    they are always emitted (empty when not populated) so the shape stays stable
+    across runs and documents.
+    """
     return {
         "block_id": item.block_id,
         "page_no": item.page_no,
@@ -157,6 +163,16 @@ def _evidence_item_to_dict(item: EvidenceItem) -> dict:
         "excerpt": item.excerpt,
         "selection_reason": item.selection_reason,
         "signal_class": item.signal_class,
+        # --- rule-based enrichment (always present; empty when not derivable) ---
+        "focused_excerpt": item.focused_excerpt,
+        "matched_signals": list(item.matched_signals),
+        "criterion_subtype": item.criterion_subtype,
+        "classification_source": item.classification_source,
+        "evidence_strength": item.evidence_strength,
+        "matched_row_count": item.matched_row_count,
+        "matched_row_ids": list(item.matched_row_ids),
+        "local_section_label": item.local_section_label,
+        "context_warning": item.context_warning,
     }
 
 

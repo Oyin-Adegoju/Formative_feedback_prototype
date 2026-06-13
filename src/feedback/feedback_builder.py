@@ -142,6 +142,15 @@ def _format_evidence_pack(packets: dict[str, EvidencePacket]) -> str:
                     "excerpt": item.excerpt,
                     "selection_reason": item.selection_reason,
                     "signal_class": item.signal_class,
+                    "focused_excerpt": item.focused_excerpt,
+                    "matched_signals": item.matched_signals,
+                    "criterion_subtype": item.criterion_subtype,
+                    "classification_source": item.classification_source,
+                    "evidence_strength": item.evidence_strength,
+                    "matched_row_count": item.matched_row_count,
+                    "matched_row_ids": item.matched_row_ids,
+                    "local_section_label": item.local_section_label,
+                    "context_warning": item.context_warning,
                 }
                 for item in pkt.evidence_items
             ],

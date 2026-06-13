@@ -654,6 +654,60 @@ def test_voldoende_requirements_has_table_evidence(subdir, doc_id):
         )
 
 
+@pytest.mark.parametrize("subdir,doc_id", _REAL_DOCS)
+def test_real_doc_richer_requirements_coverage(subdir, doc_id):
+    """Requirements is the priority criterion: when CAPS rates it sufficient/strong
+    on a real document, the packet should now surface more than the old cap of 3
+    blocks (the budget was raised; documents with structure should use it)."""
+    raw = _load_real_doc(subdir, doc_id)
+    artifacts = run_caps_with_artifacts(raw, input_source="anonymized")
+    packets = build_evidence_packets(artifacts)
+    cr = artifacts.criterion_results["requirements"]
+    n = len(packets["requirements"].evidence_items)
+    assert n <= _MAX_ITEMS["requirements"]
+    if cr.status in ("sufficient", "strong"):
+        assert n > 3, f"{doc_id}: only {n} requirements items on a {cr.status} doc"
+
+
+@pytest.mark.parametrize("subdir,doc_id", _REAL_DOCS)
+def test_real_doc_evidence_items_have_enrichment(subdir, doc_id):
+    """Every selected item carries the rule-based enrichment fields, honestly typed."""
+    raw = _load_real_doc(subdir, doc_id)
+    artifacts = run_caps_with_artifacts(raw, input_source="anonymized")
+    packets = build_evidence_packets(artifacts)
+    for key, pkt in packets.items():
+        for it in pkt.evidence_items:
+            assert it.evidence_strength in {"strong", "moderate", "thin", "absent"}
+            assert isinstance(it.matched_signals, list)
+            assert isinstance(it.matched_row_ids, list)
+            assert it.matched_row_count is None or isinstance(it.matched_row_count, int)
+            # matched_row_ids should look like normalised requirement IDs only.
+            for rid in it.matched_row_ids:
+                assert rid == rid.upper().replace(" ", "").replace("-", "")
+
+
+@pytest.mark.parametrize("subdir,doc_id", [
+    ("Goed", "2e138dc4"),
+    ("Goed", "8e5ee17e"),
+    ("Goed", "c90afb25"),
+])
+def test_real_doc_requirements_subtype_present(subdir, doc_id):
+    """A 'Goed' requirements section should expose at least one structured subtype."""
+    raw = _load_real_doc(subdir, doc_id)
+    artifacts = run_caps_with_artifacts(raw, input_source="anonymized")
+    packets = build_evidence_packets(artifacts)
+    cr = artifacts.criterion_results["requirements"]
+    if cr.status in ("sufficient", "strong"):
+        subtypes = {
+            it.criterion_subtype
+            for it in packets["requirements"].evidence_items
+            if it.criterion_subtype
+        }
+        assert subtypes & {"functional", "non_functional", "use_case", "constraint"}, (
+            f"{doc_id}: no requirement subtype surfaced"
+        )
+
+
 @pytest.mark.parametrize("subdir,doc_id", [
     ("onvoldoende", "23276484"),
     ("onvoldoende", "35baf7d3"),

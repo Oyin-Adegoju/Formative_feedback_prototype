@@ -182,6 +182,20 @@ def test_stakeholders_heading_hints():
 def test_stakeholders_text_hints():
     for hint in ("stakeholder", "belang", "invloed"):
         assert hint in STAKEHOLDERS.text_hints, f"STAKEHOLDERS.text_hints missing '{hint}'"
+
+
+def test_stakeholders_hints_exclude_generic_user_terms():
+    """Generic user/customer/role words must not be stakeholder hints.
+
+    These words occur across doelgroep, requirements, use cases and taalkeuze,
+    so promoting them to stakeholder hints floods retrieval with non-stakeholder
+    content. Encodes the precision decision rather than snapshotting every hint.
+    """
+    generic = {"gebruikers", "gebruiker", "klant", "klanten", "rol", "functie"}
+    overlap_heading = generic & set(STAKEHOLDERS.heading_hints)
+    overlap_text = generic & set(STAKEHOLDERS.text_hints)
+    assert not overlap_heading, f"generic terms leaked into heading_hints: {overlap_heading}"
+    assert not overlap_text, f"generic terms leaked into text_hints: {overlap_text}"
 # ---------------------------------------------------------------------------
 # Individual criterion: REQUIREMENTS
 # ---------------------------------------------------------------------------
