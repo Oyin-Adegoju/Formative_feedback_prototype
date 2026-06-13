@@ -42,8 +42,10 @@ Output is written to:
     data/full_pipeline_runs/<doc_id>_<YYYYMMDD_HHMMSS>/
         input_copy.json          exact copy of the input file
         anonymized_report.json   normalized report passed to CAPS
-        caps_result_summary.json CAPS verdict (same shape as caps_results.json)
-        evidence_packets.json    curated evidence blocks per criterion
+        caps_handoff.json        pre-Qwen handoff: CAPS verdicts + shaped
+                                 evidence (one consolidated contract; replaces
+                                 the former caps_result_summary.json +
+                                 evidence_packets.json pair)
         feedback_result.json     validated LLM feedback, or skipped marker if --no-llm
         run_summary.json         machine-readable run metadata + check results
 
@@ -83,6 +85,7 @@ from src.feedback.feedback_builder import (
     _PROMPT_VERSION,
     _assemble_prompt,
 )
+from src.feedback.handoff import build_caps_handoff, to_dict as handoff_to_dict
 from src.feedback.packet_builder import build_evidence_packets
 from src.feedback.feedback_validator import FeedbackValidationError, validate
 from src.feedback.output_schema import DISCLAIMER, FeedbackResult
@@ -98,13 +101,20 @@ _DEFAULT_OUTPUT_DIR: Final[pathlib.Path] = _PROJECT_ROOT / "data" / "full_pipeli
 
 _EXPECTED_CRITERIA: Final[frozenset[str]] = frozenset(CRITERIA_KEYS)
 
-_CAPS_SUMMARY_TOP_LEVEL_KEYS: Final[frozenset[str]] = frozenset({
-    "file", "doc_id", "source_name", "overall_stoplight", "hidden_score",
+_HANDOFF_TOP_LEVEL_KEYS: Final[frozenset[str]] = frozenset({
+    "document_id", "source_name", "overall_stoplight",
     "blockers_triggered", "criteria",
 })
 
 _CRITERION_REQUIRED_FIELDS: Final[frozenset[str]] = frozenset({
-    "status", "stoplight", "count", "missing_signals", "notes",
+    "status", "stoplight", "count", "missing_signals", "notes", "evidence_items",
+})
+
+# Manual review is no longer a CAPS concept — these keys must NOT appear in the
+# pre-Qwen handoff at the document or criterion level.
+_FORBIDDEN_HANDOFF_KEYS: Final[frozenset[str]] = frozenset({
+    "manual_review", "manual_review_required", "manual_review_flags",
+    "manual_review_reason",
 })
 
 _STATUS_LABELS: Final[frozenset[str]] = frozenset({
@@ -209,56 +219,18 @@ def _normalize_report(raw: dict) -> ParseReportDict:
 
 
 # ---------------------------------------------------------------------------
-# Serialization — same shape as caps_results.json
+# Serialization — pre-Qwen handoff contract (src/feedback/handoff.py)
 # ---------------------------------------------------------------------------
 
 
-def _packets_to_dict(doc_id: str, packets: dict) -> dict:
-    criteria = {}
-    for key, pkt in packets.items():
-        criteria[key] = {
-            "notes": pkt.notes,
-            "missing_signals": pkt.missing_signals,
-            "evidence_items": [
-                {
-                    "block_id": item.block_id,
-                    "page_no": item.page_no,
-                    "block_type": item.block_type,
-                    "heading_path": item.heading_path,
-                    "excerpt": item.excerpt,
-                    "selection_reason": item.selection_reason,
-                    "signal_class": item.signal_class,
-                }
-                for item in pkt.evidence_items
-            ],
-        }
-    return {"doc_id": doc_id, "criteria": criteria}
+def _build_handoff_dict(result: CapsRunResult, packets: dict) -> dict:
+    """Build the consolidated pre-Qwen handoff dict for one document.
 
-
-def _caps_result_to_dict(filename: str, result: CapsRunResult) -> dict:
-    """Serialize CapsRunResult to the same dict shape as caps_results.json.
-
-    Replicates _result_to_dict() from run_caps_on_anonymized.py exactly so that
-    caps_result_summary.json written here is structurally identical to caps_results.json.
+    Merges CAPS verdicts (source of truth) with the shaped evidence packets and
+    serialises to the stable handoff JSON shape. This single artifact replaces
+    the former caps_result_summary.json + evidence_packets.json pair.
     """
-    criteria: dict[str, dict] = {}
-    for key, cr in result.scorecard.results.items():
-        criteria[key] = {
-            "status": cr.status,
-            "stoplight": cr.stoplight,
-            "count": cr.count,
-            "missing_signals": cr.missing_signals,
-            "notes": cr.notes,
-        }
-    return {
-        "file": filename,
-        "doc_id": result.doc_id,
-        "source_name": result.source_name,
-        "overall_stoplight": result.overall_stoplight,
-        "hidden_score": result.scorecard.hidden_score,
-        "blockers_triggered": result.blockers_triggered,
-        "criteria": criteria,
-    }
+    return handoff_to_dict(build_caps_handoff(result, packets))
 
 
 # ---------------------------------------------------------------------------
@@ -369,34 +341,56 @@ def _feedback_text_combined(fb: FeedbackResult) -> str:
     return " ".join(parts)
 
 
-def _check_caps_summary(summary: dict) -> list[CheckResult]:
+def _check_handoff(handoff: dict) -> list[CheckResult]:
+    """Validate the pre-Qwen handoff structure (src/feedback/handoff.py)."""
     results: list[CheckResult] = []
 
-    missing_top = _CAPS_SUMMARY_TOP_LEVEL_KEYS - set(summary.keys())
+    missing_top = _HANDOFF_TOP_LEVEL_KEYS - set(handoff.keys())
     results.append((
-        "caps_summary_top_level_keys",
+        "handoff_top_level_keys",
         not missing_top,
         "all present" if not missing_top else f"missing: {sorted(missing_top)}",
     ))
 
-    actual_criteria = set(summary.get("criteria", {}).keys())
+    actual_criteria = set(handoff.get("criteria", {}).keys())
     criteria_ok = actual_criteria == _EXPECTED_CRITERIA
     results.append((
-        "caps_criteria_keys",
+        "handoff_criteria_keys",
         criteria_ok,
         "all 5 present" if criteria_ok
         else f"expected {sorted(_EXPECTED_CRITERIA)}, got {sorted(actual_criteria)}",
     ))
 
     bad_fields: list[str] = []
-    for crit_key, crit_val in summary.get("criteria", {}).items():
+    for crit_key, crit_val in handoff.get("criteria", {}).items():
         missing = _CRITERION_REQUIRED_FIELDS - set(crit_val.keys())
         if missing:
             bad_fields.append(f"{crit_key}: missing {sorted(missing)}")
     results.append((
-        "caps_criterion_internal_fields",
+        "handoff_criterion_fields",
         not bad_fields,
         "all fields present" if not bad_fields else "; ".join(bad_fields),
+    ))
+
+    # evidence_items must be present as a list on every criterion.
+    bad_evidence = [
+        crit_key
+        for crit_key, crit_val in handoff.get("criteria", {}).items()
+        if not isinstance(crit_val.get("evidence_items"), list)
+    ]
+    results.append((
+        "handoff_evidence_items_are_lists",
+        not bad_evidence,
+        "all lists" if not bad_evidence else f"not a list: {bad_evidence}",
+    ))
+
+    # No manual_review fields may leak into the handoff (CAPS no longer owns it).
+    handoff_json = json.dumps(handoff)
+    leaked = sorted(k for k in _FORBIDDEN_HANDOFF_KEYS if f'"{k}"' in handoff_json)
+    results.append((
+        "handoff_no_manual_review_fields",
+        not leaked,
+        "clean" if not leaked else f"forbidden keys present: {leaked}",
     ))
 
     return results
@@ -726,10 +720,10 @@ def main() -> int:
     # ── Step 5: Integration checks ─────────────────────────────────────────────
     _section("Step 5 — Integration checks")
 
-    caps_summary = _caps_result_to_dict(input_path.name, caps_result)
+    handoff_dict = _build_handoff_dict(caps_result, packets)
     all_checks: list[CheckResult] = []
 
-    all_checks.extend(_check_caps_summary(caps_summary))
+    all_checks.extend(_check_handoff(handoff_dict))
 
     if feedback_result is not None:
         all_checks.extend(_check_feedback(feedback_result, caps_result, packets=packets))
@@ -760,11 +754,9 @@ def main() -> int:
     # anonymized_report.json — normalized report actually passed to CAPS
     _write_json(run_dir / "anonymized_report.json", dict(report))
 
-    # caps_result_summary.json — same shape as caps_results.json
-    _write_json(run_dir / "caps_result_summary.json", caps_summary)
-
-    # evidence_packets.json — curated evidence blocks per criterion
-    _write_json(run_dir / "evidence_packets.json", _packets_to_dict(caps_result.doc_id, packets))
+    # caps_handoff.json — consolidated pre-Qwen handoff (CAPS verdicts + shaped
+    # evidence). Replaces the former caps_result_summary.json + evidence_packets.json.
+    _write_json(run_dir / "caps_handoff.json", handoff_dict)
 
     # feedback_result.json
     if feedback_result is not None:
