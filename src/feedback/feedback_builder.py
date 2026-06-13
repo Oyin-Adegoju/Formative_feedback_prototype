@@ -45,6 +45,12 @@ _PROMPT_PATH: Final[Path] = (
 # llm_client default.
 _DEFAULT_MAX_TOKENS: Final[int] = 2048
 
+# Total LLM attempts (1 initial + retries). The 14B model sometimes drops a
+# criterion or echoes the wrong stoplight; re-sampling with an explicit
+# correction recovers most of these. Re-sampling is NOT a fallback — every
+# returned result still passed the full strict validator.
+_DEFAULT_MAX_ATTEMPTS: Final[int] = 3
+
 
 # ---------------------------------------------------------------------------
 # Exception
@@ -94,6 +100,7 @@ def generate_feedback(
     *,
     timeout: int = 800,
     max_tokens: int = _DEFAULT_MAX_TOKENS,
+    max_attempts: int = _DEFAULT_MAX_ATTEMPTS,
 ) -> FeedbackResult:
     """Generate formative feedback from the merged CAPS + Qwen contract.
 
@@ -104,19 +111,25 @@ def generate_feedback(
         4. Validate the raw response via feedback_validator.validate().
         5. Return the validated FeedbackResult.
 
-    Strict: raises FeedbackGenerationError on any failure. Never returns a
-    fallback.
+    Resilience: on a validation failure the call is re-sampled up to
+    max_attempts times, appending a correction that restates the violated rule
+    (exact stoplight, all five criteria). It never fabricates output — every
+    returned result still passed the full strict validator.
+
+    Strict: raises FeedbackGenerationError once attempts are exhausted, or
+    immediately on a missing template / LLM transport error.
 
     Args:
         merged: The merged feedback input (build_merged_feedback_input output).
         timeout: LLM request timeout in seconds.
         max_tokens: Maximum response tokens.
+        max_attempts: Total LLM attempts (1 initial + retries).
 
     Returns:
         A validated FeedbackResult.
 
     Raises:
-        FeedbackGenerationError: on template, LLM, or validation failure.
+        FeedbackGenerationError: on template, LLM, or repeated validation failure.
     """
     doc_id = merged.get("document_id", "")
     stoplight = merged.get("final_stoplight", "")
@@ -131,29 +144,53 @@ def generate_feedback(
         )
         raise FeedbackGenerationError(f"prompt template not found: {exc}") from exc
 
-    prompt = _assemble_prompt(merged, template)
+    base_prompt = _assemble_prompt(merged, template)
+    last_reason = ""
 
-    try:
-        raw_json = llm_client.complete(prompt, model=None, max_tokens=max_tokens, timeout=timeout)
-    except LlmCallError as exc:
-        logger.error(
-            "doc_id=%s prompt_version=%s model=%s stoplight=%s | llm_call_failed: %s",
-            doc_id, _PROMPT_VERSION, model_id, stoplight, exc.reason,
+    for attempt in range(1, max_attempts + 1):
+        prompt = base_prompt
+        if attempt > 1:
+            prompt = (
+                f"{base_prompt}\n\n"
+                "━━━ CORRECTIE ━━━\n"
+                f"Je vorige antwoord was ongeldig: {last_reason}\n"
+                f'Gebruik exact "stoplight": "{stoplight}". De feedback-array moet '
+                "exact één item bevatten voor elk criterium: "
+                f"{', '.join(CRITERIA_KEYS)}. "
+                "Alleen geldige JSON, geen tekst eromheen."
+            )
+
+        try:
+            raw_json = llm_client.complete(
+                prompt, model=None, max_tokens=max_tokens, timeout=timeout,
+            )
+        except LlmCallError as exc:
+            logger.error(
+                "doc_id=%s prompt_version=%s model=%s stoplight=%s attempt=%d/%d "
+                "| llm_call_failed: %s",
+                doc_id, _PROMPT_VERSION, model_id, stoplight, attempt, max_attempts,
+                exc.reason,
+            )
+            raise FeedbackGenerationError(f"LLM call failed: {exc.reason}") from exc
+
+        try:
+            result = validate(raw_json, merged)
+        except FeedbackValidationError as exc:
+            last_reason = exc.reason
+            logger.warning(
+                "doc_id=%s prompt_version=%s model=%s stoplight=%s attempt=%d/%d "
+                "| validation_failed: %s | raw_preview=%.200s",
+                doc_id, _PROMPT_VERSION, model_id, stoplight, attempt, max_attempts,
+                exc.reason, exc.raw,
+            )
+            continue
+
+        logger.info(
+            "doc_id=%s prompt_version=%s model=%s stoplight=%s attempt=%d/%d | validation_ok",
+            doc_id, _PROMPT_VERSION, model_id, stoplight, attempt, max_attempts,
         )
-        raise FeedbackGenerationError(f"LLM call failed: {exc.reason}") from exc
+        return result
 
-    try:
-        result = validate(raw_json, merged)
-    except FeedbackValidationError as exc:
-        logger.warning(
-            "doc_id=%s prompt_version=%s model=%s stoplight=%s "
-            "| validation_failed: %s | raw_preview=%.200s",
-            doc_id, _PROMPT_VERSION, model_id, stoplight, exc.reason, exc.raw,
-        )
-        raise FeedbackGenerationError(f"validation failed: {exc.reason}") from exc
-
-    logger.info(
-        "doc_id=%s prompt_version=%s model=%s stoplight=%s | validation_ok",
-        doc_id, _PROMPT_VERSION, model_id, stoplight,
+    raise FeedbackGenerationError(
+        f"validation failed after {max_attempts} attempts: {last_reason}"
     )
-    return result
