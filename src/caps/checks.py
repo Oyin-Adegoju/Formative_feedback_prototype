@@ -137,22 +137,136 @@ _MOSCOW_BARE_CELL_RE: Final[re.Pattern[str]] = re.compile(
 )
 
 # Section classification — used to attribute requirement counts to FR / NFR / UC.
-# Checked in order UC → NFR → FR to prevent "functionele" matching "niet-functionele".
+#
+# Each requirement block is classified from its own heading_path (see
+# _classify_section), so the patterns must cover Dutch AND English spellings
+# plus reasonable casing / spacing / hyphen variants:
+#   FR  : "functionele requirements", "functioneel", "functional requirements"
+#   NFR : "niet-functionele requirements", "niet-functioneel",
+#         "non-functional", "non functional", "non functioneel requirement"
+#
+# A parenthetical "(non-)" / "(niet-)" marks a COMBINED heading that covers both
+# functional and non-functional items at once (e.g. "Constraints en (non-)
+# Functionele eisen"). Such sections are deliberately left unclassified
+# ("other") instead of guessed — splitting them would invent a subcount.
 _SECTION_UC_RE: Final[re.Pattern[str]] = re.compile(
-    r"\buse[\s\-]?case\b", re.IGNORECASE
+    r"\buse[\s\-]?cases?\b", re.IGNORECASE
 )
+
+# Functional-family word: Dutch "functionele / functioneel / functionel"
+# and English "functional". Used to build both the NFR and FR patterns so the
+# two stay in sync across spellings.
+_FUNC_WORD: Final[str] = r"functione(?:le|el|l)|functional"
+
+# Combined "(non-)" / "(niet-)" header → covers FR and NFR together.
+_SECTION_BOTH_RE: Final[re.Pattern[str]] = re.compile(
+    r"\(\s*(?:non|niet)[\s\-]*\)", re.IGNORECASE
+)
+
+# Non-functional: a "niet"/"non" negation directly bound to a functional word.
+# Matches "niet-functionele", "niet functioneel", "non-functional",
+# "non functional", "non functioneel". The trailing \b keeps "functionaliteit"
+# (functionality) from matching.
 _SECTION_NFR_RE: Final[re.Pattern[str]] = re.compile(
-    r"niet[\s\-]functionele?|non[\s\-]functional", re.IGNORECASE
+    rf"\b(?:niet|non)[\s\-]+(?:{_FUNC_WORD})\b", re.IGNORECASE
 )
+
+# Functional: any functional word. Only consulted AFTER the NFR/combined
+# checks, so a negated form ("niet-functionele") never reaches it.
 _SECTION_FR_RE: Final[re.Pattern[str]] = re.compile(
-    r"\bfunctionele?\b", re.IGNORECASE
+    rf"\b(?:{_FUNC_WORD})\b", re.IGNORECASE
 )
+
+
+def _classify_section(heading_path: list[str]) -> str:
+    """Classify a requirement block as 'fr', 'nfr', 'uc', or 'other'.
+
+    Classification uses ONLY the block's own heading_path, scanned from the
+    most specific (deepest) segment outward, so a precise subsection heading
+    ("Functionele requirements") wins over a broad parent
+    ("Constraints en (non-) Functionele eisen"). This replaces the previous
+    running-context approach, which drifted: counts in an unmarked block
+    (e.g. a "Constraints" table) inherited whatever section was seen last,
+    and English / "functioneel" / "(non-)" headings were missed entirely.
+
+    Precedence inside one segment: use case > combined("(non-)") > NFR > FR.
+    A combined "(non-)" header resolves to 'other' on purpose — that section
+    mixes functional and non-functional items and must not be guessed.
+
+    Block body text is deliberately NOT consulted here: prose like
+    "functionaliteit" or "zowel functionele als niet-functionele eisen" is
+    descriptive, not a section label, and would manufacture false splits.
+    A combined/unlabelled section is resolved instead by reliable per-row
+    signals (FR/NFR ids) in _hit_section.
+    """
+    for seg in reversed(heading_path):
+        s = seg.lower()
+        if _SECTION_UC_RE.search(s):
+            return "uc"
+        if _SECTION_BOTH_RE.search(s):
+            return "other"
+        if _SECTION_NFR_RE.search(s):
+            return "nfr"
+        if _SECTION_FR_RE.search(s):
+            return "fr"
+    return "other"
+
+
+def _searchable_block_text(hit: RetrievalHit) -> str:
+    """Block text plus all table cells, for per-row ID scanning."""
+    text = hit.block["text"]
+    tm = hit.block.get("table_meta")
+    if tm and tm.get("cells"):
+        cells = [c for row in tm["cells"] for c in row if c]
+        if cells:
+            text = text + " " + " ".join(cells)
+    return text
+
+
+def _id_type_counts(hit: RetrievalHit) -> tuple[set[str], set[str]]:
+    """Return (distinct FR ids, distinct NFR ids) found in one block.
+
+    Used only as a per-row fallback for combined/unlabelled sections. IDs are
+    normalised ("FR 01" / "FR-01" / "FR01" → "FR01") so duplicates collapse.
+    """
+    text = _searchable_block_text(hit)
+    fr = {m.group(0).upper().replace(" ", "").replace("-", "") for m in _FR_ID_RE.finditer(text)}
+    nfr = {m.group(0).upper().replace(" ", "").replace("-", "") for m in _NFR_ID_RE.finditer(text)}
+    return fr, nfr
+
+
+def _hit_section(hit: RetrievalHit) -> str:
+    """Resolve a block's requirement section, with a per-row ID fallback.
+
+    The block's heading decides when it clearly says functional or
+    non-functional. Only when the heading is combined/unlabelled ("other") and
+    the block's rows carry a *single, unambiguous* requirement-ID type does the
+    fallback reclassify it: NFR-only → 'nfr', FR-only → 'fr'. A block mixing
+    both ID types stays 'other' — the type is not split on heading guesswork.
+    """
+    sec = _classify_section(hit.block["heading_path"])
+    if sec != "other":
+        return sec
+    fr_ids, nfr_ids = _id_type_counts(hit)
+    if nfr_ids and not fr_ids:
+        return "nfr"
+    if fr_ids and not nfr_ids:
+        return "fr"
+    return "other"
 
 # Requirement ID patterns: FR-01, NFR-01, UC-01, USC-01, REQ-01, CONSTR-01, etc.
 _REQ_ID_RE: Final[re.Pattern[str]] = re.compile(
     r"\b(FR|NFR|USC|UC|US|REQ|CONSTR|CON|F|NF)[-\s]?\d{1,3}\b",
     re.IGNORECASE,
 )
+
+# Type-bearing requirement IDs — a per-row signal used ONLY to split a
+# combined/unlabelled section ("other") whose heading does not say FR or NFR.
+# Kept deliberately strict ("FR##" / "NFR##") so a row's type is unambiguous;
+# the \b before "FR" cannot match the "FR" inside "NFR" (preceded by "N"),
+# so the two patterns never overlap.
+_NFR_ID_RE: Final[re.Pattern[str]] = re.compile(r"\bNFR[-\s]?\d{1,3}\b", re.IGNORECASE)
+_FR_ID_RE: Final[re.Pattern[str]] = re.compile(r"\bFR[-\s]?\d{1,3}\b", re.IGNORECASE)
 
 # Narrative requirement sentence detection — used only as a last-resort fallback
 # in non-table blocks that have neither explicit IDs nor numbered bullet lines.
@@ -639,47 +753,88 @@ def _count_prio_rows_from_table(hit: RetrievalHit) -> int:
     return count
 
 
-def _count_moscow_distribution(hits: list[RetrievalHit]) -> dict[str, int]:
-    """Count Must / Should / Could priority labels across all retrieved blocks.
+def _new_moscow_counts() -> dict[str, int]:
+    """Fresh zeroed MoSCoW tally with all four tiers kept separate."""
+    return {"must": 0, "should": 0, "could": 0, "wont": 0}
 
-    For table blocks: iterates cells using _MOSCOW_BARE_CELL_RE, which handles
-    bare labels ("Must", "Could"), compound ones ("MUST HAVE"), and PDF-split
-    artifacts ("Shoul d have").
-    For paragraph/bullet blocks: applies _MOSCOW_RE on block text.
 
-    Returns {"must": n, "should": n, "could": n}.
-    Won't-have is folded into "could" (same MoSCoW tier, uncommon in student work).
+def _bucket_moscow(label: str, counts: dict[str, int]) -> None:
+    """Add one occurrence of a MoSCoW label to the right tier.
+
+    Handles bare labels ("must"), compound ones ("must have", "won't have"),
+    and the PDF-split artifact "shoul" (folded into "should"). Won't-have is
+    kept as its own "wont" tier rather than folded into "could".
     """
-    dist: dict[str, int] = {"must": 0, "should": 0, "could": 0}
-    for hit in hits:
-        if hit.block["block_type"] == "table":
-            tm = hit.block.get("table_meta")
-            if not tm or not tm.get("cells"):
-                continue
+    label = label.lower()
+    if label.startswith("must"):
+        counts["must"] += 1
+    elif label.startswith("won"):  # won't / wont
+        counts["wont"] += 1
+    elif label.startswith("could"):
+        counts["could"] += 1
+    else:  # "should" or "shoul" (PDF artifact)
+        counts["should"] += 1
+
+
+def _block_moscow_counts(hit: RetrievalHit) -> dict[str, int]:
+    """Count MoSCoW labels (must/should/could/wont) inside one block.
+
+    Table blocks: at most one count per row, taken from the first cell whose
+    value starts with a bare priority label via _MOSCOW_BARE_CELL_RE (handles
+    "MUST HAVE: ...", bare "Should", and the split "Shoul d have").
+    Paragraph/bullet blocks: every compound MoSCoW label in the block text.
+    """
+    counts = _new_moscow_counts()
+    if hit.block["block_type"] == "table":
+        tm = hit.block.get("table_meta")
+        if tm and tm.get("cells"):
             for row in tm["cells"]:
                 for cell in row:
                     if not cell:
                         continue
                     m = _MOSCOW_BARE_CELL_RE.match(cell.strip())
                     if m:
-                        label = m.group(1).lower()
-                        if label.startswith("must"):
-                            dist["must"] += 1
-                        elif label.startswith("could") or label.startswith("won"):
-                            dist["could"] += 1
-                        else:  # "should" or "shoul" (PDF artifact)
-                            dist["should"] += 1
+                        _bucket_moscow(m.group(1), counts)
                         break  # one count per row
-        else:
-            for m in _MOSCOW_RE.finditer(hit.block["text"]):
-                label = m.group(0).lower()
-                if label.startswith("must"):
-                    dist["must"] += 1
-                elif label.startswith("should"):
-                    dist["should"] += 1
-                else:  # "could" / "won't"
-                    dist["could"] += 1
+    else:
+        for m in _MOSCOW_RE.finditer(hit.block["text"]):
+            _bucket_moscow(m.group(0), counts)
+    return counts
+
+
+def _moscow_by_section(hits: list[RetrievalHit]) -> dict[str, dict[str, int]]:
+    """Split the MoSCoW distribution per requirement section.
+
+    Each hit is resolved to a section (fr / nfr / uc / other) via _hit_section,
+    so it stays consistent with the count breakdown: a combined/unlabelled
+    block is attributed to FR/NFR only when its rows carry a single,
+    unambiguous FR/NFR ID type. Its priority labels are then added to that
+    section's tally, letting the notes report Must/Should/Could/Won't
+    separately for functional and non-functional requirements.
+    """
+    dist: dict[str, dict[str, int]] = {
+        sec: _new_moscow_counts() for sec in ("fr", "nfr", "uc", "other")
+    }
+    for hit in hits:
+        sec = _hit_section(hit)
+        block_counts = _block_moscow_counts(hit)
+        for tier, n in block_counts.items():
+            dist[sec][tier] += n
     return dist
+
+
+def _format_moscow(counts: dict[str, int]) -> str:
+    """Render a MoSCoW tally as 'Must: a, Should: b, Could: c, Won't: d'.
+
+    Only non-zero tiers are included; returns "" when nothing is present.
+    """
+    order = (
+        ("must", "Must"),
+        ("should", "Should"),
+        ("could", "Could"),
+        ("wont", "Won't"),
+    )
+    return ", ".join(f"{label}: {counts[key]}" for key, label in order if counts[key])
 
 
 def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionResult:
@@ -695,31 +850,45 @@ def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
     has_prio = False
     notes: list[str] = []
 
-    # Process in document order so zero-count section-label blocks (e.g. a
-    # "Niet-functionele requirements" heading paragraph) correctly govern the
-    # counting blocks that follow them in the document.
+    # Attribute each counting block to a section using its OWN heading_path
+    # (see _classify_section). Unlike the previous running-context approach,
+    # an unmarked block (e.g. a "Constraints" table) no longer inherits the
+    # section of whatever block preceded it, and Dutch/English/"(non-)"
+    # spellings are all recognised.
+    #
+    # For combined/unlabelled sections ("other") the type is recovered only
+    # from a reliable per-row signal — FR-/NFR- item IDs — never guessed from
+    # heading context. A block mixing both ID types is split by its ID counts;
+    # the remainder stays "other".
     sections: dict[str, int] = {"fr": 0, "nfr": 0, "uc": 0, "other": 0}
-    req_section = "other"
 
     for hit in sorted(hits, key=lambda h: h.block["block_id"]):
         evidence.append(_make_ref(hit))
         n, p = _req_count_from_block(hit)
         total += n
         has_prio = has_prio or p
+        if not n:
+            continue
 
-        combined = (
-            " ".join(hit.block["heading_path"]) + " " + hit.block["text"]
-        ).lower()
-        if n == 0:
-            # Update the running section context from marker blocks.
-            if _SECTION_UC_RE.search(combined):
-                req_section = "uc"
-            elif _SECTION_NFR_RE.search(combined):
-                req_section = "nfr"
-            elif _SECTION_FR_RE.search(combined):
-                req_section = "fr"
+        sec = _classify_section(hit.block["heading_path"])
+        if sec != "other":
+            sections[sec] += n
+            continue
+
+        # Combined/unlabelled: fall back to per-row FR/NFR ID prefixes.
+        fr_ids, nfr_ids = _id_type_counts(hit)
+        ids_total = len(fr_ids) + len(nfr_ids)
+        is_table = hit.block["block_type"] == "table"
+        # Trust IDs as the item list for tables, or when they cover the count
+        # (i.e. the block's items ARE those IDs) — not incidental mentions.
+        if ids_total and (is_table or ids_total >= n):
+            fr_n = min(len(fr_ids), n)
+            nfr_n = min(len(nfr_ids), n - fr_n)
+            sections["fr"] += fr_n
+            sections["nfr"] += nfr_n
+            sections["other"] += n - fr_n - nfr_n
         else:
-            sections[req_section] += n
+            sections["other"] += n
 
     # Supplementary prioritization signal from headings / MoSCoW-labeled sections.
     all_text = _all_text(hits)
@@ -763,9 +932,11 @@ def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
         status = "strong"
         notes.append(f"Geschat {total} requirement-items — ruim gedekt. {prio_str}")
 
-    # Note A: FR / NFR / UC breakdown — only when at least one named section was found.
+    # Note A: functional / non-functional / use case breakdown.
     if total > 0:
-        fr, nfr, uc = sections["fr"], sections["nfr"], sections["uc"]
+        fr, nfr, uc, other = (
+            sections["fr"], sections["nfr"], sections["uc"], sections["other"]
+        )
         type_parts: list[str] = []
         if fr:
             type_parts.append(f"Functioneel: ~{fr}")
@@ -773,21 +944,42 @@ def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
             type_parts.append(f"Niet-functioneel: ~{nfr}")
         if uc:
             type_parts.append(f"Use cases: ~{uc}")
+        # Show the remainder (constraints / combined-section rows) only when a
+        # functional or non-functional split was actually established, so the
+        # parts reconcile with the total instead of silently dropping items.
+        if other and (fr or nfr):
+            type_parts.append(f"Overig: ~{other}")
         if type_parts:
-            notes.append(", ".join(type_parts) + ".")
+            notes.append(". ".join(type_parts) + ".")
+        if not fr and not nfr and other > 0:
+            # Requirements exist but no block carries a functional/non-functional
+            # heading — don't fabricate a split.
+            notes.append(
+                "Functioneel en niet-functioneel niet apart te onderscheiden "
+                "(gecombineerde of ongelabelde requirements-sectie)."
+            )
 
-    # Note B: MoSCoW distribution — only when prioritization was detected.
+    # Note B: MoSCoW distribution, split per requirement type when possible.
     if has_prio and total > 0:
-        dist = _count_moscow_distribution(hits)
-        dist_parts: list[str] = []
-        if dist["must"]:
-            dist_parts.append(f"Must: {dist['must']}")
-        if dist["should"]:
-            dist_parts.append(f"Should: {dist['should']}")
-        if dist["could"]:
-            dist_parts.append(f"Could: {dist['could']}")
-        if dist_parts:
-            notes.append("Prioriteitsverdeling: " + ", ".join(dist_parts) + ".")
+        mdist = _moscow_by_section(hits)
+        fr_prio = _format_moscow(mdist["fr"])
+        nfr_prio = _format_moscow(mdist["nfr"])
+
+        if fr_prio:
+            notes.append(f"Functioneel prioriteiten: {fr_prio}.")
+        if nfr_prio:
+            notes.append(f"Niet-functioneel prioriteiten: {nfr_prio}.")
+
+        # Fall back to a single overall distribution only when no functional or
+        # non-functional section carried priority labels (combined/unlabelled).
+        if not fr_prio and not nfr_prio:
+            overall = _new_moscow_counts()
+            for sec_counts in mdist.values():
+                for tier, n in sec_counts.items():
+                    overall[tier] += n
+            overall_str = _format_moscow(overall)
+            if overall_str:
+                notes.append(f"Prioriteitsverdeling: {overall_str}.")
 
     missing_signals: list[str] = []
     if total < minimum:

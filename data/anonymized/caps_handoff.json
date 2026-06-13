@@ -11,7 +11,7 @@
         "stoplight": "yellow",
         "count": null,
         "notes": [
-          "Beperking beschreven (blind, beperking, slechtziend) en onderbouwing aanwezig (bron, bronnen).",
+          "Beperking beschreven (beperking, slechtziend, blind) en onderbouwing aanwezig (bron, bronnen).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ],
         "missing_signals": [],
@@ -95,8 +95,8 @@
         "count": 29,
         "notes": [
           "Geschat 29 requirement-items — ruim gedekt. Prioritering: ja.",
-          "Functioneel: ~23, Niet-functioneel: ~6.",
-          "Prioriteitsverdeling: Must: 14, Should: 6, Could: 1."
+          "Functioneel: ~23. Niet-functioneel: ~6.",
+          "Functioneel prioriteiten: Must: 14, Should: 6, Could: 1."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -146,7 +146,7 @@
         "stoplight": "yellow",
         "count": null,
         "notes": [
-          "Taalkeuze (meertalig) en gevolgen (bereik, beïnvloed) aanwezig."
+          "Taalkeuze (meertalig) en gevolgen (beïnvloed, bereik) aanwezig."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -160,7 +160,7 @@
               "Functionele requirements"
             ],
             "excerpt": "NFR01: | Gebruiksvriendelijkheid | De website moet gebruiksvriendelijk zijn, met specifieke aandacht voor een soepele gebruikerservaring. | Alinea 3 Regel 8 Pagina | MUST HAVE Een gebruiksvriendelijke website is essentieel om klanten een soepele ervaring te bieden. Dit draagt bij aan tevredenheid en klantloyaliteit.\nNFR02: | Betrouwbaarheid | De website moet altijd bereikbaar zijn voor klanten, en bestellingen moeten betrouwbaar worden verwerkt. | Alinea 5 Regel 20 Pagina | MUST HAVE Betrouwbaarheid is kritiek om het vertrouwen van klanten te behouden. Een altijd bereikbare website en betrouwbare orderverwerking zijn van vitaal belang.\nNFR03: | Veiligheid en Gegevensbescherming | Het systeem moet voldoen aan de Algemene Verordening Gegevensbescherming (AVG) en een grondige beveiligings en risicoanalyse ondergaan om klantgegevens te beschermen. | Alinea 9 Regel 3739 Pagina | MUST HAVE In overeenstemming zijn met AVG en zorgen voor gegevensbescherming is van cruciaal belang om het vertrouwen van klanten te winnen en wettelijke vereisten te voldoen.\nNFR04: | Responsief | De website moet toegankelijk zijn op verschillende apparaten, ongeacht het device waarop klanten het bekijken (responsief). | Alinea 6 Regel 24 Pagina | MUST HAVE Een responsief ontwerp is noodzakelijk voor toegankelijkheid op verschillende apparaten, waardoor klanten de website kunnen bekijken ongeacht het device dat ze gebruiken.\n… (10 meer rijen)",
-            "selection_reason": "Taalkeuze (meertalig) én gevolgen (bereik, beïnvloed)",
+            "selection_reason": "Taalkeuze (meertalig) én gevolgen (beïnvloed, bereik)",
             "signal_class": "positive"
           }
         ]
@@ -170,7 +170,7 @@
         "stoplight": "green",
         "count": 5,
         "notes": [
-          "5 concrete beveiligingsmechanismen gevonden: ssl, avg, tls, encryptie, risicoanalyse."
+          "5 concrete beveiligingsmechanismen gevonden: encryptie, tls, ssl, risicoanalyse, avg."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -182,7 +182,7 @@
               "Securityelement: Data Encryptie"
             ],
             "excerpt": "Ik heb een securityelement (data encryptie) onderbouwd rondom de AVG-regels.",
-            "selection_reason": "Concrete beveiligingsmechanisme(n): avg, encryptie",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): encryptie, avg",
             "signal_class": "positive"
           },
           {
@@ -206,7 +206,7 @@
               "Functionele requirements"
             ],
             "excerpt": "NFR01: | Gebruiksvriendelijkheid | De website moet gebruiksvriendelijk zijn, met specifieke aandacht voor een soepele gebruikerservaring. | Alinea 3 Regel 8 Pagina | MUST HAVE Een gebruiksvriendelijke website is essentieel om klanten een soepele ervaring te bieden. Dit draagt bij aan tevredenheid en klantloyaliteit.\nNFR02: | Betrouwbaarheid | De website moet altijd bereikbaar zijn voor klanten, en bestellingen moeten betrouwbaar worden verwerkt. | Alinea 5 Regel 20 Pagina | MUST HAVE Betrouwbaarheid is kritiek om het vertrouwen van klanten te behouden. Een altijd bereikbare website en betrouwbare orderverwerking zijn van vitaal belang.\nNFR03: | Veiligheid en Gegevensbescherming | Het systeem moet voldoen aan de Algemene Verordening Gegevensbescherming (AVG) en een grondige beveiligings en risicoanalyse ondergaan om klantgegevens te beschermen. | Alinea 9 Regel 3739 Pagina | MUST HAVE In overeenstemming zijn met AVG en zorgen voor gegevensbescherming is van cruciaal belang om het vertrouwen van klanten te winnen en wettelijke vereisten te voldoen.\nNFR04: | Responsief | De website moet toegankelijk zijn op verschillende apparaten, ongeacht het device waarop klanten het bekijken (responsief). | Alinea 6 Regel 24 Pagina | MUST HAVE Een responsief ontwerp is noodzakelijk voor toegankelijkheid op verschillende apparaten, waardoor klanten de website kunnen bekijken ongeacht het device dat ze gebruiken.\n… (10 meer rijen)",
-            "selection_reason": "Concrete beveiligingsmechanisme(n): avg, risicoanalyse",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): risicoanalyse, avg",
             "signal_class": "positive"
           }
         ]
@@ -225,7 +225,7 @@
         "stoplight": "green",
         "count": null,
         "notes": [
-          "Beperking in meerdere blokken beschreven (beperking, slechtziend, visuele beperking) en meerdere onderbouwingsblokken aanwezig (literatuurlijst, literatuur, onderzoek)."
+          "Beperking in meerdere blokken beschreven (beperking, slechtziend, visuele beperking) en meerdere onderbouwingsblokken aanwezig (literatuur, literatuurlijst, onderzoek)."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -239,7 +239,7 @@
               "Ik Richt Me Dus Op Deze Doelgroep."
             ],
             "excerpt": "groep bestaat uit jongvolwassenen die ondanks hun visuele beperkingen actief betrokken zijn bij studeren en technologie. Hun behoeften omvatten hoogwaardige toegankelijkheidsfuncties om informatie eff…",
-            "selection_reason": "Beperking/doelgroep: beperking, visuele beperking",
+            "selection_reason": "Beperking/doelgroep: visuele beperking, beperking",
             "signal_class": "positive"
           },
           {
@@ -311,8 +311,8 @@
         "count": 26,
         "notes": [
           "Geschat 26 requirement-items — ruim gedekt. Prioritering: ja.",
-          "Functioneel: ~26.",
-          "Prioriteitsverdeling: Must: 12, Should: 7, Could: 1."
+          "Niet-functioneel: ~23. Overig: ~3.",
+          "Niet-functioneel prioriteiten: Must: 11, Should: 6."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -359,7 +359,7 @@
         "stoplight": "yellow",
         "count": null,
         "notes": [
-          "Taalkeuze (meertalig) en gevolgen (beïnvloeden, beïnvloed) aanwezig."
+          "Taalkeuze (meertalig) en gevolgen (beïnvloed, beïnvloeden) aanwezig."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -384,7 +384,7 @@
               "H2 Stakeholders analyse"
             ],
             "excerpt": "de prestaties van hun marketingstrategieën of afdeling, zorgen voor de technische vereisten. ontwikkeling van hun team, en implementeren verbeteringen om de efficiëntie en effectiviteit te verhogen. Investeerders Verschaffen van het verstrekken van de Veel invloed. Hun besliss benodigde kapitaal benodigde financiële over financiering kunnen voor de ontwikkeling middelen en hebben een de scope, richting, en en lancering van het stem in belangrijke levensvatbaarheid van h project. beslissingen binnen het project beïnvloeden. bedrijf of project, afhankelijk van hun investeringsaandeel. Slechtziende Hun primaire functie Hun rol vanuit het Veel invloed:toegankel is een perspectief van de webshop is een wettelijke vereis gebruikersgroep is op zoek zijn inclusiviteit in veel gebieden en een voor een webshop. de webshop voor hun fundamenteel aspect v slechtziendheid behoeften maatschappelijke verantwoordelijkheid e klantenservice. Belanghebbende Concern Categorisering [PERSOON_04] Zorg voor de ontwikkeling Primaire belanghebbende, omdat ze direct vera van een innovatieve en voor het initiëren van het project en het definiëre competitieve website. Focus vereisten. op gebruiksvriendelijkheid, toegankelijkheid, veiligheid, en betrouwbaarheid. Intern omdat ze namens de opdrachtgever hand verantwoordelijk is voor het initiëren en begeleid project binnen de organisatie. Websiteontwikkelaars Technische realisatie van een gebruiksvriendelijke en Primaire belanghebbende, aangezien ze direct toegankelijke website die bij de creatie en ontwikkeling van de website. aan de gestelde eisen voldoet, binnen het gestelde budget en tijdsbestek. En Intern Extern omdat ze niet direct deel uitmaken houden aan de AVGregels organisatiestructuur, maar zijn ingehuurd of geco buiten de organisatie om specifieke diensten te v de ontwikkeling van de website Eindgebruikers Een soepele, toegankelijke (Klanten) winkelervaring ongeacht Primaire belanghebbende, omdat het succes v technologische of direct afhangt van hun tevredenheid en gebruik. persoonlijke beperkingen. Requirements Analyse pag. 7\nde prestaties van hun afdeling, zorgen voor de ontwikkeling van hun team, en implementeren verbeteringen om de efficiëntie en effectiviteit te verhogen. | marketingstrategieën of technische vereisten.\nInvesteerders | Verschaffen van het benodigde kapitaal voor de ontwikkeling en lancering van het project. | Verschaffen van het | verstrekken van de | Veel invloed. Hun besliss over financiering kunnen de scope, richting, en levensvatbaarheid van h project beïnvloeden. | Veel invloed. Hun besliss | ingen\nbenodigde kapitaal | benodigde financiële | over financiering kunnen | direct\n… (26 meer rijen)",
-            "selection_reason": "Gevolgen: beïnvloeden, beïnvloed",
+            "selection_reason": "Gevolgen: beïnvloed, beïnvloeden",
             "signal_class": "positive"
           }
         ]
@@ -394,7 +394,7 @@
         "stoplight": "yellow",
         "count": 2,
         "notes": [
-          "2 concreet beveiligingsmechanisme(n) gevonden: avg, risicoanalyse."
+          "2 concreet beveiligingsmechanisme(n) gevonden: risicoanalyse, avg."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -407,7 +407,7 @@
               "Niet-functionele requirements"
             ],
             "excerpt": "toegankelijkheid te\nwaarborgen. Toch n | eigt de\ntrend naar het\nbeschouwen van\n… (17 meer rijen)",
-            "selection_reason": "Concrete beveiligingsmechanisme(n): avg, risicoanalyse",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): risicoanalyse, avg",
             "signal_class": "positive"
           },
           {
@@ -450,7 +450,7 @@
         "stoplight": "green",
         "count": null,
         "notes": [
-          "Beperking in meerdere blokken beschreven (beperking, specifieke doelgroep, slechtziend) en meerdere onderbouwingsblokken aanwezig (onderzoek, bron, desk research)."
+          "Beperking in meerdere blokken beschreven (beperking, slechtziend, visuele beperking) en meerdere onderbouwingsblokken aanwezig (bron, desk research, onderzoek)."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -462,7 +462,7 @@
               "Onderzoek naar web gebruikers"
             ],
             "excerpt": "Velen die kampen met een visuele beperking vertrouwen op vergrotingssoftware om een",
-            "selection_reason": "Beperking/doelgroep: beperking, visuele beperking",
+            "selection_reason": "Beperking/doelgroep: visuele beperking, beperking",
             "signal_class": "positive"
           },
           {
@@ -530,8 +530,8 @@
         "count": 32,
         "notes": [
           "Geschat 32 requirement-items — ruim gedekt. Prioritering: ja.",
-          "Functioneel: ~23, Niet-functioneel: ~9.",
-          "Prioriteitsverdeling: Must: 16, Should: 9, Could: 6."
+          "Niet-functioneel: ~22. Overig: ~10.",
+          "Niet-functioneel prioriteiten: Must: 8, Should: 8, Could: 5, Won't: 1."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -578,7 +578,7 @@
         "stoplight": "yellow",
         "count": null,
         "notes": [
-          "Taalkeuze (nederlands, taal van de website) en gevolgen (meertaligheid) aanwezig."
+          "Taalkeuze (taal van de website, engels) en gevolgen (meertaligheid) aanwezig."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -603,7 +603,7 @@
               "4.1 Constraints en (non-) Functionele eisen"
             ],
             "excerpt": "Naam | Architecturele relevantie | Geadres | Prio\nNaam | Architecturele relevantie | Geadres | Prio\nseerd in:\nNFR06: Gegevensbesc herming en naleving van de AVG | Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essentieel om de gegevens van klanten te beschermen en risico's te minimaliseren. | Should Have\nNFR07: Beoordeling systeem website | Implementeer een beoordelingssysteem op de website, zodat gebruikers reviews kunnen lezen en achterlaten voor producten. | Could Have\n… (9 meer rijen)",
-            "selection_reason": "Taalkeuze: nederlands, meertalig, engels",
+            "selection_reason": "Taalkeuze: engels, meertalig, nederlands",
             "signal_class": "positive"
           },
           {
@@ -625,7 +625,7 @@
         "stoplight": "green",
         "count": 6,
         "notes": [
-          "6 concrete beveiligingsmechanismen gevonden: firewall, ssl, https, wachtwoord, avg, beveiligingsaudit."
+          "6 concrete beveiligingsmechanismen gevonden: beveiligingsaudit, firewall, wachtwoord, https, ssl, avg."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -638,7 +638,7 @@
               "4.1 Constraints en (non-) Functionele eisen"
             ],
             "excerpt": "Naam | Architecturele relevantie | Geadres | Prio\nNaam | Architecturele relevantie | Geadres | Prio\nseerd in:\nNFR06: Gegevensbesc herming en naleving van de AVG | Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essentieel om de gegevens van klanten te beschermen en risico's te minimaliseren. | Should Have\nNFR07: Beoordeling systeem website | Implementeer een beoordelingssysteem op de website, zodat gebruikers reviews kunnen lezen en achterlaten voor producten. | Could Have\n… (9 meer rijen)",
-            "selection_reason": "Concrete beveiligingsmechanisme(n): firewall, ssl, avg",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): beveiligingsaudit, firewall, ssl",
             "signal_class": "positive"
           },
           {
@@ -683,7 +683,7 @@
         "stoplight": "yellow",
         "count": null,
         "notes": [
-          "Beperking beschreven (beperking, slechtziend) en onderbouwing aanwezig (literatuurlijst, literatuur, onderzoek).",
+          "Beperking beschreven (beperking, slechtziend) en onderbouwing aanwezig (literatuur, deskresearch, literatuurlijst).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ],
         "missing_signals": [],
@@ -762,7 +762,7 @@
         "count": 7,
         "notes": [
           "Geschat 7 requirement-items (minimum 15). Prioritering: ja.",
-          "Niet-functioneel: ~6.",
+          "Niet-functioneel: ~6. Overig: ~1.",
           "Prioriteitsverdeling: Must: 1."
         ],
         "missing_signals": [
@@ -814,7 +814,7 @@
         "stoplight": "red",
         "count": null,
         "notes": [
-          "Taalkeuze vermeld (nederlands, engels), maar geen gevolgen van die keuze beschreven."
+          "Taalkeuze vermeld (engels, nederlands), maar geen gevolgen van die keuze beschreven."
         ],
         "missing_signals": [
           "consequences"
@@ -829,7 +829,7 @@
               "4.1 Constraints en niet-functionele eisen"
             ],
             "excerpt": "NFR03 Taal is Nederlands/Engels. Geen keuze gemaakt. Should",
-            "selection_reason": "Taalkeuze: nederlands, engels",
+            "selection_reason": "Taalkeuze: engels, nederlands",
             "signal_class": "positive"
           },
           {
@@ -906,7 +906,7 @@
         "stoplight": "yellow",
         "count": null,
         "notes": [
-          "Beperking beschreven (specifieke doelgroep, slechtziend) en onderbouwing aanwezig (onderzoek).",
+          "Beperking beschreven (slechtziend, specifieke doelgroep) en onderbouwing aanwezig (onderzoek).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ],
         "missing_signals": [],
@@ -988,8 +988,8 @@
         "notes": [
           "Geschat 16 requirement-items. Prioritering: ja.",
           "Telling (16) net boven minimum — grenswaardegeval.",
-          "Niet-functioneel: ~16.",
-          "Prioriteitsverdeling: Must: 8, Should: 4."
+          "Niet-functioneel: ~6. Overig: ~10.",
+          "Niet-functioneel prioriteiten: Must: 3, Should: 3."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -1036,7 +1036,7 @@
         "stoplight": "red",
         "count": null,
         "notes": [
-          "Gevolg-signalen aanwezig (beïnvloeden, beïnvloed), maar geen expliciete taalkeuze vermeld."
+          "Gevolg-signalen aanwezig (beïnvloed, beïnvloeden), maar geen expliciete taalkeuze vermeld."
         ],
         "missing_signals": [
           "language_choice"
@@ -1051,7 +1051,7 @@
               "H2 Stakeholders analyse"
             ],
             "excerpt": "Medewerkers | Alle werknemers van investeringsbedrijf Plenty.\nHoewel ze niet direct betrokken zijn\nbij het project voor de ontwikkeling\nvan de webshop, dragen ze bij aan\n… (21 meer rijen)",
-            "selection_reason": "Gevolgen beschreven: beïnvloeden, beïnvloed",
+            "selection_reason": "Gevolgen beschreven: beïnvloed, beïnvloeden",
             "signal_class": "positive"
           }
         ]
@@ -1121,7 +1121,7 @@
         "stoplight": "red",
         "count": null,
         "notes": [
-          "Onderbouwing aanwezig (onderzoek, bron, bronnen), maar geen expliciete beperking of doelgroepkeuze beschreven."
+          "Onderbouwing aanwezig (bron, onderzoek, bronnen), maar geen expliciete beperking of doelgroepkeuze beschreven."
         ],
         "missing_signals": [
           "limitation_signal"
@@ -1196,7 +1196,8 @@
         "notes": [
           "Geschat 14 requirement-items (minimum 15). Prioritering: ja.",
           "Telling (14) dicht bij minimum (15) — grenswaardegeval.",
-          "Functioneel: ~1, Use cases: ~13.",
+          "Use cases: ~13.",
+          "Functioneel en niet-functioneel niet apart te onderscheiden (gecombineerde of ongelabelde requirements-sectie).",
           "Prioriteitsverdeling: Must: 7, Should: 3, Could: 2."
         ],
         "missing_signals": [
@@ -1270,7 +1271,7 @@
         "stoplight": "green",
         "count": 3,
         "notes": [
-          "3 concrete beveiligingsmechanismen gevonden: https, wachtwoord, avg."
+          "3 concrete beveiligingsmechanismen gevonden: wachtwoord, https, avg."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -1283,7 +1284,7 @@
               "Beveiliging"
             ],
             "excerpt": "Voor beveiliging gebruiken we login en wachtwoorden. Ook moet de website HTTPS gebruiken wanneer hij online",
-            "selection_reason": "Concrete beveiligingsmechanisme(n): https, wachtwoord",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): wachtwoord, https",
             "signal_class": "positive"
           },
           {
@@ -1407,8 +1408,9 @@
         "notes": [
           "Geschat 17 requirement-items. Prioritering: ja.",
           "Telling (17) net boven minimum — grenswaardegeval.",
-          "Functioneel: ~6, Niet-functioneel: ~11.",
-          "Prioriteitsverdeling: Must: 9, Should: 1, Could: 1."
+          "Functioneel: ~5. Niet-functioneel: ~7. Use cases: ~1. Overig: ~4.",
+          "Functioneel prioriteiten: Must: 4, Should: 1.",
+          "Niet-functioneel prioriteiten: Must: 5, Could: 1."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -1453,7 +1455,7 @@
         "stoplight": "green",
         "count": null,
         "notes": [
-          "Taalkeuze (meertalig) en meerdere gevolgen (beïnvloeden, bereik, beïnvloed) goed uitgewerkt."
+          "Taalkeuze (meertalig) en meerdere gevolgen (beïnvloed, bereik, beïnvloeden) goed uitgewerkt."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -1486,7 +1488,7 @@
               "Belangen en zorgen"
             ],
             "excerpt": "Naam | Zorgen: | Belangen:\nNaam | Zorgen: | Belangen:\n[PERSOON_01] (vertegenwoordiger) | [PERSOON_01] zou zich zorgen kunnen maken over het succes van het project, aangezien dit de reputatie van het investeerdersbedrijf Plenty kan beïnvloeden. | Haar belangen liggen waarschijnlijk in het veiligstellen van een investering, het aantrekken van klanten naar de website en het waarborgen van een positieve indruk van het investeerdersbedrijf\nEigenaar Investeerdersbedrijf Plenty | Het investeerdersbedrijf kan zich zorgen maken over het rendement op hun investering, de effectiviteit van de websiteontwikkeling, en de naleving van het vastgestelde budget en de deadlines. | Het investeerdersbedrijf heeft belangen bij een succesvolle en winstgevende investering. Ze willen dat de website voldoet aan kwaliteitsnormen, binnen het budget blijft en op tijd wordt opgeleverd.\nWebsiteontwikkelaars | Websiteontwikkelaars kunnen zich zorgen maken over de technische uitdagingen, tijdsdruk en eventuele wijzigingen in de vereisten tijdens de ontwikkelingsfase. | Hun belangen liggen in het creëren van een hoogwaardige website die voldoet aan de opgestelde eisen.\n… (5 meer rijen)",
-            "selection_reason": "Gevolgen: beïnvloeden, beïnvloed",
+            "selection_reason": "Gevolgen: beïnvloed, beïnvloeden",
             "signal_class": "positive"
           }
         ]
@@ -1496,7 +1498,7 @@
         "stoplight": "green",
         "count": 3,
         "notes": [
-          "3 concrete beveiligingsmechanismen gevonden: wachtwoord, avg, risicoanalyse."
+          "3 concrete beveiligingsmechanismen gevonden: wachtwoord, risicoanalyse, avg."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -1508,7 +1510,7 @@
               "Niet-functionele requirements"
             ],
             "excerpt": "Naam | Categorie | Architecturele relevantie | Geadresseerd | Prio\nNaam | Categorie | Architecturele relevantie | Geadresseerd | Prio\nin:\nNFR01: | Toegankelijkheid: | De website moet toegankelijk zijn voor een breed scala aan klanten, waaronder mensen met beperkte financiële middelen. | Alinea 3 Regel 912 Pagina | MUST HAVE Toegankelijkheid is cruciaal om een breed scala aan klanten te bereiken, inclusief mensen met beperkte financiële middelen. Het maakt de website beschikbaar voor een grotere doelgroep.\nNFR02: | Gebruiksvriendelij kheid | De website moet gebruiksvriendelijk zijn, met specifieke aandacht voor een soepele gebruikerservaring. | Alinea 3 Regel 8 Pagina | MUST HAVE Een gebruiksvriendelijke website is essentieel om klanten een soepele ervaring te bieden. Dit draagt bij aan tevredenheid en klantloyaliteit.\n… (4 meer rijen)",
-            "selection_reason": "Concrete beveiligingsmechanisme(n): avg, risicoanalyse",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): risicoanalyse, avg",
             "signal_class": "positive"
           },
           {
@@ -1520,7 +1522,7 @@
               "Tekstanalyse"
             ],
             "excerpt": "Gegevensbescherming (AVG) en vragen om een grondige beveiligings- en risicoanalyse om de",
-            "selection_reason": "Concrete beveiligingsmechanisme(n): avg, risicoanalyse",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): risicoanalyse, avg",
             "signal_class": "positive"
           },
           {
@@ -1551,7 +1553,7 @@
         "stoplight": "yellow",
         "count": null,
         "notes": [
-          "Beperking beschreven (blind, beperking, visuele beperking) en onderbouwing aanwezig (onderzoek).",
+          "Beperking beschreven (beperking, blind, visuele beperking) en onderbouwing aanwezig (onderzoek).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ],
         "missing_signals": [],
@@ -1591,7 +1593,7 @@
               "Functionele requirements"
             ],
             "excerpt": "voor latere aankoop.\nOrder Tracking | Klanten moeten de status van hun bestellingen kunnen volgen voor een betere klantenservice. | Opdrachtgever | Eindgebruiker | Shoul d\nNaam Requirement | Architecturele relevantie | Geadresseerd in | Stakeholder | Prio\nGebruiksvriendelijkhei d | De website moet intuïtief en eenvoudig te navigeren zijn, zodat gebruikers moeiteloos kunnen vinden wat ze nodig hebben. | Paragraaf 1, \"De website moet gebruiksvriendelijk zijn.\" | ontwikkelaars, eindgebruikers | Must\n… (3 meer rijen)",
-            "selection_reason": "Aanvullend bewijs: beperking, visuele beperking",
+            "selection_reason": "Aanvullend bewijs: visuele beperking, beperking",
             "signal_class": "positive"
           }
         ]
@@ -1641,8 +1643,8 @@
         "count": 18,
         "notes": [
           "Geschat 18 requirement-items. Prioritering: ja.",
-          "Functioneel: ~10, Niet-functioneel: ~8.",
-          "Prioriteitsverdeling: Must: 9, Should: 6, Could: 3."
+          "Functioneel: ~18.",
+          "Functioneel prioriteiten: Must: 9, Should: 6, Could: 3."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -1738,7 +1740,7 @@
         "stoplight": "green",
         "count": 5,
         "notes": [
-          "5 concrete beveiligingsmechanismen gevonden: ssl, https, hashing, wachtwoord, encryptie."
+          "5 concrete beveiligingsmechanismen gevonden: encryptie, wachtwoord, https, hashing, ssl."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -1761,7 +1763,7 @@
               "H6 Security"
             ],
             "excerpt": "overdracht, zoals wachtwoorden. Een veelvoorkomende methode van encryptie is hashing,",
-            "selection_reason": "Concrete beveiligingsmechanisme(n): hashing, wachtwoord, encryptie",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): encryptie, wachtwoord, hashing",
             "signal_class": "positive"
           },
           {
@@ -1792,7 +1794,7 @@
         "stoplight": "green",
         "count": null,
         "notes": [
-          "Beperking in meerdere blokken beschreven (beperking) en meerdere onderbouwingsblokken aanwezig (bronvermelding, onderzoek, bron)."
+          "Beperking in meerdere blokken beschreven (beperking) en meerdere onderbouwingsblokken aanwezig (deskresearch, bron, bronvermelding)."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -1877,8 +1879,8 @@
         "count": 24,
         "notes": [
           "Geschat 24 requirement-items. Prioritering: ja.",
-          "Functioneel: ~9, Niet-functioneel: ~10, Use cases: ~5.",
-          "Prioriteitsverdeling: Must: 9, Should: 8."
+          "Functioneel: ~7. Use cases: ~5. Overig: ~12.",
+          "Functioneel prioriteiten: Must: 4, Should: 3."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -1925,7 +1927,7 @@
         "stoplight": "green",
         "count": null,
         "notes": [
-          "Taalkeuze (nederlands, meertalig) en gevolgen (meertaligheid, bereik) aanwezig, onderbouwd met onderzoek."
+          "Taalkeuze (meertalig, nederlands) en gevolgen (meertaligheid, bereik) aanwezig, onderbouwd met onderzoek."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -1938,7 +1940,7 @@
               "4.1 Constraints en (non-) Functionele eisen"
             ],
             "excerpt": "Naam | Architecturele relevantie | Geadresseerd in: | Prio\nNaam | Architecturele relevantie | Geadresseerd in: | Prio\nFR01: Uitstraling, opmaak & responsiveness | De uitstraling en opmaak van de website dien te passen bij de beoogde klanten van het soort product. Zij moeten de website en de producten daarop kunnen verkennen, ongeacht het device waarop ze het bekijken. | Casus_Website_First Full Stack_v.1.pdf paragraaf 6 Stakeholder: Opdrachtgever | MUST HAVE\nFR02: Beheer ** | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. | Casus_Website_First Full Stack_v.1.pdf paragraaf 8 Stakeholder: Opdrachtgever | SHOULD HAVE\nFR03: Online | Dit betekent dat de website al bereikbaar is voor klanten. En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen | Casus_Website_First Full Stack_v.1.pdf paragraaf 5 Stakeholder: Opdrachtgever | SHOULD HAVE\n… (4 meer rijen)",
-            "selection_reason": "Taalkeuze (meertalig) én gevolgen (bereik, meertaligheid)",
+            "selection_reason": "Taalkeuze (meertalig) én gevolgen (meertaligheid, bereik)",
             "signal_class": "positive"
           },
           {
@@ -1972,7 +1974,7 @@
         "stoplight": "green",
         "count": 4,
         "notes": [
-          "4 concrete beveiligingsmechanismen gevonden: https, avg, risicoanalyse, owasp."
+          "4 concrete beveiligingsmechanismen gevonden: https, owasp, risicoanalyse, avg."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -1985,7 +1987,7 @@
               "4.1 Constraints en (non-) Functionele eisen"
             ],
             "excerpt": "Naam | Architecturele relevantie | Geadresseerd in: | Prio\nNaam | Architecturele relevantie | Geadresseerd in: | Prio\nFR01: Uitstraling, opmaak & responsiveness | De uitstraling en opmaak van de website dien te passen bij de beoogde klanten van het soort product. Zij moeten de website en de producten daarop kunnen verkennen, ongeacht het device waarop ze het bekijken. | Casus_Website_First Full Stack_v.1.pdf paragraaf 6 Stakeholder: Opdrachtgever | MUST HAVE\nFR02: Beheer ** | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. | Casus_Website_First Full Stack_v.1.pdf paragraaf 8 Stakeholder: Opdrachtgever | SHOULD HAVE\nFR03: Online | Dit betekent dat de website al bereikbaar is voor klanten. En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen | Casus_Website_First Full Stack_v.1.pdf paragraaf 5 Stakeholder: Opdrachtgever | SHOULD HAVE\n… (4 meer rijen)",
-            "selection_reason": "Concrete beveiligingsmechanisme(n): avg, risicoanalyse, owasp",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): owasp, risicoanalyse, avg",
             "signal_class": "positive"
           },
           {
