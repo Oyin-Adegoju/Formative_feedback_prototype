@@ -1,47 +1,65 @@
 """packet_builder.py — builds per-criterion evidence packets from CAPS artifacts.
 
 Takes a CapsPipelineArtifacts object (retrieval candidates + per-criterion
-results + final run result) and produces one EvidencePacket per criterion.
+results + final run result + full ordered blocks) and produces one
+EvidencePacket per criterion for the CAPS→Qwen quality handoff.
 
 Architecture position:
     CapsPipelineArtifacts → build_evidence_packets → dict[str, EvidencePacket]
 
 CAPS is the source of truth for every verdict (status, count, stoplight).
-This module only SELECTS and SHAPES evidence — it never re-judges,
-re-scores, or overrides any CAPS decision.  Manual review is no longer a
-CAPS concept and is not carried on the packet (deferred to the Qwen stage).
+This module only SELECTS and SHAPES evidence — it never re-judges, re-scores,
+or overrides any CAPS decision.
 
-Evidence model: one evidence item == one selected parsed block (heading /
-paragraph / bullet / table).  This module does NOT explode blocks into
-sentences and does NOT push whole pages/documents downstream.  It selects
-MORE distinct blocks per criterion (see _MAX_ITEMS) and attaches richer,
-rule-based metadata per item so the one-document-per-run Qwen stage can reason
-without seeing the full document.
+Selection strategy: SECTION-FIRST, SIGNAL-ASSISTED
+--------------------------------------------------
+Evidence admission is driven primarily by *section identity* (section_family.py),
+not by keyword hits:
 
-Selection budget (max evidence items per criterion) — deliberately generous
-because Qwen evaluates one document at a time, but still curated (distinct
-blocks, deduped, diverse types):
-    beperking      5   — limitation + research blocks + supporting context
-    stakeholders   6   — stakeholder table(s) preferred; paragraphs to fill
-    requirements  10   — FR / NFR / UC / constraint tables, then narrative
-    taalkeuze      5   — choice+consequence blocks first, then either signal
-    security       6   — concrete-mechanism blocks, then generic context
+  1. In-family blocks  — heading_path belongs to the criterion's section family.
+                         These are ranked first and form the backbone of the
+                         packet.
+  2. Neutral blocks    — heading_path belongs to no family (Inleiding, page
+                         headers, …). Admitted as supporting context ONLY when
+                         they carry a real, criterion-defining content signal.
+  3. Foreign rescue    — heading_path clearly belongs to ANOTHER criterion's
+                         family. Admitted only for a strong, explainable reason
+                         (a criterion-defining token), only to preserve coverage,
+                         bounded in number, with a focused excerpt + an honest
+                         context_warning. This is how legitimately cross-placed
+                         content (security/taalkeuze inside non-functional
+                         requirements) still reaches the right criterion without
+                         letting generic words pull whole foreign sections in.
 
-Each selected item additionally carries rule-based enrichment (focused_excerpt,
-matched_signals, criterion_subtype, matched_row_ids, matched_row_count,
-evidence_strength, classification_source, local_section_label, context_warning).
-Fields are left empty when they cannot be filled honestly.
+Signals (matched keywords, MoSCoW tiers, row-ids, subtypes) ASSIST: they label
+subtype, rank within a tier, gate rescue, and slice table rows. They never
+override a clear section mismatch, and they are matched with word boundaries so
+short tokens (avg, ssl, tls) cannot fire inside unrelated words.
+
+Excerpts are broader but bounded: paragraph/bullet evidence is widened into a
+coherent same-section window (using the full ordered blocks), tables show the
+header plus a readable row slice, and structural blocks are paired with nearby
+explanatory prose when that prose clarifies their meaning.
+
+Selection budget (max evidence items per criterion):
+    beperking      6
+    stakeholders   6
+    requirements  10
+    taalkeuze      5
+    security       6
 """
 
 from __future__ import annotations
 
 import re
+from dataclasses import dataclass
+from functools import lru_cache
 from typing import Final
 
 from src.caps.caps import CapsPipelineArtifacts
 from src.caps.checks import _classify_section  # pure heading→section classifier
 from src.caps.criterion_specs import CRITERIA_BY_KEY, CRITERIA_KEYS, CriterionSpec
-from src.caps.models import CriterionResult
+from src.caps.models import BlockDict, CriterionResult
 from src.caps.retrieval import RetrievalHit
 from src.feedback.evidence import (
     EvidenceItem,
@@ -49,22 +67,37 @@ from src.feedback.evidence import (
     EvidenceStrength,
     SignalClass,
 )
+from src.feedback.section_family import (
+    contains_negation,
+    families_of,
+    is_foreign,
+    is_in_family,
+)
 
 # ---------------------------------------------------------------------------
 # Per-criterion item limits
 # ---------------------------------------------------------------------------
 
 _MAX_ITEMS: Final[dict[str, int]] = {
-    "beperking":    5,
+    "beperking":    6,
     "stakeholders": 6,
     "requirements": 10,
     "taalkeuze":    5,
     "security":     6,
 }
 
+# Max foreign-rescue items admitted per criterion (coverage safety valve, kept
+# small so rescues never dominate genuine in-section evidence).
+_MAX_RESCUE: Final[dict[str, int]] = {
+    "beperking":    2,
+    "stakeholders": 4,   # image/quadrant fallback may need a few substitutes
+    "requirements": 3,
+    "taalkeuze":    3,
+    "security":     3,
+}
+
 # ---------------------------------------------------------------------------
-# Lightweight signal term sets
-# (selection / labelling only — CAPS judgement is authoritative)
+# Lightweight signal term sets (selection / labelling only — CAPS is authoritative)
 # ---------------------------------------------------------------------------
 
 _BEP_LIMITATION: Final[frozenset[str]] = frozenset({
@@ -72,6 +105,18 @@ _BEP_LIMITATION: Final[frozenset[str]] = frozenset({
     "visuele beperking", "motorische", "auditieve", "cognitieve",
     "afbakening", "doelgroep met beperking", "specifieke doelgroep",
     "niche", "focus op", "gekozen doelgroep",
+})
+
+# Disability/accessibility-specific limitation tokens. These are the ONLY tokens
+# allowed to rescue a foreign block into beperking — the generic word "beperking"
+# is excluded because it fires inside "budgetbeperking" / "betaalbeperking", which
+# are constraints, not a chosen target-group limitation.
+_BEP_DISABILITY: Final[frozenset[str]] = frozenset({
+    "slechtziend", "slechtziende", "blind", "blinde", "kleurenblind",
+    "kleurenblindheid", "visuele beperking", "visueel beperkt", "dyslexie",
+    "dyslect", "doof", "slechthorend", "auditieve beperking",
+    "motorische beperking", "cognitieve beperking", "schermlezer",
+    "screenreader", "wcag", "toetsenbordnavigatie",
 })
 
 _BEP_RESEARCH: Final[frozenset[str]] = frozenset({
@@ -82,18 +127,17 @@ _BEP_RESEARCH: Final[frozenset[str]] = frozenset({
 })
 
 _TAAL_CHOICE: Final[frozenset[str]] = frozenset({
-    "taalkeuze", "taalversie", "meertalig", "in het nederlands",
-    "in het engels", "nederlandstalig", "dutch", "english",
-    "webshop in het", "taal van de",
+    "taalkeuze", "taalversie", "meertalig", "meertaligheid",
+    "in het nederlands", "in het engels", "nederlandstalig",
+    "webshop in het", "taal van de", "taalkeuzeknop",
     # Bare language names — aligned with checks.py _LANGUAGE_TERMS
-    "nederlands", "engels", "duits", "french",
+    "nederlands", "engels", "duits", "frans",
 })
 
 _TAAL_CONSEQUENCE: Final[frozenset[str]] = frozenset({
     "bereik", "vertaalkosten", "lokalisatie", "consequentie",
     "begrijpelijk", "taalbarrière", "taalbarrier", "vertaling",
-    "meertaligheid", "internationaal", "beïnvloeden", "beïnvloed",
-    "doelgroepbereik",
+    "internationaal", "beïnvloeden", "beïnvloed", "doelgroepbereik",
 })
 
 _SEC_CONCRETE: Final[frozenset[str]] = frozenset({
@@ -104,19 +148,29 @@ _SEC_CONCRETE: Final[frozenset[str]] = frozenset({
     "beveiligingsaudit",
 })
 
+# Concrete tokens trusted enough to RESCUE a foreign requirements block into
+# security. Excludes bare https/ssl/http — these fire inside citation URLs and
+# random words and are not, on their own, evidence of a security *mechanism*.
+_SEC_RESCUE: Final[frozenset[str]] = frozenset(_SEC_CONCRETE - {"https", "ssl"})
+
 _SEC_GENERIC: Final[frozenset[str]] = frozenset({
     "security", "beveiliging", "veiligheid", "veilig", "privacy",
 })
 
-# Requirement ID pattern — reused from checks.py logic, kept local to avoid
-# coupling to checks.py internals.
+_STK_BELANG: Final[frozenset[str]] = frozenset({"belang", "concern", "interesse"})
+_STK_INVLOED: Final[frozenset[str]] = frozenset({"invloed", "macht", "prioriter"})
+_STK_ROLE: Final[frozenset[str]] = frozenset({
+    "stakeholder", "belanghebbende", "opdrachtgever", "eindgebruiker",
+    "actor", "investeerder", "ontwikkelaar", "beheerder",
+})
+
+# Requirement ID pattern — reused from checks.py logic, kept local.
 _REQ_ID_RE: Final[re.Pattern[str]] = re.compile(
     r"\b(FR|NFR|USC|UC|US|REQ|CONSTR|CON|F|NF)[-\s]?\d{1,3}\b",
     re.IGNORECASE,
 )
 
-# Bare MoSCoW priority cell — mirrors checks._MOSCOW_BARE_CELL_RE so the four
-# tiers can be surfaced as matched_signals without importing the private name.
+# Bare MoSCoW priority cell — mirrors checks._MOSCOW_BARE_CELL_RE.
 _MOSCOW_BARE_CELL_RE: Final[re.Pattern[str]] = re.compile(
     r"^(must|should?|could|won'?t)\b",
     re.IGNORECASE,
@@ -146,11 +200,130 @@ _SUBTYPE_BY_SECTION: Final[dict[str, str]] = {
 
 
 # ---------------------------------------------------------------------------
+# Word-boundary token matching (signal honesty)
+# ---------------------------------------------------------------------------
+
+
+def _is_acronymish(term: str) -> bool:
+    """Short / digit-bearing tokens (avg, ssl, tls, 2fa, gdpr) — match strictly."""
+    return len(term) <= 4 or any(ch.isdigit() for ch in term)
+
+
+@lru_cache(maxsize=2048)
+def _token_re(term: str) -> re.Pattern[str]:
+    """Compile a left-anchored token matcher for one term (cached).
+
+    All matches require a word boundary BEFORE the term, which stops short
+    tokens from firing inside unrelated words ("fitnesslie**ssl**iefhebbers",
+    "AVGregels"). Acronym-like tokens (≤4 chars or with a digit) also require a
+    trailing boundary, so "AVG" matches but "AVGregels" does not. Longer Dutch
+    word tokens allow a trailing suffix so normal inflection still matches
+    ("meertalig" → "meertaligen", "wachtwoord" → "wachtwoorden",
+    "slechtziend" → "slechtziende(n)").
+    """
+    esc = re.escape(term)
+    if _is_acronymish(term):
+        return re.compile(r"\b" + esc + r"\b", re.IGNORECASE)
+    return re.compile(r"\b" + esc + r"\w*", re.IGNORECASE)
+
+
+def _has_token(text: str, term: str) -> bool:
+    return _token_re(term).search(text) is not None
+
+
+def _matched_tokens(text: str, terms: frozenset[str], max_n: int = 4) -> list[str]:
+    """Word-boundary-matched terms from a set, in set order, capped at max_n."""
+    out = [t for t in terms if _has_token(text, t)]
+    return out[:max_n]
+
+
+def _has_any_token(text: str, terms: frozenset[str]) -> bool:
+    return any(_has_token(text, t) for t in terms)
+
+
+# ---------------------------------------------------------------------------
+# Document context — same-section neighbour windows + explanation pairing
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class _DocCtx:
+    """Indexed view of the full ordered block list for context construction."""
+
+    blocks: list[BlockDict]
+    pos: dict[str, int]
+
+    @classmethod
+    def build(cls, blocks: list[BlockDict]) -> "_DocCtx":
+        return cls(blocks=blocks, pos={b["block_id"]: i for i, b in enumerate(blocks)})
+
+    def window(self, anchor_bid: str, max_chars: int = 440) -> str:
+        """Coherent same-section paragraph/bullet window around an anchor block.
+
+        Extends from the anchor forward then backward across immediately adjacent
+        blocks that share the anchor's heading_path and are paragraph/bullet,
+        stopping at max_chars. Returns text in document order. Falls back to the
+        anchor's own (whitespace-normalised, trimmed) text when no neighbours fit.
+        """
+        i = self.pos.get(anchor_bid)
+        if i is None:
+            return ""
+        anchor = self.blocks[i]
+        hp = anchor["heading_path"]
+        chosen = {i}
+        running = len(" ".join(anchor["text"].split()))
+
+        def _extend(step: int) -> None:
+            nonlocal running
+            j = i + step
+            while 0 <= j < len(self.blocks):
+                b = self.blocks[j]
+                if b["block_type"] not in ("paragraph", "bullet"):
+                    break
+                if b["heading_path"] != hp:
+                    break
+                t_len = len(" ".join(b["text"].split()))
+                if running + t_len + 1 > max_chars:
+                    break
+                chosen.add(j)
+                running += t_len + 1
+                j += step
+
+        _extend(1)
+        _extend(-1)
+        text = " ".join(
+            " ".join(self.blocks[k]["text"].split()) for k in sorted(chosen)
+        )
+        text = " ".join(text.split())
+        if len(text) > max_chars:
+            text = text[:max_chars].rstrip() + "…"
+        return text
+
+    def explanation(self, anchor_bid: str, max_chars: int = 200) -> str:
+        """Nearest same-section explanatory prose for a structural (table/heading)
+        block — the paragraph just before or just after it, under the same
+        heading_path. Empty when none is adjacent.
+        """
+        i = self.pos.get(anchor_bid)
+        if i is None:
+            return ""
+        hp = self.blocks[i]["heading_path"]
+        for j in (i - 1, i + 1, i - 2, i + 2):
+            if 0 <= j < len(self.blocks):
+                b = self.blocks[j]
+                if b["block_type"] in ("paragraph", "bullet") and b["heading_path"] == hp:
+                    t = " ".join(b["text"].split())
+                    if len(t) >= 30:
+                        return t if len(t) <= max_chars else t[:max_chars].rstrip() + "…"
+        return ""
+
+
+# ---------------------------------------------------------------------------
 # Excerpt helpers
 # ---------------------------------------------------------------------------
 
 
-def _excerpt_paragraph(text: str, max_len: int = 200) -> str:
+def _excerpt_paragraph(text: str, max_len: int = 360) -> str:
     """Normalise whitespace and trim to max_len characters."""
     text = " ".join(text.split())
     if len(text) <= max_len:
@@ -158,7 +331,7 @@ def _excerpt_paragraph(text: str, max_len: int = 200) -> str:
     return text[:max_len].rstrip() + "…"
 
 
-def _excerpt_table(block: dict, max_data_rows: int = 4) -> str:
+def _excerpt_table(block: dict, max_data_rows: int = 6) -> str:
     """Format a table as 'header | header\\nrow | row…' for compact display.
 
     Includes header_row (if present) then up to max_data_rows data rows.
@@ -186,49 +359,47 @@ def _excerpt_table(block: dict, max_data_rows: int = 4) -> str:
     return "\n".join(lines) if lines else _excerpt_paragraph(block["text"])
 
 
-def _excerpt_for(hit: RetrievalHit) -> str:
-    """Dispatch to the appropriate excerpt shaper for a retrieval hit."""
-    b = hit.block
-    if b["block_type"] == "table":
-        return _excerpt_table(b)
-    return _excerpt_paragraph(b["text"])
-
-
 def _row_text(row: list) -> str:
     """Join a table row's non-null cells, trimmed, for compact display."""
     return " | ".join(c.strip() for c in row if c)
 
 
 def _focused_table_excerpt(
-    hit: RetrievalHit,
+    block: dict,
     terms: frozenset[str] | None,
-    max_rows: int = 2,
-    max_len: int = 220,
+    max_rows: int = 3,
+    max_len: int = 260,
+    boundary: bool = False,
 ) -> str:
     """Cleaner table snippet: header + the first rows that carry a signal.
 
     Rows are preferred when they contain a matched term, a MoSCoW priority
-    label, or a requirement ID. Falls back to the first data rows. Derived from
-    the SAME block as the broad excerpt — never from another block.
+    label, or a requirement ID. With boundary=True, term matching uses word
+    boundaries (used for the short security/language tokens).
     """
-    tm = hit.block.get("table_meta")
+    tm = block.get("table_meta")
     if not tm or not tm.get("cells"):
         return ""
 
     cells = tm.get("cells") or []
     header = tm.get("header_row")
 
+    def _row_has_term(joined: str) -> bool:
+        if not terms:
+            return False
+        if boundary:
+            return any(_has_token(joined, t) for t in terms)
+        return any(t in joined for t in terms)
+
     def _is_signal_row(row: list) -> bool:
         joined = _row_text(row).lower()
         if not joined:
             return False
-        if terms and any(t in joined for t in terms):
+        if _row_has_term(joined):
             return True
         if _REQ_ID_RE.search(joined):
             return True
-        return any(
-            c and _MOSCOW_BARE_CELL_RE.match(c.strip()) for c in row
-        )
+        return any(c and _MOSCOW_BARE_CELL_RE.match(c.strip()) for c in row)
 
     signal_rows = [r for r in cells if _is_signal_row(r)]
     chosen = (signal_rows or cells)[:max_rows]
@@ -250,110 +421,21 @@ def _focused_table_excerpt(
 def _focused_paragraph_excerpt(
     text: str,
     terms: frozenset[str] | None,
-    max_len: int = 180,
+    max_len: int = 200,
+    boundary: bool = False,
 ) -> str:
-    """Return the first sentence carrying a matched term, trimmed.
-
-    Falls back to the leading slice of the block when no term is present.
-    """
+    """Return the first sentence carrying a matched term, trimmed."""
     norm = " ".join(text.split())
     if terms:
         for part in re.split(r"(?<=[.!?])\s+", norm):
             low = part.lower()
-            if any(t in low for t in terms):
+            hit = (
+                any(_has_token(low, t) for t in terms) if boundary
+                else any(t in low for t in terms)
+            )
+            if hit:
                 return part if len(part) <= max_len else part[:max_len].rstrip() + "…"
     return norm if len(norm) <= max_len else norm[:max_len].rstrip() + "…"
-
-
-def _focused_excerpt(hit: RetrievalHit, terms: frozenset[str] | None) -> str:
-    """Build a tighter, cleaner snippet from the selected block."""
-    if hit.block["block_type"] == "table":
-        return _focused_table_excerpt(hit, terms)
-    return _focused_paragraph_excerpt(hit.block["text"], terms)
-
-
-# ---------------------------------------------------------------------------
-# Consecutive fragment merging
-# ---------------------------------------------------------------------------
-
-
-def _merge_consecutive_fragments(
-    hits: list[RetrievalHit],
-    max_fragment_chars: int = 80,
-    max_total_chars: int = 240,
-) -> list[RetrievalHit]:
-    """Merge consecutive short paragraph/bullet fragments sharing the same heading_path.
-
-    PDF parsers sometimes split a section into many tiny blocks (e.g. a
-    label on one line, its value on the next).  Merging produces a readable
-    excerpt without dumping many near-empty items.
-
-    Only merges when:
-      - both blocks are paragraph or bullet
-      - both are ≤ max_fragment_chars chars
-      - both share the same heading_path
-      - the combined length stays ≤ max_total_chars
-
-    Returns a new list; input hits are not mutated.
-    """
-    if not hits:
-        return []
-
-    ordered = sorted(hits, key=lambda h: h.block["block_id"])
-    result: list[RetrievalHit] = []
-    i = 0
-
-    while i < len(ordered):
-        hit = ordered[i]
-        bt = hit.block["block_type"]
-        t_len = len(hit.block["text"].strip())
-
-        if bt not in ("paragraph", "bullet") or t_len > max_fragment_chars:
-            result.append(hit)
-            i += 1
-            continue
-
-        fragments = [hit]
-        j = i + 1
-        running = t_len
-
-        while j < len(ordered):
-            nxt = ordered[j]
-            n_len = len(nxt.block["text"].strip())
-            if (
-                nxt.block["block_type"] in ("paragraph", "bullet")
-                and n_len <= max_fragment_chars
-                and nxt.block["heading_path"] == hit.block["heading_path"]
-                and running + n_len + 1 <= max_total_chars
-            ):
-                fragments.append(nxt)
-                running += n_len + 1
-                j += 1
-            else:
-                break
-
-        if len(fragments) > 1:
-            merged_text = " ".join(f.block["text"].strip() for f in fragments)
-            merged_block: dict = dict(fragments[0].block)
-            merged_block["text"] = merged_text
-            merged_hit = RetrievalHit(
-                block=merged_block,  # type: ignore[arg-type]
-                score=max(f.score for f in fragments),
-                matched_heading_hints=list(
-                    dict.fromkeys(h for f in fragments for h in f.matched_heading_hints)
-                ),
-                matched_text_hints=list(
-                    dict.fromkeys(h for f in fragments for h in f.matched_text_hints)
-                ),
-                reasons=fragments[0].reasons,
-            )
-            result.append(merged_hit)
-            i = j
-        else:
-            result.append(hit)
-            i += 1
-
-    return result
 
 
 # ---------------------------------------------------------------------------
@@ -362,40 +444,28 @@ def _merge_consecutive_fragments(
 
 
 def _is_heading_only(hit: RetrievalHit) -> bool:
-    """True when the block is a heading with no text-hint matches.
-
-    These blocks signal section structure but carry no substantive content
-    evidence — candidates for absent_marker classification.
-    """
+    """True when the block is a heading with no text-hint matches."""
     return hit.block["block_type"] == "heading" and not hit.matched_text_hints
 
 
 def _has_terms(hit: RetrievalHit, terms: frozenset[str]) -> bool:
-    """Check whether any term from the set appears in the block's text."""
+    """Substring presence of any term in the block's text (broad labelling use)."""
     text = hit.block["text"].lower()
     return any(t in text for t in terms)
 
 
 def _matched_terms(hit: RetrievalHit, terms: frozenset[str], max_n: int = 3) -> list[str]:
-    """Return up to max_n terms from the set that appear in the block's text."""
+    """Up to max_n terms (substring) present in the block's text."""
     text = hit.block["text"].lower()
     return [t for t in terms if t in text][:max_n]
 
 
 def _sort_content_first(hits: list[RetrievalHit]) -> list[RetrievalHit]:
-    """Sort: content blocks before heading-only blocks; within each, higher score first.
-
-    Stable on block_id as a tiebreaker for deterministic ordering across runs.
-    """
+    """Content blocks before heading-only; within each, higher score, then id."""
     return sorted(
         hits,
         key=lambda h: (int(_is_heading_only(h)), -h.score, h.block["block_id"]),
     )
-
-
-# ---------------------------------------------------------------------------
-# Requirement-structure helpers (row IDs / MoSCoW / local section)
-# ---------------------------------------------------------------------------
 
 
 def _searchable_block_text(hit: RetrievalHit) -> str:
@@ -409,12 +479,55 @@ def _searchable_block_text(hit: RetrievalHit) -> str:
     return text
 
 
-def _extract_req_ids(hit: RetrievalHit, max_n: int = 12) -> list[str]:
-    """Return normalised, de-duplicated requirement IDs found in a block.
+# ---------------------------------------------------------------------------
+# Section-family partitioning
+# ---------------------------------------------------------------------------
 
-    "FR 01" / "FR-01" / "FR01" all collapse to "FR01". Order of first
-    appearance is preserved; capped at max_n to keep the item compact.
+
+@dataclass
+class _Bucketed:
+    """Hits partitioned by section identity for one criterion."""
+
+    in_family: list[RetrievalHit]
+    neutral: list[RetrievalHit]
+    foreign: list[RetrievalHit]
+    fams: dict[str, frozenset[str]]  # block_id → families_of(heading_path)
+
+
+def _bucket(criterion_key: str, hits: list[RetrievalHit]) -> _Bucketed:
+    """Partition hits into in-family / neutral / foreign for a criterion.
+
+    Section identity is the primary admission axis; the criterion builders then
+    apply signal-based ranking and rescue within these buckets.
     """
+    in_f: list[RetrievalHit] = []
+    neu: list[RetrievalHit] = []
+    fgn: list[RetrievalHit] = []
+    fams: dict[str, frozenset[str]] = {}
+    for h in hits:
+        f = families_of(h.block["heading_path"])
+        fams[h.block["block_id"]] = f
+        if is_in_family(criterion_key, f):
+            in_f.append(h)
+        elif is_foreign(criterion_key, f):
+            fgn.append(h)
+        else:
+            neu.append(h)
+    return _Bucketed(
+        in_family=_sort_content_first(in_f),
+        neutral=_sort_content_first(neu),
+        foreign=_sort_content_first(fgn),
+        fams=fams,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Requirement-structure helpers (row IDs / MoSCoW / local section)
+# ---------------------------------------------------------------------------
+
+
+def _extract_req_ids(hit: RetrievalHit, max_n: int = 12) -> list[str]:
+    """Normalised, de-duplicated requirement IDs found in a block."""
     text = _searchable_block_text(hit)
     seen: set[str] = set()
     ids: list[str] = []
@@ -499,19 +612,11 @@ def _local_section_label(text: str) -> str:
 
 
 def _requirement_subtype(hit: RetrievalHit) -> tuple[str, str, str]:
-    """Resolve (subtype, classification_source, local_section_label) for a req block.
-
-    subtype uses checks._classify_section on the block's OWN heading_path first
-    (the same authority the notes use). When the heading is combined/unlabelled
-    ('other'), a per-row FR/NFR ID prefix is consulted. local_section_label is
-    only reported when the heading classified as 'other' yet the block body
-    clearly names a section — a stale-heading carryover signal.
-    """
+    """Resolve (subtype, classification_source, local_section_label) for a req block."""
     sec = _classify_section(hit.block["heading_path"])
     if sec != "other":
         return _SUBTYPE_BY_SECTION[sec], "heading_path", ""
 
-    # Heading is combined/unlabelled — try a reliable per-row ID prefix.
     ids = _extract_req_ids(hit, max_n=24)
     has_fr = any(re.match(r"FR\d", i) for i in ids)
     has_nfr = any(re.match(r"NFR\d", i) for i in ids)
@@ -525,9 +630,31 @@ def _requirement_subtype(hit: RetrievalHit) -> tuple[str, str, str]:
     if has_con and not has_fr and not has_nfr:
         return "constraint", "row_id_prefix", local
     if local:
-        # Heading stale but the body names a section — report it, don't guess subtype.
         return "", "block_text_section_switch", local
     return "", "", ""
+
+
+def _req_id_count(hit: RetrievalHit) -> int:
+    return len(_REQ_ID_RE.findall(_searchable_block_text(hit)))
+
+
+def _req_matched_row_count(hit: RetrievalHit) -> int | None:
+    if hit.block["block_type"] != "table":
+        return None
+    prio = _prio_row_count(hit)
+    if prio:
+        return prio
+    ids = len(_extract_req_ids(hit, max_n=99))
+    if ids:
+        return ids
+    return _data_row_count(hit) or None
+
+
+def _req_signals(hit: RetrievalHit) -> list[str]:
+    sigs = _moscow_tiers_in_block(hit)
+    if _extract_req_ids(hit, max_n=1):
+        sigs.append("req_id")
+    return sigs
 
 
 # ---------------------------------------------------------------------------
@@ -554,7 +681,11 @@ def _make_item(
     reason: str,
     signal_class: SignalClass,
     *,
+    ctx: _DocCtx | None = None,
     focused_terms: frozenset[str] | None = None,
+    focused_boundary: bool = False,
+    rescue: bool = False,
+    pair: bool = True,
     matched_signals: list[str] | None = None,
     criterion_subtype: str = "",
     classification_source: str = "",
@@ -565,22 +696,59 @@ def _make_item(
 ) -> EvidenceItem:
     """Construct an enriched EvidenceItem from a RetrievalHit.
 
-    The broad `excerpt` is preserved unchanged; `focused_excerpt` is the cleaner
-    derived snippet. All enrichment fields default to empty/None and are only
-    populated by callers with real, rule-based observations.
+    Excerpt construction (broader but bounded):
+      * paragraph/bullet → a coherent same-section window (via ctx), or a trimmed
+        block excerpt when no context is available.
+      * table → header + a readable row slice; for a foreign *rescue* the excerpt
+        is narrowed to the rows that actually carry the criterion signal.
+      * heading → the heading text, optionally paired with nearby prose.
+
+    `focused_excerpt` is a tighter targeted snippet; when a table/heading carries
+    no obvious focused snippet, nearby explanatory prose is paired in instead.
     """
     b = hit.block
+    bt = b["block_type"]
     sigs = matched_signals or []
     row_ids = matched_row_ids or []
-    focused = _focused_excerpt(hit, focused_terms)
-    excerpt = _excerpt_for(hit)
-    # Avoid duplicating identical text in both fields.
+
+    # --- broad excerpt ---
+    if bt == "table":
+        if rescue:
+            excerpt = _focused_table_excerpt(
+                b, focused_terms, max_rows=3, boundary=focused_boundary
+            ) or _excerpt_table(b)
+        else:
+            excerpt = _excerpt_table(b)
+    elif bt in ("paragraph", "bullet"):
+        excerpt = (
+            ctx.window(b["block_id"]) if ctx is not None else _excerpt_paragraph(b["text"])
+        )
+        if not excerpt:
+            excerpt = _excerpt_paragraph(b["text"])
+    else:  # heading / other
+        excerpt = _excerpt_paragraph(b["text"]) or " ".join(b["heading_path"][-1:])
+
+    # --- focused snippet (assist) ---
+    if bt == "table":
+        focused = _focused_table_excerpt(b, focused_terms, boundary=focused_boundary)
+    elif bt in ("paragraph", "bullet"):
+        focused = _focused_paragraph_excerpt(
+            b["text"], focused_terms, boundary=focused_boundary
+        )
+    else:
+        focused = ""
+
+    # Explanation pairing: a bare structural block gains nearby prose context.
+    if pair and ctx is not None and bt in ("table", "heading") and not focused:
+        focused = ctx.explanation(b["block_id"])
+
     if focused and focused.strip() == excerpt.strip():
         focused = ""
+
     return EvidenceItem(
         block_id=b["block_id"],
         page_no=b["page_no"],
-        block_type=b["block_type"],
+        block_type=bt,
         heading_path=list(b["heading_path"]),
         excerpt=excerpt,
         selection_reason=reason,
@@ -589,14 +757,21 @@ def _make_item(
         matched_signals=sigs,
         criterion_subtype=criterion_subtype,
         classification_source=classification_source,
-        evidence_strength=_evidence_strength(
-            signal_class, sigs, matched_row_count
-        ),
+        evidence_strength=_evidence_strength(signal_class, sigs, matched_row_count),
         matched_row_count=matched_row_count,
         matched_row_ids=row_ids,
         local_section_label=local_section_label,
         context_warning=context_warning,
     )
+
+
+_RESCUE_WARNING: Final[str] = (
+    "buiten eigen sectie aangetroffen ({fam}-sectie); relevante inhoud uitgelicht"
+)
+
+
+def _fam_label(fams: frozenset[str]) -> str:
+    return "/".join(sorted(fams)) if fams else "onbekend"
 
 
 # ---------------------------------------------------------------------------
@@ -608,30 +783,34 @@ def _build_beperking_packet(
     spec: CriterionSpec,
     hits: list[RetrievalHit],
     cr: CriterionResult,
+    ctx: _DocCtx,
 ) -> EvidencePacket:
-    """Select up to _MAX_ITEMS['beperking'] distinct limitation/research blocks.
+    """Section-first limitation + research evidence.
 
-    Merges consecutive short fragments (constraint lists) before selection so
-    that PDF-split label/value pairs appear as one readable excerpt.
+    In-family = doelgroep / beperking / literatuur / bron sections. Neutral
+    intro prose is admitted when it carries a limitation or research signal.
+    Foreign blocks are rescued only on a disability-specific limitation token
+    (never the generic substring 'beperking'), keeping budget/constraint tables
+    out. Research signals that the block negates ('geen bronnen gebruikt') are
+    surfaced honestly as weak, not positive.
     """
     MAX = _MAX_ITEMS["beperking"]
     status = cr.status
     items: list[EvidenceItem] = []
     missing_sigs: list[str] = []
-
-    processed = _merge_consecutive_fragments(hits)
-
-    lim_hits = _sort_content_first([
-        h for h in processed
-        if _has_terms(h, _BEP_LIMITATION) and not _is_heading_only(h)
-    ])
-    res_hits = _sort_content_first([
-        h for h in processed
-        if _has_terms(h, _BEP_RESEARCH) and not _is_heading_only(h)
-    ])
-    heading_hits = [h for h in processed if _is_heading_only(h)]
-
     seen: set[str] = set()
+    rescued = 0
+
+    bk = _bucket("beperking", hits)
+    _ALL = _BEP_LIMITATION | _BEP_RESEARCH
+    seen_text: set[str] = set()
+
+    def _text_key(h: RetrievalHit) -> str:
+        # Key on the rendered window so adjacent fragments that expand to the
+        # same section text (e.g. a run of single-URL paragraphs) collapse.
+        if h.block["block_type"] in ("paragraph", "bullet"):
+            return ctx.window(h.block["block_id"])[:160].lower()
+        return " ".join(h.block["text"].split())[:120].lower()
 
     def _subtype(h: RetrievalHit) -> str:
         has_l = _has_terms(h, _BEP_LIMITATION)
@@ -644,67 +823,93 @@ def _build_beperking_packet(
             return "research"
         return ""
 
-    def _add(h: RetrievalHit, reason: str, sc: SignalClass) -> bool:
+    def _add(h: RetrievalHit, kind: str) -> bool:
+        nonlocal rescued
         bid = h.block["block_id"]
         if bid in seen or len(items) >= MAX:
             return False
+        tkey = _text_key(h)
+        if tkey and tkey in seen_text:
+            return False  # drop near-identical duplicates (e.g. repeated URL lists)
+        if kind == "rescue":
+            if rescued >= _MAX_RESCUE["beperking"]:
+                return False
+            rescued += 1
         seen.add(bid)
-        terms = _matched_terms(h, _BEP_LIMITATION, 3) + _matched_terms(h, _BEP_RESEARCH, 3)
+        seen_text.add(tkey)
+        text = h.block["text"]
+        l_t = _matched_terms(h, _BEP_LIMITATION)
+        r_t = _matched_terms(h, _BEP_RESEARCH)
+        negated = contains_negation(text)
+        sc: SignalClass = "weak" if (negated or kind == "neutral_thin") else "positive"
+        warn_parts: list[str] = []
+        if kind == "rescue":
+            warn_parts.append(_RESCUE_WARNING.format(fam=_fam_label(bk.fams[bid])))
+        if negated:
+            warn_parts.append("onderbouwing/onderzoek wordt in deze passage juist ontkend")
+        warn = "; ".join(warn_parts)
+        if l_t and r_t:
+            reason = f"Beperking + onderbouwing: {', '.join((l_t + r_t)[:3])}"
+        elif l_t:
+            reason = f"Beperking/doelgroep: {', '.join(l_t)}"
+        elif r_t:
+            reason = f"Onderbouwing/deskresearch: {', '.join(r_t)}"
+        else:
+            reason = "Aanvullende context bij de beperking"
+            sc = "weak"
         items.append(_make_item(
-            h, reason, sc,
-            focused_terms=_BEP_LIMITATION | _BEP_RESEARCH,
-            matched_signals=terms[:4],
+            h, reason, sc, ctx=ctx, focused_terms=_ALL,
+            matched_signals=(l_t + r_t)[:4],
             criterion_subtype=_subtype(h),
-            classification_source="block_text" if terms else "",
+            classification_source="block_text" if (l_t or r_t) else "",
+            context_warning=warn,
         ))
         return True
 
-    if status == "missing":
-        content = _sort_content_first([h for h in processed if not _is_heading_only(h)])
-        for h in content[:1]:
-            _add(h, "Geen voldoende bewijs gevonden", "weak")
-        for h in heading_hits[:1]:
+    # In-family content first (limitation-bearing, then research-bearing, then rest).
+    lim_first = [h for h in bk.in_family if _has_terms(h, _BEP_LIMITATION) and not _is_heading_only(h)]
+    res_first = [h for h in bk.in_family if _has_terms(h, _BEP_RESEARCH) and not _is_heading_only(h)]
+    for h in lim_first + res_first + bk.in_family:
+        if len(items) >= MAX:
+            break
+        if _is_heading_only(h):
+            continue
+        _add(h, "in_family")
+
+    # Neutral intro/doelgroep prose carrying a real signal.
+    for h in bk.neutral:
+        if len(items) >= MAX:
+            break
+        if _is_heading_only(h):
+            continue
+        if _has_terms(h, _BEP_LIMITATION) or _has_terms(h, _BEP_RESEARCH):
+            _add(h, "neutral")
+
+    # Foreign rescue: only on a disability-specific limitation token.
+    for h in bk.foreign:
+        if len(items) >= MAX:
+            break
+        if _has_any_token(h.block["text"], _BEP_DISABILITY):
+            _add(h, "rescue")
+
+    # Heading-only fallback for an otherwise empty packet (named-but-empty section).
+    if not items:
+        for h in [x for x in bk.in_family if _is_heading_only(x)][:1]:
             items.append(_make_item(
-                h, "Sectieheading gevonden maar geen inhoud herkend", "absent_marker",
+                h, "Sectieheading gevonden maar geen inhoud herkend",
+                "absent_marker", ctx=ctx, pair=False,
             ))
-        missing_sigs.append("Geen expliciete beperking of doelgroepkeuze beschreven")
-        missing_sigs.append("Geen deskresearch of bronvermelding aangetroffen")
 
-    elif status == "partial":
-        if lim_hits and not res_hits:
-            for h in lim_hits[:MAX]:
-                terms = _matched_terms(h, _BEP_LIMITATION)
-                _add(h, f"Beperking/doelgroep: {', '.join(terms)}", "positive")
-            missing_sigs.append("Geen deskresearch of bronvermelding aangetroffen")
-        elif res_hits and not lim_hits:
-            for h in res_hits[:MAX]:
-                terms = _matched_terms(h, _BEP_RESEARCH)
-                _add(h, f"Onderbouwing: {', '.join(terms)}", "positive")
+    # Coverage gaps (status-driven, unchanged contract).
+    if status in ("missing", "partial"):
+        has_lim = any(i.criterion_subtype in ("limitation", "limitation_and_research")
+                      and i.signal_class == "positive" for i in items)
+        has_res = any(i.criterion_subtype in ("research", "limitation_and_research")
+                      and i.signal_class == "positive" for i in items)
+        if not has_lim:
             missing_sigs.append("Geen expliciete beperking of doelgroepkeuze beschreven")
-        else:
-            for h in _sort_content_first(processed):
-                if len(items) >= MAX:
-                    break
-                _add(h, "Partieel bewijs aangetroffen", "weak")
-
-    else:  # sufficient / strong
-        for h in lim_hits[:2]:
-            terms = _matched_terms(h, _BEP_LIMITATION)
-            _add(h, f"Beperking/doelgroep: {', '.join(terms)}", "positive")
-        for h in res_hits[:2]:
-            terms = _matched_terms(h, _BEP_RESEARCH)
-            _add(h, f"Onderbouwing/deskresearch: {', '.join(terms)}", "positive")
-        for h in _sort_content_first(processed):
-            if len(items) >= MAX:
-                break
-            l_t = _matched_terms(h, _BEP_LIMITATION)
-            r_t = _matched_terms(h, _BEP_RESEARCH)
-            all_t = l_t + r_t
-            reason = (
-                f"Aanvullend bewijs: {', '.join(all_t[:3])}" if all_t
-                else "Aanvullende context"
-            )
-            _add(h, reason, "positive" if all_t else "weak")
+        if not has_res:
+            missing_sigs.append("Geen deskresearch of bronvermelding aangetroffen")
 
     return EvidencePacket(
         criterion_key=spec.key,
@@ -719,126 +924,135 @@ def _build_beperking_packet(
 # ---------------------------------------------------------------------------
 
 
-def _stakeholder_row_count(hit: RetrievalHit) -> int:
-    return _data_row_count(hit)
-
-
 def _build_stakeholders_packet(
     spec: CriterionSpec,
     hits: list[RetrievalHit],
     cr: CriterionResult,
+    ctx: _DocCtx,
 ) -> EvidencePacket:
-    """Select up to _MAX_ITEMS['stakeholders'] distinct blocks, tables first.
+    """Section-first stakeholder evidence: prefer in-family tables, then prose.
 
-    Table blocks with belang/invloed columns are the primary source.
-    Paragraph/bullet blocks with role keywords fill remaining slots.
+    When the document has NO in-family stakeholder section at all (the matrix is
+    an image / quadrant — common), fall back to the strongest nearby substitutes:
+    foreign blocks that still carry stakeholder structure (role + belang/invloed),
+    each tagged with an honest context_warning. Foreign tables are otherwise
+    rejected so requirements/use-case tables do not masquerade as stakeholders.
     """
     MAX = _MAX_ITEMS["stakeholders"]
     status = cr.status
     items: list[EvidenceItem] = []
     missing_sigs: list[str] = []
+    seen: set[str] = set()
+    rescued = 0
 
-    table_hits = _sort_content_first(
-        [h for h in hits if h.block["block_type"] == "table"]
-    )
-    para_hits = _sort_content_first(
-        [h for h in hits if h.block["block_type"] in ("paragraph", "bullet")]
-    )
-    heading_hits = [h for h in hits if _is_heading_only(h)]
+    bk = _bucket("stakeholders", hits)
+    _BI = _STK_BELANG | _STK_INVLOED
 
     all_text = " ".join(h.block["text"].lower() for h in hits)
-    has_belang = any(t in all_text for t in ("belang", "concern", "interesse"))
-    has_invloed = any(t in all_text for t in ("invloed", "prioriter", "macht"))
-
+    has_belang = any(t in all_text for t in _STK_BELANG)
+    has_invloed = any(t in all_text for t in _STK_INVLOED)
     count = cr.count or 0
     minimum = spec.minimum_count or 4
-
-    _BI_TERMS = frozenset({"belang", "invloed", "concern", "interesse", "macht", "prioriter"})
 
     def _bi_signals(h: RetrievalHit) -> list[str]:
         t = h.block["text"].lower()
         sigs = []
-        if any(x in t for x in ("belang", "concern", "interesse")):
+        if any(x in t for x in _STK_BELANG):
             sigs.append("belang")
-        if any(x in t for x in ("invloed", "macht", "prioriter")):
+        if any(x in t for x in _STK_INVLOED):
             sigs.append("invloed")
         return sigs
 
-    if status == "missing":
-        for h in heading_hits[:1]:
-            items.append(_make_item(
-                h,
-                "Stakeholder-sectieheading gevonden maar geen tabelinhoud herkend",
-                "absent_marker",
-            ))
-        missing_sigs.append("Geen stakeholders herkend in de aangeleverde evidence")
+    def _has_structure(h: RetrievalHit) -> bool:
+        t = _searchable_block_text(h).lower()
+        bi = any(x in t for x in _STK_BELANG) and any(x in t for x in _STK_INVLOED)
+        role = _has_any_token(t, _STK_ROLE)
+        return bi or (h.block["block_type"] == "table" and role)
 
-    elif status == "partial":
-        if table_hits:
-            h = table_hits[0]
-            n_rows = _stakeholder_row_count(h)
-            items.append(_make_item(
-                h,
-                f"Stakeholder-tabel ({n_rows} rijen) — onvolledig ({count} van {minimum} min.)",
-                "weak",
-                focused_terms=_BI_TERMS,
-                matched_signals=_bi_signals(h),
-                criterion_subtype="table",
-                classification_source="block_type",
-                matched_row_count=n_rows,
-            ))
-        elif para_hits:
-            h = para_hits[0]
-            items.append(_make_item(
-                h,
-                f"Stakeholder-vermelding in tekst ({count} herkend)",
-                "weak",
-                focused_terms=_BI_TERMS,
-                matched_signals=_bi_signals(h),
-                criterion_subtype="text",
-                classification_source="block_type",
-            ))
-        if count < minimum:
-            missing_sigs.append(
-                f"Slechts {count} stakeholder(s) gevonden (minimum {minimum})"
+    def _add(h: RetrievalHit, kind: str) -> bool:
+        nonlocal rescued
+        bid = h.block["block_id"]
+        if bid in seen or len(items) >= MAX:
+            return False
+        if kind == "rescue":
+            if rescued >= _MAX_RESCUE["stakeholders"]:
+                return False
+            rescued += 1
+        seen.add(bid)
+        is_table = h.block["block_type"] == "table"
+        n_rows = _data_row_count(h) if is_table else None
+        sc: SignalClass = "weak" if (status == "partial" or kind == "rescue") else "positive"
+        if kind == "rescue":
+            reason = (
+                f"Stakeholder-context buiten aparte sectie "
+                f"({_fam_label(bk.fams[bid])}-sectie)"
             )
+            warn = (
+                "geen aparte stakeholder-sectie als tekst herkend (mogelijk "
+                "diagram/afbeelding); nabije rol/belang/invloed-context als substituut"
+            )
+        else:
+            reason = (
+                f"Stakeholder-tabel ({n_rows} rijen)" if is_table
+                else "Stakeholder-beschrijving in lopende tekst"
+            )
+            if status == "partial" and is_table:
+                reason += f" — onvolledig ({count} van {minimum} min.)"
+            warn = ""
+        items.append(_make_item(
+            h, reason, sc, ctx=ctx, focused_terms=_BI,
+            matched_signals=_bi_signals(h),
+            criterion_subtype="table" if is_table else "text",
+            classification_source="block_type",
+            matched_row_count=n_rows,
+            context_warning=warn,
+        ))
+        return True
+
+    # In-family: tables first, then prose.
+    in_tables = [h for h in bk.in_family if h.block["block_type"] == "table"]
+    in_prose = [h for h in bk.in_family if h.block["block_type"] != "table" and not _is_heading_only(h)]
+    for h in in_tables + in_prose:
+        if len(items) >= MAX:
+            break
+        _add(h, "in_family")
+
+    # Neutral prose describing belang/invloed — admitted ONLY when it also names
+    # a stakeholder role, so a generic "belang" mention (e.g. a "Definitie en
+    # belang" heading in a security section) cannot pull the block in.
+    for h in bk.neutral:
+        if len(items) >= MAX:
+            break
+        text = h.block["text"].lower()
+        if (not _is_heading_only(h)
+                and any(s in text for s in _BI)
+                and _has_any_token(text, _STK_ROLE)):
+            _add(h, "in_family")
+
+    # Image/quadrant fallback: only when NO in-family stakeholder evidence exists.
+    if not in_tables and not in_prose:
+        for h in bk.foreign:
+            if len(items) >= MAX:
+                break
+            if _has_structure(h):
+                _add(h, "rescue")
+
+    if not items:
+        for h in [x for x in (bk.in_family + bk.foreign) if _is_heading_only(x)][:1]:
+            items.append(_make_item(
+                h, "Stakeholder-heading gevonden maar geen tabelinhoud herkend",
+                "absent_marker", ctx=ctx, pair=False,
+            ))
+
+    if status in ("missing", "partial"):
+        if count and count < minimum:
+            missing_sigs.append(f"Slechts {count} stakeholder(s) gevonden (minimum {minimum})")
         if not has_belang:
             missing_sigs.append("Belang per stakeholder niet beschreven")
         if not has_invloed:
             missing_sigs.append("Invloed per stakeholder niet beschreven")
-
-    else:  # sufficient / strong
-        seen: set[str] = set()
-        for h in (table_hits + para_hits):
-            if len(items) >= MAX:
-                break
-            bid = h.block["block_id"]
-            if bid in seen:
-                continue
-            seen.add(bid)
-            if h.block["block_type"] == "table":
-                n_rows = _stakeholder_row_count(h)
-                items.append(_make_item(
-                    h, f"Stakeholder-tabel ({n_rows} rijen)", "positive",
-                    focused_terms=_BI_TERMS,
-                    matched_signals=_bi_signals(h),
-                    criterion_subtype="table",
-                    classification_source="block_type",
-                    matched_row_count=n_rows,
-                ))
-            else:
-                items.append(_make_item(
-                    h, "Stakeholder-beschrijving in lopende tekst", "positive",
-                    focused_terms=_BI_TERMS,
-                    matched_signals=_bi_signals(h),
-                    criterion_subtype="text",
-                    classification_source="block_type",
-                ))
-
-        if not has_belang:
-            missing_sigs.append("Belang per stakeholder niet expliciet beschreven")
-        if not has_invloed:
-            missing_sigs.append("Invloed per stakeholder niet expliciet beschreven")
+        if status == "missing" and not missing_sigs:
+            missing_sigs.append("Geen stakeholders herkend in de aangeleverde evidence")
 
     return EvidencePacket(
         criterion_key=spec.key,
@@ -853,106 +1067,37 @@ def _build_stakeholders_packet(
 # ---------------------------------------------------------------------------
 
 
-def _req_id_count(hit: RetrievalHit) -> int:
-    """Count requirement IDs (FR-01, NFR-01, …) in a block (incl. table cells)."""
-    return len(_REQ_ID_RE.findall(_searchable_block_text(hit)))
-
-
-def _req_matched_row_count(hit: RetrievalHit) -> int | None:
-    """Best rule-based 'requirement rows' estimate for a table block.
-
-    Prefer MoSCoW priority rows; fall back to distinct requirement IDs; then to
-    the raw data-row count. None for non-table blocks.
-    """
-    if hit.block["block_type"] != "table":
-        return None
-    prio = _prio_row_count(hit)
-    if prio:
-        return prio
-    ids = len(_extract_req_ids(hit, max_n=99))
-    if ids:
-        return ids
-    return _data_row_count(hit) or None
-
-
-def _req_signals(hit: RetrievalHit) -> list[str]:
-    """Structured requirement signals: MoSCoW tiers + req-id marker."""
-    sigs = _moscow_tiers_in_block(hit)
-    if _extract_req_ids(hit, max_n=1):
-        sigs.append("req_id")
-    return sigs
-
-
-def _add_requirement_item(
-    items: list[EvidenceItem],
-    seen: set[str],
-    hit: RetrievalHit,
-    reason: str,
-    signal_class: SignalClass,
-    max_items: int,
-) -> bool:
-    """Append one enriched requirements item if not a duplicate / over budget."""
-    bid = hit.block["block_id"]
-    if bid in seen or len(items) >= max_items:
-        return False
-    seen.add(bid)
-    subtype, source, local = _requirement_subtype(hit)
-    items.append(_make_item(
-        hit, reason, signal_class,
-        focused_terms=None,
-        matched_signals=_req_signals(hit),
-        criterion_subtype=subtype,
-        classification_source=source,
-        matched_row_count=_req_matched_row_count(hit),
-        matched_row_ids=_extract_req_ids(hit),
-        local_section_label=local,
-        context_warning=(
-            "heading_path mogelijk verouderd; lokale sectie gedetecteerd"
-            if (local and source == "block_text_section_switch") else ""
-        ),
-    ))
-    return True
-
-
 def _build_requirements_packet(
     spec: CriterionSpec,
     hits: list[RetrievalHit],
     cr: CriterionResult,
+    ctx: _DocCtx,
 ) -> EvidencePacket:
-    """Select up to _MAX_ITEMS['requirements'] distinct requirement blocks.
+    """Section-first requirements evidence with representative spread.
 
-    Tables with the most MoSCoW prio-rows rank first; ties by retrieval score.
-    Paragraph / bullet blocks fill remaining slots. Each item exposes subtype
-    (functional / non_functional / use_case / constraint), matched row IDs,
-    matched row count, and MoSCoW tier signals where the block supports them.
+    In-family = requirements / constraints / functional / non-functional / use
+    case sections. Tables (ranked by MoSCoW rows then req-ids) form the backbone;
+    in-family prose fills out narrative requirements. The selection deliberately
+    interleaves subtypes (FR / NFR / UC / constraint) so the handoff reflects the
+    real spread of the section rather than only the densest table.
     """
     MAX = _MAX_ITEMS["requirements"]
     status = cr.status
     items: list[EvidenceItem] = []
     missing_sigs: list[str] = []
     seen: set[str] = set()
+    rescued = 0
 
-    table_hits = sorted(
-        [h for h in hits if h.block["block_type"] == "table"],
-        key=lambda h: (-_prio_row_count(h), -_req_id_count(h), -h.score, h.block["block_id"]),
-    )
-    para_hits = _sort_content_first(
-        [h for h in hits if h.block["block_type"] in ("paragraph", "bullet")]
-    )
-    heading_hits = [h for h in hits if _is_heading_only(h)]
-
+    bk = _bucket("requirements", hits)
     all_text = " ".join(h.block["text"].lower() for h in hits)
-    has_prio = any(
-        t in all_text for t in ("must", "should", "could", "moscow", "prioriteit")
-    )
+    has_prio = any(t in all_text for t in ("must", "should", "could", "moscow", "prioriteit"))
     minimum = spec.minimum_count or 15
 
     if status == "missing":
-        for h in heading_hits[:1]:
+        for h in [x for x in bk.in_family if _is_heading_only(x)][:1]:
             items.append(_make_item(
-                h,
-                "Requirements-sectieheading gevonden maar geen inhoud herkend",
-                "absent_marker",
+                h, "Requirements-sectieheading gevonden maar geen inhoud herkend",
+                "absent_marker", ctx=ctx, pair=False,
             ))
         missing_sigs.append(f"Geen herkenbare requirements gevonden (minimum {minimum})")
         if not has_prio:
@@ -962,40 +1107,99 @@ def _build_requirements_packet(
             evidence_items=items, missing_signals=missing_sigs,
         )
 
-    # partial / sufficient / strong all surface the real requirement blocks.
-    for h in table_hits:
-        if len(items) >= MAX:
-            break
+    def _table_reason(h: RetrievalHit) -> tuple[str, SignalClass]:
         pcount = _prio_row_count(h)
         rcount = _req_id_count(h)
         n_rows = _data_row_count(h)
         if pcount > 0:
-            reason = f"Requirements-tabel: {n_rows} rijen, {pcount} MoSCoW-labels"
-            sc: SignalClass = "positive"
-        elif rcount > 0:
-            reason = f"Requirements-tabel: {n_rows} rijen, {rcount} req-IDs"
-            sc = "positive"
-        else:
-            reason = "Requirements-tabel (beperkte inhoud herkend)"
-            sc = "weak" if status == "partial" else "positive"
-        _add_requirement_item(items, seen, h, reason, sc, MAX)
+            return f"Requirements-tabel: {n_rows} rijen, {pcount} MoSCoW-labels", "positive"
+        if rcount > 0:
+            return f"Requirements-tabel: {n_rows} rijen, {rcount} req-IDs", "positive"
+        return "Requirements-tabel (beperkte inhoud herkend)", (
+            "weak" if status == "partial" else "positive"
+        )
 
-    for h in para_hits:
+    def _add(h: RetrievalHit, reason: str, sc: SignalClass, kind: str = "in_family") -> bool:
+        nonlocal rescued
+        bid = h.block["block_id"]
+        if bid in seen or len(items) >= MAX:
+            return False
+        if kind == "rescue":
+            if rescued >= _MAX_RESCUE["requirements"]:
+                return False
+            rescued += 1
+        seen.add(bid)
+        subtype, source, local = _requirement_subtype(h)
+        warn = (
+            "heading_path mogelijk verouderd; lokale sectie gedetecteerd"
+            if (local and source == "block_text_section_switch") else ""
+        )
+        if kind == "rescue":
+            warn = (warn + "; " if warn else "") + _RESCUE_WARNING.format(
+                fam=_fam_label(bk.fams[bid])
+            )
+        items.append(_make_item(
+            h, reason, sc, ctx=ctx,
+            matched_signals=_req_signals(h),
+            criterion_subtype=subtype,
+            classification_source=source,
+            matched_row_count=_req_matched_row_count(h),
+            matched_row_ids=_extract_req_ids(h),
+            local_section_label=local,
+            context_warning=warn,
+            rescue=(kind == "rescue"),
+            focused_terms=None,
+        ))
+        return True
+
+    in_tables = sorted(
+        [h for h in bk.in_family if h.block["block_type"] == "table"],
+        key=lambda h: (-_prio_row_count(h), -_req_id_count(h), -h.score, h.block["block_id"]),
+    )
+    in_prose = _sort_content_first(
+        [h for h in bk.in_family if h.block["block_type"] in ("paragraph", "bullet")]
+    )
+
+    # Representative spread: take the strongest table of each subtype first so FR,
+    # NFR, UC and constraints all surface before piling on more of one kind.
+    by_subtype: dict[str, list[RetrievalHit]] = {}
+    for h in in_tables:
+        st = _requirement_subtype(h)[0] or "other"
+        by_subtype.setdefault(st, []).append(h)
+    spread_first: list[RetrievalHit] = []
+    for st in ("functional", "non_functional", "use_case", "constraint", "other"):
+        if by_subtype.get(st):
+            spread_first.append(by_subtype[st][0])
+    ordered_tables = spread_first + [h for h in in_tables if h not in spread_first]
+
+    for h in ordered_tables:
+        if len(items) >= MAX:
+            break
+        reason, sc = _table_reason(h)
+        _add(h, reason, sc)
+
+    for h in in_prose:
         if len(items) >= MAX:
             break
         rcount = _req_id_count(h)
         if rcount > 0:
-            reason = f"Requirements in tekst ({rcount} IDs herkend)"
-            sc = "positive"
+            _add(h, f"Requirements in tekst ({rcount} IDs herkend)", "positive")
         else:
-            reason = "Requirements in tekst"
-            sc = "weak"
-        _add_requirement_item(items, seen, h, reason, sc, MAX)
+            _add(h, "Requirements in tekst", "weak")
+
+    # Foreign rescue (rare): only blocks that actually carry requirement structure.
+    for h in bk.foreign:
+        if len(items) >= MAX:
+            break
+        if _extract_req_ids(h, max_n=1) or _prio_row_count(h) > 0:
+            reason, sc = (
+                _table_reason(h) if h.block["block_type"] == "table"
+                else ("Requirements in tekst (buiten requirements-sectie)", "weak")
+            )
+            _add(h, reason, sc, kind="rescue")
 
     if status == "partial":
-        missing_sigs.append(
-            f"Slechts ~{cr.count or 0} requirements gevonden (minimum {minimum})"
-        )
+        missing_sigs.append(f"Slechts ~{cr.count or 0} requirements gevonden (minimum {minimum})")
     if not has_prio:
         missing_sigs.append("Geen MoSCoW-prioritering aangetroffen")
 
@@ -1016,37 +1220,34 @@ def _build_taalkeuze_packet(
     spec: CriterionSpec,
     hits: list[RetrievalHit],
     cr: CriterionResult,
+    ctx: _DocCtx,
 ) -> EvidencePacket:
-    """Select up to _MAX_ITEMS['taalkeuze'] distinct blocks.
+    """Token-gated taalkeuze evidence (language choice has no fixed section).
 
-    Blocks carrying BOTH choice AND consequence signals are the most
-    informative and come first. Merges short consecutive fragments first.
+    Because language choice is discussed inside doelgroep / requirements / intro
+    prose, taalkeuze is gated on a genuine CHOICE token rather than on section
+    identity. A block is admitted only when it states a language choice; a
+    consequence-only block (carrying just 'beïnvloed' / 'bereik') is admitted
+    solely as supporting context once a choice block exists, and a CONSEQUENCE-
+    ONLY foreign block (e.g. a stakeholder table) is rejected outright — the most
+    common contamination source for this criterion.
     """
     MAX = _MAX_ITEMS["taalkeuze"]
     status = cr.status
     items: list[EvidenceItem] = []
     missing_sigs: list[str] = []
-    _ALL_TAAL = _TAAL_CHOICE | _TAAL_CONSEQUENCE
+    seen: set[str] = set()
+    rescued = 0
+    _ALL = _TAAL_CHOICE | _TAAL_CONSEQUENCE
 
-    processed = _merge_consecutive_fragments(hits)
-
-    choice_hits = _sort_content_first([
-        h for h in processed
-        if _has_terms(h, _TAAL_CHOICE) and not _is_heading_only(h)
-    ])
-    cons_hits = _sort_content_first([
-        h for h in processed
-        if _has_terms(h, _TAAL_CONSEQUENCE) and not _is_heading_only(h)
-    ])
-    heading_hits = [h for h in processed if _is_heading_only(h)]
-
+    bk = _bucket("taalkeuze", hits)
     all_text = " ".join(h.block["text"].lower() for h in hits)
-    has_choice = any(t in all_text for t in _TAAL_CHOICE)
-    has_consequence = any(t in all_text for t in _TAAL_CONSEQUENCE)
+    has_choice = _has_any_token(all_text, _TAAL_CHOICE)
+    has_consequence = _has_any_token(all_text, _TAAL_CONSEQUENCE)
 
-    def _subtype(h: RetrievalHit) -> str:
-        c = _has_terms(h, _TAAL_CHOICE)
-        k = _has_terms(h, _TAAL_CONSEQUENCE)
+    def _subtype(text: str) -> str:
+        c = _has_any_token(text, _TAAL_CHOICE)
+        k = _has_any_token(text, _TAAL_CONSEQUENCE)
         if c and k:
             return "choice_and_consequence"
         if c:
@@ -1055,83 +1256,92 @@ def _build_taalkeuze_packet(
             return "consequence"
         return ""
 
-    seen: set[str] = set()
-
-    def _add(h: RetrievalHit, reason: str, sc: SignalClass) -> bool:
+    def _add(h: RetrievalHit, kind: str) -> bool:
+        nonlocal rescued
         bid = h.block["block_id"]
         if bid in seen or len(items) >= MAX:
             return False
+        if kind == "rescue":
+            if rescued >= _MAX_RESCUE["taalkeuze"]:
+                return False
+            rescued += 1
         seen.add(bid)
-        sigs = _matched_terms(h, _TAAL_CHOICE, 2) + _matched_terms(h, _TAAL_CONSEQUENCE, 2)
+        text = h.block["text"]
+        c_terms = _matched_tokens(text, _TAAL_CHOICE, 2)
+        k_terms = _matched_tokens(text, _TAAL_CONSEQUENCE, 2)
+        negated = contains_negation(text)
+        if c_terms and k_terms:
+            reason = f"Taalkeuze ({', '.join(c_terms)}) én gevolgen ({', '.join(k_terms)})"
+        elif c_terms:
+            reason = f"Taalkeuze: {', '.join(c_terms)}"
+        else:
+            reason = f"Gevolgen van de taalkeuze: {', '.join(k_terms)}"
+        sc: SignalClass = "positive"
+        warn_parts: list[str] = []
+        if kind == "rescue":
+            warn_parts.append(_RESCUE_WARNING.format(fam=_fam_label(bk.fams[bid])))
+        if negated:
+            sc = "weak"
+            warn_parts.append("taalkeuze wordt in deze passage juist als onbeslist beschreven")
+        elif kind == "consequence_support":
+            sc = "weak"
+        warn = "; ".join(warn_parts)
         items.append(_make_item(
-            h, reason, sc,
-            focused_terms=_ALL_TAAL,
-            matched_signals=sigs[:4],
-            criterion_subtype=_subtype(h),
-            classification_source="block_text" if sigs else "",
+            h, reason, sc, ctx=ctx,
+            focused_terms=_ALL, focused_boundary=True, rescue=(kind == "rescue"),
+            matched_signals=(c_terms + k_terms)[:4],
+            criterion_subtype=_subtype(text),
+            classification_source="block_text" if (c_terms or k_terms) else "",
+            context_warning=warn,
         ))
         return True
 
-    if status == "missing":
-        for h in heading_hits[:1]:
-            items.append(_make_item(
-                h, "Taalkeuze-sectieheading zonder inhoud aangetroffen", "absent_marker",
-            ))
-        missing_sigs.append("Geen expliciete taalkeuze vermeld")
-        missing_sigs.append("Geen gevolgen van de taalkeuze beschreven")
+    def _is_choice(h: RetrievalHit) -> bool:
+        return _has_any_token(h.block["text"], _TAAL_CHOICE)
 
-    elif status == "partial":
-        if has_choice and not has_consequence:
-            for h in choice_hits[:MAX]:
-                terms = _matched_terms(h, _TAAL_CHOICE)
-                _add(h, f"Taalkeuze: {', '.join(terms)}", "positive")
+    # Choice-bearing in-family/neutral blocks (both signals first).
+    choice_inneu = [
+        h for h in (bk.in_family + bk.neutral)
+        if _is_choice(h) and not _is_heading_only(h)
+    ]
+    both = [h for h in choice_inneu if _has_any_token(h.block["text"], _TAAL_CONSEQUENCE)]
+    for h in both + choice_inneu:
+        if len(items) >= MAX:
+            break
+        _add(h, "in_family")
+
+    # Foreign rescue: ONLY blocks that carry a real choice token.
+    for h in bk.foreign:
+        if len(items) >= MAX:
+            break
+        if _is_choice(h) and not _is_heading_only(h):
+            _add(h, "rescue")
+
+    # Consequence-only support, but only once a choice block is present.
+    if items and any(i.criterion_subtype in ("choice", "choice_and_consequence") for i in items):
+        for h in (bk.in_family + bk.neutral):
+            if len(items) >= MAX:
+                break
+            if (not _is_heading_only(h) and not _is_choice(h)
+                    and _has_any_token(h.block["text"], _TAAL_CONSEQUENCE)):
+                _add(h, "consequence_support")
+
+    if not items:
+        for h in [x for x in bk.in_family if _is_heading_only(x)][:1]:
+            items.append(_make_item(
+                h, "Taalkeuze-heading zonder inhoud aangetroffen",
+                "absent_marker", ctx=ctx, pair=False,
+            ))
+
+    if status in ("missing", "partial"):
+        if not has_choice:
+            missing_sigs.append("Geen expliciete taalkeuze vermeld")
+        if not has_consequence:
             missing_sigs.append(
                 "Gevolgen van taalkeuze niet beschreven (bijv. bereik, vertaalkosten, begrijpelijkheid)"
             )
-        elif has_consequence and not has_choice:
-            for h in cons_hits[:MAX]:
-                terms = _matched_terms(h, _TAAL_CONSEQUENCE)
-                _add(h, f"Gevolgen beschreven: {', '.join(terms)}", "positive")
-            missing_sigs.append(
-                "Geen expliciete taalkeuze vermeld (bijv. 'de webshop is in het Nederlands')"
-            )
-        else:
-            for h in _sort_content_first(processed):
-                if len(items) >= MAX:
-                    break
-                if not _is_heading_only(h):
-                    _add(h, "Partieel taalkeuze-bewijs", "weak")
-            notes_lower = " ".join(cr.notes).lower()
-            if "geen gevolgen" in notes_lower or "geen consequen" in notes_lower:
-                missing_sigs.append("Gevolgen van taalkeuze niet beschreven")
-            elif "geen expliciete" in notes_lower or "geen taalkeuze" in notes_lower:
-                missing_sigs.append("Geen expliciete taalkeuze vermeld")
-            else:
-                missing_sigs.append("Taalkeuze of gevolgen niet volledig beschreven")
-
-    else:  # sufficient / strong
-        both = _sort_content_first([
-            h for h in processed
-            if _has_terms(h, _TAAL_CHOICE)
-            and _has_terms(h, _TAAL_CONSEQUENCE)
-            and not _is_heading_only(h)
-        ])
-        for h in both:
-            if len(items) >= MAX:
-                break
-            c_terms = _matched_terms(h, _TAAL_CHOICE)
-            k_terms = _matched_terms(h, _TAAL_CONSEQUENCE)
-            _add(h, f"Taalkeuze ({', '.join(c_terms)}) én gevolgen ({', '.join(k_terms)})", "positive")
-        for h in (choice_hits + cons_hits):
-            if len(items) >= MAX:
-                break
-            c_terms = _matched_terms(h, _TAAL_CHOICE)
-            k_terms = _matched_terms(h, _TAAL_CONSEQUENCE)
-            reason = (
-                f"Taalkeuze: {', '.join(c_terms)}" if c_terms
-                else f"Gevolgen: {', '.join(k_terms)}"
-            )
-            _add(h, reason, "positive")
+        if not missing_sigs:
+            missing_sigs.append("Taalkeuze of gevolgen niet volledig beschreven")
 
     return EvidencePacket(
         criterion_key=spec.key,
@@ -1150,86 +1360,113 @@ def _build_security_packet(
     spec: CriterionSpec,
     hits: list[RetrievalHit],
     cr: CriterionResult,
+    ctx: _DocCtx,
 ) -> EvidencePacket:
-    """Select up to _MAX_ITEMS['security'] distinct blocks.
+    """Section-first security evidence with measure↔risk pairing.
 
-    Concrete-mechanism blocks (authenticatie, encryptie, AVG, …) come first and
-    are 'positive'; generic-only security language is surfaced as 'weak' context.
+    In-family = security / beveiliging / privacy / AVG / risico sections. Neutral
+    blocks (e.g. ethics paragraphs) are admitted when they name a concrete
+    mechanism. Because security legitimately lives inside non-functional
+    requirements, foreign REQUIREMENTS blocks are rescued on a concrete-mechanism
+    token (focused to the relevant rows); foreign stakeholder/doelgroep blocks
+    are rejected — they are the contamination source (a stakeholder table
+    mentioning 'AVGregels', a doelgroep paragraph where 'ssl' hides inside a
+    word). Concrete tokens are matched with word boundaries throughout.
     """
     MAX = _MAX_ITEMS["security"]
     status = cr.status
     items: list[EvidenceItem] = []
     missing_sigs: list[str] = []
-    _ALL_SEC = _SEC_CONCRETE | _SEC_GENERIC
-
-    def _n_concrete(h: RetrievalHit) -> int:
-        text = h.block["text"].lower()
-        return sum(1 for t in _SEC_CONCRETE if t in text)
-
-    concrete_hits = _sort_content_first([
-        h for h in hits
-        if _n_concrete(h) >= 1 and not _is_heading_only(h)
-    ])
-    generic_hits = _sort_content_first([
-        h for h in hits
-        if _has_terms(h, _SEC_GENERIC)
-        and _n_concrete(h) == 0
-        and not _is_heading_only(h)
-    ])
-    heading_hits = [h for h in hits if _is_heading_only(h)]
-
     seen: set[str] = set()
+    rescued = 0
+    _ALL = _SEC_CONCRETE | _SEC_GENERIC
 
-    def _add(h: RetrievalHit, reason: str, sc: SignalClass, subtype: str) -> bool:
+    bk = _bucket("security", hits)
+
+    def _concrete(h: RetrievalHit) -> list[str]:
+        return _matched_tokens(h.block["text"], _SEC_CONCRETE, 4)
+
+    def _add(h: RetrievalHit, kind: str) -> bool:
+        nonlocal rescued
         bid = h.block["block_id"]
         if bid in seen or len(items) >= MAX:
             return False
+        if kind == "rescue":
+            if rescued >= _MAX_RESCUE["security"]:
+                return False
+            rescued += 1
         seen.add(bid)
-        sigs = _matched_terms(h, _SEC_CONCRETE, 4) or _matched_terms(h, _SEC_GENERIC, 3)
+        terms = _concrete(h)
+        if terms:
+            subtype, sc = "concrete", ("weak" if status == "partial" else "positive")
+            reason = f"Concrete beveiligingsmechanisme(n): {', '.join(terms)}"
+            sigs = terms
+        else:
+            subtype, sc = "generic", "weak"
+            gterms = _matched_tokens(h.block["text"], _SEC_GENERIC, 3)
+            reason = f"Aanvullende beveiligingscontext: {', '.join(gterms)}"
+            sigs = gterms
+        warn = ""
+        if kind == "rescue":
+            warn = _RESCUE_WARNING.format(fam=_fam_label(bk.fams[bid]))
+            if sc == "positive":
+                sc = "positive"  # keep — it is a genuine concrete row in an NFR table
         items.append(_make_item(
-            h, reason, sc,
-            focused_terms=_ALL_SEC,
+            h, reason, sc, ctx=ctx,
+            focused_terms=_ALL, focused_boundary=True, rescue=(kind == "rescue"),
             matched_signals=sigs,
             criterion_subtype=subtype,
             classification_source="block_text" if sigs else "",
+            context_warning=warn,
         ))
         return True
 
-    if status == "missing":
-        for h in heading_hits[:1]:
+    # In-family concrete first, then in-family generic.
+    in_concrete = [h for h in bk.in_family if _concrete(h) and not _is_heading_only(h)]
+    in_generic = [
+        h for h in bk.in_family
+        if not _concrete(h) and _has_any_token(h.block["text"], _SEC_GENERIC)
+        and not _is_heading_only(h)
+    ]
+    for h in in_concrete:
+        if len(items) >= MAX:
+            break
+        _add(h, "in_family")
+
+    # Neutral blocks naming a concrete mechanism (e.g. ethics/AVG/OWASP prose).
+    for h in bk.neutral:
+        if len(items) >= MAX:
+            break
+        if _concrete(h) and not _is_heading_only(h):
+            _add(h, "neutral")
+
+    # Foreign rescue: requirements-family blocks only, on a trusted concrete token.
+    for h in bk.foreign:
+        if len(items) >= MAX:
+            break
+        fam = bk.fams[h.block["block_id"]]
+        if "requirements" in fam and _has_any_token(h.block["text"], _SEC_RESCUE):
+            _add(h, "rescue")
+
+    # Fill remaining slots with in-family generic context (clearly weaker).
+    for h in in_generic:
+        if len(items) >= MAX:
+            break
+        _add(h, "in_family")
+
+    if not items:
+        for h in [x for x in bk.in_family if _is_heading_only(x)][:1]:
             items.append(_make_item(
-                h, "Security-sectieheading gevonden maar geen inhoud herkend", "absent_marker",
+                h, "Security-heading gevonden maar geen inhoud herkend",
+                "absent_marker", ctx=ctx, pair=False,
             ))
-        missing_sigs.append("Geen beveiligingsinhoud aangetroffen")
+
+    if status in ("missing", "partial"):
+        if status == "missing":
+            missing_sigs.append("Geen beveiligingsinhoud aangetroffen")
         missing_sigs.append(
             "Geen concrete beveiligingsmechanismen benoemd (bijv. authenticatie, encryptie, AVG)"
         )
-
-    elif status == "partial":
-        if generic_hits:
-            h = generic_hits[0]
-            terms = _matched_terms(h, _SEC_GENERIC)
-            _add(h, f"Generieke beveiligingstaal aangetroffen: {', '.join(terms)}", "weak", "generic")
-        elif concrete_hits:
-            h = concrete_hits[0]
-            terms = _matched_terms(h, _SEC_CONCRETE)
-            _add(h, f"Security-bewijs (beperkt): {', '.join(terms)}", "weak", "concrete")
-        missing_sigs.append(
-            "Geen concrete beveiligingsmechanismen benoemd (bijv. authenticatie, encryptie, AVG)"
-        )
-
-    else:  # sufficient / strong
-        for h in concrete_hits:
-            if len(items) >= MAX:
-                break
-            terms = _matched_terms(h, _SEC_CONCRETE)
-            _add(h, f"Concrete beveiligingsmechanisme(n): {', '.join(terms)}", "positive", "concrete")
-        # Fill remaining slots with generic context (clearly weaker).
-        for h in generic_hits:
-            if len(items) >= MAX:
-                break
-            terms = _matched_terms(h, _SEC_GENERIC)
-            _add(h, f"Aanvullende beveiligingscontext: {', '.join(terms)}", "weak", "generic")
 
     return EvidencePacket(
         criterion_key=spec.key,
@@ -1262,20 +1499,17 @@ def build_evidence_packets(
 ) -> dict[str, EvidencePacket]:
     """Build one EvidencePacket per criterion from CapsPipelineArtifacts.
 
-    CAPS is the source of truth for all judgements.  This function only
-    SELECTS and SHAPES evidence — it never re-judges or overrides any CAPS
-    decision.
+    CAPS is the source of truth for all judgements. This function only SELECTS
+    and SHAPES evidence — it never re-judges or overrides any CAPS decision.
 
-    Args:
-        artifacts: The full output of run_caps_with_artifacts, containing
-            retrieval candidates (candidates), per-criterion verdicts
-            (criterion_results), and the final CapsRunResult (result).
-
-    Returns:
-        dict[criterion_key → EvidencePacket], one entry per CAPS criterion,
-        in CRITERIA_KEYS order.
+    Selection is section-first (section_family.py): in-family blocks form the
+    backbone, neutral blocks add supporting context when they carry a real
+    signal, and foreign blocks are rescued only on a strong, criterion-defining
+    token. Excerpts are widened into coherent same-section windows using the
+    document's full ordered block list (artifacts.blocks).
     """
     packets: dict[str, EvidencePacket] = {}
+    ctx = _DocCtx.build(artifacts.blocks or [])
 
     for key in CRITERIA_KEYS:
         spec = CRITERIA_BY_KEY[key]
@@ -1292,6 +1526,6 @@ def build_evidence_packets(
             continue
 
         builder = _PACKET_BUILDERS[key]
-        packets[key] = builder(spec, hits, cr)
+        packets[key] = builder(spec, hits, cr, ctx)
 
     return packets

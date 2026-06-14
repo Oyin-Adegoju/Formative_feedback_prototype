@@ -75,6 +75,8 @@ _EXPECTED_CRITERIA: Final[frozenset[str]] = frozenset(CRITERIA_KEYS)
 
 _FORBIDDEN_MERGE_KEYS: Final[frozenset[str]] = frozenset({
     "manual_review_required", "manual_review_flags", "hidden_score",
+    # Removed pre-Qwen CAPS verdicts must not reappear in the merged contract.
+    "overall_stoplight", "blockers_triggered", "caps_status", "caps_stoplight",
 })
 
 _SCORE_PATTERNS: Final[list[re.Pattern[str]]] = [
@@ -137,7 +139,7 @@ def _check_merged(merged: dict) -> list[CheckResult]:
 
     top_ok = {
         "document_id", "source_name", "final_stoplight",
-        "blockers_triggered", "criteria_requiring_extra_review", "criteria",
+        "criteria_requiring_extra_review", "criteria",
     } <= set(merged.keys())
     results.append(("merged_top_level_keys", top_ok,
                     "all present" if top_ok else f"got {sorted(merged.keys())}"))
@@ -320,10 +322,14 @@ def main() -> int:
         # ── Merge with empty quality so the contract shape stays stable ───────
         _section("Step 2 — Quality (skipped: --no-llm)")
         print("  Quality stage skipped; building merge with empty Qwen fields.")
+        # No Qwen judgement available without the LLM. Use "mixed" (→ yellow) as a
+        # neutral placeholder so the merge contract stays valid; the count floor
+        # still applies on top of it.
         empty_quality = {
             "document_id": caps_result.doc_id,
             "criteria": {
-                k: {"diagnostics": {}, "strengths": [], "weaknesses": [],
+                k: {"criterion_judgement": "mixed", "diagnostics": {},
+                    "strengths": [], "weaknesses": [],
                     "manual_review": False, "manual_review_reason": [], "reason": ""}
                 for k in CRITERIA_KEYS
             },

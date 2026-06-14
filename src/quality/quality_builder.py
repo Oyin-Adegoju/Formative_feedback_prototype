@@ -34,10 +34,10 @@ logger = logging.getLogger(__name__)
 # Prompt template
 # ---------------------------------------------------------------------------
 
-_PROMPT_VERSION: Final[str] = "quality_diagnostics_all_criteria_v2"
+_PROMPT_VERSION: Final[str] = "quality_diagnostics_all_criteria_v3"
 _PROMPT_PATH: Final[Path] = (
     Path(__file__).parent.parent.parent
-    / "prompts" / "qwen_quality" / "quality_diagnostics_all_criteria_v2.txt"
+    / "prompts" / "qwen_quality" / "quality_diagnostics_all_criteria_v3.txt"
 )
 
 # Quality output covers five criteria with several bullet lists each, so it
@@ -52,11 +52,17 @@ _DEFAULT_MAX_ATTEMPTS: Final[int] = 3
 
 
 def _schema_reminder() -> str:
-    """Exact required diagnostics keys per criterion, for the retry correction."""
-    from src.quality.output_schema import QUALITY_DIMENSIONS
+    """Exact required fields per criterion, for the retry correction.
+
+    Restates that every criterion needs criterion_judgement (strong/mixed/weak)
+    plus its full diagnostics dimension set — the two things the 14B model most
+    often drops.
+    """
+    from src.quality.output_schema import JUDGEMENT_VALUES, QUALITY_DIMENSIONS
 
     lines = [
-        f"  {key}: {', '.join(dims)}"
+        f"  {key}: criterion_judgement ({' | '.join(sorted(JUDGEMENT_VALUES))}) "
+        f"+ diagnostics({', '.join(dims)})"
         for key, dims in QUALITY_DIMENSIONS.items()
     ]
     return "\n".join(lines)

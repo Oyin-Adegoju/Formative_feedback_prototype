@@ -57,7 +57,8 @@ class FeedbackResult(TypedDict):
     """Copied verbatim from CapsRunResult.doc_id."""
 
     stoplight: StoplightLabel
-    """Copied verbatim from CapsRunResult.overall_stoplight. LLM may not change this."""
+    """Copied verbatim from the merged input's final_stoplight (derived post-Qwen
+    in the merge layer). LLM may not change this."""
 
     student_samenvatting: str
     """Short LLM-written summary of the document's overall state. Student-facing."""

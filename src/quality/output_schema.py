@@ -26,6 +26,12 @@ from src.caps.criterion_specs import CRITERIA_KEYS
 QUALITY_LEVELS: Final[frozenset[str]] = frozenset({"laag", "middel", "hoog"})
 """The only values a diagnostics dimension may take. No numbers, no CAPS labels."""
 
+JUDGEMENT_VALUES: Final[frozenset[str]] = frozenset({"strong", "mixed", "weak"})
+"""The only values criterion_judgement may take — Qwen's single per-criterion
+content-quality verdict. NOT a stoplight: Python maps it to a stoplight
+deterministically in the merge layer (strong→green, mixed→yellow, weak→red),
+applies guards, and only then assigns colours. Qwen never emits stoplights."""
+
 # ---------------------------------------------------------------------------
 # Required diagnostic dimensions per criterion
 # ---------------------------------------------------------------------------
@@ -82,11 +88,15 @@ assert set(QUALITY_DIMENSIONS.keys()) == set(CRITERIA_KEYS), (
 class CriterionQuality(TypedDict):
     """Quality diagnosis for one rubric criterion.
 
-    diagnostics holds the per-dimension laag/middel/hoog verdicts. strengths,
-    weaknesses, and manual_review_reason are short Dutch, non-student-facing
-    bullet lists. manual_review is the per-criterion docent-focus flag.
+    criterion_judgement is Qwen's single roll-up content-quality verdict
+    (strong/mixed/weak; see JUDGEMENT_VALUES) — the explicit field the merge
+    layer maps to a per-criterion stoplight. diagnostics holds the per-dimension
+    laag/middel/hoog verdicts. strengths, weaknesses, and manual_review_reason
+    are short Dutch, non-student-facing bullet lists. manual_review is the
+    per-criterion docent-focus flag.
     """
 
+    criterion_judgement: str
     diagnostics: dict[str, str]
     strengths: list[str]
     weaknesses: list[str]

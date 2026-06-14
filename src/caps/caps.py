@@ -26,11 +26,17 @@ Architecture position:
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from src.caps.checks import run_all_checks
 from src.caps.criterion_specs import INFIRFS_REQUIREMENTS_CRITERIA
-from src.caps.models import CapsRunResult, CriterionResult, InputSource, ParseReportDict
+from src.caps.models import (
+    BlockDict,
+    CapsRunResult,
+    CriterionResult,
+    InputSource,
+    ParseReportDict,
+)
 from src.caps.retrieval import CriterionCandidates, retrieve_all_criteria
 from src.caps.scoring import score_document
 
@@ -77,11 +83,18 @@ class CapsPipelineArtifacts:
     candidates:        retrieval hits per criterion — output of retrieve_all_criteria.
     criterion_results: per-criterion verdicts      — output of run_all_checks.
     result:            final scored document result — output of score_document.
+    blocks:            the document's full ordered block list (BlockDict). Carried
+                       so the downstream evidence/handoff layer can build
+                       same-section neighbour context windows and pair structural
+                       blocks (tables/headings) with nearby explanatory prose —
+                       context that the ≤max_candidates retrieval hits alone do
+                       not preserve. Read-only; CAPS verdicts never use it.
     """
 
     candidates: CriterionCandidates
     criterion_results: dict[str, CriterionResult]
     result: CapsRunResult
+    blocks: list[BlockDict] = field(default_factory=list)
 
 
 # ---------------------------------------------------------------------------
@@ -130,6 +143,7 @@ def run_caps_with_artifacts(
         candidates=candidates,
         criterion_results=criterion_results,
         result=result,
+        blocks=list(report["blocks"]),
     )
 
 
