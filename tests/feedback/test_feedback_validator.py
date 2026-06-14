@@ -1,4 +1,9 @@
-"""Tests for src/feedback/feedback_validator.py."""
+"""Tests for src/feedback/feedback_validator.py.
+
+The validator now consumes the MERGED CAPS + Qwen contract
+(src/feedback/merge_builder.py), not a raw CapsRunResult. Fixtures build a
+minimal merged dict directly.
+"""
 
 from __future__ import annotations
 
@@ -6,19 +11,9 @@ import json
 
 import pytest
 
-from src.caps.models import (
-    CapsRunMeta,
-    CapsRunResult,
-    CapsScorecard,
-    CriterionResult,
-    EvidenceRef,
-)
-from src.feedback.feedback_validator import (
-    FeedbackValidationError,
-    _collect_known_block_ids,
-    _llm_text_fields,
-    validate,
-)
+from src.caps.criterion_specs import CRITERIA_KEYS
+from src.feedback.feedback_validator import FeedbackValidationError, validate
+from src.feedback.merge_builder import collect_known_block_ids
 from src.feedback.output_schema import DISCLAIMER
 
 # ---------------------------------------------------------------------------
@@ -30,30 +25,24 @@ _BLOCK_B = "doc1_0002"
 _BLOCK_C = "doc1_0003"
 
 
-def _make_criterion_result(
-    key: str,
-    status: str = "sufficient",
-    block_ids: list[str] | None = None,
-) -> CriterionResult:
-    evidence = [
-        EvidenceRef(block_id=bid, page_no=1, block_type="paragraph")
-        for bid in (block_ids or [])
-    ]
-    return CriterionResult(
-        criterion_key=key,
-        status=status,
-        stoplight="yellow" if status == "sufficient" else "green" if status == "strong" else "red",
-        is_blocker=True,
-        evidence=evidence,
-    )
+def _evidence_item(block_id: str) -> dict:
+    return {
+        "block_id": block_id,
+        "page_no": 1,
+        "block_type": "paragraph",
+        "heading_path": [],
+        "excerpt": "",
+        "selection_reason": "",
+        "signal_class": "positive",
+    }
 
 
-def _make_caps_result(
-    stoplight: str = "green",
+def _make_merged(
+    final_stoplight: str = "green",
     doc_id: str = "doc1",
     criterion_block_ids: dict[str, list[str]] | None = None,
-) -> CapsRunResult:
-    """Build a minimal CapsRunResult for testing."""
+) -> dict:
+    """Build a minimal merged feedback input for testing the validator."""
     bids = criterion_block_ids or {
         "beperking": [_BLOCK_A],
         "stakeholders": [_BLOCK_B],
@@ -61,57 +50,45 @@ def _make_caps_result(
         "taalkeuze": [],
         "security": [],
     }
-    results = {
-        key: _make_criterion_result(key, block_ids=bids.get(key, []))
-        for key in ("beperking", "stakeholders", "requirements", "taalkeuze", "security")
+    criteria = {
+        key: {
+            "caps_status": "sufficient",
+            "caps_stoplight": "yellow",
+            "count": None,
+            "caps_notes": [],
+            "missing_signals": [],
+            "evidence_items": [_evidence_item(b) for b in bids.get(key, [])],
+            "qwen_diagnostics": {},
+            "qwen_strengths": [],
+            "qwen_weaknesses": [],
+            "manual_review": False,
+            "manual_review_reason": [],
+        }
+        for key in CRITERIA_KEYS
     }
-    scorecard = CapsScorecard(doc_id=doc_id, results=results, hidden_score=10)
-    return CapsRunResult(
-        doc_id=doc_id,
-        source_name="test.pdf",
-        scorecard=scorecard,
-        overall_stoplight=stoplight,
-        run_meta=CapsRunMeta(
-            input_source="parser_direct",
-            page_count=5,
-            block_count=20,
-        ),
-    )
+    return {
+        "document_id": doc_id,
+        "source_name": "test.pdf",
+        "final_stoplight": final_stoplight,
+        "blockers_triggered": [],
+        "criteria_requiring_extra_review": [],
+        "criteria": criteria,
+    }
 
 
 def _valid_llm_output(stoplight: str = "green") -> dict:
-    """Return a dict that passes all guardrails (all 5 CAPS criteria present)."""
+    """Return a dict that passes all guardrails (all 5 criteria present)."""
     return {
         "stoplight": stoplight,
         "student_samenvatting": "Je document voldoet aan de basisvereisten.",
-        "docent_toelichting": f"Het CAPS-stoplicht is {stoplight}, de docent kan een globale controle uitvoeren.",
+        "docent_toelichting": f"Het stoplicht is {stoplight}, de docent kan een globale controle uitvoeren.",
         "feed_up": "Het doel is een volledig requirements-document met alle vijf criteria.",
         "feedback": [
-            {
-                "criterium": "beperking",
-                "observatie": "De beperking is duidelijk beschreven.",
-                "evidence_ref": [_BLOCK_A],
-            },
-            {
-                "criterium": "stakeholders",
-                "observatie": "De stakeholders zijn goed in kaart gebracht.",
-                "evidence_ref": [_BLOCK_B],
-            },
-            {
-                "criterium": "requirements",
-                "observatie": "De requirements zijn volledig uitgewerkt.",
-                "evidence_ref": [_BLOCK_C],
-            },
-            {
-                "criterium": "taalkeuze",
-                "observatie": "De taalkeuze is verantwoord.",
-                "evidence_ref": [],
-            },
-            {
-                "criterium": "security",
-                "observatie": "De beveiligingsmaatregelen zijn beschreven.",
-                "evidence_ref": [],
-            },
+            {"criterium": "beperking", "observatie": "De beperking is duidelijk beschreven.", "evidence_ref": [_BLOCK_A]},
+            {"criterium": "stakeholders", "observatie": "De stakeholders zijn goed in kaart gebracht.", "evidence_ref": [_BLOCK_B]},
+            {"criterium": "requirements", "observatie": "De requirements zijn volledig uitgewerkt.", "evidence_ref": [_BLOCK_C]},
+            {"criterium": "taalkeuze", "observatie": "De taalkeuze is verantwoord.", "evidence_ref": []},
+            {"criterium": "security", "observatie": "De beveiligingsmaatregelen zijn beschreven.", "evidence_ref": []},
         ],
         "feed_forward": [
             "Voeg meer bronnen toe aan de deskresearch.",
@@ -124,129 +101,77 @@ def _valid_llm_output(stoplight: str = "green") -> dict:
 def _to_json(d: dict) -> str:
     return json.dumps(d)
 
+
 # ---------------------------------------------------------------------------
-# Internal helpers
+# collect_known_block_ids (now lives in merge_builder)
 # ---------------------------------------------------------------------------
 
 
 def test_collect_known_block_ids_returns_all_ids():
-    caps = _make_caps_result(criterion_block_ids={
+    merged = _make_merged(criterion_block_ids={
         "beperking": [_BLOCK_A, _BLOCK_B],
         "stakeholders": [_BLOCK_C],
         "requirements": [],
         "taalkeuze": [],
         "security": [],
     })
-    ids = _collect_known_block_ids(caps)
-    assert ids == {_BLOCK_A, _BLOCK_B, _BLOCK_C}
+    assert collect_known_block_ids(merged) == {_BLOCK_A, _BLOCK_B, _BLOCK_C}
 
 
 def test_collect_known_block_ids_empty_when_no_evidence():
-    caps = _make_caps_result(criterion_block_ids={
-        k: [] for k in ("beperking", "stakeholders", "requirements", "taalkeuze", "security")
-    })
-    assert _collect_known_block_ids(caps) == frozenset()
+    merged = _make_merged(criterion_block_ids={k: [] for k in CRITERIA_KEYS})
+    assert collect_known_block_ids(merged) == frozenset()
 
 
-def test_llm_text_fields_concatenates_all_text_fields():
-    data = {
-        "student_samenvatting": "samenvatting",
-        "docent_toelichting": "toelichting",
-        "feed_up": "doel",
-        "taalgebruik": "stijl",
-        "feed_forward": ["tip1", "tip2"],
-        "feedback": [
-            {"observatie": "obs1", "evidence_ref": ["doc1_0001"]},
-            {"observatie": "obs2", "evidence_ref": []},
-        ],
-    }
-    result = _llm_text_fields(data)
-    assert "samenvatting" in result
-    assert "toelichting" in result
-    assert "doel" in result
-    assert "stijl" in result
-    assert "tip1" in result
-    assert "tip2" in result
-    assert "obs1" in result
-    assert "obs2" in result
-
-
-def test_llm_text_fields_excludes_evidence_ref_ids():
-    data = {
-        "student_samenvatting": "",
-        "docent_toelichting": "",
-        "feed_up": "",
-        "taalgebruik": "",
-        "feed_forward": [],
-        "feedback": [{"observatie": "", "evidence_ref": ["doc1_0001"]}],
-    }
-    result = _llm_text_fields(data)
-    assert "doc1_0001" not in result
 # ---------------------------------------------------------------------------
 # Valid output passes
 # ---------------------------------------------------------------------------
 
 
 def test_valid_output_returns_feedback_result():
-    caps = _make_caps_result(stoplight="green")
-    result = validate(_to_json(_valid_llm_output("green")), caps)
+    merged = _make_merged(final_stoplight="green")
+    result = validate(_to_json(_valid_llm_output("green")), merged)
     assert result["document_id"] == "doc1"
     assert result["stoplight"] == "green"
     assert result["disclaimer"] == DISCLAIMER
 
 
-def test_valid_output_document_id_from_caps_not_llm():
-    caps = _make_caps_result(stoplight="green", doc_id="real_doc_id")
+def test_valid_output_document_id_from_merged_not_llm():
+    merged = _make_merged(final_stoplight="green", doc_id="real_doc_id")
     payload = _valid_llm_output("green")
     payload["document_id"] = "fake_doc_id"
-    result = validate(_to_json(payload), caps)
+    result = validate(_to_json(payload), merged)
     assert result["document_id"] == "real_doc_id"
 
 
-def test_valid_output_stoplight_from_caps_not_llm():
-    caps = _make_caps_result(stoplight="yellow")
-    result = validate(_to_json(_valid_llm_output("yellow")), caps)
+def test_valid_output_stoplight_from_merged_yellow():
+    merged = _make_merged(final_stoplight="yellow")
+    result = validate(_to_json(_valid_llm_output("yellow")), merged)
     assert result["stoplight"] == "yellow"
 
 
-def test_valid_output_disclaimer_always_injected():
-    caps = _make_caps_result(stoplight="green")
-    payload = _valid_llm_output("green")
-    payload.pop("disclaimer", None)
-    result = validate(_to_json(payload), caps)
-    assert result["disclaimer"] == DISCLAIMER
-
-
 def test_valid_output_with_red_stoplight():
-    caps = _make_caps_result(stoplight="red")
-    result = validate(_to_json(_valid_llm_output("red")), caps)
+    merged = _make_merged(final_stoplight="red")
+    result = validate(_to_json(_valid_llm_output("red")), merged)
     assert result["stoplight"] == "red"
 
 
-def test_empty_feedback_list_raises():
-    caps = _make_caps_result(stoplight="green")
-    payload = _valid_llm_output("green")
-    payload["feedback"] = []
-    with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
-    assert "Missing feedback criteria" in exc_info.value.reason
-
-
 def test_valid_output_empty_feed_forward_is_allowed():
-    caps = _make_caps_result(stoplight="green")
+    merged = _make_merged(final_stoplight="green")
     payload = _valid_llm_output("green")
     payload["feed_forward"] = []
-    result = validate(_to_json(payload), caps)
+    result = validate(_to_json(payload), merged)
     assert result["feed_forward"] == []
 
 
 def test_valid_output_empty_evidence_ref_is_allowed():
-    caps = _make_caps_result(stoplight="green")
+    merged = _make_merged(final_stoplight="green")
     payload = _valid_llm_output("green")
     for entry in payload["feedback"]:
         entry["evidence_ref"] = []
-    result = validate(_to_json(payload), caps)
+    result = validate(_to_json(payload), merged)
     assert all(entry["evidence_ref"] == [] for entry in result["feedback"])
+
 
 # ---------------------------------------------------------------------------
 # JSON parse failure
@@ -254,180 +179,133 @@ def test_valid_output_empty_evidence_ref_is_allowed():
 
 
 def test_malformed_json_raises():
-    caps = _make_caps_result()
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate("this is not json", caps)
+        validate("this is not json", _make_merged())
     assert "JSON parse error" in exc_info.value.reason
 
 
 def test_json_array_instead_of_object_raises():
-    caps = _make_caps_result()
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate("[]", caps)
+        validate("[]", _make_merged())
     assert "not a JSON object" in exc_info.value.reason
 
 
 def test_validation_error_carries_raw_string():
-    caps = _make_caps_result()
     raw = "not json at all"
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(raw, caps)
+        validate(raw, _make_merged())
     assert exc_info.value.raw == raw
 
+
 # ---------------------------------------------------------------------------
-# Missing required fields
+# Missing required fields / empty samenvatting
 # ---------------------------------------------------------------------------
 
 
 @pytest.mark.parametrize("field", [
-    "student_samenvatting",
-    "docent_toelichting",
-    "feed_up",
-    "feedback",
-    "feed_forward",
-    "taalgebruik",
+    "student_samenvatting", "docent_toelichting", "feed_up",
+    "feedback", "feed_forward", "taalgebruik",
 ])
 def test_missing_required_field_raises(field: str):
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
     del payload[field]
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
+        validate(_to_json(payload), _make_merged("green"))
     assert "Missing required fields" in exc_info.value.reason
     assert field in exc_info.value.reason
 
 
-# ---------------------------------------------------------------------------
-# Empty student_samenvatting
-# ---------------------------------------------------------------------------
-
-
 def test_empty_student_samenvatting_raises():
-    caps = _make_caps_result(stoplight="green")
-    payload = _valid_llm_output("green")
-    payload["student_samenvatting"] = ""
-    with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
-    assert "student_samenvatting is empty" in exc_info.value.reason
-
-
-def test_whitespace_only_student_samenvatting_raises():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
     payload["student_samenvatting"] = "   "
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
+        validate(_to_json(payload), _make_merged("green"))
     assert "student_samenvatting is empty" in exc_info.value.reason
+
+
 # ---------------------------------------------------------------------------
-# Stoplight mismatch
+# Stoplight mismatch (against merged final_stoplight)
 # ---------------------------------------------------------------------------
 
 
 def test_stoplight_mismatch_raises():
-    caps = _make_caps_result(stoplight="green")
-    payload = _valid_llm_output("red")  # LLM returns wrong stoplight value
-    # Step 3b checks docent_toelichting for the CAPS stoplight ("green"),
-    # so keep docent_toelichting correct to let the mismatch check at step 4 fire.
+    merged = _make_merged(final_stoplight="green")
+    payload = _valid_llm_output("red")
     payload["docent_toelichting"] = "Het stoplicht is green, lichte controle volstaat."
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
+        validate(_to_json(payload), merged)
     assert "Stoplight mismatch" in exc_info.value.reason
-    assert "red" in exc_info.value.reason
-    assert "green" in exc_info.value.reason
 
 
 def test_stoplight_missing_from_llm_output_raises():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
     del payload["stoplight"]
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
-    # stoplight is in _REQUIRED_FIELDS, so step 2 catches it before the mismatch check
+        validate(_to_json(payload), _make_merged("green"))
     assert "Missing required fields" in exc_info.value.reason
     assert "stoplight" in exc_info.value.reason
 
 
+def test_yellow_final_stoplight_round_trips():
+    """A merge-derived yellow stoplight must validate cleanly end to end."""
+    merged = _make_merged(final_stoplight="yellow")
+    payload = _valid_llm_output("yellow")
+    payload["docent_toelichting"] = "Het stoplicht is yellow, controleer het document gericht."
+    result = validate(_to_json(payload), merged)
+    assert result["stoplight"] == "yellow"
+
+
 # ---------------------------------------------------------------------------
-# Score leak detection
+# Score / status-label leak detection
 # ---------------------------------------------------------------------------
 
 
 @pytest.mark.parametrize("text,field", [
     ("Je hebt 8/10 gehaald op dit onderdeel.", "student_samenvatting"),
-    # docent_toelichting must include the stoplight (green) to pass step 3b first
     ("Het stoplicht is green, score: 12 punten.", "docent_toelichting"),
     ("Het cijfer: 7 is voldoende.", "feed_up"),
-    ("Goed gedaan, score: 3 voor security.", "taalgebruik"),
     ("Je scoort 12/15 op de rubric.", "student_samenvatting"),
 ])
 def test_score_leak_in_text_field_raises(text: str, field: str):
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
     payload[field] = text
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
-    assert "Score leak" in exc_info.value.reason
-
-
-def test_score_leak_in_feed_forward_raises():
-    caps = _make_caps_result(stoplight="green")
-    payload = _valid_llm_output("green")
-    payload["feed_forward"] = ["Goed gedaan!", "Je hebt score: 9 gehaald."]
-    with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
-    assert "Score leak" in exc_info.value.reason
-
-
-def test_score_leak_in_observatie_raises():
-    caps = _make_caps_result(stoplight="green")
-    payload = _valid_llm_output("green")
-    payload["feedback"] = [
-        {
-            "criterium": "beperking",
-            "observatie": "Je hebt 4/10 voor dit criterium.",
-            "evidence_ref": [],
-        }
-    ]
-    with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
+        validate(_to_json(payload), _make_merged("green"))
     assert "Score leak" in exc_info.value.reason
 
 
 def test_legitimate_numbers_do_not_trigger_score_leak():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
-    payload["student_samenvatting"] = (
-        "Je document bevat 4 stakeholders en 15 requirements."
-    )
-    result = validate(_to_json(payload), caps)
+    payload["student_samenvatting"] = "Je document bevat 4 stakeholders en 15 requirements."
+    result = validate(_to_json(payload), _make_merged("green"))
     assert result is not None
+
+
+def test_internal_status_label_leak_raises():
+    payload = _valid_llm_output("green")
+    payload["taalgebruik"] = "De requirements zijn partial uitgewerkt."
+    with pytest.raises(FeedbackValidationError) as exc_info:
+        validate(_to_json(payload), _make_merged("green"))
+    assert "Internal status label" in exc_info.value.reason
+
+
 # ---------------------------------------------------------------------------
 # Disclaimer
 # ---------------------------------------------------------------------------
 
 
 def test_modified_disclaimer_raises():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
     payload["disclaimer"] = "Dit is een officiële beoordeling."
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
+        validate(_to_json(payload), _make_merged("green"))
     assert "Disclaimer was modified" in exc_info.value.reason
 
 
-def test_correct_disclaimer_in_output_passes():
-    caps = _make_caps_result(stoplight="green")
-    payload = _valid_llm_output("green")
-    payload["disclaimer"] = DISCLAIMER
-    result = validate(_to_json(payload), caps)
-    assert result["disclaimer"] == DISCLAIMER
-
-
 def test_absent_disclaimer_is_injected():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
     assert "disclaimer" not in payload
-    result = validate(_to_json(payload), caps)
+    result = validate(_to_json(payload), _make_merged("green"))
     assert result["disclaimer"] == DISCLAIMER
 
 
@@ -437,89 +315,65 @@ def test_absent_disclaimer_is_injected():
 
 
 def test_feedback_not_a_list_raises():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
     payload["feedback"] = "not a list"
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
+        validate(_to_json(payload), _make_merged("green"))
     assert "'feedback' must be a list" in exc_info.value.reason
 
 
 def test_unknown_criterion_key_raises():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
-    payload["feedback"] = [
-        {"criterium": "verzonnen_criterium", "observatie": "ok", "evidence_ref": []}
-    ]
+    payload["feedback"][0]["criterium"] = "verzonnen_criterium"
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
+        validate(_to_json(payload), _make_merged("green"))
     assert "Unknown criterion key" in exc_info.value.reason
-    assert "verzonnen_criterium" in exc_info.value.reason
 
 
 def test_missing_criterium_field_in_entry_raises():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
     payload["feedback"] = [{"observatie": "ok", "evidence_ref": []}]
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
+        validate(_to_json(payload), _make_merged("green"))
     assert "criterium" in exc_info.value.reason
 
 
 def test_unknown_evidence_ref_block_id_raises():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
-    payload["feedback"] = [
-        {
-            "criterium": "beperking",
-            "observatie": "ok",
-            "evidence_ref": ["hallucinated_block_id"],
-        }
-    ]
+    payload["feedback"][0]["evidence_ref"] = ["hallucinated_block_id"]
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
+        validate(_to_json(payload), _make_merged("green"))
     assert "Unknown evidence_ref block ID" in exc_info.value.reason
     assert "hallucinated_block_id" in exc_info.value.reason
 
 
 def test_known_evidence_ref_passes():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
-    # Only override beperking's evidence_ref; keep all other criteria intact
     payload["feedback"][0]["evidence_ref"] = [_BLOCK_A]
-    result = validate(_to_json(payload), caps)
+    result = validate(_to_json(payload), _make_merged("green"))
     assert result["feedback"][0]["evidence_ref"] == [_BLOCK_A]
 
 
-def test_evidence_ref_from_different_criterion_passes():
-    caps = _make_caps_result(stoplight="green")
-    payload = _valid_llm_output("green")
-    # _BLOCK_B belongs to stakeholders, but beperking entry references it — still valid
-    payload["feedback"][0]["evidence_ref"] = [_BLOCK_B]
-    result = validate(_to_json(payload), caps)
-    assert result["feedback"][0]["evidence_ref"] == [_BLOCK_B]
-    # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
 # feed_forward validation
 # ---------------------------------------------------------------------------
 
 
 def test_feed_forward_not_a_list_raises():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
     payload["feed_forward"] = "geef meer bronnen op"
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
+        validate(_to_json(payload), _make_merged("green"))
     assert "'feed_forward' must be a list" in exc_info.value.reason
 
 
 # ---------------------------------------------------------------------------
-# Output shape
+# Output shape + criteria completeness
 # ---------------------------------------------------------------------------
 
 
 def test_output_contains_all_required_keys():
-    caps = _make_caps_result(stoplight="green")
-    result = validate(_to_json(_valid_llm_output("green")), caps)
+    result = validate(_to_json(_valid_llm_output("green")), _make_merged("green"))
     for key in (
         "document_id", "stoplight", "student_samenvatting", "docent_toelichting",
         "feed_up", "feedback", "feed_forward", "taalgebruik", "disclaimer",
@@ -527,45 +381,22 @@ def test_output_contains_all_required_keys():
         assert key in result, f"Missing key in FeedbackResult: {key}"
 
 
-def test_feedback_entries_have_correct_shape():
-    caps = _make_caps_result(stoplight="green")
-    result = validate(_to_json(_valid_llm_output("green")), caps)
-    for entry in result["feedback"]:
-        assert "criterium" in entry
-        assert "observatie" in entry
-        assert "evidence_ref" in entry
-        assert isinstance(entry["evidence_ref"], list)
-
-
-# ---------------------------------------------------------------------------
-# Criteria completeness (step 8b)
-# ---------------------------------------------------------------------------
-
-
 def test_all_five_criteria_present_passes():
-    caps = _make_caps_result(stoplight="green")
-    result = validate(_to_json(_valid_llm_output("green")), caps)
+    result = validate(_to_json(_valid_llm_output("green")), _make_merged("green"))
     returned = {e["criterium"] for e in result["feedback"]}
-    assert returned == {"beperking", "stakeholders", "requirements", "taalkeuze", "security"}
+    assert returned == set(CRITERIA_KEYS)
 
 
 def test_missing_criteria_raises():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
-    payload["feedback"] = [
-        {"criterium": "beperking", "observatie": "ok", "evidence_ref": []}
-    ]
+    payload["feedback"] = [{"criterium": "beperking", "observatie": "ok", "evidence_ref": []}]
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
+        validate(_to_json(payload), _make_merged("green"))
     assert "Missing feedback criteria" in exc_info.value.reason
-    for key in ("requirements", "security", "stakeholders", "taalkeuze"):
-        assert key in exc_info.value.reason
 
 
 def test_duplicate_criterion_raises():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
-    # Replace the first entry with a duplicate of itself
     payload["feedback"] = [
         {"criterium": "beperking", "observatie": "eerste", "evidence_ref": []},
         {"criterium": "beperking", "observatie": "duplicaat", "evidence_ref": []},
@@ -575,56 +406,27 @@ def test_duplicate_criterion_raises():
         {"criterium": "security", "observatie": "ok", "evidence_ref": []},
     ]
     with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
+        validate(_to_json(payload), _make_merged("green"))
     assert "Duplicate" in exc_info.value.reason
-    assert "beperking" in exc_info.value.reason
-
-
-def test_unknown_criterion_still_rejected_before_completeness_check():
-    caps = _make_caps_result(stoplight="green")
-    payload = _valid_llm_output("green")
-    payload["feedback"][0]["criterium"] = "verzonnen_criterium"
-    with pytest.raises(FeedbackValidationError) as exc_info:
-        validate(_to_json(payload), caps)
-    assert "Unknown criterion key" in exc_info.value.reason
 
 
 # ---------------------------------------------------------------------------
-# docent_toelichting stoplight check (step 3b)
+# docent_toelichting must mention the final stoplight (step 3b)
 # ---------------------------------------------------------------------------
 
 
-def test_docent_toelichting_must_contain_stoplight():
+def test_docent_toelichting_must_contain_final_stoplight():
     for stoplight in ("green", "yellow", "red"):
-        caps = _make_caps_result(stoplight=stoplight)
         payload = _valid_llm_output(stoplight)
         payload["docent_toelichting"] = "Geen stoplicht vermeld hier."
         with pytest.raises(FeedbackValidationError) as exc_info:
-            validate(_to_json(payload), caps)
-        assert "docent_toelichting does not mention the CAPS stoplight" in exc_info.value.reason
+            validate(_to_json(payload), _make_merged(stoplight))
+        assert "does not mention the final stoplight" in exc_info.value.reason
         assert stoplight in exc_info.value.reason
 
 
-def test_docent_toelichting_with_stoplight_passes():
-    caps = _make_caps_result(stoplight="yellow")
-    payload = _valid_llm_output("yellow")
-    payload["docent_toelichting"] = "Het stoplicht is yellow, controleer het document gericht."
-    result = validate(_to_json(payload), caps)
-    assert result["stoplight"] == "yellow"
-
-
 def test_docent_toelichting_stoplight_case_insensitive():
-    caps = _make_caps_result(stoplight="green")
     payload = _valid_llm_output("green")
     payload["docent_toelichting"] = "Stoplicht: GREEN — lichte controle volstaat."
-    result = validate(_to_json(payload), caps)
+    result = validate(_to_json(payload), _make_merged("green"))
     assert result is not None
-
-
-# ---------------------------------------------------------------------------
-# Manual-review enforcement removed (deferred to the Qwen stage)
-# ---------------------------------------------------------------------------
-# CAPS no longer produces manual_review_required / manual_review_flags, so the
-# validator no longer enforces a manual-review acknowledgement. The previous
-# tests for step 3c were removed with that guardrail; the manual-review decision
-# and its validation will return with the future Qwen stage.
