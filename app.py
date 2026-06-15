@@ -412,3 +412,101 @@ def _validate_pdf(pdf_bytes: bytes, filename: str) -> str | None:
         return "Het geupload bestand is geen geldig PDF (ontbrekende PDF-header)."
     return None
 
+# ---------------------------------------------------------------------------
+# Pipeline helpers (ongewijzigd)
+# ---------------------------------------------------------------------------
+
+def _parse_and_anonymize(pdf_bytes: bytes, source_name: str) -> pathlib.Path:
+    from src.parser import extract_raw_elements, build_blocks
+    from src.parser.report import generate_report
+    from src.privacy.anonymizer import anonymize_blocks
+    from src.privacy.catalog import load_catalog, PeopleCatalog
+
+    _UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
+
+    doc_id = hashlib.sha256(pdf_bytes).hexdigest()[:8]
+    temp_pdf = _UPLOADS_DIR / f"{doc_id}_upload.pdf"
+    temp_pdf.write_bytes(pdf_bytes)
+
+    raw = extract_raw_elements(str(temp_pdf))
+    blocks = build_blocks(raw, doc_id=doc_id)
+
+    if not blocks:
+        raise ValueError(
+            "Geen tekstblokken gevonden in het PDF. Mogelijk een gescand "
+            "document zonder OCR, of een leeg bestand."
+        )
+
+    report = generate_report(blocks, str(temp_pdf), doc_id)
+
+    try:
+        catalog = load_catalog(_CATALOG_PATH)
+    except Exception:
+        catalog = PeopleCatalog(personen=[])
+
+    anon_blocks, mapping = anonymize_blocks(blocks, catalog)
+
+    anon_report = {
+        **report,
+        "source_name": source_name,
+        "block_count": len(anon_blocks),
+        "mapping_count": len(mapping),
+        "mapping": {},
+        "blocks": [asdict(b) for b in anon_blocks],
+    }
+
+    anon_path = _UPLOADS_DIR / f"{doc_id}_anonymized.json"
+    anon_path.write_text(
+        json.dumps(anon_report, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+    return anon_path
+
+
+def _run_pipeline(anon_path: pathlib.Path) -> tuple[pathlib.Path | None, str]:
+    result = None
+    try:
+        result = subprocess.run(
+            [
+                sys.executable,
+                "scripts/run_full_pipeline_v2.py",
+                "--input", str(anon_path),
+                "--llm-timeout", "300",
+            ],
+            capture_output=True, text=True,
+            cwd=str(_PROJECT_ROOT), timeout=720,
+        )
+    except subprocess.TimeoutExpired:
+        fout = "Pipeline gestopt na 12 minuten — mogelijke oorzaak: Ollama niet actief."
+    except Exception as exc:
+        return None, f"Pipeline kon niet worden gestart: {exc}"
+    else:
+        fout = ""
+
+    if result is not None:
+        for line in result.stdout.splitlines():
+            if "Output directory:" in line:
+                run_dir = pathlib.Path(line.split("Output directory:")[-1].strip())
+                if run_dir.exists():
+                    return run_dir, fout
+
+        if result.returncode != 0 and not fout:
+            for line in result.stdout.splitlines():
+                if "[FATAL]" in line:
+                    fout = line.strip()
+                    break
+            if not fout:
+                fout = (result.stdout[-1500:] + "\n" + result.stderr[-300:]).strip()
+
+    doc_id = anon_path.stem.replace("_anonymized", "")
+    if _RUNS_DIR.exists():
+        candidates = sorted(
+            [d for d in _RUNS_DIR.iterdir()
+             if d.is_dir() and d.name.startswith(doc_id)],
+            reverse=True,
+        )
+        if candidates:
+            return candidates[0], fout
+
+    if not fout:
+        fout = "Run-map niet aangemaakt — mogelijk is CAPS mislukt."
+    return None, fout
