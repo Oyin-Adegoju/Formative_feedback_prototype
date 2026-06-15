@@ -886,3 +886,64 @@ def _find_demo_run() -> pathlib.Path | None:
         return fallback[0]
 
     return None
+
+# ---------------------------------------------------------------------------
+# Upload-formulier — verbeterde opmaak
+# ---------------------------------------------------------------------------
+
+def _render_upload_form() -> None:
+    st.title("Genereer formatieve feedback")
+
+    st.divider()
+
+    uploaded_pdf = st.file_uploader(
+        "Student document (PDF)",
+        type=["pdf"],
+        help="Selecteer een PDF om de knop te activeren.",
+    )
+
+    st.divider()
+
+    if st.button(
+        "Genereer formatieve feedback",
+        type="primary",
+        disabled=uploaded_pdf is None,
+    ):
+        _generate_demo()
+
+
+def _generate_demo() -> None:
+    """Laad een bestaande voorbeeldrun — geen pipeline, geen LLM."""
+
+    thinking_placeholder = st.empty()
+
+    thinking_placeholder.markdown(
+        """
+        <div class="thinking-indicator">
+            <span class="thinking-icon">🤖</span>
+            <span class="thinking-text">AI is aan het denken</span>
+            <div class="thinking-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    run_dir = _find_demo_run()
+
+    time.sleep(10)
+    thinking_placeholder.empty()
+
+    if run_dir is None:
+        st.error(
+            "Geen complete voorbeeldoutput gevonden in `data/full_pipeline_runs/`. "
+            "Zorg dat er een run aanwezig is met zowel `feedback_result.json` "
+            "als `merged_feedback_input.json`."
+        )
+        return
+
+    st.session_state.run_dir = str(run_dir)
+    st.rerun()
