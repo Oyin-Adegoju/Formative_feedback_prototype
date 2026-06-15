@@ -235,7 +235,8 @@ Retourneer exact dit JSON-object. Geen tekst ervoor of erna.
 
   Bouw dit veld in deze volgorde op:
   Zin 1 — Stoplicht + aandachtscriteria:
-           noem het exacte stoplicht (green, yellow of red).
+           noem het stoplicht expliciet als kleur: groen, geel of rood
+           (de Engelse term green/yellow/red mag ook, maar de kleur MOET in de tekst staan).
            Noem daarna welke criteria in criteria_requiring_extra_review staan
            (criteria waarvoor Qwen manual_review: true heeft ingesteld).
            Als criteria_requiring_extra_review leeg is, volstaat een korte stoplicht-toelichting.
