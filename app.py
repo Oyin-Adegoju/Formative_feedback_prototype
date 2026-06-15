@@ -510,3 +510,35 @@ def _run_pipeline(anon_path: pathlib.Path) -> tuple[pathlib.Path | None, str]:
     if not fout:
         fout = "Run-map niet aangemaakt — mogelijk is CAPS mislukt."
     return None, fout
+# ---------------------------------------------------------------------------
+# Data laden (ongewijzigd)
+# ---------------------------------------------------------------------------
+
+def _list_runs() -> list[pathlib.Path]:
+    if not _RUNS_DIR.exists():
+        return []
+    dirs = sorted(
+        (d for d in _RUNS_DIR.iterdir() if d.is_dir()),
+        reverse=True,
+    )
+    valid = []
+    for d in dirs:
+        fb_path = d / "feedback_result.json"
+        if not fb_path.exists():
+            continue
+        try:
+            data = json.loads(fb_path.read_text(encoding="utf-8"))
+            if isinstance(data, dict) and not data.get("skipped"):
+                valid.append(d)
+        except (OSError, json.JSONDecodeError):
+            pass
+    return valid
+
+
+def _load_json(path: pathlib.Path) -> dict | None:
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return None if (isinstance(data, dict) and data.get("skipped")) else data
+    except (OSError, json.JSONDecodeError):
+        return None
+
