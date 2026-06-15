@@ -636,3 +636,209 @@ def _render_student_view(fb: dict, run_dir: pathlib.Path) -> None:
 
 
 
+# Docentweergave — verbeterde opmaak
+# Logica ongewijzigd, alleen layout & stijl aangepast
+# ---------------------------------------------------------------------------
+
+def _render_docent_view(
+    fb: dict,
+    merged: dict | None,
+    run_dir: pathlib.Path,
+) -> None:
+    stoplight = fb.get("stoplight", "green")
+    badge = _STOPLIGHT_BADGE.get(stoplight, "")
+    css_class = f"stoplight-{stoplight}"
+
+    stoplight_nl = _STOPLIGHT_NL.get(stoplight, stoplight.capitalize())
+
+    st.markdown(
+        f"<div class='stoplight-banner {css_class}'>"
+        f"<span style='font-size:1.6rem;'>{badge}</span>"
+        f"<span>Stoplicht: {stoplight_nl}</span>"
+        f"</div>",
+        unsafe_allow_html=True,
+    )
+
+    st.write(fb.get("docent_toelichting", ""))
+
+    if merged:
+        extra = merged.get("criteria_requiring_extra_review", [])
+        if extra:
+            extra_labels = [_CRITERION_LABELS.get(k, k) for k in extra]
+            st.warning(f"**Extra docentfocus:** {', '.join(extra_labels)}")
+
+    # ── Feedback per criterium ──────────────────────────────────────────────
+    st.markdown(
+        "<div class='section-header'>Feedback per criterium</div>",
+        unsafe_allow_html=True,
+    )
+
+    feedback_by_key = {
+        entry.get("criterium"): entry
+        for entry in fb.get("feedback", [])
+        if isinstance(entry, dict)
+    }
+
+    merged_criteria = (merged or {}).get("criteria", {})
+    criteria_keys = list(_CRITERION_LABELS.keys())
+
+    for key in criteria_keys:
+        crit_fb = feedback_by_key.get(key, {})
+        crit_merged = merged_criteria.get(key, {})
+
+        label = _CRITERION_LABELS.get(key, key)
+        manual = crit_merged.get("manual_review", False)
+        observatie = crit_fb.get("observatie", "")
+
+        prefix = "! " if manual else ""
+
+        with st.expander(f"{prefix}{label}", expanded=True):
+
+            # Aandachtswaarschuwing
+            if manual:
+                reasons = crit_merged.get("manual_review_reason", [])
+                if reasons:
+                    st.markdown(
+                        f"<span style='color:#e65100;font-size:0.82rem;'>"
+                        f"{' · '.join(reasons)}</span>",
+                        unsafe_allow_html=True,
+                    )
+
+            # Sterktes / verbeterpunten
+            strengths = crit_merged.get("qwen_strengths", [])
+            weaknesses = crit_merged.get("qwen_weaknesses", [])
+
+            if strengths or weaknesses:
+                col_strengths, col_weaknesses = st.columns(2)
+
+                if strengths:
+                    with col_strengths:
+                        st.markdown("**Sterktes**")
+                        for strength in strengths:
+                            st.markdown(
+                                f"<span style='font-size:0.85rem;'>+ {strength}</span>",
+                                unsafe_allow_html=True,
+                            )
+
+                if weaknesses:
+                    with col_weaknesses:
+                        st.markdown("**Verbeterpunten**")
+                        for weakness in weaknesses:
+                            st.markdown(
+                                f"<span style='font-size:0.85rem;'>- {weakness}</span>",
+                                unsafe_allow_html=True,
+                            )
+
+            # Ontbrekende signalen
+            missing = crit_merged.get("missing_signals", [])
+            if missing:
+                st.markdown(
+                    f"<span style='font-size:0.82rem;color:#c62828;'>"
+                    f"<strong>Ontbrekende signalen:</strong> {', '.join(missing)}"
+                    f"</span>",
+                    unsafe_allow_html=True,
+                )
+
+            # Evidence
+            evidence = crit_merged.get("evidence_items", [])
+            if evidence:
+                st.markdown("**Evidence**")
+                _render_evidence(evidence)
+
+            st.divider()
+
+            # ── Bewerkbaar feedbackveld ─────────────────────────────────────
+            edit_key = f"edit_{key}_{run_dir.name}"
+
+            if edit_key not in st.session_state:
+                st.session_state[edit_key] = observatie
+
+            st.markdown("**Feedback (aanpasbaar)**")
+            st.text_area(
+                label="feedback_text",
+                value=st.session_state[edit_key],
+                key=edit_key,
+                height=130,
+                label_visibility="collapsed",
+            )
+
+            # ── Opmerkingenveld ─────────────────────────────────────────────
+            notes_key = f"notes_{key}_{run_dir.name}"
+
+            st.markdown(
+                "<div class='notes-label'>Eigen opmerkingen voor de student</div>",
+                unsafe_allow_html=True,
+            )
+
+            st.text_area(
+                label="notes_text",
+                key=notes_key,
+                height=70,
+                placeholder="Voeg hier aanvullende opmerkingen toe...",
+                label_visibility="collapsed",
+            )
+
+    # ── Aanbevelingen ───────────────────────────────────────────────────────
+    st.markdown(
+        "<div class='section-header'>Aanbevelingen voor verbetering</div>",
+        unsafe_allow_html=True,
+    )
+
+    for tip in fb.get("feed_forward", []):
+        st.markdown(f"- {tip}")
+
+    taalgebruik = fb.get("taalgebruik", "")
+    if taalgebruik:
+        st.markdown("<div class='section-header'>Taalgebruik</div>", unsafe_allow_html=True)
+        st.write(taalgebruik)
+
+    st.divider()
+    st.caption(fb.get("disclaimer", ""))
+
+    # ── Verstuur alle feedback naar student ─────────────────────────────────
+    sent_all_key = f"sent_all_{run_dir.name}"
+
+    st.markdown("<div class='send-btn-wrapper'>", unsafe_allow_html=True)
+
+    if st.button(
+        "Verstuur feedback naar student",
+        key=sent_all_key,
+        type="primary",
+        use_container_width=True,
+    ):
+        st.session_state[f"confirm_{run_dir.name}"] = True
+
+    st.markdown("</div>", unsafe_allow_html=True)
+
+    if st.session_state.get(f"confirm_{run_dir.name}"):
+        st.success("✓ Feedback verstuurd naar student")
+
+    st.divider()
+
+    # ── Downloads ───────────────────────────────────────────────────────────
+    st.markdown("<div class='section-header'>Downloads</div>", unsafe_allow_html=True)
+
+    col_a, col_b = st.columns(2)
+
+    input_path = run_dir / "input_copy.json"
+    anon_data = input_path.read_bytes() if input_path.exists() else b"{}"
+
+    with col_a:
+        st.download_button(
+            label="Geanonimiseerd document (JSON)",
+            data=anon_data,
+            file_name=f"{run_dir.name}_geanonimiseerd.json",
+            mime="application/json",
+        )
+
+    with col_b:
+        fb_bytes = json.dumps(fb, indent=2, ensure_ascii=False).encode("utf-8")
+
+        st.download_button(
+            label="Feedback resultaat (JSON)",
+            data=fb_bytes,
+            file_name=f"{run_dir.name}_feedback.json",
+            mime="application/json",
+        )
+
+
