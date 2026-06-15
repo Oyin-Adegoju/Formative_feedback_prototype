@@ -234,7 +234,8 @@ def test_requirements_subtypes_distinguished(rich_packets):
     subtypes = {it.criterion_subtype for it in packets["requirements"].evidence_items}
     assert "functional" in subtypes
     assert "non_functional" in subtypes
-    assert "use_case" in subtypes
+    # Use cases are no longer admitted as requirements (heading-only gating).
+    assert "use_case" not in subtypes
 
 
 def test_requirements_subtype_from_heading_path(rich_packets):
