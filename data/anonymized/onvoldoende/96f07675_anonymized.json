@@ -1,0 +1,4114 @@
+{
+  "doc_id": "96f07675",
+  "source_path": "INFIRST_requirements/onvoldoende/Requirement_student1 .pdf",
+  "source_name": "Requirement_student1 .pdf",
+  "quality_label": "onvoldoende",
+  "block_count": 213,
+  "mapping_count": 4,
+  "mapping": {},
+  "blocks": [
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0001",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Student naam + nummer",
+      "token_estimate": 5,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0002",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Modulenaam",
+      "token_estimate": 2,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0003",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Datum",
+      "token_estimate": 1,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0004",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Titel pagina",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0005",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "[ leuke meme ]",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0006",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "[ mooie plaatje ]",
+      "token_estimate": 4,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0007",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "[ goede document template ] - consistent met je andere documenten",
+      "token_estimate": 16,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0008",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Inhoud",
+      "token_estimate": 1,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0009",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H1 Introductie .......................................................................................................................................... 3",
+      "token_estimate": 38,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0010",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H2 Stakeholders analyse .......................................................................................................................... 4",
+      "token_estimate": 37,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0011",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Onderzoek naar web gebruikers ............................................................................................................ 10",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0012",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H4 Wensen, Eisen, Prioriteiten .............................................................................................................. 12",
+      "token_estimate": 36,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0013",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "4.1 Constraints en (non-) Functionele eisen ....................................................................................... 12",
+      "token_estimate": 33,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0014",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Niet-functionele requirements ........................................................................................................... 13",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0015",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Functionele requirements .................................................................................................................. 14",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0016",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "4.2 Use Case Diagram ......................................................................................................................... 16",
+      "token_estimate": 36,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0017",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "4.3 Use Case beschrijvingen ............................................................................................................... 16",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0018",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H5 Ethische aandachtspunten ................................................................................................................ 19",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0019",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H6 Literatuurlijst ..................................................................................................................................... 19",
+      "token_estimate": 38,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0020",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Bijlage I – Interview verslag [PERSOON_01] ........................................................................................................ 20",
+      "token_estimate": 36,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0021",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Bijlage II – Interview verslag - [PERSOON_02] ................................................................................................... 21",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0022",
+      "page_no": 1,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 1",
+      "token_estimate": 6,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0023",
+      "page_no": 2,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 2",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0024",
+      "page_no": 3,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "H1 Introductie",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0025",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "Korte beschrijving van de webshop die JIJ gaat maken.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0026",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "Mogelijk met een voorbeeld tekening – Gebruik daar bijvoorbeeld Figma voor.",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0027",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "Richt op 2 of 3 alineas – halve A4 - tot maximaal 1 pagina als je plaatjes toevoegd.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0028",
+      "page_no": 3,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 3",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0029",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "H2 Stakeholders analyse",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0030",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "De stakeholder waar we rekening mee houden zijn deze ; Functie en",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0031",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Rol :",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0032",
+      "page_no": 4,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 4",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0033",
+      "page_no": 4,
+      "block_type": "table",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Stakeholder Functie | Stakeholder Functie | Rol\n[PERSOON_03] | Vertegenwoordiger van investeringsbedrijf Plenty. | Vertegenwoordiger van | [PERSOON_03] is verantwoordelijk voor het vinden van geschikte websiteontwikkelaars en het definiëren van de vereisten voor het project. Ze fungeert als tussenpersoon tussen het investeringsbedrijf en de websiteontwikkelaars.\ninvesteringsbedrijf Plenty.\nEigenaren/Investeerders | Eigenaren of financiële investeerders van investeringsbedrijf Plenty. | Eigenaren of financiële | Ze zijn verantwoordelijk voor het goedkeuren van het project en het vaststellen van de algemene strategie en doelstellingen ervan. Als leiders van het investeringsbedrijf dragen ze de eindverantwoordelijkheid voor het succesvol afronden van het project binnen de gestelde parameters.\ninvesteerders van\ninvesteringsbedrijf Plenty.\nBestuur/Directie | Bestuursleden of directieleden van investeringsbedrijf Plenty. | Bestuursleden of directieleden | Ze zijn verantwoordelijk voor het goedkeuren van het project en het vaststellen van de algemene strategie en doelstellingen ervan. Als leiders van het investeringsbedrijf dragen ze de eindverantwoordelijkheid voor het succesvol afronden van het project binnen de gestelde parameters\nvan investeringsbedrijf Plenty.\nManagementteam | Leidinggevenden en managers binnen investeringsbedrijf Plenty. | Leidinggevenden en managers | Ze zijn betrokken bij het toezicht houden op het project en het zorgen voor een goede uitvoering van de strategie. Ze coördineren de activiteiten op verschillende afdelingen en zorgen ervoor dat de doelstellingen worden behaald binnen de gestelde tijdlijnen en budgetten.\nbinnen investeringsbedrijf Plenty.",
+      "token_estimate": 425,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 10,
+        "column_count": 5,
+        "header_row": "Stakeholder Functie | Stakeholder Functie | Rol",
+        "cells": [
+          [
+            "Stakeholder Functie",
+            "Stakeholder Functie",
+            "Rol"
+          ],
+          [
+            "[PERSOON_03]",
+            "Vertegenwoordiger van investeringsbedrijf Plenty.",
+            "Vertegenwoordiger van",
+            "[PERSOON_03] is verantwoordelijk voor het vinden van geschikte websiteontwikkelaars en het definiëren van de vereisten voor het project. Ze fungeert als tussenpersoon tussen het investeringsbedrijf en de websiteontwikkelaars."
+          ],
+          [
+            "investeringsbedrijf Plenty."
+          ],
+          [
+            "Eigenaren/Investeerders",
+            "Eigenaren of financiële investeerders van investeringsbedrijf Plenty.",
+            "Eigenaren of financiële",
+            "Ze zijn verantwoordelijk voor het goedkeuren van het project en het vaststellen van de algemene strategie en doelstellingen ervan. Als leiders van het investeringsbedrijf dragen ze de eindverantwoordelijkheid voor het succesvol afronden van het project binnen de gestelde parameters."
+          ],
+          [
+            "investeerders van"
+          ],
+          [
+            "investeringsbedrijf Plenty."
+          ],
+          [
+            "Bestuur/Directie",
+            "Bestuursleden of directieleden van investeringsbedrijf Plenty.",
+            "Bestuursleden of directieleden",
+            "Ze zijn verantwoordelijk voor het goedkeuren van het project en het vaststellen van de algemene strategie en doelstellingen ervan. Als leiders van het investeringsbedrijf dragen ze de eindverantwoordelijkheid voor het succesvol afronden van het project binnen de gestelde parameters"
+          ],
+          [
+            "van investeringsbedrijf Plenty."
+          ],
+          [
+            "Managementteam",
+            "Leidinggevenden en managers binnen investeringsbedrijf Plenty.",
+            "Leidinggevenden en managers",
+            "Ze zijn betrokken bij het toezicht houden op het project en het zorgen voor een goede uitvoering van de strategie. Ze coördineren de activiteiten op verschillende afdelingen en zorgen ervoor dat de doelstellingen worden behaald binnen de gestelde tijdlijnen en budgetten."
+          ],
+          [
+            "binnen investeringsbedrijf Plenty."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0034",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Categorisatie",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0035",
+      "page_no": 5,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 5",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0036",
+      "page_no": 5,
+      "block_type": "table",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Medewerkers | Alle werknemers van investeringsbedrijf Plenty. | Alle werknemers van\ninvesteringsbedrijf Plenty.\nHoewel ze niet direct betrokken zijn\nbij het project voor de ontwikkeling\nvan de webshop, dragen ze bij aan de\nalgehele activiteiten van het\ninvesteringsbedrijf. Hun inzet en\nbijdragen op verschillende afdelingen\nhelpen bij het ondersteunen van de\nstrategische doelstellingen van het\nbedrijf, waaronder ook het succes van\nhet project.\nIndividuele websiteontwikkelaars | Websiteontwikkelaars. | Websiteontwikkelaars. | Zij zijn verantwoordelijk voor het ontwerpen, ontwikkelen, beveiligen en testen van de webshop volgens de gestelde specificaties. Hun rol is cruciaal bij het creëren van een goed functionerende en gebruiksvriendelijke webshop. | Zij zijn verantwoordelijk voor het\nontwerpen, ontwikkelen, beveiligen\nen testen van de webshop volgens de\ngestelde specificaties. Hun rol is\ncruciaal bij het creëren van een goed\nfunctionerende en\ngebruiksvriendelijke webshop.\nKlanten | Eindgebruikers van de website. | Eindgebruikers van de website. | Klanten zijn degenen die de webshop zullen gebruiken om producten te zoeken en kopen. Hun behoeften en voorkeuren moeten worden meegenomen in het ontwerp en de ontwikkeling van de webshop om een optimale gebruikerservaring te garanderen.\nGebruikers met beperkte financiële middelen | Eindgebruikers van de website met beperkte financiële middelen. | Eindgebruikers van de website | Vertegenwoordigen gebruikers met financiële beperkingen. Ze zijn belangrijk voor het bieden van betaalbare producten. Hun behoeften beïnvloeden het ontwerp van de webshop.\nmet beperkte financiële\nmiddelen.",
+      "token_estimate": 412,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 23,
+        "column_count": 5,
+        "header_row": null,
+        "cells": [
+          [
+            "Medewerkers",
+            "Alle werknemers van investeringsbedrijf Plenty.",
+            "Alle werknemers van"
+          ],
+          [
+            "investeringsbedrijf Plenty."
+          ],
+          [
+            "Hoewel ze niet direct betrokken zijn"
+          ],
+          [
+            "bij het project voor de ontwikkeling"
+          ],
+          [
+            "van de webshop, dragen ze bij aan de"
+          ],
+          [
+            "algehele activiteiten van het"
+          ],
+          [
+            "investeringsbedrijf. Hun inzet en"
+          ],
+          [
+            "bijdragen op verschillende afdelingen"
+          ],
+          [
+            "helpen bij het ondersteunen van de"
+          ],
+          [
+            "strategische doelstellingen van het"
+          ],
+          [
+            "bedrijf, waaronder ook het succes van"
+          ],
+          [
+            "het project."
+          ],
+          [
+            "Individuele websiteontwikkelaars",
+            "Websiteontwikkelaars.",
+            "Websiteontwikkelaars.",
+            "Zij zijn verantwoordelijk voor het ontwerpen, ontwikkelen, beveiligen en testen van de webshop volgens de gestelde specificaties. Hun rol is cruciaal bij het creëren van een goed functionerende en gebruiksvriendelijke webshop.",
+            "Zij zijn verantwoordelijk voor het"
+          ],
+          [
+            "ontwerpen, ontwikkelen, beveiligen"
+          ],
+          [
+            "en testen van de webshop volgens de"
+          ],
+          [
+            "gestelde specificaties. Hun rol is"
+          ],
+          [
+            "cruciaal bij het creëren van een goed"
+          ],
+          [
+            "functionerende en"
+          ],
+          [
+            "gebruiksvriendelijke webshop."
+          ],
+          [
+            "Klanten",
+            "Eindgebruikers van de website.",
+            "Eindgebruikers van de website.",
+            "Klanten zijn degenen die de webshop zullen gebruiken om producten te zoeken en kopen. Hun behoeften en voorkeuren moeten worden meegenomen in het ontwerp en de ontwikkeling van de webshop om een optimale gebruikerservaring te garanderen."
+          ],
+          [
+            "Gebruikers met beperkte financiële middelen",
+            "Eindgebruikers van de website met beperkte financiële middelen.",
+            "Eindgebruikers van de website",
+            "Vertegenwoordigen gebruikers met financiële beperkingen. Ze zijn belangrijk voor het bieden van betaalbare producten. Hun behoeften beïnvloeden het ontwerp van de webshop."
+          ],
+          [
+            "met beperkte financiële"
+          ],
+          [
+            "middelen."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0037",
+      "page_no": 6,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 6",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0038",
+      "page_no": 6,
+      "block_type": "table",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Stakeholder | Stakeholder | Category (primair, secundair) | Category (primair, | Intern/extern/interface | Intern/extern/interface | Invloed | Invloed\nsecundair)\n[PERSOON_03] | [PERSOON_03] | Primair Haar rol als vertegenwoordiger van het investeringsbedrijf maakt haar essentieel voor het project. | Primair Haar rol als | Intern Ze is intern verbonden met het bedrijf en heeft directe invloed op het project. | Intern Ze is intern | Gemiddeld: Als vertegenwoordiger van het investeringsbedrijf heeft ze invloed op de richting van het project, maar haar macht wordt beperkt door de vereisten en prioriteiten van het bedrijf. | Gemiddeld: Als\nvertegenwoordiger van | verbonden met het | vertegenwoordiger van\nhet investeringsbedrijf | bedrijf en heeft directe | het investeringsbedrijf\nmaakt haar essentieel | invloed op het project. | heeft ze invloed op de\nvoor het project. | richting van het project,\nmaar haar macht wordt\nbeperkt door de\nvereisten en prioriteiten\nEigenaren/Investeerders | Eigenaren/Investeerders | Primair Hun direct financieel belang maakt hen essentieel voor het succes van het project | Primair Hun direct | Intern Ze zijn intern verbonden met het investeringsbedrijf en hebben directe invloed op strategische beslissingen. | Intern Ze zijn intern | Veel Hun direct financieel belang en besluitvormingsmacht maken hun invloed significant voor het project. | Veel Hun direct\nfinancieel belang maakt | verbonden met het | financieel belang en\nhen essentieel voor het | investeringsbedrijf en | besluitvormingsmacht\nsucces van het project | hebben directe invloed | maken hun invloed\nop strategische | significant voor het\nbeslissingen. | project.\nBestuur/Directie | Bestuur/Directie | Primair Hun verantwoordelijkheid voor strategisch beheer maakt hun betrokkenheid cruciaal. | Primair Hun | Intern Ze opereren binnen de interne structuur van het investeringsbedrijf en dragen direct bij aan besluitvorming. | Intern Ze opereren | Veel Als strategische leiders bepalen zij de koers van het bedrijf, waardoor hun invloed aanzienlijk is | Veel Als strategische\nverantwoordelijkheid | binnen de interne | leiders bepalen zij de\nvoor strategisch beheer | structuur van het | koers van het bedrijf,\nmaakt hun | investeringsbedrijf en | waardoor hun invloed\nbetrokkenheid cruciaal. | dragen direct bij aan | aanzienlijk is\nbesluitvorming.\nManagementteam | Managementteam | Primair Hun rol in operationeel beheer maakt hun betrokkenheid van groot belang. | Primair Hun rol in | Intern Ze zijn onderdeel van de interne organisatiestructuur en houden toezicht op het project. | Intern Ze zijn | Gemiddeld Ze hebben operationele verantwoordelijkheden en kunnen directe invloed uitoefenen binnen hun toegewezen domeinen. | Gemiddeld Ze\noperationeel beheer | onderdeel van de interne | hebben operationele\nmaakt hun | organisatiestructuur en | verantwoordelijkheden\nbetrokkenheid van groot | houden toezicht op het | en kunnen directe\nbelang. | project. | invloed uitoefenen\nbinnen hun toegewezen\ndomeinen.\nMedewerkers | Medewerkers | Secundair Hoewel ze bijdragen aan dagelijkse activiteiten, zijn ze niet direct betrokken bij het project. | Secundair Hoewel ze | Intern Ze zijn onderdeel van de interne organisatiestructuur en houden toezicht op het project. | Intern Ze zijn | Weinig Hoewel ze bijdragen aan de dagelijkse activiteiten, hebben ze over het algemeen minder directe invloed op strategische beslissingen en projecten. | Weinig Hoewel ze\nbijdragen aan dagelijkse | onderdeel van de interne | bijdragen aan de\nactiviteiten, zijn ze niet | organisatiestructuur en | dagelijkse activiteiten,\ndirect betrokken bij het | houden toezicht op het | hebben ze over het\nproject. | project. | algemeen minder\ndirecte invloed op\nstrategische\nbeslissingen en\nprojecten.",
+      "token_estimate": 946,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 38,
+        "column_count": 8,
+        "header_row": "Stakeholder | Stakeholder | Category (primair, secundair) | Category (primair, | Intern/extern/interface | Intern/extern/interface | Invloed | Invloed",
+        "cells": [
+          [
+            "Stakeholder",
+            "Stakeholder",
+            "Category (primair, secundair)",
+            "Category (primair,",
+            "Intern/extern/interface",
+            "Intern/extern/interface",
+            "Invloed",
+            "Invloed"
+          ],
+          [
+            "secundair)"
+          ],
+          [
+            "[PERSOON_03]",
+            "[PERSOON_03]",
+            "Primair Haar rol als vertegenwoordiger van het investeringsbedrijf maakt haar essentieel voor het project.",
+            "Primair Haar rol als",
+            "Intern Ze is intern verbonden met het bedrijf en heeft directe invloed op het project.",
+            "Intern Ze is intern",
+            "Gemiddeld: Als vertegenwoordiger van het investeringsbedrijf heeft ze invloed op de richting van het project, maar haar macht wordt beperkt door de vereisten en prioriteiten van het bedrijf.",
+            "Gemiddeld: Als"
+          ],
+          [
+            "vertegenwoordiger van",
+            "verbonden met het",
+            "vertegenwoordiger van"
+          ],
+          [
+            "het investeringsbedrijf",
+            "bedrijf en heeft directe",
+            "het investeringsbedrijf"
+          ],
+          [
+            "maakt haar essentieel",
+            "invloed op het project.",
+            "heeft ze invloed op de"
+          ],
+          [
+            "voor het project.",
+            "richting van het project,"
+          ],
+          [
+            "maar haar macht wordt"
+          ],
+          [
+            "beperkt door de"
+          ],
+          [
+            "vereisten en prioriteiten"
+          ],
+          [
+            "Eigenaren/Investeerders",
+            "Eigenaren/Investeerders",
+            "Primair Hun direct financieel belang maakt hen essentieel voor het succes van het project",
+            "Primair Hun direct",
+            "Intern Ze zijn intern verbonden met het investeringsbedrijf en hebben directe invloed op strategische beslissingen.",
+            "Intern Ze zijn intern",
+            "Veel Hun direct financieel belang en besluitvormingsmacht maken hun invloed significant voor het project.",
+            "Veel Hun direct"
+          ],
+          [
+            "financieel belang maakt",
+            "verbonden met het",
+            "financieel belang en"
+          ],
+          [
+            "hen essentieel voor het",
+            "investeringsbedrijf en",
+            "besluitvormingsmacht"
+          ],
+          [
+            "succes van het project",
+            "hebben directe invloed",
+            "maken hun invloed"
+          ],
+          [
+            "op strategische",
+            "significant voor het"
+          ],
+          [
+            "beslissingen.",
+            "project."
+          ],
+          [
+            "Bestuur/Directie",
+            "Bestuur/Directie",
+            "Primair Hun verantwoordelijkheid voor strategisch beheer maakt hun betrokkenheid cruciaal.",
+            "Primair Hun",
+            "Intern Ze opereren binnen de interne structuur van het investeringsbedrijf en dragen direct bij aan besluitvorming.",
+            "Intern Ze opereren",
+            "Veel Als strategische leiders bepalen zij de koers van het bedrijf, waardoor hun invloed aanzienlijk is",
+            "Veel Als strategische"
+          ],
+          [
+            "verantwoordelijkheid",
+            "binnen de interne",
+            "leiders bepalen zij de"
+          ],
+          [
+            "voor strategisch beheer",
+            "structuur van het",
+            "koers van het bedrijf,"
+          ],
+          [
+            "maakt hun",
+            "investeringsbedrijf en",
+            "waardoor hun invloed"
+          ],
+          [
+            "betrokkenheid cruciaal.",
+            "dragen direct bij aan",
+            "aanzienlijk is"
+          ],
+          [
+            "besluitvorming."
+          ],
+          [
+            "Managementteam",
+            "Managementteam",
+            "Primair Hun rol in operationeel beheer maakt hun betrokkenheid van groot belang.",
+            "Primair Hun rol in",
+            "Intern Ze zijn onderdeel van de interne organisatiestructuur en houden toezicht op het project.",
+            "Intern Ze zijn",
+            "Gemiddeld Ze hebben operationele verantwoordelijkheden en kunnen directe invloed uitoefenen binnen hun toegewezen domeinen.",
+            "Gemiddeld Ze"
+          ],
+          [
+            "operationeel beheer",
+            "onderdeel van de interne",
+            "hebben operationele"
+          ],
+          [
+            "maakt hun",
+            "organisatiestructuur en",
+            "verantwoordelijkheden"
+          ],
+          [
+            "betrokkenheid van groot",
+            "houden toezicht op het",
+            "en kunnen directe"
+          ],
+          [
+            "belang.",
+            "project.",
+            "invloed uitoefenen"
+          ],
+          [
+            "binnen hun toegewezen"
+          ],
+          [
+            "domeinen."
+          ],
+          [
+            "Medewerkers",
+            "Medewerkers",
+            "Secundair Hoewel ze bijdragen aan dagelijkse activiteiten, zijn ze niet direct betrokken bij het project.",
+            "Secundair Hoewel ze",
+            "Intern Ze zijn onderdeel van de interne organisatiestructuur en houden toezicht op het project.",
+            "Intern Ze zijn",
+            "Weinig Hoewel ze bijdragen aan de dagelijkse activiteiten, hebben ze over het algemeen minder directe invloed op strategische beslissingen en projecten.",
+            "Weinig Hoewel ze"
+          ],
+          [
+            "bijdragen aan dagelijkse",
+            "onderdeel van de interne",
+            "bijdragen aan de"
+          ],
+          [
+            "activiteiten, zijn ze niet",
+            "organisatiestructuur en",
+            "dagelijkse activiteiten,"
+          ],
+          [
+            "direct betrokken bij het",
+            "houden toezicht op het",
+            "hebben ze over het"
+          ],
+          [
+            "project.",
+            "project.",
+            "algemeen minder"
+          ],
+          [
+            "directe invloed op"
+          ],
+          [
+            "strategische"
+          ],
+          [
+            "beslissingen en"
+          ],
+          [
+            "projecten."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0039",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Belangen en Concerns:",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0040",
+      "page_no": 7,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 7",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0041",
+      "page_no": 7,
+      "block_type": "table",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Individuele websiteontwikkelaars | Individuele | Primair Hun bijdrage aan het ontwerp en de ontwikkeling van de webshop is van cruciaal belang. | Primair Hun bijdrage | Extern Ze zijn niet intern verbonden met het investeringsbedrijf maar zijn externe partners. | Extern Ze zijn niet | Gemiddeld Ze hebben een significante invloed op het project door het ontwerpen en ontwikkelen van de webshop, maar zijn afhankelijk van de specificaties en vereisten die zijn vastgesteld door het investeringsbedrijf. | Gemiddeld Ze hebben\nwebsiteontwikkelaars | aan het ontwerp en de | intern verbonden met het | een significante invloed\nontwikkeling van de | investeringsbedrijf maar | op het project door het\nwebshop is van cruciaal | zijn externe partners. | ontwerpen en\nbelang. | ontwikkelen van de\nwebshop, maar zijn\nafhankelijk van de\nspecificaties en\nvereisten die zijn\nvastgesteld door het\ninvesteringsbedrijf.\nKlanten | Klanten | Primair Hun behoeften en voorkeuren zijn vitaal voor het succes van de webshop. | Primair Hun behoeften | Extern Ze zijn externe eindgebruikers van de webshop. | Extern Ze zijn externe | Weinig: Hun feedback en voorkeuren hebben invloed op het eindproduct, maar de webshop moet ook rekening houden met andere belanghebbenden en zakelijke doelstellingen. | Weinig: Hun feedback\nen voorkeuren zijn vitaal | eindgebruikers van de | en voorkeuren hebben\nvoor het succes van de | webshop. | invloed op het\nwebshop. | eindproduct, maar de\nwebshop moet ook\nrekening houden met\nandere\nbelanghebbenden en\nGebruikers met beperkte financiële middelen | Gebruikers met beperkte | Primair Hun behoeften moeten worden geïntegreerd in het ontwerp van de webshop. | Primair Hun behoeften | Extern Ze zijn externe gebruikers met specifieke behoeften. | Extern Ze zijn externe | Weinig: Hoewel hun behoeften relevant zijn voor de prijsstelling, kunnen andere belanghebbenden zoals investeerders en het managementteam prioriteit geven aan winstgevendheid en concurrentievoordeel, waardoor hun directe invloed beperkt kan zijn. | Weinig: Hoewel hun\nfinanciële middelen | moeten worden | gebruikers met specifieke | behoeften relevant zijn\ngeïntegreerd in het | behoeften. | voor de prijsstelling,\nontwerp van de | kunnen andere\nwebshop. | belanghebbenden zoals\ninvesteerders en het\nmanagementteam\nprioriteit geven aan\nwinstgevendheid en\nconcurrentievoordeel,\nwaardoor hun directe\ninvloed beperkt kan zijn.",
+      "token_estimate": 602,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 31,
+        "column_count": 8,
+        "header_row": null,
+        "cells": [
+          [
+            "Individuele websiteontwikkelaars",
+            "Individuele",
+            "Primair Hun bijdrage aan het ontwerp en de ontwikkeling van de webshop is van cruciaal belang.",
+            "Primair Hun bijdrage",
+            "Extern Ze zijn niet intern verbonden met het investeringsbedrijf maar zijn externe partners.",
+            "Extern Ze zijn niet",
+            "Gemiddeld Ze hebben een significante invloed op het project door het ontwerpen en ontwikkelen van de webshop, maar zijn afhankelijk van de specificaties en vereisten die zijn vastgesteld door het investeringsbedrijf.",
+            "Gemiddeld Ze hebben"
+          ],
+          [
+            "websiteontwikkelaars",
+            "aan het ontwerp en de",
+            "intern verbonden met het",
+            "een significante invloed"
+          ],
+          [
+            "ontwikkeling van de",
+            "investeringsbedrijf maar",
+            "op het project door het"
+          ],
+          [
+            "webshop is van cruciaal",
+            "zijn externe partners.",
+            "ontwerpen en"
+          ],
+          [
+            "belang.",
+            "ontwikkelen van de"
+          ],
+          [
+            "webshop, maar zijn"
+          ],
+          [
+            "afhankelijk van de"
+          ],
+          [
+            "specificaties en"
+          ],
+          [
+            "vereisten die zijn"
+          ],
+          [
+            "vastgesteld door het"
+          ],
+          [
+            "investeringsbedrijf."
+          ],
+          [
+            "Klanten",
+            "Klanten",
+            "Primair Hun behoeften en voorkeuren zijn vitaal voor het succes van de webshop.",
+            "Primair Hun behoeften",
+            "Extern Ze zijn externe eindgebruikers van de webshop.",
+            "Extern Ze zijn externe",
+            "Weinig: Hun feedback en voorkeuren hebben invloed op het eindproduct, maar de webshop moet ook rekening houden met andere belanghebbenden en zakelijke doelstellingen.",
+            "Weinig: Hun feedback"
+          ],
+          [
+            "en voorkeuren zijn vitaal",
+            "eindgebruikers van de",
+            "en voorkeuren hebben"
+          ],
+          [
+            "voor het succes van de",
+            "webshop.",
+            "invloed op het"
+          ],
+          [
+            "webshop.",
+            "eindproduct, maar de"
+          ],
+          [
+            "webshop moet ook"
+          ],
+          [
+            "rekening houden met"
+          ],
+          [
+            "andere"
+          ],
+          [
+            "belanghebbenden en"
+          ],
+          [
+            "Gebruikers met beperkte financiële middelen",
+            "Gebruikers met beperkte",
+            "Primair Hun behoeften moeten worden geïntegreerd in het ontwerp van de webshop.",
+            "Primair Hun behoeften",
+            "Extern Ze zijn externe gebruikers met specifieke behoeften.",
+            "Extern Ze zijn externe",
+            "Weinig: Hoewel hun behoeften relevant zijn voor de prijsstelling, kunnen andere belanghebbenden zoals investeerders en het managementteam prioriteit geven aan winstgevendheid en concurrentievoordeel, waardoor hun directe invloed beperkt kan zijn.",
+            "Weinig: Hoewel hun"
+          ],
+          [
+            "financiële middelen",
+            "moeten worden",
+            "gebruikers met specifieke",
+            "behoeften relevant zijn"
+          ],
+          [
+            "geïntegreerd in het",
+            "behoeften.",
+            "voor de prijsstelling,"
+          ],
+          [
+            "ontwerp van de",
+            "kunnen andere"
+          ],
+          [
+            "webshop.",
+            "belanghebbenden zoals"
+          ],
+          [
+            "investeerders en het"
+          ],
+          [
+            "managementteam"
+          ],
+          [
+            "prioriteit geven aan"
+          ],
+          [
+            "winstgevendheid en"
+          ],
+          [
+            "concurrentievoordeel,"
+          ],
+          [
+            "waardoor hun directe"
+          ],
+          [
+            "invloed beperkt kan zijn."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0042",
+      "page_no": 8,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 8",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0043",
+      "page_no": 8,
+      "block_type": "table",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Stakeholder | Stakeholder | Category (primair, secundair) | Category (primair, | Intern/extern/interface | Intern/extern/interface | Invloed | Invloed\nsecundair)\n[PERSOON_03] | [PERSOON_03] | Primair Haar rol als vertegenwoordiger van het investeringsbedrijf maakt haar essentieel voor het project. | Primair Haar rol als | Intern Ze is intern verbonden met het bedrijf en heeft directe invloed op het project. | Intern Ze is intern | Gemiddeld: Als vertegenwoordiger van het investeringsbedrijf heeft ze invloed op de richting van het project, maar haar macht wordt beperkt door de vereisten en prioriteiten van het bedrijf. | Gemiddeld: Als\nvertegenwoordiger van | verbonden met het | vertegenwoordiger van\nhet investeringsbedrijf | bedrijf en heeft directe | het investeringsbedrijf\nmaakt haar essentieel | invloed op het project. | heeft ze invloed op de\nvoor het project. | richting van het project,\nmaar haar macht wordt\nbeperkt door de\nvereisten en prioriteiten\nEigenaren/Investeerders | Eigenaren/Investeerders | Primair Hun direct financieel belang maakt hen essentieel voor het succes van het project | Primair Hun direct | Intern Ze zijn intern verbonden met het investeringsbedrijf en hebben directe invloed op strategische beslissingen. | Intern Ze zijn intern | Veel Hun direct financieel belang en besluitvormingsmacht maken hun invloed significant voor het project. | Veel Hun direct\nfinancieel belang maakt | verbonden met het | financieel belang en\nhen essentieel voor het | investeringsbedrijf en | besluitvormingsmacht\nsucces van het project | hebben directe invloed | maken hun invloed\nop strategische | significant voor het\nbeslissingen. | project.\nBestuur/Directie | Bestuur/Directie | Primair Hun verantwoordelijkheid voor strategisch beheer maakt hun betrokkenheid cruciaal. | Primair Hun | Intern Ze opereren binnen de interne structuur van het investeringsbedrijf en dragen direct bij aan besluitvorming. | Intern Ze opereren | Veel Als strategische leiders bepalen zij de koers van het bedrijf, waardoor hun invloed aanzienlijk is | Veel Als strategische\nverantwoordelijkheid | binnen de interne | leiders bepalen zij de\nvoor strategisch beheer | structuur van het | koers van het bedrijf,\nmaakt hun | investeringsbedrijf en | waardoor hun invloed\nbetrokkenheid cruciaal. | dragen direct bij aan | aanzienlijk is\nbesluitvorming.\nManagementteam | Managementteam | Primair Hun rol in operationeel beheer maakt hun betrokkenheid van groot belang. | Primair Hun rol in | Intern Ze zijn onderdeel van de interne organisatiestructuur en houden toezicht op het project. | Intern Ze zijn | Gemiddeld Ze hebben operationele verantwoordelijkheden en kunnen directe invloed uitoefenen binnen hun toegewezen domeinen. | Gemiddeld Ze\noperationeel beheer | onderdeel van de interne | hebben operationele\nmaakt hun | organisatiestructuur en | verantwoordelijkheden\nbetrokkenheid van groot | houden toezicht op het | en kunnen directe\nbelang. | project. | invloed uitoefenen\nbinnen hun toegewezen\ndomeinen.\nMedewerkers | Medewerkers | Secundair Hoewel ze bijdragen aan dagelijkse activiteiten, zijn ze niet direct betrokken bij het project. | Secundair Hoewel ze | Intern Ze zijn onderdeel van de interne organisatiestructuur en houden toezicht op het project. | Intern Ze zijn | Weinig Hoewel ze bijdragen aan de dagelijkse activiteiten, hebben ze over het algemeen minder directe invloed op strategische beslissingen en projecten. | Weinig Hoewel ze\nbijdragen aan dagelijkse | onderdeel van de interne | bijdragen aan de\nactiviteiten, zijn ze niet | organisatiestructuur en | dagelijkse activiteiten,\ndirect betrokken bij het | houden toezicht op het | hebben ze over het\nproject. | project. | algemeen minder\ndirecte invloed op\nstrategische\nbeslissingen en\nprojecten.",
+      "token_estimate": 946,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 38,
+        "column_count": 8,
+        "header_row": "Stakeholder | Stakeholder | Category (primair, secundair) | Category (primair, | Intern/extern/interface | Intern/extern/interface | Invloed | Invloed",
+        "cells": [
+          [
+            "Stakeholder",
+            "Stakeholder",
+            "Category (primair, secundair)",
+            "Category (primair,",
+            "Intern/extern/interface",
+            "Intern/extern/interface",
+            "Invloed",
+            "Invloed"
+          ],
+          [
+            "secundair)"
+          ],
+          [
+            "[PERSOON_03]",
+            "[PERSOON_03]",
+            "Primair Haar rol als vertegenwoordiger van het investeringsbedrijf maakt haar essentieel voor het project.",
+            "Primair Haar rol als",
+            "Intern Ze is intern verbonden met het bedrijf en heeft directe invloed op het project.",
+            "Intern Ze is intern",
+            "Gemiddeld: Als vertegenwoordiger van het investeringsbedrijf heeft ze invloed op de richting van het project, maar haar macht wordt beperkt door de vereisten en prioriteiten van het bedrijf.",
+            "Gemiddeld: Als"
+          ],
+          [
+            "vertegenwoordiger van",
+            "verbonden met het",
+            "vertegenwoordiger van"
+          ],
+          [
+            "het investeringsbedrijf",
+            "bedrijf en heeft directe",
+            "het investeringsbedrijf"
+          ],
+          [
+            "maakt haar essentieel",
+            "invloed op het project.",
+            "heeft ze invloed op de"
+          ],
+          [
+            "voor het project.",
+            "richting van het project,"
+          ],
+          [
+            "maar haar macht wordt"
+          ],
+          [
+            "beperkt door de"
+          ],
+          [
+            "vereisten en prioriteiten"
+          ],
+          [
+            "Eigenaren/Investeerders",
+            "Eigenaren/Investeerders",
+            "Primair Hun direct financieel belang maakt hen essentieel voor het succes van het project",
+            "Primair Hun direct",
+            "Intern Ze zijn intern verbonden met het investeringsbedrijf en hebben directe invloed op strategische beslissingen.",
+            "Intern Ze zijn intern",
+            "Veel Hun direct financieel belang en besluitvormingsmacht maken hun invloed significant voor het project.",
+            "Veel Hun direct"
+          ],
+          [
+            "financieel belang maakt",
+            "verbonden met het",
+            "financieel belang en"
+          ],
+          [
+            "hen essentieel voor het",
+            "investeringsbedrijf en",
+            "besluitvormingsmacht"
+          ],
+          [
+            "succes van het project",
+            "hebben directe invloed",
+            "maken hun invloed"
+          ],
+          [
+            "op strategische",
+            "significant voor het"
+          ],
+          [
+            "beslissingen.",
+            "project."
+          ],
+          [
+            "Bestuur/Directie",
+            "Bestuur/Directie",
+            "Primair Hun verantwoordelijkheid voor strategisch beheer maakt hun betrokkenheid cruciaal.",
+            "Primair Hun",
+            "Intern Ze opereren binnen de interne structuur van het investeringsbedrijf en dragen direct bij aan besluitvorming.",
+            "Intern Ze opereren",
+            "Veel Als strategische leiders bepalen zij de koers van het bedrijf, waardoor hun invloed aanzienlijk is",
+            "Veel Als strategische"
+          ],
+          [
+            "verantwoordelijkheid",
+            "binnen de interne",
+            "leiders bepalen zij de"
+          ],
+          [
+            "voor strategisch beheer",
+            "structuur van het",
+            "koers van het bedrijf,"
+          ],
+          [
+            "maakt hun",
+            "investeringsbedrijf en",
+            "waardoor hun invloed"
+          ],
+          [
+            "betrokkenheid cruciaal.",
+            "dragen direct bij aan",
+            "aanzienlijk is"
+          ],
+          [
+            "besluitvorming."
+          ],
+          [
+            "Managementteam",
+            "Managementteam",
+            "Primair Hun rol in operationeel beheer maakt hun betrokkenheid van groot belang.",
+            "Primair Hun rol in",
+            "Intern Ze zijn onderdeel van de interne organisatiestructuur en houden toezicht op het project.",
+            "Intern Ze zijn",
+            "Gemiddeld Ze hebben operationele verantwoordelijkheden en kunnen directe invloed uitoefenen binnen hun toegewezen domeinen.",
+            "Gemiddeld Ze"
+          ],
+          [
+            "operationeel beheer",
+            "onderdeel van de interne",
+            "hebben operationele"
+          ],
+          [
+            "maakt hun",
+            "organisatiestructuur en",
+            "verantwoordelijkheden"
+          ],
+          [
+            "betrokkenheid van groot",
+            "houden toezicht op het",
+            "en kunnen directe"
+          ],
+          [
+            "belang.",
+            "project.",
+            "invloed uitoefenen"
+          ],
+          [
+            "binnen hun toegewezen"
+          ],
+          [
+            "domeinen."
+          ],
+          [
+            "Medewerkers",
+            "Medewerkers",
+            "Secundair Hoewel ze bijdragen aan dagelijkse activiteiten, zijn ze niet direct betrokken bij het project.",
+            "Secundair Hoewel ze",
+            "Intern Ze zijn onderdeel van de interne organisatiestructuur en houden toezicht op het project.",
+            "Intern Ze zijn",
+            "Weinig Hoewel ze bijdragen aan de dagelijkse activiteiten, hebben ze over het algemeen minder directe invloed op strategische beslissingen en projecten.",
+            "Weinig Hoewel ze"
+          ],
+          [
+            "bijdragen aan dagelijkse",
+            "onderdeel van de interne",
+            "bijdragen aan de"
+          ],
+          [
+            "activiteiten, zijn ze niet",
+            "organisatiestructuur en",
+            "dagelijkse activiteiten,"
+          ],
+          [
+            "direct betrokken bij het",
+            "houden toezicht op het",
+            "hebben ze over het"
+          ],
+          [
+            "project.",
+            "project.",
+            "algemeen minder"
+          ],
+          [
+            "directe invloed op"
+          ],
+          [
+            "strategische"
+          ],
+          [
+            "beslissingen en"
+          ],
+          [
+            "projecten."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0044",
+      "page_no": 9,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 9",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0045",
+      "page_no": 9,
+      "block_type": "table",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Individuele websiteontwikkelaars | Individuele | Primair Hun bijdrage aan het ontwerp en de ontwikkeling van de webshop is van cruciaal belang. | Primair Hun bijdrage | Extern Ze zijn niet intern verbonden met het investeringsbedrijf maar zijn externe partners. | Extern Ze zijn niet | Gemiddeld Ze hebben een significante invloed op het project door het ontwerpen en ontwikkelen van de webshop, maar zijn afhankelijk van de specificaties en vereisten die zijn vastgesteld door het investeringsbedrijf. | Gemiddeld Ze hebben\nwebsiteontwikkelaars | aan het ontwerp en de | intern verbonden met het | een significante invloed\nontwikkeling van de | investeringsbedrijf maar | op het project door het\nwebshop is van cruciaal | zijn externe partners. | ontwerpen en\nbelang. | ontwikkelen van de\nwebshop, maar zijn\nafhankelijk van de\nspecificaties en\nvereisten die zijn\nvastgesteld door het\ninvesteringsbedrijf.\nKlanten | Klanten | Primair Hun behoeften en voorkeuren zijn vitaal voor het succes van de webshop. | Primair Hun behoeften | Extern Ze zijn externe eindgebruikers van de webshop. | Extern Ze zijn externe | Weinig: Hun feedback en voorkeuren hebben invloed op het eindproduct, maar de webshop moet ook rekening houden met andere belanghebbenden en zakelijke doelstellingen. | Weinig: Hun feedback\nen voorkeuren zijn vitaal | eindgebruikers van de | en voorkeuren hebben\nvoor het succes van de | webshop. | invloed op het\nwebshop. | eindproduct, maar de\nwebshop moet ook\nrekening houden met\nandere\nbelanghebbenden en\nGebruikers met beperkte financiële middelen | Gebruikers met beperkte | Primair Hun behoeften moeten worden geïntegreerd in het ontwerp van de webshop. | Primair Hun behoeften | Extern Ze zijn externe gebruikers met specifieke behoeften. | Extern Ze zijn externe | Weinig: Hoewel hun behoeften relevant zijn voor de prijsstelling, kunnen andere belanghebbenden zoals investeerders en het managementteam prioriteit geven aan winstgevendheid en concurrentievoordeel, waardoor hun directe invloed beperkt kan zijn. | Weinig: Hoewel hun\nfinanciële middelen | moeten worden | gebruikers met specifieke | behoeften relevant zijn\ngeïntegreerd in het | behoeften. | voor de prijsstelling,\nontwerp van de | kunnen andere\nwebshop. | belanghebbenden zoals\ninvesteerders en het\nmanagementteam\nprioriteit geven aan\nwinstgevendheid en\nconcurrentievoordeel,\nwaardoor hun directe\ninvloed beperkt kan zijn.",
+      "token_estimate": 602,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 31,
+        "column_count": 8,
+        "header_row": null,
+        "cells": [
+          [
+            "Individuele websiteontwikkelaars",
+            "Individuele",
+            "Primair Hun bijdrage aan het ontwerp en de ontwikkeling van de webshop is van cruciaal belang.",
+            "Primair Hun bijdrage",
+            "Extern Ze zijn niet intern verbonden met het investeringsbedrijf maar zijn externe partners.",
+            "Extern Ze zijn niet",
+            "Gemiddeld Ze hebben een significante invloed op het project door het ontwerpen en ontwikkelen van de webshop, maar zijn afhankelijk van de specificaties en vereisten die zijn vastgesteld door het investeringsbedrijf.",
+            "Gemiddeld Ze hebben"
+          ],
+          [
+            "websiteontwikkelaars",
+            "aan het ontwerp en de",
+            "intern verbonden met het",
+            "een significante invloed"
+          ],
+          [
+            "ontwikkeling van de",
+            "investeringsbedrijf maar",
+            "op het project door het"
+          ],
+          [
+            "webshop is van cruciaal",
+            "zijn externe partners.",
+            "ontwerpen en"
+          ],
+          [
+            "belang.",
+            "ontwikkelen van de"
+          ],
+          [
+            "webshop, maar zijn"
+          ],
+          [
+            "afhankelijk van de"
+          ],
+          [
+            "specificaties en"
+          ],
+          [
+            "vereisten die zijn"
+          ],
+          [
+            "vastgesteld door het"
+          ],
+          [
+            "investeringsbedrijf."
+          ],
+          [
+            "Klanten",
+            "Klanten",
+            "Primair Hun behoeften en voorkeuren zijn vitaal voor het succes van de webshop.",
+            "Primair Hun behoeften",
+            "Extern Ze zijn externe eindgebruikers van de webshop.",
+            "Extern Ze zijn externe",
+            "Weinig: Hun feedback en voorkeuren hebben invloed op het eindproduct, maar de webshop moet ook rekening houden met andere belanghebbenden en zakelijke doelstellingen.",
+            "Weinig: Hun feedback"
+          ],
+          [
+            "en voorkeuren zijn vitaal",
+            "eindgebruikers van de",
+            "en voorkeuren hebben"
+          ],
+          [
+            "voor het succes van de",
+            "webshop.",
+            "invloed op het"
+          ],
+          [
+            "webshop.",
+            "eindproduct, maar de"
+          ],
+          [
+            "webshop moet ook"
+          ],
+          [
+            "rekening houden met"
+          ],
+          [
+            "andere"
+          ],
+          [
+            "belanghebbenden en"
+          ],
+          [
+            "Gebruikers met beperkte financiële middelen",
+            "Gebruikers met beperkte",
+            "Primair Hun behoeften moeten worden geïntegreerd in het ontwerp van de webshop.",
+            "Primair Hun behoeften",
+            "Extern Ze zijn externe gebruikers met specifieke behoeften.",
+            "Extern Ze zijn externe",
+            "Weinig: Hoewel hun behoeften relevant zijn voor de prijsstelling, kunnen andere belanghebbenden zoals investeerders en het managementteam prioriteit geven aan winstgevendheid en concurrentievoordeel, waardoor hun directe invloed beperkt kan zijn.",
+            "Weinig: Hoewel hun"
+          ],
+          [
+            "financiële middelen",
+            "moeten worden",
+            "gebruikers met specifieke",
+            "behoeften relevant zijn"
+          ],
+          [
+            "geïntegreerd in het",
+            "behoeften.",
+            "voor de prijsstelling,"
+          ],
+          [
+            "ontwerp van de",
+            "kunnen andere"
+          ],
+          [
+            "webshop.",
+            "belanghebbenden zoals"
+          ],
+          [
+            "investeerders en het"
+          ],
+          [
+            "managementteam"
+          ],
+          [
+            "prioriteit geven aan"
+          ],
+          [
+            "winstgevendheid en"
+          ],
+          [
+            "concurrentievoordeel,"
+          ],
+          [
+            "waardoor hun directe"
+          ],
+          [
+            "invloed beperkt kan zijn."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0046",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Deze worden op deze manier in het kwadrant geplaatst.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0047",
+      "page_no": 10,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Onderzoek naar web gebruikers",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0048",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "De website moet dit gaan doen: Zich richten op twee specifieke doelgroepen, namelijk meisjes rond",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0049",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "universiteitsleeftijd die op zoek zijn naar unieke brillen en slechtziende mensen die behoefte hebben",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0050",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "aan een toegankelijke winkelervaring. Ik richt me dus op deze doelgroepen, die gewend zijn aan",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0051",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "online winkelen en het gebruiken van vergelijkbare websites in de mode- en accessoirebranche.",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0052",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Meisjes rond universiteitsleeftijd: Deze doelgroep gebruikt vaak dergelijke sites om snel trendy en",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0053",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "modieuze items te vinden die passen bij hun persoonlijke stijl. Ze waarderen een website die intuïtief",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0054",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "en visueel aantrekkelijk is, met een gebruiksvriendelijke interface. Snelle en eenvoudige navigatie is",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0055",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "cruciaal, aangezien deze doelgroep geneigd is tot impulsieve aankopen.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0056",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Deze gebruikers vinden het prettig als de website een gevarieerd maar beperkt assortiment aanbiedt,",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0057",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "waardoor ze niet overweldigd raken. Daarnaast waarderen ze een website met een paars, zwart en",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0058",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "wit kleurenpalet, dat aansluit bij hun meisjesachtige voorkeuren en een esthetisch aantrekkelijke",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0059",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "winkelervaring biedt.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0060",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Slechtziende mensen: Voor slechtziende mensen is het cruciaal dat de website toegankelijk is en hen",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0061",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "de mogelijkheid biedt om de tekstgrootte naar eigen voorkeur aan te passen. Het kleurenschema van",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0062",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "paar, zwart en wit met een hoog contrast draagt bij aan een betere zichtbaarheid voor deze",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0063",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "doelgroep.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0064",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Het ontwerp van de website zal extra aandacht besteden aan een duidelijke navigatie en goed",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0065",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "georganiseerde informatie. Specifieke functionaliteiten, zoals de mogelijkheid om de lettergrootte aan",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0066",
+      "page_no": 10,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 10",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0067",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "te passen, zullen worden geïmplementeerd om een inclusieve ervaring te bieden aan slechtziende",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0068",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "bezoekers.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0069",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "In het geval van slechtziende mensen houd ik extra rekening met de gebruiksvriendelijkheid van",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0070",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "schermlezers en andere hulpmiddelen. Het kleurenschema en de lettergrootte zijn ontworpen om de",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0071",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "leesbaarheid te verbeteren en een meer toegankelijke online winkelomgeving te bieden.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0072",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "De filterfunctie blijft gehandhaafd, waarmee gebruikers, waaronder slechtziende mensen, producten",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0073",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "kunnen sorteren op prijs van laag naar hoog. Dit maakt het voor beide doelgroepen eenvoudiger om",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0074",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "de gewenste producten te vinden en draagt bij aan een gebruiksvriendelijke ervaring.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0075",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Profiel van doelgroep:",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0076",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Naam: [GEVOELIG_01]",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0077",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Leeftijd: 19 jaar",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0078",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Studie: Communicatie aan de Hogeschool leiden",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0079",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Interesses: Emma is gepassioneerd door mode en zoekt altijd naar unieke accessoires om haar stijl te",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0080",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "onderscheiden. Ze volgt de laatste modetrends op social media, vooral op Instagram en TikTok. Als",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0081",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "student waardeert ze betaalbare, kwalitatieve producten die haar studentenbudget niet te zwaar",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0082",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "belasten.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0083",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Stijl: Emma's stijl is eclectisch en expressief. Ze houdt van opvallende kleuren en patronen. Haar bril is",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0084",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "niet alleen een noodzaak, maar ook een belangrijk modeaccessoire waarmee ze haar persoonlijkheid",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0085",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "kan uitdrukken.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0086",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Online winkelgedrag: Emma winkelt graag online vanwege het gemak en de ruime keuze. Ze houdt",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0087",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "van websites die haar een soepele en intuïtieve winkelervaring bieden. Ze gebruikt filters om",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0088",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "producten op prijs te sorteren en zoekt naar betaalopties die passen bij haar studentenbudget.",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0089",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Financiële situatie: Als student heeft Emma een beperkt budget, maar ze geeft er de voorkeur aan",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0090",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "om te investeren in kwaliteitsproducten die haar persoonlijke stijl weerspiegelen. Ze is geïnteresseerd",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0091",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "in betaalopties zoals betalingsplannen om de kosten te spreiden.",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0092",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Mobiel gebruik: Emma gebruikt voornamelijk haar smartphone om online te winkelen. Ze waardeert",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0093",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "een responsieve website die er goed uitziet, zelfs op haar kleine scherm.",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0094",
+      "page_no": 11,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 11",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0095",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "Overige kenmerken: Emma hecht veel waarde aan duurzaamheid en zou geïnteresseerd zijn in brillen",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0096",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "gemaakt van milieuvriendelijke materialen. Ze houdt van websites met duidelijke informatie over",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0097",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers"
+      ],
+      "text": "producten, betalingsmogelijkheden en levering.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0098",
+      "page_no": 12,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "H4 Wensen, Eisen, Prioriteiten",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0099",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Kleine introtekst over hoe ik H4 moet lezen ; hoog abstract ? laag abstract ? Alles zelf in 1 keer",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0100",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "bedacht ? Werk in uitvoering ? input van wie gekregen/ verwerkt ? Hoe lang aan gewerkt ? Inspriratie",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0101",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "gekregen van ?",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0102",
+      "page_no": 12,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "4.1 Constraints en (non-) Functionele eisen",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0103",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Constraints",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0104",
+      "page_no": 12,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 12",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0105",
+      "page_no": 12,
+      "block_type": "table",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Naam | Architecturele relevantie | Geadresseerd in:\nCONSTR01: Budget | De applicatie inclusief ontwikkeling mag niet meer dan 10.000 euro kosten.\nCONSTR02: Verzend kosten | De verzendkosten zijn niet afhankelijk van het formaat of de locatie, maar een standaardbedrag\nCONSTR03: Tijdsduur | De tijdduur van het project is zes weken\nCONSTR03: Betaal Methode | Klanten kunnen met promocodes of gift cards",
+      "token_estimate": 100,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 5,
+        "column_count": 3,
+        "header_row": "Naam | Architecturele relevantie | Geadresseerd in:",
+        "cells": [
+          [
+            "Naam",
+            "Architecturele relevantie",
+            "Geadresseerd in:"
+          ],
+          [
+            "CONSTR01: Budget",
+            "De applicatie inclusief ontwikkeling mag niet meer dan 10.000 euro kosten."
+          ],
+          [
+            "CONSTR02: Verzend kosten",
+            "De verzendkosten zijn niet afhankelijk van het formaat of de locatie, maar een standaardbedrag"
+          ],
+          [
+            "CONSTR03: Tijdsduur",
+            "De tijdduur van het project is zes weken"
+          ],
+          [
+            "CONSTR03: Betaal Methode",
+            "Klanten kunnen met promocodes of gift cards"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0106",
+      "page_no": 13,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Niet-functionele requirements"
+      ],
+      "text": "Niet-functionele requirements",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0107",
+      "page_no": 13,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Niet-functionele requirements"
+      ],
+      "text": "Waarom MosCow:",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0108",
+      "page_no": 13,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Niet-functionele requirements"
+      ],
+      "text": "Must Have:",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0109",
+      "page_no": 13,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Niet-functionele requirements"
+      ],
+      "text": "1. M: De website moet te allen tijde beschikbaar zijn voor klanten en bestellingen",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0110",
+      "page_no": 13,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "moeten betrouwbaar worden verwerkt en afgehandeld."
+      ],
+      "text": "moeten betrouwbaar worden verwerkt en afgehandeld.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0111",
+      "page_no": 13,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "moeten betrouwbaar worden verwerkt en afgehandeld."
+      ],
+      "text": "• Onderbouwing: Dit is cruciaal voor het behoud van klanttevredenheid en",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0112",
+      "page_no": 13,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "moeten betrouwbaar worden verwerkt en afgehandeld."
+      ],
+      "text": "vertrouwen in de webshop. Betrouwbaarheid en beschikbaarheid zijn",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0113",
+      "page_no": 13,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "moeten betrouwbaar worden verwerkt en afgehandeld."
+      ],
+      "text": "fundamentele aspecten van een succesvolle e-commerce ervaring.",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0114",
+      "page_no": 13,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "moeten betrouwbaar worden verwerkt en afgehandeld."
+      ],
+      "text": "2. M: Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG)",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0115",
+      "page_no": 13,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "is essentieel om de gegevens van klanten te beschermen en risico's te"
+      ],
+      "text": "is essentieel om de gegevens van klanten te beschermen en risico's te",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0116",
+      "page_no": 13,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "minimaliseren."
+      ],
+      "text": "minimaliseren.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0117",
+      "page_no": 13,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "minimaliseren."
+      ],
+      "text": "• Onderbouwing: Dit is van vitaal belang om te voldoen aan de wettelijke",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0118",
+      "page_no": 13,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "minimaliseren."
+      ],
+      "text": "vereisten voor gegevensbescherming en om het vertrouwen van klanten te",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0119",
+      "page_no": 13,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "minimaliseren."
+      ],
+      "text": "behouden. Niet-naleving kan leiden tot boetes en reputatieschade.",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0120",
+      "page_no": 13,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "minimaliseren."
+      ],
+      "text": "Should have:",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0121",
+      "page_no": 13,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "minimaliseren."
+      ],
+      "text": "3. S: De webshop moet goed functioneren op verschillende apparaten, zoals",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0122",
+      "page_no": 13,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "smartphones en tablets, om een optimale gebruikerservaring te bieden, ongeacht"
+      ],
+      "text": "smartphones en tablets, om een optimale gebruikerservaring te bieden, ongeacht",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0123",
+      "page_no": 13,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "het apparaat dat de klant gebruikt."
+      ],
+      "text": "het apparaat dat de klant gebruikt.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0124",
+      "page_no": 13,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "het apparaat dat de klant gebruikt."
+      ],
+      "text": "• Onderbouwing: Hoewel het belangrijk is om een goede gebruikerservaring te bieden",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0125",
+      "page_no": 13,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "het apparaat dat de klant gebruikt."
+      ],
+      "text": "op verschillende apparaten, kan dit als een 'should have' worden beschouwd omdat het",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0126",
+      "page_no": 13,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "het apparaat dat de klant gebruikt."
+      ],
+      "text": "niet zo essentieel is als beschikbaarheid en gegevensbescherming.",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0127",
+      "page_no": 13,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 13",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0128",
+      "page_no": 13,
+      "block_type": "table",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "het apparaat dat de klant gebruikt."
+      ],
+      "text": "Naam | Architecturele relevantie | Geadresseerd | Prio\nin:\nNFR01: Beschikbaarhei d en betrouwbaarhei d: | De website moet te allen tijde beschikbaar zijn voor klanten en bestellingen moeten betrouwbaar worden verwerkt en afgehandeld. | Pag6:par5: HR | Must Have\nNFR02 | Producten moeten makkelijk te vinden zijn klant | Should have\nNFR03: Toegankelijkhei d:: | De website moet toegankelijk zijn voor mensen met beperkte financiële middelen. | Must Have\nNFR04: Aantrekkelijkhei d | De uitstraling en opmaak van de website moeten aantrekkelijk zijn voor de beoogde klanten. | Must Have\nNFR05: Mobiele responsiviteit | De webshop moet goed functioneren op verschillende apparaten, zoals smartphones en tablets, om een optimale gebruikerservaring te bieden, ongeacht het apparaat dat de klant gebruikt. | Should Have\nNFR06: Gegevensbesc herming en naleving van de AVG: | Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essentieel om de gegevens van klanten te beschermen en risico's te minimaliseren. | Should Have",
+      "token_estimate": 259,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 8,
+        "column_count": 5,
+        "header_row": "Naam | Architecturele relevantie | Geadresseerd | Prio",
+        "cells": [
+          [
+            "Naam",
+            "Architecturele relevantie",
+            "Geadresseerd",
+            "Prio"
+          ],
+          [
+            "in:"
+          ],
+          [
+            "NFR01: Beschikbaarhei d en betrouwbaarhei d:",
+            "De website moet te allen tijde beschikbaar zijn voor klanten en bestellingen moeten betrouwbaar worden verwerkt en afgehandeld.",
+            "Pag6:par5: HR",
+            "Must Have"
+          ],
+          [
+            "NFR02",
+            "Producten moeten makkelijk te vinden zijn klant",
+            "Should have"
+          ],
+          [
+            "NFR03: Toegankelijkhei d::",
+            "De website moet toegankelijk zijn voor mensen met beperkte financiële middelen.",
+            "Must Have"
+          ],
+          [
+            "NFR04: Aantrekkelijkhei d",
+            "De uitstraling en opmaak van de website moeten aantrekkelijk zijn voor de beoogde klanten.",
+            "Must Have"
+          ],
+          [
+            "NFR05: Mobiele responsiviteit",
+            "De webshop moet goed functioneren op verschillende apparaten, zoals smartphones en tablets, om een optimale gebruikerservaring te bieden, ongeacht het apparaat dat de klant gebruikt.",
+            "Should Have"
+          ],
+          [
+            "NFR06: Gegevensbesc herming en naleving van de AVG:",
+            "Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essentieel om de gegevens van klanten te beschermen en risico's te minimaliseren.",
+            "Should Have"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0129",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "het apparaat dat de klant gebruikt."
+      ],
+      "text": "4. S: De uitstraling en opmaak van de website moeten aantrekkelijk zijn voor de",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0130",
+      "page_no": 14,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "beoogde klanten."
+      ],
+      "text": "beoogde klanten.",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0131",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "beoogde klanten."
+      ],
+      "text": "• Onderbouwing: Hoewel het belangrijk is om een aantrekkelijk ontwerp te",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0132",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "beoogde klanten."
+      ],
+      "text": "hebben, kan dit als een 'should have' worden beschouwd omdat het de",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0133",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "beoogde klanten."
+      ],
+      "text": "gebruikerservaring verbetert maar niet zo kritisch is als beschikbaarheid en",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0134",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "beoogde klanten."
+      ],
+      "text": "gegevensbescherming.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0135",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "beoogde klanten."
+      ],
+      "text": "5. S: De producten moeten makkelijk te vinden zijn voor de klant",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0136",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "beoogde klanten."
+      ],
+      "text": "• Onderbouwing: Hoewel het belangrijk is voor de klant om makkelijk producten",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0137",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "beoogde klanten."
+      ],
+      "text": "te kunnen vinden, kan dit als een 'should have' worden beschouwd omdat het",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0138",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "beoogde klanten."
+      ],
+      "text": "de gebruikerservaring verbetert maar niet zo kritisch is als beschikbaarheid en",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0139",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "beoogde klanten."
+      ],
+      "text": "gegevensbescherming.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0140",
+      "page_no": 14,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "Functionele requirements",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0141",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "Waarom MoScoW:",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0142",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "1. Must have: Klanten moeten in staat zijn om te registreren en een profiel aan te maken in de",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0143",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "webshop",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0144",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "• Onderbouwing: Dit is essentieel omdat het klanten in staat stelt om een",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0145",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "gepersonaliseerde ervaring te hebben, zoals het opslaan van favoriete producten, het",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0146",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "bijhouden van bestelgeschiedenis en het ontvangen van relevante aanbiedingen. Het",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0147",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "verhoogt ook de klantbetrokkenheid en loyaliteit.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0148",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "2. Must have: Klanten moeten in staat zijn om een profiel aan te maken en in te loggen om",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0149",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "een gepersonaliseerde winkelervaring te hebben.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0150",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "• Onderbouwing: Dit is essentieel omdat het klanten in staat stelt om een",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0151",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "gepersonaliseerde ervaring te hebben, zoals het opslaan van favoriete producten, het",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0152",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "bijhouden van bestelgeschiedenis en het ontvangen van relevante aanbiedingen. Het",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0153",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "verhoogt ook de klantbetrokkenheid en loyaliteit.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0154",
+      "page_no": 14,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 14",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0155",
+      "page_no": 14,
+      "block_type": "table",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "Naam | Architecturele relevantie | Geadresseerd | Prio | Prio\nin:\nUC01: Registratie functionaliteit | Klanten moeten in staat zijn om te registreren en een profiel aan te maken bij de webshop | Pag7:par2:US R | MUST HAVE\nUC02: inlogfunctionalitei | Klanten moeten in staat zijn te loggen om een gepersonaliseerde winkelervaring te hebben | MUST HAVE\n:Website categorie | De webshop bestaat uit een categorie, waarbij elke categorie maximaal 10 producten kan bevatten. | Pag3:par1:US R | SHOULD HAVE\nUC03:,Winkelmandfu nctionaliteit | Klanten moeten producten kunnen toevoegen aan hun winkelmandje, het mandje kunnen bekijken, producten kunnen verwijderen en de bestelling kunnen afronden. | MUST HAVE\nUC04: Beheerinterface | Een intuïtieve beheerinterface is essentieel voor het efficiënt beheren van producten, klanten en bestellingen. | MUST HAVE",
+      "token_estimate": 212,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 7,
+        "column_count": 6,
+        "header_row": "Naam | Architecturele relevantie | Geadresseerd | Prio | Prio",
+        "cells": [
+          [
+            "Naam",
+            "Architecturele relevantie",
+            "Geadresseerd",
+            "Prio",
+            "Prio"
+          ],
+          [
+            "in:"
+          ],
+          [
+            "UC01: Registratie functionaliteit",
+            "Klanten moeten in staat zijn om te registreren en een profiel aan te maken bij de webshop",
+            "Pag7:par2:US R",
+            "MUST HAVE"
+          ],
+          [
+            "UC02: inlogfunctionalitei",
+            "Klanten moeten in staat zijn te loggen om een gepersonaliseerde winkelervaring te hebben",
+            "MUST HAVE"
+          ],
+          [
+            ":Website categorie",
+            "De webshop bestaat uit een categorie, waarbij elke categorie maximaal 10 producten kan bevatten.",
+            "Pag3:par1:US R",
+            "SHOULD HAVE"
+          ],
+          [
+            "UC03:,Winkelmandfu nctionaliteit",
+            "Klanten moeten producten kunnen toevoegen aan hun winkelmandje, het mandje kunnen bekijken, producten kunnen verwijderen en de bestelling kunnen afronden.",
+            "MUST HAVE"
+          ],
+          [
+            "UC04: Beheerinterface",
+            "Een intuïtieve beheerinterface is essentieel voor het efficiënt beheren van producten, klanten en bestellingen.",
+            "MUST HAVE"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0156",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "3. Must have: Klanten moeten producten kunnen toevoegen aan hun winkelmandje, het",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0157",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "mandje kunnen bekijken, producten kunnen verwijderen en de bestelling kunnen afronden.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0158",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "• Onderbouwing: Dit is van vitaal belang voor het succes van de webshop, aangezien",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0159",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "het de basisfunctionaliteit biedt voor het doen van aankopen. Het stelt klanten in",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0160",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "staat om een soepele winkelervaring te hebben en bevordert de conversie van",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0161",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "bezoekers naar kopers.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0162",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "4. Must have: Een intuïtieve beheerinterface is essentieel voor het efficiënt beheren van",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0163",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "producten, klanten en bestellingen.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0164",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "• Onderbouwing: Dit is cruciaal voor het interne beheer van de webshop, omdat het",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0165",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "efficiënte en effectieve werking mogelijk maakt. Het minimaliseert fouten, verhoogt",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0166",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "de productiviteit van het personeel en zorgt voor een gestroomlijnd proces van",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0167",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "productbeheer, klantenservice en orderverwerking.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0168",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "5. Should have: De webshop bestaat uit een categorie, waarbij elke categorie maximaal 10",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0169",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "producten kan bevatten.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0170",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "• Onderbouwing: Dit is belangrijk om de navigatie en gebruikservaring van klanten te",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0171",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "verbeteren door een georganiseerde en overzichtelijke presentatie van",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0172",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "producten te bieden. Hoewel het niet zo essentieel is als de vorige must-have",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0173",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Functionele requirements"
+      ],
+      "text": "requirements, kan het bijdragen aan een betere gebruikerservaring en conversieratio.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0174",
+      "page_no": 15,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 15",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0175",
+      "page_no": 16,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "4.2 Use Case Diagram"
+      ],
+      "text": "4.2 Use Case Diagram",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0176",
+      "page_no": 16,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Use Case Diagram"
+      ],
+      "text": "Use Case Diagram",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0177",
+      "page_no": 16,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "4.3 Use Case beschrijvingen",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0178",
+      "page_no": 16,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Use Case beschrijvingen",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0179",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Een overzicht van alle uitgewerkte use-cases (functionele requirements) die uit de opdracht komen.",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0180",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Let hier weer goed op je nummering.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0181",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC1: Registratie functionaliteit",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0182",
+      "page_no": 16,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 16",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0183",
+      "page_no": 16,
+      "block_type": "table",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Actor | Nieuwe Klant\nPreconditie | De klant heeft webshop open\nBeschrijving | Deze use case stelt klanten in staat om een profiel aan te maken en in te loggen op de webshop..\nScenario beschrijving | 1. Klant navigeert naar de registratiepagina. 2. Klant vult de vereiste informatie in de gegeven tekstvakken 3. Klant klikt op \"Registreren\". 4. Systeem valideert de ingevoerde gegevens en maakt een nieuw profiel aan.\nPostconditie | Klant heeft succesvol een profiel aangemaakt en is geregistreerd op de webshop. .",
+      "token_estimate": 128,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 5,
+        "column_count": 2,
+        "header_row": "Actor | Nieuwe Klant",
+        "cells": [
+          [
+            "Actor",
+            "Nieuwe Klant"
+          ],
+          [
+            "Preconditie",
+            "De klant heeft webshop open"
+          ],
+          [
+            "Beschrijving",
+            "Deze use case stelt klanten in staat om een profiel aan te maken en in te loggen op de webshop.."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Klant navigeert naar de registratiepagina. 2. Klant vult de vereiste informatie in de gegeven tekstvakken 3. Klant klikt op \"Registreren\". 4. Systeem valideert de ingevoerde gegevens en maakt een nieuw profiel aan."
+          ],
+          [
+            "Postconditie",
+            "Klant heeft succesvol een profiel aangemaakt en is geregistreerd op de webshop. ."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0184",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC2: Inlog – functionaliteit",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0185",
+      "page_no": 17,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 17",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0186",
+      "page_no": 17,
+      "block_type": "table",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Exceptie flow 1: Ongeldige gebruikersnaam of wachtwoord | Als de klant een ongeldige gebruikersnaam of wachtwoord invoert tijdens het aanmaken van het profiel, wordt er een foutmelding weergegeven en wordt de klant gevraagd om de informatie opnieuw in te voeren.\nExceptie flow 2: Profielinformatie ontbreekt | Als de klant verplichte informatie mist bij het aanmaken van het profiel, wordt er een foutmelding weergegeven en wordt de klant gevraagd om alle vereiste velden in te vullen.",
+      "token_estimate": 121,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 2,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "Exceptie flow 1: Ongeldige gebruikersnaam of wachtwoord",
+            "Als de klant een ongeldige gebruikersnaam of wachtwoord invoert tijdens het aanmaken van het profiel, wordt er een foutmelding weergegeven en wordt de klant gevraagd om de informatie opnieuw in te voeren."
+          ],
+          [
+            "Exceptie flow 2: Profielinformatie ontbreekt",
+            "Als de klant verplichte informatie mist bij het aanmaken van het profiel, wordt er een foutmelding weergegeven en wordt de klant gevraagd om alle vereiste velden in te vullen."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0187",
+      "page_no": 17,
+      "block_type": "table",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Actor | Geregistreerde Klant\nPreconditie | Klant heeft toegang tot de website\nBeschrijving | Deze use case stelt geregistreerde klanten in staat om in te loggen op de website om toegang te krijgen tot gepersonaliseerde functies en een op maat gemaakte winkelervaring te hebben.\nScenario beschrijving | 1. Klant navigeert naar de inlog pagina. 2. De klant voert zijn/haar gebruikersnaam of emailadres en wachtwoord in. 3. Het systeem valideert de ingevoerde inloggegevens.Klant bekijkt en bewerkt het winkelmandje indien nodig 4. Als de inloggegevens correct zijn, verifieert het systeem de identiteit van de klant en logt de klant in op het systeem.\nPostconditie | De klant krijgt toegang tot zijn/haar gepersonaliseerde accountpagina met specifieke functies en voorkeuren.\nExceptie flow 1 | Als de ingevoerde inloggegevens onjuist zijn, wordt de klant gevraagd om de correcte gegevens in te voeren of om zijn/haar wachtwoord opnieuw in te stellen.\nExceptie flow 2 | Als het account van de klant is geblokkeerd of opgeschort, wordt de klant geïnformeerd over de status van zijn/haar account en worden instructies gegeven voor verdere actie.",
+      "token_estimate": 285,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 7,
+        "column_count": 2,
+        "header_row": "Actor | Geregistreerde Klant",
+        "cells": [
+          [
+            "Actor",
+            "Geregistreerde Klant"
+          ],
+          [
+            "Preconditie",
+            "Klant heeft toegang tot de website"
+          ],
+          [
+            "Beschrijving",
+            "Deze use case stelt geregistreerde klanten in staat om in te loggen op de website om toegang te krijgen tot gepersonaliseerde functies en een op maat gemaakte winkelervaring te hebben."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Klant navigeert naar de inlog pagina. 2. De klant voert zijn/haar gebruikersnaam of emailadres en wachtwoord in. 3. Het systeem valideert de ingevoerde inloggegevens.Klant bekijkt en bewerkt het winkelmandje indien nodig 4. Als de inloggegevens correct zijn, verifieert het systeem de identiteit van de klant en logt de klant in op het systeem."
+          ],
+          [
+            "Postconditie",
+            "De klant krijgt toegang tot zijn/haar gepersonaliseerde accountpagina met specifieke functies en voorkeuren."
+          ],
+          [
+            "Exceptie flow 1",
+            "Als de ingevoerde inloggegevens onjuist zijn, wordt de klant gevraagd om de correcte gegevens in te voeren of om zijn/haar wachtwoord opnieuw in te stellen."
+          ],
+          [
+            "Exceptie flow 2",
+            "Als het account van de klant is geblokkeerd of opgeschort, wordt de klant geïnformeerd over de status van zijn/haar account en worden instructies gegeven voor verdere actie."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0188",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC3: Winkelmand functionaliteit",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0189",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC4: Beheerinterface",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0190",
+      "page_no": 18,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 18",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0191",
+      "page_no": 18,
+      "block_type": "table",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Actor | Geregistreerde Klant\nPreconditie | Klant is ingelogd.\nBeschrijving | Deze use case stelt klanten in staat om door de producten te bladeren, producten aan hun winkelmandje toe te voegen of verwijderen en bestellingen te plaatsen.\nScenario beschrijving | 5. Klant navigeert naar de producten pagina. 6. Klant bekijkt beschikbare producten en selecteert gewenste items. 7. Klant voegt geselecteerde producten toe aan het winkelmandje. 8. Als klant product niet wilt klikken zij op de verwijder knop en product wordt uit de winkel mand verwijdert 9. Klant bekijkt en bewerkt het winkelmandje indien nodig 10. Klant voltooit de bestelling door af te rekenen. .\nPostconditie | Bestelling is geplaatst en de klant ontvangt een bevestiging van de aankoop.\nExceptie flow 1: Ongeldig product | Als de klant een ongeldig product probeert toe te voegen aan het winkelmandje, wordt er een foutmelding weergegeven en wordt de klant geïnformeerd dat het product niet beschikbaar is.\nExceptie flow 2: Onbeschikbaar product | Als het product tijdelijk niet beschikbaar is, wordt de klant op de hoogte gebracht en kan deze ervoor kiezen om het product op een later tijdstip toe te voegen aan het winkelmandje.\nActor | Beheerder\nPreconditie | Beheerder is ingelogd als beheerder.\nBeschrijving | Deze use case stelt beheerders in staat om producten, klanten en bestellingen te beheren via een intuïtieve beheerinterface.\nScenario beschrijving | 1. Beheerder navigeert naar het beheerdersdashboard. 2. Beheerder voert zoekopdrachten uit om specifieke producten, klanten of bestellingen te vinden. Klant klikt op \"Registreren\". 3. Beheerder voert bewerkingen uit, zoals het toevoegen, bewerken of verwijderen van producten, klanten of bestellingen. 4. Beheerder slaat wijzigingen op en controleert de status van het beheerproces. .",
+      "token_estimate": 454,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 11,
+        "column_count": 2,
+        "header_row": "Actor | Geregistreerde Klant",
+        "cells": [
+          [
+            "Actor",
+            "Geregistreerde Klant"
+          ],
+          [
+            "Preconditie",
+            "Klant is ingelogd."
+          ],
+          [
+            "Beschrijving",
+            "Deze use case stelt klanten in staat om door de producten te bladeren, producten aan hun winkelmandje toe te voegen of verwijderen en bestellingen te plaatsen."
+          ],
+          [
+            "Scenario beschrijving",
+            "5. Klant navigeert naar de producten pagina. 6. Klant bekijkt beschikbare producten en selecteert gewenste items. 7. Klant voegt geselecteerde producten toe aan het winkelmandje. 8. Als klant product niet wilt klikken zij op de verwijder knop en product wordt uit de winkel mand verwijdert 9. Klant bekijkt en bewerkt het winkelmandje indien nodig 10. Klant voltooit de bestelling door af te rekenen. ."
+          ],
+          [
+            "Postconditie",
+            "Bestelling is geplaatst en de klant ontvangt een bevestiging van de aankoop."
+          ],
+          [
+            "Exceptie flow 1: Ongeldig product",
+            "Als de klant een ongeldig product probeert toe te voegen aan het winkelmandje, wordt er een foutmelding weergegeven en wordt de klant geïnformeerd dat het product niet beschikbaar is."
+          ],
+          [
+            "Exceptie flow 2: Onbeschikbaar product",
+            "Als het product tijdelijk niet beschikbaar is, wordt de klant op de hoogte gebracht en kan deze ervoor kiezen om het product op een later tijdstip toe te voegen aan het winkelmandje."
+          ],
+          [
+            "Actor",
+            "Beheerder"
+          ],
+          [
+            "Preconditie",
+            "Beheerder is ingelogd als beheerder."
+          ],
+          [
+            "Beschrijving",
+            "Deze use case stelt beheerders in staat om producten, klanten en bestellingen te beheren via een intuïtieve beheerinterface."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Beheerder navigeert naar het beheerdersdashboard. 2. Beheerder voert zoekopdrachten uit om specifieke producten, klanten of bestellingen te vinden. Klant klikt op \"Registreren\". 3. Beheerder voert bewerkingen uit, zoals het toevoegen, bewerken of verwijderen van producten, klanten of bestellingen. 4. Beheerder slaat wijzigingen op en controleert de status van het beheerproces. ."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0192",
+      "page_no": 19,
+      "block_type": "heading",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "H5 Ethische aandachtspunten",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0193",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "N.a.v. het College en de onderwerp die zijn behandeld en de nieuwsberichten omtrent fraude en",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0194",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "oplichten op internet / marktplaats heb ik extra aandacht voor ;",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0195",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Dat heeft gevolgen voor de website die ik gemaakt heb, namelijk ;",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0196",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "X",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0197",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Y",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0198",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Z",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0199",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Als het doel is om de wereld te verbeteren en niet puur op winst uit te zijn want ik ben een scholier",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0200",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "uit generatie XYZMCV waar ik meer wil dan alleen geld verdienen, zal mijn website dus rekening",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0201",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "houden met deze onderwerpen",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0202",
+      "page_no": 19,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "- Gebundeld verzenden",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0203",
+      "page_no": 19,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "- Minder plastic",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0204",
+      "page_no": 19,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "- Duurdere produkten die 50 jaar meegaan en niet na een jaar vervangen moeten worden. -",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0205",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Reden x - Reden y",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0206",
+      "page_no": 19,
+      "block_type": "bullet",
+      "heading_path": [
+        "Onderzoek naar web gebruikers",
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "- Reden z",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0207",
+      "page_no": 19,
+      "block_type": "heading",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "H6 Literatuurlijst",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0208",
+      "page_no": 19,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 19",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0209",
+      "page_no": 19,
+      "block_type": "table",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "Postconditie | Producten, klanten en bestellingen zijn succesvol beheerd en eventuele wijzigingen zijn doorgevoerd.\nExceptie flow 1 | Als de zoekopdracht van de beheerder geen resultaten oplevert, wordt een melding weergegeven dat er geen overeenkomende resultaten zijn gevonden en wordt de beheerder aangemoedigd om de zoekopdracht te wijzigen.\nExceptie flow 2 | Als er tijdens het bewerken of verwijderen van een product, klant of bestelling een fout optreedt, zoals een databasefout of een netwerkprobleem, wordt een foutmelding weergegeven en wordt de beheerder gevraagd om het later opnieuw te proberen.",
+      "token_estimate": 152,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 3,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "Postconditie",
+            "Producten, klanten en bestellingen zijn succesvol beheerd en eventuele wijzigingen zijn doorgevoerd."
+          ],
+          [
+            "Exceptie flow 1",
+            "Als de zoekopdracht van de beheerder geen resultaten oplevert, wordt een melding weergegeven dat er geen overeenkomende resultaten zijn gevonden en wordt de beheerder aangemoedigd om de zoekopdracht te wijzigen."
+          ],
+          [
+            "Exceptie flow 2",
+            "Als er tijdens het bewerken of verwijderen van een product, klant of bestelling een fout optreedt, zoals een databasefout of een netwerkprobleem, wordt een foutmelding weergegeven en wordt de beheerder gevraagd om het later opnieuw te proberen."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0210",
+      "page_no": 20,
+      "block_type": "heading",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_01]"
+      ],
+      "text": "Bijlage I – Interview verslag [PERSOON_01]",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0211",
+      "page_no": 20,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 20",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0212",
+      "page_no": 21,
+      "block_type": "heading",
+      "heading_path": [
+        "Bijlage II – Interview verslag - [PERSOON_02]"
+      ],
+      "text": "Bijlage II – Interview verslag - [PERSOON_02]",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "96f07675",
+      "block_id": "96f07675_0213",
+      "page_no": 21,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 21",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    }
+  ]
+}
