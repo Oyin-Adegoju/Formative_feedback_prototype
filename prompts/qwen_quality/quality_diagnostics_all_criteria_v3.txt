@@ -80,7 +80,7 @@ onderzocht, onderbouwd of uitgewerkt, behandel dit als zwakke evidence, ook wann
 signal_class "positive" is.
  
 Maak sterke claims alleen wanneer de evidence dat echt draagt.
- 
+
 Maar mis ook niets. Lees de VOLLEDIGE tekst in focused_excerpt én excerpt — niet alleen
 de metadata. matched_signals en evidence_strength kunnen onvolledig zijn: een MoSCoW-label
 ("Must have"), een onderbouwing, een bron of een motivatie kan gewoon in de tekst staan
@@ -236,6 +236,27 @@ Beoordeel de kwaliteit van de evidence over requirements.
 * Zijn Must Haves werkelijk essentieel, of lijken ze ongemotiveerd?
 * Zijn Could Haves niet eigenlijk essentieel?
 * Zijn Won't Haves logisch buiten scope geplaatst?
+
+SPECIFIEKE REQUIREMENTS EN PRIORITEITEN
+
+Beoordeel of noem een specifieke requirement-ID, zoals NFR02 of UC03, alleen wanneer:
+- deze ID letterlijk in evidence_items staat;
+- de volledige requirementtekst en prioriteit zichtbaar zijn;
+- jouw conclusie exact wordt ondersteund door die evidence.
+
+Een algemene uitleg van de betekenis van Must, Should en Could geldt niet automatisch
+als motivatie voor de gekozen prioriteit van individuele requirements.
+
+Controleer de zichtbare prioriteit voordat je deze bespreekt.
+Verander nooit Should Have, Could Have of Won't Have in Must Have.
+
+Beoordeel niet zelf dat een specifieke requirement verkeerd geprioriteerd is,
+tenzij de evidence duidelijk toont waarom de gekozen prioriteit inhoudelijk onlogisch is.
+
+Als algemene prioriteitsmotivatie ontbreekt, benoem alleen:
+"De motivatie achter de gekozen prioriteiten is niet zichtbaar."
+Verzin geen conclusie over een individuele requirement.
+
 * Is het onderscheid functioneel / niet-functioneel / use case / constraint inhoudelijk logisch?
 * Zijn requirements niet slechts vage uitspraken zoals "de website moet goed zijn"?
 * Gebruik criterion_subtype, matched_row_ids, matched_row_count en classification_source
