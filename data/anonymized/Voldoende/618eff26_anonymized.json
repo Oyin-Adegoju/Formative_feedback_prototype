@@ -1,0 +1,6136 @@
+{
+  "doc_id": "618eff26",
+  "source_path": "INFIRST_requirements/Voldoende/2425 INFIRFS Requirements_student12.pdf",
+  "source_name": "2425 INFIRFS Requirements_student12.pdf",
+  "quality_label": "Voldoende",
+  "block_count": 400,
+  "mapping_count": 2,
+  "mapping": {},
+  "blocks": [
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0001",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "[STUDENTNR_01] [PERSOON_01]",
+      "token_estimate": 5,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0002",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "First full stack",
+      "token_estimate": 4,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0003",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "11-05-2025",
+      "token_estimate": 2,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0004",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Requirements analyse",
+      "token_estimate": 5,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0005",
+      "page_no": 1,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 1",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0006",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Inhoud",
+      "token_estimate": 1,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0007",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "1 Introductie ........................................................................................................................ 2",
+      "token_estimate": 34,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0008",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "2 Stakeholders analyse ...................................................................................................... 4",
+      "token_estimate": 31,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0009",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "2.1 Belanghebbenden mindmap .................................................................................... 4",
+      "token_estimate": 28,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0010",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "2.2 Belanghebbenden .................................................................................................... 4",
+      "token_estimate": 30,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0011",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "2.3 Belanghebbenden gecategoriseerd ......................................................................... 5",
+      "token_estimate": 27,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0012",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "3 wensen, eisen en prioriteiten. .......................................................................................... 6",
+      "token_estimate": 31,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0013",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "3.1 Constraints en (non-) Functionele eisen ................................................................... 6",
+      "token_estimate": 28,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0014",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "3.2 Niet-functionele requirements .................................................................................. 7",
+      "token_estimate": 29,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0015",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "3.3 Functionele requirements ......................................................................................... 7",
+      "token_estimate": 30,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0016",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "3.4 Use Case Diagram ................................................................................................... 7",
+      "token_estimate": 30,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0017",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "3.5 Use Case beschrijvingen ......................................................................................... 8",
+      "token_estimate": 29,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0018",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "4 Onderzoek Doelgroep .................................................................................................... 14",
+      "token_estimate": 31,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0019",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "4.1 Onderzoek naar jouw webshop-bezoekers ............................................................ 14",
+      "token_estimate": 26,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0020",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "5 Beperking ...................................................................................................................... 15",
+      "token_estimate": 33,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0021",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "5.1 Onderzoek waar een goede webshop aan dient te voldoen ................................... 16",
+      "token_estimate": 24,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0022",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "6 Ethische aandachtspunten ............................................................................................ 17",
+      "token_estimate": 30,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0023",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "7 Bronnen ......................................................................................................................... 18",
+      "token_estimate": 33,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0024",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Bijlage 1 – Interviews ............................................................................................................ 18",
+      "token_estimate": 33,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0025",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Interview verslag 1 ............................................................................................................ 18",
+      "token_estimate": 32,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0026",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Interview verslag 2 ............................................................................................................ 19",
+      "token_estimate": 32,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0027",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Bijlage 2 – Poster onderzoek webshop ................................................................................. 22",
+      "token_estimate": 30,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0028",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "1 Introductie",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0029",
+      "page_no": 2,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 2",
+      "token_estimate": 12,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0030",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "Tjdens de periode first full stack hou ik me bezig met het bouwen van een webshop.",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0031",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "In deze webshop ga ik kleding verkopen voor studenten, hier zijn natuurlijk ook een paar",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0032",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "dingen bij waar je rekening mee moet houden. De doelgroep waar ik aan verkoop heeft nou",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0033",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "eenmaal niet zo veel geld, daarom is het belangrijk dat de kledingen goedkoop moet zijn",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0034",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "zodat het betaalbaar is voor studenten.",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0035",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "Ook moet ik rekening houden met dat de kleding sterk, duurzaam en een goede kwaliteit",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0036",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "moet zijn. studenten hebben namelijk een iets wildere levensstijl dan volwassenen, daarom",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0037",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "moet ik ervoor zorgen dat de kleding die ik ga verkopen van goede kwaliteit is.",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0038",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "De webshop die ik ga maken moet duidelijk en overzichtelijk. Ik wil hem graag strak en",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0039",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "netjes en zo min mogelijk overbodige informatie, dit zorgt er voor dat de mensen op de",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0040",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "website het goed kunnen gebruiken en er zonder problemen aankopen kunnen doen.",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0041",
+      "page_no": 3,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 3",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0042",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "2 Stakeholders analyse"
+      ],
+      "text": "2 Stakeholders analyse",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0043",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.1 Belanghebbenden mindmap"
+      ],
+      "text": "2.1 Belanghebbenden mindmap",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0044",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "2.2 Belanghebbenden",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0045",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Naam Functie Rol in het project",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0046",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Sandra Kersenboom Directeur van de Opdrachtgever",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0047",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "studentenkledingketen",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0048",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "\"StuStyle\"",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0049",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Belang Sandra Kersenboom bij de nieuwe webshop:",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0050",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Wil dat studenten makkelijk en betrouwbaar kleding kunnen kopen via een toegankelijke webshop die",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0051",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "de merkidentiteit versterkt.",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0052",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Daan Drommels Inkoper & beheerder webshop. Admin gebruiker.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0053",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Belang Daan Drommels bij de nieuwe webshop:",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0054",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Wil producten kunnen toevoegen, bewerken en verwijderen via een gebruiksvriendelijk",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0055",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "beheerderspaneel.",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0056",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Lisa Vermeer Student en potentiële klant. Primaire eindgebruiker",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0057",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "(doelgroep)",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0058",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Belang Lisa Vermeer bij de nieuwe webshop:",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0059",
+      "page_no": 4,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 4",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0060",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Wil snel betaalbare kleding kunnen vinden en kopen via een duidelijke, veilige webshop met goede",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0061",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "zoek- en filteropties.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0062",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Renz Vos student & potentiële klant eindgebruiker met",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0063",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Met Beperking toegankelijkheidsuitdaging",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0064",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Belang Renz Vos bij de nieuwe webshop:",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0065",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Verwacht dat de webshop bruikbaar is ondanks zijn motorische beperking (zoals navigeren met",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0066",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "toetsenbord of vergrotingssoftware).",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0067",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Webdeveloper (ik) ontwikkelaar van de webshop ontwikkelaar / ontwerper",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0068",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Belang van mijzelf bij de nieuwe webshop: ik wil een duidelijke en realistische eisen van de",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0069",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "stakeholder verzamelen zodat het prototype aansluit op de verwachtingen en binnen",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0070",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "technische beperkingen blijft.",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0071",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Docenten INFIRFS Beoordelaars Eindbeoordelaar",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0072",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Belang van docenten bij de nieuwe webshop:",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0073",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "Willen zien dat ik methodisch en gebruiksgericht werk, en dat de webshop technisch correct, veilig en",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0074",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.2 Belanghebbenden"
+      ],
+      "text": "toegankelijk is volgens de opdrachtcriteria.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0075",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "2.3 Belanghebbenden gecategoriseerd",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0076",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Relatie tot",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0077",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Categorie Belanghebbende Toelichting",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0078",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "systeem",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0079",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Hoog belang, hoge invloed –",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0080",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Key Sandra",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0081",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "opdrachtgever, bepaalt richting en Extern",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0082",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Stakeholders Kersenboom",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0083",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "goedkeuring.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0084",
+      "page_no": 5,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 5",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0085",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "INFIRFSdocenten Middel belang, hoge invloed – beoordelen werk en",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0086",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Interface",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0087",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "zorgen voor studiepunten.",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0088",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Hoog belang, lage invloed – representatief",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0089",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Primaire",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0090",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Lisa Vermeer",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0091",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Stakeholders Extern",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0092",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "voor de doelgroep studenten.",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0093",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "de",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0094",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Hoog belang, lage invloed – belangrijk voor",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0095",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Renz Vos Extern",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0096",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "toegankelijkheidsaanpassingen.",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0097",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Hoog belang, middel invloed – als",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0098",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Secundaire",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0099",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Daan Drommels beheerder belang bij goede Interface",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0100",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Stakeholders",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0101",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "adminfunctionaliteit.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0102",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "Jijzelf (developer) Middel belang, hoge invloed – realiseert Intern",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0103",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "2.3 Belanghebbenden gecategoriseerd"
+      ],
+      "text": "technische oplossing.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0104",
+      "page_no": 6,
+      "block_type": "heading",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "Invloed versus Belang",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0105",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "Belanghebbende Invloed Belang Toelichting",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0106",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "Hoog Hoog Beslist over goedkeuring en",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0107",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "Sandra Kersenboom",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0108",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "richting van het eindproduct.",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0109",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "Middel Hoog Heeft directe wensen over functionaliteit in het",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0110",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "Daan Drommels",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0111",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "adminpaneel.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0112",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "Hoog Belangrijkste eindgebruiker; haar ervaring bepaalt",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0113",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "Lisa Vermeer (student) Laag",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0114",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "gebruiksgemak en succes.",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0115",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "Renz Vos (student met Hoog Cruciaal om de toegankelijkheid goed te",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0116",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "Laag",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0117",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "beperking) ontwerpen en testen.",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0118",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "Middel Mijn technische keuzes beïnvloeden hoe goed",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0119",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "Jijzelf (developer) Hoog",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0120",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "de eisen geïmplementeerd worden.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0121",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "Hoog Middel Beoordelen het werk; hun eisen bepalen je",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0122",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "INFIRFS-docenten",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0123",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "beoordeling en feedback.",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0124",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "Invloed versus Belang"
+      ],
+      "text": "3 wensen, eisen en prioriteiten.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0125",
+      "page_no": 6,
+      "block_type": "heading",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "3.1 Constraints en (non-) Functionele eisen",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0126",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Naam Architecturele relevantie",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0127",
+      "page_no": 6,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 6",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0128",
+      "page_no": 6,
+      "block_type": "table",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "CONSTR01: | Backend van de applicatie is geschreven in Java Springboot.\nCONSTR02: | Frontend van de applicatie is geschreven in Angular met Typescript.\nCONSTR03: | Database van de applicatie is een PostgresSQL database.\nCONSTR04: | Er moet gebruik gemaakt worden van SCSS.",
+      "token_estimate": 68,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 4,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "CONSTR01:",
+            "Backend van de applicatie is geschreven in Java Springboot."
+          ],
+          [
+            "CONSTR02:",
+            "Frontend van de applicatie is geschreven in Angular met Typescript."
+          ],
+          [
+            "CONSTR03:",
+            "Database van de applicatie is een PostgresSQL database."
+          ],
+          [
+            "CONSTR04:",
+            "Er moet gebruik gemaakt worden van SCSS."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0129",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "CONSTR05: De code is zo goed mogelijk semantisch opgesteld (overheidseis1).",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0130",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "1 Overheid stelt eisen aan bedrijven om de toegankelijkheid van websites op pijl te houden, semantische code is hier een onderdeel van.",
+      "token_estimate": 33,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0131",
+      "page_no": 7,
+      "block_type": "heading",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.2 Niet-functionele requirements"
+      ],
+      "text": "3.2 Niet-functionele requirements",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0132",
+      "page_no": 7,
+      "block_type": "heading",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.3 Functionele requirements"
+      ],
+      "text": "3.3 Functionele requirements",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0133",
+      "page_no": 7,
+      "block_type": "heading",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.4 Use Case Diagram"
+      ],
+      "text": "3.4 Use Case Diagram",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0134",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.4 Use Case Diagram"
+      ],
+      "text": "Use Case Diagram (Alleen de functionele requirements)",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0135",
+      "page_no": 7,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 7",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0136",
+      "page_no": 7,
+      "block_type": "table",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.4 Use Case Diagram"
+      ],
+      "text": "NFR03 | De webshop moet op veiligheid geanalyseerd zijn waarbij de belangrijkste aspecten van websecurity en datasecurity onderzocht zijn een meegenomen worden. | MUST HAVE\nNFR04 | De webshop moet gehost zijn op de server van de Hogeschool. | MUST HAVE\nNaam | Architecturele relevantie | Prio\nNFR01 | De gebruiker moet kunnen wisselen tussen de Engelse en Nederlandse taal waarna de gehele site van taal wisselt. Dit is om hiermee een breder publiek te bereiken. | MUST HAVE\nNFR02 | De webshop moet een kleurrijk thema hebben, grijzen en donkere kleuren mogen niet. | MUST HAVE",
+      "token_estimate": 144,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 5,
+        "column_count": 3,
+        "header_row": null,
+        "cells": [
+          [
+            "NFR03",
+            "De webshop moet op veiligheid geanalyseerd zijn waarbij de belangrijkste aspecten van websecurity en datasecurity onderzocht zijn een meegenomen worden.",
+            "MUST HAVE"
+          ],
+          [
+            "NFR04",
+            "De webshop moet gehost zijn op de server van de Hogeschool.",
+            "MUST HAVE"
+          ],
+          [
+            "Naam",
+            "Architecturele relevantie",
+            "Prio"
+          ],
+          [
+            "NFR01",
+            "De gebruiker moet kunnen wisselen tussen de Engelse en Nederlandse taal waarna de gehele site van taal wisselt. Dit is om hiermee een breder publiek te bereiken.",
+            "MUST HAVE"
+          ],
+          [
+            "NFR02",
+            "De webshop moet een kleurrijk thema hebben, grijzen en donkere kleuren mogen niet.",
+            "MUST HAVE"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0137",
+      "page_no": 7,
+      "block_type": "table",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.4 Use Case Diagram"
+      ],
+      "text": "Naam | Architecturele relevantie | Prio\nFR01– Inloggen met een gebruikers account | Meta als gebruiker moet ik kunnen inloggen in tot mijn account. | MUST HAVE\nFR02: Registreren met een gebruikers account | Als gebruiker wil ik een account kunnen aanmaken door te registreren. | MUST HAVE\nFR03: Product details weergeven | De gebruiker moet de details van de producten kunnen inzien. | MUST HAVE\nFR04: producten toevoegen aan winkelmand. | De gebruiker moeten producten gemakkelijk kunnen vinden, bekijken en in hun winkelmandje kunnen plaatsen. | MUST HAVE\nFR05: Inzien winkelmand | de webshop moet een duidelijk en simpele winkeland bevatten waarin alles waarbij de prijzen bij elkaar zijn opgeteld, en waar de aan het winkelmandje toegevoegde producten kunnen worden ingezien. | MUST HAVE\nFR06: Leeghalen winkelmand | De webshop moet een functie bevatten waarmee je met een knop de winkelmand in een keer leeghaalt. | MUST HAVE\nFR07: Weergeven alle producten | De webshop moet een producten pagina bevatten waar alle beschikbare producten worden getoond. | MUST HAVE\nFR08: Weergeven product per categorie | De webshop moet de producten ook per categorie kunnen tonen | MUST HAVE\nFR09: Afrekenen van een product | De gebruiker moet op de webshop de producten in de winkelmand kunnen afrekenen. | MUST HAVE\nFR10: Inzien van eigen orders | De gebruiker moet zijn eigen order kunnen inzien in een Oder tabblad. | MUST HAVE\nFR11: Totaalprijs producten weergeven in winkelmand | De webshop moet een totaal bedrag van de alle producten in de winkelmand tonen | MUST HAVE",
+      "token_estimate": 391,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 12,
+        "column_count": 3,
+        "header_row": "Naam | Architecturele relevantie | Prio",
+        "cells": [
+          [
+            "Naam",
+            "Architecturele relevantie",
+            "Prio"
+          ],
+          [
+            "FR01– Inloggen met een gebruikers account",
+            "Meta als gebruiker moet ik kunnen inloggen in tot mijn account.",
+            "MUST HAVE"
+          ],
+          [
+            "FR02: Registreren met een gebruikers account",
+            "Als gebruiker wil ik een account kunnen aanmaken door te registreren.",
+            "MUST HAVE"
+          ],
+          [
+            "FR03: Product details weergeven",
+            "De gebruiker moet de details van de producten kunnen inzien.",
+            "MUST HAVE"
+          ],
+          [
+            "FR04: producten toevoegen aan winkelmand.",
+            "De gebruiker moeten producten gemakkelijk kunnen vinden, bekijken en in hun winkelmandje kunnen plaatsen.",
+            "MUST HAVE"
+          ],
+          [
+            "FR05: Inzien winkelmand",
+            "de webshop moet een duidelijk en simpele winkeland bevatten waarin alles waarbij de prijzen bij elkaar zijn opgeteld, en waar de aan het winkelmandje toegevoegde producten kunnen worden ingezien.",
+            "MUST HAVE"
+          ],
+          [
+            "FR06: Leeghalen winkelmand",
+            "De webshop moet een functie bevatten waarmee je met een knop de winkelmand in een keer leeghaalt.",
+            "MUST HAVE"
+          ],
+          [
+            "FR07: Weergeven alle producten",
+            "De webshop moet een producten pagina bevatten waar alle beschikbare producten worden getoond.",
+            "MUST HAVE"
+          ],
+          [
+            "FR08: Weergeven product per categorie",
+            "De webshop moet de producten ook per categorie kunnen tonen",
+            "MUST HAVE"
+          ],
+          [
+            "FR09: Afrekenen van een product",
+            "De gebruiker moet op de webshop de producten in de winkelmand kunnen afrekenen.",
+            "MUST HAVE"
+          ],
+          [
+            "FR10: Inzien van eigen orders",
+            "De gebruiker moet zijn eigen order kunnen inzien in een Oder tabblad.",
+            "MUST HAVE"
+          ],
+          [
+            "FR11: Totaalprijs producten weergeven in winkelmand",
+            "De webshop moet een totaal bedrag van de alle producten in de winkelmand tonen",
+            "MUST HAVE"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0138",
+      "page_no": 8,
+      "block_type": "heading",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "3.5 Use Case beschrijvingen",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0139",
+      "page_no": 8,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "USC1: Inloggen met een gebruikersaccount.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0140",
+      "page_no": 8,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 8",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0141",
+      "page_no": 8,
+      "block_type": "table",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "Actor | Gebruiker\nPreconditie |  De gebruiker heeft een account aangemaakt.\nBeschrijving | De gebruiker moet kunnen inloggen met zijn account.",
+      "token_estimate": 35,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 3,
+        "column_count": 2,
+        "header_row": "Actor | Gebruiker",
+        "cells": [
+          [
+            "Actor",
+            "Gebruiker"
+          ],
+          [
+            "Preconditie",
+            " De gebruiker heeft een account aangemaakt."
+          ],
+          [
+            "Beschrijving",
+            "De gebruiker moet kunnen inloggen met zijn account."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0142",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "USC2: Registreren met een gebruikersaccount",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0143",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "USC3: Productdetails weergeven.",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0144",
+      "page_no": 9,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 9",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0145",
+      "page_no": 9,
+      "block_type": "table",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "Scenario beschrijving | De gebruiker navigeert naar de inlogpagina. De gebruiker voert zijn gebruikersnaam en wachtwoord in. Het systeem valideert de gegevens en logt de gebruiker in. De gebruiker wordt doorgestuurd naar de homepage.\nPostconditie | De gebruiker heeft maximaal 10 verschillende artikelen geselecteerd uit de beschikbare opties. De geselecteerde artikelen zijn toegevoegd aan de winkelwagen van de gebruiker en kunnen worden aangeschaft via het afrekenproces.\nActor | Gebruiker\nPreconditie |  De gebruiker is niet ingelogd op een account en heeft ook nog geen account\nBeschrijving |  De gebruiker moet een account kunnen aanmaken doormiddel van een emailadres en een wachtwoord.\nScenario beschrijving | De gebruiker navigeert naar de registratiepagina. De gebruiker vult de vereiste gegevens in, zoals naam, email en wachtwoord. Het systeem controleert de gegevens en maakt een account aan. De gebruiker ontvangt een bevestiging en kan inloggen.\nPostconditie |  De gebruiker heeft een account en kan inloggen.",
+      "token_estimate": 256,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 7,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "Scenario beschrijving",
+            "De gebruiker navigeert naar de inlogpagina. De gebruiker voert zijn gebruikersnaam en wachtwoord in. Het systeem valideert de gegevens en logt de gebruiker in. De gebruiker wordt doorgestuurd naar de homepage."
+          ],
+          [
+            "Postconditie",
+            "De gebruiker heeft maximaal 10 verschillende artikelen geselecteerd uit de beschikbare opties. De geselecteerde artikelen zijn toegevoegd aan de winkelwagen van de gebruiker en kunnen worden aangeschaft via het afrekenproces."
+          ],
+          [
+            "Actor",
+            "Gebruiker"
+          ],
+          [
+            "Preconditie",
+            " De gebruiker is niet ingelogd op een account en heeft ook nog geen account"
+          ],
+          [
+            "Beschrijving",
+            " De gebruiker moet een account kunnen aanmaken doormiddel van een emailadres en een wachtwoord."
+          ],
+          [
+            "Scenario beschrijving",
+            "De gebruiker navigeert naar de registratiepagina. De gebruiker vult de vereiste gegevens in, zoals naam, email en wachtwoord. Het systeem controleert de gegevens en maakt een account aan. De gebruiker ontvangt een bevestiging en kan inloggen."
+          ],
+          [
+            "Postconditie",
+            " De gebruiker heeft een account en kan inloggen."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0146",
+      "page_no": 9,
+      "block_type": "table",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "Actor | gebuirker\nPreconditie | • Gebruiker is ingelogd op het systeem. • De gebruiker heeft toegang tot de producten pagina.",
+      "token_estimate": 31,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 2,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "Actor",
+            "gebuirker"
+          ],
+          [
+            "Preconditie",
+            "• Gebruiker is ingelogd op het systeem. • De gebruiker heeft toegang tot de producten pagina."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0147",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "USC4: Producten toevoegen aan winkelmand",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0148",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "USC5: Inzien winkelmand.",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0149",
+      "page_no": 10,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 10",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0150",
+      "page_no": 10,
+      "block_type": "table",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "Beschrijving | De gebruiker moet de details van een product kunnen inzien om een geïnformeerde aankoopbeslissing te nemen.\nScenario beschrijving | De gebruiker navigeert naar de productpagina. Bij elk product staat er een knop \"show details\". De gebruiker kan op de knop drukken om de details te tonen van een bepaald product . De gebruiker bekijkt de beschikbare informatie en kan besluiten het product toe te voegen aan de winkelmand.\nPostconditie | De gebruiker heeft de details van een product kunnen inzien en een goed overwogen aankoop besluit kunnen maken.\nActor | gebuirker\nPreconditie | • Klant is ingelogd op het systeem. • De gebruiker heeft een product geselecteerd en is ingelogd indien nodig\nBeschrijving | De gebruiker moet producten kunnen toevoegen aan de winkelmand om later af te rekenen.\nScenario beschrijving | De gebruiker bekijkt een productpagina. De gebruiker selecteert een hoeveelheid en klikt op de \"Toevoegen aan winkelmand\" knop. Het systeem voegt het product toe aan de winkelmand en toont een bevestiging.\nPostconditie | Het product is toegevoegd aan de winkelmand en kan later worden afgerekend.\nActor | gebuirker\nPreconditie | • De gebruiker is ingelogd op het systeem. • De gebruiker heeft producten in de winkelmand geplaatst.\nBeschrijving | De gebruiker moet een overzicht van zijn geselecteerde producten kunnen zien voordat hij afrekent.",
+      "token_estimate": 344,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 11,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "Beschrijving",
+            "De gebruiker moet de details van een product kunnen inzien om een geïnformeerde aankoopbeslissing te nemen."
+          ],
+          [
+            "Scenario beschrijving",
+            "De gebruiker navigeert naar de productpagina. Bij elk product staat er een knop \"show details\". De gebruiker kan op de knop drukken om de details te tonen van een bepaald product . De gebruiker bekijkt de beschikbare informatie en kan besluiten het product toe te voegen aan de winkelmand."
+          ],
+          [
+            "Postconditie",
+            "De gebruiker heeft de details van een product kunnen inzien en een goed overwogen aankoop besluit kunnen maken."
+          ],
+          [
+            "Actor",
+            "gebuirker"
+          ],
+          [
+            "Preconditie",
+            "• Klant is ingelogd op het systeem. • De gebruiker heeft een product geselecteerd en is ingelogd indien nodig"
+          ],
+          [
+            "Beschrijving",
+            "De gebruiker moet producten kunnen toevoegen aan de winkelmand om later af te rekenen."
+          ],
+          [
+            "Scenario beschrijving",
+            "De gebruiker bekijkt een productpagina. De gebruiker selecteert een hoeveelheid en klikt op de \"Toevoegen aan winkelmand\" knop. Het systeem voegt het product toe aan de winkelmand en toont een bevestiging."
+          ],
+          [
+            "Postconditie",
+            "Het product is toegevoegd aan de winkelmand en kan later worden afgerekend."
+          ],
+          [
+            "Actor",
+            "gebuirker"
+          ],
+          [
+            "Preconditie",
+            "• De gebruiker is ingelogd op het systeem. • De gebruiker heeft producten in de winkelmand geplaatst."
+          ],
+          [
+            "Beschrijving",
+            "De gebruiker moet een overzicht van zijn geselecteerde producten kunnen zien voordat hij afrekent."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0151",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "USC6: Leeghalen winkelmand",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0152",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "USC7: Weergeven alle producten",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0153",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "USC8: Weergeven product per categorie",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0154",
+      "page_no": 11,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 11",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0155",
+      "page_no": 11,
+      "block_type": "table",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "Scenario beschrijving | • De gebruiker navigeert naar de winkelmandpagina. • Het systeem toont een overzicht van alle toegevoegde producten, inclusief prijs en aantallen. • De gebruiker kan de aantallen aanpassen of producten verwijderen.\nPostconditie | De gebruiker heeft inzicht in de producten in zijn winkelmand en kan eventuele wijzigingen doorvoeren.\nActor | De gebruiker\nPreconditie | • Klant is ingelogd op het systeem. • De gebruiker heeft producten in de winkelmand.\nBeschrijving | De gebruiker moet de winkelmand in één keer kunnen leeghalen als hij zijn keuzes wil resetten\nScenario beschrijving | • De gebruiker navigeert naar de winkelmandpagina. • De gebruiker klikt op \"Winkelmand legen\". • Het systeem verwijdert alle producten uit de winkelmand. • De gebruiker krijgt een bevestiging dat de winkelmand leeg is.\nPostconditie | De winkelmand is volledig geleegd en bevat geen producten meer.\nActor | De gebruiker\nPreconditie | • Klant is ingelogd op het systeem. • Er zijn producten beschikbaar in het systeem.\nBeschrijving | De gebruiker moet alle beschikbare producten kunnen bekijken om een keuze te maken.\nScenario beschrijving | De gebruiker navigeert naar de productpagina. Het systeem toont een lijst met alle beschikbare producten. De gebruiker kan door de lijst scrollen en producten selecteren.\nPostconditie | De gebruiker heeft een overzicht gekregen van alle producten.",
+      "token_estimate": 349,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 12,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "Scenario beschrijving",
+            "• De gebruiker navigeert naar de winkelmandpagina. • Het systeem toont een overzicht van alle toegevoegde producten, inclusief prijs en aantallen. • De gebruiker kan de aantallen aanpassen of producten verwijderen."
+          ],
+          [
+            "Postconditie",
+            "De gebruiker heeft inzicht in de producten in zijn winkelmand en kan eventuele wijzigingen doorvoeren."
+          ],
+          [
+            "Actor",
+            "De gebruiker"
+          ],
+          [
+            "Preconditie",
+            "• Klant is ingelogd op het systeem. • De gebruiker heeft producten in de winkelmand."
+          ],
+          [
+            "Beschrijving",
+            "De gebruiker moet de winkelmand in één keer kunnen leeghalen als hij zijn keuzes wil resetten"
+          ],
+          [
+            "Scenario beschrijving",
+            "• De gebruiker navigeert naar de winkelmandpagina. • De gebruiker klikt op \"Winkelmand legen\". • Het systeem verwijdert alle producten uit de winkelmand. • De gebruiker krijgt een bevestiging dat de winkelmand leeg is."
+          ],
+          [
+            "Postconditie",
+            "De winkelmand is volledig geleegd en bevat geen producten meer."
+          ],
+          [
+            "Actor",
+            "De gebruiker"
+          ],
+          [
+            "Preconditie",
+            "• Klant is ingelogd op het systeem. • Er zijn producten beschikbaar in het systeem."
+          ],
+          [
+            "Beschrijving",
+            "De gebruiker moet alle beschikbare producten kunnen bekijken om een keuze te maken."
+          ],
+          [
+            "Scenario beschrijving",
+            "De gebruiker navigeert naar de productpagina. Het systeem toont een lijst met alle beschikbare producten. De gebruiker kan door de lijst scrollen en producten selecteren."
+          ],
+          [
+            "Postconditie",
+            "De gebruiker heeft een overzicht gekregen van alle producten."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0156",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "USC9: Afrekenen van een product",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0157",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "USC10: Inzien van eigen orders",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0158",
+      "page_no": 12,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 12",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0159",
+      "page_no": 12,
+      "block_type": "table",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "Actor | De gebruiker\nPreconditie |  Er zijn producten in meerdere categorieën beschikbaar.\nBeschrijving | De gebruiker moet producten per categorie kunnen bekijken om eenvoudiger een keuze te maken.\nScenario beschrijving | De gebruiker navigeert naar de categoriepagina. Het systeem toont een lijst met categorieën. De gebruiker kiest een categorie en het systeem toont de bijbehorende producten.\nPostconditie | De gebruiker heeft producten binnen een geselecteerde categorie bekeken.\nActor | De gebruiker\nPreconditie | • De gebruiker is ingelogd. • De gebruiker heeft producten in de winkelmand.\nBeschrijving | De gebruiker moet producten kunnen afrekenen en de aankoop voltooien.\nScenario beschrijving | De gebruiker navigeert naar de checkoutpagina. De gebruiker drukt op \"order\". Het systeem verwerkt de bestelling en toont een bevestiging.\nPostconditie | De Order is voltooid en de bestelling is succesvol geplaatst\nActor | De gebruiker\nPreconditie | • De gebruiker is in gelogd. • De gebruiker heeft bestellingen geplaatst.\nBeschrijving | De gebruiker moet een overzicht van zijn orders kunnen bekijken.\nScenario beschrijving | De gebruiker navigeert naar de \"Mijn bestellingen\" pagina. Het systeem toont een overzicht van eerdere orders, inclusief status en details. De gebruiker kan doorklikken naar de details van een specifieke bestelling.\nPostconditie | De gebruiker heeft inzicht gekregen in zijn bestelling en de bijbehorende status.",
+      "token_estimate": 361,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 15,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "Actor",
+            "De gebruiker"
+          ],
+          [
+            "Preconditie",
+            " Er zijn producten in meerdere categorieën beschikbaar."
+          ],
+          [
+            "Beschrijving",
+            "De gebruiker moet producten per categorie kunnen bekijken om eenvoudiger een keuze te maken."
+          ],
+          [
+            "Scenario beschrijving",
+            "De gebruiker navigeert naar de categoriepagina. Het systeem toont een lijst met categorieën. De gebruiker kiest een categorie en het systeem toont de bijbehorende producten."
+          ],
+          [
+            "Postconditie",
+            "De gebruiker heeft producten binnen een geselecteerde categorie bekeken."
+          ],
+          [
+            "Actor",
+            "De gebruiker"
+          ],
+          [
+            "Preconditie",
+            "• De gebruiker is ingelogd. • De gebruiker heeft producten in de winkelmand."
+          ],
+          [
+            "Beschrijving",
+            "De gebruiker moet producten kunnen afrekenen en de aankoop voltooien."
+          ],
+          [
+            "Scenario beschrijving",
+            "De gebruiker navigeert naar de checkoutpagina. De gebruiker drukt op \"order\". Het systeem verwerkt de bestelling en toont een bevestiging."
+          ],
+          [
+            "Postconditie",
+            "De Order is voltooid en de bestelling is succesvol geplaatst"
+          ],
+          [
+            "Actor",
+            "De gebruiker"
+          ],
+          [
+            "Preconditie",
+            "• De gebruiker is in gelogd. • De gebruiker heeft bestellingen geplaatst."
+          ],
+          [
+            "Beschrijving",
+            "De gebruiker moet een overzicht van zijn orders kunnen bekijken."
+          ],
+          [
+            "Scenario beschrijving",
+            "De gebruiker navigeert naar de \"Mijn bestellingen\" pagina. Het systeem toont een overzicht van eerdere orders, inclusief status en details. De gebruiker kan doorklikken naar de details van een specifieke bestelling."
+          ],
+          [
+            "Postconditie",
+            "De gebruiker heeft inzicht gekregen in zijn bestelling en de bijbehorende status."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0160",
+      "page_no": 13,
+      "block_type": "paragraph",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "USC11: Totaalprijs producten weergeven in winkelmand",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0161",
+      "page_no": 13,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 13",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0162",
+      "page_no": 13,
+      "block_type": "table",
+      "heading_path": [
+        "2 Stakeholders analyse",
+        "3.5 Use Case beschrijvingen"
+      ],
+      "text": "Actor | De gebruiker\nPreconditie |  De gebruiker heeft producten in de winkelmand.\nBeschrijving | De gebruiker moet de totaalprijs van alle producten in de winkelmand kunnen zien.\nScenario beschrijving | De gebruiker bekijkt de winkelmandpagina. Het systeem berekent de totaalprijs van alle producten. De gebruiker ziet de totaalprijs weergegeven in de winkelmand.\nPostconditie | De gebruiker heeft een duidelijk overzicht van de totale kosten van zijn winkelmand.",
+      "token_estimate": 116,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 5,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "Actor",
+            "De gebruiker"
+          ],
+          [
+            "Preconditie",
+            " De gebruiker heeft producten in de winkelmand."
+          ],
+          [
+            "Beschrijving",
+            "De gebruiker moet de totaalprijs van alle producten in de winkelmand kunnen zien."
+          ],
+          [
+            "Scenario beschrijving",
+            "De gebruiker bekijkt de winkelmandpagina. Het systeem berekent de totaalprijs van alle producten. De gebruiker ziet de totaalprijs weergegeven in de winkelmand."
+          ],
+          [
+            "Postconditie",
+            "De gebruiker heeft een duidelijk overzicht van de totale kosten van zijn winkelmand."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0163",
+      "page_no": 14,
+      "block_type": "heading",
+      "heading_path": [
+        "4 Onderzoek Doelgroep"
+      ],
+      "text": "4 Onderzoek Doelgroep",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0164",
+      "page_no": 14,
+      "block_type": "heading",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "4.1 Onderzoek naar jouw webshop-bezoekers",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0165",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "Voor mijn webshop richt ik mij op studenten die behoefte hebben aan betaalbare,",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0166",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "betrouwbare en duurzame kleding. Om inzicht te krijgen in de wensen en het gedrag van",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0167",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "deze doelgroep, heb ik gebruikgemaakt van zowel deskresearch als interviews met",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0168",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "studenten.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0169",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "Wie is mijn doelgroep?",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0170",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "Mijn primaire doelgroep bestaat uit studenten in de leeftijd van 18 tot 25 jaar, die:",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0171",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Weinig te besteden hebben door studiekosten en bijbanen.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0172",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Online shoppen op mobiel of laptop, vaak in de avond.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0173",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Veel waarde hechten aan prijs, betrouwbaarheid en gebruiksgemak.",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0174",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Snelle service en duidelijke communicatie verwachten.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0175",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Gevoelig zijn voor duurzaamheid en ethiek in producten.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0176",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "Wat willen studenten graag? (Multiscope. z.d.).",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0177",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Lage prijzen voor kwalitatieve kleding.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0178",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Snelle en eenvoudige navigatie.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0179",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Duidelijke productinformatie met goede afbeeldingen.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0180",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Professionele uitstraling van de webshop.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0181",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Veilige betaalmethodes, zoals iDEAL.",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0182",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Mobielvriendelijke webshop (responsive design).",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0183",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Eerlijke en duurzame producten, indien mogelijk.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0184",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "Wat willen ze juist niet? ( De Ondernemer. 2023, 11 oktober).",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0185",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Rommelige of verwarrende websites.",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0186",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Verouderd design of slechte mobiele weergave.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0187",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Betaalmethodes die onbetrouwbaar ogen.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0188",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Producten zonder duidelijke beschrijving of foto’s.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0189",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Overmatige reclame of pop-ups.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0190",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "Aanpassingen in mijn webshop",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0191",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "Op basis van dit onderzoek heb ik besloten dat mijn webshop:",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0192",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Een strak, overzichtelijk en kleurrijk design krijgt (geen grijs/donker).",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0193",
+      "page_no": 14,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Productpagina’s toont met goede foto’s, beschrijvingen en prijzen.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0194",
+      "page_no": 14,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 14",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0195",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Alleen duurzame kleding aanbiedt van goede kwaliteit tegen lage prijs.",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0196",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "4 Onderzoek Doelgroep",
+        "4.1 Onderzoek naar jouw webshop-bezoekers"
+      ],
+      "text": "• Gericht is op snelheid, eenvoud en toegankelijkheid.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0197",
+      "page_no": 15,
+      "block_type": "heading",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "5 Beperking",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0198",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "Voor mijn webshop heb ik gekozen om deze toegankelijk te maken voor gebruikers met een",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0199",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "visuele beperking, specifiek gericht op mensen die slechtziend zijn. Dit is een",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0200",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "veelvoorkomende beperking, vooral onder jongeren met oogaandoeningen zoals",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0201",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "bijziendheid, kleurenblindheid of lichtgevoeligheid.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0202",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "Wat betekent het om slechtziend te zijn?",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0203",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "Slechtziendheid betekent dat iemand moeite heeft met het waarnemen van visuele",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0204",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "informatie, ondanks het gebruik van een bril of lenzen. Dit kan zich uiten in:",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0205",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Moeite met het lezen van kleine letters.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0206",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Problemen met laag contrast (zoals grijze tekst op een witte achtergrond).",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0207",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Last van drukke of onoverzichtelijke websites.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0208",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Niet kunnen vertrouwen op kleurgebruik om informatie te interpreteren. (World Wide",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0209",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "Web Consortium (W3C). 2018).",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0210",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "Wat willen bezoekers met slechtziendheid graag?",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0211",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Grote, duidelijke letters met veel witruimte.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0212",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Hoog contrast tussen achtergrond en tekst.  Gebruik van iconen en vormen",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0213",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "naast kleur.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0214",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Duidelijke structuur zonder visuele rommel.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0215",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Geen gebruik van kleine knoppen of dichte, compacte layouts. (Bartiméus. z.d.).",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0216",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "Wat willen ze juist niet?",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0217",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Grijze of donkere kleurthema’s (zoals ook verboden in de non-functionele eisen).",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0218",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Tekst in afbeeldingen zonder alternatieve beschrijving (alt-tekst).",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0219",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Visueel overprikkelende elementen (zoals flikkerende banners).",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0220",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Informatie die alleen via kleur of pictogrammen te begrijpen is.",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0221",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "Aanpassingen in mijn webshop",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0222",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "Om mijn webshop geschikt te maken voor slechtzienden, heb ik de volgende keuzes",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0223",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "gemaakt:",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0224",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Gebruik van grote, schaalbare lettertypes.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0225",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Kleuren met voldoende contrast, bijvoorbeeld donkerblauw op wit.",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0226",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Geen visuele afhankelijkheid van kleur alleen – waar nodig ook tekst of vorm",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0227",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "toegevoegd.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0228",
+      "page_no": 15,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Navigatie zo simpel mogelijk gehouden, alles op logies plekken gezet.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0229",
+      "page_no": 15,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 15",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0230",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking"
+      ],
+      "text": "• Layout zonder afleiding, rustig ontwerp.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0231",
+      "page_no": 16,
+      "block_type": "heading",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "5.1 Onderzoek waar een goede webshop aan dient te voldoen",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0232",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "Gebruikersbehoeften en informatievoorziening",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0233",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "Bezoekers van een webshop willen snel kunnen vinden wat ze zoeken. Daarom is het",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0234",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "belangrijk dat de webshop beschikt over:",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0235",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Een overzichtelijke navigatie met duidelijke categorieën.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0236",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Een zoekfunctie met filters (zoals prijs, maat, kleur).",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0237",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Duidelijke productpagina’s met foto’s, prijzen, beschrijvingen, beschikbaarheid en",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0238",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "reviews.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0239",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Een goed werkende winkelmand die altijd zichtbaar of toegankelijk is.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0240",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Snelle laadtijd ; trage webshops leiden tot afhaken van gebruikers.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0241",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "(Nielsen Norman Group, 2023)",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0242",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "Zoekgedrag van bezoekers",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0243",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "Uit gebruikersonderzoek blijkt dat veel webshopbezoekers op zoek gaan naar specifieke",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0244",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "producten via de zoekbalk. Daarnaast willen ze tijdens het bladeren snel vergelijkingen",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0245",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "kunnen maken. Daarom zijn visuele elementen zoals productfoto’s van hoge kwaliteit",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0246",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "cruciaal. Bezoekers verlaten snel een webshop als ze te veel moeten klikken of als pagina’s",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0247",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "rommelig zijn.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0248",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "(Baymard Institute, 2023)",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0249",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "Beste praktijk voorbeelden van succesvolle webshops",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0250",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "Webshops zoals Zalando, Bol.com en Coolblue scoren hoog op gebruiksvriendelijkheid",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0251",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "vanwege:",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0252",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Consistente styling (typografie, kleuren, buttons)",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0253",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Gebruik van witruimte voor rust",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0254",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Mobielvriendelijk ontwerp (responsive design)",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0255",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Duidelijke call-to-actions (“In winkelmand”, “Afrekenen”)",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0256",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Betrouwbare betaalopties zoals iDEAL, PayPal en creditcard",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0257",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Beveiligde verbinding (https) zichtbaar voor de gebruiker",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0258",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "(Thuiswinkel.org, 2024)",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0259",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "Optimalisatie voor mijn webshop",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0260",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "Op basis van dit onderzoek heb ik de volgende aanpassingen en keuzes gemaakt:",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0261",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Ik gebruik grote, duidelijke afbeeldingen van kledingstukken.",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0262",
+      "page_no": 16,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Ik ontwerp een eenvoudige en heldere navigatiestructuur .",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0263",
+      "page_no": 16,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 16",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0264",
+      "page_no": 17,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Mijn homepage heeft direct toegang tot alle categorieën .",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0265",
+      "page_no": 17,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• De webshop bevat beveiligde verbinding (SSL-certificaat) .",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0266",
+      "page_no": 17,
+      "block_type": "bullet",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "• Ik kies voor een strak, professioneel en rustig ontwerp dat aansluit bij studenten met een",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0267",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "visuele beperking.",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0268",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "Conclusie",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0269",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "Een goede webshop is eenvoudig, snel, veilig en transparant. Door rekening te houden met",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0270",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "bewezen ontwerpprincipes en de wensen van mijn doelgroep, streef ik ernaar een webshop",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0271",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "5 Beperking",
+        "5.1 Onderzoek waar een goede webshop aan dient te voldoen"
+      ],
+      "text": "te bouwen die studenten aanspreekt, vertrouwen wekt.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0272",
+      "page_no": 17,
+      "block_type": "heading",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "6 Ethische aandachtspunten",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0273",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "N.a.v. het College en de onderwerpen die zijn behandeld, en de nieuwsberichten omtrent",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0274",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "fraude en oplichting op internet/marktplaats, ben ik extra voorzichtig geworden met online",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0275",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "aankopen. Dit betekent dat ik:",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0276",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "1. Goed nadenken voordat ik iets koop, vooral als het te mooi lijkt om waar te zijn.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0277",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "2. Niet zomaar mijn persoonlijke informatie deel, tenzij ik zeker weet dat het veilig is.",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0278",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "3. Geen rare links open in e-mails of berichten, want die kunnen nep zijn en proberen",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0279",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "mijn gegevens te stelen.",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0280",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "4. Regelmatig controleer op nieuws over oplichting en fraude, zodat ik op de hoogte blijf",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0281",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "van de laatste trucs die oplichters gebruiken.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0282",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "Kortom, ik neem gewoon wat extra voorzorgsmaatregelen om te voorkomen dat ik in de val",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0283",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "loop van online oplichters. Je weet maar nooit wie er achter die schermen zit!",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0284",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "Dat heeft gevolgen voor de website die ik gemaakt heb, namelijk ;",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0285",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "Ik heb er namelijk voor gezorgd dat de website een professionele uitstraling heeft, zodat",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0286",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "bezoekers vertrouwen hebben in de betrouwbaarheid ervan.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0287",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "Ook heb ik een inlog en register veld gemaakt waarin mensen naar hun account toe kunnen",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0288",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "gaan en via hun account veilig kunnen bestellen.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0289",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "Als het doel is om de wereld te verbeteren en niet puur op winst uit te zijn, omdat ik een",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0290",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "scholier ben uit generatie XYZMCV waar ik meer wil dan alleen geld verdienen, zal mijn",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0291",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "website rekening houden met deze onderwerpen:",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0292",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "Gebundeld verzenden: Ik zal ervoor zorgen dat producten zoveel mogelijk gebundeld worden",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0293",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "verzonden, om het aantal verzendingen te verminderen en de uitstoot van CO2 te beperken.",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0294",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "Minder plastic: Ik zal streven naar het verminderen van het gebruik van plastic verpakkingen",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0295",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "door, milieuvriendelijke materialen te gebruiken. Hiermee wil ik bijdragen aan het verminderen",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0296",
+      "page_no": 17,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "van plastic afval en de negatieve impact ervan op het milieu.",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0297",
+      "page_no": 17,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 17",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0298",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "Duurzame producten die lang meegaan: Ik zal een focus leggen op het aanbieden van",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0299",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "duurzame producten van hoge kwaliteit die ontworpen zijn om lang mee te gaan en niet na",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0300",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "een jaar al vervangen moeten worden. Dit is ook belangrijk voor mijn doelgroep omdat mijn",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0301",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "doelgroep niet veel geld heeft en daarom moet het product duurzaam zijn zodat mijn",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0302",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "doelgroep niet elk jaar bijvoorbeeld een nieuwe broek hoeft te kopen.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0303",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "Reden x: iets langer wachttijd. Door een langer wachttijd te hanteren worden en per ophaling",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0304",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "door een postbedrijf meer bestellingen in een keer meegenomen. Hierdoor hoeft de",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0305",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "postbezorging niet elke dag te komen maar bijvoorbeeld ½ keer per week. (Yourmailbox.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0306",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "z.d.)",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0307",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "Reden y: ook wil ik graag zou ik graag willen in kopen in Nederland zodat ik niet vliegtuigen",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0308",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "of schepen de hele wereld over hoef te laten gaan.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0309",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "Reden z: alleen verkopen binnen Nederland, ook zodat ik dat niet hoef te versturen over de",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0310",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "6 Ethische aandachtspunten"
+      ],
+      "text": "hele wereld en dus het co2 verbruik zo laag mogelijk hou.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0311",
+      "page_no": 18,
+      "block_type": "heading",
+      "heading_path": [
+        "7 Bronnen"
+      ],
+      "text": "7 Bronnen",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0312",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen"
+      ],
+      "text": "Baymard Institute. (2023). E-commerce UX research. Geraadpleegd op 11 mei 2025, van",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0313",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen"
+      ],
+      "text": "https://baymard.com/research/ecommerce-ux",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0314",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen"
+      ],
+      "text": "Nielsen Norman Group. (2023). Top 10 Guidelines for Better Web UX. Geraadpleegd op 11",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0315",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen"
+      ],
+      "text": "mei 2025, van https://www.nngroup.com/articles/top-10-guidelines/",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0316",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen"
+      ],
+      "text": "Thuiswinkel.org. (2024). Checklist veilige en betrouwbare webshop. Geraadpleegd op 11 mei",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0317",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen"
+      ],
+      "text": "2025, van https://www.thuiswinkel.org/nieuws/veilig-online-winkelen",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0318",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen"
+      ],
+      "text": "World Wide Web Consortium (W3C). (2018). Web Content Accessibility Guidelines (WCAG)",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0319",
+      "page_no": 18,
+      "block_type": "heading",
+      "heading_path": [
+        "7 Bronnen",
+        "2.1 . https://www.w3.org/TR/WCAG21/"
+      ],
+      "text": "2.1 . https://www.w3.org/TR/WCAG21/",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0320",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen",
+        "2.1 . https://www.w3.org/TR/WCAG21/"
+      ],
+      "text": "Bartiméus. (z.d.). Kennisbank slechtziendheid . Geraadpleegd op 10 mei 2025, van",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0321",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen",
+        "2.1 . https://www.w3.org/TR/WCAG21/"
+      ],
+      "text": "https://www.bartimeus.nl",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0322",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen",
+        "2.1 . https://www.w3.org/TR/WCAG21/"
+      ],
+      "text": "De Ondernemer. (2023, 11 oktober). Winkelonderzoek: Gen Z en millennials shoppen anders",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0323",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen",
+        "2.1 . https://www.w3.org/TR/WCAG21/"
+      ],
+      "text": "dan gedacht . https://www.deondernemer.nl/actueel/retail-winkel-onderzoek-abn-amro-",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0324",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen",
+        "2.1 . https://www.w3.org/TR/WCAG21/"
+      ],
+      "text": "genzmillennials-online-offline~21095db",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0325",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen",
+        "2.1 . https://www.w3.org/TR/WCAG21/"
+      ],
+      "text": "Multiscope. (z.d.). Jongeren shoppen online voor uitgebreide keuze . Geraadpleegd op 10 mei",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0326",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen",
+        "2.1 . https://www.w3.org/TR/WCAG21/"
+      ],
+      "text": "2025, van https://www.multiscope.nl/kennis/weblog/jongeren-shoppen-online-",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0327",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen",
+        "2.1 . https://www.w3.org/TR/WCAG21/"
+      ],
+      "text": "vooruitgebreide-keuze",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0328",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen",
+        "2.1 . https://www.w3.org/TR/WCAG21/"
+      ],
+      "text": "Yourmailbox. (z.d.). Hoe het versturen van fysieke post impact heeft op het milieu. Geraadpleegd",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0329",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen",
+        "2.1 . https://www.w3.org/TR/WCAG21/"
+      ],
+      "text": "op 11 mei 2025, van https://www.yourmailbox.nl/Hoe-het-versturen-van-",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0330",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "7 Bronnen",
+        "2.1 . https://www.w3.org/TR/WCAG21/"
+      ],
+      "text": "fysieke-post-impact-heeft-op-het-milieu",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0331",
+      "page_no": 18,
+      "block_type": "heading",
+      "heading_path": [
+        "Bijlage 1 – Interviews"
+      ],
+      "text": "Bijlage 1 – Interviews",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0332",
+      "page_no": 18,
+      "block_type": "heading",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "Interview verslag 1",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0333",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "In dit interview ga ik iemand interviewen van mijn doelgroep. Namelijk een vriend van me die",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0334",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "ook een student is en dus weinig geld heeft. De student die ik ga interviewen heet Renz.",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0335",
+      "page_no": 18,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 18",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0336",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "Interview met student:",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0337",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "Ik: goedemorgen Renz, welkom bij het interview, bedankt dat je de tijd hebt genomen om met",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0338",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "mij dit interview af te leggen. Ik heb tijdens dit interview een aantal vragen die ik wil stellen.",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0339",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "Om gelijk te beginnen met het interview start ik met de eerste vraag, wat is het eerste waar je",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0340",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "naar kijkt als je op een webshop komt.",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0341",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "Renz: goedemorgen, graag gedaan. Als ik op een online webshop kom is eigenlijk het eerste",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0342",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "waar ik naar kijk natuurlijk de prijs aangezien ik niet heel rijk ben en het studentenleven nou",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0343",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "eenmaal erg duur is. daarnaast kijk ik ook of de site betrouwbaar is en of ik de kleding mooi",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0344",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "vind. beveiliging op een website vind ik erg belangrijk.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0345",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "Ik: goed dat je kijkt naar de prijs dat is ook waar ik als developer op heb gelet. En als je kijkt",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0346",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "naar of je een site betrouwbaar vind, waar kijk je dan naar.",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0347",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "Renz: ik kijk eigenlijk naar de opmaak van de site, dus hou die eruit ziet en of die er een",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0348",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "beetje professioneel uit ziet. Ook let ik op de prijs, namelijk of het niet te mooi is om waard te",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0349",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "zijn.",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0350",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "Ik: oke interresant. En als je kleding koopt let je dan alleen op de prijs of ook nog op andere",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0351",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "dingen.",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0352",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "Renz: ik kijk uiteraard naar de prijs aangezien ik niet veel geld heb, maar ik kijk ook erg goed",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0353",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "naar de kwaliteit. Ik wil natuurlijk niet iets kopen wat de volgende maand kapot is, dan geeft",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0354",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "ik liever iets meer geld uit en koop ik wat betere kwaliteit waardoor ik er langer mee kan",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0355",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "doen.",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0356",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "Ik: oke. Als ik het goed begrijp vind je beveiliging op een website belangrijk en let je daar",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0357",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "goed op en kijk je ook naar de prijs maar ook naar de kwaliteit. Je geeft dus liever iets meer",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0358",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "geld uit voor wat meer kwaliteit dan dat je bespaard en volgende maand het opnieuw moet",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0359",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "kopen.",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0360",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "Renz: precies!",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0361",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "Ik: super, dan weet ik voor nu genoeg en wil ik je nogmaals bedanken voor je tijd om dit",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0362",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "interview af te nemen. Nog een fijne dag gewenst.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0363",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 1"
+      ],
+      "text": "Renz: geen probleem. Jij ook.",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0364",
+      "page_no": 19,
+      "block_type": "heading",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Interview verslag 2",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0365",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Ik: Goedemiddag Lisa, welkom bij dit interview. Dank je wel dat je de tijd neemt om met mij te",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0366",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "praten over jouw ervaringen en voorkeuren bij online shoppen. Ik heb een paar vragen",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0367",
+      "page_no": 19,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 19",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0368",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "voorbereid om beter te begrijpen wat jij belangrijk vindt bij een webshop. Laten we beginnen.",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0369",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Wat is het eerste waar jij op let als je op een webshop terechtkomt?",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0370",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Lisa: Goedemiddag! Ja, geen probleem. Het eerste waar ik naar kijk is of de webshop er",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0371",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "betrouwbaar uitziet. Ik let bijvoorbeeld op hoe professioneel de website is opgebouwd en of",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0372",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "het een beetje logisch werkt allemaal. Daarna kijk ik naar de prijzen, want ik heb als student",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0373",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "natuurlijk niet superveel te besteden.",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0374",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Ik: Dat is logisch. En wat maakt voor jou een webshop betrouwbaar?",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0375",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Lisa: Als het design goed is — dus geen rare opmaak of onduidelijke knoppen — en als de",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0376",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "site bijvoorbeeld keurmerken heeft of goede recensies. Ik kijk ook naar de",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0377",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "betaalmogelijkheden. Als ik alleen via vage methodes kan betalen, haak ik af. Ideal moet er",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0378",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "sowieso tussen zitten.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0379",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Ik: Goede punten. En als je dan een product bekijkt, waar let je dan op voordat je iets besluit",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0380",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "te kopen?",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0381",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Lisa: Sowieso op de prijs, maar ik let ook heel erg op de productfoto’s en beschrijving. Als",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0382",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "iets er te goedkoop uitziet of als de foto’s onduidelijk zijn, vertrouw ik het niet. En ik zoek",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0383",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "soms ook reviews op van andere kopers, zeker als het om kleding gaat. Want de pasvorm",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0384",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "kan nogal verschillen.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0385",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Ik: En hoe belangrijk vind jij beveiliging op een webshop?",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0386",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Lisa: Heel belangrijk. Zeker als ik mijn gegevens moet invullen of iets moet betalen. Ik check",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0387",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "altijd of de site een slotje in de adresbalk heeft, dus dat het een https-verbinding is. Als dat er",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0388",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "niet is, ga ik meteen weg.",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0389",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Ik: Duidelijk. Dus als ik het goed begrijp: je let op het uiterlijk van de webshop, of hij veilig",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0390",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "aanvoelt, of er een https-verbinding is, en je zoekt soms extra info op zoals reviews. Klopt",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0391",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "dat?",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0392",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Lisa: Precies. En ik wil gewoon weten dat ik niet opgelicht word en dat ik krijg wat ik bestel.",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0393",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Ik: Helemaal logisch. Dank je wel Lisa, dat waren mijn vragen. Super bedankt voor je tijd en",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0394",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "je antwoorden. Fijne dag nog!",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0395",
+      "page_no": 20,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 20",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0396",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage 1 – Interviews",
+        "Interview verslag 2"
+      ],
+      "text": "Lisa: Graag gedaan! Jij ook een fijne dag.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0397",
+      "page_no": 21,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 21",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0398",
+      "page_no": 22,
+      "block_type": "heading",
+      "heading_path": [
+        "Bijlage 2 – Poster onderzoek webshop"
+      ],
+      "text": "Bijlage 2 – Poster onderzoek webshop",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0399",
+      "page_no": 22,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 22",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "618eff26",
+      "block_id": "618eff26_0400",
+      "page_no": 23,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Engineering- Onderzoek - Ethiek pag. 23",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    }
+  ]
+}
