@@ -645,6 +645,40 @@ def _req_signals(hit: RetrievalHit) -> list[str]:
     return sigs
 
 
+_MOSCOW_HAVE_RE: Final[re.Pattern[str]] = re.compile(
+    r"\b(must|should|could|won'?t)[\s\-]?have\b", re.IGNORECASE
+)
+
+
+def _req_signals_from_text(text: str) -> tuple[list[str], list[str]]:
+    """(matched_signals, req_ids) found in a plain text string.
+
+    Used to RE-describe a requirements prose item after coverage tiling, so a
+    MoSCoW label or req-ID that lives in a merged same-section neighbour (e.g. a
+    "Must Have:" header split from its item) is reflected in the metadata. This
+    only labels text that was already selected by the heading-based gate — it
+    never admits anything.
+    """
+    tiers: set[str] = set()
+    for m in _MOSCOW_HAVE_RE.finditer(text):
+        tiers.add(_tier_of(m.group(1)))
+    order = ["must", "should", "could", "wont"]
+    sigs = [f"moscow:{t}" for t in order if t in tiers]
+
+    seen: set[str] = set()
+    ids: list[str] = []
+    for m in _REQ_ID_RE.finditer(text):
+        norm = m.group(0).upper().replace(" ", "").replace("-", "")
+        if norm not in seen:
+            seen.add(norm)
+            ids.append(norm)
+        if len(ids) >= 12:
+            break
+    if ids:
+        sigs.append("req_id")
+    return sigs, ids
+
+
 def _is_use_case_section(hit: RetrievalHit) -> bool:
     """True when the block's most-specific requirement section is a use case.
 
@@ -1317,9 +1351,36 @@ _COVERAGE_ITEM_CAP: Final[int] = 1000
 _COVERAGE_TOTAL_BUDGET: Final[int] = 3600
 
 
+def _resignal_requirements(it: EvidenceItem) -> None:
+    """Re-describe a requirements prose item from its (tiled) excerpt.
+
+    Coverage tiling can pull a MoSCoW label or req-ID from a merged same-section
+    neighbour into the excerpt while the anchor block itself carried none. This
+    re-reads the FINAL excerpt so the metadata matches the text actually shown:
+    it sets matched_signals / matched_row_ids and, when a real requirement signal
+    is present, lifts a weak item to positive and recomputes its strength.
+
+    This labels already-admitted, in-section text only — admission stays
+    strictly heading-based; nothing is pulled in on a keyword.
+    """
+    sigs, ids = _req_signals_from_text(it.excerpt)
+    if not sigs:
+        return
+    it.matched_signals = sigs
+    if ids and not it.matched_row_ids:
+        it.matched_row_ids = ids
+    if it.signal_class == "weak":
+        it.signal_class = "positive"
+        it.selection_reason = "Requirements in tekst (prioritering/IDs herkend)"
+    it.evidence_strength = _evidence_strength(
+        it.signal_class, it.matched_signals, it.matched_row_count
+    )
+
+
 def _apply_coverage(
     items: list[EvidenceItem],
     ctx: _DocCtx,
+    criterion_key: str,
     item_cap: int = _COVERAGE_ITEM_CAP,
     total_budget: int = _COVERAGE_TOTAL_BUDGET,
 ) -> list[EvidenceItem]:
@@ -1331,6 +1392,11 @@ def _apply_coverage(
     are dropped (they would only duplicate). Tables and headings keep their own
     excerpts unchanged. Stops growing paragraph text once total_budget is spent,
     but still keeps non-paragraph items.
+
+    After tiling, requirements prose items are re-described from their final
+    excerpt (see _resignal_requirements) so a MoSCoW label/req-ID that ended up
+    in the merged text is reflected in the metadata. This re-labels already
+    selected in-section text only — it never changes which blocks are admitted.
 
     Net effect: the union of excerpts spans as much unique section text as the
     budget allows, instead of several items repeating the same merged window.
@@ -1356,6 +1422,8 @@ def _apply_coverage(
         # only when it became an exact prefix-equal of the excerpt.
         if it.focused_excerpt and it.focused_excerpt.strip() == it.excerpt.strip():
             it.focused_excerpt = ""
+        if criterion_key == "requirements":
+            _resignal_requirements(it)
         out.append(it)
     return out
 
@@ -1404,7 +1472,7 @@ def build_evidence_packets(
         # to the header-based criteria only; taalkeuze keeps its phrase-fallback
         # excerpts.
         if key in _COVERAGE_KEYS:
-            pkt.evidence_items = _apply_coverage(pkt.evidence_items, ctx)
+            pkt.evidence_items = _apply_coverage(pkt.evidence_items, ctx, key)
 
         # Safety net: a 'missing' verdict must never carry positive evidence.
         if cr.status == "missing":

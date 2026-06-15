@@ -47,7 +47,7 @@ from collections.abc import Mapping
 from dataclasses import dataclass, field
 
 from src.caps.caps import CapsPipelineArtifacts
-from src.caps.criterion_specs import CRITERIA_KEYS
+from src.caps.criterion_specs import CRITERIA_BY_KEY, CRITERIA_KEYS
 from src.caps.models import CapsRunResult
 from src.feedback.evidence import EvidenceItem, EvidencePacket
 from src.feedback.packet_builder import build_evidence_packets
@@ -137,6 +137,23 @@ def build_caps_handoff(
     for key in CRITERIA_KEYS:
         cr = caps_result.scorecard.results[key]
         pkt = packets.get(key)
+        items = list(pkt.evidence_items) if pkt else []
+
+        # Align notes with the heading-only evidence. CAPS' checks scan the whole
+        # document, so a note can claim a signal was "found" (e.g. a security
+        # mechanism, a language consequence) even when that text sits OUTSIDE the
+        # criterion's section and was therefore not admitted as evidence. Passing
+        # such a note to Qwen reintroduces exactly the cross-section false
+        # positive the heading-only gate removes. So when no positive in-section
+        # evidence was selected, replace the notes with an honest absence note.
+        notes = list(cr.notes)
+        has_content = any(
+            it.signal_class in ("positive", "weak") for it in items
+        )
+        if not has_content:
+            label = CRITERIA_BY_KEY[key].label
+            notes = [f"Geen aparte {label}-sectie met inhoud aangetroffen."]
+
         criteria[key] = CriterionHandoff(
             # count is intentionally neutralized to None: the per-criterion CAPS
             # counts (requirements / stakeholders especially) are not trustworthy
@@ -145,9 +162,9 @@ def build_caps_handoff(
             # This also makes merge_builder.apply_count_floor a no-op (it guards
             # on `count is not None`) without redesigning the merge logic.
             count=None,
-            notes=list(cr.notes),
+            notes=notes,
             missing_signals=list(cr.missing_signals),
-            evidence_items=list(pkt.evidence_items) if pkt else [],
+            evidence_items=items,
         )
 
     return CapsHandoff(

@@ -7,7 +7,7 @@
       "beperking": {
         "count": null,
         "notes": [
-          "Beperking in meerdere blokken beschreven (slechtziend, visuele beperking, beperking) en meerdere onderbouwingsblokken aanwezig (literatuurlijst, onderzoek, literatuur)."
+          "Beperking in meerdere blokken beschreven (beperking, slechtziend, visuele beperking) en meerdere onderbouwingsblokken aanwezig (literatuur, literatuurlijst, onderzoek)."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -21,12 +21,12 @@
               "Ik Richt Me Dus Op Deze Doelgroep."
             ],
             "excerpt": "Deze webshop is specifiek ontworpen voor slechtziende informatica studenten. Deze groep bestaat uit jongvolwassenen die ondanks hun visuele beperkingen actief betrokken zijn bij studeren en technologie. Hun behoeften omvatten hoogwaardige toegankelijkheidsfuncties om informatie effectief te consumeren en interactie te hebben met online platforms.",
-            "selection_reason": "Beperking/doelgroep: visuele beperking, beperking",
+            "selection_reason": "Beperking/doelgroep: beperking, visuele beperking",
             "signal_class": "positive",
             "focused_excerpt": "groep bestaat uit jongvolwassenen die ondanks hun visuele beperkingen actief",
             "matched_signals": [
-              "visuele beperking",
-              "beperking"
+              "beperking",
+              "visuele beperking"
             ],
             "criterion_subtype": "limitation",
             "classification_source": "block_text",
@@ -373,8 +373,8 @@
               "H4 Wensen, Eisen, Prioriteiten"
             ],
             "excerpt": "vaak feedback vragen aan docenten en vergelijkingen met andere medestudenten om een breed scala aan perspectieven en behoeften te integreren. • Ontwikkeltijd: Aan deze lijst is rond 1 week gewerkt, met iteraties en feedbackloops om te zorgen voor nauwkeurigheid en relevantie. • Inspiratie: Inspiratie is gehaald uit vorige modules, feedbacksessies met meerdere medestudenten en docenten Elke wens en eis is gelabeld met 'Must Have', 'Should Have', of 'Could Have' om de prioriteit aan te geven. 'Must Haves' zijn niet-onderhandelbaar en essentieel voor de basisfunctionaliteit van de website. 'Should Haves' zijn belangrijk maar niet kritiek voor de lancering, en 'Could Haves' zijn wenselijk maar optioneel en kunnen in toekomstige updates opgenomen worden. Door deze structuur te volgen, streven we ernaar een platform te ontwikkelen dat niet alleen voldoet aan de technische en zakelijke vereisten, maar ook een uitzonderlijke ervaring biedt aan onze gebruikers.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
+            "selection_reason": "Requirements in tekst (prioritering/IDs herkend)",
+            "signal_class": "positive",
             "focused_excerpt": "Elke wens en eis is gelabeld met 'Must Have', 'Should Have', of 'Could Have' om de prioriteit aan",
             "matched_signals": [
               "moscow:must",
@@ -383,7 +383,7 @@
             ],
             "criterion_subtype": "",
             "classification_source": "",
-            "evidence_strength": "thin",
+            "evidence_strength": "strong",
             "matched_row_count": null,
             "matched_row_ids": [],
             "local_section_label": "",
@@ -417,7 +417,7 @@
       "taalkeuze": {
         "count": null,
         "notes": [
-          "Taalkeuze (meertalig) en gevolgen (beïnvloed, beïnvloeden) aanwezig."
+          "Geen aparte Taalkeuze & consequenties-sectie met inhoud aangetroffen."
         ],
         "missing_signals": [],
         "evidence_items": []
@@ -556,7 +556,7 @@
       "beperking": {
         "count": null,
         "notes": [
-          "Beperking in meerdere blokken beschreven (specifieke doelgroep, slechtziend, visuele beperking) en meerdere onderbouwingsblokken aanwezig (onderzoek, bronnen, bron)."
+          "Beperking in meerdere blokken beschreven (beperking, specifieke doelgroep, slechtziend) en meerdere onderbouwingsblokken aanwezig (bron, onderzoek, bronnen)."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -568,12 +568,12 @@
               "Onderzoek naar web gebruikers"
             ],
             "excerpt": "In het geval van slechtziende mensen houd ik extra rekening met de gebruiksvriendelijkheid van schermlezers en andere hulpmiddelen. Het kleurenschema en de lettergrootte zijn ontworpen om de leesbaarheid te verbeteren en een meer toegankelijke online winkelomgeving te bieden. Velen die kampen met een visuele beperking vertrouwen op vergrotingssoftware om een specifiek deel van hun computerscherm sterk te vergroten. Echter, zelfs wanneer slechtzienden hun webpagina met bijvoorbeeld 500% vergroten, zien ze slechts een klein fragment (1/36e deel) van het gehele scherm. Hierdoor blijft het voor deze doelgroep bijzonder uitdagend om de onderlinge samenhang van elementen op een webpagina te herkennen. De filterfunctie blijft gehandhaafd, waarmee gebruikers, waaronder slechtziende mensen, producten kunnen sorteren op prijs van laag naar hoog. Dit maakt het voor beide doelgroepen eenvoudiger om de gewenste producten te vinden en draagt bij aan een gebruiksvriendelijke ervaring.",
-            "selection_reason": "Beperking/doelgroep: visuele beperking, beperking",
+            "selection_reason": "Beperking/doelgroep: beperking, visuele beperking",
             "signal_class": "positive",
             "focused_excerpt": "Velen die kampen met een visuele beperking vertrouwen op vergrotingssoftware om een",
             "matched_signals": [
-              "visuele beperking",
-              "beperking"
+              "beperking",
+              "visuele beperking"
             ],
             "criterion_subtype": "limitation",
             "classification_source": "block_text",
@@ -591,12 +591,12 @@
               "Onderzoek naar web gebruikers"
             ],
             "excerpt": "waardeert een responsieve website die er goed uitziet, zelfs op haar kleine scherm. Overige kenmerken: Sara hecht veel waarde aan duurzaamheid en zou geïnteresseerd zijn in brillen gemaakt van milieuvriendelijke materialen. Ze houdt van websites met duidelijke informatie over producten, betalingsmogelijkheden en levering. Profiel van tweede doelgroep: Naam: [GEVOELIG_01] Leeftijd: 28 jaar Geslacht: Man Woonplaats: Amsterdam Over Sam: Sam is een vriendelijke en actieve jongeman van 28 jaar oud. Hij woont in Amsterdam en geniet van het bruisende stadsleven. Hij heeft een visuele beperking en vertrouwt op hulpmiddelen zoals vergrotingssoftware om zijn dagelijkse activiteiten te vergemakkelijken. Interesses: • Technologie: Sam is altijd geïnteresseerd geweest in de nieuwste technologische ontwikkelingen, vooral op het gebied van toegankelijkheidshulpmiddelen. • Muziek: Hij luistert graag naar verschillende soorten muziek, vooral jazz en klassieke muziek.",
-            "selection_reason": "Beperking/doelgroep: visuele beperking, beperking",
+            "selection_reason": "Beperking/doelgroep: beperking, visuele beperking",
             "signal_class": "positive",
             "focused_excerpt": "Hij heeft een visuele beperking en vertrouwt",
             "matched_signals": [
-              "visuele beperking",
-              "beperking"
+              "beperking",
+              "visuele beperking"
             ],
             "criterion_subtype": "limitation",
             "classification_source": "block_text",
@@ -614,12 +614,12 @@
               "Onderzoek naar web gebruikers"
             ],
             "excerpt": "• Sport: Ondanks zijn visuele beperking houdt Sam van sport en is hij een fanatieke supporter van het lokale voetbalteam. Winkelen en online ervaring: • Sam winkelt regelmatig online voor kleding, gadgets en huishoudelijke artikelen vanwege het gemak en het brede assortiment dat online beschikbaar is. • Hij waardeert websites die goed zijn ontworpen en gemakkelijk toegankelijk zijn met zijn vergrotingssoftware. • Sam vindt het belangrijk dat productinformatie duidelijk en gedetailleerd is, zodat hij een goed beeld kan krijgen van wat hij koopt, zelfs zonder het product te kunnen zien.",
-            "selection_reason": "Beperking/doelgroep: visuele beperking, beperking",
+            "selection_reason": "Beperking/doelgroep: beperking, visuele beperking",
             "signal_class": "positive",
             "focused_excerpt": "• Sport: Ondanks zijn visuele beperking houdt Sam van sport en is hij een fanatieke",
             "matched_signals": [
-              "visuele beperking",
-              "beperking"
+              "beperking",
+              "visuele beperking"
             ],
             "criterion_subtype": "limitation",
             "classification_source": "block_text",
@@ -659,12 +659,12 @@
               "H6 Literatuurlijst"
             ],
             "excerpt": "voor-slechtzienden-40-keer-op-een-toets-drukken Desk Research Onderzoek web gebruikers :",
-            "selection_reason": "Onderbouwing/deskresearch: onderzoek, desk research",
+            "selection_reason": "Onderbouwing/deskresearch: desk research, onderzoek",
             "signal_class": "positive",
             "focused_excerpt": "Desk Research Onderzoek web gebruikers :",
             "matched_signals": [
-              "onderzoek",
-              "desk research"
+              "desk research",
+              "onderzoek"
             ],
             "criterion_subtype": "research",
             "classification_source": "block_text",
@@ -963,6 +963,7 @@
             "signal_class": "positive",
             "focused_excerpt": "NFR02: Producten moeten makkelijk te vinden zijn (Should Have)",
             "matched_signals": [
+              "moscow:must",
               "moscow:should",
               "req_id"
             ],
@@ -989,6 +990,7 @@
             "signal_class": "positive",
             "focused_excerpt": "NFR14: Wenslijst (Should Have)",
             "matched_signals": [
+              "moscow:must",
               "moscow:should",
               "req_id"
             ],
@@ -1011,13 +1013,15 @@
               "4.1 Constraints en (non-) Functionele eisen"
             ],
             "excerpt": "5. Functionele requirements Waarom MoScoW: 1. Must have: Klanten moeten in staat zijn om te registreren en een profiel aan te maken in de webshop • Onderbouwing: Dit is essentieel omdat het klanten in staat stelt om een gepersonaliseerde ervaring te hebben, zoals het opslaan van favoriete producten, het bijhouden van bestelgeschiedenis en het ontvangen van relevante aanbiedingen. Het verhoogt ook de klantbetrokkenheid en loyaliteit. 2. Must have: Klanten moeten in staat zijn om een profiel aan te maken en in te loggen om een gepersonaliseerde winkelervaring te hebben. • Onderbouwing: Dit is essentieel omdat het klanten in staat stelt om een gepersonaliseerde ervaring te hebben, zoals het opslaan van favoriete producten, het bijhouden van bestelgeschiedenis en het ontvangen van relevante aanbiedingen. Het verhoogt ook de klantbetrokkenheid en loyaliteit. 3. Must have: Klanten moeten producten kunnen toevoegen aan hun winkelmandje, het",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
+            "selection_reason": "Requirements in tekst (prioritering/IDs herkend)",
+            "signal_class": "positive",
             "focused_excerpt": "5. Functionele requirements",
-            "matched_signals": [],
+            "matched_signals": [
+              "moscow:must"
+            ],
             "criterion_subtype": "",
             "classification_source": "",
-            "evidence_strength": "thin",
+            "evidence_strength": "moderate",
             "matched_row_count": null,
             "matched_row_ids": [],
             "local_section_label": "",
@@ -1065,12 +1069,12 @@
               "4.1 Constraints en (non-) Functionele eisen"
             ],
             "excerpt": "• Dit is belangrijk omdat het een bredere doelgroep aanspreekt en de toegankelijkheid vergroot voor gebruikers die een andere taal dan de standaardtaal van de website spreken. Meertaligheid verbetert de gebruikservaring en vergroot de kans dat gebruikers langer op de website blijven en meer interactie hebben met de inhoud. Het biedt ook mogelijkheden voor internationale expansie en het bereiken van een wereldwijd publiek.",
-            "selection_reason": "Taalkeuze: meertaligheid, meertalig",
+            "selection_reason": "Taalkeuze: meertalig, meertaligheid",
             "signal_class": "positive",
             "focused_excerpt": "Meertaligheid verbetert de gebruikservaring en vergroot de kans dat gebruikers langer op de",
             "matched_signals": [
-              "meertaligheid",
-              "meertalig"
+              "meertalig",
+              "meertaligheid"
             ],
             "criterion_subtype": "choice",
             "classification_source": "block_text",
@@ -1085,7 +1089,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: wachtwoord, ssl, beveiligingsaudit, avg, firewall, https."
+          "Geen aparte Security-sectie met inhoud aangetroffen."
         ],
         "missing_signals": [],
         "evidence_items": []
@@ -1100,7 +1104,7 @@
       "beperking": {
         "count": null,
         "notes": [
-          "Beperking beschreven (slechtziend, beperking) en onderbouwing aanwezig (literatuurlijst, onderzoek, deskresearch).",
+          "Beperking beschreven (beperking, slechtziend) en onderbouwing aanwezig (literatuur, bron, literatuurlijst).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ],
         "missing_signals": [],
@@ -1296,15 +1300,15 @@
               "H4 Wensen, Eisen, Prioriteiten"
             ],
             "excerpt": "Deze eisen zijn snel bedacht. De prioriteiten zijn niet echt onderbouwd. Bijna alles is Must Have omdat alles belangrijk lijkt.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
+            "selection_reason": "Requirements in tekst (prioritering/IDs herkend)",
+            "signal_class": "positive",
             "focused_excerpt": "Deze eisen zijn snel bedacht. De prioriteiten zijn niet echt onderbouwd. Bijna alles is Must Have omdat alles",
             "matched_signals": [
               "moscow:must"
             ],
             "criterion_subtype": "",
             "classification_source": "",
-            "evidence_strength": "thin",
+            "evidence_strength": "moderate",
             "matched_row_count": null,
             "matched_row_ids": [],
             "local_section_label": "",
@@ -1315,7 +1319,7 @@
       "taalkeuze": {
         "count": null,
         "notes": [
-          "Taalkeuze vermeld (nederlands, engels), maar geen gevolgen van die keuze beschreven."
+          "Geen aparte Taalkeuze & consequenties-sectie met inhoud aangetroffen."
         ],
         "missing_signals": [
           "consequences"
@@ -1325,7 +1329,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: wachtwoord, avg."
+          "Geen aparte Security-sectie met inhoud aangetroffen."
         ],
         "missing_signals": [],
         "evidence_items": []
@@ -1670,13 +1674,36 @@
             "matched_row_ids": [],
             "local_section_label": "",
             "context_warning": ""
+          },
+          {
+            "block_id": "35baf7d3_0112",
+            "page_no": 14,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Onderzoek naar web gebruikers",
+              "Waarom MosCow:"
+            ],
+            "excerpt": "Must Have: 1. M: De website moet te allen tijde beschikbaar zijn voor klanten en bestellingen",
+            "selection_reason": "Requirements in tekst (prioritering/IDs herkend)",
+            "signal_class": "positive",
+            "focused_excerpt": "1. M: De website moet te allen tijde beschikbaar zijn voor klanten en bestellingen",
+            "matched_signals": [
+              "moscow:must"
+            ],
+            "criterion_subtype": "",
+            "classification_source": "",
+            "evidence_strength": "moderate",
+            "matched_row_count": null,
+            "matched_row_ids": [],
+            "local_section_label": "",
+            "context_warning": ""
           }
         ]
       },
       "taalkeuze": {
         "count": null,
         "notes": [
-          "Gevolg-signalen aanwezig (beïnvloed, beïnvloeden), maar geen expliciete taalkeuze vermeld."
+          "Geen aparte Taalkeuze & consequenties-sectie met inhoud aangetroffen."
         ],
         "missing_signals": [
           "language_choice"
@@ -1686,7 +1713,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: wachtwoord, avg."
+          "Geen aparte Security-sectie met inhoud aangetroffen."
         ],
         "missing_signals": [],
         "evidence_items": []
@@ -1701,7 +1728,7 @@
       "beperking": {
         "count": null,
         "notes": [
-          "Onderbouwing aanwezig (onderzoek, bronnen, bron), maar geen expliciete beperking of doelgroepkeuze beschreven."
+          "Onderbouwing aanwezig (bron, onderzoek, bronnen), maar geen expliciete beperking of doelgroepkeuze beschreven."
         ],
         "missing_signals": [
           "limitation_signal"
@@ -1757,7 +1784,7 @@
       "stakeholders": {
         "count": null,
         "notes": [
-          "Stakeholders herkend, maar belang en/of invloed ontbreekt. Belang: ja, Invloed: nee."
+          "Geen aparte Stakeholders-sectie met inhoud aangetroffen."
         ],
         "missing_signals": [
           "invloed_signal"
@@ -1829,15 +1856,15 @@
               "Waarom MoSCoW"
             ],
             "excerpt": "De meeste dingen zijn Must Have omdat een webshop zonder deze dingen niet echt werkt. Sommige functies zoals zoeken en bestelgeschiedenis zijn minder belangrijk omdat het vooral gaat om bestellen. Vormgeving is ook belangrijk omdat de opdracht zegt dat het top moet zijn. De keuzes zijn niet apart onderzocht. We hebben gekeken naar wat bij webshops normaal is en daarna is besloten wat het belangrijkste lijkt.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
+            "selection_reason": "Requirements in tekst (prioritering/IDs herkend)",
+            "signal_class": "positive",
             "focused_excerpt": "De meeste dingen zijn Must Have omdat een webshop zonder deze dingen niet echt werkt. Sommige functies",
             "matched_signals": [
               "moscow:must"
             ],
             "criterion_subtype": "",
             "classification_source": "",
-            "evidence_strength": "thin",
+            "evidence_strength": "moderate",
             "matched_row_count": null,
             "matched_row_ids": [],
             "local_section_label": "",
@@ -1923,7 +1950,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: wachtwoord, avg, https."
+          "Concreet beveiligingsmechanisme(n) gevonden: wachtwoord, https, avg."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -1986,8 +2013,7 @@
       "beperking": {
         "count": null,
         "notes": [
-          "Beperking beschreven (beperking) en onderbouwing aanwezig (onderzoek).",
-          "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
+          "Geen aparte Beperking & deskresearch-sectie met inhoud aangetroffen."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -2207,7 +2233,7 @@
       "taalkeuze": {
         "count": null,
         "notes": [
-          "Taalkeuze (meertalig) en meerdere gevolgen (beïnvloed, bereik, beïnvloeden) goed uitgewerkt."
+          "Geen aparte Taalkeuze & consequenties-sectie met inhoud aangetroffen."
         ],
         "missing_signals": [],
         "evidence_items": []
@@ -2215,7 +2241,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: wachtwoord, risicoanalyse, avg."
+          "Geen aparte Security-sectie met inhoud aangetroffen."
         ],
         "missing_signals": [],
         "evidence_items": []
@@ -2230,7 +2256,7 @@
       "beperking": {
         "count": null,
         "notes": [
-          "Beperking beschreven (visuele beperking, blind, beperking) en onderbouwing aanwezig (onderzoek).",
+          "Beperking beschreven (blind, beperking, visuele beperking) en onderbouwing aanwezig (onderzoek).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ],
         "missing_signals": [],
@@ -2537,7 +2563,7 @@
       "taalkeuze": {
         "count": null,
         "notes": [
-          "Taalkeuze (meertalig, taalkeuze) en gevolgen (begrijpelijk, internationaal) aanwezig."
+          "Taalkeuze (taalkeuze, meertalig) en gevolgen (internationaal, begrijpelijk) aanwezig."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -2550,12 +2576,12 @@
               "H3 Onderzoek naar web gebruikers"
             ],
             "excerpt": "taalkeuzeknop toe waarmee bezoekers de taal van de webshop kunnen aanpassen aan hun voorkeur. Dit vergroot de kans op internationaal succes en maakt de inhoud begrijpelijker voor een breder publiek over de hele wereld. De webshop streeft naar een naadloze en bevredigende winkelervaring voor elke klant, ongeacht hun locatie, leeftijd of fitnessniveau. Door te focussen op kwaliteit, toegankelijkheid en",
-            "selection_reason": "Taalkeuze: taal van de, taalkeuze",
+            "selection_reason": "Taalkeuze: taalkeuze, taalkeuzeknop",
             "signal_class": "positive",
             "focused_excerpt": "taalkeuzeknop toe waarmee bezoekers de taal van de webshop kunnen aanpassen aan hun",
             "matched_signals": [
-              "taal van de",
-              "taalkeuze"
+              "taalkeuze",
+              "taalkeuzeknop"
             ],
             "criterion_subtype": "choice",
             "classification_source": "block_text",
@@ -2570,7 +2596,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: wachtwoord, ssl, hashing, https, encryptie."
+          "Concreet beveiligingsmechanisme(n) gevonden: encryptie, hashing, wachtwoord, https, ssl."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -2630,7 +2656,7 @@
       "beperking": {
         "count": null,
         "notes": [
-          "Beperking in meerdere blokken beschreven (beperking) en meerdere onderbouwingsblokken aanwezig (onderzoek, deskresearch, bronvermelding)."
+          "Beperking in meerdere blokken beschreven (beperking) en meerdere onderbouwingsblokken aanwezig (bron, bronvermelding, onderzoek)."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -2689,12 +2715,12 @@
               "3.1 Webshopgebruiker van mijn product/Doelgroep"
             ],
             "excerpt": "wordt gemaakt in verschillende talen. Waarom? Uit deskresearch onderzoek blijkt dat mensen wegens verschillende redenen de gym accessoires aanschaffen. (Allied Market Research, https://www.alliedmarketresearch.com/, n.d.) zegt dat de reden voor aanschaffing is om fit te blijven en een gezondere levensstijl te leiden, het voorkomen van blessures vanwege verkeerde vorm tijdens de oefeningen, het besparen van energie. Doormiddel van het gebruik van deze artikelen kunnen consumenten dus langer hun workouts volhouden en wordt de mogelijkheid dat ze het sporten tot een latere leeftijd kunnen doortrekken vergroot (Allied Market Research, https://www.alliedmarketresearch.com/, n.d.) . (Fact.MR – Gym Accessories Market Forecast, Trend Analysis & Competition Tracking - Global Review 2021 to 2031, n.d.) en (Spraul, 2024) zeggen dat de stijging in de verkoop van gym accessoires en opkomst in sportscholen komt door de ontwikkeling in het bewust zijn van mensen met betrekking tot hun gezondheid.",
-            "selection_reason": "Onderbouwing/deskresearch: onderzoek, deskresearch",
+            "selection_reason": "Onderbouwing/deskresearch: deskresearch, onderzoek",
             "signal_class": "positive",
             "focused_excerpt": "Uit deskresearch onderzoek blijkt dat mensen wegens verschillende redenen de gym",
             "matched_signals": [
-              "onderzoek",
-              "deskresearch"
+              "deskresearch",
+              "onderzoek"
             ],
             "criterion_subtype": "research",
             "classification_source": "block_text",
@@ -3102,12 +3128,12 @@
               "4.1 Constraints en (non-) Functionele eisen"
             ],
             "excerpt": "Naam | Architecturele relevantie | Geadresseerd in: | Prio\nFR06: Meertaligheid | De applicatie moet in meerdere talen beschikbaar zijn | Casus_Website_First Full Stack_v.1.pdf paragraaf 4 Stakeholder: Opdrachtgever | SHOULD HAVE",
-            "selection_reason": "Taalkeuze (meertaligheid, meertalig) én gevolgen (bereik)",
+            "selection_reason": "Taalkeuze (meertalig, meertaligheid) én gevolgen (bereik)",
             "signal_class": "positive",
             "focused_excerpt": "",
             "matched_signals": [
-              "meertaligheid",
               "meertalig",
+              "meertaligheid",
               "bereik"
             ],
             "criterion_subtype": "choice_and_consequence",
@@ -3123,7 +3149,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: risicoanalyse, avg, https, owasp."
+          "Concreet beveiligingsmechanisme(n) gevonden: owasp, risicoanalyse, https, avg."
         ],
         "missing_signals": [],
         "evidence_items": [

@@ -81,6 +81,13 @@ signal_class "positive" is.
 
 Maak sterke claims alleen wanneer de evidence dat echt draagt.
 
+Maar mis ook niets. Lees de VOLLEDIGE tekst in focused_excerpt én excerpt — niet alleen
+de metadata. matched_signals en evidence_strength kunnen onvolledig zijn: een MoSCoW-label
+("Must have"), een onderbouwing, een bron of een motivatie kan gewoon in de tekst staan
+zonder dat het als signaal is gemarkeerd. Zie je zulke inhoud of onderbouwing in de tekst,
+crediteer die dan in je diagnose — ook als de metadata die niet noemt. De tekst is leidend,
+de metadata is hulp. Andersom blijft gelden: claim nooit iets dat niet in de tekst staat.
+
 11. Gebruik metadata actief
     Neem deze velden expliciet mee in je interpretatie wanneer aanwezig:
 
@@ -106,6 +113,15 @@ bevestigt of juist ontkracht.
 Een context_warning is geen automatische reden voor manual_review:true. Gebruik het als
 voorzichtigheidssignaal. Zet manual_review vooral op true wanneer de waarschuwing samenvalt
 met dunne evidence, onduidelijke context, verouderde heading_path of tegenstrijdige inhoud.
+
+13. Lege evidence = geen inhoudelijke basis
+    Als evidence_items voor een criterium leeg is (of alleen absent_marker bevat), is er
+    geen inhoud om kwaliteit op te baseren. Geef dan GEEN strengths, kies criterion_judgement
+    = weak, en baseer weaknesses op missing_signals en notes. Verzin geen inhoud op basis van
+    een note alleen. Een note als "Geen aparte ...-sectie met inhoud aangetroffen" betekent dat
+    het onderwerp niet in een eigen sectie is uitgewerkt — behandel dat als ontbrekend, niet
+    als aanwezig. (Dit voorkomt valse pluspunten zoals "concrete beveiliging beschreven"
+    terwijl er geen security-evidence is.)
 
 
 ━━━ HOE BEPAAL JE criterion_judgement ━━━
@@ -212,7 +228,11 @@ Beoordeel de kwaliteit van de evidence over requirements.
 * Zijn ze toetsbaar/testbaar?
 * Passen ze bij de webshop-context?
 * Zijn ze gekoppeld aan stakeholders, doelgroep of de opdrachtcontext?
-* Is de MoSCoW-prioriteit inhoudelijk gemotiveerd?
+* Is de MoSCoW-prioriteit inhoudelijk gemotiveerd? Zoek hiervoor ACTIEF in de
+  evidence-tekst naar een motivatie of een "waarom MoSCoW"-uitleg (die kan in een
+  los tekstblok of naast de tabel staan). Staat zo'n onderbouwing er zichtbaar, weeg
+  priority_logic dan hoger; markeer priority_logic alleen laag als er echt geen
+  zichtbare motivatie in de evidence staat.
 * Zijn Must Haves werkelijk essentieel, of lijken ze ongemotiveerd?
 * Zijn Could Haves niet eigenlijk essentieel?
 * Zijn Won't Haves logisch buiten scope geplaatst?

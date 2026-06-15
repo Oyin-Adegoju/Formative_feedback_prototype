@@ -97,6 +97,12 @@ _REQUIREMENTS_PATTERNS: Final[tuple[re.Pattern[str], ...]] = (
     re.compile(r"(?:niet|non)[\s\-]+functione(?:le|el|l)", re.IGNORECASE),
     re.compile(r"(?:niet|non)[\s\-]+functional", re.IGNORECASE),
     re.compile(r"constraint", re.IGNORECASE),
+    # MoSCoW is a requirements-PRIORITISATION concept. In this corpus it only
+    # appears in headings like "Waarom MoSCoW" (the motivation for the priority
+    # ranking), which is genuine requirements content — so a heading naming it
+    # belongs to requirements, not to whatever doelgroep section it was nested
+    # under. Distinctive token, no contamination risk.
+    re.compile(r"moscow", re.IGNORECASE),
 )
 
 # security / privacy. Strict: NO bare "risico" (project risk) and NO

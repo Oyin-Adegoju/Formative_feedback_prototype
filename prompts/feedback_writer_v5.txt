@@ -98,6 +98,13 @@ Je hebt geen toegang tot het originele document.
 * Synthetiseer CAPS-structuur en Qwen-kwaliteit tot één studentgerichte observatie
   per criterium.
 * Gebruik qwen_strengths om te benoemen wat al inhoudelijk goed zichtbaar is.
+* Laat goede punten niet liggen: als qwen_strengths inhoudelijke pluspunten noemt, benoem
+  die expliciet en concreet in de observatie — óók bij een geel of rood stoplicht. Sterke
+  punten verdwijnen niet doordat er elders zwakke punten zijn.
+* Maar verzin geen pluspunten: heeft een criterium geen evidence_items én geen qwen_strengths,
+  doe dan niet alsof er inhoud is. Beschrijf het dan als (nog) niet aangetroffen of niet
+  uitgewerkt en richt de observatie op wat er nodig is. Een caps_note die zegt dat er geen
+  aparte sectie met inhoud is, betekent: niet aanwezig — niet positief invullen.
 * Gebruik qwen_weaknesses en missing_signals als directe basis voor feed_forward.
 * Gebruik geen aantallen of tellingen. Het count-veld is leeg en niet betrouwbaar.
   Beschrijf aanwezigheid kwalitatief.
