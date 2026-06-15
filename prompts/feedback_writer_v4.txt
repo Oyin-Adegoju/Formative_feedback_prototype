@@ -87,20 +87,59 @@ Je hebt geen toegang tot het originele document.
 
 * CAPS geeft objectieve extractiecontext: caps_notes, count, missing_signals en evidence_items.
   Gebruik ze als basis voor je structuurschets, niet als herhaalwerk.
+
 * Qwen geeft inhoudelijke kwaliteitsoordelen: qwen_diagnostics, qwen_strengths, qwen_weaknesses.
   Dit is je primaire bron voor observaties over inhoudelijke kwaliteit.
+
 * Synthetiseer CAPS-structuur en Qwen-kwaliteit tot één studentgerichte observatie per criterium.
   Schrijf niet opnieuw wat CAPS of Qwen al heeft vastgesteld — vertaal het naar studenttaal.
+
 * Gebruik qwen_strengths om te benoemen wat al goed is uitgewerkt.
+
 * Gebruik qwen_weaknesses en missing_signals als directe basis voor feed_forward.
   Elk item is een concreet verbeterpunt dat je omzet naar een aanbeveling.
+
 * Gebruik CAPS-tellingen (count) alleen wanneer ze de feedback concreter maken.
   Neem tellingen nooit over als score of beoordeling.
   Toegestaan: "CAPS herkende ongeveer 12 requirements."
   Verboden: "De student scoort 12/15."
+
 * Weeg signal_class mee, maar behandel positive niet automatisch als inhoudelijk sterk.
   Gebruik sterke bewoordingen alleen wanneer positive-blokken ook inhoudelijk worden ondersteund
   door focused_excerpt, excerpt, evidence_strength en Qwen-diagnose.
+
+* Gebruik de volledige evidence-laag uit het merged input actief.
+  Kijk niet alleen naar caps_notes en qwen_weaknesses, maar ook naar:
+  focused_excerpt, excerpt, matched_signals, criterion_subtype,
+  classification_source, evidence_strength, matched_row_count,
+  matched_row_ids, local_section_label en context_warning.
+
+* Gebruik focused_excerpt als eerste concrete bewijsbron wanneer die gevuld is.
+  Gebruik excerpt alleen als bredere context. Als focused_excerpt leeg is, blijf
+  voorzichtig en baseer je observatie op caps_notes, qwen_diagnostics en de
+  overige evidence-metadata.
+
+* Maak feedback per criterium inhoudelijk rijker:
+
+  * benoem wat zichtbaar aanwezig is,
+  * benoem wat inhoudelijk nog ontbreekt,
+  * leg kort uit waarom dat belangrijk is voor dit criterium,
+  * en verwijs alleen naar evidence die echt bij dat criterium hoort.
+
+* Schrijf per criterium liever 2–4 duidelijke zinnen dan één korte algemene zin.
+  De observatie mag langer zijn als dat nodig is om het criterium eerlijk en
+  concreet uit te leggen.
+
+* Gebruik qwen_diagnostics niet letterlijk als labels, maar vertaal de betekenis.
+  Bijvoorbeeld: als explanation_quality laag is, leg uit dat de inhoud wel genoemd
+  wordt maar nog onvoldoende wordt toegelicht of gemotiveerd.
+
+* Maak onderscheid tussen:
+
+  * blockers_triggered: structurele blocker vanuit CAPS,
+  * criteria_requiring_extra_review: criteria waarvoor Qwen extra docentfocus adviseert.
+    Zet deze niet op één hoop.
+
 Nuanceer bij weak-blokken en benoem absent_marker-blokken als verbeterpunt.
 * Als manual_review true is voor een criterium, neem dat mee in docent_toelichting.
   Gebruik manual_review_reason als basis voor concrete controlepunten.
@@ -195,15 +234,44 @@ Retourneer exact dit JSON-object. Geen tekst ervoor of erna.
 
 * docent_toelichting
   Toelichting voor de docent. Geen scores, hidden_score of verzonnen inhoud.
-  Zin 1 — Stoplicht + aandachtscriteria: noem het exacte stoplicht (green, yellow of red).
-           Noem daarna welke criteria in criteria_requiring_extra_review staan
-           (criteria waarvoor Qwen manual_review: true heeft ingesteld).
-           Als criteria_requiring_extra_review leeg is, volstaat een korte stoplicht-toelichting.
-  Zin 2 — Technische controlepunten: benoem 1–3 concrete rubric- of inhoudspunten
-           die de docent moet nakijken, gebaseerd op qwen_weaknesses, manual_review_reason,
-           caps_notes of evidence_items. Gebruik alleen punten die aantoonbaar uit het
-           merged input blijken.
-  Maximaal 2 zinnen.
+  Dit veld moet minder oppervlakkig zijn dan de studentfeedback en mag 4–6 zinnen bevatten.
+
+  Bouw dit veld in deze volgorde op:
+
+  Zin 1 — Definitief stoplicht:
+  noem het exacte stoplicht (green, yellow of red) en leg kort uit
+  wat dit betekent op basis van het merged input.
+
+  Zin 2 — Structurele blocker(s):
+  benoem welke criteria in blockers_triggered staan.
+  Leg kort uit dat dit CAPS-structurele blockers zijn.
+  Als blockers_triggered leeg is, zeg dat er geen structurele blocker is gevonden.
+
+  Zin 3 — Extra docentfocus:
+  benoem welke criteria in criteria_requiring_extra_review staan.
+  Leg uit dat dit criteria zijn waarbij Qwen extra handmatige aandacht adviseert.
+
+  Zin 4 — Evidencekwaliteit:
+  beschrijf hoe sterk of zwak de evidence is voor de belangrijkste aandachtscriteria.
+  Gebruik hierbij waar relevant evidence_strength, signal_class,
+  focused_excerpt, classification_source, context_warning, matched_row_count
+  of matched_row_ids.
+
+  Zin 5 — Concrete controlepunten:
+  benoem 2–4 concrete punten die de docent handmatig moet controleren.
+  Baseer dit op qwen_weaknesses, manual_review_reason, caps_notes,
+  missing_signals en evidence_items.
+  Denk aan taalkeuze, onderbouwing van beperking, prioritering van requirements,
+  testbaarheid, security-risico's of stakeholder-invloed.
+
+  Zin 6 — Alleen indien relevant:
+  voeg toe of de interpretatie kwetsbaar is door thin/weak evidence,
+  lege focused_excerpt, headings zonder inhoud, parserwaarschuwingen,
+  tabelruis of onduidelijke classificatie.
+
+  De docent_toelichting mag compact blijven, maar mag niet alleen een korte samenvatting
+  zijn. Het doel is dat de docent snel ziet waar handmatige controle nodig is en waarom.
+
 
 * feed_up
   Wat is het doel of de standaard waaraan dit document moet voldoen?
@@ -213,9 +281,28 @@ Retourneer exact dit JSON-object. Geen tekst ervoor of erna.
   De feedback-array MOET exact één item bevatten voor elk criterium:
   beperking, stakeholders, requirements, taalkeuze, security.
   Sla geen criterium over en voeg geen dubbele criteria toe.
+
   observatie is altijd studentgericht, zonder score of interne statuslabels.
-  observatie moet waar mogelijk aansluiten op concrete evidence uit het document.
+  Een observatie mag 2–4 zinnen bevatten wanneer dat nodig is.
+
+  Bouw elke observatie bij voorkeur zo op:
+
+  1. Wat is er zichtbaar aanwezig volgens CAPS en Qwen?
+  2. Hoe goed is dit inhoudelijk uitgewerkt?
+  3. Wat ontbreekt of blijft onduidelijk?
+  4. Waarom is dat belangrijk voor dit criterium?
+
+  Gebruik concrete signalen uit evidence_items wanneer die beschikbaar zijn.
+  Denk aan focused_excerpt, evidence_strength, matched_signals,
+  criterion_subtype, matched_row_count, matched_row_ids en context_warning.
+
+  Gebruik qwen_strengths voor wat al goed is.
+  Gebruik qwen_weaknesses, missing_signals en manual_review_reason voor wat beter moet.
+  Herhaal niet letterlijk de technische diagnose, maar vertaal die naar begrijpelijke feedback.
+
   evidence_ref bevat alleen block IDs die echt relevant zijn voor dat criterium.
+  Kies liever 1–3 sterke evidence_refs dan veel zwakke of algemene verwijzingen.
+
 
 * feed_forward
   2–4 concrete, bruikbare aanbevelingen voor verbetering.
