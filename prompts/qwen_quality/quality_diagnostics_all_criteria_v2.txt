@@ -15,7 +15,7 @@ Je produceert alleen een gestructureerde JSON-diagnose die later door de feedbac
  
 1. Geen herhaling van CAPS
    Tel niet opnieuw. Verifieer geen requirements, stakeholders, beveiligingstermen of
-   MoSCoW-labels. Gebruik CAPS-counts, stoplichten, notes, missing_signals en metadata
+   MoSCoW-labels. Gebruik CAPS-counts, notes, missing_signals en metadata
    uitsluitend als context. Oordeel alleen over de kwaliteit van de evidence.
  
 2. Geen fabricatie
@@ -27,13 +27,14 @@ Je produceert alleen een gestructureerde JSON-diagnose die later door de feedbac
    De diagnostics-waarden zijn uitsluitend: laag, middel of hoog.
  
 4. Geen statuslabels herhalen in tekst
-   Gebruik de CAPS-statussen (missing, partial, sufficient, strong) niet letterlijk
+   Gebruik interne statuslabels (missing, partial, sufficient, strong) niet letterlijk
    in strengths, weaknesses, manual_review_reason of reason.
    Vertaal de betekenis naar een inhoudelijke kwaliteitsopmerking.
- 
-5. Geen CAPS-status wijzigen
-   Verander het CAPS-stoplicht of de CAPS-status nooit.
-   Jij beoordeelt kwaliteit, CAPS bepaalt de structurele status.
+
+5. CAPS levert extractie, jij levert kwaliteit
+   CAPS levert in de handoff alleen objectieve extractie: counts, gematchte signalen,
+   gedetecteerde secties en evidence. De handoff bevat geen CAPS-kwaliteitsoordeel.
+   Jij bepaalt als enige de inhoudelijke kwaliteit per criterium.
  
 6. Geen criteria mengen
    Gebruik alleen evidence_items die horen bij het criterium dat je beoordeelt.
@@ -256,26 +257,19 @@ CAPS handoff JSON:
 Het CAPS handoff object bevat op documentniveau:
   document_id        — documentidentifier
   source_name        — bestandsnaam van het originele document
-  overall_stoplight  — CAPS-structureel signaal: green of red
-  blockers_triggered — criteria die CAPS als structureel onvolledig heeft beoordeeld
- 
-overall_stoplight is uitsluitend een CAPS-structureel signaal, geen kwaliteitsoordeel.
-  green = CAPS heeft geen blocker-criteria gevonden.
-  red   = CAPS heeft één of meer blocker-criteria gevonden (zie blockers_triggered).
-Gebruik overall_stoplight NIET als eindbeoordeling van de documentkwaliteit.
-Jij beoordeelt inhoudelijke kwaliteit per criterium op basis van notes, missing_signals
-en evidence_items — ongeacht het overall_stoplight.
- 
+
+De handoff is een objectieve EXTRACTIE-laag. CAPS heeft signalen gematcht, geteld en
+secties gedetecteerd, maar de inhoud nog NIET begrepen. De handoff bevat daarom bewust
+geen CAPS-kwaliteitsoordeel: geen status, geen stoplight, geen overall_stoplight en geen
+blockers_triggered. Jij bepaalt als enige de inhoudelijke kwaliteit per criterium op
+basis van notes, missing_signals en evidence_items.
+
 hidden_score is bewust NIET opgenomen in de handoff. Gebruik het niet en vermeld het niet.
- 
-Een criterium in blockers_triggered is een directe aanleiding om manual_review: true
-te overwegen voor dat criterium.
- 
+
 Per criterium in criteria:
-  status          — CAPS-verdict: missing / partial / sufficient / strong (gebruik als context)
-  stoplight       — per-criterium CAPS-signaal, afgeleid van status; geen definitief inhoudelijk kwaliteitsoordeel
   count           — geteld aantal items (bijv. stakeholders of requirements), indien beschikbaar
-  notes           — CAPS-notities over dit criterium
+  notes           — CAPS-extractienotities over dit criterium (gevonden of ontbrekende
+                    signalen, tellingen t.o.v. drempels, sectie- of ambiguïteitswaarschuwingen)
   missing_signals — verwachte signalen die ontbreken in het document
   evidence_items  — geselecteerde blokken uit het document, elk met:
                       block_id

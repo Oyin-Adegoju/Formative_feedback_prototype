@@ -51,7 +51,7 @@ from src.caps.caps import run_caps_with_artifacts
 from src.caps.criterion_specs import CRITERIA_KEYS
 from src.caps.models import ParseReportDict
 from src.feedback.handoff import build_handoff_from_artifacts, to_dict as handoff_to_dict
-from src.quality.output_schema import QUALITY_DIMENSIONS, QUALITY_LEVELS
+from src.quality.output_schema import JUDGEMENT_VALUES, QUALITY_DIMENSIONS, QUALITY_LEVELS
 from src.quality.quality_builder import QualityGenerationError, generate_quality_diagnostics
 
 _PROJECT_ROOT: Final[pathlib.Path] = pathlib.Path(__file__).resolve().parents[1]
@@ -128,6 +128,14 @@ def _check_quality(quality: dict) -> list[CheckResult]:
     ]
     results.append(("quality_manual_review_is_bool", not bad_review,
                     "all bool" if not bad_review else f"not bool: {bad_review}"))
+
+    bad_judgement = [
+        f"{key}={crit.get('criterion_judgement')}"
+        for key, crit in quality.get("criteria", {}).items()
+        if crit.get("criterion_judgement") not in JUDGEMENT_VALUES
+    ]
+    results.append(("quality_criterion_judgement_valid", not bad_judgement,
+                    "all valid" if not bad_judgement else f"invalid: {bad_judgement}"))
 
     # The quality artifact must NOT carry a hidden_score anywhere.
     no_score = "hidden_score" not in json.dumps(quality)

@@ -75,6 +75,8 @@ _EXPECTED_CRITERIA: Final[frozenset[str]] = frozenset(CRITERIA_KEYS)
 
 _FORBIDDEN_MERGE_KEYS: Final[frozenset[str]] = frozenset({
     "manual_review_required", "manual_review_flags", "hidden_score",
+    # Removed pre-Qwen CAPS verdicts must not reappear in the merged contract.
+    "overall_stoplight", "blockers_triggered", "caps_status", "caps_stoplight",
 })
 
 _SCORE_PATTERNS: Final[list[re.Pattern[str]]] = [
@@ -137,7 +139,7 @@ def _check_merged(merged: dict) -> list[CheckResult]:
 
     top_ok = {
         "document_id", "source_name", "final_stoplight",
-        "blockers_triggered", "criteria_requiring_extra_review", "criteria",
+        "criteria_requiring_extra_review", "criteria",
     } <= set(merged.keys())
     results.append(("merged_top_level_keys", top_ok,
                     "all present" if top_ok else f"got {sorted(merged.keys())}"))
@@ -285,9 +287,12 @@ def main() -> int:
         if debug:
             traceback.print_exc()
         return 1
-    print(f"  doc_id            : {caps_result.doc_id}")
-    print(f"  overall_stoplight : {caps_result.overall_stoplight}")
-    print(f"  blockers          : {', '.join(caps_result.blockers_triggered) or 'none'}")
+    print(f"  doc_id                  : {caps_result.doc_id}")
+    print( "  (CAPS structural check — beoordeelt NIET de inhoud, alleen of de")
+    print( "   verwachte secties/structuur aanwezig zijn; geen documentcijfer.")
+    print( "   Het definitieve oordeel is final_stoplight in Step 3.)")
+    print(f"  structural_check        : {caps_result.overall_stoplight}  (green = structuur aanwezig, red = blocker mist)")
+    print(f"  ontbrekende structuur   : {', '.join(caps_result.blockers_triggered) or 'none'}")
 
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     run_dir = pathlib.Path(args.output_dir) / f"{caps_result.doc_id}_{timestamp}"
@@ -320,10 +325,14 @@ def main() -> int:
         # ── Merge with empty quality so the contract shape stays stable ───────
         _section("Step 2 — Quality (skipped: --no-llm)")
         print("  Quality stage skipped; building merge with empty Qwen fields.")
+        # No Qwen judgement available without the LLM. Use "mixed" (→ yellow) as a
+        # neutral placeholder so the merge contract stays valid; the count floor
+        # still applies on top of it.
         empty_quality = {
             "document_id": caps_result.doc_id,
             "criteria": {
-                k: {"diagnostics": {}, "strengths": [], "weaknesses": [],
+                k: {"criterion_judgement": "mixed", "diagnostics": {},
+                    "strengths": [], "weaknesses": [],
                     "manual_review": False, "manual_review_reason": [], "reason": ""}
                 for k in CRITERIA_KEYS
             },

@@ -36,9 +36,9 @@ logger = logging.getLogger(__name__)
 # Prompt template
 # ---------------------------------------------------------------------------
 
-_PROMPT_VERSION: Final[str] = "feedback_writer_v4"
+_PROMPT_VERSION: Final[str] = "feedback_writer_v5"
 _PROMPT_PATH: Final[Path] = (
-    Path(__file__).parent.parent.parent / "prompts" / "feedback_writer_v4.txt"
+    Path(__file__).parent.parent.parent / "prompts" / "feedback_writer_v5.txt"
 )
 
 # The merged payload plus five criteria of feedback needs more headroom than the
@@ -74,9 +74,9 @@ class FeedbackGenerationError(Exception):
 
 
 def _assemble_prompt(merged: dict, template: str) -> str:
-    """Fill the v4 feedback-writer prompt from the merged feedback input.
+    """Fill the v5 feedback-writer prompt from the merged feedback input.
 
-    Placeholders in feedback_writer_v4.txt:
+    Placeholders in feedback_writer_v5.txt:
         <<STOPLIGHT>>                   — merged["final_stoplight"]
         <<CRITERION_KEYS>>              — comma-joined CAPS criterion keys
         <<MERGED_FEEDBACK_INPUT_JSON>>  — the full merged input as pretty JSON
@@ -105,7 +105,7 @@ def generate_feedback(
     """Generate formative feedback from the merged CAPS + Qwen contract.
 
     Pipeline:
-        1. Load the v4 prompt template.
+        1. Load the v5 prompt template.
         2. Assemble the prompt from the merged input.
         3. Call the local LLM via llm_client.complete().
         4. Validate the raw response via feedback_validator.validate().

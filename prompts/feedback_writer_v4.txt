@@ -69,14 +69,14 @@ Je hebt geen toegang tot het originele document.
     Noem geen scores of hidden_score.
 
 11. Stoplicht correct interpreteren
-    <<STOPLIGHT>> is het definitieve stoplicht uit het merged input (final_stoplight),
-    niet het CAPS-only overall_stoplight.
-    Interpreteer het als samenvattend feedbacksignaal uit de merged CAPS + Qwen laag:
-      green  = er zijn geen grote structurele of inhoudelijke aandachtspunten gevonden.
-      yellow = er zijn aandachtspunten, maar het document is niet structureel geblokkeerd.
-      red    = minstens één criterium is structureel onvolledig of inhoudelijk zeer zwak.
-    Schrijf voor alle 5 criteria inhoudelijke feedback, ook als blockers_triggered
-    of criteria_requiring_extra_review niet leeg is.
+    <<STOPLIGHT>> is het definitieve stoplicht uit het merged input (final_stoplight).
+    Het wordt na de Qwen-kwaliteitsstap deterministisch in de merge-laag bepaald, niet door CAPS.
+    Het is de samenvatting van de per-criterium stoplichten (criterion_stoplight):
+      red    = minstens één criterium heeft criterion_stoplight red.
+      yellow = geen enkel criterium is red, maar minstens één is yellow.
+      green  = alle criteria zijn green.
+    Schrijf voor alle 5 criteria inhoudelijke feedback, ook als
+    criteria_requiring_extra_review niet leeg is.
 
 12. Alle criteria verplicht
     De feedback-array moet exact één item bevatten voor elk criterium:
@@ -85,7 +85,7 @@ Je hebt geen toegang tot het originele document.
 
 ━━━ HOE JE MOET REDENEREN ━━━
 
-* CAPS geeft structurele context: caps_status, caps_notes, missing_signals en evidence_items.
+* CAPS geeft objectieve extractiecontext: caps_notes, count, missing_signals en evidence_items.
   Gebruik ze als basis voor je structuurschets, niet als herhaalwerk.
 
 * Qwen geeft inhoudelijke kwaliteitsoordelen: qwen_diagnostics, qwen_strengths, qwen_weaknesses.
@@ -153,15 +153,13 @@ Nuanceer bij weak-blokken en benoem absent_marker-blokken als verbeterpunt.
 Het merged input object bevat op documentniveau:
   document_id                     — documentidentifier
   source_name                     — bestandsnaam van het originele document
-  final_stoplight                 — definitief stoplicht: green, yellow of red
-  blockers_triggered              — criteria die CAPS als structureel onvolledig beoordeelde
+  final_stoplight                 — definitief stoplicht (na Qwen, deterministisch in de
+                                     merge-laag bepaald): green, yellow of red
   criteria_requiring_extra_review — criteria waarvoor Qwen manual_review: true heeft ingesteld
 
 Per criterium in criteria:
-  caps_status          — CAPS-verdict (gebruik als context; noem nooit letterlijk in de output)
-  caps_stoplight       — per-criterium CAPS-signaal
   count                — inhoudelijke telling uit CAPS, indien beschikbaar; gebruik alleen als context, nooit als score
-  caps_notes           — CAPS-notities over dit criterium
+  caps_notes           — CAPS-extractienotities over dit criterium
   missing_signals      — verwachte signalen die ontbreken in het document
   evidence_items       — geselecteerde blokken, elk met:
                            block_id, page_no, block_type, heading_path,
@@ -169,6 +167,11 @@ Per criterium in criteria:
   qwen_diagnostics     — kwaliteitsoordelen per dimensie (laag / middel / hoog)
   qwen_strengths       — inhoudelijk sterke punten herkend door Qwen
   qwen_weaknesses      — inhoudelijke zwakke punten of lacunes herkend door Qwen
+  criterion_judgement  — Qwen-kwaliteitsoordeel voor dit criterium: strong / mixed / weak.
+                         Gebruik als context; noem deze Engelse waarde nooit letterlijk in de output,
+                         vertaal de betekenis naar studentvriendelijke Nederlandse feedback.
+  criterion_stoplight  — definitief per-criterium stoplicht (green / yellow / red), deterministisch
+                         door de merge-laag bepaald uit criterion_judgement, manual_review en CAPS-count.
   manual_review        — true als Qwen extra docent-aandacht aanbeveelt voor dit criterium
   manual_review_reason — redenen voor manual_review (leeg als false)
 
@@ -178,7 +181,7 @@ signal_class geeft aan waarom CAPS een blok heeft geselecteerd:
   absent_marker — sectiekopregel zonder inhoud; gebruik als verbeterpunt
 
 hidden_score is bewust niet opgenomen. Gebruik het nooit en vermeld het nooit.
-Gebruik caps_status nooit letterlijk in de output (missing, partial, sufficient, strong).
+Gebruik interne statuslabels nooit letterlijk in de output (missing, partial, sufficient, strong).
 Gebruik count alleen als inhoudelijke telling, niet als score.
 
 ━━━ UITVOERFORMAAT ━━━

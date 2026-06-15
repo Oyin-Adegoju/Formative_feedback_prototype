@@ -562,8 +562,7 @@ def check_stakeholders(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
     count = len(unique_roles)
     notes: list[str] = []
 
-    minimum = spec.minimum_count or 4
-    strong_from = spec.strong_from or 6
+    has_any = count > 0
     has_bi = has_belang and has_invloed
 
     bi_str = (
@@ -571,55 +570,26 @@ def check_stakeholders(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
         f"Invloed: {'ja' if has_invloed else 'nee'}."
     )
 
-    if count == 0:
+    # Status is PRESENCE/COVERAGE-based, never count-threshold-based. Counting
+    # stakeholders is no longer part of the design (the extracted count is not
+    # trustworthy — it harvests first-column cells from every retrieval table, so
+    # requirement/use-case/constraint rows leak in), so it must not drive the
+    # verdict. We only ask: is there any stakeholder evidence, and are belang AND
+    # invloed both covered? The count is still computed for internal/debug use
+    # but is neither exposed nor used for the verdict.
+    if not has_any:
         status: CriterionStatus = "missing"
         notes.append("Geen stakeholders herkend in de retrievalhits.")
-
-    elif count < minimum:
+    elif has_bi:
+        status = "sufficient"
+        notes.append("Stakeholders met belang en invloed beschreven.")
+    else:
         status = "partial"
         notes.append(
-            f"{count} unieke stakeholder(s) herkend (minimum {minimum}). {bi_str}"
+            f"Stakeholders herkend, maar belang en/of invloed ontbreekt. {bi_str}"
         )
-        if count >= minimum - 1:
-            notes.append("Één stakeholder onder het minimum — grenswaardegeval.")
-
-    elif count < strong_from:
-        if has_bi:
-            status = "sufficient"
-            notes.append(
-                f"{count} stakeholder(s) herkend met belang en invloed beschreven."
-            )
-            if count == minimum:
-                notes.append(
-                    "Exact op minimum (4) — verifieer tabel op volledigheid."
-                )
-        else:
-            # Count reached minimum but belang/invloed missing → partial.
-            status = "partial"
-            notes.append(
-                f"{count} stakeholder(s) herkend, maar belang en/of invloed "
-                f"ontbreekt. {bi_str}"
-            )
-
-    else:  # count >= strong_from
-        if has_bi:
-            status = "strong"
-            notes.append(
-                f"{count} stakeholder(s) herkend — boven drempel, "
-                "met belang en invloed gedocumenteerd."
-            )
-            if count == strong_from:
-                notes.append("Exact op grenswaarde voor 'goed' (6).")
-        else:
-            status = "sufficient"
-            notes.append(
-                f"{count} stakeholder(s) herkend, maar belang en/of invloed "
-                f"ontbreekt. {bi_str}"
-            )
 
     missing_signals: list[str] = []
-    if count < minimum:
-        missing_signals.append("stakeholder_count")
     if not has_belang:
         missing_signals.append("belang_signal")
     if not has_invloed:
@@ -899,58 +869,35 @@ def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
     # to avoid double-counting with table rows that already include use cases.
     uc_count = _count_use_case_blocks(hits)
     if uc_count > 0 and total < 5:
+        # Use-case blocks still feed the internal total that drives the status
+        # verdict, but this is no longer surfaced as a note: per request, the
+        # handoff exposes no requirement counting.
         total += uc_count
         sections["uc"] += uc_count
-        notes.append(
-            f"Use case beschrijvingen ({uc_count}) meegeteld als requirements "
-            "bij laag primair aantal."
-        )
 
     prio_str = f"Prioritering: {'ja' if has_prio else 'nee'}."
-    minimum = spec.minimum_count or 15
-    strong_from = spec.strong_from or 25
 
+    # Status is PRESENCE/PRIORITISATION-based, never count-threshold-based.
+    # Counting requirement items is no longer part of the design, so it must not
+    # drive the verdict. We only ask: are there requirements at all, and is there
+    # MoSCoW prioritisation? The item count is still computed internally for
+    # debug use but is neither exposed nor used for the verdict. The MoSCoW
+    # prioritering split (Note B below) is kept — that is the distribution the
+    # user wants.
     if total == 0:
         status: CriterionStatus = "missing"
         notes.append("Geen herkenbare requirements gevonden.")
-
-    elif total < minimum:
-        status = "partial"
-        notes.append(f"Geschat {total} requirement-items (minimum {minimum}). {prio_str}")
-        if minimum - 3 <= total <= minimum + 2:
-            notes.append(
-                f"Telling ({total}) dicht bij minimum ({minimum}) — grenswaardegeval."
-            )
-
-    elif total < strong_from:
+    elif has_prio:
         status = "sufficient"
-        notes.append(f"Geschat {total} requirement-items. {prio_str}")
-        if total <= minimum + 2:
-            notes.append(f"Telling ({total}) net boven minimum — grenswaardegeval.")
-
+        notes.append(f"Requirements-sectie aanwezig. {prio_str}")
     else:
-        status = "strong"
-        notes.append(f"Geschat {total} requirement-items — ruim gedekt. {prio_str}")
+        status = "partial"
+        notes.append(f"Requirements aanwezig, maar geen prioritering. {prio_str}")
 
-    # Note A: functional / non-functional / use case breakdown.
+    # Note A: only the qualitative 'cannot split' observation is kept — it is a
+    # coverage note, not a count.
     if total > 0:
-        fr, nfr, uc, other = (
-            sections["fr"], sections["nfr"], sections["uc"], sections["other"]
-        )
-        type_parts: list[str] = []
-        if fr:
-            type_parts.append(f"Functioneel: ~{fr}")
-        if nfr:
-            type_parts.append(f"Niet-functioneel: ~{nfr}")
-        if uc:
-            type_parts.append(f"Use cases: ~{uc}")
-        # Show the remainder (constraints / combined-section rows) only when a
-        # functional or non-functional split was actually established, so the
-        # parts reconcile with the total instead of silently dropping items.
-        if other and (fr or nfr):
-            type_parts.append(f"Overig: ~{other}")
-        if type_parts:
-            notes.append(". ".join(type_parts) + ".")
+        fr, nfr, other = sections["fr"], sections["nfr"], sections["other"]
         if not fr and not nfr and other > 0:
             # Requirements exist but no block carries a functional/non-functional
             # heading — don't fabricate a split.
@@ -982,8 +929,6 @@ def check_requirements(spec: CriterionSpec, hits: list[RetrievalHit]) -> Criteri
                 notes.append(f"Prioriteitsverdeling: {overall_str}.")
 
     missing_signals: list[str] = []
-    if total < minimum:
-        missing_signals.append("requirement_count")
     if not has_prio:
         missing_signals.append("prioritization")
 
@@ -1115,40 +1060,29 @@ def check_security(spec: CriterionSpec, hits: list[RetrievalHit]) -> CriterionRe
     count = len(concrete_found)
     notes: list[str] = []
 
-    minimum = spec.minimum_count or 1
-    strong_from = spec.strong_from or 3
-
-    if count == 0 and not generic_found:
+    # Status is PRESENCE-based, never count-threshold-based. We only ask: is at
+    # least one CONCRETE mechanism named? Generic-only language is partial; no
+    # signal at all is missing. Concrete mechanisms are NAMED rather than counted,
+    # so the abandoned counting no longer drives the verdict or the notes. The
+    # count is still computed for internal/debug use only.
+    if not concrete_found and not generic_found:
         status: CriterionStatus = "missing"
         notes.append("Geen security-signalen gevonden.")
-
-    elif count == 0:
+    elif not concrete_found:
         status = "partial"
         notes.append(
             f"Generieke security-termen aanwezig ({', '.join(generic_found[:3])}), "
             "maar geen concreet beveiligingsmechanisme benoemd."
         )
-
-    elif count < strong_from:
+    else:
         status = "sufficient"
         notes.append(
-            f"{count} concreet beveiligingsmechanisme(n) gevonden: "
-            f"{', '.join(concrete_found[:5])}."
-        )
-        if count == minimum:
-            notes.append(
-                "Exact één concreet mechanisme — grenswaardegeval, verifieer inhoud."
-            )
-
-    else:
-        status = "strong"
-        notes.append(
-            f"{count} concrete beveiligingsmechanismen gevonden: "
+            "Concreet beveiligingsmechanisme(n) gevonden: "
             f"{', '.join(concrete_found[:6])}."
         )
 
     missing_signals: list[str] = []
-    if count == 0:
+    if not concrete_found:
         missing_signals.append("concrete_mechanism")
 
     return CriterionResult(

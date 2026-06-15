@@ -21,10 +21,18 @@ from typing import Literal, NotRequired, TypedDict
 # ---------------------------------------------------------------------------
 
 CriterionStatus = Literal["missing", "partial", "sufficient", "strong"]
-"""Verdict for one criterion."""
+"""Verdict for one criterion.
+
+INTERNAL CAPS scoring artifact. status drives hidden_score, blocker detection,
+and evidence selection inside CAPS. It is deliberately NOT part of the pre-Qwen
+handoff contract (src/feedback/handoff.py): at the extraction stage CAPS only
+matches signals and counts, so this verdict cannot be made honestly yet.
+Content-quality judgement is the downstream Qwen stage's job.
+"""
 
 StoplightLabel = Literal["red", "yellow", "green"]
-"""Traffic-light label. The same type is used at two levels with two contracts:
+"""Traffic-light label. INTERNAL CAPS scoring artifact, not a pre-Qwen handoff
+field. The same type is used at two levels with two contracts:
 
 Per-criterion (CriterionResult.stoplight), derived from status by the scoring
 layer's mapping:
@@ -140,11 +148,15 @@ class CriterionResult:
     Fields without defaults must always be provided; the rest are optional
     because not every criterion has a meaningful count.
 
-    status is the authoritative verdict. stoplight is presentation-oriented
-    and derived from status (strong->green, sufficient->yellow,
-    missing|partial->red). Note: a per-criterion stoplight may be yellow even
-    though the document-level CapsRunResult.overall_stoplight never is — see
-    StoplightLabel for the two-level contract.
+    status is the authoritative INTERNAL CAPS verdict. stoplight is
+    presentation-oriented and derived from status (strong->green,
+    sufficient->yellow, missing|partial->red). Both are CAPS-internal scoring
+    artifacts: they drive hidden_score, blocker detection, and evidence
+    selection, but are NOT exposed in the pre-Qwen handoff
+    (src/feedback/handoff.py copies only count, notes, missing_signals,
+    evidence). Note: a per-criterion stoplight may be yellow even though the
+    document-level CapsRunResult.overall_stoplight never is — see StoplightLabel
+    for the two-level contract.
 
     evidence is the CAPS contract's evidence field, named consistently as
     "evidence" across models, checks, scoring, and caps. The downstream
@@ -209,12 +221,16 @@ class CapsRunMeta:
 class CapsRunResult:
     """Top-level output of one CAPS evaluation.
 
-    overall_stoplight: CAPS-only document verdict — "red" when any blocker is
-        triggered, otherwise "green". CAPS alone never emits "yellow" at this
-        level (all current criteria are blockers); document-level yellow is
-        reserved for the downstream Qwen stage. See StoplightLabel.
+    overall_stoplight: CAPS-only INTERNAL document verdict — "red" when any
+        blocker is triggered, otherwise "green". CAPS alone never emits "yellow"
+        at this level. This is a CAPS-internal scoring artifact only: it is NOT
+        part of the pre-Qwen handoff. The document-level stoplight shown in
+        feedback (final_stoplight) is assigned downstream in the merge layer,
+        AFTER Qwen quality output exists. See StoplightLabel.
     blockers_triggered: criterion_keys where is_blocker=True and status is
         "missing" or "partial". Populated by the scoring layer, not here.
+        Also CAPS-internal — not carried in the pre-Qwen handoff, since it is
+        the document-level mirror of the (internal) status verdict.
 
     manual_review_required and manual_review_flags have been removed from CAPS
     ownership. Content-quality diagnosis and manual review flagging are now

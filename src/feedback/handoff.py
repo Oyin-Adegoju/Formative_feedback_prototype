@@ -1,10 +1,10 @@
 """handoff.py — stable CAPS→Qwen handoff contract (pre-Qwen).
 
 Produces one compact, downstream-friendly structure per document that the
-future Qwen quality-diagnosis stage can consume directly.  It merges two
-already-existing artifacts without re-deriving anything:
+Qwen quality-diagnosis stage consumes directly.  It merges two already-existing
+artifacts without re-deriving anything:
 
-    CapsRunResult            (document-level + per-criterion CAPS verdicts)
+    CapsRunResult            (document-level CAPS run — only extraction read here)
     dict[str, EvidencePacket] (per-criterion shaped evidence)
         → build_caps_handoff → CapsHandoff → to_dict → JSON
 
@@ -12,16 +12,28 @@ Architecture position:
     CAPS (retrieval → checks → scoring)  → CapsRunResult ┐
     packet_builder.build_evidence_packets → packets      ┘→ handoff → [Qwen]
 
-Responsibility boundary (intentional):
-    - CAPS is the single source of truth for every verdict field
-      (status, stoplight, count, notes, missing_signals). These are copied
-      verbatim from CriterionResult — never recomputed here.
+Responsibility boundary (intentional — this is the honesty boundary):
+    - This is an EXTRACTION handoff. CAPS, at this stage, only matches signals,
+      counts, and detects sections — it does NOT understand content. So the
+      handoff deliberately carries ONLY objective/extractive fields:
+        count, notes, missing_signals, evidence_items.
+    - It does NOT expose the CAPS scoring verdicts. The following are computed
+      internally by scoring.py for CAPS' own use but are NOT part of this
+      pre-Qwen contract, because they would assert content-quality judgements
+      the extraction layer cannot honestly make yet:
+        per-criterion status      (missing/partial/sufficient/strong)
+        per-criterion stoplight    (red/yellow/green)
+        document overall_stoplight (red/green)
+        document blockers_triggered (the document-level mirror of status)
+      Quality judgement is the Qwen stage's job; the document-level stoplight is
+      assigned later, in the merge layer, AFTER Qwen output exists.
     - The evidence-packet layer is the single source of truth for the SHAPE
-      of evidence. Its EvidenceItem already carries the exact downstream
-      fields, so this module re-exposes them under `evidence_items` unchanged.
+      of evidence. Its EvidenceItem already carries the exact downstream fields,
+      so this module re-exposes them under `evidence_items` unchanged.
 
 This is the PRE-Qwen handoff. It is NOT the final merged CAPS+Qwen contract.
-It deliberately contains ONLY objective CAPS outputs plus shaped evidence:
+It deliberately contains ONLY objective CAPS extraction plus shaped evidence:
+    - no status / stoplight / overall_stoplight / blockers_triggered
     - no manual_review / manual_review_required / manual_review_flags / reason
     - no qwen_diagnostics / qwen_strengths / qwen_weaknesses
     - no hidden_score (an internal CAPS scoring artifact, not a handoff field)
@@ -35,8 +47,8 @@ from collections.abc import Mapping
 from dataclasses import dataclass, field
 
 from src.caps.caps import CapsPipelineArtifacts
-from src.caps.criterion_specs import CRITERIA_KEYS
-from src.caps.models import CapsRunResult, CriterionStatus, StoplightLabel
+from src.caps.criterion_specs import CRITERIA_BY_KEY, CRITERIA_KEYS
+from src.caps.models import CapsRunResult
 from src.feedback.evidence import EvidenceItem, EvidencePacket
 from src.feedback.packet_builder import build_evidence_packets
 
@@ -47,18 +59,26 @@ from src.feedback.packet_builder import build_evidence_packets
 
 @dataclass
 class CriterionHandoff:
-    """One criterion's CAPS verdict plus its shaped evidence.
+    """One criterion's objective CAPS extraction plus its shaped evidence.
 
-    All verdict fields (status, stoplight, count, notes, missing_signals) are
-    copied verbatim from the authoritative CriterionResult. evidence_items are
-    reused unchanged from the criterion's EvidencePacket — the existing
-    EvidenceItem already exposes the downstream-friendly fields:
-        block_id, page_no, block_type, heading_path, excerpt,
-        selection_reason, signal_class.
+    All fields are extraction/coverage observations copied verbatim from the
+    authoritative CriterionResult — NOT quality verdicts:
+        count           — ALWAYS None. The per-criterion CAPS counts are not
+                          trustworthy enough to drive downstream behaviour, so
+                          they are deliberately not exposed in the handoff. The
+                          field is kept for shape stability only.
+        notes           — extraction/coverage observations (signals found/absent,
+                          section/ambiguity warnings)
+        missing_signals — expected signals that were not detected (coverage gaps)
+    evidence_items are reused unchanged from the criterion's EvidencePacket — the
+    existing EvidenceItem already exposes the downstream-friendly fields
+    (block_id, page_no, block_type, heading_path, excerpt, selection_reason,
+    signal_class, plus rule-based enrichment).
+
+    The CAPS scoring verdicts (status, stoplight) are intentionally NOT carried
+    here — see the module docstring.
     """
 
-    status: CriterionStatus
-    stoplight: StoplightLabel
     count: int | None
     notes: list[str] = field(default_factory=list)
     missing_signals: list[str] = field(default_factory=list)
@@ -72,16 +92,18 @@ class CriterionHandoff:
 
 @dataclass
 class CapsHandoff:
-    """Stable pre-Qwen handoff for one document.
+    """Stable pre-Qwen extraction handoff for one document.
 
     criteria is keyed by criterion_key in CRITERIA_KEYS order, so the contract
     is stable and every known criterion always appears.
+
+    Carries no document-level verdict (no overall_stoplight, no
+    blockers_triggered): document-level signals are decided downstream, after
+    Qwen quality output exists.
     """
 
     document_id: str
     source_name: str
-    overall_stoplight: StoplightLabel
-    blockers_triggered: list[str] = field(default_factory=list)
     criteria: dict[str, CriterionHandoff] = field(default_factory=dict)
 
 
@@ -96,12 +118,14 @@ def build_caps_handoff(
 ) -> CapsHandoff:
     """Merge a CapsRunResult and its evidence packets into one CapsHandoff.
 
-    CAPS is the source of truth for every verdict field; this function copies
-    those fields and attaches the matching packet's evidence_items. It never
-    re-judges, re-scores, or invents any value.
+    Copies ONLY the objective extraction fields (count, notes, missing_signals)
+    from each CriterionResult and attaches the matching packet's evidence_items.
+    It never copies, re-judges, re-scores, or invents any verdict. The CAPS
+    status/stoplight and the document overall_stoplight/blockers_triggered are
+    deliberately left out of the pre-Qwen contract.
 
     Args:
-        caps_result: The final document-level CAPS output.
+        caps_result: The final document-level CAPS output (verdicts ignored here).
         packets: dict[criterion_key → EvidencePacket] from build_evidence_packets.
             A criterion absent from this mapping simply gets no evidence_items.
 
@@ -113,20 +137,39 @@ def build_caps_handoff(
     for key in CRITERIA_KEYS:
         cr = caps_result.scorecard.results[key]
         pkt = packets.get(key)
+        items = list(pkt.evidence_items) if pkt else []
+
+        # Align notes with the heading-only evidence. CAPS' checks scan the whole
+        # document, so a note can claim a signal was "found" (e.g. a security
+        # mechanism, a language consequence) even when that text sits OUTSIDE the
+        # criterion's section and was therefore not admitted as evidence. Passing
+        # such a note to Qwen reintroduces exactly the cross-section false
+        # positive the heading-only gate removes. So when no positive in-section
+        # evidence was selected, replace the notes with an honest absence note.
+        notes = list(cr.notes)
+        has_content = any(
+            it.signal_class in ("positive", "weak") for it in items
+        )
+        if not has_content:
+            label = CRITERIA_BY_KEY[key].label
+            notes = [f"Geen aparte {label}-sectie met inhoud aangetroffen."]
+
         criteria[key] = CriterionHandoff(
-            status=cr.status,
-            stoplight=cr.stoplight,
-            count=cr.count,
-            notes=list(cr.notes),
+            # count is intentionally neutralized to None: the per-criterion CAPS
+            # counts (requirements / stakeholders especially) are not trustworthy
+            # enough to drive downstream behaviour, so they are not exposed in the
+            # handoff. CAPS keeps them internally; they just no longer flow out.
+            # This also makes merge_builder.apply_count_floor a no-op (it guards
+            # on `count is not None`) without redesigning the merge logic.
+            count=None,
+            notes=notes,
             missing_signals=list(cr.missing_signals),
-            evidence_items=list(pkt.evidence_items) if pkt else [],
+            evidence_items=items,
         )
 
     return CapsHandoff(
         document_id=caps_result.doc_id,
         source_name=caps_result.source_name,
-        overall_stoplight=caps_result.overall_stoplight,
-        blockers_triggered=list(caps_result.blockers_triggered),
         criteria=criteria,
     )
 
@@ -180,16 +223,14 @@ def to_dict(handoff: CapsHandoff) -> dict:
     """Serialise a CapsHandoff to a plain JSON-ready dict.
 
     Key order is fixed here so the emitted contract is stable across runs.
+    Carries extraction only — no status, stoplight, overall_stoplight, or
+    blockers_triggered.
     """
     return {
         "document_id": handoff.document_id,
         "source_name": handoff.source_name,
-        "overall_stoplight": handoff.overall_stoplight,
-        "blockers_triggered": list(handoff.blockers_triggered),
         "criteria": {
             key: {
-                "status": c.status,
-                "stoplight": c.stoplight,
                 "count": c.count,
                 "notes": list(c.notes),
                 "missing_signals": list(c.missing_signals),

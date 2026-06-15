@@ -86,6 +86,20 @@ feed_up, feedback[].observatie, feed_forward, taalgebruik).
 Not applied to evidence_ref — block IDs legitimately contain alphanumerics.
 """
 
+_STOPLIGHT_MENTIONS: Final[dict[str, tuple[str, ...]]] = {
+    "green": ("green", "groen", "groene"),
+    "yellow": ("yellow", "geel", "gele"),
+    "red": ("red", "rood", "rode"),
+}
+"""Words that count as mentioning each stoplight in docent_toelichting.
+
+The stoplight FIELD is always the English value (and is validated separately),
+but the docent_toelichting is fluent Dutch — smaller models naturally write the
+Dutch colour name ("rood") rather than the English token ("red"). Accept both so
+a correct verdict is not rejected over language; the common Dutch inflected form
+(rode/groene/gele) is included too.
+"""
+
 # ---------------------------------------------------------------------------
 # Exception
 # ---------------------------------------------------------------------------
@@ -186,9 +200,13 @@ def validate(raw_json: str, merged: dict) -> FeedbackResult:
             "student_samenvatting is empty.", raw=raw_json
         )
 
-    # --- 3b. docent_toelichting must contain the exact final stoplight word ---
+    # --- 3b. docent_toelichting must mention the final stoplight (NL or EN) ---
     docent = (data.get("docent_toelichting") or "").strip()
-    if not re.search(rf"\b{re.escape(final_stoplight)}\b", docent, re.IGNORECASE):
+    accepted = _STOPLIGHT_MENTIONS.get(final_stoplight, (final_stoplight,))
+    if not any(
+        re.search(rf"\b{re.escape(word)}\b", docent, re.IGNORECASE)
+        for word in accepted
+    ):
         raise FeedbackValidationError(
             f"docent_toelichting does not mention the final stoplight: {final_stoplight}",
             raw=raw_json,

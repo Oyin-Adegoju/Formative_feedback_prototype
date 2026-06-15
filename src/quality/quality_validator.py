@@ -34,6 +34,7 @@ from typing import Final
 
 from src.caps.criterion_specs import CRITERIA_KEYS
 from src.quality.output_schema import (
+    JUDGEMENT_VALUES,
     QUALITY_DIMENSIONS,
     QUALITY_LEVELS,
     CriterionQuality,
@@ -58,7 +59,7 @@ _STATUS_LABELS: Final[frozenset[str]] = frozenset({
 """Internal CAPS status labels that must not be repeated verbatim in Qwen text."""
 
 _REQUIRED_CRITERION_FIELDS: Final[frozenset[str]] = frozenset({
-    "diagnostics", "strengths", "weaknesses",
+    "criterion_judgement", "diagnostics", "strengths", "weaknesses",
     "manual_review", "manual_review_reason", "reason",
 })
 
@@ -111,6 +112,15 @@ def _validate_criterion(key: str, crit: object, raw: str) -> CriterionQuality:
     if missing:
         raise QualityValidationError(
             f"Criterion '{key}' missing fields: {sorted(missing)}", raw=raw
+        )
+
+    # --- criterion_judgement: exactly one of strong / mixed / weak ---
+    judgement = crit.get("criterion_judgement")
+    if judgement not in JUDGEMENT_VALUES:
+        raise QualityValidationError(
+            f"Criterion '{key}' criterion_judgement must be one of "
+            f"{sorted(JUDGEMENT_VALUES)}, got {judgement!r}.",
+            raw=raw,
         )
 
     # --- diagnostics: exact dimension set, each value a valid level ---
@@ -170,6 +180,7 @@ def _validate_criterion(key: str, crit: object, raw: str) -> CriterionQuality:
             )
 
     return CriterionQuality(
+        criterion_judgement=str(judgement),
         diagnostics=dict(diagnostics),
         strengths=list(crit["strengths"]),
         weaknesses=list(crit["weaknesses"]),
