@@ -947,3 +947,153 @@ def _generate_demo() -> None:
 
     st.session_state.run_dir = str(run_dir)
     st.rerun()
+
+# ---------------------------------------------------------------------------
+# Sidebar en hoofdloop
+
+
+def main() -> None:
+    _inject_css()
+
+    if "run_dir" not in st.session_state:
+        st.session_state.run_dir = None
+
+    with st.sidebar:
+        # ── Header ────
+        st.markdown(
+            "<div class='sidebar-header'>"
+            "<div class='sidebar-logo'>INFIRFS</div>"
+            "<div class='sidebar-subtitle'>Formatieve Feedback Assistent</div>"
+            "</div>",
+            unsafe_allow_html=True,
+        )
+
+        # ── Navigatie ───
+        st.markdown(
+            "<div class='sidebar-section-label'>Omgeving</div>",
+            unsafe_allow_html=True,
+        )
+
+        role = st.radio(
+            "Omgeving",
+            options=["🎓  Docent", "📖  Student"],
+            index=0,
+            label_visibility="collapsed",
+        )
+
+        role = "Docent" if role.startswith("🎓") else "Student"
+
+        # ── Docentacties ───
+        if role == "Docent" and st.session_state.run_dir is not None:
+            st.markdown(
+                "<div class='sidebar-section-label'>Acties</div>",
+                unsafe_allow_html=True,
+            )
+
+            if st.button("＋  Nieuw document", use_container_width=True):
+                st.session_state.run_dir = None
+                st.rerun()
+
+        # ── Studentkeuze ──
+        if role == "Student":
+            st.markdown(
+                "<div class='sidebar-section-label'>Feedback selecteren</div>",
+                unsafe_allow_html=True,
+            )
+
+            runs = _list_runs()
+
+            if not runs:
+                st.warning(
+                    "Geen feedback beschikbaar.\n\n"
+                    "De docent moet eerst een document verwerken."
+                )
+                st.stop()
+
+            run_labels = [run.name for run in runs]
+
+            selected_label = st.selectbox(
+                "Run",
+                options=run_labels,
+                index=0,
+                label_visibility="collapsed",
+            )
+
+            st.session_state.run_dir = str(_RUNS_DIR / selected_label)
+
+        # ── Footer ───
+        st.markdown(
+            "<div style='position:fixed;bottom:20px;font-size:0.72rem;"
+            "color:rgba(255,255,255,0.35);'>"
+            "© Hogeschool Leiden — PROTOTYPE"
+            "</div>",
+            unsafe_allow_html=True,
+        )
+
+    # Docentflow
+    if role == "Docent":
+        if st.session_state.run_dir is None:
+            _render_upload_form()
+            return
+
+        run_dir = pathlib.Path(st.session_state.run_dir)
+
+        feedback = _load_json(run_dir / "feedback_result.json")
+        merged = _load_json(run_dir / "merged_feedback_input.json")
+
+        source_name = (
+            (merged or {}).get("source_name")
+            or (feedback or {}).get("document_id")
+            or run_dir.name
+        )
+
+        st.title(f"Feedback — {source_name}")
+
+        if feedback is None and merged is None:
+            st.error("De pipeline heeft geen bruikbare output geproduceerd.")
+
+            summary = _load_json(run_dir / "run_summary.json")
+
+            if summary:
+                st.json(summary)
+
+            if st.button("Nieuw document uploaden"):
+                st.session_state.run_dir = None
+                st.rerun()
+
+            return
+
+        if feedback is None:
+            st.warning(
+                "De feedbacktekst kon niet worden gegenereerd. "
+                "Hieronder staat de CAPS- en Qwen-diagnose."
+            )
+            _render_docent_view({}, merged, run_dir)
+            return
+
+        _render_docent_view(feedback, merged, run_dir)
+        return
+
+    # Studentflow
+    run_dir = pathlib.Path(st.session_state.run_dir)
+
+    feedback = _load_json(run_dir / "feedback_result.json")
+
+    if feedback is None:
+        st.error("Feedback niet gevonden.")
+        return
+
+    merged = _load_json(run_dir / "merged_feedback_input.json")
+
+    source_name = (
+        (merged or {}).get("source_name")
+        or feedback.get("document_id", run_dir.name)
+    )
+
+    st.title(f"Feedback — {source_name}")
+
+    _render_student_view(feedback, run_dir)
+
+
+if __name__ == "__main__":
+    main()
