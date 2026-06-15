@@ -1,0 +1,2489 @@
+{
+  "doc_id": "f5c4ed59",
+  "source_path": "INFIRST_requirements/onvoldoende/Requirements Analyse - student8 1148519.pdf",
+  "source_name": "Requirements Analyse - student8 1148519.pdf",
+  "quality_label": "onvoldoende",
+  "block_count": 151,
+  "mapping_count": 2,
+  "mapping": {},
+  "blocks": [
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0001",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "SNaam: [PERSOON_01]",
+      "token_estimate": 5,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0002",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "S/n: 1148519",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0003",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Modulenaam: INFIRFS",
+      "token_estimate": 4,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0004",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Datum: 2/20/24",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0005",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Requirements analyse INFIRFS",
+      "token_estimate": 7,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0006",
+      "page_no": 1,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 1",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0007",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Inhoud",
+      "token_estimate": 1,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0008",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "REQUIREMENTS ANALYSE INFIRFS ................................................................................... 1",
+      "token_estimate": 28,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0009",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H1 INTRODUCTIE ............................................................................................................. 2",
+      "token_estimate": 31,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0010",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H2 STAKEHOLDERS ANALYSE ........................................................................................... 3",
+      "token_estimate": 29,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0011",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H3 ONDERZOEK NAAR WEBGEBRUIKERS .......................................................................... 4",
+      "token_estimate": 27,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0012",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H4 WENSEN, EISEN, PRIORITEITEN ................................................................................... 4",
+      "token_estimate": 29,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0013",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "4.1 C ONSTRAINTS EN ( NON -) F UNCTIONELE EISEN ....................................................................... 5",
+      "token_estimate": 30,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0014",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "N IET - FUNCTIONELE REQUIREMENTS ......................................................................................... 5",
+      "token_estimate": 31,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0015",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "F UNCTIONELE REQUIREMENTS ................................................................................................ 5",
+      "token_estimate": 31,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0016",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "4.2 U SE C ASE D IAGRAM ....................................................................................................... 6",
+      "token_estimate": 32,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0017",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "4.3 U SE C ASE BESCHRIJVINGEN .............................................................................................. 6",
+      "token_estimate": 31,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0018",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H5 ETHISCHE AANDACHTSPUNTEN .................................................................................. 9",
+      "token_estimate": 28,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0019",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "5.2 M ORAAL CORRECTE WEBSITE ............................................................................................ 10",
+      "token_estimate": 31,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0020",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H6 LITERATUURLIJST ....................................................................................................... 10",
+      "token_estimate": 31,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0021",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "B IJLAGE III – M ORAAL CORRECTE WEBSITE ................................................................................ 12",
+      "token_estimate": 30,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0022",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H1 Introductie",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0023",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Welkom naar het requirements analyse van mijn project. In dit document komt de analyse, die ik",
+      "token_estimate": 23,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0024",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "nodig ga hebben voor mijn project, zodat die gaat voldoen aan alle punten. Mijn plan is een",
+      "token_estimate": 22,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0025",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "webshop van meubel maken op basis van Springboot, HTML, SCSS, Typescript met Angular",
+      "token_estimate": 21,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0026",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Framework en PostgreSQL als database. De groep mensen, waarvoor extra aandacht wordt",
+      "token_estimate": 21,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0027",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "gegeven, is slechtzienden/blinden. De webshop moet volgens de regels van de AVG (Algemene",
+      "token_estimate": 22,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0028",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Verordening Gegevensbescherming) correct zijn.",
+      "token_estimate": 11,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0029",
+      "page_no": 2,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 2",
+      "token_estimate": 6,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0030",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "De doelgroep, waarvoor ik de website maak, is heel breed. Iedereen heeft soms meubel nodig,",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0031",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "daarom moet het website makkelijk te gebruiken zijn door jongeren, net als door ouderen. Om dit",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0032",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "principe te volgen, ga ik het vergelijkbaar maken, net als bij andere winkels (Ikea, Huus, Haco",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0033",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "etc.) met verbeteringen als het mogelijk is.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0034",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "Het hoofdprobleem met meubelwebsites is dat ze meestal heel veel producten, categorieën,",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0035",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "specificaties etc. hebben. Mijn doel met deze website is om het zo minimalistisch mogelijk",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0036",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "maken. Tegelijkertijd moet de website heel makkelijk te zijn om te gebruiken (de stappen moeten",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0037",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "intuïtief zijn, alleen nodige opties tonen.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0038",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "Zoals ik eerder heb gezegd, was mijn accentdoelgroep mensen die slechtziend/blind zijn. Om",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0039",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "het navigeren op de website voor hun makkelijker te maken, wil ik een text-to-speech systeem",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0040",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "gebruiken. Dat kan ik doen, door overal waar het nodig is labels zetten, verder spreekt het de",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0041",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "tekst automatisch uit, als je erop wijst. Dit gaat het proces van meubel kopen makkelijker maken",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0042",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "voor mijn doelgroep.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0043",
+      "page_no": 3,
+      "block_type": "heading",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "H2 Stakeholders analyse",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0044",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "De stakeholder waar we rekening mee houden zijn deze:",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0045",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "1. Opdrachtgever – [PERSOON_02], vertegenwoordiger van investeringsbedrijf Plenty",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0046",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "2. Gebruikers – hebben geen naam, maar gaan invloed hebben op de website, door dat te",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0047",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "gebruiken.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0048",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "3. Overheid – hebben ook geen naam, maar hebben invloed op de website, door de",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0049",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop na te kijken met het AVG.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0050",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "4. Leveranciers – ook zonder naam, hebben invloed op de website, omdat zij de",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0051",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "bestellingen krijgen",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0052",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "5. Concurrenten – andere bedrijven die in hetzelfde sfeer werken, hebben invloed op het",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0053",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "project, door de concurrenten te analyseren, om ons project meer aantrekkelijk te",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0054",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "maken.",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0055",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Deze worden op deze manier in het kwadrant beneden geplaatst:",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0056",
+      "page_no": 3,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 3",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0057",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar webgebruikers"
+      ],
+      "text": "H3 Onderzoek naar webgebruikers",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0058",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar webgebruikers"
+      ],
+      "text": "Mijn website heeft een doel, om het kopen van meubel zo makkelijk mogelijk te maken. Wat een",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0059",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar webgebruikers"
+      ],
+      "text": "interview heeft laten zien, is dat mensen heel vaak Ikea en Jysk gebruiken om meubel te kopen,",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0060",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar webgebruikers"
+      ],
+      "text": "dus ik ga me indiepen in het proces, hoe die websites werken. Mijn doelgroep worden mensen",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0061",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar webgebruikers"
+      ],
+      "text": "van jong tot oud, omdat iedereen wel eens meubel nodig heeft. Wat mijn website zeker moet",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0062",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar webgebruikers"
+      ],
+      "text": "hebben, is een minimalistische website. Dit is essentieel voor een website met veel instellingen",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0063",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar webgebruikers"
+      ],
+      "text": "en items. Verder is minimalisme heel makkelijk te gebruiken voor alle leeftijden.",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0064",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar webgebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "H4 Wensen, Eisen, Prioriteiten",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0065",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar webgebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "In deze tabellen heb ik alle Requirements gesorteerd op het niveau van prioriteit. De MUST heb ik",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0066",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar webgebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "uit mijn eigen website genomen. Verder waren shoulds en won’t mijn plannen. Verder, heb ik een",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0067",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar webgebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "beetje hulp aan ChatGPT gevraagd om wat extra inspiratie te krijgen. Ik deed mijn best om de",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0068",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar webgebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "requirements zo specifiek te kunnen maken, zodat het duidelijk is wat er in de website wel en",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0069",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar webgebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "niet komt.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0070",
+      "page_no": 4,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 4",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0071",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "4.1 Constraints en (non-) Functionele eisen",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0072",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Constraints",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0073",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "Niet-functionele requirements"
+      ],
+      "text": "Niet-functionele requirements",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0074",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "Functionele requirements"
+      ],
+      "text": "Functionele requirements",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0075",
+      "page_no": 5,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 5",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0076",
+      "page_no": 5,
+      "block_type": "table",
+      "heading_path": [
+        "Functionele requirements"
+      ],
+      "text": "Naam | Architecturele relevantie | Geadresseerd in:\nCONSTR01: | De webshop moet worden gemaakt in Java Spring Boot, Angular en PostgreSQL. | Werkgever\nCONSTR02: | De webshop moet in 6 weken gemaakt worden | Werkgever",
+      "token_estimate": 54,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 3,
+        "column_count": 3,
+        "header_row": "Naam | Architecturele relevantie | Geadresseerd in:",
+        "cells": [
+          [
+            "Naam",
+            "Architecturele relevantie",
+            "Geadresseerd in:"
+          ],
+          [
+            "CONSTR01:",
+            "De webshop moet worden gemaakt in Java Spring Boot, Angular en PostgreSQL.",
+            "Werkgever"
+          ],
+          [
+            "CONSTR02:",
+            "De webshop moet in 6 weken gemaakt worden",
+            "Werkgever"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0077",
+      "page_no": 5,
+      "block_type": "table",
+      "heading_path": [
+        "Functionele requirements"
+      ],
+      "text": "Naam | Architecturele relevantie | Geadresseerd in: | Prio\nFR01 | De applicatie moet authenticatie hebben | Authenticatie matrix | Must\nFR02 | De applicatie moet geauthoriseerde gebruikers bevatten | Login / Pwd policy | Should\nFR03 | De applicatie moet rekening houden met een OWASPprincipe. | H7 – Security Constraints | Must Have\nFR04 | De wachtwoorden moeten een encryptie hebben in de database | OWASP > Securing Password Storage | Must Have\nFR05 | De frontend moet Angular Material gebruiken | Werkgever | Could Have",
+      "token_estimate": 130,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 6,
+        "column_count": 4,
+        "header_row": "Naam | Architecturele relevantie | Geadresseerd in: | Prio",
+        "cells": [
+          [
+            "Naam",
+            "Architecturele relevantie",
+            "Geadresseerd in:",
+            "Prio"
+          ],
+          [
+            "FR01",
+            "De applicatie moet authenticatie hebben",
+            "Authenticatie matrix",
+            "Must"
+          ],
+          [
+            "FR02",
+            "De applicatie moet geauthoriseerde gebruikers bevatten",
+            "Login / Pwd policy",
+            "Should"
+          ],
+          [
+            "FR03",
+            "De applicatie moet rekening houden met een OWASPprincipe.",
+            "H7 – Security Constraints",
+            "Must Have"
+          ],
+          [
+            "FR04",
+            "De wachtwoorden moeten een encryptie hebben in de database",
+            "OWASP > Securing Password Storage",
+            "Must Have"
+          ],
+          [
+            "FR05",
+            "De frontend moet Angular Material gebruiken",
+            "Werkgever",
+            "Could Have"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0078",
+      "page_no": 5,
+      "block_type": "table",
+      "heading_path": [
+        "Functionele requirements"
+      ],
+      "text": "Naam | Architecturele relevantie | Geadresseerd | Prio\nin:\nUC01 – Item tonen | Als gebruiker moet ik kunnen kiezen uit minimaal 10 artikelen.. | Casus INFIRFS P.1 | MUST HAVE\nUC02: Aanmelden | Als gebruiker of administratie wil ik kunnen aanmelden met een username en wachtwoord. | Casus INFIRFS P.1 | MUST HAVE\nUC03: Bestelling Maken | Als gebruiker wil ik een bestelling kunnen maken | Casus INFIRFS P.1 | MUST HAVE\nUC04: Account Aanmaken | Als gebruiker wil ik een account kunnen aanmaken | Casus INFIRFS P.1 | MUST HAVE\nUC05: Item in winkelmand toevoegen | Als gebruiker, wil ik een item kunnen toevoegen in de winkelmand | Casus INFIRFS P.1 | MUST HAVE",
+      "token_estimate": 164,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 7,
+        "column_count": 4,
+        "header_row": "Naam | Architecturele relevantie | Geadresseerd | Prio",
+        "cells": [
+          [
+            "Naam",
+            "Architecturele relevantie",
+            "Geadresseerd",
+            "Prio"
+          ],
+          [
+            "in:"
+          ],
+          [
+            "UC01 – Item tonen",
+            "Als gebruiker moet ik kunnen kiezen uit minimaal 10 artikelen..",
+            "Casus INFIRFS P.1",
+            "MUST HAVE"
+          ],
+          [
+            "UC02: Aanmelden",
+            "Als gebruiker of administratie wil ik kunnen aanmelden met een username en wachtwoord.",
+            "Casus INFIRFS P.1",
+            "MUST HAVE"
+          ],
+          [
+            "UC03: Bestelling Maken",
+            "Als gebruiker wil ik een bestelling kunnen maken",
+            "Casus INFIRFS P.1",
+            "MUST HAVE"
+          ],
+          [
+            "UC04: Account Aanmaken",
+            "Als gebruiker wil ik een account kunnen aanmaken",
+            "Casus INFIRFS P.1",
+            "MUST HAVE"
+          ],
+          [
+            "UC05: Item in winkelmand toevoegen",
+            "Als gebruiker, wil ik een item kunnen toevoegen in de winkelmand",
+            "Casus INFIRFS P.1",
+            "MUST HAVE"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0079",
+      "page_no": 6,
+      "block_type": "heading",
+      "heading_path": [
+        "Functionele requirements",
+        "4.2 Use Case Diagram"
+      ],
+      "text": "4.2 Use Case Diagram",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0080",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "4.2 Use Case Diagram"
+      ],
+      "text": "Use Case Diagram (Alleen de functionele requirements)",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0081",
+      "page_no": 6,
+      "block_type": "heading",
+      "heading_path": [
+        "Functionele requirements",
+        "4.3 Use Case beschrijvingen"
+      ],
+      "text": "4.3 Use Case beschrijvingen",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0082",
+      "page_no": 6,
+      "block_type": "heading",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Use Case beschrijvingen",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0083",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Een overzicht van alle uitgewerkte use-cases (functionele requirements) die uit de opdracht komen. De",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0084",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "WON’T HAVE komen niet in deze lijst, omdat ze toch niet worden gebruikt.",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0085",
+      "page_no": 6,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 6",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0086",
+      "page_no": 6,
+      "block_type": "table",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "UC06: Item uit winkelmand verwijderen | Als gebruiker, wil ik een item uit de winkelmand verwijderen. | Casus INFIRFS P.1 | MUST HAVE\nUC07: Website compatibel met screenreader maken | De website moet een schermlezer kunnen gebruiken, voor blinde gebruikers | Casus INFIRFS P.1 | MUST HAVE\nUC08: Bestellinggeschiedenis kunnen zien | Een gebruiker moet zijn bestelgeschiedenis kunnen zien. | Casus INFIRFS P.1 | COULD HAVE\nUC9: Zoekbalk gebruiken | Als gebruiker, wil ik een zoekbalk kunnen gebruiken om items te zoeken. | COULD HAVE\nUC10: Items aanpassen | Als beheerder, wil ik items kunnen beheren op de website. | Casus INFIRFS P.2 | COULD HAVE\nUC11: Beheerderaccount kunnen maken | Een gebruiker kan een account maken als beheerder. | COULD HAVE\nUC12: Chatfunctie voor hulp | Als een gebruiker hulp nodig heeft, moet hij een bericht kunnen schrijven naar het support. | WON’T HAVE\nUC13: Reviews Achterlaten | Als gebruiker, wil ik een review voor een item kunnen achterlaten. | WON’T HAVE\nUC14: Account verwijderen | Als gebruiker of beheerder, moet ik mijn account kunnen verwijderen. | WON’T HAVE\nUC15: Taal uitkiezen | Een gebruiker moet de taal van het website kunnen veranderen | WON’T HAVE\nUC16: Invoeren Nieuwe Klanten | Als administratie wil ik nieuwe klanten kunnen invoeren. | Casus INFIRFS P.1 | WON’T HAVE",
+      "token_estimate": 330,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 11,
+        "column_count": 4,
+        "header_row": null,
+        "cells": [
+          [
+            "UC06: Item uit winkelmand verwijderen",
+            "Als gebruiker, wil ik een item uit de winkelmand verwijderen.",
+            "Casus INFIRFS P.1",
+            "MUST HAVE"
+          ],
+          [
+            "UC07: Website compatibel met screenreader maken",
+            "De website moet een schermlezer kunnen gebruiken, voor blinde gebruikers",
+            "Casus INFIRFS P.1",
+            "MUST HAVE"
+          ],
+          [
+            "UC08: Bestellinggeschiedenis kunnen zien",
+            "Een gebruiker moet zijn bestelgeschiedenis kunnen zien.",
+            "Casus INFIRFS P.1",
+            "COULD HAVE"
+          ],
+          [
+            "UC9: Zoekbalk gebruiken",
+            "Als gebruiker, wil ik een zoekbalk kunnen gebruiken om items te zoeken.",
+            "COULD HAVE"
+          ],
+          [
+            "UC10: Items aanpassen",
+            "Als beheerder, wil ik items kunnen beheren op de website.",
+            "Casus INFIRFS P.2",
+            "COULD HAVE"
+          ],
+          [
+            "UC11: Beheerderaccount kunnen maken",
+            "Een gebruiker kan een account maken als beheerder.",
+            "COULD HAVE"
+          ],
+          [
+            "UC12: Chatfunctie voor hulp",
+            "Als een gebruiker hulp nodig heeft, moet hij een bericht kunnen schrijven naar het support.",
+            "WON’T HAVE"
+          ],
+          [
+            "UC13: Reviews Achterlaten",
+            "Als gebruiker, wil ik een review voor een item kunnen achterlaten.",
+            "WON’T HAVE"
+          ],
+          [
+            "UC14: Account verwijderen",
+            "Als gebruiker of beheerder, moet ik mijn account kunnen verwijderen.",
+            "WON’T HAVE"
+          ],
+          [
+            "UC15: Taal uitkiezen",
+            "Een gebruiker moet de taal van het website kunnen veranderen",
+            "WON’T HAVE"
+          ],
+          [
+            "UC16: Invoeren Nieuwe Klanten",
+            "Als administratie wil ik nieuwe klanten kunnen invoeren.",
+            "Casus INFIRFS P.1",
+            "WON’T HAVE"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0087",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC1: Item Tonen",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0088",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC2: Aanmelden",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0089",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC3: Bestelling maken",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0090",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC4: Account aanmaken",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0091",
+      "page_no": 7,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC5: Item in winkelmand toevoegen",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0092",
+      "page_no": 7,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 7",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0093",
+      "page_no": 7,
+      "block_type": "table",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Actor | Gebruiker\nPreconditie | Moet op de website zijn\nBeschrijving | Een gebruiker moet minimaal 10 items kunnen kiezen\nScenario beschrijving | 1. Druk op “items” in de header 2. Kies de nodige items. 3. Druk op “in winkelmand toevoegen”\nPostconditie | Je hebt 10 items gekozen\nActor | Gebruiker/admin\nPreconditie | Moet op de website zijn\nBeschrijving | Een gebruiker moet in zijn account kunnen aanmelden\nScenario beschrijving | 1. Druk op het knopje “log in” 2. Voer je email in 3. Voer je wachtwoord in 4. Druk op “inloggen”\nPostconditie | Je bent ingelogd in je account\nActor | Gebruiker\nPreconditie | Moet op de website zijn\nBeschrijving | Een gebruiker moet een bestelling kunnen plaatsen op de website\nScenario beschrijving | 1. Je gaat naar “items” 2. Je zoekt de items uit die je wilt 3. Je drukt op “in winkelmand toevoegen” 4. Je drukt op het winkelmand icoontje 5. Je drukt op “checkout” 6. Je voert je adresinformatie in 7. Je drukt op “bestelling aanmaken”\nPostconditie | Je hebt een bestelling geplaatst\nActor | Gebruiker\nPreconditie | Je bent op de website\nBeschrijving | Een gebruiker moet een account kunnen aanmaken op de webshop\nScenario beschrijving | 1. Je drukt op “log in” 2. Je drukt op “First time here? Register” 3. Je voert je email in 4. Je voert je wachtwoord in 5. Je drukt op “register”\nPostconditie | Je bent geregistreerd op de website\nActor | Gebruiker\nPreconditie | Je bent op de website\nBeschrijving | Een gebruiker moet een item in een winkelmand kunnen toevoegen",
+      "token_estimate": 376,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 23,
+        "column_count": 2,
+        "header_row": "Actor | Gebruiker",
+        "cells": [
+          [
+            "Actor",
+            "Gebruiker"
+          ],
+          [
+            "Preconditie",
+            "Moet op de website zijn"
+          ],
+          [
+            "Beschrijving",
+            "Een gebruiker moet minimaal 10 items kunnen kiezen"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Druk op “items” in de header 2. Kies de nodige items. 3. Druk op “in winkelmand toevoegen”"
+          ],
+          [
+            "Postconditie",
+            "Je hebt 10 items gekozen"
+          ],
+          [
+            "Actor",
+            "Gebruiker/admin"
+          ],
+          [
+            "Preconditie",
+            "Moet op de website zijn"
+          ],
+          [
+            "Beschrijving",
+            "Een gebruiker moet in zijn account kunnen aanmelden"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Druk op het knopje “log in” 2. Voer je email in 3. Voer je wachtwoord in 4. Druk op “inloggen”"
+          ],
+          [
+            "Postconditie",
+            "Je bent ingelogd in je account"
+          ],
+          [
+            "Actor",
+            "Gebruiker"
+          ],
+          [
+            "Preconditie",
+            "Moet op de website zijn"
+          ],
+          [
+            "Beschrijving",
+            "Een gebruiker moet een bestelling kunnen plaatsen op de website"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Je gaat naar “items” 2. Je zoekt de items uit die je wilt 3. Je drukt op “in winkelmand toevoegen” 4. Je drukt op het winkelmand icoontje 5. Je drukt op “checkout” 6. Je voert je adresinformatie in 7. Je drukt op “bestelling aanmaken”"
+          ],
+          [
+            "Postconditie",
+            "Je hebt een bestelling geplaatst"
+          ],
+          [
+            "Actor",
+            "Gebruiker"
+          ],
+          [
+            "Preconditie",
+            "Je bent op de website"
+          ],
+          [
+            "Beschrijving",
+            "Een gebruiker moet een account kunnen aanmaken op de webshop"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Je drukt op “log in” 2. Je drukt op “First time here? Register” 3. Je voert je email in 4. Je voert je wachtwoord in 5. Je drukt op “register”"
+          ],
+          [
+            "Postconditie",
+            "Je bent geregistreerd op de website"
+          ],
+          [
+            "Actor",
+            "Gebruiker"
+          ],
+          [
+            "Preconditie",
+            "Je bent op de website"
+          ],
+          [
+            "Beschrijving",
+            "Een gebruiker moet een item in een winkelmand kunnen toevoegen"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0094",
+      "page_no": 8,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC6: Item uit winkelmand verwijderen",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0095",
+      "page_no": 8,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC7: Website met screenreader compatibel maken",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0096",
+      "page_no": 8,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC8: Bestellinggeschiedenis kunnen zien",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0097",
+      "page_no": 8,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC9: Zoekbalk gebruiken",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0098",
+      "page_no": 8,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 8",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0099",
+      "page_no": 8,
+      "block_type": "table",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Scenario beschrijving | 1. Je drukt op “items” 2. Je kiest een item die je wilt 3. Je drukt op “in winkelmand toevoegen”\nPostconditie | Je hebt een item toegevoegd in de winkelmand\nActor | Gebruiker\nPreconditie | Je bent op de website\nBeschrijving | Een gebruiker moet een item in een winkelmand kunnen verwijderen\nScenario beschrijving | 1. Je drukt op het winkelmand icoontje 2. Je kiest het item die je wilt verwijderen 3. Je drukt op “delete”\nPostconditie | Je hebt een item verwijderd uit het winkelmandje\nActor | Gebruiker\nPreconditie | Je bent op je computer ingelogd\nBeschrijving | Een gebruiker moet een screenreader kunnen gebruiken\nScenario beschrijving | 1. Je zoekt screenreader in je instellingen 2. Je doet de screenreader aan 3. Je doet je browser aan 4. Je zoekt de webshop op\nPostconditie | Je hebt voiceover op de website",
+      "token_estimate": 210,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 12,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "Scenario beschrijving",
+            "1. Je drukt op “items” 2. Je kiest een item die je wilt 3. Je drukt op “in winkelmand toevoegen”"
+          ],
+          [
+            "Postconditie",
+            "Je hebt een item toegevoegd in de winkelmand"
+          ],
+          [
+            "Actor",
+            "Gebruiker"
+          ],
+          [
+            "Preconditie",
+            "Je bent op de website"
+          ],
+          [
+            "Beschrijving",
+            "Een gebruiker moet een item in een winkelmand kunnen verwijderen"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Je drukt op het winkelmand icoontje 2. Je kiest het item die je wilt verwijderen 3. Je drukt op “delete”"
+          ],
+          [
+            "Postconditie",
+            "Je hebt een item verwijderd uit het winkelmandje"
+          ],
+          [
+            "Actor",
+            "Gebruiker"
+          ],
+          [
+            "Preconditie",
+            "Je bent op je computer ingelogd"
+          ],
+          [
+            "Beschrijving",
+            "Een gebruiker moet een screenreader kunnen gebruiken"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Je zoekt screenreader in je instellingen 2. Je doet de screenreader aan 3. Je doet je browser aan 4. Je zoekt de webshop op"
+          ],
+          [
+            "Postconditie",
+            "Je hebt voiceover op de website"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0100",
+      "page_no": 8,
+      "block_type": "table",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "Actor | Gebruiker\nPreconditie | Je bent op de website\nBeschrijving | Een gebruiker moet zijn bestellinggeschiedenis kunnen zien op de website\nScenario beschrijving | 1. Je drukt op het winkelmand icoontje 2. Je scrollt naar beneden naar je geschiedenis van je bestellingen 3. Je drukt op de gekozen bestelling\nPostconditie | Je hebt een bestellinggeschiedenis getoond\nActor | Gebruiker\nPreconditie | Je bent op de website\nBeschrijving | Een gebruiker moet de zoekbalk kunnen gebruiken\nScenario beschrijving | 1. Je drukt op de zoekbalk in de header 2. Je typt de zoekvraag die je nodig hebt 3. Je drukt op enter\nPostconditie | Je hebt de zoekbalk gebruikt",
+      "token_estimate": 163,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 10,
+        "column_count": 2,
+        "header_row": "Actor | Gebruiker",
+        "cells": [
+          [
+            "Actor",
+            "Gebruiker"
+          ],
+          [
+            "Preconditie",
+            "Je bent op de website"
+          ],
+          [
+            "Beschrijving",
+            "Een gebruiker moet zijn bestellinggeschiedenis kunnen zien op de website"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Je drukt op het winkelmand icoontje 2. Je scrollt naar beneden naar je geschiedenis van je bestellingen 3. Je drukt op de gekozen bestelling"
+          ],
+          [
+            "Postconditie",
+            "Je hebt een bestellinggeschiedenis getoond"
+          ],
+          [
+            "Actor",
+            "Gebruiker"
+          ],
+          [
+            "Preconditie",
+            "Je bent op de website"
+          ],
+          [
+            "Beschrijving",
+            "Een gebruiker moet de zoekbalk kunnen gebruiken"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Je drukt op de zoekbalk in de header 2. Je typt de zoekvraag die je nodig hebt 3. Je drukt op enter"
+          ],
+          [
+            "Postconditie",
+            "Je hebt de zoekbalk gebruikt"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0101",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC10: Item aanpassen",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0102",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Functionele requirements",
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC10: Beheerderaccount kunnen maken",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0103",
+      "page_no": 9,
+      "block_type": "heading",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "H5 Ethische aandachtspunten",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0104",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "In mijn onderwerp, zijn er veel onoverzichtelijke websites met onhandige UI. Om dit te",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0105",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "voorkomen, ga ik een minimalistische website maken. Dit gaat voor zo korte mogelijke",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0106",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "ladingstijden zorgen. Ook ga ik gebruik maken van zo veel mogelijk icoontjes, zodat de website",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0107",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "heel makkelijk gebruikt kan worden door een ouder, net als door een tiener. Dit keuze gaat ook",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0108",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "het nagging voorkomen, omdat het een schone website moet zijn, zonder onnodige banners die",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0109",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "een user pushen om iets op korting te kopen. Verder ga ik de gebruiker zo veel mogelijk",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0110",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "verwelkomen op mijn website, omdat dit een heel prettig gevoel achterlaat aan de gebruiker na",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0111",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "het gebruiken van de website.",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0112",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Zijn er verplichtingen voor verschillende groepen mensen?",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0113",
+      "page_no": 9,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "- Gebruiker",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0114",
+      "page_no": 9,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• Wettelijk aansprakelijkheid: Je mag data van websites niet nemen. Alleen wanneer er",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0115",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "in de gebruiksregels staat, dat het data openbaar voor iedereen is en het toegestaan",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0116",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "is om te delen/gebruiken.",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0117",
+      "page_no": 9,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 9",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0118",
+      "page_no": 9,
+      "block_type": "table",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Actor | Beheerder\nPreconditie | Je bent op de website\nBeschrijving | Een beheerder moet een item kunnen aanpassen\nScenario beschrijving | 1. Je drukt op het administratie icoontje 2. Je drukt op Items in de toolbar 3. Je kiest het nodige item 4. Je verandert het informatie van dat item 5. Je drukt op “opslaan”\nPostconditie | Je hebt een item aangepast\nActor | Beheerder\nPreconditie | Je bent op de website\nBeschrijving | Een beheerder moet een beheerderaccount kunnen maken\nScenario beschrijving | 1. Je drukt op “log in” 2. Je drukt op “First time here? Register” 3. Je voert de email in 4. Je voert de wachtwoord in 5. Je drukt op het kruisje bij “Admin?” 6. Je drukt op “register”\nPostconditie | Je hebt een beheerderaccount aangemaakt",
+      "token_estimate": 185,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 10,
+        "column_count": 2,
+        "header_row": "Actor | Beheerder",
+        "cells": [
+          [
+            "Actor",
+            "Beheerder"
+          ],
+          [
+            "Preconditie",
+            "Je bent op de website"
+          ],
+          [
+            "Beschrijving",
+            "Een beheerder moet een item kunnen aanpassen"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Je drukt op het administratie icoontje 2. Je drukt op Items in de toolbar 3. Je kiest het nodige item 4. Je verandert het informatie van dat item 5. Je drukt op “opslaan”"
+          ],
+          [
+            "Postconditie",
+            "Je hebt een item aangepast"
+          ],
+          [
+            "Actor",
+            "Beheerder"
+          ],
+          [
+            "Preconditie",
+            "Je bent op de website"
+          ],
+          [
+            "Beschrijving",
+            "Een beheerder moet een beheerderaccount kunnen maken"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Je drukt op “log in” 2. Je drukt op “First time here? Register” 3. Je voert de email in 4. Je voert de wachtwoord in 5. Je drukt op het kruisje bij “Admin?” 6. Je drukt op “register”"
+          ],
+          [
+            "Postconditie",
+            "Je hebt een beheerderaccount aangemaakt"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0119",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• Modificaties van een website d.m.v. SQL Injection of andere methodes is verboden.",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0120",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• Deugdverantwoordelijkheid: als een website bepaalde regels heeft (bijv. voor",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0121",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "reviews), dan moet je die volgen.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0122",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "- Ontwikkelaar",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0123",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• Wettelijk aansprakelijkheid: De ontwikkelaar moet een bugvrije website kunnen",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0124",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "maken om geldverlies, dataverlies etc. te voorkomen.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0125",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• Taakverantwoordelijkheid: de ontwikkelaar moet naar zijn opdrachtgever luisteren,",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0126",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "wat hij van hem en zijn werk verwacht.",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0127",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• De ontwikkelaar moet zo veel mogelijk aspecten van de website met de",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0128",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "opdrachtgever overleggen, zodat hij zeker gaat weten, wat hij moet doen.",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0129",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "- Wetgever",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0130",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• Wettelijk aansprakelijkheid: Corruptie is verboden. Dus als een website niet de AVG",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0131",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "volgt, mag die niet worden gepubliceerd.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0132",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• Je status gebruiken voor manipulatie is ook natuurlijk hartstikke verboden.",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0133",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• Taakverantwoordelijkheid: de wetten, die door de wetgever worden bedacht, moeten",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0134",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "realistisch zijn en niet tegen andere wetten ingaan.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0135",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "- Opdrachtgever",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0136",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• Wettelijke aansprakelijkheid: de website moet volledig legaal zijn (legale producten",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0137",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "verkopen in ons geval).",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0138",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• De opdrachtgever moet het contract volgen, dat wordt ondertekend met de",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0139",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "ontwikkelaar.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0140",
+      "page_no": 10,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• Deugdverantwoordelijkheid: de opdrachtgever is respectvol tegen zijn werknemers",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0141",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "en zorgt voor geen extra problemen in hun werk (niet op laatste moment extra werk",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0142",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "geven, wat onmogelijk is te maken)",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0143",
+      "page_no": 10,
+      "block_type": "heading",
+      "heading_path": [
+        "H5 Ethische aandachtspunten",
+        "5.2 Moraal correcte website"
+      ],
+      "text": "5.2 Moraal correcte website",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0144",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten",
+        "5.2 Moraal correcte website"
+      ],
+      "text": "In de bijlage bevindt zich een bijlage van een voorbeeld van een moraal correcte website.",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0145",
+      "page_no": 10,
+      "block_type": "heading",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "H6 Literatuurlijst",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0146",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "https://blog.wurkhouse.com/annoying-websites-features",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0147",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "ChatGPT",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0148",
+      "page_no": 10,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 10",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0149",
+      "page_no": 11,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 11",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0150",
+      "page_no": 12,
+      "block_type": "heading",
+      "heading_path": [
+        "Bijlage III – Moraal correcte website"
+      ],
+      "text": "Bijlage III – Moraal correcte website",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "f5c4ed59",
+      "block_id": "f5c4ed59_0151",
+      "page_no": 12,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 12",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    }
+  ]
+}

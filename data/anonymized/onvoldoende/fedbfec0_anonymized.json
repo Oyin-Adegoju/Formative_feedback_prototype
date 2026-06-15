@@ -1,0 +1,3141 @@
+{
+  "doc_id": "fedbfec0",
+  "source_path": "INFIRST_requirements/onvoldoende/FirstFullStack _student9.pdf",
+  "source_name": "FirstFullStack _student9.pdf",
+  "quality_label": "onvoldoende",
+  "block_count": 189,
+  "mapping_count": 4,
+  "mapping": {},
+  "blocks": [
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0001",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "[PERSOON_01], [STUDENTNR_01]",
+      "token_estimate": 6,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0002",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "FirstFullStack",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0003",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Datum",
+      "token_estimate": 1,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0004",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Por$olio",
+      "token_estimate": 2,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0005",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "FirstFullStack",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0006",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Inhoud",
+      "token_estimate": 1,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0007",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H1 Introduc=e .......................................................................................................................................... 2",
+      "token_estimate": 38,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0008",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H2 Stakeholder analyse ........................................................................................................................... 3",
+      "token_estimate": 37,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0009",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H3 Onderzoek naar web gebruikers. ....................................................................................................... 5",
+      "token_estimate": 34,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0010",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H4 Wensen, Eisen, prioriteiten. ............................................................................................................... 7",
+      "token_estimate": 36,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0011",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Func=oenle Requirements ................................................................................................................... 8",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0012",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Niet-Func=onele Requirements ........................................................................................................... 8",
+      "token_estimate": 34,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0013",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Usercase beschrijvingen .................................................................................................................... 10",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0014",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Usercase diagram ............................................................................................................................... 13",
+      "token_estimate": 36,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0015",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H5 Ethische aandachtspunten ............................................................................................................... 14",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0016",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H6 tekstanalyse ..................................................................................................................................... 15",
+      "token_estimate": 38,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0017",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Interviewverslag .................................................................................................................................... 16",
+      "token_estimate": 38,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0018",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H1 Introduc-e",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0019",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "Dit por(olio beschrij0 de ontwikkeling van \"FirstFullStack\", een Full Stack webapplica=e voor",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0020",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "een nagellakwebshop. Het document gee0 een gedetailleerd overzicht van het proces,",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0021",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "beginnend met een analyse van stakeholders, gevolgd door onderzoek naar de behoe0en van",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0022",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "gebruikers, vereistenanalyse, ethische overwegingen en inzichten uit interviews met",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0023",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "poten=ële klanten.",
+      "token_estimate": 4,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0024",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "Het biedt een diepgaand inzicht in het ontwerp en de ontwikkeling van een",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0025",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "gebruikersgerichte webapplica=e, met specifieke aandacht voor de ervaring van",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0026",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "nagellaklieEebbers. Door de verschillende aspecten van het project te verkennen, wordt de",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0027",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "lezer meegenomen door de belangrijkste stappen en beslissingen die zijn genomen om een",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0028",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "hoogwaardige webervaring te creëren die voldoet aan de behoe0en en verwach=ngen van",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0029",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "de doelgroep. Dit por(olio dient als een waardevol document dat het proces en de resultaten",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0030",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "van het project documenteert, en kan worden gebruikt als referen=e voor toekoms=ge",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0031",
+      "page_no": 2,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "ontwikkelingsprojecten binnen vergelijkbare contexten.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0032",
+      "page_no": 3,
+      "block_type": "heading",
+      "heading_path": [
+        "H2 Stakeholder analyse"
+      ],
+      "text": "H2 Stakeholder analyse",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0033",
+      "page_no": 3,
+      "block_type": "table",
+      "heading_path": [
+        "H2 Stakeholder analyse"
+      ],
+      "text": "Naam | Func)e: | Rol | impact | invloed\n[PERSOON_02] | Vertegenwoordiger van Plenty Investeringen | Opdrachtgever | Hoog, als ini=ator en financier van het project. | Hoog, als beslisser en beïnvloeder van de projectrich=ng.\nIndividuele Websiteontwikkelaars | Website ontwikkelaars | Uitvoerders van de website ontwikkelingstaak | Gemiddeld, aZankelijk van hun exper=se en bijdrage. | Gemiddeld, via feedback en gebruikersgedrag\nKlanten van de webshop | Eindgebruikers | Gebruikers van de ontwikkelde app | Hoog, omdat hun tevredenheid het succes van de webshop bepaalt. | Gemiddeld, via feedback en gebruikersgedrag\nOverheid | Regelgevende instan=e | Zorgt voor we_elijke naleving en regelgeving | Hoog, met poten=ële juridische gevolgen | Hoog, vooral in termen van naleving\nLeveranciers | Leveranciers van producten | Belangerijk voor de product aanbod in de webshop | Gemiddeld, aZankelijk van de rela=e met de webshop | Gemiddeld, vooral op logis=ek en voorraad.\nMichel | Beheerder | Opdracht gever docenten | Hoog\nbeheerder | Beheerder website | Beheerder van website | Hoog voor dagelijks beheer | Hoog voor opera=onele efficiën=e",
+      "token_estimate": 284,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 8,
+        "column_count": 10,
+        "header_row": null,
+        "cells": [
+          [
+            "Naam",
+            "Func)e:",
+            "Rol",
+            "impact",
+            "invloed"
+          ],
+          [
+            "[PERSOON_02]",
+            "Vertegenwoordiger van Plenty Investeringen",
+            "Opdrachtgever",
+            "Hoog, als ini=ator en financier van het project.",
+            "Hoog, als beslisser en beïnvloeder van de projectrich=ng."
+          ],
+          [
+            "Individuele Websiteontwikkelaars",
+            "Website ontwikkelaars",
+            "Uitvoerders van de website ontwikkelingstaak",
+            "Gemiddeld, aZankelijk van hun exper=se en bijdrage.",
+            "Gemiddeld, via feedback en gebruikersgedrag"
+          ],
+          [
+            "Klanten van de webshop",
+            "Eindgebruikers",
+            "Gebruikers van de ontwikkelde app",
+            "Hoog, omdat hun tevredenheid het succes van de webshop bepaalt.",
+            "Gemiddeld, via feedback en gebruikersgedrag"
+          ],
+          [
+            "Overheid",
+            "Regelgevende instan=e",
+            "Zorgt voor we_elijke naleving en regelgeving",
+            "Hoog, met poten=ële juridische gevolgen",
+            "Hoog, vooral in termen van naleving"
+          ],
+          [
+            "Leveranciers",
+            "Leveranciers van producten",
+            "Belangerijk voor de product aanbod in de webshop",
+            "Gemiddeld, aZankelijk van de rela=e met de webshop",
+            "Gemiddeld, vooral op logis=ek en voorraad."
+          ],
+          [
+            "Michel",
+            "Beheerder",
+            "Opdracht gever docenten",
+            "Hoog"
+          ],
+          [
+            "beheerder",
+            "Beheerder website",
+            "Beheerder van website",
+            "Hoog voor dagelijks beheer",
+            "Hoog voor opera=onele efficiën=e"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0034",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "[PERSOON_02]",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0035",
+      "page_no": 4,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "• Belang: Succesvolle ontwikkeling en oplevering van de website binnen het gestelde budget en =jd.",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0036",
+      "page_no": 4,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "• Zorg: Vertragingen in de ontwikkeling, overschrijding van het budget, ontevredenheid bij de",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0037",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "opdrachtgever.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0038",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "Eindgebruikers",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0039",
+      "page_no": 4,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "• Belang: Gebruiksvriendelijke interface, soepele winkelervaring voor klanten, aantrekkelijk",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0040",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "ontwerp.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0041",
+      "page_no": 4,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "• Zorg: Klachten over moeilijke naviga=e, verminderde klan_evredenheid, daling van het",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0042",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "aantal gebruikers.",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0043",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "Websiteontwikkelaars",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0044",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "Belang: Succesvolle oplevering van het project, posi=eve beoordeling door opdrachtgever.",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0045",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "Zorg: Onvoldoende specifica=es, gebrek aan regelma=ge feedback, technische uitdagingen",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0046",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "zonder adequate ondersteuning.",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0047",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "Klanten van de webshop",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0048",
+      "page_no": 4,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "• Belang: Het vinden en aanschaffen van gewenste producten met gemak en",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0049",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "betrouwbaarheid, gepersonaliseerde winkelervaring, veiligheid van persoonlijke gegevens.",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0050",
+      "page_no": 4,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "• Zorg: Onbevredigende gebruikerservaring, technische problemen =jdens het winkelen,",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0051",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "bezorgingsproblemen, zorgen over privacy en gegevensbescherming.",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0052",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "Overheid",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0053",
+      "page_no": 4,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "• Belang: Naleving van we_elijke voorschrifen, met name met betrekking tot",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0054",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "gegevensbescherming en consumentenbescherming.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0055",
+      "page_no": 4,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "• Zorg: Niet-naleving van regelgeving kan leiden tot juridische consequen=es, schending van",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0056",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "privacywe_en, reputa=eschade voor het bedrijf.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0057",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "Leveranciers",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0058",
+      "page_no": 4,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "• Belang: Succesvolle verkoop van producten via het plagorm, =jdige betalingen, goede",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0059",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "rela=e met het bedrijf.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0060",
+      "page_no": 4,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "• Zorg: Problemen met bestellingen en betalingen, vertragingen in leveringen,",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0061",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "ontevredenheid over samenwerking.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0062",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "Michel",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0063",
+      "page_no": 4,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "• Belang: Efficiënt beheer van de website, effec=eve communica=e met stakeholders,",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0064",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "naleving van veiligheids- en privacy voorschrifen.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0065",
+      "page_no": 4,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "• Zorg: Technische problemen met de website, gebrek aan middelen voor effec=ef beheer,",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0066",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]"
+      ],
+      "text": "nalevingskwes=es, klachten van gebruikers.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0067",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "H3 Onderzoek naar web gebruikers.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0068",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "Missie van de Website:",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0069",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "De missie van de website is om een inclusieve en gebruiksvriendelijke ervaring te bieden voor",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0070",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "lieZebbers van nagellak, met specifieke aandacht voor de doelgroep die kleurenblindheid ervaart.",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0071",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "Door dit te doen, streven we naar een omgeving waarin elke gebruiker moeiteloos kan genieten van",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0072",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "nagelverzorging en het verkennen van diverse nagellakproducten.",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0073",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "Doelgroep focus:",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0074",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "Deze website richt zich voornamelijk op mensen van alle leefijden en geslachten die geïnteresseerd",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0075",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "zijn in nagelverzorging en nagellak. Specifieke aandacht gaat uit naar diegenen die kleurenblindheid",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0076",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "ervaren. Dit omvat zowel mannen als vrouwen, waardoor we een inclusieve ruimte creëren voor alle",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0077",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "nagellaklieZebbers.",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0078",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "Gebruikersvoorkeuren:",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0079",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "Onze doelgroep gebruikt dergelijke websites voor het ontdekken van nieuwe nagellakproducten, het",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0080",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "vinden van inspira=e voor nagelontwerpen en het delen van ervaringen met medelieZebbers. Ze",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0081",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "geven er de voorkeur aan als de website:",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0082",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Duidelijke productbeschrijvingen en informa=e biedt.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0083",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Kleurcontrasten in het ontwerp gebruikt voor een betere leesbaarheid.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0084",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Alterna=eve manieren biedt om kleurinforma=e te begrijpen.",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0085",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Een inclusieve benadering heef in termen van gender en visuele capaciteiten. Rekening",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0086",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "houden met Voorkeuren:",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0087",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "Om aan de voorkeuren van de doelgroep te voldoen, houden we extra rekening met:",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0088",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Het op=maliseren van kleurcontrasten en duidelijke Visuals op de website.",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0089",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Het verstrekken van gedetailleerde produc=nforma=e en gebruik van alterna=eve tekst.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0090",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Inclusieve marke=ngprak=jken, zoals het opnemen van diverse modellen in adverten=es.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0091",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Het mogelijk maken van een soepele online winkelervaring, rekening houdend met",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0092",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "kleurenblinden.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0093",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "Door ons op deze manier te richten op de doelgroep en rekening te houden met hun specifieke",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0094",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "voorkeuren, streven we ernaar een posi=eve en toegankelijke online ruimte te creëren voor alle",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0095",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "nagellaklieZebbers, ongeacht hun visuele capaciteiten en genders.",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0096",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "SamenvaFng interviews:",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0097",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Kleuren en Assor)ment: De voorkeur gaat uit naar een breed kleurenpalet dat gekoppeld is",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0098",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "aan nagellak, waarbij diversiteit en aantrekkelijkheid centraal staan.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0099",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Prijs/Kwaliteit Verhouding: Hoogwaardige producten tegen betaalbare prijzen hebben de",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0100",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "voorkeur, met een sterke nadruk op waar voor je geld.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0101",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Informa)e op de Website: Belangrijke informa=e omvat gezondheidsaspecten,",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0102",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "duurzaamheid, verwijderingsmethoden en productbeschrijvingen.",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0103",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Assor)ment en Exclusiviteit: De voorkeur gaat uit naar een ruim assor=ment met exclusieve",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0104",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "collec=es en limited edi=ons om unieke keuzes te bieden.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0105",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Aanbiedingen en Kor)ngen: Interesse in abonnementen met kor=ng voor frequente",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0106",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "aankopen, benadrukkend dat aantrekkelijke aanbiedingen gewaardeerd worden.",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0107",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Community Betrokkenheid: Een ac=eve online community waar ervaringen gedeeld worden,",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0108",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "is van groot belang.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0109",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Bronnen voor Nagellak Ontdekken: Ontdekken van nieuwe nagellak gebeurt via influencers",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0110",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "en vrienden, waarmee de waarde van betrokkenheid bij influencers wordt benadrukt.",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0111",
+      "page_no": 6,
+      "block_type": "bullet",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "• Milieubewuste Benadering: De voorkeur gaat uit naar een milieubewust merk, met aandacht",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0112",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "voor duurzame verpakkingen en het vermijden van schadelijke chemicaliën. Bronnen Thijs de",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0113",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers."
+      ],
+      "text": "Rooij, [PERSOON_03], Sem Treur.",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0114",
+      "page_no": 7,
+      "block_type": "heading",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "H4 Wensen, Eisen, prioriteiten."
+      ],
+      "text": "H4 Wensen, Eisen, prioriteiten.",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0115",
+      "page_no": 8,
+      "block_type": "heading",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Func&oenle Requirements"
+      ],
+      "text": "Func&oenle Requirements",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0116",
+      "page_no": 8,
+      "block_type": "heading",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Niet-Func&onele Requirements"
+      ],
+      "text": "Niet-Func&onele Requirements",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0117",
+      "page_no": 8,
+      "block_type": "table",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Niet-Func&onele Requirements"
+      ],
+      "text": "Func)onele requirements | Beschrijving | Moscow\nGebruikers registra=e en inloggen UCO1 | Klanten moeten in staat zijn om een profiel aan te maken en in te loggen op de website. | Must have\nProduct catalogus UCO2 | Een overzichtelijke en goed georganiseerde productcatalogus met de genoemde categorieën. Klanten moeten producten eenvoudig kunnen vinden en bekijken. | Must have\nWinkelmandfunc=onaliteit UCO3c | Klanten moeten producten kunnen toevoegen, bekijken en verwijderen uit hun winkelmand. Een goed ontworpen winkelmandfunc=onaliteit voor een soepele aZandeling van bestellingen. | Must have\nBeheerinterface UCO4 | Een intuï=eve beheerinterface voor efficiënt beheer van producten, klanten en bestellingen. | Should have\nBestelling plaatsen UC05 | Klanten moeten eenvoudig bestellingen kunnen plaatsen met een duidelijk afrekenproces. | Must have\nProfiel aanmaken UC06 | Klanten moeten een profiel aan kunnen maken, waarbij er gegevens worden opgeslagen. | Must have\nNon func)onele requirements | Beschrijving | Moscow\nGebruiksvriendelijkheid | De website moet gebruiksvriendelijk zijn, met een aantrekkelijke en intuï=eve gebruikersinterface. Klanten moeten een gepersonaliseerde winkelervaring hebben. | Must have\nBetrouwbaarheid: | De website moet al=jd bereikbaar zijn voor klanten. Bestellingen moeten betrouwbaar worden afgehandeld, en klanten moeten ontvangen wat ze bestellen. | Must have",
+      "token_estimate": 350,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 10,
+        "column_count": 6,
+        "header_row": "Func)onele requirements | Beschrijving | Moscow",
+        "cells": [
+          [
+            "Func)onele requirements",
+            "Beschrijving",
+            "Moscow"
+          ],
+          [
+            "Gebruikers registra=e en inloggen UCO1",
+            "Klanten moeten in staat zijn om een profiel aan te maken en in te loggen op de website.",
+            "Must have"
+          ],
+          [
+            "Product catalogus UCO2",
+            "Een overzichtelijke en goed georganiseerde productcatalogus met de genoemde categorieën. Klanten moeten producten eenvoudig kunnen vinden en bekijken.",
+            "Must have"
+          ],
+          [
+            "Winkelmandfunc=onaliteit UCO3c",
+            "Klanten moeten producten kunnen toevoegen, bekijken en verwijderen uit hun winkelmand. Een goed ontworpen winkelmandfunc=onaliteit voor een soepele aZandeling van bestellingen.",
+            "Must have"
+          ],
+          [
+            "Beheerinterface UCO4",
+            "Een intuï=eve beheerinterface voor efficiënt beheer van producten, klanten en bestellingen.",
+            "Should have"
+          ],
+          [
+            "Bestelling plaatsen UC05",
+            "Klanten moeten eenvoudig bestellingen kunnen plaatsen met een duidelijk afrekenproces.",
+            "Must have"
+          ],
+          [
+            "Profiel aanmaken UC06",
+            "Klanten moeten een profiel aan kunnen maken, waarbij er gegevens worden opgeslagen.",
+            "Must have"
+          ],
+          [
+            "Non func)onele requirements",
+            "Beschrijving",
+            "Moscow"
+          ],
+          [
+            "Gebruiksvriendelijkheid",
+            "De website moet gebruiksvriendelijk zijn, met een aantrekkelijke en intuï=eve gebruikersinterface. Klanten moeten een gepersonaliseerde winkelervaring hebben.",
+            "Must have"
+          ],
+          [
+            "Betrouwbaarheid:",
+            "De website moet al=jd bereikbaar zijn voor klanten. Bestellingen moeten betrouwbaar worden afgehandeld, en klanten moeten ontvangen wat ze bestellen.",
+            "Must have"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0118",
+      "page_no": 9,
+      "block_type": "table",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Niet-Func&onele Requirements"
+      ],
+      "text": "Veiligheid en GDPRnaleving: | Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essen=eel. Er moet een grondige beveiligings en risicoanalyse worden uitgevoerd om de gegevens van klanten te | Must have\nbeschermen, ondanks het ontbreken van daadwerkelijke financiële transac=es.\nAantrekkelijkheid: | De uitstraling en opmaak van de website moeten passen bij de beoogde klanten van het soort product. De website moet verkennend zijn, ongeacht het apparaat waarop deze wordt bekeken. | Should have\nToegankelijkheid voor diverse groepen klanten: | De website moet toegankelijk zijn voor een breed scala aan klanten, waaronder laaggele_erde mensen, meertalige mensen, slechtziende mensen, mensen die kleurenblind zijn, ouderen, en mensen met beperkte financiële middelen. | Should have\nVormgeving bol.com",
+      "token_estimate": 205,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 5,
+        "column_count": 3,
+        "header_row": null,
+        "cells": [
+          [
+            "Veiligheid en GDPRnaleving:",
+            "Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essen=eel. Er moet een grondige beveiligings en risicoanalyse worden uitgevoerd om de gegevens van klanten te",
+            "Must have"
+          ],
+          [
+            "beschermen, ondanks het ontbreken van daadwerkelijke financiële transac=es."
+          ],
+          [
+            "Aantrekkelijkheid:",
+            "De uitstraling en opmaak van de website moeten passen bij de beoogde klanten van het soort product. De website moet verkennend zijn, ongeacht het apparaat waarop deze wordt bekeken.",
+            "Should have"
+          ],
+          [
+            "Toegankelijkheid voor diverse groepen klanten:",
+            "De website moet toegankelijk zijn voor een breed scala aan klanten, waaronder laaggele_erde mensen, meertalige mensen, slechtziende mensen, mensen die kleurenblind zijn, ouderen, en mensen met beperkte financiële middelen.",
+            "Should have"
+          ],
+          [
+            "Vormgeving bol.com"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0119",
+      "page_no": 9,
+      "block_type": "table",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Niet-Func&onele Requirements"
+      ],
+      "text": "constraints | beschrijving\nBetaling en promo=es: | Klanten mogen producten niet betalen met gifcards. Het gebruik van promocodes in de webshop is niet toegestaan.\nBudget en Tijdslijn: | De ontwikkeling van de website moet binnen een budget van 10.000 euro worden voltooid binnen een redelijke termijn van zes weken. Op relevante momenten moet de opdrachtgever op de hoogte worden gebracht van de voortgang, en aan het einde van de zes weken moet er een werkende webshop kunnen worden getoond in een adviespresenta=e.\nThema | De website moet een thema hebben.",
+      "token_estimate": 139,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 4,
+        "column_count": 4,
+        "header_row": null,
+        "cells": [
+          [
+            "constraints",
+            "beschrijving"
+          ],
+          [
+            "Betaling en promo=es:",
+            "Klanten mogen producten niet betalen met gifcards. Het gebruik van promocodes in de webshop is niet toegestaan."
+          ],
+          [
+            "Budget en Tijdslijn:",
+            "De ontwikkeling van de website moet binnen een budget van 10.000 euro worden voltooid binnen een redelijke termijn van zes weken. Op relevante momenten moet de opdrachtgever op de hoogte worden gebracht van de voortgang, en aan het einde van de zes weken moet er een werkende webshop kunnen worden getoond in een adviespresenta=e."
+          ],
+          [
+            "Thema",
+            "De website moet een thema hebben."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0120",
+      "page_no": 10,
+      "block_type": "heading",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "Usercase beschrijvingen",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0121",
+      "page_no": 10,
+      "block_type": "table",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "Naam | UC01 Gebruikers registratie en inloggen\nActor | Klant\nPreconditie | De gebruiker heeft geen geregistreerd account op de website.\nBeschrijving | Deze user case beschrijft het proces waarin een nieuwe klant zich registreert op de website en vervolgens inlogt op zijn of haar account.\nScenario beschrijving | 1. de klant opent de website en klikt op de knop 'Registreren'. 2. Het systeem toont het registratieformulier waar de klant gevraagd wordt om persoonlijke gegevens in te vullen, zoals naam, emailadres en wachtwoord. 3. De klant vult de vereiste gegevens in en klikt op 'Registreren'. 4. Het systeem controleert of de ingevoerde gegevens geldig zijn en uniek zijn voor elke gebruiker. 5. Als de gegevens geldig zijn, wordt het account van de klant aangemaakt, en ontvangt de klant een bevestigingsmail. 6. De klant opent de bevestigingsmail en klikt op de verificatielink om het account te activeren. Na verificatie kan de klant inloggen op de website.\nPostconditie | De klant heeft succesvol een account geregistreerd, geactiveerd en is ingelogd op de website. Het systeem heeft nu toegang tot de persoonlijke gegevens van de klant.\nNaam | UC02 Product catalogus\nActor | Klant\nPreconditie | De klant is op de wesbite\nBeschrijving | Deze user case beschrijft hoe de klant door de productcatalogus kan bladeren, producten kan bekijken en informatie kan vinden.",
+      "token_estimate": 342,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 10,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "Naam",
+            "UC01 Gebruikers registratie en inloggen"
+          ],
+          [
+            "Actor",
+            "Klant"
+          ],
+          [
+            "Preconditie",
+            "De gebruiker heeft geen geregistreerd account op de website."
+          ],
+          [
+            "Beschrijving",
+            "Deze user case beschrijft het proces waarin een nieuwe klant zich registreert op de website en vervolgens inlogt op zijn of haar account."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. de klant opent de website en klikt op de knop 'Registreren'. 2. Het systeem toont het registratieformulier waar de klant gevraagd wordt om persoonlijke gegevens in te vullen, zoals naam, emailadres en wachtwoord. 3. De klant vult de vereiste gegevens in en klikt op 'Registreren'. 4. Het systeem controleert of de ingevoerde gegevens geldig zijn en uniek zijn voor elke gebruiker. 5. Als de gegevens geldig zijn, wordt het account van de klant aangemaakt, en ontvangt de klant een bevestigingsmail. 6. De klant opent de bevestigingsmail en klikt op de verificatielink om het account te activeren. Na verificatie kan de klant inloggen op de website."
+          ],
+          [
+            "Postconditie",
+            "De klant heeft succesvol een account geregistreerd, geactiveerd en is ingelogd op de website. Het systeem heeft nu toegang tot de persoonlijke gegevens van de klant."
+          ],
+          [
+            "Naam",
+            "UC02 Product catalogus"
+          ],
+          [
+            "Actor",
+            "Klant"
+          ],
+          [
+            "Preconditie",
+            "De klant is op de wesbite"
+          ],
+          [
+            "Beschrijving",
+            "Deze user case beschrijft hoe de klant door de productcatalogus kan bladeren, producten kan bekijken en informatie kan vinden."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0122",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "Scenario 1. De klant bevindt zich op de hoofdpagina van de website.",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0123",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "beschrijving 2. De klant navigeert naar de sectie \"Producten\" of kiest een",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0124",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "specifieke categorie uit de catalogus.",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0125",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "3. Het systeem toont een overzicht van producten in de gekozen",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0126",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "categorie, met relevante informatie zoals naam, prijs en afbeelding.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0127",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "4. De klant kan doorklikken naar individuele productpagina's voor",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0128",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "meer details.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0129",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "5. Op de productpagina kan de klant gedetailleerde informatie over",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0130",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "het product lezen en eventueel specificaties, recensies of",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0131",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "gerelateerde producten bekijken.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0132",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "6. De klant heeft de mogelijkheid om het product aan de winkelmand",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0133",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "toe te voegen als het aan de verwachtingen voldoet.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0134",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "Postconditie De klant heeft door de productcatalogus gebladerd, producten bekeken en",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0135",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "heeft mogelijk producten aan de winkelmand toegevoegd.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0136",
+      "page_no": 11,
+      "block_type": "table",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "Naam | UC03 Winkelmandfunctionaliteit\nActor | Klant\nPreconditie | De klant heeft producten aan de winkelmand toegevoegd.\nBeschrijving | Deze user case beschrijft hoe de klant zijn of haar winkelmand beheert en bestellingen voorbereidt.\nScenario beschrijving | 1. De klant klikt op de winkelmandknop om de inhoud van de winkelmand te bekijken. 2. Het systeem toont een overzicht van de producten in de winkelmand, inclusief aantallen en totale kosten. 3. De klant heeft de mogelijkheid om producten te verwijderen, de hoeveelheid aan te passen of verder te winkelen. 4. Na het controleren van de winkelmand klikt de klant op de knop 'Afrekenen'. 5. Het systeem leidt de klant naar het afrekenproces waar verzend en factuurgegevens worden ingevoerd. 6. De klant voltooit het afrekenproces door de bestelling te bevestigen.\nPostconditie | De klant heeft de winkelmand beheerd en een bestelling geplaatst.\nNaam | UC04 Beheerinterface\nActor | Beheerder\nPreconditie | De beheerder is ingelogd op het beheerdersaccount.\nBeschrijving | Deze usercase beschrijft hoe de beheerder de interface gebruikt om producten, klanten en bestellingen te beheren.",
+      "token_estimate": 285,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 10,
+        "column_count": 2,
+        "header_row": "Naam | UC03 Winkelmandfunctionaliteit",
+        "cells": [
+          [
+            "Naam",
+            "UC03 Winkelmandfunctionaliteit"
+          ],
+          [
+            "Actor",
+            "Klant"
+          ],
+          [
+            "Preconditie",
+            "De klant heeft producten aan de winkelmand toegevoegd."
+          ],
+          [
+            "Beschrijving",
+            "Deze user case beschrijft hoe de klant zijn of haar winkelmand beheert en bestellingen voorbereidt."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De klant klikt op de winkelmandknop om de inhoud van de winkelmand te bekijken. 2. Het systeem toont een overzicht van de producten in de winkelmand, inclusief aantallen en totale kosten. 3. De klant heeft de mogelijkheid om producten te verwijderen, de hoeveelheid aan te passen of verder te winkelen. 4. Na het controleren van de winkelmand klikt de klant op de knop 'Afrekenen'. 5. Het systeem leidt de klant naar het afrekenproces waar verzend en factuurgegevens worden ingevoerd. 6. De klant voltooit het afrekenproces door de bestelling te bevestigen."
+          ],
+          [
+            "Postconditie",
+            "De klant heeft de winkelmand beheerd en een bestelling geplaatst."
+          ],
+          [
+            "Naam",
+            "UC04 Beheerinterface"
+          ],
+          [
+            "Actor",
+            "Beheerder"
+          ],
+          [
+            "Preconditie",
+            "De beheerder is ingelogd op het beheerdersaccount."
+          ],
+          [
+            "Beschrijving",
+            "Deze usercase beschrijft hoe de beheerder de interface gebruikt om producten, klanten en bestellingen te beheren."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0137",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "Scenario 1. 1. De beheerder navigeert naar de beheerinterface na het",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0138",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "beschrijving",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0139",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "inloggen.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0140",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "2. Het systeem toont verschillende beheermogelijkheden, zoals",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0141",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "productbeheer, klantbeheer en bestellingbeheer.",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0142",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "3. De beheerder selecteert bijvoorbeeld \"Productbeheer\" en voert",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0143",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "wijzigingen door, zoals prijsaanpassingen of productinformatie",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0144",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "bijwerken.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0145",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "4. De beheerder kan nieuwe producten toevoegen of oude",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0146",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "producten verwijderen.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0147",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "5. De beheerder heeft toegang tot klantinformatie, kan",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0148",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "klantaccounts beheren en eventuele klantproblemen oplossen.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0149",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "6. In het bestellingbeheer kan de beheerder bestellingen",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0150",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "controleren, statussen bijwerken en orderdetails bekijken.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0151",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "Postconditie",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0152",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "Naam UC06 profiel aanmaken",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0153",
+      "page_no": 12,
+      "block_type": "table",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase beschrijvingen"
+      ],
+      "text": "Naam | UC05 Bestellingen plaatsen\nActor | Klant\nPreconditie | De klant heeft producten aan de winkelmand toegevoegd.\nBeschrijving | Deze usercase beschrijft het proces waarin de klant een bestelling plaatst.\nScenario beschrijving | 1. De klant bevindt zich op de afrekenpagina nadat producten aan de winkelmand zijn toegevoegd. 2. De klant vult de vereiste verzend en factuurgegevens in. 3. De klant kiest een betaalmethode en voert de benodigde informatie in. 4. Na het controleren van alle gegevens klikt de klant op de knop 'Plaats bestelling'. 5. Het systeem verwerkt de bestelling, trekt de kosten af van het account van de klant en genereert een orderbevestiging. De klant ontvangt een bevestigingsmail met details over de bestelling en kan de status van de bestelling volgen via het profiel.\nPostconditie | De klant heeft succesvol een bestelling geplaatst, het systeem heeft de bestelling verwerkt en bevestigd, en de klant heeft een bevestigingsmail ontvangen. De bestelling is bijgewerkt in het besteloverzicht op de profielpagina van de klant, en de factuur is beschikbaar.",
+      "token_estimate": 271,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 6,
+        "column_count": 2,
+        "header_row": "Naam | UC05 Bestellingen plaatsen",
+        "cells": [
+          [
+            "Naam",
+            "UC05 Bestellingen plaatsen"
+          ],
+          [
+            "Actor",
+            "Klant"
+          ],
+          [
+            "Preconditie",
+            "De klant heeft producten aan de winkelmand toegevoegd."
+          ],
+          [
+            "Beschrijving",
+            "Deze usercase beschrijft het proces waarin de klant een bestelling plaatst."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De klant bevindt zich op de afrekenpagina nadat producten aan de winkelmand zijn toegevoegd. 2. De klant vult de vereiste verzend en factuurgegevens in. 3. De klant kiest een betaalmethode en voert de benodigde informatie in. 4. Na het controleren van alle gegevens klikt de klant op de knop 'Plaats bestelling'. 5. Het systeem verwerkt de bestelling, trekt de kosten af van het account van de klant en genereert een orderbevestiging. De klant ontvangt een bevestigingsmail met details over de bestelling en kan de status van de bestelling volgen via het profiel."
+          ],
+          [
+            "Postconditie",
+            "De klant heeft succesvol een bestelling geplaatst, het systeem heeft de bestelling verwerkt en bevestigd, en de klant heeft een bevestigingsmail ontvangen. De bestelling is bijgewerkt in het besteloverzicht op de profielpagina van de klant, en de factuur is beschikbaar."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0154",
+      "page_no": 13,
+      "block_type": "heading",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase diagram"
+      ],
+      "text": "Usercase diagram",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0155",
+      "page_no": 13,
+      "block_type": "table",
+      "heading_path": [
+        "[PERSOON_02]",
+        "H3 Onderzoek naar web gebruikers.",
+        "Usercase diagram"
+      ],
+      "text": "Actor | Klant\nPreconditie | De klant heeft nog geen profiel op de website.\nBeschrijving | Deze usercase beschrijft het proces waarin een klant een nieuw profiel aanmaakt op de website.\nScenario beschrijving | 1. De klant opent de website. 2. De klant klikt op de knop 'Profiel aanmaken'. 3. Het systeem toont het registratieformulier waar de klant persoonlijke gegevens moet invullen, zoals naam, emailadres en wachtwoord. 4. De klant vult de vereiste gegevens in en klikt op 'Profiel aanmaken'. 5. Het systeem controleert of de ingevoerde gegevens geldig zijn en uniek zijn voor elke gebruiker. 6. Als de gegevens geldig zijn, wordt het profiel van de klant aangemaakt en wordt de klant doorgestuurd naar de profielpagina.\nPostconditie | De klant heeft succesvol een profiel aangemaakt en kan nu inloggen met de geregistreerde gegevens.",
+      "token_estimate": 209,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 5,
+        "column_count": 2,
+        "header_row": "Actor | Klant",
+        "cells": [
+          [
+            "Actor",
+            "Klant"
+          ],
+          [
+            "Preconditie",
+            "De klant heeft nog geen profiel op de website."
+          ],
+          [
+            "Beschrijving",
+            "Deze usercase beschrijft het proces waarin een klant een nieuw profiel aanmaakt op de website."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De klant opent de website. 2. De klant klikt op de knop 'Profiel aanmaken'. 3. Het systeem toont het registratieformulier waar de klant persoonlijke gegevens moet invullen, zoals naam, emailadres en wachtwoord. 4. De klant vult de vereiste gegevens in en klikt op 'Profiel aanmaken'. 5. Het systeem controleert of de ingevoerde gegevens geldig zijn en uniek zijn voor elke gebruiker. 6. Als de gegevens geldig zijn, wordt het profiel van de klant aangemaakt en wordt de klant doorgestuurd naar de profielpagina."
+          ],
+          [
+            "Postconditie",
+            "De klant heeft succesvol een profiel aangemaakt en kan nu inloggen met de geregistreerde gegevens."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0156",
+      "page_no": 14,
+      "block_type": "heading",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "H5 Ethische aandachtspunten",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0157",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "1. Bescherming van privacy : Dit betekent dat het belangrijk is om ervoor te zorgen dat de",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0158",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "persoonlijke gegevens die mensen aan de website toevertrouwen, zoals hun naam, adres en",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0159",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "betalingsinforma=e, veilig worden bewaard en niet worden gedeeld zonder hun",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0160",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "toestemming. Het gaat erom dat mensen zich veilig voelen om hun gegevens te delen en",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0161",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "erop kunnen vertrouwen dat deze niet misbruikt worden.",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0162",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "2. Toegankelijkheid voor iedereen : Dit houdt in dat de website voor iedereen gemakkelijk te",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0163",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "gebruiken moet zijn, ongeacht hun mogelijkheden. Dit betekent dat de website ontworpen",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0164",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "moet zijn met het oog op mensen met verschillende behoefen, zoals mensen met een",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0165",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "handicap, oudere mensen of mensen die niet zo bekend zijn met technologie. Het gaat erom",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0166",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "dat iedereen gelijke toegang heef tot de informa=e en diensten die de website biedt.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0167",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "3. Eerlijke behandeling : Dit betekent dat alle klanten gelijk behandeld moeten worden, zonder",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0168",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "enige vorm van discrimina=e. Het is belangrijk dat de website geen onderscheid maakt op",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0169",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "basis van factoren zoals geslacht, ras, religie of seksuele geaardheid. Iedereen moet dezelfde",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0170",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "kansen krijgen om producten te kopen en te profiteren van de diensten die de website biedt.",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0171",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "4. Duidelijk en eerlijk zijn : Het is belangrijk om open en transparant te zijn over hoe de website",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0172",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "werkt en wat mensen kunnen verwachten als ze ervan gebruik maken. Dit betekent dat de",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0173",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "prijzen duidelijk moeten worden vermeld, samen met eventuele kosten voor verzending of",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0174",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "andere extra's. Het is ook belangrijk om eerlijk te zijn over de voorwaarden en beperkingen",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0175",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "die van toepassing zijn op het gebruik van de website, zodat mensen weten waar ze aan toe",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0176",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "zijn.",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0177",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "5. Verantwoordelijkheid nemen : Dit houdt in dat het bedrijf verantwoordelijkheid moet nemen",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0178",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "voor de impact van zijn ac=viteiten op alle betrokkenen, inclusief klanten, werknemers,",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0179",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "leveranciers en de samenleving als geheel. Dit betekent dat het bedrijf ervoor moet zorgen",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0180",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "dat zijn ac=viteiten geen schade toebrengen aan mensen of aan het milieu, en dat het zich",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0181",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "houdt aan alle relevante we_en en voorschrifen. Het gaat erom dat het bedrijf een posi=eve",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0182",
+      "page_no": 15,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "bijdrage levert aan de wereld om ons heen, in plaats van alleen maar winst te maken.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0183",
+      "page_no": 15,
+      "block_type": "heading",
+      "heading_path": [
+        "H6 tekstanalyse"
+      ],
+      "text": "H6 tekstanalyse",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0184",
+      "page_no": 15,
+      "block_type": "table",
+      "heading_path": [
+        "H6 tekstanalyse"
+      ],
+      "text": "Usercase | Citaten/beschrijvingen in tekst\nGebruikers registra=e en inloggen UCO1 | \"Daarom moeten zij een profiel aan kunnen maken en in kunnen loggen.\"\nProduct catalogus UCO2 | \"De categorieën waaruit gekozen kan worden zijn: schoenen, pennen, games, sportar=kelen, computers, computeraccessoires, eten, drinken, muziek, films, crypto, kleding en een categorie ‘overig in overleg’.\"\nWinkelmandfunc=onaliteit UCO3 | \"Een goed ontworpen winkelmandfunc=onaliteit is essen=eel voor soepele aZandeling van bestellingen.\" \"Klanten moeten de producten in hun winkelmand kunnen bekijken en verwijderen indien nodig.\"\nBeheerinterface UCO4 | \"Het systeem moet een intuï=eve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd.\"\nBestelling plaatsen UC05 | \"Ook moet de website betrouwbaar zijn.\" \"En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen.\" \"Hierbinnen is de webshop ontworpen, ontwikkeld en getest.\"\nProfiel aanmaken UC06 | \"Daarom moeten zij een profiel aan kunnen maken en in kunnen loggen.\"",
+      "token_estimate": 263,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 7,
+        "column_count": 4,
+        "header_row": "Usercase | Citaten/beschrijvingen in tekst",
+        "cells": [
+          [
+            "Usercase",
+            "Citaten/beschrijvingen in tekst"
+          ],
+          [
+            "Gebruikers registra=e en inloggen UCO1",
+            "\"Daarom moeten zij een profiel aan kunnen maken en in kunnen loggen.\""
+          ],
+          [
+            "Product catalogus UCO2",
+            "\"De categorieën waaruit gekozen kan worden zijn: schoenen, pennen, games, sportar=kelen, computers, computeraccessoires, eten, drinken, muziek, films, crypto, kleding en een categorie ‘overig in overleg’.\""
+          ],
+          [
+            "Winkelmandfunc=onaliteit UCO3",
+            "\"Een goed ontworpen winkelmandfunc=onaliteit is essen=eel voor soepele aZandeling van bestellingen.\" \"Klanten moeten de producten in hun winkelmand kunnen bekijken en verwijderen indien nodig.\""
+          ],
+          [
+            "Beheerinterface UCO4",
+            "\"Het systeem moet een intuï=eve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd.\""
+          ],
+          [
+            "Bestelling plaatsen UC05",
+            "\"Ook moet de website betrouwbaar zijn.\" \"En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen.\" \"Hierbinnen is de webshop ontworpen, ontwikkeld en getest.\""
+          ],
+          [
+            "Profiel aanmaken UC06",
+            "\"Daarom moeten zij een profiel aan kunnen maken en in kunnen loggen.\""
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0185",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 tekstanalyse"
+      ],
+      "text": "\"Klanten moeten een profiel aan kunnen maken",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0186",
+      "page_no": 16,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 tekstanalyse"
+      ],
+      "text": "en in kunnen loggen.\"",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0187",
+      "page_no": 16,
+      "block_type": "heading",
+      "heading_path": [
+        "Interviewverslag"
+      ],
+      "text": "Interviewverslag",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0188",
+      "page_no": 16,
+      "block_type": "table",
+      "heading_path": [
+        "Interviewverslag"
+      ],
+      "text": "Vragen: | Conclusie antwoord:\nWat vind u belangrijk voor de aanzicht van een nagellak website? | Het is belangrijk dat de website overzichtelijk is en dat ik gemakkelijk op kleur kan filteren om snel de kleur te vinden die ik zoek.\nIs de prijs van belang wanneer u zoekt op nagellak kopen, en speelt prijs/kwaliteit verhouding mee? | Ja, ik geef de voorkeur aan de hoogste kwaliteit voor de laagste prijs. Ik ben bereid om elders goedkopere nagellak te kopen, zolang deze aan mijn kwaliteitseisen voldoet.\nWelke specifieke informa?e zoekt u meestal op een nagellakwebsite, zoals productbeschrijvingen, reviews, of tutorial? | Ik zoek vaak naar productbeschrijvingen, met name informa=e over hoe lang de nagellak blijf zi_en en hoe je het veilig kunt verwijderen. Ook vind ik het handig als er instruc=es zijn over hoe je het product moet gebruiken, zoals de =jd die het onder de lamp moet bijvoorbeeld.\nZou u eerder geneigd zijn om nagellak te kopen op een website met veel keuzemogelijkheden, of geeA u de voorkeur aan een meer gespecialiseerde selec?e? | Ik geef de voorkeur aan een website met veel kleuren, omdat ik mijn collec=e wil uitbreiden.\nHoe belangrijk is het voor u dat een nagellakwebsite informa?e verstrekt over de gebruikte ingrediënten en mogelijke gezondheidseffecten? | Ik kijk niet echt naar de ingrediënten, maar het is wel belangrijk voor me dat de website duidelijk vertelt hoe je het product veilig kunt gebruiken en verwijderen.",
+      "token_estimate": 363,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 6,
+        "column_count": 2,
+        "header_row": "Vragen: | Conclusie antwoord:",
+        "cells": [
+          [
+            "Vragen:",
+            "Conclusie antwoord:"
+          ],
+          [
+            "Wat vind u belangrijk voor de aanzicht van een nagellak website?",
+            "Het is belangrijk dat de website overzichtelijk is en dat ik gemakkelijk op kleur kan filteren om snel de kleur te vinden die ik zoek."
+          ],
+          [
+            "Is de prijs van belang wanneer u zoekt op nagellak kopen, en speelt prijs/kwaliteit verhouding mee?",
+            "Ja, ik geef de voorkeur aan de hoogste kwaliteit voor de laagste prijs. Ik ben bereid om elders goedkopere nagellak te kopen, zolang deze aan mijn kwaliteitseisen voldoet."
+          ],
+          [
+            "Welke specifieke informa?e zoekt u meestal op een nagellakwebsite, zoals productbeschrijvingen, reviews, of tutorial?",
+            "Ik zoek vaak naar productbeschrijvingen, met name informa=e over hoe lang de nagellak blijf zi_en en hoe je het veilig kunt verwijderen. Ook vind ik het handig als er instruc=es zijn over hoe je het product moet gebruiken, zoals de =jd die het onder de lamp moet bijvoorbeeld."
+          ],
+          [
+            "Zou u eerder geneigd zijn om nagellak te kopen op een website met veel keuzemogelijkheden, of geeA u de voorkeur aan een meer gespecialiseerde selec?e?",
+            "Ik geef de voorkeur aan een website met veel kleuren, omdat ik mijn collec=e wil uitbreiden."
+          ],
+          [
+            "Hoe belangrijk is het voor u dat een nagellakwebsite informa?e verstrekt over de gebruikte ingrediënten en mogelijke gezondheidseffecten?",
+            "Ik kijk niet echt naar de ingrediënten, maar het is wel belangrijk voor me dat de website duidelijk vertelt hoe je het product veilig kunt gebruiken en verwijderen."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "fedbfec0",
+      "block_id": "fedbfec0_0189",
+      "page_no": 17,
+      "block_type": "table",
+      "heading_path": [
+        "Interviewverslag"
+      ],
+      "text": "HeeA de aanwezigheid van exclusieve collec?es, limited edi?ons of samenwerkingen met bekende namen invloed op uw beslissing om nagellak te kopen? | Ja, ik vind exclusieve collec=es en limited edi=ons al=jd interessant. Als ik iets leuks zie, denk ik vaak dat het nu of nooit is omdat het misschien nooit meer terugkomt.\nWat voor soort aanbiedingen of kor?ngen zouden u aanmoedigen om nagellak te kopen? | Vooral bundelaanbiedingen met leuke kleurencombina=es of seizoen kor=ngen zou ik waarschijnlijk van profiteren. Een abonnement met kor=ng als ik vaker koop zou ook aantrekkelijk zijn.\nHoe belangrijk is het voor u dat een nagellakwebsite een ac?eve online community heeA, waar klanten ervaringen delen en ?ps uitwisselen? | Heel belangrijk! Het is leuk om ervaringen te delen en =ps uit te wisselen met andere nagellaklieZebbers.\nOp welke manier zoekt u doorgaans naar nieuwe nagellakmerken of producten? | Ik zoek vooral op sociale media, vooral als ik mooie nagels zie bij influencers of vrienden.\nZou u eerder online nagellak kopen bij een merk dat bekend staat om zijn milieubewuste benadering, bijvoorbeeld door gebruik te maken van duurzame verpakkingen of het vermijden van schadelijke chemicaliën? | Ja, vooral als het tegen een redelijke prijs is. Het vermijden van schadelijke chemicaliën en gebruik maken van duurzame verpakkingen spreekt me zeker aan.",
+      "token_estimate": 341,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 5,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "HeeA de aanwezigheid van exclusieve collec?es, limited edi?ons of samenwerkingen met bekende namen invloed op uw beslissing om nagellak te kopen?",
+            "Ja, ik vind exclusieve collec=es en limited edi=ons al=jd interessant. Als ik iets leuks zie, denk ik vaak dat het nu of nooit is omdat het misschien nooit meer terugkomt."
+          ],
+          [
+            "Wat voor soort aanbiedingen of kor?ngen zouden u aanmoedigen om nagellak te kopen?",
+            "Vooral bundelaanbiedingen met leuke kleurencombina=es of seizoen kor=ngen zou ik waarschijnlijk van profiteren. Een abonnement met kor=ng als ik vaker koop zou ook aantrekkelijk zijn."
+          ],
+          [
+            "Hoe belangrijk is het voor u dat een nagellakwebsite een ac?eve online community heeA, waar klanten ervaringen delen en ?ps uitwisselen?",
+            "Heel belangrijk! Het is leuk om ervaringen te delen en =ps uit te wisselen met andere nagellaklieZebbers."
+          ],
+          [
+            "Op welke manier zoekt u doorgaans naar nieuwe nagellakmerken of producten?",
+            "Ik zoek vooral op sociale media, vooral als ik mooie nagels zie bij influencers of vrienden."
+          ],
+          [
+            "Zou u eerder online nagellak kopen bij een merk dat bekend staat om zijn milieubewuste benadering, bijvoorbeeld door gebruik te maken van duurzame verpakkingen of het vermijden van schadelijke chemicaliën?",
+            "Ja, vooral als het tegen een redelijke prijs is. Het vermijden van schadelijke chemicaliën en gebruik maken van duurzame verpakkingen spreekt me zeker aan."
+          ]
+        ],
+        "index_cells": []
+      }
+    }
+  ]
+}
