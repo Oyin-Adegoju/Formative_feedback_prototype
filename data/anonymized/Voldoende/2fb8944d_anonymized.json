@@ -1,0 +1,2785 @@
+{
+  "doc_id": "2fb8944d",
+  "source_path": "INFIRST_requirements/Voldoende/requirments_student4.pdf",
+  "source_name": "requirments_student4.pdf",
+  "quality_label": "Voldoende",
+  "block_count": 165,
+  "mapping_count": 3,
+  "mapping": {},
+  "blocks": [
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0001",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "[PERSOON_01]( [STUDENTNR_01])",
+      "token_estimate": 6,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0002",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "First Full Stack",
+      "token_estimate": 4,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0003",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "25-03-2024",
+      "token_estimate": 2,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0004",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Bijlage II – Poster ........................................................................................................................",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0005",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": ".................................................................................................................................................",
+      "token_estimate": 36,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0006",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Inhoud",
+      "token_estimate": 1,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0007",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "INHOUD .............................................................................. ERROR! BOOKMARK NOT DEFINED.",
+      "token_estimate": 28,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0008",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H1 INTRODUCTIE ................................................................................................................... 3",
+      "token_estimate": 33,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0009",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H2 STAKEHOLDERS ANALYSE ................................................................................................. 4",
+      "token_estimate": 30,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0010",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "3. D E EINDGEBRUIKERS OF DOELGROEP ......................................................................................... 4",
+      "token_estimate": 31,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0011",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "S TAKEHOLDER QUADRANT ....................................................................................................... 5",
+      "token_estimate": 31,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0012",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H3 ONDERZOEK NAAR WEB GEBRUIKERS ............................................................................... 5",
+      "token_estimate": 28,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0013",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H4 WENSEN, EISEN, PRIORITEITEN ........................................................................................ 6",
+      "token_estimate": 30,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0014",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "F UNCTIONELE REQUIREMENTS ...................................................................................................... 8",
+      "token_estimate": 32,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0015",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "N IET - FUNCTIONELE REQUIREMENTS ............................................................................................. 10",
+      "token_estimate": 32,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0016",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "USE CASE DIAGRAM ............................................................................................................ 12",
+      "token_estimate": 32,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0017",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "USE CASE BESCHRIJVINGEN ................................................................................................ 14",
+      "token_estimate": 30,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0018",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H5 ETHISCHE AANDACHTSPUNTEN ..................................................................................... 18",
+      "token_estimate": 29,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0019",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H6 SECURITY ....................................................................................................................... 18",
+      "token_estimate": 33,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0020",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H7 LITERATUURLIJST ........................................................................................................... 19",
+      "token_estimate": 32,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0021",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "BIJLAGE I – INTERVIEW VERSLAG .......................................................................................... 20",
+      "token_estimate": 30,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0022",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "B IJLAGE II – P OSTER ....................................................................................................................... 22",
+      "token_estimate": 36,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0023",
+      "page_no": 3,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "H1 Introductie",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0024",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "Ik ga een webshop maken voor fitnesskleding en supplementen, en dan vooral hard copy",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0025",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "sportkleding met eventuele uitbreidingen naar fitnessaccessoires. Hierdoor kunnen sporters hun",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0026",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "fitnessgarderobe fysiek uitbreiden en hun voedingsbehoeften aanvullen. Ik wil vooral focussen",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0027",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "op een brede collectie aan recente fitnesskleding en hoogwaardige eiwitsupplementen die nu",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0028",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "vooral populair zijn. Uiteindelijk zou ik nog kunnen uitbreiden naar fitnessaccessoires zoals",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0029",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie"
+      ],
+      "text": "sporttassen, waterflessen, en andere benodigdheden voor een actieve levensstijl.",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0030",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "H2 Stakeholders analyse",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0031",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "De stakeholders waar ik rekening mee houd zijn de volgende stakeholders ;",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0032",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "1. Opdrachtgever (Bedrijf Plenty)",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0033",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "De opdrachtgever, Bedrijf Plenty, heeft het initiatief genomen voor de ontwikkeling van de",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0034",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "webshop. Hun voornaamste doel is om winst te genereren. Bedrijf Plenty streeft naar een",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0035",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "succesvolle exploitatie van de webshop, met een focus op rendabiliteit als belangrijkste",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0036",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "drijfveer.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0037",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "2. Ontwikkelaar",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0038",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "De ontwikkelaar is verantwoordelijk voor het bouwen en ontwikkelen van de webshop. Ze",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0039",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "moeten de wensen van de opdrachtgever begrijpen, de webshop ontwerpen en",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0040",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "programmeren, en ervoor zorgen dat deze goed werkt en gemakkelijk te gebruiken is voor",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0041",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H1 Introductie",
+        "H2 Stakeholders analyse"
+      ],
+      "text": "de klanten.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0042",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "3. De eindgebruikers of doelgroep"
+      ],
+      "text": "3. De eindgebruikers of doelgroep",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0043",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "3. De eindgebruikers of doelgroep"
+      ],
+      "text": "zijn de mensen die de webshop zullen gebruiken. Bij het ontwerpen van de webshop",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0044",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "3. De eindgebruikers of doelgroep"
+      ],
+      "text": "is het essentieel om rekening te houden met hun behoeften, voorkeuren en",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0045",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "3. De eindgebruikers of doelgroep"
+      ],
+      "text": "gebruikerservaring. Hun tevredenheid staat centraal in het ontwerpproces.",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0046",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "3. De eindgebruikers of doelgroep"
+      ],
+      "text": "4. Leverancier",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0047",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "3. De eindgebruikers of doelgroep"
+      ],
+      "text": "De leverancier voorziet mogelijk in de benodigde producten of diensten voor de webshop",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0048",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "3. De eindgebruikers of doelgroep"
+      ],
+      "text": "van Bedrijf Plenty. Dit zijn de items die te koop worden aangeboden via de webshop.",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0049",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "3. De eindgebruikers of doelgroep"
+      ],
+      "text": "5. Marketingbureau",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0050",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "3. De eindgebruikers of doelgroep"
+      ],
+      "text": "Het marketingbureau is belast met het promoten en adverteren van de webshop van",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0051",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "3. De eindgebruikers of doelgroep"
+      ],
+      "text": "Bedrijf Plenty. Ze spelen een cruciale rol bij het bereiken van de doelgroep, het",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0052",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "3. De eindgebruikers of doelgroep"
+      ],
+      "text": "vergroten van de bekendheid van het merk en het aantrekken van verkeer naar de",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0053",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "3. De eindgebruikers of doelgroep"
+      ],
+      "text": "webshop.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0054",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "Stakeholder quadrant"
+      ],
+      "text": "Stakeholder quadrant",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0055",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "H3 Onderzoek naar web gebruikers",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0056",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "De website is ontworpen om een uitgebreid assortiment aan te bieden, variërend van",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0057",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "hoogwaardige gymkleding tot voedingssupplementen zoals eiwitpoeder. De doelgroep bestaat",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0058",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "uit fitnessliefhebbers van alle leeftijden en niveaus, van beginners die net beginnen met hun",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0059",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "fitnessreis tot ervaren atleten die op zoek zijn naar specifieke kledingstukken en supplementen",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0060",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "om hun training te ondersteunen.",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0061",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "Het aanbieden van een breed scala aan producten stelt de webshop in staat om tegemoet te",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0062",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "komen aan de diverse behoeften van klanten en hen te voorzien van alles wat ze nodig hebben",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0063",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "om hun fitnessdoelen te bereiken. Of klanten nu op zoek zijn naar comfortabele sportkleding",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0064",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "voor hun dagelijkse trainingen, duurzame sportschoenen voor intensieve workouts, of",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0065",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "hoogwaardige supplementen om hun prestaties te verbeteren, de webshop heeft het allemaal.",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0066",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "Mensen over de hele wereld vertrouwen op websites om hun fitnessbehoeften te vervullen, en",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0067",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "daarom is het cruciaal dat mijn webshop gemakkelijk toegankelijk is en een aantrekkelijke",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0068",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "gebruikerservaring biedt. Dit betekent dat de website een intuïtieve navigatie moet hebben,",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0069",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "duidelijke productbeschrijvingen en afbeeldingen van hoge kwaliteit, en een soepel",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0070",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "afrekenproces.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0071",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "Om ervoor te zorgen dat de website toegankelijk is voor mensen met kleurenblindheid, kies ik",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0072",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "zorgvuldig kleuren die gemakkelijk te onderscheiden zijn voor deze doelgroep en vermijd ik het",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0073",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "gebruik van kleuren als enige manier om informatie over te brengen. Daarnaast voeg ik een",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0074",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "taalkeuzeknop toe waarmee bezoekers de taal van de webshop kunnen aanpassen aan hun",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0075",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "voorkeur. Dit vergroot de kans op internationaal succes en maakt de inhoud begrijpelijker voor",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0076",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "een breder publiek over de hele wereld.",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0077",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "De webshop streeft naar een naadloze en bevredigende winkelervaring voor elke klant,",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0078",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "ongeacht hun locatie, leeftijd of fitnessniveau. Door te focussen op kwaliteit, toegankelijkheid en",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0079",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "gebruiksgemak, ben ik ervan overtuigd dat de webshop een gewaardeerde bestemming zal",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0080",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "worden voor fitnessliefhebbers wereldwijd.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0081",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "(https://www.frankwatching.com/archive/2021/03/11/webdesign-voor-kleurenblinden/)",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0082",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "(https://succesmetjewebshop.nl/je-webshop-laten-vertalen-waarom-zou-je-dat-doen/)",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0083",
+      "page_no": 6,
+      "block_type": "heading",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "H4 Wensen, Eisen, Prioriteiten",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0084",
+      "page_no": 6,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Constraints",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0085",
+      "page_no": 6,
+      "block_type": "table",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Constraint Naam | Architecturale | Geadresseerd in | Stakeholder\nRelevantie",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 2,
+        "column_count": 4,
+        "header_row": "Constraint Naam | Architecturale | Geadresseerd in | Stakeholder",
+        "cells": [
+          [
+            "Constraint Naam",
+            "Architecturale",
+            "Geadresseerd in",
+            "Stakeholder"
+          ],
+          [
+            "Relevantie"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0086",
+      "page_no": 7,
+      "block_type": "table",
+      "heading_path": [
+        "Stakeholder quadrant",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "Budgetbeperking | De totale kosten voor de ontwikkeling en implementatie van de applicatie mogen niet meer dan 10.000 euro bedragen, om binnen het budgettaire kader van het project te blijven. | Paragraaf 2 We stellen voor dat de ontwikkeling van de website wordt voltooid binnen een budget van 10.000 euro een redelijke termijn van zes weken | Investment Company Plenty / [PERSOON_02]\nTijdbeperking | Het project moet binnen een tijdsbestek van zes weken worden voltooid, van concept tot lancering, om aan de projectdeadlines te voldoen. | Paragraaf 2 | Investment Company Plenty / [PERSOON_02]\nGeen giftcards of promotiecodes | Het systeem mag geen gebruik maken van giftcards of promotiecodes, om de eenvoud en uniformiteit in prijsstelling te waarborgen. | Paragraaf 3 Klanten mogen deze artikelen alleen niet betalen met giftcards en zij kunnen niet gebruik maken van promocodes in de webshop | Eindgebruikers / Klanten\nStandaard verzendkosten | De verzendkosten moeten gestandaardiseerd zijn, ongeacht de grootte van de bestelling of de bestemming, om het bestelproces te vereenvoudigen. | Hierbij zijn de verzendkosten niet afhankelijk van het formaat of de locatie, maar een standaardbedrag | Eindgebruikers / Klanten\nTechniek | De webshop moet wel in Java, Springboot en Angular geprogrammeerd | Opdrachtgever | Plenty/[PERSOON_02]",
+      "token_estimate": 336,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 5,
+        "column_count": 4,
+        "header_row": null,
+        "cells": [
+          [
+            "Budgetbeperking",
+            "De totale kosten voor de ontwikkeling en implementatie van de applicatie mogen niet meer dan 10.000 euro bedragen, om binnen het budgettaire kader van het project te blijven.",
+            "Paragraaf 2 We stellen voor dat de ontwikkeling van de website wordt voltooid binnen een budget van 10.000 euro een redelijke termijn van zes weken",
+            "Investment Company Plenty / [PERSOON_02]"
+          ],
+          [
+            "Tijdbeperking",
+            "Het project moet binnen een tijdsbestek van zes weken worden voltooid, van concept tot lancering, om aan de projectdeadlines te voldoen.",
+            "Paragraaf 2",
+            "Investment Company Plenty / [PERSOON_02]"
+          ],
+          [
+            "Geen giftcards of promotiecodes",
+            "Het systeem mag geen gebruik maken van giftcards of promotiecodes, om de eenvoud en uniformiteit in prijsstelling te waarborgen.",
+            "Paragraaf 3 Klanten mogen deze artikelen alleen niet betalen met giftcards en zij kunnen niet gebruik maken van promocodes in de webshop",
+            "Eindgebruikers / Klanten"
+          ],
+          [
+            "Standaard verzendkosten",
+            "De verzendkosten moeten gestandaardiseerd zijn, ongeacht de grootte van de bestelling of de bestemming, om het bestelproces te vereenvoudigen.",
+            "Hierbij zijn de verzendkosten niet afhankelijk van het formaat of de locatie, maar een standaardbedrag",
+            "Eindgebruikers / Klanten"
+          ],
+          [
+            "Techniek",
+            "De webshop moet wel in Java, Springboot en Angular geprogrammeerd",
+            "Opdrachtgever",
+            "Plenty/[PERSOON_02]"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0087",
+      "page_no": 8,
+      "block_type": "heading",
+      "heading_path": [
+        "Functionele requirements"
+      ],
+      "text": "Functionele requirements",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0088",
+      "page_no": 8,
+      "block_type": "table",
+      "heading_path": [
+        "Functionele requirements"
+      ],
+      "text": "Eenvoudig beheer | Het beheer van producten, klanten en bestellingen moet eenvoudig en intuïtief zijn, om de operationele efficiëntie te maximaliseren. | Paragraaf 1 | Ontwikkelaars en Designers\nBeveiliging van nietfinanciële data | Hoewel er geen financiële transacties via de website zullen plaatsvinden, is het cruciaal om de veiligheid van alle verzamelde gegevens te waarborgen. | Paragraaf 1 | Ontwikkelaars en Designers",
+      "token_estimate": 106,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 2,
+        "column_count": 4,
+        "header_row": null,
+        "cells": [
+          [
+            "Eenvoudig beheer",
+            "Het beheer van producten, klanten en bestellingen moet eenvoudig en intuïtief zijn, om de operationele efficiëntie te maximaliseren.",
+            "Paragraaf 1",
+            "Ontwikkelaars en Designers"
+          ],
+          [
+            "Beveiliging van nietfinanciële data",
+            "Hoewel er geen financiële transacties via de website zullen plaatsvinden, is het cruciaal om de veiligheid van alle verzamelde gegevens te waarborgen.",
+            "Paragraaf 1",
+            "Ontwikkelaars en Designers"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0089",
+      "page_no": 8,
+      "block_type": "table",
+      "heading_path": [
+        "Functionele requirements"
+      ],
+      "text": "Naam Requirement | Naam Requirement | Architecturele | Geadresseerd in | Geadresseerd in | Stakeholder | Stakeholder | Prio | Prio\nrelevantie\nProducten kopen | Klanten moeten in staat zijn diverse producten te kopen, wat een kernfunctionalitei t van de webshop is. | Algemene beschrijving van de webshopfunctionaliteit | Eindgebruike r | Must\nVerschillende productcategorieë | Het aanbod moet divers zijn om aan de behoeften van een breed klantenspectrum te voldoen. | Vermelding van diverse productcategorieën | Must",
+      "token_estimate": 129,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 4,
+        "column_count": 10,
+        "header_row": "Naam Requirement | Naam Requirement | Architecturele | Geadresseerd in | Geadresseerd in | Stakeholder | Stakeholder | Prio | Prio",
+        "cells": [
+          [
+            "Naam Requirement",
+            "Naam Requirement",
+            "Architecturele",
+            "Geadresseerd in",
+            "Geadresseerd in",
+            "Stakeholder",
+            "Stakeholder",
+            "Prio",
+            "Prio"
+          ],
+          [
+            "relevantie"
+          ],
+          [
+            "Producten kopen",
+            "Klanten moeten in staat zijn diverse producten te kopen, wat een kernfunctionalitei t van de webshop is.",
+            "Algemene beschrijving van de webshopfunctionaliteit",
+            "Eindgebruike r",
+            "Must"
+          ],
+          [
+            "Verschillende productcategorieë",
+            "Het aanbod moet divers zijn om aan de behoeften van een breed klantenspectrum te voldoen.",
+            "Vermelding van diverse productcategorieën",
+            "Must"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0090",
+      "page_no": 9,
+      "block_type": "table",
+      "heading_path": [
+        "Functionele requirements"
+      ],
+      "text": "Klantaccounts/registra tie | Klanten moeten accounts kunnen aanmaken en inloggen voor een gepersonaliseerd e winkelervaring. | Beschrijving van gepersonaliseerde winkelervaring | Bezoeker | Must\nProfiel bewerken | Gebruikers moeten hun profielgegevens kunnen wijzigen. | Opdrachtgever | Eindgebruiker | Shoul d have\nGemakkelijk producten vinden | De zoek en navigatiefuncties | Focus op gebruiksvriendelijkheid | Eindgebruike r | Must\nmoeten geoptimaliseerd zijn voor gebruiksgemak.\nWinkelmandje | Een functioneel winkelmandje is essentieel voor een soepele aankoopervaring. | Beschrijving van winkelmandfunctionalit eit. moeten producten gemakkelijk kunnen vinden, op de website bekijken en in hun winkelmand plaatsen | Eindgebruiker | Must\nProduct aanpassen | De websitebeheerde r kan producten aanpassen naar behoefte. | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. Het doel is om e[iciënt beheer van de website mogelijk te maken.” | Ontwikkelaar | Shoul d have",
+      "token_estimate": 260,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 6,
+        "column_count": 5,
+        "header_row": null,
+        "cells": [
+          [
+            "Klantaccounts/registra tie",
+            "Klanten moeten accounts kunnen aanmaken en inloggen voor een gepersonaliseerd e winkelervaring.",
+            "Beschrijving van gepersonaliseerde winkelervaring",
+            "Bezoeker",
+            "Must"
+          ],
+          [
+            "Profiel bewerken",
+            "Gebruikers moeten hun profielgegevens kunnen wijzigen.",
+            "Opdrachtgever",
+            "Eindgebruiker",
+            "Shoul d have"
+          ],
+          [
+            "Gemakkelijk producten vinden",
+            "De zoek en navigatiefuncties",
+            "Focus op gebruiksvriendelijkheid",
+            "Eindgebruike r",
+            "Must"
+          ],
+          [
+            "moeten geoptimaliseerd zijn voor gebruiksgemak."
+          ],
+          [
+            "Winkelmandje",
+            "Een functioneel winkelmandje is essentieel voor een soepele aankoopervaring.",
+            "Beschrijving van winkelmandfunctionalit eit. moeten producten gemakkelijk kunnen vinden, op de website bekijken en in hun winkelmand plaatsen",
+            "Eindgebruiker",
+            "Must"
+          ],
+          [
+            "Product aanpassen",
+            "De websitebeheerde r kan producten aanpassen naar behoefte.",
+            "Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. Het doel is om e[iciënt beheer van de website mogelijk te maken.”",
+            "Ontwikkelaar",
+            "Shoul d have"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0091",
+      "page_no": 10,
+      "block_type": "heading",
+      "heading_path": [
+        "Niet-functionele requirements"
+      ],
+      "text": "Niet-functionele requirements",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0092",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Niet-functionele requirements"
+      ],
+      "text": "Naam Requirement Architecturele Geadresseerd in Stakeholder Prio",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0093",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Niet-functionele requirements"
+      ],
+      "text": "relevantie",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0094",
+      "page_no": 10,
+      "block_type": "table",
+      "heading_path": [
+        "Niet-functionele requirements"
+      ],
+      "text": "Product verwijderen | De beheerder heeft de mogelijkheid om specifieke producten te verwijderen van de website. | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. Het doel is om e[iciënt beheer van de website mogelijk te maken.” | Ontwikkelaar | Shoul d have\nRecensies | Klanten moeten in staat zijn recensies te plaatsen, wat bijdraagt aan de geloofwaardighe id en interactie. | Opdrachtgev er | Shoul d\nWenslijst | Klanten moeten producten kunnen toevoegen aan een wenslijst | Opdrachtgever | Eindgebruiker | Could\nvoor latere aankoop.\nOrder Tracking | Klanten moeten de status van hun bestellingen kunnen volgen voor een betere klantenservice. | Opdrachtgever | Eindgebruiker | Shoul d",
+      "token_estimate": 190,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 5,
+        "column_count": 5,
+        "header_row": null,
+        "cells": [
+          [
+            "Product verwijderen",
+            "De beheerder heeft de mogelijkheid om specifieke producten te verwijderen van de website.",
+            "Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. Het doel is om e[iciënt beheer van de website mogelijk te maken.”",
+            "Ontwikkelaar",
+            "Shoul d have"
+          ],
+          [
+            "Recensies",
+            "Klanten moeten in staat zijn recensies te plaatsen, wat bijdraagt aan de geloofwaardighe id en interactie.",
+            "Opdrachtgev er",
+            "Shoul d"
+          ],
+          [
+            "Wenslijst",
+            "Klanten moeten producten kunnen toevoegen aan een wenslijst",
+            "Opdrachtgever",
+            "Eindgebruiker",
+            "Could"
+          ],
+          [
+            "voor latere aankoop."
+          ],
+          [
+            "Order Tracking",
+            "Klanten moeten de status van hun bestellingen kunnen volgen voor een betere klantenservice.",
+            "Opdrachtgever",
+            "Eindgebruiker",
+            "Shoul d"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0095",
+      "page_no": 11,
+      "block_type": "table",
+      "heading_path": [
+        "Niet-functionele requirements"
+      ],
+      "text": "Gebruiksvriendelijkhei d | De website moet intuïtief en eenvoudig te navigeren zijn, zodat gebruikers moeiteloos kunnen vinden wat ze nodig hebben. | Paragraaf 1, \"De website moet gebruiksvriendelijk zijn.\" | ontwikkelaars, eindgebruikers | Must\nToegankelijkheid | De website moet toegankelijk zijn voor iedereen, inclusief mensen met beperkingen zoals visuele beperkingen of beperkte mobiliteit. | Paragraaf 1, \"De website moet toegankelijk zijn voor een breed scala aan klanten.\" | ontwikkelaars, eindgebruikers | Must\nBetrouwbaarheid | De website moet consistent beschikbaar zijn met minimale downtime, waarbij klantbestellingen betrouwbaar worden verwerkt. | Paragraaf 1, \"Daarnaast moet de website betrouwbaar zijn.\" | ontwikkelaars, eindgebruikers , [PERSOON_02] | Shoul d\nVeiligheid | De website moet voldoen aan privacywetgeving en klantgegevens beschermen tegen | Paragraaf 1, \"Ten slotte is veiligheid een belangrijk element van websiteontwikkeling.\" | [PERSOON_02] | Must\nongeautoriseerde toegang of lekken.\nAantrekkelijkheid | De website moet visueel aantrekkelijk zijn en aansluiten bij de merkidentiteit en het doel van de producten, wat bijdraagt aan een positieve gebruikerservarin g. | Paragraaf 1, \"Ook moet de website aantrekkelijk zijn voor de klanten.\" | ontwikkelaars, eindgebruikers | Could",
+      "token_estimate": 329,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 6,
+        "column_count": 5,
+        "header_row": null,
+        "cells": [
+          [
+            "Gebruiksvriendelijkhei d",
+            "De website moet intuïtief en eenvoudig te navigeren zijn, zodat gebruikers moeiteloos kunnen vinden wat ze nodig hebben.",
+            "Paragraaf 1, \"De website moet gebruiksvriendelijk zijn.\"",
+            "ontwikkelaars, eindgebruikers",
+            "Must"
+          ],
+          [
+            "Toegankelijkheid",
+            "De website moet toegankelijk zijn voor iedereen, inclusief mensen met beperkingen zoals visuele beperkingen of beperkte mobiliteit.",
+            "Paragraaf 1, \"De website moet toegankelijk zijn voor een breed scala aan klanten.\"",
+            "ontwikkelaars, eindgebruikers",
+            "Must"
+          ],
+          [
+            "Betrouwbaarheid",
+            "De website moet consistent beschikbaar zijn met minimale downtime, waarbij klantbestellingen betrouwbaar worden verwerkt.",
+            "Paragraaf 1, \"Daarnaast moet de website betrouwbaar zijn.\"",
+            "ontwikkelaars, eindgebruikers , [PERSOON_02]",
+            "Shoul d"
+          ],
+          [
+            "Veiligheid",
+            "De website moet voldoen aan privacywetgeving en klantgegevens beschermen tegen",
+            "Paragraaf 1, \"Ten slotte is veiligheid een belangrijk element van websiteontwikkeling.\"",
+            "[PERSOON_02]",
+            "Must"
+          ],
+          [
+            "ongeautoriseerde toegang of lekken."
+          ],
+          [
+            "Aantrekkelijkheid",
+            "De website moet visueel aantrekkelijk zijn en aansluiten bij de merkidentiteit en het doel van de producten, wat bijdraagt aan een positieve gebruikerservarin g.",
+            "Paragraaf 1, \"Ook moet de website aantrekkelijk zijn voor de klanten.\"",
+            "ontwikkelaars, eindgebruikers",
+            "Could"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0096",
+      "page_no": 12,
+      "block_type": "heading",
+      "heading_path": [
+        "Use Case Diagram"
+      ],
+      "text": "Use Case Diagram",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0097",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use Case Diagram"
+      ],
+      "text": "Use Case Diagram (Alleen de functionele requirements)",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0098",
+      "page_no": 12,
+      "block_type": "table",
+      "heading_path": [
+        "Use Case Diagram"
+      ],
+      "text": "Responsiviteit | De website moet goed werken en er goed uitzien op een verscheidenheid aan apparaten, waaronder desktops, tablets en smartphones, om een consistente gebruikerservarin g te bieden. | Paragraaf 1, als onderdeel van gebruiksvriendelijkhei d en toegankelijkheid | ontwikkelaars, eindgebruikers | Must\nTaal | De website moet wereldwijd toegankelijk zijn voor bezoekers van over de hele wereld. | Opdrachtgever | Eindgebruiker | Could",
+      "token_estimate": 111,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 2,
+        "column_count": 5,
+        "header_row": null,
+        "cells": [
+          [
+            "Responsiviteit",
+            "De website moet goed werken en er goed uitzien op een verscheidenheid aan apparaten, waaronder desktops, tablets en smartphones, om een consistente gebruikerservarin g te bieden.",
+            "Paragraaf 1, als onderdeel van gebruiksvriendelijkhei d en toegankelijkheid",
+            "ontwikkelaars, eindgebruikers",
+            "Must"
+          ],
+          [
+            "Taal",
+            "De website moet wereldwijd toegankelijk zijn voor bezoekers van over de hele wereld.",
+            "Opdrachtgever",
+            "Eindgebruiker",
+            "Could"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0099",
+      "page_no": 14,
+      "block_type": "heading",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "Use Case beschrijvingen",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0100",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "Use Case beschrijvingen",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0101",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "Een overzicht van alle uitgewerkte use-cases (functionele requirements) die uit de opdracht",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0102",
+      "page_no": 14,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "komen. Let hier weer goed op je nummering.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0103",
+      "page_no": 14,
+      "block_type": "table",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC1: | Producten kopen\nActor | Klant\nPreconditie | De klant moet ingelogd zijn en minstens één product in zijn winkelmandje hebben\nBeschrijving | Klanten moeten in staat zijn producten te kopen wanneer ze deze in hun winkelmandje hebben.\nScenario beschrijving | 1. De klant navigeert naar het gewenste product. 2. Het systeem toont de productpagina met alle relevante informatie. 3. De klant klikt op \"Koop Product\". 4. Het systeem plaatst het product in het winkelmandje en leidt de klant naar het winkelmandje. 5. De klant klikt op \"Bestellen\" 6. Het systeem presenteert beschikbare betaalmethoden. 7. De klant voltooit de betaling voor het product. 8. Binnen 10 minuten ontvangt de klant een sleutel voor het gekochte product via email.\nPostconditie | De klant heeft succesvol een product aangeschaft en ontvangt binnen 10 minuten de sleutel voor het product via email.",
+      "token_estimate": 218,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 6,
+        "column_count": 2,
+        "header_row": "USC1: | Producten kopen",
+        "cells": [
+          [
+            "USC1:",
+            "Producten kopen"
+          ],
+          [
+            "Actor",
+            "Klant"
+          ],
+          [
+            "Preconditie",
+            "De klant moet ingelogd zijn en minstens één product in zijn winkelmandje hebben"
+          ],
+          [
+            "Beschrijving",
+            "Klanten moeten in staat zijn producten te kopen wanneer ze deze in hun winkelmandje hebben."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De klant navigeert naar het gewenste product. 2. Het systeem toont de productpagina met alle relevante informatie. 3. De klant klikt op \"Koop Product\". 4. Het systeem plaatst het product in het winkelmandje en leidt de klant naar het winkelmandje. 5. De klant klikt op \"Bestellen\" 6. Het systeem presenteert beschikbare betaalmethoden. 7. De klant voltooit de betaling voor het product. 8. Binnen 10 minuten ontvangt de klant een sleutel voor het gekochte product via email."
+          ],
+          [
+            "Postconditie",
+            "De klant heeft succesvol een product aangeschaft en ontvangt binnen 10 minuten de sleutel voor het product via email."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0104",
+      "page_no": 15,
+      "block_type": "table",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC3: | Inloggen\nActor | klant\nPreconditie | Geen\nBeschrijving | Klanten moeten moeiteloos kunnen inloggen op het platform.\nScenario beschrijving | 1. De klant navigeert naar de inlogoptie en selecteert \"Inloggen\". 2. Het systeem toont de inlogpagina met de vereiste velden. 3. De klant vult alle benodigde informatie in, zoals gebruikersnaam en wachtwoord, en klikt op \"Inloggen\". 4. Het systeem controleert de ingevoerde gegevens en, indien correct, stuurt het de klant door naar de homepagina. 5. De klant heeft nu toegang tot zijn of haar account en kan de website gerust bezoeken om producten te bekijken, bestellen en andere functionaliteiten te gebruiken.\nPostconditie | De klant heeft succesvol en moeiteloos ingelogd op het platform en heeft nu volledige toegang tot alle functies en mogelijkheden van de website.\nUSC3: | Registreren\nActor | Bezoeker\nPreconditie | Geen\nBeschrijving | Bezoekers moeten in staat zijn om een account aan te maken\nScenario beschrijving | 1. De bezoeker navigeert naar de registratieoptie en selecteert \"Registreren\". 2. Het systeem toont de registratiepagina met alle vereiste velden, zoals naam, emailadres en wachtwoord. 3. De bezoeker vult alle benodigde informatie in en klikt op \"Registreren\". 4. Het systeem verwerkt de registratiegegevens en stuurt een bevestigingsmail naar het opgegeven emailadres van de bezoeker, met een link om het account te activeren. 5. De bezoeker opent de ontvangen email en klikt op de activatielink om het account te activeren. 6. Na activatie keert de bezoeker terug naar de website, klikt op \"Inloggen\" en logt in met de gekozen gebruikersnaam en wachtwoord.\nPostconditie | De bezoeker heeft succesvol een account aangemaakt en kan nu inloggen en gebruikmaken van alle functionaliteiten van het platform.",
+      "token_estimate": 445,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 12,
+        "column_count": 2,
+        "header_row": "USC3: | Inloggen",
+        "cells": [
+          [
+            "USC3:",
+            "Inloggen"
+          ],
+          [
+            "Actor",
+            "klant"
+          ],
+          [
+            "Preconditie",
+            "Geen"
+          ],
+          [
+            "Beschrijving",
+            "Klanten moeten moeiteloos kunnen inloggen op het platform."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De klant navigeert naar de inlogoptie en selecteert \"Inloggen\". 2. Het systeem toont de inlogpagina met de vereiste velden. 3. De klant vult alle benodigde informatie in, zoals gebruikersnaam en wachtwoord, en klikt op \"Inloggen\". 4. Het systeem controleert de ingevoerde gegevens en, indien correct, stuurt het de klant door naar de homepagina. 5. De klant heeft nu toegang tot zijn of haar account en kan de website gerust bezoeken om producten te bekijken, bestellen en andere functionaliteiten te gebruiken."
+          ],
+          [
+            "Postconditie",
+            "De klant heeft succesvol en moeiteloos ingelogd op het platform en heeft nu volledige toegang tot alle functies en mogelijkheden van de website."
+          ],
+          [
+            "USC3:",
+            "Registreren"
+          ],
+          [
+            "Actor",
+            "Bezoeker"
+          ],
+          [
+            "Preconditie",
+            "Geen"
+          ],
+          [
+            "Beschrijving",
+            "Bezoekers moeten in staat zijn om een account aan te maken"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De bezoeker navigeert naar de registratieoptie en selecteert \"Registreren\". 2. Het systeem toont de registratiepagina met alle vereiste velden, zoals naam, emailadres en wachtwoord. 3. De bezoeker vult alle benodigde informatie in en klikt op \"Registreren\". 4. Het systeem verwerkt de registratiegegevens en stuurt een bevestigingsmail naar het opgegeven emailadres van de bezoeker, met een link om het account te activeren. 5. De bezoeker opent de ontvangen email en klikt op de activatielink om het account te activeren. 6. Na activatie keert de bezoeker terug naar de website, klikt op \"Inloggen\" en logt in met de gekozen gebruikersnaam en wachtwoord."
+          ],
+          [
+            "Postconditie",
+            "De bezoeker heeft succesvol een account aangemaakt en kan nu inloggen en gebruikmaken van alle functionaliteiten van het platform."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0105",
+      "page_no": 16,
+      "block_type": "table",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "USC6: | Winkelmandje bekijken\nActor | Klant\nPreconditie | Klant moet ingelogd zijn.\nBeschrijving | Klanten moeten producten makkelijk toevoegen in hun winkelmand.\nScenario beschrijving | 1. De klant navigeert naar een product dat hij of zij wil toevoegen aan het winkelmandje. 2. Het systeem toont de productpagina met alle relevante informatie, zoals prijs, beschrijving en afbeeldingen. 3. De klant beoordeelt het product en besluit om het toe te voegen aan het winkelmandje door op de optie \"Toevoegen aan winkelmandje\" te klikken. 4. Het systeem voegt het geselecteerde product toe aan het winkelmandje van de klant. 5. De klant navigeert naar het winkelmandje door bijvoorbeeld te klikken op de winkelmandicoon of een specifieke link. 6. In het winkelmandje vindt de klant alle toegevoegde producten, samen met de totale prijs en eventuele andere relevante informatie, zoals verzendkosten of kortingen.\nPostconditie | De klant heeft met gemak een product kunnen toevoegen aan zijn winkelmandje en kan nu de inhoud van zijn of haar winkelmandje bekijken en eventueel doorgaan met het afrekenproces.\nUSC7: | Product beheren\nActor | Beheerder\nPreconditie | Beheerder moet ingelogd zijn.\nBeschrijving | De beheerder moet in staat zijn om producten te beheren.\nScenario beschrijving | 1. De beheerder navigeert naar de sectie met alle producten. 2. Het systeem toont een overzicht van alle beschikbare producten. 3. De beheerder selecteert een specifiek product. 4. Het systeem geeft alle informatie over het geselecteerde product weer. 5. De beheerder klikt op de optie om het product te bewerken. 6. Het systeem toont alle aanpasbare informatie van het product.",
+      "token_estimate": 415,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 11,
+        "column_count": 2,
+        "header_row": "USC6: | Winkelmandje bekijken",
+        "cells": [
+          [
+            "USC6:",
+            "Winkelmandje bekijken"
+          ],
+          [
+            "Actor",
+            "Klant"
+          ],
+          [
+            "Preconditie",
+            "Klant moet ingelogd zijn."
+          ],
+          [
+            "Beschrijving",
+            "Klanten moeten producten makkelijk toevoegen in hun winkelmand."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De klant navigeert naar een product dat hij of zij wil toevoegen aan het winkelmandje. 2. Het systeem toont de productpagina met alle relevante informatie, zoals prijs, beschrijving en afbeeldingen. 3. De klant beoordeelt het product en besluit om het toe te voegen aan het winkelmandje door op de optie \"Toevoegen aan winkelmandje\" te klikken. 4. Het systeem voegt het geselecteerde product toe aan het winkelmandje van de klant. 5. De klant navigeert naar het winkelmandje door bijvoorbeeld te klikken op de winkelmandicoon of een specifieke link. 6. In het winkelmandje vindt de klant alle toegevoegde producten, samen met de totale prijs en eventuele andere relevante informatie, zoals verzendkosten of kortingen."
+          ],
+          [
+            "Postconditie",
+            "De klant heeft met gemak een product kunnen toevoegen aan zijn winkelmandje en kan nu de inhoud van zijn of haar winkelmandje bekijken en eventueel doorgaan met het afrekenproces."
+          ],
+          [
+            "USC7:",
+            "Product beheren"
+          ],
+          [
+            "Actor",
+            "Beheerder"
+          ],
+          [
+            "Preconditie",
+            "Beheerder moet ingelogd zijn."
+          ],
+          [
+            "Beschrijving",
+            "De beheerder moet in staat zijn om producten te beheren."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De beheerder navigeert naar de sectie met alle producten. 2. Het systeem toont een overzicht van alle beschikbare producten. 3. De beheerder selecteert een specifiek product. 4. Het systeem geeft alle informatie over het geselecteerde product weer. 5. De beheerder klikt op de optie om het product te bewerken. 6. Het systeem toont alle aanpasbare informatie van het product."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0106",
+      "page_no": 17,
+      "block_type": "table",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "7. De beheerder wijzigt de benodigde informatie en klikt op de knop om de wijzigingen op te slaan. 8. Het systeem slaat alle aangebrachte wijzigingen op.\nPostconditie | De beheerder heeft de productinformatie eenvoudig kunnen aanpassen.\nUSC4: | Profiel bewerken\nActor | Klant\nPreconditie | Klant moet ingelogd zijn.\nBeschrijving | De klant heeft de mogelijkheid om zijn eigen gegevens aan te passen, waaronder persoonlijke informatie, adresgegevens, contactgegevens en voorkeuren.\nScenario beschrijving | 1. De klant logt in op zijn account op de website of applicatie. 2. Vanuit het startscherm navigeert de klant naar zijn profielpagina door te klikken op de link of knop met zijn naam of profielfoto. 3. Het systeem laadt de profielpagina van de klant en toont alle beschikbare informatie, waaronder naam, adres, telefoonnummer, emailadres, en andere relevante gegevens. 4. De klant bekijkt zijn huidige gegevens en besluit deze aan te passen. Hij klikt op de knop \"Gegevens bewerken\" of een vergelijkbare optie. 5. Klant wijzigt zijn gegevens en klikt op opslaan. Het systeem opent een formulier waarin de klant zijn gegevens kan bewerken. Elk veld dat bewerkbaar is, wordt weergegeven, zoals naam, adres, telefoonnummer, emailadres, wachtwoord, en eventuele extra voorkeuren of instellingen. 6. De klant brengt de gewenste wijzigingen aan in de relevante velden, zoals het bijwerken van zijn adres na een verhuizing of het wijzigen van zijn telefoonnummer. 7. Nadat de klant alle gewenste wijzigingen heeft aangebracht, klikt hij op de knop \"Opslaan\" of een vergelijkbare optie om de wijzigingen door te voeren. 8. Het systeem valideert de ingevoerde gegevens en slaat deze op in de database. 9. Een bevestigingsbericht wordt weergegeven om aan te geven dat de wijzigingen succesvol zijn opgeslagen.\nPostconditie | De klant heeft met succes zijn profielgegevens aangepast en deze updates zijn nu van toepassing op zijn account. De klant kan nu verder navigeren op de website of applicatie met de bijgewerkte informatie.\nUSC5: | Gemakkelijk producten vinden\nActor | Klant",
+      "token_estimate": 518,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 10,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "7. De beheerder wijzigt de benodigde informatie en klikt op de knop om de wijzigingen op te slaan. 8. Het systeem slaat alle aangebrachte wijzigingen op."
+          ],
+          [
+            "Postconditie",
+            "De beheerder heeft de productinformatie eenvoudig kunnen aanpassen."
+          ],
+          [
+            "USC4:",
+            "Profiel bewerken"
+          ],
+          [
+            "Actor",
+            "Klant"
+          ],
+          [
+            "Preconditie",
+            "Klant moet ingelogd zijn."
+          ],
+          [
+            "Beschrijving",
+            "De klant heeft de mogelijkheid om zijn eigen gegevens aan te passen, waaronder persoonlijke informatie, adresgegevens, contactgegevens en voorkeuren."
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De klant logt in op zijn account op de website of applicatie. 2. Vanuit het startscherm navigeert de klant naar zijn profielpagina door te klikken op de link of knop met zijn naam of profielfoto. 3. Het systeem laadt de profielpagina van de klant en toont alle beschikbare informatie, waaronder naam, adres, telefoonnummer, emailadres, en andere relevante gegevens. 4. De klant bekijkt zijn huidige gegevens en besluit deze aan te passen. Hij klikt op de knop \"Gegevens bewerken\" of een vergelijkbare optie. 5. Klant wijzigt zijn gegevens en klikt op opslaan. Het systeem opent een formulier waarin de klant zijn gegevens kan bewerken. Elk veld dat bewerkbaar is, wordt weergegeven, zoals naam, adres, telefoonnummer, emailadres, wachtwoord, en eventuele extra voorkeuren of instellingen. 6. De klant brengt de gewenste wijzigingen aan in de relevante velden, zoals het bijwerken van zijn adres na een verhuizing of het wijzigen van zijn telefoonnummer. 7. Nadat de klant alle gewenste wijzigingen heeft aangebracht, klikt hij op de knop \"Opslaan\" of een vergelijkbare optie om de wijzigingen door te voeren. 8. Het systeem valideert de ingevoerde gegevens en slaat deze op in de database. 9. Een bevestigingsbericht wordt weergegeven om aan te geven dat de wijzigingen succesvol zijn opgeslagen."
+          ],
+          [
+            "Postconditie",
+            "De klant heeft met succes zijn profielgegevens aangepast en deze updates zijn nu van toepassing op zijn account. De klant kan nu verder navigeren op de website of applicatie met de bijgewerkte informatie."
+          ],
+          [
+            "USC5:",
+            "Gemakkelijk producten vinden"
+          ],
+          [
+            "Actor",
+            "Klant"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0107",
+      "page_no": 18,
+      "block_type": "heading",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "H5 Ethische aandachtspunten",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0108",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Na het bijwonen van het college en het opdoen van inzicht in de recente nieuwsberichten over",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0109",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "fraude en misleiding op online platforms, heb ik besloten extra nadruk te leggen op eerlijkheid",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0110",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "en transparantie binnen mijn website. Mijn doel is niet alleen winstgericht, maar ook gericht op",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0111",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "het verbeteren van de wereld, vooral omdat ik behoor tot Generatie Z, die meer waarde hecht",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0112",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "aan impact dan aan financieel gewin.",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0113",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Mijn website zal daarom de volgende principes omarmen:",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0114",
+      "page_no": 18,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• Gedetailleerde en accurate productbeschrijvingen: Ik zal zorgvuldig onderzoek doen naar",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0115",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "de bronnen van informatie en ervoor zorgen dat de productbeschrijvingen op mijn",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0116",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "website volledig kloppen en niet misleidend zijn. Dit zal het vertrouwen van mijn klanten",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0117",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "vergroten en misverstanden verminderen.",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0118",
+      "page_no": 18,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• Stimuleren van gebundelde aankopen: Klanten worden aangemoedigd om meerdere",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0119",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "producten tegelijk te bestellen door middel van speciale kortingen voor bundelaankopen.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0120",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Dit bevordert niet alleen een efficiënter gebruik van verzendmaterialen, maar vermindert",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0121",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "ook de CO2-uitstoot door minder individuele pakketten te verzenden.",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0122",
+      "page_no": 18,
+      "block_type": "bullet",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "• Verkoop van duurzame producten: Ik zal producten van hoge kwaliteit aanbieden die",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0123",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "ontworpen zijn om lang mee te gaan. Door te investeren in duurzame producten die",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0124",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "jarenlang meegaan, verminderen we de noodzaak van frequente vervanging en",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0125",
+      "page_no": 18,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "verminderen we de hoeveelheid afval die wordt geproduceerd.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0126",
+      "page_no": 18,
+      "block_type": "heading",
+      "heading_path": [
+        "H6 Security"
+      ],
+      "text": "H6 Security",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0127",
+      "page_no": 18,
+      "block_type": "table",
+      "heading_path": [
+        "H6 Security"
+      ],
+      "text": "Preconditie | Klant moet ingelogd zijn.\nBeschrijving | Klanten moeten snel en eenvoudig producten kunnen vinden in de webshop, bijvoorbeeld door gebruik te maken van een zoekbalk\nScenario beschrijving | 1. De klant logt in op zijn account op de webshop. 2. Op de startpagina van de webshop gebruikt de klant de zoekbalk om het gewenste product op naam te vinden. 3. Het systeem toont alle producten die overeenkomen met de zoekopdracht van de klant. 4. De klant bekijkt de zoekresultaten en selecteert het gewenste product. 5. De klant kan vervolgens meer details bekijken en het product toevoegen aan zijn winkelwagentje.\nPostconditie | De klant heeft succesvol het gezochte product kunnen vinden en eventueel toevoegen aan zijn winkelwagentje voor aankoop.",
+      "token_estimate": 189,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 4,
+        "column_count": 2,
+        "header_row": "Preconditie | Klant moet ingelogd zijn.",
+        "cells": [
+          [
+            "Preconditie",
+            "Klant moet ingelogd zijn."
+          ],
+          [
+            "Beschrijving",
+            "Klanten moeten snel en eenvoudig producten kunnen vinden in de webshop, bijvoorbeeld door gebruik te maken van een zoekbalk"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. De klant logt in op zijn account op de webshop. 2. Op de startpagina van de webshop gebruikt de klant de zoekbalk om het gewenste product op naam te vinden. 3. Het systeem toont alle producten die overeenkomen met de zoekopdracht van de klant. 4. De klant bekijkt de zoekresultaten en selecteert het gewenste product. 5. De klant kan vervolgens meer details bekijken en het product toevoegen aan zijn winkelwagentje."
+          ],
+          [
+            "Postconditie",
+            "De klant heeft succesvol het gezochte product kunnen vinden en eventueel toevoegen aan zijn winkelwagentje voor aankoop."
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0128",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Security"
+      ],
+      "text": "Encryptie is een essentieel onderdeel van beveiligingstechnologieën, waarbij gegevens worden",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0129",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Security"
+      ],
+      "text": "omgezet in een onleesbare vorm voor iedereen die geen toegang heeft tot de juiste sleutel of",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0130",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Security"
+      ],
+      "text": "token. Het wordt veel gebruikt om gevoelige informatie te beschermen tijdens opslag en",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0131",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Security"
+      ],
+      "text": "overdracht, zoals wachtwoorden. Een veelvoorkomende methode van encryptie is hashing,",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0132",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Security"
+      ],
+      "text": "waarbij gegevens worden omgezet in een unieke reeks karakters die niet omkeerbaar is,",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0133",
+      "page_no": 19,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Security"
+      ],
+      "text": "waardoor de oorspronkelijke gegevens niet direct terug te halen zijn.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0134",
+      "page_no": 19,
+      "block_type": "heading",
+      "heading_path": [
+        "H7 Literatuurlijst"
+      ],
+      "text": "H7 Literatuurlijst",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0135",
+      "page_no": 19,
+      "block_type": "bullet",
+      "heading_path": [
+        "H7 Literatuurlijst"
+      ],
+      "text": "• Xxl natrition voor mijn producten (https://xxlnutrition.com/nl)",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0136",
+      "page_no": 20,
+      "block_type": "bullet",
+      "heading_path": [
+        "H7 Literatuurlijst"
+      ],
+      "text": "• Kleurblind (https://www.frankwatching.com/archive/2021/03/11/webdesign-",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0137",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H7 Literatuurlijst"
+      ],
+      "text": "voorkleurenblinden/)",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0138",
+      "page_no": 20,
+      "block_type": "bullet",
+      "heading_path": [
+        "H7 Literatuurlijst"
+      ],
+      "text": "• Webshop tips (https://succesmetjewebshop.nl/je-webshop-laten-vertalen-waarom-zouje-",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0139",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H7 Literatuurlijst"
+      ],
+      "text": "dat-doen/)",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0140",
+      "page_no": 20,
+      "block_type": "bullet",
+      "heading_path": [
+        "H7 Literatuurlijst"
+      ],
+      "text": "• Waarom moet de webshop meertalig zijn? (https://www.gwsmedia.com/articles/6benefits-",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0141",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H7 Literatuurlijst"
+      ],
+      "text": "multilingual-websites)",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0142",
+      "page_no": 20,
+      "block_type": "heading",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "Bijlage I – Interview verslag",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0143",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "Voor een optimale ervaring bij het online winkelen voor gymartikelen zijn verschillende factoren",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0144",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "van belang. Klanten willen kunnen kiezen uit een breed assortiment aan gewenste artikelen,",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0145",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "concurrerende prijzen en eventuele kortingen, en een website die betrouwbaar en veilig is. Ook",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0146",
+      "page_no": 20,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "hechten ze waarde aan een hoogwaardige klantenservice en een soepel retourbeleid.",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0147",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "Klanten willen graag op de hoogte blijven van nieuwe releases en aanbiedingen, dus een",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0148",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "duidelijke sectie op de website voor deze informatie en de mogelijkheid om zich aan te melden",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0149",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "voor nieuwsbrieven of meldingen zijn belangrijk.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0150",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "Vooral interesse gaat uit naar recente gymartikelen en kwalitatieve accessoires. Hoewel prijs",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0151",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "een rol speelt, zijn kortingen en aanbiedingen vaak doorslaggevend bij de aankoop van",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0152",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "duurdere items.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0153",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "Functies die de ervaring kunnen verbeteren, zijn onder andere een aanbevelingssysteem,",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0154",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "mogelijkheid tot vooraf bestellen en pre-downloaden van producten, en community-functies",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0155",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "zoals forums.",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0156",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "Wat betreft de gebruikerservaring verwachten klanten een intuïtieve website, snelle laadtijden,",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0157",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "gedetailleerde productinformatie en goede zoek- en filteropties. Snelle en effectieve",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0158",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "klantenservice is van essentieel belang, vooral bij problemen met aankopen, waarbij de",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0159",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "voorkeur uitgaat naar live chat-ondersteuning of goed bereikbare klantenservicelijnen.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0160",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "Kortom : Een succesvolle online winkelervaring voor gymartikelen vereist een breed assortiment,",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0161",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "concurrerende prijzen, betrouwbare websitefunctionaliteit, hoogwaardige klantenservice en",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0162",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "duidelijke communicatie over nieuwe releases en aanbiedingen. Het integreren van handige",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0163",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "functies zoals aanbevelingssystemen en community-interactie kan de gebruikerservaring verder",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0164",
+      "page_no": 21,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag"
+      ],
+      "text": "verbeteren.",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "2fb8944d",
+      "block_id": "2fb8944d_0165",
+      "page_no": 22,
+      "block_type": "heading",
+      "heading_path": [
+        "Bijlage II – Poster"
+      ],
+      "text": "Bijlage II – Poster",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    }
+  ]
+}
