@@ -842,3 +842,47 @@ def _render_docent_view(
         )
 
 
+# ---------------------------------------------------------------------------
+# Demo-modus helpers
+
+
+_PREFERRED_DEMO_DOC_ID = "35baf7d3"
+
+
+def _find_demo_run() -> pathlib.Path | None:
+    if not _RUNS_DIR.exists():
+        return None
+
+    all_runs = sorted(_RUNS_DIR.iterdir(), reverse=True)
+    preferred: list[pathlib.Path] = []
+    fallback: list[pathlib.Path] = []
+
+    for run_dir in all_runs:
+        if not run_dir.is_dir():
+            continue
+
+        fb_path = run_dir / "feedback_result.json"
+        mg_path = run_dir / "merged_feedback_input.json"
+
+        if not (fb_path.exists() and mg_path.exists()):
+            continue
+
+        try:
+            fb = json.loads(fb_path.read_text(encoding="utf-8"))
+
+            if isinstance(fb, dict) and not fb.get("skipped"):
+                if run_dir.name.startswith(_PREFERRED_DEMO_DOC_ID):
+                    preferred.append(run_dir)
+                else:
+                    fallback.append(run_dir)
+
+        except (OSError, json.JSONDecodeError):
+            pass
+
+    if preferred:
+        return preferred[0]
+
+    if fallback:
+        return fallback[0]
+
+    return None
