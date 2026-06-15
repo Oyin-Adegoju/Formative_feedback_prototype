@@ -390,4 +390,25 @@ def _inject_css() -> None:
         """,
         unsafe_allow_html=True,
     )
+# ---------------------------------------------------------------------------
+# PDF-validatie (ongewijzigd)
+# ---------------------------------------------------------------------------
+
+_MIN_BYTES = 2_048
+_MAX_BYTES = 50 * 1024 * 1024
+
+
+def _validate_pdf(pdf_bytes: bytes, filename: str) -> str | None:
+    if not filename.lower().endswith(".pdf"):
+        return "Alleen PDF-bestanden worden ondersteund."
+    if len(pdf_bytes) < _MIN_BYTES:
+        return "Het bestand is te klein om een geldig PDF te zijn."
+    if len(pdf_bytes) > _MAX_BYTES:
+        return (
+            f"Het bestand is groter dan 50 MB "
+            f"({len(pdf_bytes) // (1024 * 1024)} MB). Upload een kleiner document."
+        )
+    if not pdf_bytes.startswith(b"%PDF"):
+        return "Het geupload bestand is geen geldig PDF (ontbrekende PDF-header)."
+    return None
 
