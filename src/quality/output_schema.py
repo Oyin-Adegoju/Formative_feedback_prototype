@@ -2,7 +2,7 @@
 
 Defines the exact JSON structure that quality_builder.py produces and
 quality_validator.py enforces. It mirrors the output block of
-prompts/qwen_quality/quality_diagnostics_all_criteria_v2.txt — the single
+prompts/qwen_quality/quality_diagnostics_all_criteria_v3.txt — the single
 source of truth for the per-criterion diagnostic dimensions.
 
 No logic, no LLM calls. Only types and the dimension/level constants.

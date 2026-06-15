@@ -63,9 +63,12 @@ class CriterionHandoff:
 
     All fields are extraction/coverage observations copied verbatim from the
     authoritative CriterionResult — NOT quality verdicts:
-        count           — found count for countable criteria (or None)
+        count           — ALWAYS None. The per-criterion CAPS counts are not
+                          trustworthy enough to drive downstream behaviour, so
+                          they are deliberately not exposed in the handoff. The
+                          field is kept for shape stability only.
         notes           — extraction/coverage observations (signals found/absent,
-                          counts vs thresholds, section/ambiguity warnings)
+                          section/ambiguity warnings)
         missing_signals — expected signals that were not detected (coverage gaps)
     evidence_items are reused unchanged from the criterion's EvidencePacket — the
     existing EvidenceItem already exposes the downstream-friendly fields
@@ -135,7 +138,13 @@ def build_caps_handoff(
         cr = caps_result.scorecard.results[key]
         pkt = packets.get(key)
         criteria[key] = CriterionHandoff(
-            count=cr.count,
+            # count is intentionally neutralized to None: the per-criterion CAPS
+            # counts (requirements / stakeholders especially) are not trustworthy
+            # enough to drive downstream behaviour, so they are not exposed in the
+            # handoff. CAPS keeps them internally; they just no longer flow out.
+            # This also makes merge_builder.apply_count_floor a no-op (it guards
+            # on `count is not None`) without redesigning the merge logic.
+            count=None,
             notes=list(cr.notes),
             missing_signals=list(cr.missing_signals),
             evidence_items=list(pkt.evidence_items) if pkt else [],

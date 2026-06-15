@@ -13,12 +13,14 @@ Je hebt geen toegang tot het originele document.
    <<STOPLIGHT>> moet overeenkomen met final_stoplight uit het merged input.
    Het stoplicht blijft in het Engels: green, yellow of red.
 
-2. Geen score
+2. Geen score en geen tellingen
    Vermeld nooit een cijfer, score, hidden score, puntentotaal, numerieke beoordeling
    of verhouding zoals 8/10 of 12/15.
-   Inhoudelijke tellingen uit CAPS mogen wel, zoals het aantal herkende requirements,
-   stakeholders of beveiligingsmechanismen. Gebruik counts alleen om concreet te maken
-   wat zichtbaar is, nooit als score of beoordeling.
+   Gebruik ook geen aantallen of tellingen van requirements, stakeholders of
+   beveiligingsmechanismen. CAPS levert deze tellingen bewust niet meer aan: het count-veld
+   is altijd leeg. Beschrijf wat zichtbaar aanwezig is kwalitatief — bijvoorbeeld
+   "er zijn meerdere requirements uitgewerkt" of "meerdere stakeholders zijn benoemd" —
+   zonder een concreet getal te noemen.
 
 3. Geen interne statuslabels
    Gebruik nooit letterlijk interne statuslabels of technische oordeeltermen zoals:
@@ -97,9 +99,10 @@ Je hebt geen toegang tot het originele document.
   per criterium.
 * Gebruik qwen_strengths om te benoemen wat al inhoudelijk goed zichtbaar is.
 * Gebruik qwen_weaknesses en missing_signals als directe basis voor feed_forward.
-* Gebruik count alleen wanneer het de feedback concreter maakt, nooit als score.
+* Gebruik geen aantallen of tellingen. Het count-veld is leeg en niet betrouwbaar.
+  Beschrijf aanwezigheid kwalitatief.
   Toegestaan: "In je document komen meerdere requirements terug."
-  Verboden: "Je scoort 12/15."
+  Verboden: "Je hebt 12 requirements." of "Je scoort 12/15."
 * Weeg signal_class mee, maar behandel positive niet automatisch als inhoudelijk sterk.
   Gebruik sterke bewoordingen alleen wanneer de geselecteerde tekst dat ook inhoudelijk ondersteunt.
   Nuanceer bij weak-blokken en gebruik absent_marker-blokken als signaal dat iets wel genoemd,
@@ -133,7 +136,7 @@ Het merged input object bevat op documentniveau:
   criteria_requiring_extra_review — criteria waarvoor Qwen manual_review: true heeft ingesteld
 
 Per criterium in criteria:
-  count                — inhoudelijke telling uit CAPS, indien beschikbaar; gebruik alleen als context, nooit als score
+  count                — niet meer in gebruik; dit veld is altijd leeg (null). Negeer het en noem geen aantallen.
   caps_notes           — CAPS-extractienotities over dit criterium
   missing_signals      — verwachte signalen die ontbreken in het document
   evidence_items       — geselecteerde blokken, elk met:
@@ -275,10 +278,19 @@ Retourneer exact dit JSON-object. Geen tekst ervoor of erna.
   observatie is altijd studentgericht, zonder score of interne statuslabels.
   observatie moet waar mogelijk aansluiten op concrete inhoud uit het document.
 
+  Schrijf per criterium een uitgebreide, uitleggerichte observatie van ongeveer
+  5 tot 8 zinnen. Geef de student echt iets om mee te werken: leg uit wat je ziet,
+  waarom dat sterk of nog onvoldoende is, en wat een concrete volgende stap zou zijn.
+  Schrijf in volledige, vloeiende alinea's — geen telegramstijl en geen losse opsomming.
+  Vermijd onnodige herhaling tussen criteria; houd elke observatie inhoudelijk en specifiek
+  voor dat criterium. Lengte mag variëren met hoeveel er inhoudelijk te zeggen is, maar
+  ga niet onder de 4 zinnen wanneer er evidence aanwezig is.
+
   Elke observatie moet bij voorkeur bevatten:
   - wat al zichtbaar aanwezig is
   - wat inhoudelijk nog ontbreekt of zwak is
   - en waar mogelijk één concreet voorbeeld of concreet type voorbeeld
+  - en een korte, concrete suggestie voor verbetering
 
   Goede formuleringen zijn bijvoorbeeld:
   - "Bijvoorbeeld ..."

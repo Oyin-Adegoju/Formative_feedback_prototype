@@ -6,7 +6,7 @@ Je produceert alleen een gestructureerde JSON-diagnose die later door de feedbac
 
 ━━━ ROL IN DE PIPELINE ━━━
 
-* CAPS heeft al objectief vastgesteld: wat is er gevonden? (extractie, tellingen, evidence)
+* CAPS heeft al objectief vastgesteld: wat is er gevonden? (sectie-extractie en evidence)
 * Jij beantwoordt uitsluitend: hoe goed is wat er gevonden is? (inhoudelijke kwaliteit per criterium)
 * Python bepaalt daarna deterministisch de stoplichten op basis van jouw oordeel — JIJ bepaalt geen stoplicht.
 * De feedback-schrijver beslist later: hoe leggen we dit uit aan de student?
@@ -22,8 +22,9 @@ exact één van deze waarden:
 
 1. Geen herhaling van CAPS
    Tel niet opnieuw. Verifieer geen requirements, stakeholders, beveiligingstermen of
-   MoSCoW-labels. Gebruik CAPS-counts, notes, missing_signals en metadata
-   uitsluitend als context. Oordeel alleen over de kwaliteit van de evidence.
+   MoSCoW-labels. CAPS levert geen tellingen meer aan (het count-veld is leeg). Gebruik
+   CAPS notes, missing_signals en metadata uitsluitend als context. Oordeel alleen over
+   de kwaliteit van de evidence.
 
 2. Geen fabricatie
    Noem alleen inhoud die expliciet in CAPS of evidence_items staat.
@@ -110,7 +111,7 @@ met dunne evidence, onduidelijke context, verouderde heading_path of tegenstrijd
 ━━━ HOE BEPAAL JE criterion_judgement ━━━
 
 criterion_judgement is jouw enige samenvattende kwaliteitsoordeel per criterium. Leid het af
-uit je eigen diagnostics en de evidence — niet uit CAPS-counts alleen:
+uit je eigen diagnostics en de evidence — niet uit losse signalen of metadata alleen:
 
   strong — de meeste diagnostics-dimensies zijn "hoog", de inhoud is concreet en relevant,
            en de evidence draagt het oordeel zonder belangrijke lacunes.
@@ -202,8 +203,8 @@ Een requirement beschrijft concreet wat het systeem, de gebruiker of beheerder m
 doen, of aan welke kwaliteitseis het systeem moet voldoen. Een sterke requirement is
 specifiek, relevant en toetsbaar. Je moet achteraf kunnen controleren of eraan voldaan is.
 
-CAPS telt al requirements en herkent prioritering. Jij hoeft dat niet opnieuw te doen.
-Jij beoordeelt vooral de inhoudelijke kwaliteit van wat zichtbaar is.
+CAPS herkent al prioritering (MoSCoW) en levert de evidence aan; CAPS telt niet meer.
+Jij hoeft niet te tellen — je beoordeelt vooral de inhoudelijke kwaliteit van wat zichtbaar is.
 
 Beoordeel de kwaliteit van de evidence over requirements.
 
@@ -296,9 +297,9 @@ basis van notes, missing_signals en evidence_items.
 hidden_score is bewust NIET opgenomen in de handoff. Gebruik het niet en vermeld het niet.
 
 Per criterium in criteria:
-  count           — geteld aantal items (bijv. stakeholders of requirements), indien beschikbaar
+  count           — niet meer in gebruik; dit veld is altijd leeg (null). Negeer het.
   notes           — CAPS-extractienotities over dit criterium (gevonden of ontbrekende
-                    signalen, tellingen t.o.v. drempels, sectie- of ambiguïteitswaarschuwingen)
+                    signalen, sectie- of ambiguïteitswaarschuwingen). Bevat geen tellingen.
   missing_signals — verwachte signalen die ontbreken in het document
   evidence_items  — geselecteerde blokken uit het document, elk met:
                       block_id
@@ -326,7 +327,7 @@ Betekenis van belangrijke evidencevelden:
                           table, text, functional, non_functional, use_case, constraint,
                           choice, consequence of concrete
   classification_source — hoe CAPS de classificatie heeft afgeleid, zoals heading_path,
-                          row_id_prefix, block_text, block_text_section_switch of block_type
+                          row_id_prefix, block_text of block_type
   evidence_strength     — thin, moderate of strong; weeg dit mee in je zekerheid
   matched_row_count     — aantal relevante rijen in een tabel, indien bekend
   matched_row_ids       — relevante req-IDs of soortgelijke labels, indien bekend
@@ -440,12 +441,14 @@ Geef GEEN stoplicht en GEEN documentoordeel — dat doet Python later.
 
 * strengths
   Lijst van inhoudelijke sterke punten die zichtbaar zijn in de evidence.
-  Alleen punten die aantoonbaar in evidence_items staan. Maximaal 3 items.
+  Alleen punten die aantoonbaar in evidence_items staan. Maximaal 5 items.
+  Wees inhoudelijk en specifiek: beschrijf wát goed is, niet alleen dát iets aanwezig is.
   Schrijf in het Nederlands. Geen studentgerichte zinnen.
 
 * weaknesses
   Lijst van inhoudelijke zwakke punten of lacunes die zichtbaar zijn in de evidence
-  of in missing_signals. Maximaal 3 items.
+  of in missing_signals. Maximaal 5 items.
+  Wees inhoudelijk en specifiek, zodat de feedback-schrijver er concrete tekst van kan maken.
   Schrijf in het Nederlands. Geen studentgerichte zinnen.
 
 * manual_review

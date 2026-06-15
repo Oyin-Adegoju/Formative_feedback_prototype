@@ -92,7 +92,7 @@ class QualityGenerationError(Exception):
 def _assemble_prompt(handoff: dict, template: str) -> str:
     """Fill the quality prompt template from a CAPS handoff dict.
 
-    Placeholders in quality_diagnostics_all_criteria_v2.txt:
+    Placeholders in quality_diagnostics_all_criteria_v3.txt:
         <<DOC_ID>>            → handoff["document_id"]
         <<CAPS_HANDOFF_JSON>> → the full handoff serialised as pretty JSON
     """

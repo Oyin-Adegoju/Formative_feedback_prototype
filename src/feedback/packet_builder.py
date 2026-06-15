@@ -1,4 +1,4 @@
-"""packet_builder.py — builds per-criterion evidence packets from CAPS artifacts.
+"""packet_builder.py — strict, heading-only per-criterion evidence selection.
 
 Takes a CapsPipelineArtifacts object (retrieval candidates + per-criterion
 results + final run result + full ordered blocks) and produces one
@@ -8,38 +8,36 @@ Architecture position:
     CapsPipelineArtifacts → build_evidence_packets → dict[str, EvidencePacket]
 
 CAPS is the source of truth for every verdict (status, count, stoplight).
-This module only SELECTS and SHAPES evidence — it never re-judges, re-scores,
-or overrides any CAPS decision.
+This module only SELECTS and SHAPES evidence — it never re-judges or overrides
+any CAPS decision.
 
-Selection strategy: SECTION-FIRST, SIGNAL-ASSISTED
+Selection strategy: HEADING-ONLY (precision-first)
 --------------------------------------------------
-Evidence admission is driven primarily by *section identity* (section_family.py),
-not by keyword hits:
+Evidence admission is driven SOLELY by section identity (section_family.py):
 
-  1. In-family blocks  — heading_path belongs to the criterion's section family.
-                         These are ranked first and form the backbone of the
-                         packet.
-  2. Neutral blocks    — heading_path belongs to no family (Inleiding, page
-                         headers, …). Admitted as supporting context ONLY when
-                         they carry a real, criterion-defining content signal.
-  3. Foreign rescue    — heading_path clearly belongs to ANOTHER criterion's
-                         family. Admitted only for a strong, explainable reason
-                         (a criterion-defining token), only to preserve coverage,
-                         bounded in number, with a focused excerpt + an honest
-                         context_warning. This is how legitimately cross-placed
-                         content (security/taalkeuze inside non-functional
-                         requirements) still reaches the right criterion without
-                         letting generic words pull whole foreign sections in.
+    A block is admitted for a criterion if, and only if, its heading_path
+    belongs to that criterion's section family.
 
-Signals (matched keywords, MoSCoW tiers, row-ids, subtypes) ASSIST: they label
-subtype, rank within a tier, gate rescue, and slice table rows. They never
-override a clear section mismatch, and they are matched with word boundaries so
-short tokens (avg, ssl, tls) cannot fire inside unrelated words.
+There is intentionally NO:
+    - neutral-block promotion on a keyword hit,
+    - foreign-section rescue (a security token in a use-case/NFR table),
+    - image / quadrant stakeholder fallback,
+    - stakeholder inference from actor/use-case structure,
+    - taalkeuze inference from scattered language mentions,
+    - requirements expansion into use-case sections,
+    - count-driven selection or count-driven notes.
 
-Excerpts are broader but bounded: paragraph/bullet evidence is widened into a
-coherent same-section window (using the full ordered blocks), tables show the
-header plus a readable row slice, and structural blocks are paired with nearby
-explanatory prose when that prose clarifies their meaning.
+If a document lacks a section family for a criterion, that criterion simply
+gets little or no evidence. Lower recall, higher precision — by design.
+
+Use cases are NOT requirements: a block under a use-case heading is rejected
+for requirements even when nested beneath a requirements heading
+(_classify_section == "uc").
+
+Per-item enrichment (subtype, matched row-ids, MoSCoW tiers, focused excerpt)
+is kept ONLY as an honest description of the already-admitted block. It never
+admits, rescues, or re-ranks across section families. Short tokens are matched
+with word boundaries so they cannot fire inside unrelated words.
 
 Selection budget (max evidence items per criterion):
     beperking      6
@@ -69,9 +67,8 @@ from src.feedback.evidence import (
 )
 from src.feedback.section_family import (
     contains_negation,
-    families_of,
-    is_foreign,
     is_in_family,
+    primary_families,
 )
 
 # ---------------------------------------------------------------------------
@@ -86,37 +83,18 @@ _MAX_ITEMS: Final[dict[str, int]] = {
     "security":     6,
 }
 
-# Max foreign-rescue items admitted per criterion (coverage safety valve, kept
-# small so rescues never dominate genuine in-section evidence).
-_MAX_RESCUE: Final[dict[str, int]] = {
-    "beperking":    2,
-    "stakeholders": 4,   # image/quadrant fallback may need a few substitutes
-    "requirements": 3,
-    "taalkeuze":    3,
-    "security":     3,
-}
-
 # ---------------------------------------------------------------------------
-# Lightweight signal term sets (selection / labelling only — CAPS is authoritative)
+# Lightweight signal term sets (LABELLING ONLY — never admission)
 # ---------------------------------------------------------------------------
+# These describe what an already-admitted in-section block contains. They are
+# used for criterion_subtype, matched_signals and missing_signals — never to
+# admit, rescue, or re-rank a block across section families.
 
 _BEP_LIMITATION: Final[frozenset[str]] = frozenset({
     "beperking", "slechtziend", "blind", "doof", "dyslexie",
     "visuele beperking", "motorische", "auditieve", "cognitieve",
     "afbakening", "doelgroep met beperking", "specifieke doelgroep",
-    "niche", "focus op", "gekozen doelgroep",
-})
-
-# Disability/accessibility-specific limitation tokens. These are the ONLY tokens
-# allowed to rescue a foreign block into beperking — the generic word "beperking"
-# is excluded because it fires inside "budgetbeperking" / "betaalbeperking", which
-# are constraints, not a chosen target-group limitation.
-_BEP_DISABILITY: Final[frozenset[str]] = frozenset({
-    "slechtziend", "slechtziende", "blind", "blinde", "kleurenblind",
-    "kleurenblindheid", "visuele beperking", "visueel beperkt", "dyslexie",
-    "dyslect", "doof", "slechthorend", "auditieve beperking",
-    "motorische beperking", "cognitieve beperking", "schermlezer",
-    "screenreader", "wcag", "toetsenbordnavigatie",
+    "niche", "focus op", "gekozen doelgroep", "toegankelijkheid",
 })
 
 _BEP_RESEARCH: Final[frozenset[str]] = frozenset({
@@ -130,7 +108,6 @@ _TAAL_CHOICE: Final[frozenset[str]] = frozenset({
     "taalkeuze", "taalversie", "meertalig", "meertaligheid",
     "in het nederlands", "in het engels", "nederlandstalig",
     "webshop in het", "taal van de", "taalkeuzeknop",
-    # Bare language names — aligned with checks.py _LANGUAGE_TERMS
     "nederlands", "engels", "duits", "frans",
 })
 
@@ -138,6 +115,26 @@ _TAAL_CONSEQUENCE: Final[frozenset[str]] = frozenset({
     "bereik", "vertaalkosten", "lokalisatie", "consequentie",
     "begrijpelijk", "taalbarrière", "taalbarrier", "vertaling",
     "internationaal", "beïnvloeden", "beïnvloed", "doelgroepbereik",
+})
+
+# High-precision language-CHOICE phrases. This is the ONE explicit cross-section
+# exception in the whole builder: taalkeuze has no dedicated heading family in
+# the corpus (language choice is stated inside doelgroep / requirements / intro
+# prose), so a block from ANY section is admitted when — and only when — it
+# carries one of these decision-bearing phrases. Deliberately multi-word /
+# concept-noun: bare tokens ("nederlands", "engels", "meertalig") are excluded
+# because they fire on doelgroep descriptions ("meertalige gebruikers") rather
+# than on an actual language choice. Corpus-validated: catches "taalkeuzeknop …
+# taal van de webshop", "de website alleen in het nederlands beschikbaar",
+# "Meertaligheid verbetert …", "NFR06 Taal | De website is in het Nederlands",
+# while rejecting the "meertalige mensen/gebruikers" noise.
+_TAAL_CHOICE_STRICT: Final[frozenset[str]] = frozenset({
+    "taalkeuze",            # also matches "taalkeuzeknop"
+    "in het nederlands", "in het engels", "in het duits", "in het frans",
+    "nederlandstalig", "engelstalig", "anderstalig",
+    "meertaligheid", "tweetalig",
+    "taal van de", "standaardtaal",
+    "beschikbaar in het",
 })
 
 _SEC_CONCRETE: Final[frozenset[str]] = frozenset({
@@ -148,21 +145,12 @@ _SEC_CONCRETE: Final[frozenset[str]] = frozenset({
     "beveiligingsaudit",
 })
 
-# Concrete tokens trusted enough to RESCUE a foreign requirements block into
-# security. Excludes bare https/ssl/http — these fire inside citation URLs and
-# random words and are not, on their own, evidence of a security *mechanism*.
-_SEC_RESCUE: Final[frozenset[str]] = frozenset(_SEC_CONCRETE - {"https", "ssl"})
-
 _SEC_GENERIC: Final[frozenset[str]] = frozenset({
     "security", "beveiliging", "veiligheid", "veilig", "privacy",
 })
 
 _STK_BELANG: Final[frozenset[str]] = frozenset({"belang", "concern", "interesse"})
 _STK_INVLOED: Final[frozenset[str]] = frozenset({"invloed", "macht", "prioriter"})
-_STK_ROLE: Final[frozenset[str]] = frozenset({
-    "stakeholder", "belanghebbende", "opdrachtgever", "eindgebruiker",
-    "actor", "investeerder", "ontwikkelaar", "beheerder",
-})
 
 # Requirement ID pattern — reused from checks.py logic, kept local.
 _REQ_ID_RE: Final[re.Pattern[str]] = re.compile(
@@ -174,20 +162,6 @@ _REQ_ID_RE: Final[re.Pattern[str]] = re.compile(
 _MOSCOW_BARE_CELL_RE: Final[re.Pattern[str]] = re.compile(
     r"^(must|should?|could|won'?t)\b",
     re.IGNORECASE,
-)
-
-# Local in-block section labels — used only to detect a section switch inside a
-# block whose heading_path is stale (carryover). Deliberately conservative.
-_LOCAL_SECTIONS: Final[tuple[tuple[re.Pattern[str], str], ...]] = (
-    (re.compile(r"\buse[\s\-]?cases?\b", re.IGNORECASE), "Use cases"),
-    (re.compile(r"\b(?:niet|non)[\s\-]+functione(?:le|el|l)\b", re.IGNORECASE),
-     "Niet-functionele requirements"),
-    (re.compile(r"\b(?:niet|non)[\s\-]+functional\b", re.IGNORECASE),
-     "Niet-functionele requirements"),
-    (re.compile(r"\bconstraints?\b", re.IGNORECASE), "Constraints"),
-    (re.compile(r"\bfunctione(?:le|el|l)\b", re.IGNORECASE),
-     "Functionele requirements"),
-    (re.compile(r"\bfunctional\b", re.IGNORECASE), "Functionele requirements"),
 )
 
 # Human-friendly subtype labels for requirement sections.
@@ -214,12 +188,10 @@ def _token_re(term: str) -> re.Pattern[str]:
     """Compile a left-anchored token matcher for one term (cached).
 
     All matches require a word boundary BEFORE the term, which stops short
-    tokens from firing inside unrelated words ("fitnesslie**ssl**iefhebbers",
-    "AVGregels"). Acronym-like tokens (≤4 chars or with a digit) also require a
-    trailing boundary, so "AVG" matches but "AVGregels" does not. Longer Dutch
-    word tokens allow a trailing suffix so normal inflection still matches
-    ("meertalig" → "meertaligen", "wachtwoord" → "wachtwoorden",
-    "slechtziend" → "slechtziende(n)").
+    tokens from firing inside unrelated words. Acronym-like tokens (≤4 chars or
+    with a digit) also require a trailing boundary, so "AVG" matches but
+    "AVGregels" does not. Longer Dutch word tokens allow a trailing suffix so
+    normal inflection still matches ("wachtwoord" → "wachtwoorden").
     """
     esc = re.escape(term)
     if _is_acronymish(term):
@@ -262,8 +234,8 @@ class _DocCtx:
 
         Extends from the anchor forward then backward across immediately adjacent
         blocks that share the anchor's heading_path and are paragraph/bullet,
-        stopping at max_chars. Returns text in document order. Falls back to the
-        anchor's own (whitespace-normalised, trimmed) text when no neighbours fit.
+        stopping at max_chars. Never widens into a different heading_path, so the
+        excerpt stays inside the selected heading family.
         """
         i = self.pos.get(anchor_bid)
         if i is None:
@@ -332,11 +304,7 @@ def _excerpt_paragraph(text: str, max_len: int = 360) -> str:
 
 
 def _excerpt_table(block: dict, max_data_rows: int = 6) -> str:
-    """Format a table as 'header | header\\nrow | row…' for compact display.
-
-    Includes header_row (if present) then up to max_data_rows data rows.
-    Falls back to _excerpt_paragraph when table_meta is absent.
-    """
+    """Format a table as 'header | header\\nrow | row…' for compact display."""
     tm = block.get("table_meta")
     if not tm:
         return _excerpt_paragraph(block["text"])
@@ -371,12 +339,7 @@ def _focused_table_excerpt(
     max_len: int = 260,
     boundary: bool = False,
 ) -> str:
-    """Cleaner table snippet: header + the first rows that carry a signal.
-
-    Rows are preferred when they contain a matched term, a MoSCoW priority
-    label, or a requirement ID. With boundary=True, term matching uses word
-    boundaries (used for the short security/language tokens).
-    """
+    """Cleaner table snippet: header + the first rows that carry a signal."""
     tm = block.get("table_meta")
     if not tm or not tm.get("cells"):
         return ""
@@ -449,7 +412,7 @@ def _is_heading_only(hit: RetrievalHit) -> bool:
 
 
 def _has_terms(hit: RetrievalHit, terms: frozenset[str]) -> bool:
-    """Substring presence of any term in the block's text (broad labelling use)."""
+    """Substring presence of any term in the block's text (labelling use)."""
     text = hit.block["text"].lower()
     return any(t in text for t in terms)
 
@@ -480,49 +443,26 @@ def _searchable_block_text(hit: RetrievalHit) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Section-family partitioning
+# Section-family admission (heading-only)
 # ---------------------------------------------------------------------------
 
 
-@dataclass
-class _Bucketed:
-    """Hits partitioned by section identity for one criterion."""
+def _in_family_hits(criterion_key: str, hits: list[RetrievalHit]) -> list[RetrievalHit]:
+    """In-family hits for a criterion, content-first ordered.
 
-    in_family: list[RetrievalHit]
-    neutral: list[RetrievalHit]
-    foreign: list[RetrievalHit]
-    fams: dict[str, frozenset[str]]  # block_id → families_of(heading_path)
-
-
-def _bucket(criterion_key: str, hits: list[RetrievalHit]) -> _Bucketed:
-    """Partition hits into in-family / neutral / foreign for a criterion.
-
-    Section identity is the primary admission axis; the criterion builders then
-    apply signal-based ranking and rescue within these buckets.
+    A hit is in-family when its DEEPEST heading segment belongs to the
+    criterion's section family (primary_families). Nothing else is admitted — no
+    neutral promotion, no foreign rescue, and no ancestor/stale-root carryover.
     """
-    in_f: list[RetrievalHit] = []
-    neu: list[RetrievalHit] = []
-    fgn: list[RetrievalHit] = []
-    fams: dict[str, frozenset[str]] = {}
-    for h in hits:
-        f = families_of(h.block["heading_path"])
-        fams[h.block["block_id"]] = f
-        if is_in_family(criterion_key, f):
-            in_f.append(h)
-        elif is_foreign(criterion_key, f):
-            fgn.append(h)
-        else:
-            neu.append(h)
-    return _Bucketed(
-        in_family=_sort_content_first(in_f),
-        neutral=_sort_content_first(neu),
-        foreign=_sort_content_first(fgn),
-        fams=fams,
-    )
+    in_f = [
+        h for h in hits
+        if is_in_family(criterion_key, primary_families(h.block["heading_path"]))
+    ]
+    return _sort_content_first(in_f)
 
 
 # ---------------------------------------------------------------------------
-# Requirement-structure helpers (row IDs / MoSCoW / local section)
+# Requirement-structure helpers (row IDs / MoSCoW)
 # ---------------------------------------------------------------------------
 
 
@@ -602,36 +542,29 @@ def _data_row_count(hit: RetrievalHit) -> int:
     return len(tm.get("cells") or [])
 
 
-def _local_section_label(text: str) -> str:
-    """Detect an in-block section label (e.g. 'Use cases'). '' when none."""
-    head = text[:200]
-    for pattern, label in _LOCAL_SECTIONS:
-        if pattern.search(head):
-            return label
-    return ""
+def _requirement_subtype(hit: RetrievalHit) -> tuple[str, str]:
+    """Resolve (subtype, classification_source) for a requirement block.
 
-
-def _requirement_subtype(hit: RetrievalHit) -> tuple[str, str, str]:
-    """Resolve (subtype, classification_source, local_section_label) for a req block."""
+    Heading identity wins. When the heading is combined/unlabelled ("other"),
+    fall back to per-row requirement-ID prefixes (FR/NFR/CON). No block-text
+    section-switch heuristic — that rescue logic was removed.
+    """
     sec = _classify_section(hit.block["heading_path"])
     if sec != "other":
-        return _SUBTYPE_BY_SECTION[sec], "heading_path", ""
+        return _SUBTYPE_BY_SECTION[sec], "heading_path"
 
     ids = _extract_req_ids(hit, max_n=24)
     has_fr = any(re.match(r"FR\d", i) for i in ids)
     has_nfr = any(re.match(r"NFR\d", i) for i in ids)
     has_con = any(re.match(r"(CONSTR|CON)\d", i) for i in ids)
-    local = _local_section_label(_searchable_block_text(hit))
 
     if has_nfr and not has_fr:
-        return "non_functional", "row_id_prefix", local
+        return "non_functional", "row_id_prefix"
     if has_fr and not has_nfr:
-        return "functional", "row_id_prefix", local
+        return "functional", "row_id_prefix"
     if has_con and not has_fr and not has_nfr:
-        return "constraint", "row_id_prefix", local
-    if local:
-        return "", "block_text_section_switch", local
-    return "", "", ""
+        return "constraint", "row_id_prefix"
+    return "", ""
 
 
 def _req_id_count(hit: RetrievalHit) -> int:
@@ -657,8 +590,17 @@ def _req_signals(hit: RetrievalHit) -> list[str]:
     return sigs
 
 
+def _is_use_case_section(hit: RetrievalHit) -> bool:
+    """True when the block's most-specific requirement section is a use case.
+
+    Use cases are not requirements. A use-case subsection nested under a
+    requirements heading is therefore excluded from the requirements packet.
+    """
+    return _classify_section(hit.block["heading_path"]) == "uc"
+
+
 # ---------------------------------------------------------------------------
-# Evidence-item construction with enrichment
+# Evidence-item construction
 # ---------------------------------------------------------------------------
 
 
@@ -684,41 +626,38 @@ def _make_item(
     ctx: _DocCtx | None = None,
     focused_terms: frozenset[str] | None = None,
     focused_boundary: bool = False,
-    rescue: bool = False,
     pair: bool = True,
     matched_signals: list[str] | None = None,
     criterion_subtype: str = "",
     classification_source: str = "",
     matched_row_count: int | None = None,
     matched_row_ids: list[str] | None = None,
-    local_section_label: str = "",
     context_warning: str = "",
+    excerpt_override: str = "",
 ) -> EvidenceItem:
-    """Construct an enriched EvidenceItem from a RetrievalHit.
+    """Construct an EvidenceItem from an in-family RetrievalHit.
 
-    Excerpt construction (broader but bounded):
-      * paragraph/bullet → a coherent same-section window (via ctx), or a trimmed
-        block excerpt when no context is available.
-      * table → header + a readable row slice; for a foreign *rescue* the excerpt
-        is narrowed to the rows that actually carry the criterion signal.
-      * heading → the heading text, optionally paired with nearby prose.
+    Excerpts stay inside the selected heading family:
+      * paragraph/bullet → a coherent same-section window (via ctx),
+      * table → header + a readable row slice,
+      * heading → the heading text, optionally paired with nearby same-section
+        prose.
 
-    `focused_excerpt` is a tighter targeted snippet; when a table/heading carries
-    no obvious focused snippet, nearby explanatory prose is paired in instead.
+    excerpt_override, when non-empty, replaces the computed broad excerpt. It is
+    used by the taalkeuze choice-phrase fallback so an item found inside an
+    unrelated NFR/use-case table shows only the language-bearing row, not the
+    whole foreign table.
     """
     b = hit.block
     bt = b["block_type"]
     sigs = matched_signals or []
     row_ids = matched_row_ids or []
 
-    # --- broad excerpt ---
-    if bt == "table":
-        if rescue:
-            excerpt = _focused_table_excerpt(
-                b, focused_terms, max_rows=3, boundary=focused_boundary
-            ) or _excerpt_table(b)
-        else:
-            excerpt = _excerpt_table(b)
+    # --- broad excerpt (same-section only) ---
+    if excerpt_override:
+        excerpt = excerpt_override
+    elif bt == "table":
+        excerpt = _excerpt_table(b)
     elif bt in ("paragraph", "bullet"):
         excerpt = (
             ctx.window(b["block_id"]) if ctx is not None else _excerpt_paragraph(b["text"])
@@ -729,7 +668,11 @@ def _make_item(
         excerpt = _excerpt_paragraph(b["text"]) or " ".join(b["heading_path"][-1:])
 
     # --- focused snippet (assist) ---
-    if bt == "table":
+    if excerpt_override:
+        # The override already IS the tight, targeted excerpt — a second focused
+        # snippet (which may surface an unrelated req-id row) would only mislead.
+        focused = ""
+    elif bt == "table":
         focused = _focused_table_excerpt(b, focused_terms, boundary=focused_boundary)
     elif bt in ("paragraph", "bullet"):
         focused = _focused_paragraph_excerpt(
@@ -738,8 +681,9 @@ def _make_item(
     else:
         focused = ""
 
-    # Explanation pairing: a bare structural block gains nearby prose context.
-    if pair and ctx is not None and bt in ("table", "heading") and not focused:
+    # A bare structural block gains nearby same-section prose context (never for
+    # an override, whose neighbours are the unrelated foreign section).
+    if pair and not excerpt_override and ctx is not None and bt in ("table", "heading") and not focused:
         focused = ctx.explanation(b["block_id"])
 
     if focused and focused.strip() == excerpt.strip():
@@ -760,18 +704,26 @@ def _make_item(
         evidence_strength=_evidence_strength(signal_class, sigs, matched_row_count),
         matched_row_count=matched_row_count,
         matched_row_ids=row_ids,
-        local_section_label=local_section_label,
+        local_section_label="",
         context_warning=context_warning,
     )
 
 
-_RESCUE_WARNING: Final[str] = (
-    "buiten eigen sectie aangetroffen ({fam}-sectie); relevante inhoud uitgelicht"
-)
+def _heading_only_marker(
+    criterion_key: str,
+    hits: list[RetrievalHit],
+    reason: str,
+    ctx: _DocCtx,
+) -> list[EvidenceItem]:
+    """One absent_marker item from an in-family heading-only block, if any.
 
-
-def _fam_label(fams: frozenset[str]) -> str:
-    return "/".join(sorted(fams)) if fams else "onbekend"
+    Surfaces a 'section named but not populated' situation. Returns at most one
+    item, or an empty list when no in-family heading block exists.
+    """
+    for h in _in_family_hits(criterion_key, hits):
+        if _is_heading_only(h):
+            return [_make_item(h, reason, "absent_marker", ctx=ctx, pair=False)]
+    return []
 
 
 # ---------------------------------------------------------------------------
@@ -785,32 +737,21 @@ def _build_beperking_packet(
     cr: CriterionResult,
     ctx: _DocCtx,
 ) -> EvidencePacket:
-    """Section-first limitation + research evidence.
+    """Heading-only limitation + deskresearch evidence.
 
-    In-family = doelgroep / beperking / literatuur / bron sections. Neutral
-    intro prose is admitted when it carries a limitation or research signal.
-    Foreign blocks are rescued only on a disability-specific limitation token
-    (never the generic substring 'beperking'), keeping budget/constraint tables
-    out. Research signals that the block negates ('geen bronnen gebruikt') are
-    surfaced honestly as weak, not positive.
+    In-family = doelgroep / onderzoek-naar-web-gebruikers / beperking /
+    toegankelijkheid sections plus the deskresearch headings (literatuurlijst /
+    bronvermelding). Limitation/research labels describe the selected blocks
+    only. A block that negates its own research signal is surfaced as weak.
     """
     MAX = _MAX_ITEMS["beperking"]
-    status = cr.status
     items: list[EvidenceItem] = []
     missing_sigs: list[str] = []
     seen: set[str] = set()
-    rescued = 0
-
-    bk = _bucket("beperking", hits)
-    _ALL = _BEP_LIMITATION | _BEP_RESEARCH
     seen_text: set[str] = set()
+    _ALL = _BEP_LIMITATION | _BEP_RESEARCH
 
-    def _text_key(h: RetrievalHit) -> str:
-        # Key on the rendered window so adjacent fragments that expand to the
-        # same section text (e.g. a run of single-URL paragraphs) collapse.
-        if h.block["block_type"] in ("paragraph", "bullet"):
-            return ctx.window(h.block["block_id"])[:160].lower()
-        return " ".join(h.block["text"].split())[:120].lower()
+    content = [h for h in _in_family_hits("beperking", hits) if not _is_heading_only(h)]
 
     def _subtype(h: RetrievalHit) -> str:
         has_l = _has_terms(h, _BEP_LIMITATION)
@@ -823,31 +764,28 @@ def _build_beperking_packet(
             return "research"
         return ""
 
-    def _add(h: RetrievalHit, kind: str) -> bool:
-        nonlocal rescued
+    def _text_key(h: RetrievalHit) -> str:
+        if h.block["block_type"] in ("paragraph", "bullet"):
+            return ctx.window(h.block["block_id"])[:160].lower()
+        return " ".join(h.block["text"].split())[:120].lower()
+
+    # Limitation-bearing blocks first, then research-bearing, then the rest.
+    lim_first = [h for h in content if _has_terms(h, _BEP_LIMITATION)]
+    res_first = [h for h in content if _has_terms(h, _BEP_RESEARCH)]
+    for h in lim_first + res_first + content:
+        if len(items) >= MAX:
+            break
         bid = h.block["block_id"]
-        if bid in seen or len(items) >= MAX:
-            return False
+        if bid in seen:
+            continue
         tkey = _text_key(h)
         if tkey and tkey in seen_text:
-            return False  # drop near-identical duplicates (e.g. repeated URL lists)
-        if kind == "rescue":
-            if rescued >= _MAX_RESCUE["beperking"]:
-                return False
-            rescued += 1
+            continue
         seen.add(bid)
         seen_text.add(tkey)
-        text = h.block["text"]
         l_t = _matched_terms(h, _BEP_LIMITATION)
         r_t = _matched_terms(h, _BEP_RESEARCH)
-        negated = contains_negation(text)
-        sc: SignalClass = "weak" if (negated or kind == "neutral_thin") else "positive"
-        warn_parts: list[str] = []
-        if kind == "rescue":
-            warn_parts.append(_RESCUE_WARNING.format(fam=_fam_label(bk.fams[bid])))
-        if negated:
-            warn_parts.append("onderbouwing/onderzoek wordt in deze passage juist ontkend")
-        warn = "; ".join(warn_parts)
+        negated = contains_negation(h.block["text"])
         if l_t and r_t:
             reason = f"Beperking + onderbouwing: {', '.join((l_t + r_t)[:3])}"
         elif l_t:
@@ -855,8 +793,9 @@ def _build_beperking_packet(
         elif r_t:
             reason = f"Onderbouwing/deskresearch: {', '.join(r_t)}"
         else:
-            reason = "Aanvullende context bij de beperking"
-            sc = "weak"
+            reason = "Inhoud in de beperking/doelgroep-sectie"
+        sc: SignalClass = "weak" if (negated or not (l_t or r_t)) else "positive"
+        warn = "onderbouwing/onderzoek wordt in deze passage juist ontkend" if negated else ""
         items.append(_make_item(
             h, reason, sc, ctx=ctx, focused_terms=_ALL,
             matched_signals=(l_t + r_t)[:4],
@@ -864,44 +803,14 @@ def _build_beperking_packet(
             classification_source="block_text" if (l_t or r_t) else "",
             context_warning=warn,
         ))
-        return True
 
-    # In-family content first (limitation-bearing, then research-bearing, then rest).
-    lim_first = [h for h in bk.in_family if _has_terms(h, _BEP_LIMITATION) and not _is_heading_only(h)]
-    res_first = [h for h in bk.in_family if _has_terms(h, _BEP_RESEARCH) and not _is_heading_only(h)]
-    for h in lim_first + res_first + bk.in_family:
-        if len(items) >= MAX:
-            break
-        if _is_heading_only(h):
-            continue
-        _add(h, "in_family")
-
-    # Neutral intro/doelgroep prose carrying a real signal.
-    for h in bk.neutral:
-        if len(items) >= MAX:
-            break
-        if _is_heading_only(h):
-            continue
-        if _has_terms(h, _BEP_LIMITATION) or _has_terms(h, _BEP_RESEARCH):
-            _add(h, "neutral")
-
-    # Foreign rescue: only on a disability-specific limitation token.
-    for h in bk.foreign:
-        if len(items) >= MAX:
-            break
-        if _has_any_token(h.block["text"], _BEP_DISABILITY):
-            _add(h, "rescue")
-
-    # Heading-only fallback for an otherwise empty packet (named-but-empty section).
     if not items:
-        for h in [x for x in bk.in_family if _is_heading_only(x)][:1]:
-            items.append(_make_item(
-                h, "Sectieheading gevonden maar geen inhoud herkend",
-                "absent_marker", ctx=ctx, pair=False,
-            ))
+        items = _heading_only_marker(
+            "beperking", hits,
+            "Sectieheading gevonden maar geen inhoud herkend", ctx,
+        )
 
-    # Coverage gaps (status-driven, unchanged contract).
-    if status in ("missing", "partial"):
+    if cr.status in ("missing", "partial"):
         has_lim = any(i.criterion_subtype in ("limitation", "limitation_and_research")
                       and i.signal_class == "positive" for i in items)
         has_res = any(i.criterion_subtype in ("research", "limitation_and_research")
@@ -930,29 +839,18 @@ def _build_stakeholders_packet(
     cr: CriterionResult,
     ctx: _DocCtx,
 ) -> EvidencePacket:
-    """Section-first stakeholder evidence: prefer in-family tables, then prose.
+    """Heading-only stakeholder evidence: in-family tables first, then prose.
 
-    When the document has NO in-family stakeholder section at all (the matrix is
-    an image / quadrant — common), fall back to the strongest nearby substitutes:
-    foreign blocks that still carry stakeholder structure (role + belang/invloed),
-    each tagged with an honest context_warning. Foreign tables are otherwise
-    rejected so requirements/use-case tables do not masquerade as stakeholders.
+    No image/quadrant fallback and no actor/use-case inference: when a document
+    has no stakeholder heading, the packet is empty (or an absent_marker). A
+    requirements/use-case table can never masquerade as a stakeholder table.
     """
     MAX = _MAX_ITEMS["stakeholders"]
-    status = cr.status
     items: list[EvidenceItem] = []
     missing_sigs: list[str] = []
-    seen: set[str] = set()
-    rescued = 0
-
-    bk = _bucket("stakeholders", hits)
     _BI = _STK_BELANG | _STK_INVLOED
 
-    all_text = " ".join(h.block["text"].lower() for h in hits)
-    has_belang = any(t in all_text for t in _STK_BELANG)
-    has_invloed = any(t in all_text for t in _STK_INVLOED)
-    count = cr.count or 0
-    minimum = spec.minimum_count or 4
+    content = [h for h in _in_family_hits("stakeholders", hits) if not _is_heading_only(h)]
 
     def _bi_signals(h: RetrievalHit) -> list[str]:
         t = h.block["text"].lower()
@@ -963,96 +861,41 @@ def _build_stakeholders_packet(
             sigs.append("invloed")
         return sigs
 
-    def _has_structure(h: RetrievalHit) -> bool:
-        t = _searchable_block_text(h).lower()
-        bi = any(x in t for x in _STK_BELANG) and any(x in t for x in _STK_INVLOED)
-        role = _has_any_token(t, _STK_ROLE)
-        return bi or (h.block["block_type"] == "table" and role)
-
-    def _add(h: RetrievalHit, kind: str) -> bool:
-        nonlocal rescued
-        bid = h.block["block_id"]
-        if bid in seen or len(items) >= MAX:
-            return False
-        if kind == "rescue":
-            if rescued >= _MAX_RESCUE["stakeholders"]:
-                return False
-            rescued += 1
-        seen.add(bid)
+    tables = [h for h in content if h.block["block_type"] == "table"]
+    prose = [h for h in content if h.block["block_type"] != "table"]
+    for h in tables + prose:
+        if len(items) >= MAX:
+            break
         is_table = h.block["block_type"] == "table"
         n_rows = _data_row_count(h) if is_table else None
-        sc: SignalClass = "weak" if (status == "partial" or kind == "rescue") else "positive"
-        if kind == "rescue":
-            reason = (
-                f"Stakeholder-context buiten aparte sectie "
-                f"({_fam_label(bk.fams[bid])}-sectie)"
-            )
-            warn = (
-                "geen aparte stakeholder-sectie als tekst herkend (mogelijk "
-                "diagram/afbeelding); nabije rol/belang/invloed-context als substituut"
-            )
-        else:
-            reason = (
-                f"Stakeholder-tabel ({n_rows} rijen)" if is_table
-                else "Stakeholder-beschrijving in lopende tekst"
-            )
-            if status == "partial" and is_table:
-                reason += f" — onvolledig ({count} van {minimum} min.)"
-            warn = ""
+        sc: SignalClass = "weak" if cr.status == "partial" else "positive"
+        reason = (
+            f"Stakeholder-tabel ({n_rows} rijen)" if is_table
+            else "Stakeholder-beschrijving in lopende tekst"
+        )
         items.append(_make_item(
             h, reason, sc, ctx=ctx, focused_terms=_BI,
             matched_signals=_bi_signals(h),
             criterion_subtype="table" if is_table else "text",
             classification_source="block_type",
             matched_row_count=n_rows,
-            context_warning=warn,
         ))
-        return True
-
-    # In-family: tables first, then prose.
-    in_tables = [h for h in bk.in_family if h.block["block_type"] == "table"]
-    in_prose = [h for h in bk.in_family if h.block["block_type"] != "table" and not _is_heading_only(h)]
-    for h in in_tables + in_prose:
-        if len(items) >= MAX:
-            break
-        _add(h, "in_family")
-
-    # Neutral prose describing belang/invloed — admitted ONLY when it also names
-    # a stakeholder role, so a generic "belang" mention (e.g. a "Definitie en
-    # belang" heading in a security section) cannot pull the block in.
-    for h in bk.neutral:
-        if len(items) >= MAX:
-            break
-        text = h.block["text"].lower()
-        if (not _is_heading_only(h)
-                and any(s in text for s in _BI)
-                and _has_any_token(text, _STK_ROLE)):
-            _add(h, "in_family")
-
-    # Image/quadrant fallback: only when NO in-family stakeholder evidence exists.
-    if not in_tables and not in_prose:
-        for h in bk.foreign:
-            if len(items) >= MAX:
-                break
-            if _has_structure(h):
-                _add(h, "rescue")
 
     if not items:
-        for h in [x for x in (bk.in_family + bk.foreign) if _is_heading_only(x)][:1]:
-            items.append(_make_item(
-                h, "Stakeholder-heading gevonden maar geen tabelinhoud herkend",
-                "absent_marker", ctx=ctx, pair=False,
-            ))
+        items = _heading_only_marker(
+            "stakeholders", hits,
+            "Stakeholder-heading gevonden maar geen tabelinhoud herkend", ctx,
+        )
 
-    if status in ("missing", "partial"):
-        if count and count < minimum:
-            missing_sigs.append(f"Slechts {count} stakeholder(s) gevonden (minimum {minimum})")
+    if cr.status in ("missing", "partial"):
+        has_belang = any("belang" in i.matched_signals for i in items)
+        has_invloed = any("invloed" in i.matched_signals for i in items)
+        if not items:
+            missing_sigs.append("Geen stakeholder-sectie aangetroffen")
         if not has_belang:
             missing_sigs.append("Belang per stakeholder niet beschreven")
         if not has_invloed:
             missing_sigs.append("Invloed per stakeholder niet beschreven")
-        if status == "missing" and not missing_sigs:
-            missing_sigs.append("Geen stakeholders herkend in de aangeleverde evidence")
 
     return EvidencePacket(
         criterion_key=spec.key,
@@ -1073,35 +916,31 @@ def _build_requirements_packet(
     cr: CriterionResult,
     ctx: _DocCtx,
 ) -> EvidencePacket:
-    """Section-first requirements evidence with representative spread.
+    """Heading-only requirements evidence: in-family tables then prose.
 
-    In-family = requirements / constraints / functional / non-functional / use
-    case sections. Tables (ranked by MoSCoW rows then req-ids) form the backbone;
-    in-family prose fills out narrative requirements. The selection deliberately
-    interleaves subtypes (FR / NFR / UC / constraint) so the handoff reflects the
-    real spread of the section rather than only the densest table.
+    In-family = requirements / eisen / wensen / constraints / functional /
+    non-functional sections — explicitly NOT use cases. A use-case subsection
+    (even nested under a requirements heading) is excluded. No subtype-spread
+    interleaving and no foreign rescue: just the strongest in-section tables,
+    then in-section prose.
     """
     MAX = _MAX_ITEMS["requirements"]
-    status = cr.status
     items: list[EvidenceItem] = []
     missing_sigs: list[str] = []
     seen: set[str] = set()
-    rescued = 0
 
-    bk = _bucket("requirements", hits)
-    all_text = " ".join(h.block["text"].lower() for h in hits)
-    has_prio = any(t in all_text for t in ("must", "should", "could", "moscow", "prioriteit"))
-    minimum = spec.minimum_count or 15
+    content = [
+        h for h in _in_family_hits("requirements", hits)
+        if not _is_heading_only(h) and not _is_use_case_section(h)
+    ]
 
-    if status == "missing":
-        for h in [x for x in bk.in_family if _is_heading_only(x)][:1]:
-            items.append(_make_item(
-                h, "Requirements-sectieheading gevonden maar geen inhoud herkend",
-                "absent_marker", ctx=ctx, pair=False,
-            ))
-        missing_sigs.append(f"Geen herkenbare requirements gevonden (minimum {minimum})")
-        if not has_prio:
-            missing_sigs.append("Geen MoSCoW-prioritering aangetroffen")
+    if cr.status == "missing" or not content:
+        items = _heading_only_marker(
+            "requirements", hits,
+            "Requirements-sectieheading gevonden maar geen inhoud herkend", ctx,
+        )
+        if cr.status in ("missing", "partial"):
+            missing_sigs.append("Geen herkenbare requirements gevonden")
         return EvidencePacket(
             criterion_key=spec.key, notes=cr.notes,
             evidence_items=items, missing_signals=missing_sigs,
@@ -1116,28 +955,15 @@ def _build_requirements_packet(
         if rcount > 0:
             return f"Requirements-tabel: {n_rows} rijen, {rcount} req-IDs", "positive"
         return "Requirements-tabel (beperkte inhoud herkend)", (
-            "weak" if status == "partial" else "positive"
+            "weak" if cr.status == "partial" else "positive"
         )
 
-    def _add(h: RetrievalHit, reason: str, sc: SignalClass, kind: str = "in_family") -> bool:
-        nonlocal rescued
+    def _add(h: RetrievalHit, reason: str, sc: SignalClass) -> None:
         bid = h.block["block_id"]
         if bid in seen or len(items) >= MAX:
-            return False
-        if kind == "rescue":
-            if rescued >= _MAX_RESCUE["requirements"]:
-                return False
-            rescued += 1
+            return
         seen.add(bid)
-        subtype, source, local = _requirement_subtype(h)
-        warn = (
-            "heading_path mogelijk verouderd; lokale sectie gedetecteerd"
-            if (local and source == "block_text_section_switch") else ""
-        )
-        if kind == "rescue":
-            warn = (warn + "; " if warn else "") + _RESCUE_WARNING.format(
-                fam=_fam_label(bk.fams[bid])
-            )
+        subtype, source = _requirement_subtype(h)
         items.append(_make_item(
             h, reason, sc, ctx=ctx,
             matched_signals=_req_signals(h),
@@ -1145,40 +971,23 @@ def _build_requirements_packet(
             classification_source=source,
             matched_row_count=_req_matched_row_count(h),
             matched_row_ids=_extract_req_ids(h),
-            local_section_label=local,
-            context_warning=warn,
-            rescue=(kind == "rescue"),
-            focused_terms=None,
         ))
-        return True
 
-    in_tables = sorted(
-        [h for h in bk.in_family if h.block["block_type"] == "table"],
+    tables = sorted(
+        [h for h in content if h.block["block_type"] == "table"],
         key=lambda h: (-_prio_row_count(h), -_req_id_count(h), -h.score, h.block["block_id"]),
     )
-    in_prose = _sort_content_first(
-        [h for h in bk.in_family if h.block["block_type"] in ("paragraph", "bullet")]
+    prose = _sort_content_first(
+        [h for h in content if h.block["block_type"] in ("paragraph", "bullet")]
     )
 
-    # Representative spread: take the strongest table of each subtype first so FR,
-    # NFR, UC and constraints all surface before piling on more of one kind.
-    by_subtype: dict[str, list[RetrievalHit]] = {}
-    for h in in_tables:
-        st = _requirement_subtype(h)[0] or "other"
-        by_subtype.setdefault(st, []).append(h)
-    spread_first: list[RetrievalHit] = []
-    for st in ("functional", "non_functional", "use_case", "constraint", "other"):
-        if by_subtype.get(st):
-            spread_first.append(by_subtype[st][0])
-    ordered_tables = spread_first + [h for h in in_tables if h not in spread_first]
-
-    for h in ordered_tables:
+    for h in tables:
         if len(items) >= MAX:
             break
         reason, sc = _table_reason(h)
         _add(h, reason, sc)
 
-    for h in in_prose:
+    for h in prose:
         if len(items) >= MAX:
             break
         rcount = _req_id_count(h)
@@ -1187,19 +996,11 @@ def _build_requirements_packet(
         else:
             _add(h, "Requirements in tekst", "weak")
 
-    # Foreign rescue (rare): only blocks that actually carry requirement structure.
-    for h in bk.foreign:
-        if len(items) >= MAX:
-            break
-        if _extract_req_ids(h, max_n=1) or _prio_row_count(h) > 0:
-            reason, sc = (
-                _table_reason(h) if h.block["block_type"] == "table"
-                else ("Requirements in tekst (buiten requirements-sectie)", "weak")
-            )
-            _add(h, reason, sc, kind="rescue")
-
-    if status == "partial":
-        missing_sigs.append(f"Slechts ~{cr.count or 0} requirements gevonden (minimum {minimum})")
+    has_prio = any(
+        any(s.startswith("moscow:") for s in it.matched_signals) for it in items
+    )
+    if cr.status == "partial":
+        missing_sigs.append("Requirements-sectie aanwezig maar mogelijk onvolledig")
     if not has_prio:
         missing_sigs.append("Geen MoSCoW-prioritering aangetroffen")
 
@@ -1222,126 +1023,126 @@ def _build_taalkeuze_packet(
     cr: CriterionResult,
     ctx: _DocCtx,
 ) -> EvidencePacket:
-    """Token-gated taalkeuze evidence (language choice has no fixed section).
+    """Heading-primary taalkeuze evidence with a narrow choice-phrase fallback.
 
-    Because language choice is discussed inside doelgroep / requirements / intro
-    prose, taalkeuze is gated on a genuine CHOICE token rather than on section
-    identity. A block is admitted only when it states a language choice; a
-    consequence-only block (carrying just 'beïnvloed' / 'bereik') is admitted
-    solely as supporting context once a choice block exists, and a CONSEQUENCE-
-    ONLY foreign block (e.g. a stakeholder table) is rejected outright — the most
-    common contamination source for this criterion.
+    Primary: blocks under a real language-choice heading (rare in this corpus).
+    Fallback: language choice has no dedicated heading here — it is stated inside
+    doelgroep / requirements / intro prose — so a block from ANY section is
+    admitted when, and only when, it carries an explicit language-CHOICE phrase
+    (_TAAL_CHOICE_STRICT). This is the single, deliberate cross-section exception
+    in the builder; it is gated on decision-bearing multi-word phrases, never on
+    bare tokens, and every such item is tagged with an honest context_warning.
     """
     MAX = _MAX_ITEMS["taalkeuze"]
-    status = cr.status
     items: list[EvidenceItem] = []
     missing_sigs: list[str] = []
     seen: set[str] = set()
-    rescued = 0
     _ALL = _TAAL_CHOICE | _TAAL_CONSEQUENCE
 
-    bk = _bucket("taalkeuze", hits)
-    all_text = " ".join(h.block["text"].lower() for h in hits)
-    has_choice = _has_any_token(all_text, _TAAL_CHOICE)
-    has_consequence = _has_any_token(all_text, _TAAL_CONSEQUENCE)
+    def _strict_phrases(text: str) -> list[str]:
+        low = text.lower()
+        return [p for p in _TAAL_CHOICE_STRICT if p in low]
 
-    def _subtype(text: str) -> str:
-        c = _has_any_token(text, _TAAL_CHOICE)
-        k = _has_any_token(text, _TAAL_CONSEQUENCE)
-        if c and k:
-            return "choice_and_consequence"
-        if c:
-            return "choice"
-        if k:
-            return "consequence"
-        return ""
+    def _lang_rows_excerpt(block: dict) -> str:
+        """Header + only the table rows that actually carry a language phrase."""
+        tm = block.get("table_meta")
+        if not tm or not tm.get("cells"):
+            return ""
+        rows = [
+            r for r in tm["cells"]
+            if _strict_phrases(_row_text(r)) or _has_any_token(_row_text(r), _TAAL_CHOICE)
+        ]
+        if not rows:
+            return ""
+        lines: list[str] = []
+        header = tm.get("header_row")
+        if header:
+            lines.append(header.strip())
+        for r in rows[:2]:
+            rt = _row_text(r)
+            if rt:
+                lines.append(rt)
+        out = "\n".join(lines)
+        return out[:260].rstrip() + ("…" if len(out) > 260 else "")
 
-    def _add(h: RetrievalHit, kind: str) -> bool:
-        nonlocal rescued
+    def _add(h: RetrievalHit, *, outside_section: bool) -> None:
         bid = h.block["block_id"]
         if bid in seen or len(items) >= MAX:
-            return False
-        if kind == "rescue":
-            if rescued >= _MAX_RESCUE["taalkeuze"]:
-                return False
-            rescued += 1
+            return
         seen.add(bid)
         text = h.block["text"]
-        c_terms = _matched_tokens(text, _TAAL_CHOICE, 2)
+        # A genuine choice signal is either a _TAAL_CHOICE token or, failing that,
+        # one of the high-precision strict phrases that admitted the block.
+        c_terms = _matched_tokens(text, _TAAL_CHOICE, 2) or _strict_phrases(text)[:2]
         k_terms = _matched_tokens(text, _TAAL_CONSEQUENCE, 2)
         negated = contains_negation(text)
         if c_terms and k_terms:
             reason = f"Taalkeuze ({', '.join(c_terms)}) én gevolgen ({', '.join(k_terms)})"
         elif c_terms:
             reason = f"Taalkeuze: {', '.join(c_terms)}"
-        else:
+        elif k_terms:
             reason = f"Gevolgen van de taalkeuze: {', '.join(k_terms)}"
-        sc: SignalClass = "positive"
+        else:
+            reason = "Inhoud in de taalkeuze-sectie"
+        if c_terms and k_terms:
+            subtype = "choice_and_consequence"
+        elif c_terms:
+            subtype = "choice"
+        elif k_terms:
+            subtype = "consequence"
+        else:
+            subtype = ""
+        sc: SignalClass = "weak" if (negated or not (c_terms or k_terms)) else "positive"
         warn_parts: list[str] = []
-        if kind == "rescue":
-            warn_parts.append(_RESCUE_WARNING.format(fam=_fam_label(bk.fams[bid])))
+        if outside_section:
+            warn_parts.append("taalkeuze besproken buiten een aparte taalsectie")
         if negated:
             sc = "weak"
             warn_parts.append("taalkeuze wordt in deze passage juist als onbeslist beschreven")
-        elif kind == "consequence_support":
-            sc = "weak"
-        warn = "; ".join(warn_parts)
+        # For a fallback hit inside a foreign table, narrow the excerpt to the
+        # language-bearing row(s) instead of dumping the whole NFR/UC table.
+        override = ""
+        if outside_section and h.block["block_type"] == "table":
+            override = _lang_rows_excerpt(h.block)
         items.append(_make_item(
-            h, reason, sc, ctx=ctx,
-            focused_terms=_ALL, focused_boundary=True, rescue=(kind == "rescue"),
+            h, reason, sc, ctx=ctx, focused_terms=_ALL, focused_boundary=True,
             matched_signals=(c_terms + k_terms)[:4],
-            criterion_subtype=_subtype(text),
+            criterion_subtype=subtype,
             classification_source="block_text" if (c_terms or k_terms) else "",
-            context_warning=warn,
+            context_warning="; ".join(warn_parts),
+            excerpt_override=override,
         ))
-        return True
 
-    def _is_choice(h: RetrievalHit) -> bool:
-        return _has_any_token(h.block["text"], _TAAL_CHOICE)
+    # 1. Real taalkeuze-heading blocks (primary path).
+    for h in _in_family_hits("taalkeuze", hits):
+        if len(items) >= MAX or _is_heading_only(h):
+            continue
+        _add(h, outside_section=False)
 
-    # Choice-bearing in-family/neutral blocks (both signals first).
-    choice_inneu = [
-        h for h in (bk.in_family + bk.neutral)
-        if _is_choice(h) and not _is_heading_only(h)
-    ]
-    both = [h for h in choice_inneu if _has_any_token(h.block["text"], _TAAL_CONSEQUENCE)]
-    for h in both + choice_inneu:
-        if len(items) >= MAX:
-            break
-        _add(h, "in_family")
-
-    # Foreign rescue: ONLY blocks that carry a real choice token.
-    for h in bk.foreign:
-        if len(items) >= MAX:
-            break
-        if _is_choice(h) and not _is_heading_only(h):
-            _add(h, "rescue")
-
-    # Consequence-only support, but only once a choice block is present.
-    if items and any(i.criterion_subtype in ("choice", "choice_and_consequence") for i in items):
-        for h in (bk.in_family + bk.neutral):
+    # 2. Explicit choice-phrase fallback from anywhere (precise, multi-word gate).
+    if len(items) < MAX:
+        for h in _sort_content_first([h for h in hits if not _is_heading_only(h)]):
             if len(items) >= MAX:
                 break
-            if (not _is_heading_only(h) and not _is_choice(h)
-                    and _has_any_token(h.block["text"], _TAAL_CONSEQUENCE)):
-                _add(h, "consequence_support")
+            if _strict_phrases(h.block["text"]):
+                _add(h, outside_section=True)
 
     if not items:
-        for h in [x for x in bk.in_family if _is_heading_only(x)][:1]:
-            items.append(_make_item(
-                h, "Taalkeuze-heading zonder inhoud aangetroffen",
-                "absent_marker", ctx=ctx, pair=False,
-            ))
+        items = _heading_only_marker(
+            "taalkeuze", hits, "Taalkeuze-heading zonder inhoud aangetroffen", ctx,
+        )
 
-    if status in ("missing", "partial"):
+    if cr.status in ("missing", "partial"):
+        has_choice = any(i.criterion_subtype in ("choice", "choice_and_consequence")
+                         and i.signal_class == "positive" for i in items)
+        has_cons = any(i.criterion_subtype in ("consequence", "choice_and_consequence")
+                       and i.signal_class == "positive" for i in items)
         if not has_choice:
             missing_sigs.append("Geen expliciete taalkeuze vermeld")
-        if not has_consequence:
+        if not has_cons:
             missing_sigs.append(
                 "Gevolgen van taalkeuze niet beschreven (bijv. bereik, vertaalkosten, begrijpelijkheid)"
             )
-        if not missing_sigs:
-            missing_sigs.append("Taalkeuze of gevolgen niet volledig beschreven")
 
     return EvidencePacket(
         criterion_key=spec.key,
@@ -1362,43 +1163,33 @@ def _build_security_packet(
     cr: CriterionResult,
     ctx: _DocCtx,
 ) -> EvidencePacket:
-    """Section-first security evidence with measure↔risk pairing.
+    """Heading-only security evidence.
 
-    In-family = security / beveiliging / privacy / AVG / risico sections. Neutral
-    blocks (e.g. ethics paragraphs) are admitted when they name a concrete
-    mechanism. Because security legitimately lives inside non-functional
-    requirements, foreign REQUIREMENTS blocks are rescued on a concrete-mechanism
-    token (focused to the relevant rows); foreign stakeholder/doelgroep blocks
-    are rejected — they are the contamination source (a stakeholder table
-    mentioning 'AVGregels', a doelgroep paragraph where 'ssl' hides inside a
-    word). Concrete tokens are matched with word boundaries throughout.
+    In-family = security / beveiliging / privacy / AVG / OWASP / encryptie
+    sections. Concrete mechanisms in those sections rank first; generic security
+    prose in those sections fills remaining slots as weak. A `wachtwoord` in a
+    use-case table or an `avg` in an NFR table is NOT admitted — there is no
+    foreign rescue and no neutral promotion.
     """
     MAX = _MAX_ITEMS["security"]
-    status = cr.status
     items: list[EvidenceItem] = []
     missing_sigs: list[str] = []
     seen: set[str] = set()
-    rescued = 0
     _ALL = _SEC_CONCRETE | _SEC_GENERIC
 
-    bk = _bucket("security", hits)
+    content = [h for h in _in_family_hits("security", hits) if not _is_heading_only(h)]
 
     def _concrete(h: RetrievalHit) -> list[str]:
         return _matched_tokens(h.block["text"], _SEC_CONCRETE, 4)
 
-    def _add(h: RetrievalHit, kind: str) -> bool:
-        nonlocal rescued
+    def _add(h: RetrievalHit) -> None:
         bid = h.block["block_id"]
         if bid in seen or len(items) >= MAX:
-            return False
-        if kind == "rescue":
-            if rescued >= _MAX_RESCUE["security"]:
-                return False
-            rescued += 1
+            return
         seen.add(bid)
         terms = _concrete(h)
         if terms:
-            subtype, sc = "concrete", ("weak" if status == "partial" else "positive")
+            subtype, sc = "concrete", ("weak" if cr.status == "partial" else "positive")
             reason = f"Concrete beveiligingsmechanisme(n): {', '.join(terms)}"
             sigs = terms
         else:
@@ -1406,63 +1197,27 @@ def _build_security_packet(
             gterms = _matched_tokens(h.block["text"], _SEC_GENERIC, 3)
             reason = f"Aanvullende beveiligingscontext: {', '.join(gterms)}"
             sigs = gterms
-        warn = ""
-        if kind == "rescue":
-            warn = _RESCUE_WARNING.format(fam=_fam_label(bk.fams[bid]))
-            if sc == "positive":
-                sc = "positive"  # keep — it is a genuine concrete row in an NFR table
         items.append(_make_item(
-            h, reason, sc, ctx=ctx,
-            focused_terms=_ALL, focused_boundary=True, rescue=(kind == "rescue"),
+            h, reason, sc, ctx=ctx, focused_terms=_ALL, focused_boundary=True,
             matched_signals=sigs,
             criterion_subtype=subtype,
             classification_source="block_text" if sigs else "",
-            context_warning=warn,
         ))
-        return True
 
-    # In-family concrete first, then in-family generic.
-    in_concrete = [h for h in bk.in_family if _concrete(h) and not _is_heading_only(h)]
-    in_generic = [
-        h for h in bk.in_family
-        if not _concrete(h) and _has_any_token(h.block["text"], _SEC_GENERIC)
-        and not _is_heading_only(h)
-    ]
-    for h in in_concrete:
+    concrete_first = [h for h in content if _concrete(h)]
+    generic_rest = [h for h in content if not _concrete(h)]
+    for h in concrete_first + generic_rest:
         if len(items) >= MAX:
             break
-        _add(h, "in_family")
-
-    # Neutral blocks naming a concrete mechanism (e.g. ethics/AVG/OWASP prose).
-    for h in bk.neutral:
-        if len(items) >= MAX:
-            break
-        if _concrete(h) and not _is_heading_only(h):
-            _add(h, "neutral")
-
-    # Foreign rescue: requirements-family blocks only, on a trusted concrete token.
-    for h in bk.foreign:
-        if len(items) >= MAX:
-            break
-        fam = bk.fams[h.block["block_id"]]
-        if "requirements" in fam and _has_any_token(h.block["text"], _SEC_RESCUE):
-            _add(h, "rescue")
-
-    # Fill remaining slots with in-family generic context (clearly weaker).
-    for h in in_generic:
-        if len(items) >= MAX:
-            break
-        _add(h, "in_family")
+        _add(h)
 
     if not items:
-        for h in [x for x in bk.in_family if _is_heading_only(x)][:1]:
-            items.append(_make_item(
-                h, "Security-heading gevonden maar geen inhoud herkend",
-                "absent_marker", ctx=ctx, pair=False,
-            ))
+        items = _heading_only_marker(
+            "security", hits, "Security-heading gevonden maar geen inhoud herkend", ctx,
+        )
 
-    if status in ("missing", "partial"):
-        if status == "missing":
+    if cr.status in ("missing", "partial"):
+        if cr.status == "missing":
             missing_sigs.append("Geen beveiligingsinhoud aangetroffen")
         missing_sigs.append(
             "Geen concrete beveiligingsmechanismen benoemd (bijv. authenticatie, encryptie, AVG)"
@@ -1502,11 +1257,11 @@ def build_evidence_packets(
     CAPS is the source of truth for all judgements. This function only SELECTS
     and SHAPES evidence — it never re-judges or overrides any CAPS decision.
 
-    Selection is section-first (section_family.py): in-family blocks form the
-    backbone, neutral blocks add supporting context when they carry a real
-    signal, and foreign blocks are rescued only on a strong, criterion-defining
-    token. Excerpts are widened into coherent same-section windows using the
-    document's full ordered block list (artifacts.blocks).
+    Selection is strictly heading-only (section_family.py): only blocks whose
+    heading_path belongs to the criterion's section family are admitted. No
+    neutral promotion, no foreign rescue, no count-driven behaviour. When CAPS
+    rates a criterion `missing`, any positive items are coerced to weak so the
+    handoff never presents positive evidence for a criterion CAPS calls missing.
     """
     packets: dict[str, EvidencePacket] = {}
     ctx = _DocCtx.build(artifacts.blocks or [])
@@ -1526,6 +1281,22 @@ def build_evidence_packets(
             continue
 
         builder = _PACKET_BUILDERS[key]
-        packets[key] = builder(spec, hits, cr, ctx)
+        pkt = builder(spec, hits, cr, ctx)
+
+        # Safety net: a 'missing' verdict must never carry positive evidence.
+        if cr.status == "missing":
+            for it in pkt.evidence_items:
+                if it.signal_class == "positive":
+                    it.signal_class = "weak"
+                    it.evidence_strength = "thin"
+
+        # A missing/partial criterion always carries at least one coverage gap,
+        # so the downstream stage never sees a silent "incomplete-but-no-reason".
+        if cr.status in ("missing", "partial") and not pkt.missing_signals:
+            pkt.missing_signals.append(
+                f"{spec.label}: sectie aanwezig maar mogelijk onvolledig"
+            )
+
+        packets[key] = pkt
 
     return packets
