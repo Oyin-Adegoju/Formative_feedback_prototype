@@ -542,3 +542,23 @@ def _load_json(path: pathlib.Path) -> dict | None:
     except (OSError, json.JSONDecodeError):
         return None
 
+# ---------------------------------------------------------------------------
+# Gedeelde render-helpers (ongewijzigd)
+# ---------------------------------------------------------------------------
+
+def _render_evidence(items: list[dict]) -> None:
+    for item in items[:3]:
+        signal = item.get("signal_class", "")
+        badge = _SIGNAL_LABEL.get(signal, signal)
+        page = item.get("page_no", "?")
+        focused = (item.get("focused_excerpt") or "").strip()
+        excerpt = (item.get("excerpt") or "").strip()
+        text = focused if focused else excerpt
+        if not text:
+            continue
+        st.markdown(
+            f"<div class='hs-evidence'>"
+            f"<span style='color:#546e7a;'>p.{page} · {badge}</span><br>"
+            f"<em>{text[:300]}</em></div>",
+            unsafe_allow_html=True,
+        )
