@@ -820,6 +820,36 @@ def _heading_only_marker(
 # ---------------------------------------------------------------------------
 
 
+# Literatuurlijst / bron section detection for the deskresearch half. A real
+# reference list contains at least one concrete source — a URL or a year
+# citation. A heading with neither is an empty/insufficient reference list.
+_BRON_HEADING_RE: Final[re.Pattern[str]] = re.compile(
+    r"literatuur|bron(?:nen|vermelding)?\b|deskresearch", re.IGNORECASE
+)
+_CONCRETE_SOURCE_RE: Final[re.Pattern[str]] = re.compile(
+    r"https?://|www\.|\b(?:19|20)\d{2}\b", re.IGNORECASE
+)
+
+
+def _empty_bron_section(ctx: _DocCtx) -> BlockDict | None:
+    """Return the bron/literatuur heading block when such a section exists in the
+    FULL document but contains no concrete source (URL or year citation); else None.
+
+    Scans the full ordered block list — not the ≤max_candidates retrieval hits —
+    so a populated reference list whose URL blocks happened to rank low is never
+    wrongly flagged as empty.
+    """
+    section = [
+        b for b in ctx.blocks
+        if any(_BRON_HEADING_RE.search(s) for s in b["heading_path"])
+    ]
+    if not section:
+        return None
+    if any(_CONCRETE_SOURCE_RE.search(b["text"]) for b in section):
+        return None
+    return next((b for b in section if b["block_type"] == "heading"), section[0])
+
+
 def _build_beperking_packet(
     spec: CriterionSpec,
     hits: list[RetrievalHit],
@@ -858,11 +888,17 @@ def _build_beperking_packet(
             return ctx.window(h.block["block_id"])[:160].lower()
         return " ".join(h.block["text"].split())[:120].lower()
 
+    # Reserve one slot for the bron-gap marker (added below) so an empty
+    # literatuurlijst is still reported even when the doelgroep section would
+    # otherwise fill the whole budget.
+    gap_block = _empty_bron_section(ctx)
+    content_max = MAX - 1 if gap_block is not None else MAX
+
     # Limitation-bearing blocks first, then research-bearing, then the rest.
     lim_first = [h for h in content if _has_terms(h, _BEP_LIMITATION)]
     res_first = [h for h in content if _has_terms(h, _BEP_RESEARCH)]
     for h in lim_first + res_first + content:
-        if len(items) >= MAX:
+        if len(items) >= content_max:
             break
         bid = h.block["block_id"]
         if bid in seen:
@@ -898,6 +934,30 @@ def _build_beperking_packet(
             "beperking", hits,
             "Sectieheading gevonden maar geen inhoud herkend", ctx,
         )
+
+    # Bronnen-check (deskresearch-helft): flag a literatuurlijst/bron-sectie that
+    # exists but lists no concrete sources (no URL, no year citation). Surfaced as
+    # an absent_marker evidence item so the quality stage sees it, even though
+    # CAPS' broad term-match would otherwise treat the bare heading as research.
+    if gap_block is not None and gap_block["block_id"] not in seen and len(items) < MAX:
+        seen.add(gap_block["block_id"])
+        items.append(EvidenceItem(
+            block_id=gap_block["block_id"],
+            page_no=gap_block["page_no"],
+            block_type=gap_block["block_type"],
+            heading_path=list(gap_block["heading_path"]),
+            excerpt=_excerpt_paragraph(gap_block["text"])
+                    or " ".join(gap_block["heading_path"][-1:]),
+            selection_reason=(
+                "Literatuurlijst/bron-sectie aanwezig maar zonder concrete "
+                "bronnen (geen URL of verwijzing)"
+            ),
+            signal_class="absent_marker",
+            evidence_strength="absent",
+        ))
+        gap_note = "Literatuurlijst zonder concrete bronnen (geen URL of verwijzing)"
+        if gap_note not in missing_sigs:
+            missing_sigs.append(gap_note)
 
     if cr.status in ("missing", "partial"):
         has_lim = any(i.criterion_subtype in ("limitation", "limitation_and_research")
