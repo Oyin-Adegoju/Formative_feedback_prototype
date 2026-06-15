@@ -17,15 +17,12 @@ from src.quality.quality_builder import (
 
 
 def _handoff() -> dict:
+    """A pre-Qwen extraction handoff: no status/stoplight/overall_stoplight."""
     return {
         "document_id": "doc42",
         "source_name": "report.pdf",
-        "overall_stoplight": "green",
-        "blockers_triggered": [],
         "criteria": {
             key: {
-                "status": "sufficient",
-                "stoplight": "yellow",
                 "count": None,
                 "notes": [],
                 "missing_signals": [],
@@ -41,6 +38,7 @@ def _valid_quality_json(doc_id: str = "doc42") -> str:
         "document_id": doc_id,
         "criteria": {
             key: {
+                "criterion_judgement": "mixed",
                 "diagnostics": {dim: "middel" for dim in QUALITY_DIMENSIONS[key]},
                 "strengths": [],
                 "weaknesses": [],

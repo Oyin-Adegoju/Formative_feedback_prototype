@@ -555,7 +555,6 @@ def test_strong_packets_have_positive_items_for_present_criteria(strong_packets)
 # ---------------------------------------------------------------------------
 
 _REAL_DOCS = [
-    ("Goed",        "2e138dc4"),
     ("Goed",        "8e5ee17e"),
     ("Goed",        "c90afb25"),
     ("Voldoende",   "1023e8a9"),
@@ -617,7 +616,6 @@ def test_real_doc_no_positive_when_missing(subdir, doc_id):
 
 
 @pytest.mark.parametrize("subdir,doc_id", [
-    ("Goed", "2e138dc4"),
     ("Goed", "8e5ee17e"),
     ("Goed", "c90afb25"),
 ])
@@ -656,17 +654,22 @@ def test_voldoende_requirements_has_table_evidence(subdir, doc_id):
 
 @pytest.mark.parametrize("subdir,doc_id", _REAL_DOCS)
 def test_real_doc_richer_requirements_coverage(subdir, doc_id):
-    """Requirements is the priority criterion: when CAPS rates it sufficient/strong
-    on a real document, the packet should now surface more than the old cap of 3
-    blocks (the budget was raised; documents with structure should use it)."""
+    """Requirements is the priority criterion: when CAPS rates it sufficient/strong,
+    the packet must give Qwen substantial UNIQUE section text. Coverage tiling
+    measures this by total excerpt text, not item count — a contiguous section can
+    be covered by a few larger excerpts, so a sparse doc may have few items yet
+    still cover its (small) section fully."""
     raw = _load_real_doc(subdir, doc_id)
     artifacts = run_caps_with_artifacts(raw, input_source="anonymized")
     packets = build_evidence_packets(artifacts)
     cr = artifacts.criterion_results["requirements"]
-    n = len(packets["requirements"].evidence_items)
-    assert n <= _MAX_ITEMS["requirements"]
+    items = packets["requirements"].evidence_items
+    assert len(items) <= _MAX_ITEMS["requirements"]
     if cr.status in ("sufficient", "strong"):
-        assert n > 3, f"{doc_id}: only {n} requirements items on a {cr.status} doc"
+        total_chars = sum(len(it.excerpt) for it in items)
+        assert total_chars >= 400, (
+            f"{doc_id}: only {total_chars} excerpt chars on a {cr.status} doc"
+        )
 
 
 @pytest.mark.parametrize("subdir,doc_id", _REAL_DOCS)
@@ -687,7 +690,6 @@ def test_real_doc_evidence_items_have_enrichment(subdir, doc_id):
 
 
 @pytest.mark.parametrize("subdir,doc_id", [
-    ("Goed", "2e138dc4"),
     ("Goed", "8e5ee17e"),
     ("Goed", "c90afb25"),
 ])

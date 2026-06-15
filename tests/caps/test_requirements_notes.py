@@ -160,16 +160,20 @@ def test_classify_section_constraints_does_not_inherit() -> None:
 # ---------------------------------------------------------------------------
 
 
+# NB: requirement-item COUNTS ("Functioneel: ~5") were removed on request — the
+# functional/non-functional split now surfaces only via the MoSCoW prioritering
+# lines (Note B), which is the distribution the user wanted to keep.
 def test_dutch_headings_split_functional_and_non_functional() -> None:
     notes = _notes_text("Functionele requirements", "Niet-functionele requirements")
-    assert "Functioneel: ~5" in notes
-    assert "Niet-functioneel: ~3" in notes
+    assert "Functioneel prioriteiten:" in notes
+    assert "Niet-functioneel prioriteiten:" in notes
+    assert "requirement-items" not in notes  # no item counting
 
 
 def test_dutch_short_headings_functioneel_niet_functioneel() -> None:
     notes = _notes_text("Functioneel", "Niet-functioneel")
-    assert "Functioneel: ~5" in notes
-    assert "Niet-functioneel: ~3" in notes
+    assert "Functioneel prioriteiten:" in notes
+    assert "Niet-functioneel prioriteiten:" in notes
 
 
 # ---------------------------------------------------------------------------
@@ -179,14 +183,14 @@ def test_dutch_short_headings_functioneel_niet_functioneel() -> None:
 
 def test_english_headings_split_functional_and_non_functional() -> None:
     notes = _notes_text("Functional requirements", "Non-functional requirements")
-    assert "Functioneel: ~5" in notes
-    assert "Niet-functioneel: ~3" in notes
+    assert "Functioneel prioriteiten:" in notes
+    assert "Niet-functioneel prioriteiten:" in notes
 
 
 def test_english_non_functional_without_hyphen() -> None:
     notes = _notes_text("Functional requirements", "Non functional requirements")
-    assert "Functioneel: ~5" in notes
-    assert "Niet-functioneel: ~3" in notes
+    assert "Functioneel prioriteiten:" in notes
+    assert "Niet-functioneel prioriteiten:" in notes
 
 
 # ---------------------------------------------------------------------------
@@ -255,10 +259,10 @@ def _combined(block_id: str, prefix: str, priorities: list[str]) -> RetrievalHit
 
 
 def test_combined_section_recovers_nfr_from_row_ids() -> None:
-    # Heading is combined, but the rows are tagged NFR01.. → split is recovered.
+    # Heading is combined, but the rows are tagged NFR01.. → split is recovered
+    # and shown via the per-type MoSCoW line (counts removed).
     hit = _combined("b", "NFR", ["MUST HAVE", "MUST HAVE", "SHOULD HAVE"])
     notes = "\n".join(check_requirements(REQUIREMENTS, [hit]).notes)
-    assert "Niet-functioneel: ~3" in notes
     assert "niet apart te onderscheiden" not in notes
     assert "Niet-functioneel prioriteiten: Must: 2, Should: 1." in notes
 
@@ -266,8 +270,8 @@ def test_combined_section_recovers_nfr_from_row_ids() -> None:
 def test_combined_section_recovers_fr_from_row_ids() -> None:
     hit = _combined("b", "FR", ["MUST HAVE", "SHOULD HAVE"])
     notes = "\n".join(check_requirements(REQUIREMENTS, [hit]).notes)
-    assert "Functioneel: ~2" in notes
     assert "niet apart te onderscheiden" not in notes
+    assert "Functioneel prioriteiten: Must: 1, Should: 1." in notes
 
 
 def test_combined_section_mixed_ids_split_by_id() -> None:
@@ -280,11 +284,10 @@ def test_combined_section_mixed_ids_split_by_id() -> None:
     ]
     hit = _hit(_table_block("b", ["Constraints en (non-) Functionele eisen"], rows))
     notes = "\n".join(check_requirements(REQUIREMENTS, [hit]).notes)
-    # Each ID type contributes its own row count.
-    assert "Functioneel: ~2" in notes
-    assert "Niet-functioneel: ~2" in notes
-    # A block mixing both ID types does not get a per-type MoSCoW split; it
-    # falls back to an overall distribution instead of guessing per row.
+    # Item counts are no longer exposed; a block mixing both ID types does not get
+    # a per-type MoSCoW split, so it falls back to an overall distribution.
+    assert "Functioneel: ~" not in notes
+    assert "Niet-functioneel: ~" not in notes
     assert "Prioriteitsverdeling: Must: 2, Should: 1, Could: 1." in notes
 
 
@@ -307,8 +310,8 @@ def test_clear_heading_overrides_row_ids() -> None:
         )
     )
     notes = "\n".join(check_requirements(REQUIREMENTS, [hit]).notes)
-    assert "Functioneel: ~2" in notes
-    assert "Niet-functioneel: ~" not in notes
+    assert "Functioneel prioriteiten: Must: 1, Should: 1." in notes
+    assert "Niet-functioneel prioriteiten:" not in notes
 
 
 def test_prose_mention_does_not_create_split() -> None:
@@ -363,8 +366,8 @@ def test_realistic_report_keeps_both_types_visible() -> None:
     notes = "\n".join(result.notes)
 
     # Both functional and non-functional requirements must be detected — the
-    # original drift bug pushed everything into a single bucket.
-    assert "Functioneel: ~" in notes
-    assert "Niet-functioneel: ~" in notes
-    # Per-type MoSCoW lines are present for at least one type.
-    assert "prioriteiten:" in notes
+    # original drift bug pushed everything into a single bucket. Item counts are
+    # no longer exposed, so detection now shows via the per-type MoSCoW lines.
+    assert "requirement-items" not in notes
+    assert "Functioneel prioriteiten:" in notes
+    assert "Niet-functioneel prioriteiten:" in notes
