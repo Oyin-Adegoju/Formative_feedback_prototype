@@ -7,7 +7,7 @@
       "beperking": {
         "count": null,
         "notes": [
-          "Beperking in meerdere blokken beschreven (beperking, slechtziend, visuele beperking) en meerdere onderbouwingsblokken aanwezig (literatuurlijst, onderzoek, literatuur)."
+          "Beperking in meerdere blokken beschreven (slechtziend, visuele beperking, beperking) en meerdere onderbouwingsblokken aanwezig (literatuurlijst, onderzoek, literatuur)."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -21,12 +21,12 @@
               "Ik Richt Me Dus Op Deze Doelgroep."
             ],
             "excerpt": "Deze webshop is specifiek ontworpen voor slechtziende informatica studenten. Deze groep bestaat uit jongvolwassenen die ondanks hun visuele beperkingen actief betrokken zijn bij studeren en technologie. Hun behoeften omvatten hoogwaardige toegankelijkheidsfuncties om informatie effectief te consumeren en interactie te hebben met online platforms.",
-            "selection_reason": "Beperking/doelgroep: beperking, visuele beperking",
+            "selection_reason": "Beperking/doelgroep: visuele beperking, beperking",
             "signal_class": "positive",
             "focused_excerpt": "groep bestaat uit jongvolwassenen die ondanks hun visuele beperkingen actief",
             "matched_signals": [
-              "beperking",
-              "visuele beperking"
+              "visuele beperking",
+              "beperking"
             ],
             "criterion_subtype": "limitation",
             "classification_source": "block_text",
@@ -45,7 +45,7 @@
               "H2 Stakeholders analyse",
               "H3 Onderzoek naar web gebruikers"
             ],
-            "excerpt": "computeraccessoires aan slechtziende , en specifiek aan informatica studenten, is het essentieel om inzicht te krijgen in de gebruikersbehoeften en -voorkeuren.Het doel is om een gebruiksvriendelijke, toegankelijke online winkelervaring te creëren die tegemoetkomt aan de unieke behoeften van deze doelgroep. Door hun specifieke eisen en voorkeuren te onderzoeken, kunnen we een webshop ontwikkelen die niet alleen",
+            "excerpt": "In het kader van het ontwikkelen van een website gericht op de verkoop van computeraccessoires aan slechtziende , en specifiek aan informatica studenten, is het essentieel om inzicht te krijgen in de gebruikersbehoeften en -voorkeuren.Het doel is om een gebruiksvriendelijke, toegankelijke online winkelervaring te creëren die tegemoetkomt aan de unieke behoeften van deze doelgroep. Door hun specifieke eisen en voorkeuren te onderzoeken, kunnen we een webshop ontwikkelen die niet alleen toegankelijk is, maar ook aangenaam in gebruik. Dit onderzoek heeft als doel om een platform te creëren dat niet alleen toegankelijk is, maar ook tegemoetkomt aan de technische en functionele verwachtingen van de doelgroep.",
             "selection_reason": "Beperking/doelgroep: slechtziend",
             "signal_class": "positive",
             "focused_excerpt": "computeraccessoires aan slechtziende , en specifiek aan informatica studenten, is het",
@@ -79,74 +79,6 @@
             "criterion_subtype": "research",
             "classification_source": "block_text",
             "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "8e5ee17e_0100",
-            "page_no": 13,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "H2 Stakeholders analyse",
-              "H3 Onderzoek naar web gebruikers"
-            ],
-            "excerpt": "tegemoetkomt aan de unieke behoeften van deze doelgroep. Door hun specifieke eisen en voorkeuren te onderzoeken, kunnen we een webshop ontwikkelen die niet alleen toegankelijk is, maar ook aangenaam in gebruik. Dit onderzoek heeft als doel om een platform te creëren dat niet alleen toegankelijk is, maar ook tegemoetkomt aan de technische en functionele verwachtingen van de doelgroep.",
-            "selection_reason": "Onderbouwing/deskresearch: onderzoek",
-            "signal_class": "positive",
-            "focused_excerpt": "en voorkeuren te onderzoeken, kunnen we een webshop ontwikkelen die niet alleen",
-            "matched_signals": [
-              "onderzoek"
-            ],
-            "criterion_subtype": "research",
-            "classification_source": "block_text",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "8e5ee17e_0095",
-            "page_no": 13,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "H2 Stakeholders analyse",
-              "H3 Onderzoek naar web gebruikers"
-            ],
-            "excerpt": "In het kader van het ontwikkelen van een website gericht op de verkoop van computeraccessoires aan slechtziende , en specifiek aan informatica studenten, is het essentieel om inzicht te krijgen in de gebruikersbehoeften en -voorkeuren.Het doel is om een gebruiksvriendelijke, toegankelijke online winkelervaring te creëren die tegemoetkomt aan de unieke behoeften van deze doelgroep. Door hun specifieke eisen",
-            "selection_reason": "Inhoud in de beperking/doelgroep-sectie",
-            "signal_class": "weak",
-            "focused_excerpt": "In het kader van het ontwikkelen van een website gericht op de verkoop van",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "8e5ee17e_0097",
-            "page_no": 13,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "H2 Stakeholders analyse",
-              "H3 Onderzoek naar web gebruikers"
-            ],
-            "excerpt": "essentieel om inzicht te krijgen in de gebruikersbehoeften en -voorkeuren.Het doel is om een gebruiksvriendelijke, toegankelijke online winkelervaring te creëren die tegemoetkomt aan de unieke behoeften van deze doelgroep. Door hun specifieke eisen en voorkeuren te onderzoeken, kunnen we een webshop ontwikkelen die niet alleen toegankelijk is, maar ook aangenaam in gebruik. Dit onderzoek heeft als doel om een",
-            "selection_reason": "Inhoud in de beperking/doelgroep-sectie",
-            "signal_class": "weak",
-            "focused_excerpt": "essentieel om inzicht te krijgen in de gebruikersbehoeften en -voorkeuren.Het doel is om",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
             "matched_row_count": null,
             "matched_row_ids": [],
             "local_section_label": "",
@@ -440,7 +372,7 @@
               "Dus Hou Ik Extra Rekening Met…",
               "H4 Wensen, Eisen, Prioriteiten"
             ],
-            "excerpt": "medestudenten en docenten Elke wens en eis is gelabeld met 'Must Have', 'Should Have', of 'Could Have' om de prioriteit aan te geven. 'Must Haves' zijn niet-onderhandelbaar en essentieel voor de basisfunctionaliteit van de website. 'Should Haves' zijn belangrijk maar niet kritiek voor de lancering, en 'Could Haves' zijn wenselijk maar optioneel en kunnen in toekomstige updates opgenomen worden.",
+            "excerpt": "vaak feedback vragen aan docenten en vergelijkingen met andere medestudenten om een breed scala aan perspectieven en behoeften te integreren. • Ontwikkeltijd: Aan deze lijst is rond 1 week gewerkt, met iteraties en feedbackloops om te zorgen voor nauwkeurigheid en relevantie. • Inspiratie: Inspiratie is gehaald uit vorige modules, feedbacksessies met meerdere medestudenten en docenten Elke wens en eis is gelabeld met 'Must Have', 'Should Have', of 'Could Have' om de prioriteit aan te geven. 'Must Haves' zijn niet-onderhandelbaar en essentieel voor de basisfunctionaliteit van de website. 'Should Haves' zijn belangrijk maar niet kritiek voor de lancering, en 'Could Haves' zijn wenselijk maar optioneel en kunnen in toekomstige updates opgenomen worden. Door deze structuur te volgen, streven we ernaar een platform te ontwikkelen dat niet alleen voldoet aan de technische en zakelijke vereisten, maar ook een uitzonderlijke ervaring biedt aan onze gebruikers.",
             "selection_reason": "Requirements in tekst",
             "signal_class": "weak",
             "focused_excerpt": "Elke wens en eis is gelabeld met 'Must Have', 'Should Have', of 'Could Have' om de prioriteit aan",
@@ -467,79 +399,10 @@
               "Dus Hou Ik Extra Rekening Met…",
               "H4 Wensen, Eisen, Prioriteiten"
             ],
-            "excerpt": "diepgaand inzicht te hebben in de diverse constraints en (non-)functionele eisen die de architectuur en functionaliteit van het platform zullen beïnvloeden. Dit hoofdstuk presenteert een gedetailleerde lijst van wensen, eisen, en prioriteiten die de ontwikkeling van ons webplatform sturen. Deze zijn zorgvuldig samengesteld uit zowel functionele als niet-",
+            "excerpt": "diepgaand inzicht te hebben in de diverse constraints en (non-)functionele eisen die de architectuur en functionaliteit van het platform zullen beïnvloeden. Dit hoofdstuk presenteert een gedetailleerde lijst van wensen, eisen, en prioriteiten die de ontwikkeling van ons webplatform sturen. Deze zijn zorgvuldig samengesteld uit zowel functionele als niet- functionele perspectieven om een holistisch beeld te geven van wat vereist is om een succesvolle en responsieve e-commerce oplossing te bouwen. Interpretatie van H4: • Abstractieniveau: H4 moet gelezen worden met een balans tussen een hoog en laag abstractieniveau. Het biedt een strategisch overzicht van de projectdoelen (hoog abstract), terwijl het ook concrete, technische specificaties en verwachtingen (laag abstract) uiteenzet die directe implicaties hebben voor de ontwikkeling. • Conceptualisatie: De inhoud is niet in één keer bedacht, maar is een werk in uitvoering,",
             "selection_reason": "Requirements in tekst",
             "signal_class": "weak",
             "focused_excerpt": "diepgaand inzicht te hebben in de diverse constraints en (non-)functionele eisen die de",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "8e5ee17e_0175",
-            "page_no": 16,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "H2 Stakeholders analyse",
-              "Dus Hou Ik Extra Rekening Met…",
-              "H4 Wensen, Eisen, Prioriteiten"
-            ],
-            "excerpt": "een gedetailleerde lijst van wensen, eisen, en prioriteiten die de ontwikkeling van ons webplatform sturen. Deze zijn zorgvuldig samengesteld uit zowel functionele als niet- functionele perspectieven om een holistisch beeld te geven van wat vereist is om een succesvolle en responsieve e-commerce oplossing te bouwen. Interpretatie van H4: • Abstractieniveau: H4 moet gelezen worden met een balans tussen een hoog en laag",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "een gedetailleerde lijst van wensen, eisen, en prioriteiten die de ontwikkeling van ons",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "8e5ee17e_0177",
-            "page_no": 16,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "H2 Stakeholders analyse",
-              "Dus Hou Ik Extra Rekening Met…",
-              "H4 Wensen, Eisen, Prioriteiten"
-            ],
-            "excerpt": "functionele perspectieven om een holistisch beeld te geven van wat vereist is om een succesvolle en responsieve e-commerce oplossing te bouwen. Interpretatie van H4: • Abstractieniveau: H4 moet gelezen worden met een balans tussen een hoog en laag abstractieniveau. Het biedt een strategisch overzicht van de projectdoelen (hoog abstract), terwijl het ook concrete, technische specificaties en verwachtingen (laag",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "functionele perspectieven om een holistisch beeld te geven van wat vereist is om een",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "8e5ee17e_0196",
-            "page_no": 16,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "H2 Stakeholders analyse",
-              "Dus Hou Ik Extra Rekening Met…",
-              "H4 Wensen, Eisen, Prioriteiten"
-            ],
-            "excerpt": "de website. 'Should Haves' zijn belangrijk maar niet kritiek voor de lancering, en 'Could Haves' zijn wenselijk maar optioneel en kunnen in toekomstige updates opgenomen worden. Door deze structuur te volgen, streven we ernaar een platform te ontwikkelen dat niet alleen voldoet aan de technische en zakelijke vereisten, maar ook een uitzonderlijke ervaring biedt aan onze gebruikers.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "de website. 'Should Haves' zijn belangrijk maar niet kritiek voor de lancering, en 'Could Haves'",
             "matched_signals": [],
             "criterion_subtype": "",
             "classification_source": "",
@@ -562,7 +425,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: avg, risicoanalyse."
+          "Concreet beveiligingsmechanisme(n) gevonden: risicoanalyse, avg."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -574,7 +437,7 @@
               "H1 Introductie",
               "Security"
             ],
-            "excerpt": "respecteren van uw privacy. Overeenkomstig de AVG-regelgeving hanteer ik duidelijke bewaartermijnen voor de persoonsgegevens die ik verzamel en verwerk. Mijn doel is om transparantie te bieden over hoe lang en waarom ik uw gegevens bewaar. Implementatie van Bewaartermijnen Er is intern beleid en procedures ontwikkeld om ervoor te zorgen dat persoonsgegevens",
+            "excerpt": "respecteren van uw privacy. Overeenkomstig de AVG-regelgeving hanteer ik duidelijke bewaartermijnen voor de persoonsgegevens die ik verzamel en verwerk. Mijn doel is om transparantie te bieden over hoe lang en waarom ik uw gegevens bewaar. Implementatie van Bewaartermijnen Er is intern beleid en procedures ontwikkeld om ervoor te zorgen dat persoonsgegevens niet langer worden bewaard dan noodzakelijk is voor de doeleinden waarvoor ze zijn verzameld of verwerkt. Hier zijn enkele maatregelen die genomen zijn: 1. Vastlegging van Bewaartermijnen : Voor elk type persoonsgegeven is er een specifieke bewaartermijn vastgesteld, gebaseerd op de aard van de gegevens en het doel van de verwerking. Bijvoorbeeld, klantgegevens gerelateerd aan bestellingen worden bewaard tot 7 jaar na de laatste transactie om te voldoen aan fiscale wetgeving. 2. Review en Verwijdering : Er worden periodieke reviews uitgevoerd om te controleren of opgeslagen gegevens nog steeds noodzakelijk zijn voor de",
             "selection_reason": "Concrete beveiligingsmechanisme(n): avg",
             "signal_class": "positive",
             "focused_excerpt": "respecteren van uw privacy.",
@@ -597,7 +460,7 @@
               "H1 Introductie",
               "Security"
             ],
-            "excerpt": "te laten verwijderen, mits er geen wettelijke bewaarplicht op rust. • Veiligheid : De beperking van de bewaartermijn verhoogt de veiligheid van uw gegevens, doordat het risico op ongeautoriseerde toegang tot en misbruik van oude gegevens vermindert. Bij TechTrove wordt toegewijd aan het naleven van de AVG en het beschermen van de privacy van onze klanten. Door duidelijke bewaartermijnen te hanteren en te",
+            "excerpt": "verwijderd of geanonimiseerd. 3. Anonimisering : Wanneer mogelijk en toepasselijk, worden persoonsgegevens geanonimiseerd zodat deze niet langer terug te leiden zijn naar een individu, waardoor ze voor langere tijd bewaard kunnen worden voor statistische of onderzoeksdoeleinden. Gevolgen voor Klanten Als klant van TechTrove heeft dit de volgende gevolgen voor u als klant: • Transparantie : U heeft het recht om te weten hoe lang uw gegevens worden bewaard en om inzicht te krijgen in de redenen hiervoor. • Recht op Vergetelheid : U kunt te allen tijde verzoeken om uw persoonsgegevens te laten verwijderen, mits er geen wettelijke bewaarplicht op rust. • Veiligheid : De beperking van de bewaartermijn verhoogt de veiligheid van uw gegevens, doordat het risico op ongeautoriseerde toegang tot en misbruik van oude gegevens vermindert. Bij TechTrove wordt toegewijd aan het naleven van de AVG en het beschermen van de privacy van onze klanten. Door duidelijke bewaartermijnen te hanteren en te",
             "selection_reason": "Concrete beveiligingsmechanisme(n): avg",
             "signal_class": "positive",
             "focused_excerpt": "Bij TechTrove wordt toegewijd aan het naleven van de AVG en het beschermen van de",
@@ -666,36 +529,12 @@
               "H1 Introductie",
               "Security"
             ],
-            "excerpt": "vastgestelde doeleinden. Niet langer noodzakelijke gegevens worden veilig verwijderd of geanonimiseerd. 3. Anonimisering : Wanneer mogelijk en toepasselijk, worden persoonsgegevens geanonimiseerd zodat deze niet langer terug te leiden zijn naar een individu, waardoor ze voor langere tijd bewaard kunnen worden voor statistische of onderzoeksdoeleinden. Gevolgen voor Klanten",
+            "excerpt": "vastgestelde doeleinden. Niet langer noodzakelijke gegevens worden veilig",
             "selection_reason": "Aanvullende beveiligingscontext: veilig",
             "signal_class": "weak",
             "focused_excerpt": "Niet langer noodzakelijke gegevens worden veilig",
             "matched_signals": [
               "veilig"
-            ],
-            "criterion_subtype": "generic",
-            "classification_source": "block_text",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "8e5ee17e_0340",
-            "page_no": 29,
-            "block_type": "bullet",
-            "heading_path": [
-              "H1 Introductie",
-              "Security"
-            ],
-            "excerpt": "te laten verwijderen, mits er geen wettelijke bewaarplicht op rust. • Veiligheid : De beperking van de bewaartermijn verhoogt de veiligheid van uw gegevens, doordat het risico op ongeautoriseerde toegang tot en misbruik van oude gegevens vermindert. Bij TechTrove wordt toegewijd aan het naleven van de AVG en het beschermen van de privacy van onze klanten. Door duidelijke bewaartermijnen te hanteren en te",
-            "selection_reason": "Aanvullende beveiligingscontext: veilig, veiligheid",
-            "signal_class": "weak",
-            "focused_excerpt": "• Veiligheid : De beperking van de bewaartermijn verhoogt de veiligheid van uw",
-            "matched_signals": [
-              "veilig",
-              "veiligheid"
             ],
             "criterion_subtype": "generic",
             "classification_source": "block_text",
@@ -717,7 +556,7 @@
       "beperking": {
         "count": null,
         "notes": [
-          "Beperking in meerdere blokken beschreven (beperking, slechtziend, specifieke doelgroep) en meerdere onderbouwingsblokken aanwezig (onderzoek, bronnen, bron)."
+          "Beperking in meerdere blokken beschreven (specifieke doelgroep, slechtziend, visuele beperking) en meerdere onderbouwingsblokken aanwezig (onderzoek, bronnen, bron)."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -728,13 +567,13 @@
             "heading_path": [
               "Onderzoek naar web gebruikers"
             ],
-            "excerpt": "Velen die kampen met een visuele beperking vertrouwen op vergrotingssoftware om een specifiek deel van hun computerscherm sterk te vergroten. Echter, zelfs wanneer slechtzienden hun webpagina met bijvoorbeeld 500% vergroten, zien ze slechts een klein fragment (1/36e deel) van het gehele scherm. Hierdoor blijft het voor deze doelgroep bijzonder uitdagend om de onderlinge samenhang van elementen op een webpagina te herkennen.",
-            "selection_reason": "Beperking/doelgroep: beperking, visuele beperking",
+            "excerpt": "In het geval van slechtziende mensen houd ik extra rekening met de gebruiksvriendelijkheid van schermlezers en andere hulpmiddelen. Het kleurenschema en de lettergrootte zijn ontworpen om de leesbaarheid te verbeteren en een meer toegankelijke online winkelomgeving te bieden. Velen die kampen met een visuele beperking vertrouwen op vergrotingssoftware om een specifiek deel van hun computerscherm sterk te vergroten. Echter, zelfs wanneer slechtzienden hun webpagina met bijvoorbeeld 500% vergroten, zien ze slechts een klein fragment (1/36e deel) van het gehele scherm. Hierdoor blijft het voor deze doelgroep bijzonder uitdagend om de onderlinge samenhang van elementen op een webpagina te herkennen. De filterfunctie blijft gehandhaafd, waarmee gebruikers, waaronder slechtziende mensen, producten kunnen sorteren op prijs van laag naar hoog. Dit maakt het voor beide doelgroepen eenvoudiger om de gewenste producten te vinden en draagt bij aan een gebruiksvriendelijke ervaring.",
+            "selection_reason": "Beperking/doelgroep: visuele beperking, beperking",
             "signal_class": "positive",
             "focused_excerpt": "Velen die kampen met een visuele beperking vertrouwen op vergrotingssoftware om een",
             "matched_signals": [
-              "beperking",
-              "visuele beperking"
+              "visuele beperking",
+              "beperking"
             ],
             "criterion_subtype": "limitation",
             "classification_source": "block_text",
@@ -751,13 +590,13 @@
             "heading_path": [
               "Onderzoek naar web gebruikers"
             ],
-            "excerpt": "Over Sam: Sam is een vriendelijke en actieve jongeman van 28 jaar oud. Hij woont in Amsterdam en geniet van het bruisende stadsleven. Hij heeft een visuele beperking en vertrouwt op hulpmiddelen zoals vergrotingssoftware om zijn dagelijkse activiteiten te vergemakkelijken. Interesses: • Technologie: Sam is altijd geïnteresseerd geweest in de nieuwste technologische ontwikkelingen, vooral op het gebied van toegankelijkheidshulpmiddelen.",
-            "selection_reason": "Beperking/doelgroep: beperking, visuele beperking",
+            "excerpt": "waardeert een responsieve website die er goed uitziet, zelfs op haar kleine scherm. Overige kenmerken: Sara hecht veel waarde aan duurzaamheid en zou geïnteresseerd zijn in brillen gemaakt van milieuvriendelijke materialen. Ze houdt van websites met duidelijke informatie over producten, betalingsmogelijkheden en levering. Profiel van tweede doelgroep: Naam: [GEVOELIG_01] Leeftijd: 28 jaar Geslacht: Man Woonplaats: Amsterdam Over Sam: Sam is een vriendelijke en actieve jongeman van 28 jaar oud. Hij woont in Amsterdam en geniet van het bruisende stadsleven. Hij heeft een visuele beperking en vertrouwt op hulpmiddelen zoals vergrotingssoftware om zijn dagelijkse activiteiten te vergemakkelijken. Interesses: • Technologie: Sam is altijd geïnteresseerd geweest in de nieuwste technologische ontwikkelingen, vooral op het gebied van toegankelijkheidshulpmiddelen. • Muziek: Hij luistert graag naar verschillende soorten muziek, vooral jazz en klassieke muziek.",
+            "selection_reason": "Beperking/doelgroep: visuele beperking, beperking",
             "signal_class": "positive",
             "focused_excerpt": "Hij heeft een visuele beperking en vertrouwt",
             "matched_signals": [
-              "beperking",
-              "visuele beperking"
+              "visuele beperking",
+              "beperking"
             ],
             "criterion_subtype": "limitation",
             "classification_source": "block_text",
@@ -774,13 +613,13 @@
             "heading_path": [
               "Onderzoek naar web gebruikers"
             ],
-            "excerpt": "• Sport: Ondanks zijn visuele beperking houdt Sam van sport en is hij een fanatieke supporter van het lokale voetbalteam. Winkelen en online ervaring: • Sam winkelt regelmatig online voor kleding, gadgets en huishoudelijke artikelen vanwege het gemak en het brede assortiment dat online beschikbaar is. • Hij waardeert websites die goed zijn ontworpen en gemakkelijk toegankelijk zijn met zijn vergrotingssoftware.",
-            "selection_reason": "Beperking/doelgroep: beperking, visuele beperking",
+            "excerpt": "• Sport: Ondanks zijn visuele beperking houdt Sam van sport en is hij een fanatieke supporter van het lokale voetbalteam. Winkelen en online ervaring: • Sam winkelt regelmatig online voor kleding, gadgets en huishoudelijke artikelen vanwege het gemak en het brede assortiment dat online beschikbaar is. • Hij waardeert websites die goed zijn ontworpen en gemakkelijk toegankelijk zijn met zijn vergrotingssoftware. • Sam vindt het belangrijk dat productinformatie duidelijk en gedetailleerd is, zodat hij een goed beeld kan krijgen van wat hij koopt, zelfs zonder het product te kunnen zien.",
+            "selection_reason": "Beperking/doelgroep: visuele beperking, beperking",
             "signal_class": "positive",
             "focused_excerpt": "• Sport: Ondanks zijn visuele beperking houdt Sam van sport en is hij een fanatieke",
             "matched_signals": [
-              "beperking",
-              "visuele beperking"
+              "visuele beperking",
+              "beperking"
             ],
             "criterion_subtype": "limitation",
             "classification_source": "block_text",
@@ -797,34 +636,12 @@
             "heading_path": [
               "Onderzoek naar web gebruikers"
             ],
-            "excerpt": "De website moet dit gaan doen: Zich richten op twee specifieke doelgroepen, namelijk meisjes rond universiteitsleeftijd die op zoek zijn naar unieke brillen en slechtziende mensen die behoefte hebben aan een toegankelijke winkelervaring. Ik richt me dus op deze doelgroepen, die gewend zijn aan online winkelen en het gebruiken van vergelijkbare websites in de mode- en accessoirebranche.",
+            "excerpt": "De website moet dit gaan doen: Zich richten op twee specifieke doelgroepen, namelijk meisjes rond universiteitsleeftijd die op zoek zijn naar unieke brillen en slechtziende mensen die behoefte hebben aan een toegankelijke winkelervaring. Ik richt me dus op deze doelgroepen, die gewend zijn aan online winkelen en het gebruiken van vergelijkbare websites in de mode- en accessoirebranche. Meisjes rond universiteitsleeftijd: Deze doelgroep gebruikt vaak dergelijke sites om snel trendy en modieuze items te vinden die passen bij hun persoonlijke stijl. Ze waarderen een website die intuïtief en visueel aantrekkelijk is, met een gebruiksvriendelijke interface. Snelle en eenvoudige navigatie is cruciaal, aangezien deze doelgroep geneigd is tot impulsieve aankopen. Deze gebruikers vinden het prettig als de website een gevarieerd maar beperkt assortiment aanbiedt, waardoor ze niet overweldigd raken. Daarnaast waarderen ze een website met een",
             "selection_reason": "Beperking/doelgroep: specifieke doelgroep",
             "signal_class": "positive",
             "focused_excerpt": "De website moet dit gaan doen: Zich richten op twee specifieke doelgroepen, namelijk meisjes",
             "matched_signals": [
               "specifieke doelgroep"
-            ],
-            "criterion_subtype": "limitation",
-            "classification_source": "block_text",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "c90afb25_0056",
-            "page_no": 10,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Onderzoek naar web gebruikers"
-            ],
-            "excerpt": "rond universiteitsleeftijd die op zoek zijn naar unieke brillen en slechtziende mensen die behoefte hebben aan een toegankelijke winkelervaring. Ik richt me dus op deze doelgroepen, die gewend zijn aan online winkelen en het gebruiken van vergelijkbare websites in de mode- en accessoirebranche. Meisjes rond universiteitsleeftijd: Deze doelgroep gebruikt vaak dergelijke sites om snel trendy",
-            "selection_reason": "Beperking/doelgroep: slechtziend",
-            "signal_class": "positive",
-            "focused_excerpt": "rond universiteitsleeftijd die op zoek zijn naar unieke brillen en slechtziende mensen die",
-            "matched_signals": [
-              "slechtziend"
             ],
             "criterion_subtype": "limitation",
             "classification_source": "block_text",
@@ -841,13 +658,13 @@
             "heading_path": [
               "H6 Literatuurlijst"
             ],
-            "excerpt": "slechtzienden/#:~:text=Bijna%20geen%20enkele%20site%20is,minst%20goed%20in%20de%2 0monitor. NOS. (2022, 11 februari). Online bestellen is vaak lastig voor slechtzienden: '40 keer op een toets drukken'. NOS. Geraadpleegd van https://nos.nl/artikel/2409420-online-bestellen-is-vaak-lastig- voor-slechtzienden-40-keer-op-een-toets-drukken Desk Research Onderzoek web gebruikers :",
-            "selection_reason": "Onderbouwing/deskresearch: desk research, onderzoek",
+            "excerpt": "voor-slechtzienden-40-keer-op-een-toets-drukken Desk Research Onderzoek web gebruikers :",
+            "selection_reason": "Onderbouwing/deskresearch: onderzoek, desk research",
             "signal_class": "positive",
             "focused_excerpt": "Desk Research Onderzoek web gebruikers :",
             "matched_signals": [
-              "desk research",
-              "onderzoek"
+              "onderzoek",
+              "desk research"
             ],
             "criterion_subtype": "research",
             "classification_source": "block_text",
@@ -1141,7 +958,7 @@
               "Onderzoek naar web gebruikers",
               "4.1 Constraints en (non-) Functionele eisen"
             ],
-            "excerpt": "NFR02: Producten moeten makkelijk te vinden zijn (Should Have) • Belangrijk om de gebruikerservaring te verbeteren en de conversie te verhogen, maar niet zo cruciaal als beschikbaarheid en betrouwbaarheid. NFR03: Toegankelijkheid (Must Have) • Kritisch om ervoor te zorgen dat de website inclusief is voor alle gebruikers, inclusief slechtziende mensen, en om te voldoen aan wettelijke vereisten. NFR04: Aantrekkelijkheid (Must Have)",
+            "excerpt": "NFR01: Beschikbaarheid en betrouwbaarheid (Must Have) • Essentieel voor het voortdurend functioneren van de webshop, omdat klanten te allen tijde toegang moeten hebben tot de website en betrouwbare transacties moeten kunnen uitvoeren. NFR02: Producten moeten makkelijk te vinden zijn (Should Have) • Belangrijk om de gebruikerservaring te verbeteren en de conversie te verhogen, maar niet zo cruciaal als beschikbaarheid en betrouwbaarheid. NFR03: Toegankelijkheid (Must Have) • Kritisch om ervoor te zorgen dat de website inclusief is voor alle gebruikers, inclusief slechtziende mensen, en om te voldoen aan wettelijke vereisten. NFR04: Aantrekkelijkheid (Must Have)",
             "selection_reason": "Requirements in tekst (1 IDs herkend)",
             "signal_class": "positive",
             "focused_excerpt": "NFR02: Producten moeten makkelijk te vinden zijn (Should Have)",
@@ -1167,7 +984,7 @@
               "Onderzoek naar web gebruikers",
               "4.1 Constraints en (non-) Functionele eisen"
             ],
-            "excerpt": "waarborgen. NFR14: Wenslijst (Should Have) • Kan de gebruikerservaring verbeteren door gebruikers in staat te stellen producten op te slaan voor later, maar niet zo kritisch als andere requirements. NFR15: Security (Must Have) • Dit is van cruciaal belang om te voorkomen dat kwaadwillende partijen toegang krijgen tot gevoelige gegevens, zoals persoonlijke informatie van gebruikers, betalingsgegevens en",
+            "excerpt": "waarborgen. NFR14: Wenslijst (Should Have) • Kan de gebruikerservaring verbeteren door gebruikers in staat te stellen producten op te slaan voor later, maar niet zo kritisch als andere requirements. NFR15: Security (Must Have) • Dit is van cruciaal belang om te voorkomen dat kwaadwillende partijen toegang krijgen tot gevoelige gegevens, zoals persoonlijke informatie van gebruikers, betalingsgegevens en andere vertrouwelijke gegevens. Sterke beveiliging is essentieel om de integriteit, vertrouwelijkheid en beschikbaarheid van de website te waarborgen en om het vertrouwen van gebruikers te behouden. NFR16: Taal (Should Have) • Dit is belangrijk omdat het een bredere doelgroep aanspreekt en de toegankelijkheid vergroot voor gebruikers die een andere taal dan de standaardtaal van de website spreken. Meertaligheid verbetert de gebruikservaring en vergroot de kans dat gebruikers langer op de website blijven en meer interactie hebben met de inhoud. Het biedt ook mogelijkheden voor",
             "selection_reason": "Requirements in tekst (1 IDs herkend)",
             "signal_class": "positive",
             "focused_excerpt": "NFR14: Wenslijst (Should Have)",
@@ -1193,80 +1010,11 @@
               "Onderzoek naar web gebruikers",
               "4.1 Constraints en (non-) Functionele eisen"
             ],
-            "excerpt": "5. Functionele requirements Waarom MoScoW: 1. Must have: Klanten moeten in staat zijn om te registreren en een profiel aan te maken in de webshop • Onderbouwing: Dit is essentieel omdat het klanten in staat stelt om een gepersonaliseerde ervaring te hebben, zoals het opslaan van favoriete producten, het bijhouden van bestelgeschiedenis en het ontvangen van relevante aanbiedingen. Het verhoogt ook de klantbetrokkenheid en loyaliteit.",
+            "excerpt": "5. Functionele requirements Waarom MoScoW: 1. Must have: Klanten moeten in staat zijn om te registreren en een profiel aan te maken in de webshop • Onderbouwing: Dit is essentieel omdat het klanten in staat stelt om een gepersonaliseerde ervaring te hebben, zoals het opslaan van favoriete producten, het bijhouden van bestelgeschiedenis en het ontvangen van relevante aanbiedingen. Het verhoogt ook de klantbetrokkenheid en loyaliteit. 2. Must have: Klanten moeten in staat zijn om een profiel aan te maken en in te loggen om een gepersonaliseerde winkelervaring te hebben. • Onderbouwing: Dit is essentieel omdat het klanten in staat stelt om een gepersonaliseerde ervaring te hebben, zoals het opslaan van favoriete producten, het bijhouden van bestelgeschiedenis en het ontvangen van relevante aanbiedingen. Het verhoogt ook de klantbetrokkenheid en loyaliteit. 3. Must have: Klanten moeten producten kunnen toevoegen aan hun winkelmandje, het",
             "selection_reason": "Requirements in tekst",
             "signal_class": "weak",
             "focused_excerpt": "5. Functionele requirements",
             "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "c90afb25_0224",
-            "page_no": 18,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Onderzoek naar web gebruikers",
-              "4.1 Constraints en (non-) Functionele eisen"
-            ],
-            "excerpt": "5. Functionele requirements Waarom MoScoW: 1. Must have: Klanten moeten in staat zijn om te registreren en een profiel aan te maken in de webshop • Onderbouwing: Dit is essentieel omdat het klanten in staat stelt om een gepersonaliseerde ervaring te hebben, zoals het opslaan van favoriete producten, het bijhouden van bestelgeschiedenis en het ontvangen van relevante aanbiedingen. Het verhoogt ook de klantbetrokkenheid en loyaliteit.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "1. Must have: Klanten moeten in staat zijn om te registreren en een profiel aan te maken in",
-            "matched_signals": [
-              "moscow:must"
-            ],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "c90afb25_0230",
-            "page_no": 18,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Onderzoek naar web gebruikers",
-              "4.1 Constraints en (non-) Functionele eisen"
-            ],
-            "excerpt": "2. Must have: Klanten moeten in staat zijn om een profiel aan te maken en in te loggen om een gepersonaliseerde winkelervaring te hebben. • Onderbouwing: Dit is essentieel omdat het klanten in staat stelt om een gepersonaliseerde ervaring te hebben, zoals het opslaan van favoriete producten, het bijhouden van bestelgeschiedenis en het ontvangen van relevante aanbiedingen. Het verhoogt ook de klantbetrokkenheid en loyaliteit.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "2. Must have: Klanten moeten in staat zijn om een profiel aan te maken en in te loggen om",
-            "matched_signals": [
-              "moscow:must"
-            ],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "c90afb25_0236",
-            "page_no": 18,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Onderzoek naar web gebruikers",
-              "4.1 Constraints en (non-) Functionele eisen"
-            ],
-            "excerpt": "3. Must have: Klanten moeten producten kunnen toevoegen aan hun winkelmandje, het mandje kunnen bekijken, producten kunnen verwijderen en de bestelling kunnen afronden. • Onderbouwing: Dit is van vitaal belang voor het succes van de webshop, aangezien het de basisfunctionaliteit biedt voor het doen van aankopen. Het stelt klanten in staat om een soepele winkelervaring te hebben en bevordert de conversie van bezoekers naar kopers.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "3. Must have: Klanten moeten producten kunnen toevoegen aan hun winkelmandje, het",
-            "matched_signals": [
-              "moscow:must"
-            ],
             "criterion_subtype": "",
             "classification_source": "",
             "evidence_strength": "thin",
@@ -1280,7 +1028,7 @@
       "taalkeuze": {
         "count": null,
         "notes": [
-          "Taalkeuze (meertalig, taal van de website) en gevolgen (meertaligheid) aanwezig."
+          "Taalkeuze (taal van de website, nederlands) en gevolgen (meertaligheid) aanwezig."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -1337,7 +1085,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: ssl, avg, wachtwoord, beveiligingsaudit, https, firewall."
+          "Concreet beveiligingsmechanisme(n) gevonden: wachtwoord, ssl, beveiligingsaudit, avg, firewall, https."
         ],
         "missing_signals": [],
         "evidence_items": []
@@ -1352,7 +1100,7 @@
       "beperking": {
         "count": null,
         "notes": [
-          "Beperking beschreven (beperking, slechtziend) en onderbouwing aanwezig (literatuurlijst, onderzoek, bronnen).",
+          "Beperking beschreven (slechtziend, beperking) en onderbouwing aanwezig (literatuurlijst, onderzoek, deskresearch).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ],
         "missing_signals": [],
@@ -1366,7 +1114,7 @@
               "H2 Stakeholders analyse",
               "H3 Onderzoek naar web gebruikers"
             ],
-            "excerpt": "Slechtziende mensen hebben grote letters nodig. Verder heb ik geen bronnen gebruikt. Persona: Emma, 19 jaar. Ze houdt van brillen en TikTok. Ze wil goedkope brillen. Ze gebruikt mobiel. Dit profiel is niet gebaseerd op interviews of bronnen, maar klinkt logisch. Conclusie: maak een website met filters en een winkelmandje. Dan is iedereen tevreden.",
+            "excerpt": "Ik heb geen echt onderzoek gedaan naar webgebruikers. Ik heb zelf bedacht dat studenten vaak online shoppen. Slechtziende mensen hebben grote letters nodig. Verder heb ik geen bronnen gebruikt. Persona: Emma, 19 jaar. Ze houdt van brillen en TikTok. Ze wil goedkope brillen. Ze gebruikt mobiel. Dit profiel is niet gebaseerd op interviews of bronnen, maar klinkt logisch. Conclusie: maak een website met filters en een winkelmandje. Dan is iedereen tevreden.",
             "selection_reason": "Beperking + onderbouwing: slechtziend, bron, bronnen",
             "signal_class": "weak",
             "focused_excerpt": "Slechtziende mensen hebben grote letters nodig.",
@@ -1406,30 +1154,6 @@
             "matched_row_ids": [],
             "local_section_label": "",
             "context_warning": ""
-          },
-          {
-            "block_id": "23276484_0033",
-            "page_no": 3,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "H2 Stakeholders analyse",
-              "H3 Onderzoek naar web gebruikers"
-            ],
-            "excerpt": "Ik heb geen echt onderzoek gedaan naar webgebruikers. Ik heb zelf bedacht dat studenten vaak online shoppen. Slechtziende mensen hebben grote letters nodig. Verder heb ik geen bronnen gebruikt. Persona: Emma, 19 jaar. Ze houdt van brillen en TikTok. Ze wil goedkope brillen. Ze gebruikt mobiel. Dit profiel is niet gebaseerd op interviews of bronnen, maar klinkt logisch.",
-            "selection_reason": "Onderbouwing/deskresearch: onderzoek",
-            "signal_class": "weak",
-            "focused_excerpt": "Ik heb geen echt onderzoek gedaan naar webgebruikers.",
-            "matched_signals": [
-              "onderzoek"
-            ],
-            "criterion_subtype": "research",
-            "classification_source": "block_text",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": "onderbouwing/onderzoek wordt in deze passage juist ontkend"
           },
           {
             "block_id": "23276484_0039",
@@ -1490,57 +1214,13 @@
               "H1 Introductie",
               "H2 Stakeholders analyse"
             ],
-            "excerpt": "De stakeholders zijn gewoon de belangrijkste mensen. Ik heb er niet veel gekozen omdat dat overzichtelijker is. Categorisatie: primair/secundair heb ik niet helemaal gedaan. Klant is primair, developer ook, investeerder misschien. Verder zijn er geen echte concerns uitgewerkt. Belangen en concerns: iedereen wil dat de website goed is. Dat is het eigenlijk. Er is geen interview gedaan of deskresearch gebruikt.",
+            "excerpt": "De stakeholders zijn gewoon de belangrijkste mensen. Ik heb er niet veel gekozen omdat dat overzichtelijker is. Categorisatie: primair/secundair heb ik niet helemaal gedaan. Klant is primair, developer ook, investeerder misschien. Verder zijn er geen echte concerns uitgewerkt. Belangen en concerns: iedereen wil dat de website goed is. Dat is het eigenlijk. Er is geen interview gedaan of deskresearch gebruikt. Stakeholder matrix: niet gemaakt. Ik denk dat de investeerder ergens rechtsboven staat.",
             "selection_reason": "Stakeholder-beschrijving in lopende tekst",
             "signal_class": "positive",
             "focused_excerpt": "De stakeholders zijn gewoon de belangrijkste mensen.",
             "matched_signals": [
               "belang"
             ],
-            "criterion_subtype": "text",
-            "classification_source": "block_type",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "23276484_0029",
-            "page_no": 3,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "H2 Stakeholders analyse"
-            ],
-            "excerpt": "Categorisatie: primair/secundair heb ik niet helemaal gedaan. Klant is primair, developer ook, investeerder misschien. Verder zijn er geen echte concerns uitgewerkt. Belangen en concerns: iedereen wil dat de website goed is. Dat is het eigenlijk. Er is geen interview gedaan of deskresearch gebruikt. Stakeholder matrix: niet gemaakt. Ik denk dat de investeerder ergens rechtsboven staat.",
-            "selection_reason": "Stakeholder-beschrijving in lopende tekst",
-            "signal_class": "positive",
-            "focused_excerpt": "Belangen en concerns: iedereen wil dat de website goed is.",
-            "matched_signals": [
-              "belang"
-            ],
-            "criterion_subtype": "text",
-            "classification_source": "block_type",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "23276484_0031",
-            "page_no": 3,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "H2 Stakeholders analyse"
-            ],
-            "excerpt": "Categorisatie: primair/secundair heb ik niet helemaal gedaan. Klant is primair, developer ook, investeerder misschien. Verder zijn er geen echte concerns uitgewerkt. Belangen en concerns: iedereen wil dat de website goed is. Dat is het eigenlijk. Er is geen interview gedaan of deskresearch gebruikt. Stakeholder matrix: niet gemaakt. Ik denk dat de investeerder ergens rechtsboven staat.",
-            "selection_reason": "Stakeholder-beschrijving in lopende tekst",
-            "signal_class": "positive",
-            "focused_excerpt": "Stakeholder matrix: niet gemaakt. Ik denk dat de investeerder ergens rechtsboven staat.",
-            "matched_signals": [],
             "criterion_subtype": "text",
             "classification_source": "block_type",
             "evidence_strength": "moderate",
@@ -1569,50 +1249,6 @@
             "matched_row_ids": [],
             "local_section_label": "",
             "context_warning": ""
-          },
-          {
-            "block_id": "23276484_0027",
-            "page_no": 3,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "H2 Stakeholders analyse"
-            ],
-            "excerpt": "Categorisatie: primair/secundair heb ik niet helemaal gedaan. Klant is primair, developer ook, investeerder misschien. Verder zijn er geen echte concerns uitgewerkt. Belangen en concerns: iedereen wil dat de website goed is. Dat is het eigenlijk. Er is geen interview gedaan of deskresearch gebruikt. Stakeholder matrix: niet gemaakt. Ik denk dat de investeerder ergens rechtsboven staat.",
-            "selection_reason": "Stakeholder-beschrijving in lopende tekst",
-            "signal_class": "positive",
-            "focused_excerpt": "Categorisatie: primair/secundair heb ik niet helemaal gedaan. Klant is primair, developer ook, investeerder",
-            "matched_signals": [],
-            "criterion_subtype": "text",
-            "classification_source": "block_type",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "23276484_0028",
-            "page_no": 3,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "H2 Stakeholders analyse"
-            ],
-            "excerpt": "Categorisatie: primair/secundair heb ik niet helemaal gedaan. Klant is primair, developer ook, investeerder misschien. Verder zijn er geen echte concerns uitgewerkt. Belangen en concerns: iedereen wil dat de website goed is. Dat is het eigenlijk. Er is geen interview gedaan of deskresearch gebruikt. Stakeholder matrix: niet gemaakt. Ik denk dat de investeerder ergens rechtsboven staat.",
-            "selection_reason": "Stakeholder-beschrijving in lopende tekst",
-            "signal_class": "positive",
-            "focused_excerpt": "Verder zijn er geen echte concerns uitgewerkt.",
-            "matched_signals": [
-              "belang"
-            ],
-            "criterion_subtype": "text",
-            "classification_source": "block_type",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
           }
         ]
       },
@@ -1632,7 +1268,7 @@
               "H1 Introductie",
               "4.1 Constraints en niet-functionele eisen"
             ],
-            "excerpt": "als nodig. zegt. NFR01 Website moet altijd werken. Dat is handig. Must NFR02 Website moet mooi zijn. Mensen houden van mooie Must dingen. NFR03 Taal is Nederlands/Engels. Geen keuze gemaakt. Should NFR04 Security moet veilig zijn. Wachtwoorden mogen niet Must makkelijk zijn. Waarom MoSCoW: ik heb gekozen op gevoel. Must betekent belangrijk, should betekent minder belangrijk. Er is geen koppeling met stakeholders of bronnen.",
+            "excerpt": "Naam Eis Onderbouwing Prio CONSTR01 Budget maximaal 10.000 of Niet onderzocht. Must 100.000 euro. CONSTR02 Project duurt 6 weken of langer Omdat school dat ongeveer Could als nodig. zegt. NFR01 Website moet altijd werken. Dat is handig. Must NFR02 Website moet mooi zijn. Mensen houden van mooie Must dingen. NFR03 Taal is Nederlands/Engels. Geen keuze gemaakt. Should NFR04 Security moet veilig zijn. Wachtwoorden mogen niet Must makkelijk zijn. Waarom MoSCoW: ik heb gekozen op gevoel. Must betekent belangrijk, should betekent minder belangrijk. Er is geen koppeling met stakeholders of bronnen.",
             "selection_reason": "Requirements in tekst (1 IDs herkend)",
             "signal_class": "positive",
             "focused_excerpt": "NFR01 Website moet altijd werken. Dat is handig. Must",
@@ -1645,31 +1281,6 @@
             "matched_row_count": null,
             "matched_row_ids": [
               "NFR01"
-            ],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "23276484_0050",
-            "page_no": 4,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "4.1 Constraints en niet-functionele eisen"
-            ],
-            "excerpt": "als nodig. zegt. NFR01 Website moet altijd werken. Dat is handig. Must NFR02 Website moet mooi zijn. Mensen houden van mooie Must dingen. NFR03 Taal is Nederlands/Engels. Geen keuze gemaakt. Should NFR04 Security moet veilig zijn. Wachtwoorden mogen niet Must makkelijk zijn. Waarom MoSCoW: ik heb gekozen op gevoel. Must betekent belangrijk, should betekent minder belangrijk. Er is geen koppeling met stakeholders of bronnen.",
-            "selection_reason": "Requirements in tekst (1 IDs herkend)",
-            "signal_class": "positive",
-            "focused_excerpt": "NFR02 Website moet mooi zijn. Mensen houden van mooie Must",
-            "matched_signals": [
-              "req_id"
-            ],
-            "criterion_subtype": "non_functional",
-            "classification_source": "heading_path",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [
-              "NFR02"
             ],
             "local_section_label": "",
             "context_warning": ""
@@ -1698,172 +1309,13 @@
             "matched_row_ids": [],
             "local_section_label": "",
             "context_warning": ""
-          },
-          {
-            "block_id": "23276484_0044",
-            "page_no": 4,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "4.1 Constraints en niet-functionele eisen"
-            ],
-            "excerpt": "Naam Eis Onderbouwing Prio CONSTR01 Budget maximaal 10.000 of Niet onderzocht. Must 100.000 euro. CONSTR02 Project duurt 6 weken of langer Omdat school dat ongeveer Could als nodig. zegt. NFR01 Website moet altijd werken. Dat is handig. Must NFR02 Website moet mooi zijn. Mensen houden van mooie Must dingen. NFR03 Taal is Nederlands/Engels. Geen keuze gemaakt. Should NFR04 Security moet veilig zijn. Wachtwoorden mogen niet Must",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "Naam Eis Onderbouwing Prio",
-            "matched_signals": [],
-            "criterion_subtype": "non_functional",
-            "classification_source": "heading_path",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "23276484_0053",
-            "page_no": 4,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "4.1 Constraints en niet-functionele eisen"
-            ],
-            "excerpt": "als nodig. zegt. NFR01 Website moet altijd werken. Dat is handig. Must NFR02 Website moet mooi zijn. Mensen houden van mooie Must dingen. NFR03 Taal is Nederlands/Engels. Geen keuze gemaakt. Should NFR04 Security moet veilig zijn. Wachtwoorden mogen niet Must makkelijk zijn. Waarom MoSCoW: ik heb gekozen op gevoel. Must betekent belangrijk, should betekent minder belangrijk. Er is geen koppeling met stakeholders of bronnen.",
-            "selection_reason": "Requirements in tekst (1 IDs herkend)",
-            "signal_class": "positive",
-            "focused_excerpt": "NFR04 Security moet veilig zijn. Wachtwoorden mogen niet Must",
-            "matched_signals": [
-              "req_id"
-            ],
-            "criterion_subtype": "non_functional",
-            "classification_source": "heading_path",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [
-              "NFR04"
-            ],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "23276484_0055",
-            "page_no": 4,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "4.1 Constraints en niet-functionele eisen"
-            ],
-            "excerpt": "als nodig. zegt. NFR01 Website moet altijd werken. Dat is handig. Must NFR02 Website moet mooi zijn. Mensen houden van mooie Must dingen. NFR03 Taal is Nederlands/Engels. Geen keuze gemaakt. Should NFR04 Security moet veilig zijn. Wachtwoorden mogen niet Must makkelijk zijn. Waarom MoSCoW: ik heb gekozen op gevoel. Must betekent belangrijk, should betekent minder belangrijk. Er is geen koppeling met stakeholders of bronnen.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "Waarom MoSCoW: ik heb gekozen op gevoel. Must betekent belangrijk, should betekent minder belangrijk. Er is",
-            "matched_signals": [],
-            "criterion_subtype": "non_functional",
-            "classification_source": "heading_path",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "23276484_0045",
-            "page_no": 4,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "4.1 Constraints en niet-functionele eisen"
-            ],
-            "excerpt": "CONSTR01 Budget maximaal 10.000 of Niet onderzocht. Must 100.000 euro. CONSTR02 Project duurt 6 weken of langer Omdat school dat ongeveer Could als nodig. zegt. NFR01 Website moet altijd werken. Dat is handig. Must NFR02 Website moet mooi zijn. Mensen houden van mooie Must dingen. NFR03 Taal is Nederlands/Engels. Geen keuze gemaakt. Should NFR04 Security moet veilig zijn. Wachtwoorden mogen niet Must makkelijk zijn.",
-            "selection_reason": "Requirements in tekst (1 IDs herkend)",
-            "signal_class": "positive",
-            "focused_excerpt": "CONSTR01 Budget maximaal 10.000 of Niet onderzocht. Must",
-            "matched_signals": [
-              "req_id"
-            ],
-            "criterion_subtype": "non_functional",
-            "classification_source": "heading_path",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [
-              "CONSTR01"
-            ],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "23276484_0046",
-            "page_no": 4,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "4.1 Constraints en niet-functionele eisen"
-            ],
-            "excerpt": "CONSTR01 Budget maximaal 10.000 of Niet onderzocht. Must 100.000 euro. CONSTR02 Project duurt 6 weken of langer Omdat school dat ongeveer Could als nodig. zegt. NFR01 Website moet altijd werken. Dat is handig. Must NFR02 Website moet mooi zijn. Mensen houden van mooie Must dingen. NFR03 Taal is Nederlands/Engels. Geen keuze gemaakt. Should NFR04 Security moet veilig zijn. Wachtwoorden mogen niet Must makkelijk zijn.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "100.000 euro.",
-            "matched_signals": [],
-            "criterion_subtype": "non_functional",
-            "classification_source": "heading_path",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "23276484_0047",
-            "page_no": 4,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "4.1 Constraints en niet-functionele eisen"
-            ],
-            "excerpt": "CONSTR01 Budget maximaal 10.000 of Niet onderzocht. Must 100.000 euro. CONSTR02 Project duurt 6 weken of langer Omdat school dat ongeveer Could als nodig. zegt. NFR01 Website moet altijd werken. Dat is handig. Must NFR02 Website moet mooi zijn. Mensen houden van mooie Must dingen. NFR03 Taal is Nederlands/Engels. Geen keuze gemaakt. Should NFR04 Security moet veilig zijn. Wachtwoorden mogen niet Must makkelijk zijn.",
-            "selection_reason": "Requirements in tekst (1 IDs herkend)",
-            "signal_class": "positive",
-            "focused_excerpt": "CONSTR02 Project duurt 6 weken of langer Omdat school dat ongeveer Could",
-            "matched_signals": [
-              "req_id"
-            ],
-            "criterion_subtype": "non_functional",
-            "classification_source": "heading_path",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [
-              "CONSTR02"
-            ],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "23276484_0048",
-            "page_no": 4,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "4.1 Constraints en niet-functionele eisen"
-            ],
-            "excerpt": "als nodig. zegt. NFR01 Website moet altijd werken. Dat is handig. Must NFR02 Website moet mooi zijn. Mensen houden van mooie Must dingen. NFR03 Taal is Nederlands/Engels. Geen keuze gemaakt. Should NFR04 Security moet veilig zijn. Wachtwoorden mogen niet Must makkelijk zijn. Waarom MoSCoW: ik heb gekozen op gevoel. Must betekent belangrijk, should betekent minder belangrijk. Er is geen koppeling met stakeholders of bronnen.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "als nodig. zegt.",
-            "matched_signals": [],
-            "criterion_subtype": "non_functional",
-            "classification_source": "heading_path",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
           }
         ]
       },
       "taalkeuze": {
         "count": null,
         "notes": [
-          "Taalkeuze vermeld (engels, nederlands), maar geen gevolgen van die keuze beschreven."
+          "Taalkeuze vermeld (nederlands, engels), maar geen gevolgen van die keuze beschreven."
         ],
         "missing_signals": [
           "consequences"
@@ -1873,7 +1325,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: avg, wachtwoord."
+          "Concreet beveiligingsmechanisme(n) gevonden: wachtwoord, avg."
         ],
         "missing_signals": [],
         "evidence_items": []
@@ -1888,7 +1340,7 @@
       "beperking": {
         "count": null,
         "notes": [
-          "Beperking beschreven (slechtziend, specifieke doelgroep) en onderbouwing aanwezig (onderzoek).",
+          "Beperking beschreven (specifieke doelgroep, slechtziend) en onderbouwing aanwezig (onderzoek).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ],
         "missing_signals": [],
@@ -1900,34 +1352,12 @@
             "heading_path": [
               "Onderzoek naar web gebruikers"
             ],
-            "excerpt": "De website moet dit gaan doen: Zich richten op twee specifieke doelgroepen, namelijk meisjes rond universiteitsleeftijd die op zoek zijn naar unieke brillen en slechtziende mensen die behoefte hebben aan een toegankelijke winkelervaring. Ik richt me dus op deze doelgroepen, die gewend zijn aan online winkelen en het gebruiken van vergelijkbare websites in de mode- en accessoirebranche.",
+            "excerpt": "De website moet dit gaan doen: Zich richten op twee specifieke doelgroepen, namelijk meisjes rond universiteitsleeftijd die op zoek zijn naar unieke brillen en slechtziende mensen die behoefte hebben aan een toegankelijke winkelervaring. Ik richt me dus op deze doelgroepen, die gewend zijn aan online winkelen en het gebruiken van vergelijkbare websites in de mode- en accessoirebranche. Meisjes rond universiteitsleeftijd: Deze doelgroep gebruikt vaak dergelijke sites om snel trendy en modieuze items te vinden die passen bij hun persoonlijke stijl. Ze waarderen een website die intuïtief en visueel aantrekkelijk is, met een gebruiksvriendelijke interface. Snelle en eenvoudige navigatie is cruciaal, aangezien deze doelgroep geneigd is tot impulsieve aankopen. Deze gebruikers vinden het prettig als de website een gevarieerd maar beperkt assortiment aanbiedt, waardoor ze niet overweldigd raken. Daarnaast waarderen ze een website met een",
             "selection_reason": "Beperking/doelgroep: specifieke doelgroep",
             "signal_class": "positive",
             "focused_excerpt": "De website moet dit gaan doen: Zich richten op twee specifieke doelgroepen, namelijk meisjes",
             "matched_signals": [
               "specifieke doelgroep"
-            ],
-            "criterion_subtype": "limitation",
-            "classification_source": "block_text",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "35baf7d3_0048",
-            "page_no": 11,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Onderzoek naar web gebruikers"
-            ],
-            "excerpt": "rond universiteitsleeftijd die op zoek zijn naar unieke brillen en slechtziende mensen die behoefte hebben aan een toegankelijke winkelervaring. Ik richt me dus op deze doelgroepen, die gewend zijn aan online winkelen en het gebruiken van vergelijkbare websites in de mode- en accessoirebranche. Meisjes rond universiteitsleeftijd: Deze doelgroep gebruikt vaak dergelijke sites om snel trendy",
-            "selection_reason": "Beperking/doelgroep: slechtziend",
-            "signal_class": "positive",
-            "focused_excerpt": "rond universiteitsleeftijd die op zoek zijn naar unieke brillen en slechtziende mensen die",
-            "matched_signals": [
-              "slechtziend"
             ],
             "criterion_subtype": "limitation",
             "classification_source": "block_text",
@@ -1944,7 +1374,7 @@
             "heading_path": [
               "Onderzoek naar web gebruikers"
             ],
-            "excerpt": "esthetisch aantrekkelijke winkelervaring biedt. Slechtziende mensen: Voor slechtziende mensen is het cruciaal dat de website toegankelijk is en hen de mogelijkheid biedt om de tekstgrootte naar eigen voorkeur aan te passen. Het kleurenschema van paar, zwart en wit met een hoog contrast draagt bij aan een betere zichtbaarheid voor deze doelgroep. Het ontwerp van de website zal extra aandacht besteden aan een duidelijke navigatie en goed",
+            "excerpt": "Slechtziende mensen: Voor slechtziende mensen is het cruciaal dat de website toegankelijk is en hen de mogelijkheid biedt om de tekstgrootte naar eigen voorkeur aan te passen. Het kleurenschema van paar, zwart en wit met een hoog contrast draagt bij aan een betere zichtbaarheid voor deze doelgroep. Het ontwerp van de website zal extra aandacht besteden aan een duidelijke navigatie en goed georganiseerde informatie. Specifieke functionaliteiten, zoals de mogelijkheid om de lettergrootte aan te passen, zullen worden geïmplementeerd om een inclusieve ervaring te bieden aan slechtziende bezoekers. In het geval van slechtziende mensen houd ik extra rekening met de gebruiksvriendelijkheid van schermlezers en andere hulpmiddelen. Het kleurenschema en de lettergrootte zijn ontworpen om de leesbaarheid te verbeteren en een meer toegankelijke online winkelomgeving te bieden. De filterfunctie blijft gehandhaafd, waarmee gebruikers, waaronder slechtziende mensen,",
             "selection_reason": "Beperking/doelgroep: slechtziend",
             "signal_class": "positive",
             "focused_excerpt": "Slechtziende mensen: Voor slechtziende mensen is het cruciaal dat de website toegankelijk is",
@@ -1976,46 +1406,6 @@
             "criterion_subtype": "research",
             "classification_source": "block_text",
             "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "35baf7d3_0069",
-            "page_no": 11,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Onderzoek naar web gebruikers"
-            ],
-            "excerpt": "schermlezers en andere hulpmiddelen. Het kleurenschema en de lettergrootte zijn ontworpen om de leesbaarheid te verbeteren en een meer toegankelijke online winkelomgeving te bieden. De filterfunctie blijft gehandhaafd, waarmee gebruikers, waaronder slechtziende mensen, producten kunnen sorteren op prijs van laag naar hoog. Dit maakt het voor beide doelgroepen",
-            "selection_reason": "Inhoud in de beperking/doelgroep-sectie",
-            "signal_class": "weak",
-            "focused_excerpt": "schermlezers en andere hulpmiddelen. Het kleurenschema en de lettergrootte zijn ontworpen",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "35baf7d3_0049",
-            "page_no": 11,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Onderzoek naar web gebruikers"
-            ],
-            "excerpt": "behoefte hebben aan een toegankelijke winkelervaring. Ik richt me dus op deze doelgroepen, die gewend zijn aan online winkelen en het gebruiken van vergelijkbare websites in de mode- en accessoirebranche. Meisjes rond universiteitsleeftijd: Deze doelgroep gebruikt vaak dergelijke sites om snel trendy en modieuze items te vinden die passen bij hun persoonlijke stijl. Ze waarderen een website die",
-            "selection_reason": "Inhoud in de beperking/doelgroep-sectie",
-            "signal_class": "weak",
-            "focused_excerpt": "behoefte hebben aan een toegankelijke winkelervaring. Ik richt me dus op deze doelgroepen, die",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
             "matched_row_count": null,
             "matched_row_ids": [],
             "local_section_label": "",
@@ -2280,69 +1670,6 @@
             "matched_row_ids": [],
             "local_section_label": "",
             "context_warning": ""
-          },
-          {
-            "block_id": "35baf7d3_0105",
-            "page_no": 13,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Onderzoek naar web gebruikers",
-              "4.1 Constraints en (non-) Functionele eisen"
-            ],
-            "excerpt": "Constraints Niet-functionele requirements",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "Constraints",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "35baf7d3_0102",
-            "page_no": 13,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Onderzoek naar web gebruikers",
-              "H4 Wensen, Eisen, Prioriteiten"
-            ],
-            "excerpt": "Kleine introtekst over hoe ik H4 moet lezen ; hoog abstract ? laag abstract ? Alles zelf in 1 keer bedacht ? Werk in uitvoering ? input van wie gekregen/ verwerkt ? Hoe lang aan gewerkt ? Inspriratie gekregen van ?",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "bedacht ? Werk in uitvoering ? input van wie gekregen/ verwerkt ? Hoe lang aan gewerkt ?",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "35baf7d3_0103",
-            "page_no": 13,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Onderzoek naar web gebruikers",
-              "H4 Wensen, Eisen, Prioriteiten"
-            ],
-            "excerpt": "Kleine introtekst over hoe ik H4 moet lezen ; hoog abstract ? laag abstract ? Alles zelf in 1 keer bedacht ? Werk in uitvoering ? input van wie gekregen/ verwerkt ? Hoe lang aan gewerkt ? Inspriratie gekregen van ?",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "Inspriratie gekregen van ?",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
           }
         ]
       },
@@ -2359,7 +1686,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: avg, wachtwoord."
+          "Concreet beveiligingsmechanisme(n) gevonden: wachtwoord, avg."
         ],
         "missing_signals": [],
         "evidence_items": []
@@ -2494,46 +1821,6 @@
             "context_warning": ""
           },
           {
-            "block_id": "f14254dd_0034",
-            "page_no": 3,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Wensen, Eisen, Prioriteiten"
-            ],
-            "excerpt": "In dit hoofdstuk staan de eisen en wensen voor de webshop. De prioriteiten zijn vooral gekozen op gevoel en op wat logisch lijkt voor een webshop. Sommige punten zijn nog algemeen omdat tijdens de ontwikkeling pas echt duidelijk wordt wat haalbaar is.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "wat logisch lijkt voor een webshop. Sommige punten zijn nog algemeen omdat tijdens de ontwikkeling pas echt",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "f14254dd_0035",
-            "page_no": 3,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Wensen, Eisen, Prioriteiten"
-            ],
-            "excerpt": "In dit hoofdstuk staan de eisen en wensen voor de webshop. De prioriteiten zijn vooral gekozen op gevoel en op wat logisch lijkt voor een webshop. Sommige punten zijn nog algemeen omdat tijdens de ontwikkeling pas echt duidelijk wordt wat haalbaar is.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "duidelijk wordt wat haalbaar is.",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
             "block_id": "f14254dd_0044",
             "page_no": 4,
             "block_type": "paragraph",
@@ -2548,27 +1835,6 @@
             "matched_signals": [
               "moscow:must"
             ],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "f14254dd_0046",
-            "page_no": 4,
-            "block_type": "paragraph",
-            "heading_path": [
-              "2.1 Constraints en requirements",
-              "Waarom MoSCoW"
-            ],
-            "excerpt": "De meeste dingen zijn Must Have omdat een webshop zonder deze dingen niet echt werkt. Sommige functies zoals zoeken en bestelgeschiedenis zijn minder belangrijk omdat het vooral gaat om bestellen. Vormgeving is ook belangrijk omdat de opdracht zegt dat het top moet zijn. De keuzes zijn niet apart onderzocht. We hebben gekeken naar wat bij webshops normaal is en daarna is besloten wat het belangrijkste lijkt.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "belangrijk omdat de opdracht zegt dat het top moet zijn.",
-            "matched_signals": [],
             "criterion_subtype": "",
             "classification_source": "",
             "evidence_strength": "thin",
@@ -2608,27 +1874,6 @@
             "selection_reason": "Requirements in tekst",
             "signal_class": "weak",
             "focused_excerpt": "",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "f14254dd_0045",
-            "page_no": 4,
-            "block_type": "paragraph",
-            "heading_path": [
-              "2.1 Constraints en requirements",
-              "Waarom MoSCoW"
-            ],
-            "excerpt": "De meeste dingen zijn Must Have omdat een webshop zonder deze dingen niet echt werkt. Sommige functies zoals zoeken en bestelgeschiedenis zijn minder belangrijk omdat het vooral gaat om bestellen. Vormgeving is ook belangrijk omdat de opdracht zegt dat het top moet zijn. De keuzes zijn niet apart onderzocht. We hebben gekeken naar wat bij webshops normaal is en daarna is besloten wat het belangrijkste lijkt.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "zoals zoeken en bestelgeschiedenis zijn minder belangrijk omdat het vooral gaat om bestellen. Vormgeving is ook",
             "matched_signals": [],
             "criterion_subtype": "",
             "classification_source": "",
@@ -2678,7 +1923,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: avg, wachtwoord, https."
+          "Concreet beveiligingsmechanisme(n) gevonden: wachtwoord, avg, https."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -2707,52 +1952,6 @@
             "context_warning": ""
           },
           {
-            "block_id": "f14254dd_0070",
-            "page_no": 6,
-            "block_type": "paragraph",
-            "heading_path": [
-              "2.1 Constraints en requirements",
-              "Beveiliging"
-            ],
-            "excerpt": "Voor beveiliging gebruiken we login en wachtwoorden. Ook moet de website HTTPS gebruiken wanneer hij online staat. De klantgegevens mogen niet zomaar zichtbaar zijn voor anderen. AVG is belangrijk omdat klanten gegevens invullen zoals naam, e-mail en adres. De webshop moet daar netjes mee omgaan. In de code moeten wachtwoorden niet gewoon leesbaar opgeslagen worden. Verder moeten admins niet alle functies aan gewone klanten laten zien.",
-            "selection_reason": "Concrete beveiligingsmechanisme(n): avg",
-            "signal_class": "positive",
-            "focused_excerpt": "AVG is belangrijk omdat klanten gegevens invullen zoals naam, e-mail en adres.",
-            "matched_signals": [
-              "avg"
-            ],
-            "criterion_subtype": "concrete",
-            "classification_source": "block_text",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "f14254dd_0071",
-            "page_no": 6,
-            "block_type": "paragraph",
-            "heading_path": [
-              "2.1 Constraints en requirements",
-              "Beveiliging"
-            ],
-            "excerpt": "Voor beveiliging gebruiken we login en wachtwoorden. Ook moet de website HTTPS gebruiken wanneer hij online staat. De klantgegevens mogen niet zomaar zichtbaar zijn voor anderen. AVG is belangrijk omdat klanten gegevens invullen zoals naam, e-mail en adres. De webshop moet daar netjes mee omgaan. In de code moeten wachtwoorden niet gewoon leesbaar opgeslagen worden. Verder moeten admins niet alle functies aan gewone klanten laten zien.",
-            "selection_reason": "Concrete beveiligingsmechanisme(n): wachtwoord",
-            "signal_class": "positive",
-            "focused_excerpt": "In de code moeten wachtwoorden niet gewoon leesbaar opgeslagen worden.",
-            "matched_signals": [
-              "wachtwoord"
-            ],
-            "criterion_subtype": "concrete",
-            "classification_source": "block_text",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
             "block_id": "f14254dd_0067",
             "page_no": 6,
             "block_type": "heading",
@@ -2769,48 +1968,6 @@
             ],
             "criterion_subtype": "generic",
             "classification_source": "block_text",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "f14254dd_0069",
-            "page_no": 6,
-            "block_type": "paragraph",
-            "heading_path": [
-              "2.1 Constraints en requirements",
-              "Beveiliging"
-            ],
-            "excerpt": "Voor beveiliging gebruiken we login en wachtwoorden. Ook moet de website HTTPS gebruiken wanneer hij online staat. De klantgegevens mogen niet zomaar zichtbaar zijn voor anderen. AVG is belangrijk omdat klanten gegevens invullen zoals naam, e-mail en adres. De webshop moet daar netjes mee omgaan. In de code moeten wachtwoorden niet gewoon leesbaar opgeslagen worden. Verder moeten admins niet alle functies aan gewone klanten laten zien.",
-            "selection_reason": "Aanvullende beveiligingscontext: ",
-            "signal_class": "weak",
-            "focused_excerpt": "staat. De klantgegevens mogen niet zomaar zichtbaar zijn voor anderen.",
-            "matched_signals": [],
-            "criterion_subtype": "generic",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "f14254dd_0072",
-            "page_no": 6,
-            "block_type": "paragraph",
-            "heading_path": [
-              "2.1 Constraints en requirements",
-              "Beveiliging"
-            ],
-            "excerpt": "Voor beveiliging gebruiken we login en wachtwoorden. Ook moet de website HTTPS gebruiken wanneer hij online staat. De klantgegevens mogen niet zomaar zichtbaar zijn voor anderen. AVG is belangrijk omdat klanten gegevens invullen zoals naam, e-mail en adres. De webshop moet daar netjes mee omgaan. In de code moeten wachtwoorden niet gewoon leesbaar opgeslagen worden. Verder moeten admins niet alle functies aan gewone klanten laten zien.",
-            "selection_reason": "Aanvullende beveiligingscontext: ",
-            "signal_class": "weak",
-            "focused_excerpt": "admins niet alle functies aan gewone klanten laten zien.",
-            "matched_signals": [],
-            "criterion_subtype": "generic",
-            "classification_source": "",
             "evidence_strength": "thin",
             "matched_row_count": null,
             "matched_row_ids": [],
@@ -3050,7 +2207,7 @@
       "taalkeuze": {
         "count": null,
         "notes": [
-          "Taalkeuze (meertalig) en meerdere gevolgen (beïnvloed, beïnvloeden, bereik) goed uitgewerkt."
+          "Taalkeuze (meertalig) en meerdere gevolgen (beïnvloed, bereik, beïnvloeden) goed uitgewerkt."
         ],
         "missing_signals": [],
         "evidence_items": []
@@ -3058,7 +2215,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: avg, wachtwoord, risicoanalyse."
+          "Concreet beveiligingsmechanisme(n) gevonden: wachtwoord, risicoanalyse, avg."
         ],
         "missing_signals": [],
         "evidence_items": []
@@ -3073,7 +2230,7 @@
       "beperking": {
         "count": null,
         "notes": [
-          "Beperking beschreven (beperking, blind, visuele beperking) en onderbouwing aanwezig (onderzoek).",
+          "Beperking beschreven (visuele beperking, blind, beperking) en onderbouwing aanwezig (onderzoek).",
           "Onderbouwingsbewijs smal of alleen via heading — verifieer inhoud."
         ],
         "missing_signals": [],
@@ -3086,7 +2243,7 @@
               "Stakeholder quadrant",
               "H3 Onderzoek naar web gebruikers"
             ],
-            "excerpt": "afrekenproces. Om ervoor te zorgen dat de website toegankelijk is voor mensen met kleurenblindheid, kies ik zorgvuldig kleuren die gemakkelijk te onderscheiden zijn voor deze doelgroep en vermijd ik het gebruik van kleuren als enige manier om informatie over te brengen. Daarnaast voeg ik een taalkeuzeknop toe waarmee bezoekers de taal van de webshop kunnen aanpassen aan hun",
+            "excerpt": "afrekenproces. Om ervoor te zorgen dat de website toegankelijk is voor mensen met kleurenblindheid, kies ik zorgvuldig kleuren die gemakkelijk te onderscheiden zijn voor deze doelgroep en vermijd ik het gebruik van kleuren als enige manier om informatie over te brengen. Daarnaast voeg ik een taalkeuzeknop toe waarmee bezoekers de taal van de webshop kunnen aanpassen aan hun voorkeur. Dit vergroot de kans op internationaal succes en maakt de inhoud begrijpelijker voor een breder publiek over de hele wereld. De webshop streeft naar een naadloze en bevredigende winkelervaring voor elke klant, ongeacht hun locatie, leeftijd of fitnessniveau. Door te focussen op kwaliteit, toegankelijkheid en gebruiksgemak, ben ik ervan overtuigd dat de webshop een gewaardeerde bestemming zal worden voor fitnessliefhebbers wereldwijd. (https://www.frankwatching.com/archive/2021/03/11/webdesign-voor-kleurenblinden/) (https://succesmetjewebshop.nl/je-webshop-laten-vertalen-waarom-zou-je-dat-doen/)",
             "selection_reason": "Beperking/doelgroep: blind",
             "signal_class": "positive",
             "focused_excerpt": "Om ervoor te zorgen dat de website toegankelijk is voor mensen met kleurenblindheid, kies ik",
@@ -3132,73 +2289,10 @@
               "Stakeholder quadrant",
               "H3 Onderzoek naar web gebruikers"
             ],
-            "excerpt": "De website is ontworpen om een uitgebreid assortiment aan te bieden, variërend van hoogwaardige gymkleding tot voedingssupplementen zoals eiwitpoeder. De doelgroep bestaat uit fitnessliefhebbers van alle leeftijden en niveaus, van beginners die net beginnen met hun fitnessreis tot ervaren atleten die op zoek zijn naar specifieke kledingstukken en supplementen om hun training te ondersteunen.",
+            "excerpt": "De website is ontworpen om een uitgebreid assortiment aan te bieden, variërend van hoogwaardige gymkleding tot voedingssupplementen zoals eiwitpoeder. De doelgroep bestaat uit fitnessliefhebbers van alle leeftijden en niveaus, van beginners die net beginnen met hun fitnessreis tot ervaren atleten die op zoek zijn naar specifieke kledingstukken en supplementen om hun training te ondersteunen. Het aanbieden van een breed scala aan producten stelt de webshop in staat om tegemoet te komen aan de diverse behoeften van klanten en hen te voorzien van alles wat ze nodig hebben om hun fitnessdoelen te bereiken. Of klanten nu op zoek zijn naar comfortabele sportkleding voor hun dagelijkse trainingen, duurzame sportschoenen voor intensieve workouts, of hoogwaardige supplementen om hun prestaties te verbeteren, de webshop heeft het allemaal. Mensen over de hele wereld vertrouwen op websites om hun fitnessbehoeften te vervullen, en",
             "selection_reason": "Inhoud in de beperking/doelgroep-sectie",
             "signal_class": "weak",
             "focused_excerpt": "De website is ontworpen om een uitgebreid assortiment aan te bieden, variërend van",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "104812d2_0053",
-            "page_no": 5,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Stakeholder quadrant",
-              "H3 Onderzoek naar web gebruikers"
-            ],
-            "excerpt": "hoogwaardige gymkleding tot voedingssupplementen zoals eiwitpoeder. De doelgroep bestaat uit fitnessliefhebbers van alle leeftijden en niveaus, van beginners die net beginnen met hun fitnessreis tot ervaren atleten die op zoek zijn naar specifieke kledingstukken en supplementen om hun training te ondersteunen. Het aanbieden van een breed scala aan producten stelt de webshop in staat om tegemoet te",
-            "selection_reason": "Inhoud in de beperking/doelgroep-sectie",
-            "signal_class": "weak",
-            "focused_excerpt": "hoogwaardige gymkleding tot voedingssupplementen zoals eiwitpoeder. De doelgroep bestaat",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "104812d2_0054",
-            "page_no": 5,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Stakeholder quadrant",
-              "H3 Onderzoek naar web gebruikers"
-            ],
-            "excerpt": "uit fitnessliefhebbers van alle leeftijden en niveaus, van beginners die net beginnen met hun fitnessreis tot ervaren atleten die op zoek zijn naar specifieke kledingstukken en supplementen om hun training te ondersteunen. Het aanbieden van een breed scala aan producten stelt de webshop in staat om tegemoet te komen aan de diverse behoeften van klanten en hen te voorzien van alles wat ze nodig hebben",
-            "selection_reason": "Inhoud in de beperking/doelgroep-sectie",
-            "signal_class": "weak",
-            "focused_excerpt": "uit fitnessliefhebbers van alle leeftijden en niveaus, van beginners die net beginnen met hun",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "104812d2_0055",
-            "page_no": 5,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Stakeholder quadrant",
-              "H3 Onderzoek naar web gebruikers"
-            ],
-            "excerpt": "fitnessreis tot ervaren atleten die op zoek zijn naar specifieke kledingstukken en supplementen om hun training te ondersteunen. Het aanbieden van een breed scala aan producten stelt de webshop in staat om tegemoet te komen aan de diverse behoeften van klanten en hen te voorzien van alles wat ze nodig hebben om hun fitnessdoelen te bereiken. Of klanten nu op zoek zijn naar comfortabele sportkleding",
-            "selection_reason": "Inhoud in de beperking/doelgroep-sectie",
-            "signal_class": "weak",
-            "focused_excerpt": "fitnessreis tot ervaren atleten die op zoek zijn naar specifieke kledingstukken en supplementen",
             "matched_signals": [],
             "criterion_subtype": "",
             "classification_source": "",
@@ -3437,50 +2531,6 @@
             "matched_row_ids": [],
             "local_section_label": "",
             "context_warning": ""
-          },
-          {
-            "block_id": "104812d2_0084",
-            "page_no": 8,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Stakeholder quadrant",
-              "H3 Onderzoek naar web gebruikers",
-              "H4 Wensen, Eisen, Prioriteiten"
-            ],
-            "excerpt": "Beveiliging van niet- Hoewel er geen Paragraaf 1 Ontwikkelaars en financiële data financiële transacties Designers via de website zullen plaatsvinden, is het cruciaal om de veiligheid van alle verzamelde gegevens te waarborgen.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "financiële data financiële transacties Designers",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "104812d2_0085",
-            "page_no": 8,
-            "block_type": "paragraph",
-            "heading_path": [
-              "Stakeholder quadrant",
-              "H3 Onderzoek naar web gebruikers",
-              "H4 Wensen, Eisen, Prioriteiten"
-            ],
-            "excerpt": "Beveiliging van niet- Hoewel er geen Paragraaf 1 Ontwikkelaars en financiële data financiële transacties Designers via de website zullen plaatsvinden, is het cruciaal om de veiligheid van alle verzamelde gegevens te waarborgen.",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "via de website zullen",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
           }
         ]
       },
@@ -3500,12 +2550,12 @@
               "H3 Onderzoek naar web gebruikers"
             ],
             "excerpt": "taalkeuzeknop toe waarmee bezoekers de taal van de webshop kunnen aanpassen aan hun voorkeur. Dit vergroot de kans op internationaal succes en maakt de inhoud begrijpelijker voor een breder publiek over de hele wereld. De webshop streeft naar een naadloze en bevredigende winkelervaring voor elke klant, ongeacht hun locatie, leeftijd of fitnessniveau. Door te focussen op kwaliteit, toegankelijkheid en",
-            "selection_reason": "Taalkeuze: taalkeuzeknop, taal van de",
+            "selection_reason": "Taalkeuze: taal van de, taalkeuze",
             "signal_class": "positive",
             "focused_excerpt": "taalkeuzeknop toe waarmee bezoekers de taal van de webshop kunnen aanpassen aan hun",
             "matched_signals": [
-              "taalkeuzeknop",
-              "taal van de"
+              "taal van de",
+              "taalkeuze"
             ],
             "criterion_subtype": "choice",
             "classification_source": "block_text",
@@ -3520,7 +2570,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: ssl, wachtwoord, hashing, encryptie, https."
+          "Concreet beveiligingsmechanisme(n) gevonden: wachtwoord, ssl, hashing, https, encryptie."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -3531,7 +2581,7 @@
             "heading_path": [
               "H6 Security"
             ],
-            "excerpt": "Encryptie is een essentieel onderdeel van beveiligingstechnologieën, waarbij gegevens worden omgezet in een onleesbare vorm voor iedereen die geen toegang heeft tot de juiste sleutel of token. Het wordt veel gebruikt om gevoelige informatie te beschermen tijdens opslag en overdracht, zoals wachtwoorden. Een veelvoorkomende methode van encryptie is hashing,",
+            "excerpt": "Encryptie is een essentieel onderdeel van beveiligingstechnologieën, waarbij gegevens worden omgezet in een onleesbare vorm voor iedereen die geen toegang heeft tot de juiste sleutel of token. Het wordt veel gebruikt om gevoelige informatie te beschermen tijdens opslag en overdracht, zoals wachtwoorden. Een veelvoorkomende methode van encryptie is hashing, waarbij gegevens worden omgezet in een unieke reeks karakters die niet omkeerbaar is, waardoor de oorspronkelijke gegevens niet direct terug te halen zijn.",
             "selection_reason": "Concrete beveiligingsmechanisme(n): encryptie",
             "signal_class": "positive",
             "focused_excerpt": "Encryptie is een essentieel onderdeel van beveiligingstechnologieën, waarbij gegevens worden",
@@ -3541,30 +2591,6 @@
             "criterion_subtype": "concrete",
             "classification_source": "block_text",
             "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "104812d2_0134",
-            "page_no": 18,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H6 Security"
-            ],
-            "excerpt": "omgezet in een onleesbare vorm voor iedereen die geen toegang heeft tot de juiste sleutel of token. Het wordt veel gebruikt om gevoelige informatie te beschermen tijdens opslag en overdracht, zoals wachtwoorden. Een veelvoorkomende methode van encryptie is hashing, waarbij gegevens worden omgezet in een unieke reeks karakters die niet omkeerbaar is, waardoor de oorspronkelijke gegevens niet direct terug te halen zijn.",
-            "selection_reason": "Concrete beveiligingsmechanisme(n): wachtwoord, hashing, encryptie",
-            "signal_class": "positive",
-            "focused_excerpt": "overdracht, zoals wachtwoorden.",
-            "matched_signals": [
-              "wachtwoord",
-              "hashing",
-              "encryptie"
-            ],
-            "criterion_subtype": "concrete",
-            "classification_source": "block_text",
-            "evidence_strength": "strong",
             "matched_row_count": null,
             "matched_row_ids": [],
             "local_section_label": "",
@@ -3591,66 +2617,6 @@
             "matched_row_ids": [],
             "local_section_label": "",
             "context_warning": ""
-          },
-          {
-            "block_id": "104812d2_0132",
-            "page_no": 18,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H6 Security"
-            ],
-            "excerpt": "omgezet in een onleesbare vorm voor iedereen die geen toegang heeft tot de juiste sleutel of token. Het wordt veel gebruikt om gevoelige informatie te beschermen tijdens opslag en overdracht, zoals wachtwoorden. Een veelvoorkomende methode van encryptie is hashing, waarbij gegevens worden omgezet in een unieke reeks karakters die niet omkeerbaar is, waardoor de oorspronkelijke gegevens niet direct terug te halen zijn.",
-            "selection_reason": "Aanvullende beveiligingscontext: ",
-            "signal_class": "weak",
-            "focused_excerpt": "omgezet in een onleesbare vorm voor iedereen die geen toegang heeft tot de juiste sleutel of",
-            "matched_signals": [],
-            "criterion_subtype": "generic",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "104812d2_0133",
-            "page_no": 18,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H6 Security"
-            ],
-            "excerpt": "omgezet in een onleesbare vorm voor iedereen die geen toegang heeft tot de juiste sleutel of token. Het wordt veel gebruikt om gevoelige informatie te beschermen tijdens opslag en overdracht, zoals wachtwoorden. Een veelvoorkomende methode van encryptie is hashing, waarbij gegevens worden omgezet in een unieke reeks karakters die niet omkeerbaar is, waardoor de oorspronkelijke gegevens niet direct terug te halen zijn.",
-            "selection_reason": "Aanvullende beveiligingscontext: ",
-            "signal_class": "weak",
-            "focused_excerpt": "token. Het wordt veel gebruikt om gevoelige informatie te beschermen tijdens opslag en",
-            "matched_signals": [],
-            "criterion_subtype": "generic",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "104812d2_0135",
-            "page_no": 18,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H6 Security"
-            ],
-            "excerpt": "omgezet in een onleesbare vorm voor iedereen die geen toegang heeft tot de juiste sleutel of token. Het wordt veel gebruikt om gevoelige informatie te beschermen tijdens opslag en overdracht, zoals wachtwoorden. Een veelvoorkomende methode van encryptie is hashing, waarbij gegevens worden omgezet in een unieke reeks karakters die niet omkeerbaar is, waardoor de oorspronkelijke gegevens niet direct terug te halen zijn.",
-            "selection_reason": "Aanvullende beveiligingscontext: ",
-            "signal_class": "weak",
-            "focused_excerpt": "waarbij gegevens worden omgezet in een unieke reeks karakters die niet omkeerbaar is,",
-            "matched_signals": [],
-            "criterion_subtype": "generic",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
           }
         ]
       }
@@ -3664,7 +2630,7 @@
       "beperking": {
         "count": null,
         "notes": [
-          "Beperking in meerdere blokken beschreven (beperking) en meerdere onderbouwingsblokken aanwezig (onderzoek, bronvermelding, bron)."
+          "Beperking in meerdere blokken beschreven (beperking) en meerdere onderbouwingsblokken aanwezig (onderzoek, deskresearch, bronvermelding)."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -3722,7 +2688,7 @@
               "H1 Introductie",
               "3.1 Webshopgebruiker van mijn product/Doelgroep"
             ],
-            "excerpt": "Uit deskresearch onderzoek blijkt dat mensen wegens verschillende redenen de gym accessoires aanschaffen. (Allied Market Research, https://www.alliedmarketresearch.com/, n.d.) zegt dat de reden voor aanschaffing is om fit te blijven en een gezondere levensstijl te leiden, het voorkomen van blessures vanwege verkeerde vorm tijdens de oefeningen, het besparen van energie. Doormiddel van het gebruik van deze artikelen kunnen consumenten",
+            "excerpt": "wordt gemaakt in verschillende talen. Waarom? Uit deskresearch onderzoek blijkt dat mensen wegens verschillende redenen de gym accessoires aanschaffen. (Allied Market Research, https://www.alliedmarketresearch.com/, n.d.) zegt dat de reden voor aanschaffing is om fit te blijven en een gezondere levensstijl te leiden, het voorkomen van blessures vanwege verkeerde vorm tijdens de oefeningen, het besparen van energie. Doormiddel van het gebruik van deze artikelen kunnen consumenten dus langer hun workouts volhouden en wordt de mogelijkheid dat ze het sporten tot een latere leeftijd kunnen doortrekken vergroot (Allied Market Research, https://www.alliedmarketresearch.com/, n.d.) . (Fact.MR – Gym Accessories Market Forecast, Trend Analysis & Competition Tracking - Global Review 2021 to 2031, n.d.) en (Spraul, 2024) zeggen dat de stijging in de verkoop van gym accessoires en opkomst in sportscholen komt door de ontwikkeling in het bewust zijn van mensen met betrekking tot hun gezondheid.",
             "selection_reason": "Onderbouwing/deskresearch: onderzoek, deskresearch",
             "signal_class": "positive",
             "focused_excerpt": "Uit deskresearch onderzoek blijkt dat mensen wegens verschillende redenen de gym",
@@ -3770,33 +2736,10 @@
               "H1 Introductie",
               "3.1 Webshopgebruiker van mijn product/Doelgroep"
             ],
-            "excerpt": "een invloed heeft op de sporters. Uit onderzoekresultaten van 2022 blijkt dat mensen die consistent en dus het meest de sportschool bezoeken mannen, mensen met een leeftijd tussen de 15 en 24, waarbij de mensen tussen 25 en 39 op plek twee, mensen die na hun twintigste verjaardag nog studeren en mensen met een goed inkomen of ouders met een goed inkomen zijn (Euronews, 2023). (Fact.MR – Gym Accessories Market Forecast, Trend Analysis &",
+            "excerpt": "Uit onderzoekresultaten van 2022 blijkt dat mensen die consistent en dus het meest de sportschool bezoeken mannen, mensen met een leeftijd tussen de 15 en 24, waarbij de mensen tussen 25 en 39 op plek twee, mensen die na hun twintigste verjaardag nog studeren en mensen met een goed inkomen of ouders met een goed inkomen zijn (Euronews, 2023). (Fact.MR – Gym Accessories Market Forecast, Trend Analysis & Competition Tracking - Global Review 2021 to 2031, n.d.) versterkt de vorige statement en zegt dat de gym accessoires markt vooral wordt gedreven door de stedelijke en werkende populatie. Uit onderzoek van (Fact.MR – Gym Accessories Market Forecast, Trend Analysis & Competition Tracking - Global Review 2021 to 2031, n.d.) Blijkt dat de gym accessoires die het meest verkocht worden Ab straps, Belts, waterflessen, lichaam vet meter, hartslag monitor, bloedruk monitor, audiospelers, handdoeken, matten, chalk, en workout ballen zijn. Deze producten worden in elk continent verkocht.",
             "selection_reason": "Onderbouwing/deskresearch: onderzoek",
             "signal_class": "positive",
             "focused_excerpt": "Uit onderzoekresultaten van 2022 blijkt dat mensen die consistent en dus het meest de",
-            "matched_signals": [
-              "onderzoek"
-            ],
-            "criterion_subtype": "research",
-            "classification_source": "block_text",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "2f4d9d91_0199",
-            "page_no": 14,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "3.1 Webshopgebruiker van mijn product/Doelgroep"
-            ],
-            "excerpt": "populatie. Uit onderzoek van (Fact.MR – Gym Accessories Market Forecast, Trend Analysis & Competition Tracking - Global Review 2021 to 2031, n.d.) Blijkt dat de gym accessoires die het meest verkocht worden Ab straps, Belts, waterflessen, lichaam vet meter, hartslag monitor, bloedruk monitor, audiospelers, handdoeken, matten, chalk, en workout ballen zijn. Deze producten worden in elk continent verkocht.",
-            "selection_reason": "Onderbouwing/deskresearch: onderzoek",
-            "signal_class": "positive",
-            "focused_excerpt": "Uit onderzoek van (Fact.MR – Gym Accessories Market Forecast, Trend Analysis",
             "matched_signals": [
               "onderzoek"
             ],
@@ -3890,52 +2833,10 @@
               "H1 Introductie",
               "2.3 Betrokkenheid stakeholders"
             ],
-            "excerpt": "In deze paragraaf wordt de betrokkenheid van de stakeholders bepaald en weergegeven in een Stakeholder engagement map. Stakeholders kunnen primair (direct betrokken bij project aanpak of resultaat) of secundair (indirect betrokken bij project aanpak of resultaat) zijn. De stakeholders worden ook ingedeeld op de nabijheid van de organisatie. De organisatie van de stakeholders worden in",
+            "excerpt": "In deze paragraaf wordt de betrokkenheid van de stakeholders bepaald en weergegeven in een Stakeholder engagement map. Stakeholders kunnen primair (direct betrokken bij project aanpak of resultaat) of secundair (indirect betrokken bij project aanpak of resultaat) zijn. De stakeholders worden ook ingedeeld op de nabijheid van de organisatie. De organisatie van de stakeholders worden in drie verschillende groepen onderscheden: 1. Intern: vanuit eigen organisatie, 2. Extern: vanuit een andere organisatie, 3. Interface: niet betrokken maar heeft wel een legitiem belang. Om te bepalen of een stakeholder primair, secundair en intern, extern of interface is, heb ik goed gekeken naar de verschillende eigenschappen van interne en externe stakeholders en die op een rijtje gezet; Eigenschappen van interne stakeholders:  Is deel van mijn organisatie  Worden direct beïnvloedt door de activiteiten van de organisatie  Werkt voor mijn organisatie  Wordt aangenomen door mijn organisatie",
             "selection_reason": "Stakeholder-beschrijving in lopende tekst",
             "signal_class": "positive",
             "focused_excerpt": "In deze paragraaf wordt de betrokkenheid van de stakeholders bepaald en weergegeven in",
-            "matched_signals": [],
-            "criterion_subtype": "text",
-            "classification_source": "block_type",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "2f4d9d91_0109",
-            "page_no": 9,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "2.3 Betrokkenheid stakeholders"
-            ],
-            "excerpt": "een Stakeholder engagement map. Stakeholders kunnen primair (direct betrokken bij project aanpak of resultaat) of secundair (indirect betrokken bij project aanpak of resultaat) zijn. De stakeholders worden ook ingedeeld op de nabijheid van de organisatie. De organisatie van de stakeholders worden in drie verschillende groepen onderscheden: 1. Intern: vanuit eigen organisatie, 2. Extern:",
-            "selection_reason": "Stakeholder-beschrijving in lopende tekst",
-            "signal_class": "positive",
-            "focused_excerpt": "Stakeholders kunnen primair (direct betrokken bij project aanpak of resultaat) of secundair",
-            "matched_signals": [],
-            "criterion_subtype": "text",
-            "classification_source": "block_type",
-            "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "2f4d9d91_0110",
-            "page_no": 9,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "2.3 Betrokkenheid stakeholders"
-            ],
-            "excerpt": "(indirect betrokken bij project aanpak of resultaat) zijn. De stakeholders worden ook ingedeeld op de nabijheid van de organisatie. De organisatie van de stakeholders worden in drie verschillende groepen onderscheden: 1. Intern: vanuit eigen organisatie, 2. Extern: vanuit een andere organisatie, 3. Interface: niet betrokken maar heeft wel een legitiem belang.",
-            "selection_reason": "Stakeholder-beschrijving in lopende tekst",
-            "signal_class": "positive",
-            "focused_excerpt": "(indirect betrokken bij project aanpak of resultaat) zijn. De stakeholders worden ook",
             "matched_signals": [],
             "criterion_subtype": "text",
             "classification_source": "block_type",
@@ -4097,28 +2998,6 @@
             "context_warning": ""
           },
           {
-            "block_id": "2f4d9d91_0297",
-            "page_no": 18,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "- Webshop gebruiker met beperking",
-              "H4 Wensen, Eisen, Prioriteiten"
-            ],
-            "excerpt": "In dit segment worden de wensen, eisen en prioriteiten van mijn webshop aan de hand van een requirements analyse weergegeven. De wensen eisen en prioriteiten zijn verkregen aan de hand van het onderzoek naar de webgebruiker, het interview met [PERSOON_02] en de stakeholdersanalyse",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "In dit segment worden de wensen, eisen en prioriteiten van mijn webshop aan de hand van",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
             "block_id": "2f4d9d91_0305",
             "page_no": 19,
             "block_type": "paragraph",
@@ -4180,35 +3059,13 @@
             "matched_row_ids": [],
             "local_section_label": "",
             "context_warning": ""
-          },
-          {
-            "block_id": "2f4d9d91_0299",
-            "page_no": 18,
-            "block_type": "paragraph",
-            "heading_path": [
-              "H1 Introductie",
-              "- Webshop gebruiker met beperking",
-              "H4 Wensen, Eisen, Prioriteiten"
-            ],
-            "excerpt": "In dit segment worden de wensen, eisen en prioriteiten van mijn webshop aan de hand van een requirements analyse weergegeven. De wensen eisen en prioriteiten zijn verkregen aan de hand van het onderzoek naar de webgebruiker, het interview met [PERSOON_02] en de stakeholdersanalyse",
-            "selection_reason": "Requirements in tekst",
-            "signal_class": "weak",
-            "focused_excerpt": "de hand van het onderzoek naar de webgebruiker, het interview met [PERSOON_02] en de",
-            "matched_signals": [],
-            "criterion_subtype": "",
-            "classification_source": "",
-            "evidence_strength": "thin",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
           }
         ]
       },
       "taalkeuze": {
         "count": null,
         "notes": [
-          "Taalkeuze (meertalig, nederlands) en gevolgen (bereik, meertaligheid) aanwezig, onderbouwd met onderzoek."
+          "Taalkeuze (nederlands, meertalig) en gevolgen (bereik, meertaligheid) aanwezig, onderbouwd met onderzoek."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -4266,7 +3123,7 @@
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: avg, owasp, risicoanalyse, https."
+          "Concreet beveiligingsmechanisme(n) gevonden: risicoanalyse, avg, https, owasp."
         ],
         "missing_signals": [],
         "evidence_items": [
@@ -4278,7 +3135,7 @@
               "H5 Ethische aandachtspunten",
               "OWASP top 10"
             ],
-            "excerpt": "Ik wil speciaal aandacht geven aan een security aspect van de owasp top 10 waar ik goed op heb gelet. Namelijk de API5:2023 Broken Function Level Authorization. Deze security risk gaat over hoe normale users administratieve functies kunnen krijgen door api requests te sturen die alleen voor de admins beschikbaar zouden moeten zijn. Dit kan veroorzaakt worden doordat een normale gebruiker bij de adminstratieve endpoints kan komen terwijl",
+            "excerpt": "Ik wil speciaal aandacht geven aan een security aspect van de owasp top 10 waar ik goed op heb gelet. Namelijk de API5:2023 Broken Function Level Authorization. Deze security risk gaat over hoe normale users administratieve functies kunnen krijgen door api requests te sturen die alleen voor de admins beschikbaar zouden moeten zijn. Dit kan veroorzaakt worden doordat een normale gebruiker bij de adminstratieve endpoints kan komen terwijl hij/zij daar geen recht op heeft of omdat er niet wordt gevalideerd wat voor rol een gebruiker heeft. Ik heb met deze security risico rekening gehouden door ervoor te zorgen dat er in mijn gebruiker model in de backend een variabele is die de rol van de gebruiker bijhoudt en door alle functies die voor de admin bedoeld zijn in een aparte controller te stoppen. In de securityconfig van mijn backend zorg ik ervoor dat wanneer een gebruiker een functie van de admins gebruikt eerst zijn rol wordt bekeken. Wanneer de rol van een gebruiker een admin is",
             "selection_reason": "Concrete beveiligingsmechanisme(n): owasp",
             "signal_class": "positive",
             "focused_excerpt": "Ik wil speciaal aandacht geven aan een security aspect van de owasp top 10 waar ik goed",

@@ -271,6 +271,61 @@ class _DocCtx:
             text = text[:max_chars].rstrip() + "…"
         return text
 
+    def tile_window(
+        self,
+        anchor_bid: str,
+        covered: set[int],
+        max_chars: int,
+        budget_left: int,
+    ) -> tuple[str, set[int]]:
+        """Coverage-oriented window: expand over UNCOVERED same-section neighbours.
+
+        Unlike window(), this tiles a section across multiple items: it expands
+        from the anchor over adjacent paragraph/bullet blocks that share the
+        heading_path AND are not yet covered, so the union of all items' excerpts
+        spans the section without repeating text.
+
+        Returns (text, newly_covered_indices). Returns ("", set()) when the
+        anchor is already covered (the item is redundant) or no budget remains.
+        """
+        i = self.pos.get(anchor_bid)
+        if i is None or i in covered:
+            return "", set()
+        cap = max(0, min(max_chars, budget_left))
+        if cap <= 0:
+            return "", set()
+
+        hp = self.blocks[i]["heading_path"]
+        chosen = [i]
+        running = len(" ".join(self.blocks[i]["text"].split()))
+
+        def _extend(step: int) -> None:
+            nonlocal running
+            j = i + step
+            while 0 <= j < len(self.blocks):
+                if j in covered:
+                    break
+                b = self.blocks[j]
+                if b["block_type"] not in ("paragraph", "bullet"):
+                    break
+                if b["heading_path"] != hp:
+                    break
+                t_len = len(" ".join(b["text"].split()))
+                if running + t_len + 1 > cap:
+                    break
+                chosen.append(j)
+                running += t_len + 1
+                j += step
+
+        _extend(1)
+        _extend(-1)
+        idxs = sorted(chosen)
+        text = " ".join(" ".join(self.blocks[k]["text"].split()) for k in idxs)
+        text = " ".join(text.split())
+        if len(text) > cap:
+            text = text[:cap].rstrip() + "…"
+        return text, set(idxs)
+
     def explanation(self, anchor_bid: str, max_chars: int = 200) -> str:
         """Nearest same-section explanatory prose for a structural (table/heading)
         block — the paragraph just before or just after it, under the same
@@ -1245,6 +1300,67 @@ _PACKET_BUILDERS = {
 
 
 # ---------------------------------------------------------------------------
+# Coverage tiling — maximise unique section text shown to Qwen
+# ---------------------------------------------------------------------------
+
+# Criteria that use the "everything under a header" section strategy. taalkeuze
+# is excluded: it has no dedicated section here and is gated on cross-section
+# choice phrases, so header-based tiling does not apply.
+_COVERAGE_KEYS: Final[frozenset[str]] = frozenset(
+    {"beperking", "stakeholders", "requirements", "security"}
+)
+
+# Per-paragraph-excerpt cap and the total paragraph-text budget per criterion.
+# "Ruim maar begrensd": enough that Qwen sees most of the section, capped so the
+# combined prompt stays manageable for a local model.
+_COVERAGE_ITEM_CAP: Final[int] = 1000
+_COVERAGE_TOTAL_BUDGET: Final[int] = 3600
+
+
+def _apply_coverage(
+    items: list[EvidenceItem],
+    ctx: _DocCtx,
+    item_cap: int = _COVERAGE_ITEM_CAP,
+    total_budget: int = _COVERAGE_TOTAL_BUDGET,
+) -> list[EvidenceItem]:
+    """Re-shape paragraph/bullet excerpts so the packet TILES its section.
+
+    Each paragraph/bullet item's excerpt is rebuilt to cover uncovered
+    same-section text (via ctx.tile_window), tracking covered blocks across the
+    whole packet so no passage repeats. Items whose text is already fully covered
+    are dropped (they would only duplicate). Tables and headings keep their own
+    excerpts unchanged. Stops growing paragraph text once total_budget is spent,
+    but still keeps non-paragraph items.
+
+    Net effect: the union of excerpts spans as much unique section text as the
+    budget allows, instead of several items repeating the same merged window.
+    """
+    covered: set[int] = set()
+    spent = 0
+    out: list[EvidenceItem] = []
+    for it in items:
+        if it.block_type not in ("paragraph", "bullet"):
+            out.append(it)
+            continue
+        if spent >= total_budget:
+            continue  # paragraph budget exhausted — drop further prose
+        text, newly = ctx.tile_window(
+            it.block_id, covered, item_cap, total_budget - spent
+        )
+        if not text:
+            continue  # anchor already covered → redundant item
+        covered |= newly
+        spent += len(text)
+        it.excerpt = text
+        # The focused snippet may now duplicate the (larger) excerpt; clear it
+        # only when it became an exact prefix-equal of the excerpt.
+        if it.focused_excerpt and it.focused_excerpt.strip() == it.excerpt.strip():
+            it.focused_excerpt = ""
+        out.append(it)
+    return out
+
+
+# ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
 
@@ -1282,6 +1398,13 @@ def build_evidence_packets(
 
         builder = _PACKET_BUILDERS[key]
         pkt = builder(spec, hits, cr, ctx)
+
+        # Coverage tiling: rebuild paragraph excerpts so the packet spans as much
+        # unique section text as the budget allows (no repeated windows). Applied
+        # to the header-based criteria only; taalkeuze keeps its phrase-fallback
+        # excerpts.
+        if key in _COVERAGE_KEYS:
+            pkt.evidence_items = _apply_coverage(pkt.evidence_items, ctx)
 
         # Safety net: a 'missing' verdict must never carry positive evidence.
         if cr.status == "missing":

@@ -287,9 +287,12 @@ def main() -> int:
         if debug:
             traceback.print_exc()
         return 1
-    print(f"  doc_id            : {caps_result.doc_id}")
-    print(f"  overall_stoplight : {caps_result.overall_stoplight}")
-    print(f"  blockers          : {', '.join(caps_result.blockers_triggered) or 'none'}")
+    print(f"  doc_id                  : {caps_result.doc_id}")
+    print( "  (CAPS structural check — beoordeelt NIET de inhoud, alleen of de")
+    print( "   verwachte secties/structuur aanwezig zijn; geen documentcijfer.")
+    print( "   Het definitieve oordeel is final_stoplight in Step 3.)")
+    print(f"  structural_check        : {caps_result.overall_stoplight}  (green = structuur aanwezig, red = blocker mist)")
+    print(f"  ontbrekende structuur   : {', '.join(caps_result.blockers_triggered) or 'none'}")
 
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     run_dir = pathlib.Path(args.output_dir) / f"{caps_result.doc_id}_{timestamp}"
