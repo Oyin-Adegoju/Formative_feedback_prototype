@@ -562,3 +562,77 @@ def _render_evidence(items: list[dict]) -> None:
             f"<em>{text[:300]}</em></div>",
             unsafe_allow_html=True,
         )
+
+
+# Studentweergave — verbeterde opmaak
+# ---------------------------------------------------------------------------
+
+def _render_student_view(fb: dict, run_dir: pathlib.Path) -> None:
+    stoplight = fb.get("stoplight", "green")
+    niveau = _NIVEAU_LABEL.get(stoplight, stoplight)
+    badge = _STOPLIGHT_BADGE.get(stoplight, "")
+    css_class = f"stoplight-{stoplight}"
+
+    st.markdown(
+        f"<div class='stoplight-banner {css_class}'>"
+        f"<span style='font-size:1.6rem;'>{badge}</span>"
+        f"<span>{niveau}</span>"
+        f"</div>",
+        unsafe_allow_html=True,
+    )
+
+    st.markdown("<div class='section-header'>Samenvatting</div>", unsafe_allow_html=True)
+    st.write(fb.get("student_samenvatting", ""))
+
+    st.markdown("<div class='section-header'>Wat wordt er verwacht?</div>", unsafe_allow_html=True)
+    st.write(fb.get("feed_up", ""))
+
+    st.markdown("<div class='section-header'>Feedback per criterium</div>", unsafe_allow_html=True)
+
+    feedback_entries = fb.get("feedback", [])
+    for entry in feedback_entries:
+        key = entry.get("criterium", "")
+        label = _CRITERION_LABELS.get(key, key)
+        observatie = entry.get("observatie", "")
+
+        # Haal eventueel aangepaste feedback en opmerkingen van de docent op
+        edit_key = f"edit_{key}_{run_dir.name}"
+        notes_key = f"notes_{key}_{run_dir.name}"
+
+        feedback_tekst = st.session_state.get(edit_key, observatie)
+        opmerking = st.session_state.get(notes_key, "")
+
+        with st.expander(f"{label}", expanded=False):
+            st.markdown(
+                f"<div class='student-feedback-block'>{feedback_tekst}</div>",
+                unsafe_allow_html=True,
+            )
+
+            if opmerking:
+                st.markdown(
+                    f"<div style='margin-top:10px;padding:10px 14px;"
+                    f"background:#fff8e1;border-left:3px solid #f9a825;"
+                    f"border-radius:6px;font-size:0.88rem;color:#555;'>"
+                    f"<strong>Opmerking van de docent:</strong><br>"
+                    f"{opmerking}</div>",
+                    unsafe_allow_html=True,
+                )
+
+    st.markdown(
+        "<div class='section-header'>Aanbevelingen voor verbetering</div>",
+        unsafe_allow_html=True,
+    )
+
+    for tip in fb.get("feed_forward", []):
+        st.markdown(f"- {tip}")
+
+    taalgebruik = fb.get("taalgebruik", "")
+    if taalgebruik:
+        st.markdown("<div class='section-header'>Taalgebruik</div>", unsafe_allow_html=True)
+        st.write(taalgebruik)
+
+    st.divider()
+    st.caption(fb.get("disclaimer", ""))
+
+
+
