@@ -562,3 +562,538 @@ def _render_evidence(items: list[dict]) -> None:
             f"<em>{text[:300]}</em></div>",
             unsafe_allow_html=True,
         )
+
+
+# Studentweergave — verbeterde opmaak
+# ---------------------------------------------------------------------------
+
+def _render_student_view(fb: dict, run_dir: pathlib.Path) -> None:
+    stoplight = fb.get("stoplight", "green")
+    niveau = _NIVEAU_LABEL.get(stoplight, stoplight)
+    badge = _STOPLIGHT_BADGE.get(stoplight, "")
+    css_class = f"stoplight-{stoplight}"
+
+    st.markdown(
+        f"<div class='stoplight-banner {css_class}'>"
+        f"<span style='font-size:1.6rem;'>{badge}</span>"
+        f"<span>{niveau}</span>"
+        f"</div>",
+        unsafe_allow_html=True,
+    )
+
+    st.markdown("<div class='section-header'>Samenvatting</div>", unsafe_allow_html=True)
+    st.write(fb.get("student_samenvatting", ""))
+
+    st.markdown("<div class='section-header'>Wat wordt er verwacht?</div>", unsafe_allow_html=True)
+    st.write(fb.get("feed_up", ""))
+
+    st.markdown("<div class='section-header'>Feedback per criterium</div>", unsafe_allow_html=True)
+
+    feedback_entries = fb.get("feedback", [])
+    for entry in feedback_entries:
+        key = entry.get("criterium", "")
+        label = _CRITERION_LABELS.get(key, key)
+        observatie = entry.get("observatie", "")
+
+        # Haal eventueel aangepaste feedback en opmerkingen van de docent op
+        edit_key = f"edit_{key}_{run_dir.name}"
+        notes_key = f"notes_{key}_{run_dir.name}"
+
+        feedback_tekst = st.session_state.get(edit_key, observatie)
+        opmerking = st.session_state.get(notes_key, "")
+
+        with st.expander(f"{label}", expanded=False):
+            st.markdown(
+                f"<div class='student-feedback-block'>{feedback_tekst}</div>",
+                unsafe_allow_html=True,
+            )
+
+            if opmerking:
+                st.markdown(
+                    f"<div style='margin-top:10px;padding:10px 14px;"
+                    f"background:#fff8e1;border-left:3px solid #f9a825;"
+                    f"border-radius:6px;font-size:0.88rem;color:#555;'>"
+                    f"<strong>Opmerking van de docent:</strong><br>"
+                    f"{opmerking}</div>",
+                    unsafe_allow_html=True,
+                )
+
+    st.markdown(
+        "<div class='section-header'>Aanbevelingen voor verbetering</div>",
+        unsafe_allow_html=True,
+    )
+
+    for tip in fb.get("feed_forward", []):
+        st.markdown(f"- {tip}")
+
+    taalgebruik = fb.get("taalgebruik", "")
+    if taalgebruik:
+        st.markdown("<div class='section-header'>Taalgebruik</div>", unsafe_allow_html=True)
+        st.write(taalgebruik)
+
+    st.divider()
+    st.caption(fb.get("disclaimer", ""))
+
+
+
+# Docentweergave — verbeterde opmaak
+# Logica ongewijzigd, alleen layout & stijl aangepast
+# ---------------------------------------------------------------------------
+
+def _render_docent_view(
+    fb: dict,
+    merged: dict | None,
+    run_dir: pathlib.Path,
+) -> None:
+    stoplight = fb.get("stoplight", "green")
+    badge = _STOPLIGHT_BADGE.get(stoplight, "")
+    css_class = f"stoplight-{stoplight}"
+
+    stoplight_nl = _STOPLIGHT_NL.get(stoplight, stoplight.capitalize())
+
+    st.markdown(
+        f"<div class='stoplight-banner {css_class}'>"
+        f"<span style='font-size:1.6rem;'>{badge}</span>"
+        f"<span>Stoplicht: {stoplight_nl}</span>"
+        f"</div>",
+        unsafe_allow_html=True,
+    )
+
+    st.write(fb.get("docent_toelichting", ""))
+
+    if merged:
+        extra = merged.get("criteria_requiring_extra_review", [])
+        if extra:
+            extra_labels = [_CRITERION_LABELS.get(k, k) for k in extra]
+            st.warning(f"**Extra docentfocus:** {', '.join(extra_labels)}")
+
+    # ── Feedback per criterium ──────────────────────────────────────────────
+    st.markdown(
+        "<div class='section-header'>Feedback per criterium</div>",
+        unsafe_allow_html=True,
+    )
+
+    feedback_by_key = {
+        entry.get("criterium"): entry
+        for entry in fb.get("feedback", [])
+        if isinstance(entry, dict)
+    }
+
+    merged_criteria = (merged or {}).get("criteria", {})
+    criteria_keys = list(_CRITERION_LABELS.keys())
+
+    for key in criteria_keys:
+        crit_fb = feedback_by_key.get(key, {})
+        crit_merged = merged_criteria.get(key, {})
+
+        label = _CRITERION_LABELS.get(key, key)
+        manual = crit_merged.get("manual_review", False)
+        observatie = crit_fb.get("observatie", "")
+
+        prefix = "! " if manual else ""
+
+        with st.expander(f"{prefix}{label}", expanded=True):
+
+            # Aandachtswaarschuwing
+            if manual:
+                reasons = crit_merged.get("manual_review_reason", [])
+                if reasons:
+                    st.markdown(
+                        f"<span style='color:#e65100;font-size:0.82rem;'>"
+                        f"{' · '.join(reasons)}</span>",
+                        unsafe_allow_html=True,
+                    )
+
+            # Sterktes / verbeterpunten
+            strengths = crit_merged.get("qwen_strengths", [])
+            weaknesses = crit_merged.get("qwen_weaknesses", [])
+
+            if strengths or weaknesses:
+                col_strengths, col_weaknesses = st.columns(2)
+
+                if strengths:
+                    with col_strengths:
+                        st.markdown("**Sterktes**")
+                        for strength in strengths:
+                            st.markdown(
+                                f"<span style='font-size:0.85rem;'>+ {strength}</span>",
+                                unsafe_allow_html=True,
+                            )
+
+                if weaknesses:
+                    with col_weaknesses:
+                        st.markdown("**Verbeterpunten**")
+                        for weakness in weaknesses:
+                            st.markdown(
+                                f"<span style='font-size:0.85rem;'>- {weakness}</span>",
+                                unsafe_allow_html=True,
+                            )
+
+            # Ontbrekende signalen
+            missing = crit_merged.get("missing_signals", [])
+            if missing:
+                st.markdown(
+                    f"<span style='font-size:0.82rem;color:#c62828;'>"
+                    f"<strong>Ontbrekende signalen:</strong> {', '.join(missing)}"
+                    f"</span>",
+                    unsafe_allow_html=True,
+                )
+
+            # Evidence
+            evidence = crit_merged.get("evidence_items", [])
+            if evidence:
+                st.markdown("**Evidence**")
+                _render_evidence(evidence)
+
+            st.divider()
+
+            # ── Bewerkbaar feedbackveld ─────────────────────────────────────
+            edit_key = f"edit_{key}_{run_dir.name}"
+
+            if edit_key not in st.session_state:
+                st.session_state[edit_key] = observatie
+
+            st.markdown("**Feedback (aanpasbaar)**")
+            st.text_area(
+                label="feedback_text",
+                value=st.session_state[edit_key],
+                key=edit_key,
+                height=130,
+                label_visibility="collapsed",
+            )
+
+            # ── Opmerkingenveld ─────────────────────────────────────────────
+            notes_key = f"notes_{key}_{run_dir.name}"
+
+            st.markdown(
+                "<div class='notes-label'>Eigen opmerkingen voor de student</div>",
+                unsafe_allow_html=True,
+            )
+
+            st.text_area(
+                label="notes_text",
+                key=notes_key,
+                height=70,
+                placeholder="Voeg hier aanvullende opmerkingen toe...",
+                label_visibility="collapsed",
+            )
+
+    # ── Aanbevelingen ───────────────────────────────────────────────────────
+    st.markdown(
+        "<div class='section-header'>Aanbevelingen voor verbetering</div>",
+        unsafe_allow_html=True,
+    )
+
+    for tip in fb.get("feed_forward", []):
+        st.markdown(f"- {tip}")
+
+    taalgebruik = fb.get("taalgebruik", "")
+    if taalgebruik:
+        st.markdown("<div class='section-header'>Taalgebruik</div>", unsafe_allow_html=True)
+        st.write(taalgebruik)
+
+    st.divider()
+    st.caption(fb.get("disclaimer", ""))
+
+    # ── Verstuur alle feedback naar student ─────────────────────────────────
+    sent_all_key = f"sent_all_{run_dir.name}"
+
+    st.markdown("<div class='send-btn-wrapper'>", unsafe_allow_html=True)
+
+    if st.button(
+        "Verstuur feedback naar student",
+        key=sent_all_key,
+        type="primary",
+        use_container_width=True,
+    ):
+        st.session_state[f"confirm_{run_dir.name}"] = True
+
+    st.markdown("</div>", unsafe_allow_html=True)
+
+    if st.session_state.get(f"confirm_{run_dir.name}"):
+        st.success("✓ Feedback verstuurd naar student")
+
+    st.divider()
+
+    # ── Downloads ───────────────────────────────────────────────────────────
+    st.markdown("<div class='section-header'>Downloads</div>", unsafe_allow_html=True)
+
+    col_a, col_b = st.columns(2)
+
+    input_path = run_dir / "input_copy.json"
+    anon_data = input_path.read_bytes() if input_path.exists() else b"{}"
+
+    with col_a:
+        st.download_button(
+            label="Geanonimiseerd document (JSON)",
+            data=anon_data,
+            file_name=f"{run_dir.name}_geanonimiseerd.json",
+            mime="application/json",
+        )
+
+    with col_b:
+        fb_bytes = json.dumps(fb, indent=2, ensure_ascii=False).encode("utf-8")
+
+        st.download_button(
+            label="Feedback resultaat (JSON)",
+            data=fb_bytes,
+            file_name=f"{run_dir.name}_feedback.json",
+            mime="application/json",
+        )
+
+
+# ---------------------------------------------------------------------------
+# Demo-modus helpers
+
+
+_PREFERRED_DEMO_DOC_ID = "35baf7d3"
+
+
+def _find_demo_run() -> pathlib.Path | None:
+    if not _RUNS_DIR.exists():
+        return None
+
+    all_runs = sorted(_RUNS_DIR.iterdir(), reverse=True)
+    preferred: list[pathlib.Path] = []
+    fallback: list[pathlib.Path] = []
+
+    for run_dir in all_runs:
+        if not run_dir.is_dir():
+            continue
+
+        fb_path = run_dir / "feedback_result.json"
+        mg_path = run_dir / "merged_feedback_input.json"
+
+        if not (fb_path.exists() and mg_path.exists()):
+            continue
+
+        try:
+            fb = json.loads(fb_path.read_text(encoding="utf-8"))
+
+            if isinstance(fb, dict) and not fb.get("skipped"):
+                if run_dir.name.startswith(_PREFERRED_DEMO_DOC_ID):
+                    preferred.append(run_dir)
+                else:
+                    fallback.append(run_dir)
+
+        except (OSError, json.JSONDecodeError):
+            pass
+
+    if preferred:
+        return preferred[0]
+
+    if fallback:
+        return fallback[0]
+
+    return None
+
+# ---------------------------------------------------------------------------
+# Upload-formulier — verbeterde opmaak
+# ---------------------------------------------------------------------------
+
+def _render_upload_form() -> None:
+    st.title("Genereer formatieve feedback")
+
+    st.divider()
+
+    uploaded_pdf = st.file_uploader(
+        "Student document (PDF)",
+        type=["pdf"],
+        help="Selecteer een PDF om de knop te activeren.",
+    )
+
+    st.divider()
+
+    if st.button(
+        "Genereer formatieve feedback",
+        type="primary",
+        disabled=uploaded_pdf is None,
+    ):
+        _generate_demo()
+
+
+def _generate_demo() -> None:
+    """Laad een bestaande voorbeeldrun — geen pipeline, geen LLM."""
+
+    thinking_placeholder = st.empty()
+
+    thinking_placeholder.markdown(
+        """
+        <div class="thinking-indicator">
+            <span class="thinking-icon">🤖</span>
+            <span class="thinking-text">AI is aan het denken</span>
+            <div class="thinking-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    run_dir = _find_demo_run()
+
+    time.sleep(10)
+    thinking_placeholder.empty()
+
+    if run_dir is None:
+        st.error(
+            "Geen complete voorbeeldoutput gevonden in `data/full_pipeline_runs/`. "
+            "Zorg dat er een run aanwezig is met zowel `feedback_result.json` "
+            "als `merged_feedback_input.json`."
+        )
+        return
+
+    st.session_state.run_dir = str(run_dir)
+    st.rerun()
+
+# ---------------------------------------------------------------------------
+# Sidebar en hoofdloop
+
+
+def main() -> None:
+    _inject_css()
+
+    if "run_dir" not in st.session_state:
+        st.session_state.run_dir = None
+
+    with st.sidebar:
+        # ── Header ────
+        st.markdown(
+            "<div class='sidebar-header'>"
+            "<div class='sidebar-logo'>INFIRFS</div>"
+            "<div class='sidebar-subtitle'>Formatieve Feedback Assistent</div>"
+            "</div>",
+            unsafe_allow_html=True,
+        )
+
+        # ── Navigatie ───
+        st.markdown(
+            "<div class='sidebar-section-label'>Omgeving</div>",
+            unsafe_allow_html=True,
+        )
+
+        role = st.radio(
+            "Omgeving",
+            options=["🎓  Docent", "📖  Student"],
+            index=0,
+            label_visibility="collapsed",
+        )
+
+        role = "Docent" if role.startswith("🎓") else "Student"
+
+        # ── Docentacties ───
+        if role == "Docent" and st.session_state.run_dir is not None:
+            st.markdown(
+                "<div class='sidebar-section-label'>Acties</div>",
+                unsafe_allow_html=True,
+            )
+
+            if st.button("＋  Nieuw document", use_container_width=True):
+                st.session_state.run_dir = None
+                st.rerun()
+
+        # ── Studentkeuze ──
+        if role == "Student":
+            st.markdown(
+                "<div class='sidebar-section-label'>Feedback selecteren</div>",
+                unsafe_allow_html=True,
+            )
+
+            runs = _list_runs()
+
+            if not runs:
+                st.warning(
+                    "Geen feedback beschikbaar.\n\n"
+                    "De docent moet eerst een document verwerken."
+                )
+                st.stop()
+
+            run_labels = [run.name for run in runs]
+
+            selected_label = st.selectbox(
+                "Run",
+                options=run_labels,
+                index=0,
+                label_visibility="collapsed",
+            )
+
+            st.session_state.run_dir = str(_RUNS_DIR / selected_label)
+
+        # ── Footer ───
+        st.markdown(
+            "<div style='position:fixed;bottom:20px;font-size:0.72rem;"
+            "color:rgba(255,255,255,0.35);'>"
+            "© Hogeschool Leiden — PROTOTYPE"
+            "</div>",
+            unsafe_allow_html=True,
+        )
+
+    # Docentflow
+    if role == "Docent":
+        if st.session_state.run_dir is None:
+            _render_upload_form()
+            return
+
+        run_dir = pathlib.Path(st.session_state.run_dir)
+
+        feedback = _load_json(run_dir / "feedback_result.json")
+        merged = _load_json(run_dir / "merged_feedback_input.json")
+
+        source_name = (
+            (merged or {}).get("source_name")
+            or (feedback or {}).get("document_id")
+            or run_dir.name
+        )
+
+        st.title(f"Feedback — {source_name}")
+
+        if feedback is None and merged is None:
+            st.error("De pipeline heeft geen bruikbare output geproduceerd.")
+
+            summary = _load_json(run_dir / "run_summary.json")
+
+            if summary:
+                st.json(summary)
+
+            if st.button("Nieuw document uploaden"):
+                st.session_state.run_dir = None
+                st.rerun()
+
+            return
+
+        if feedback is None:
+            st.warning(
+                "De feedbacktekst kon niet worden gegenereerd. "
+                "Hieronder staat de CAPS- en Qwen-diagnose."
+            )
+            _render_docent_view({}, merged, run_dir)
+            return
+
+        _render_docent_view(feedback, merged, run_dir)
+        return
+
+    # Studentflow
+    run_dir = pathlib.Path(st.session_state.run_dir)
+
+    feedback = _load_json(run_dir / "feedback_result.json")
+
+    if feedback is None:
+        st.error("Feedback niet gevonden.")
+        return
+
+    merged = _load_json(run_dir / "merged_feedback_input.json")
+
+    source_name = (
+        (merged or {}).get("source_name")
+        or feedback.get("document_id", run_dir.name)
+    )
+
+    st.title(f"Feedback — {source_name}")
+
+    _render_student_view(feedback, run_dir)
+
+
+if __name__ == "__main__":
+    main()
