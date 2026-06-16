@@ -1488,6 +1488,27 @@ def _apply_coverage(
     return out
 
 
+def _dedup_items_by_excerpt(items: list[EvidenceItem]) -> list[EvidenceItem]:
+    """Drop items whose rendered excerpt duplicates an earlier item in the packet.
+
+    Coverage tiling de-duplicates paragraph windows for the header-based criteria,
+    but it does not touch tables or taalkeuze items. Two stakeholder table blocks
+    that render the same rows, or two adjacent taalkeuze paragraphs that expand to
+    the same window, would otherwise show the SAME text twice. Keying on the
+    normalised excerpt collapses those to the first occurrence — no criterion ever
+    presents the same passage twice.
+    """
+    seen: set[str] = set()
+    out: list[EvidenceItem] = []
+    for it in items:
+        key = " ".join(it.excerpt.split()).lower()[:200]
+        if key and key in seen:
+            continue
+        seen.add(key)
+        out.append(it)
+    return out
+
+
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
@@ -1533,6 +1554,10 @@ def build_evidence_packets(
         # excerpts.
         if key in _COVERAGE_KEYS:
             pkt.evidence_items = _apply_coverage(pkt.evidence_items, ctx, key)
+
+        # Final safety net: no criterion may present the same excerpt twice
+        # (catches table duplicates and taalkeuze items, which tiling skips).
+        pkt.evidence_items = _dedup_items_by_excerpt(pkt.evidence_items)
 
         # Safety net: a 'missing' verdict must never carry positive evidence.
         if cr.status == "missing":
