@@ -137,6 +137,41 @@ _TAAL_CHOICE_STRICT: Final[frozenset[str]] = frozenset({
     "beschikbaar in het",
 })
 
+# Taalkeuze that appears only AS A (non-)functional REQUIREMENT — e.g. a "Taal"
+# requirement row, "de website moet meertalig zijn", "Nederlands en Engels",
+# "vertaald naar een andere taal". This is a PARTIAL signal: language is
+# addressed as a requirement, but not as a separate design decision with
+# consequences. Applied only to requirements/NFR-section blocks by the caller.
+_TAAL_REQ_TOKENS: Final[frozenset[str]] = frozenset({
+    "taalkeuze", "meertalig", "meertaligheid", "tweetalig", "anderstalig",
+    "taalondersteuning", "taalversie", "standaardtaal", "taal van de",
+    "in het nederlands", "in het engels", "nederlandstalig", "engelstalig",
+    "vertaald", "vertaling", "vertalen",
+})
+# "meertalige mensen/gebruikers" is a doelgroep description, NOT a language choice.
+_TAAL_DOELGROEP_RE: Final[re.Pattern[str]] = re.compile(
+    r"meertalige?\s+(?:mensen|gebruikers|klanten|bezoekers|personen|doelgroep)",
+    re.IGNORECASE,
+)
+# A "Taal"-labelled requirement, e.g. "Taal |", "Taal:", "NFR16: Taal".
+_TAAL_LABEL_RE: Final[re.Pattern[str]] = re.compile(
+    r"\btaal\b\s*[:|]|\bnfr\d{0,3}\s*:?\s*taal\b", re.IGNORECASE
+)
+
+
+def _taal_requirement_signal(text: str) -> bool:
+    """True when a block addresses language AS A REQUIREMENT (partial taalkeuze).
+
+    Excludes doelgroep mentions ("meertalige mensen"). Meant to be applied by the
+    caller only to requirements/NFR-section blocks (not use cases).
+    """
+    low = _TAAL_DOELGROEP_RE.sub(" ", text.lower())
+    if any(t in low for t in _TAAL_REQ_TOKENS):
+        return True
+    if _TAAL_LABEL_RE.search(low):
+        return True
+    return "nederlands" in low and "engels" in low
+
 _SEC_CONCRETE: Final[frozenset[str]] = frozenset({
     "authenticatie", "autorisatie", "encryptie", "avg", "gdpr",
     "owasp", "https", "ssl", "tls", "jwt", "2fa", "two-factor",
@@ -1214,7 +1249,7 @@ def _build_taalkeuze_packet(
         out = "\n".join(lines)
         return out[:260].rstrip() + ("…" if len(out) > 260 else "")
 
-    def _add(h: RetrievalHit, *, outside_section: bool) -> None:
+    def _add(h: RetrievalHit, *, outside_section: bool, partial: bool = False) -> None:
         bid = h.block["block_id"]
         if bid in seen or len(items) >= MAX:
             return
@@ -1243,7 +1278,14 @@ def _build_taalkeuze_packet(
             subtype = ""
         sc: SignalClass = "weak" if (negated or not (c_terms or k_terms)) else "positive"
         warn_parts: list[str] = []
-        if outside_section:
+        if partial:
+            # Language addressed only as a requirement → partial, never strong.
+            sc = "weak"
+            warn_parts.append(
+                "taalkeuze alleen als (niet-)functionele requirement benoemd, "
+                "niet als aparte ontwerpkeuze met gevolgen"
+            )
+        elif outside_section:
             warn_parts.append("taalkeuze besproken buiten een aparte taalsectie")
         if negated:
             sc = "weak"
@@ -1275,6 +1317,23 @@ def _build_taalkeuze_packet(
                 break
             if _strict_phrases(h.block["text"]):
                 _add(h, outside_section=True)
+
+    # 3. PARTIAL: language addressed only as a (non-)functional requirement.
+    #    Caught here as a weak signal so the criterion is "partially present"
+    #    (→ yellow) instead of absent (→ red). Use cases are excluded (changing
+    #    language at runtime is a feature, not a design-time language choice).
+    if len(items) < MAX:
+        for h in _sort_content_first([h for h in hits if not _is_heading_only(h)]):
+            if len(items) >= MAX:
+                break
+            if h.block["block_id"] in seen:
+                continue
+            if "requirements" not in primary_families(h.block["heading_path"]):
+                continue
+            if _is_use_case_section(h):
+                continue
+            if _taal_requirement_signal(h.block["text"]):
+                _add(h, outside_section=True, partial=True)
 
     if not items:
         items = _heading_only_marker(

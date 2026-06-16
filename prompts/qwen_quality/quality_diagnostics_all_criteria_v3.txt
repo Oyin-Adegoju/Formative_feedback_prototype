@@ -295,6 +295,12 @@ Beoordeel de kwaliteit van de evidence over de taalkeuze.
 * Wordt taalkeuze als ontwerpbeslissing behandeld, en niet verward met taalwisseling als functionaliteit?
 * Let op: een losse vermelding van "Nederlands/Engels" of "meertalig" is niet automatisch
   sterke evidence als de onderbouwing of consequenties ontbreken.
+* GEDEELTELIJK aanwezig: als taal alleen als (niet-)functionele requirement is benoemd
+  (bijv. een 'Taal'-rij of "de website moet meertalig zijn", herkenbaar aan een evidence-item
+  met de waarschuwing "alleen als (niet-)functionele requirement benoemd"), beoordeel
+  taalkeuze dan als "mixed" — wél aangeraakt, maar niet als aparte ontwerpkeuze met
+  gevolgen. Gebruik "weak" alleen wanneer taal nergens in het document voorkomt.
+  Geef "strong" alleen bij een echte keuze MET uitgelegde gevolgen.
  
 SECURITY
 Definitie
