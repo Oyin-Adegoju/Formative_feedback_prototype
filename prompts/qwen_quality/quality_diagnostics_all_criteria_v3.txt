@@ -194,6 +194,14 @@ Beoordeel de kwaliteit van de evidence over de doelgroep of beperking.
 * Heeft de beperking aantoonbare gevolgen voor requirements, toegankelijkheid,
   functionaliteit, ontwerp of taalkeuze?
 * Is de evidence meer dan alleen een kopje, bronvermelding of losse term?
+* BELANGRIJK — onderzoek NOEMEN is niet onderzoek ONDERBOUWEN. Een research-label
+  of een kop als "Onderzoek naar web gebruikers" bewijst nog geen bronnen. Als een
+  evidence-item of note aangeeft dat de literatuurlijst/bron-sectie geen concrete
+  bronnen bevat (bijv. een absent_marker met "zonder concrete bronnen", of een lege
+  literatuurlijst), beoordeel research_support dan als laag en benoem het ontbreken
+  van concrete bronnen expliciet als zwakte — ook als het woord "onderzoek" voorkomt.
+  Crediteer "deskresearch aanwezig" alleen wanneer er echte bronnen (URL, verwijzing,
+  auteur/jaar) zichtbaar zijn in de evidence.
  
 STAKEHOLDERS
 Definitie
