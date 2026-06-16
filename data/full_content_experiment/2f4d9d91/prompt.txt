@@ -1,0 +1,1144 @@
+Je bent een kwaliteitsdiagnose-assistent voor een requirements-analyse pipeline voor HBO-ICT studenten.
+
+Je taak is uitsluitend het beoordelen van de inhoudelijke kwaliteit per criterium.
+Je schrijft geen studentfeedback en geen directe docenttekst. Je bepaalt wel per criterium of extra docentfocus nodig is via manual_review.
+Je produceert alleen een gestructureerde JSON-diagnose die later door de feedback-schrijver wordt gebruikt.
+
+━━━ VERSCHIL MET DE STANDAARD-PIPELINE ━━━
+
+In dit experiment krijg je NIET de afgekapte CAPS-evidence met metadata. In plaats daarvan
+krijg je per criterium de VOLLEDIGE relevante documenttekst, zodat je niets mist door
+te strakke selectie. Jij bent dus zelf verantwoordelijk voor het beoordelen van de
+relevantie van de aangeleverde tekst.
+
+━━━ ROL IN DE PIPELINE ━━━
+
+* Jij beantwoordt uitsluitend: hoe goed is de inhoud per criterium? (inhoudelijke kwaliteit)
+* Python bepaalt daarna deterministisch de stoplichten op basis van jouw oordeel — JIJ bepaalt geen stoplicht.
+* De feedback-schrijver beslist later: hoe leggen we dit uit aan de student?
+* De docent controleert altijd het originele document.
+
+Per criterium geef je één expliciet kwaliteitsoordeel in het veld criterion_judgement, met
+exact één van deze waarden:
+  strong  — de inhoud is concreet, relevant en goed onderbouwd; betrouwbaar zonder voorbehoud.
+  mixed   — deels in orde maar met duidelijke lacunes, vaagheden of onevenwichtige uitwerking.
+  weak    — afwezig, zeer dun, generiek, tegenstrijdig of niet inhoudelijk uitgewerkt.
+
+━━━ STRIKTE REGELS — NOOIT OVERTREDEN ━━━
+
+1. Geen fabricatie
+   Noem alleen inhoud die expliciet in de aangeleverde tekst staat.
+   Verzin geen bevindingen, voorbeelden, verbanden of motivaties.
+
+2. Geen scores, geen stoplichten
+   Vermeld nooit een cijfer, puntentotaal, numerieke beoordeling of score.
+   Geef nooit een stoplicht (green/yellow/red) en geen documentoordeel.
+   De diagnostics-waarden zijn uitsluitend: laag, middel of hoog.
+   Het criterion_judgement is uitsluitend: strong, mixed of weak.
+
+3. Geen statuslabels in tekst
+   Gebruik woorden als missing, partial, sufficient niet letterlijk in strengths,
+   weaknesses, manual_review_reason of reason. Vertaal de betekenis naar een
+   inhoudelijke kwaliteitsopmerking. ("strong" mag alleen als waarde van
+   criterion_judgement, nooit in de tekstvelden.)
+
+4. Beoordeel relevantie zelf
+   De tekst per criterium is RUIM gescoped: voor taalkeuze en security is de
+   sectie-tekst aangevuld met blokken die elders in het document een relevant
+   trefwoord bevatten (gemarkeerd met [trefwoord-treffer buiten sectie]). Zulke
+   blokken kunnen relevant zijn, maar ook ruis (bv. het woord "wachtwoord" in een
+   use case die niets met beveiliging te maken heeft). Weeg zelf of de tekst het
+   criterium inhoudelijk raakt. Crediteer alleen wat echt over het criterium gaat.
+
+5. Geen criteria mengen
+   Beoordeel elk criterium alleen op zijn eigen aangeleverde tekst.
+
+6. Geen studentfeedback schrijven
+   Schrijf geen zinnen gericht aan de student en geen aanbevelingen voor de student.
+   Dat doet de feedback-schrijver in een latere stap.
+
+7. Alleen geldige JSON retourneren
+   Geen uitleg, geen markdown, geen code block, geen tekst buiten het JSON-object.
+
+8. Tekst is leidend
+   Lees de VOLLEDIGE aangeleverde tekst per criterium. Als de tekst zelf ontkent dat
+   iets is onderzocht, onderbouwd of uitgewerkt ("ik heb geen bronnen gebruikt",
+   "zelf bedacht"), behandel dat als zwakke inhoud. Maak sterke claims alleen wanneer
+   de tekst ze echt draagt. Claim nooit iets dat niet in de tekst staat.
+
+9. Lege inhoud = geen basis
+   Als de aangeleverde tekst voor een criterium leeg is of alleen uit kopjes/losse
+   termen bestaat, is er geen inhoud om kwaliteit op te baseren. Geef dan GEEN
+   strengths, kies criterion_judgement = weak, en benoem het ontbreken als zwakte.
+
+━━━ HOE BEPAAL JE criterion_judgement ━━━
+
+  strong — de meeste diagnostics-dimensies zijn "hoog", de inhoud is concreet en relevant,
+           en de tekst draagt het oordeel zonder belangrijke lacunes.
+  mixed  — een mengbeeld: sommige dimensies "hoog"/"middel", andere "laag"; of de inhoud is
+           aanwezig maar met duidelijke gaten, vaagheid of zwakke onderbouwing.
+  weak   — de inhoud ontbreekt, is zeer dun, generiek of tegenstrijdig; de meeste dimensies
+           zijn "laag", of er staan vooral kopjes en losse termen.
+
+Wees consistent. Bij twijfel tussen twee niveaus kies je het lagere en zet je manual_review op true.
+
+━━━ WAT BETEKENT manual_review ━━━
+
+manual_review: true betekent: dit criterium vraagt extra aandacht van de docent bij de
+handmatige controle. Het zegt niets over het hele document. Zet het op true bij dunne,
+generieke, onzekere of tegenstrijdige inhoud; op false alleen bij concrete, relevante,
+voldoende uitgelegde inhoud zonder belangrijke lacunes.
+
+━━━ CRITERIA EN KWALITEITSREGELS ━━━
+
+BEPERKING
+Een beperking is een duidelijke afbakening van de doelgroep, gebruikerssituatie of context
+waarvoor de webshop extra rekening houdt (bv. slechtziende/blinde gebruikers, ouderen,
+beperkte digitale vaardigheden). Een sterke beperking is onderbouwd met deskresearch,
+bronnen, observaties of interviews, en legt uit waarom de beperking relevant is en welke
+gevolgen ze heeft voor requirements, functionaliteit, taalkeuze, toegankelijkheid of ontwerp.
+* Is de beperking/doelgroep concreet beschreven of blijft het algemeen?
+* Is ze relevant voor de webshop-context?
+* Wordt ze onderbouwd via desk research, bronnen, interviews of observaties?
+* Heeft ze aantoonbare gevolgen voor requirements, toegankelijkheid, functionaliteit, ontwerp of taalkeuze?
+* BELANGRIJK — onderzoek NOEMEN is niet onderzoek ONDERBOUWEN. Een kop als "Onderzoek naar
+  web gebruikers" of een literatuurlijst zonder concrete bronnen (URL, verwijzing, auteur/jaar)
+  bewijst geen deskresearch. Beoordeel research_support dan laag en benoem het ontbreken van
+  concrete bronnen als zwakte — ook als het woord "onderzoek" voorkomt.
+
+STAKEHOLDERS
+Een stakeholder is een persoon, groep of organisatie die belang heeft bij of invloed heeft op
+het project. De rubric vraagt minimaal vier stakeholders. Een sterke analyse beschrijft per
+stakeholder hun belang, invloed en relatie tot de opdracht.
+* Zijn de stakeholders relevant en meer dan alleen een lijst namen?
+* Worden rol, belang en invloed per stakeholder uitgelegd?
+* Is de redenering over belang en invloed inhoudelijk logisch?
+* Zijn stakeholders gekoppeld aan projectkeuzes of requirements?
+* Laat tabelinhoud echte uitleg zien of vooral opsommingen en labels?
+
+REQUIREMENTS
+Een requirement beschrijft concreet wat het systeem/de gebruiker/beheerder moet kunnen, of
+aan welke kwaliteitseis voldaan moet worden. Een sterke requirement is specifiek, relevant en
+toetsbaar.
+* Zijn de requirements concreet en toetsbaar/testbaar?
+* Passen ze bij de webshop-context en zijn ze gekoppeld aan doelgroep/stakeholders?
+* Is de MoSCoW-prioriteit inhoudelijk gemotiveerd? Zoek actief naar een "waarom MoSCoW"-uitleg.
+  Staat die zichtbaar, weeg priority_logic hoger; markeer laag alleen bij echt ontbrekende motivatie.
+* Is het onderscheid functioneel / niet-functioneel / use case / constraint inhoudelijk logisch?
+* Verander nooit Should/Could/Won't in Must. Beoordeel een individuele requirement niet als
+  verkeerd geprioriteerd tenzij de tekst duidelijk toont waarom de prioriteit onlogisch is.
+* Noem een requirement-ID (bv. NFR02) alleen als die letterlijk in de tekst staat.
+
+TAALKEUZE
+Taalkeuze betekent dat de student expliciet beschrijft in welke taal de webshop wordt
+aangeboden en waarom, inclusief de consequenties (doelgroep, toegankelijkheid, content,
+foutmeldingen, onderhoud, vertaling, bereik, gebruikerservaring).
+Belangrijk: taalkeuze als ontwerpbeslissing ≠ taal veranderen als functionaliteit.
+Een requirement "de gebruiker kan taal kiezen" is dus niet automatisch voldoende.
+* Is er een expliciete taalkeuze gemaakt en past die bij de doelgroep?
+* Worden de gevolgen van de keuze uitgelegd (bereik, begrijpelijkheid, toegankelijkheid,
+  onderhoud, vertaling, content, gebruikerservaring)?
+* Een losse vermelding "Nederlands/Engels" of "meertalig" is niet automatisch sterk zonder onderbouwing.
+* GEDEELTELIJK: is taal alleen als (niet-)functionele requirement benoemd (een 'Taal'-rij,
+  "de website moet meertalig zijn"), beoordeel dan als "mixed" — wél aangeraakt, niet als
+  aparte ontwerpkeuze met gevolgen. "weak" alleen als taal nergens voorkomt. "strong" alleen
+  bij een echte keuze MET uitgelegde gevolgen.
+
+SECURITY
+Security betekent dat de student minimaal één concreet beveiligingsrisico of -maatregel
+beschrijft en uitlegt waarom die relevant is voor de webshop. Een sterke uitwerking koppelt
+een maatregel aan een risico en aan de context (bv. wachtwoordhashing tegen datalekken,
+autorisatie tegen ongewenste toegang, inputvalidatie tegen SQL-injection, HTTPS/TLS, AVG bij
+persoonsgegevens, OWASP, beveiligingsaudit).
+Alleen termen noemen (AVG, OWASP, encryptie, wachtwoord) is niet genoeg.
+* Zijn concrete maatregelen beschreven en gekoppeld aan een risico/dreiging?
+* Past de maatregel bij de webshop-context?
+* Wordt AVG/OWASP/webbeveiliging inhoudelijk uitgelegd, technisch correct en specifiek?
+* Gaat de tekst verder dan een losse term? Wees voorzichtig bij vooral kopjes/losse termen.
+
+━━━ INPUT ━━━
+
+document_id: 2f4d9d91
+
+Hieronder per criterium de volledige relevante documenttekst. Elk blok toont zijn
+heading-pad en tekst. Blokken met [trefwoord-treffer buiten sectie] komen niet uit een
+sectie met de juiste kop, maar bevatten elders in het document een relevant trefwoord —
+beoordeel hun relevantie zelf (zie strikte regel 4).
+
+════════ CRITERIUM: beperking (Beperking & deskresearch) ════════
+
+— blok 2f4d9d91_0167 | p14 | heading | kop: H1 Introductie > 2.5 Communicatiestrategie Stakeholders > H3 Onderzoek naar web gebruikers
+H3 Onderzoek naar web gebruikers
+
+— blok 2f4d9d91_0168 | p14 | heading | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+3.1 Webshopgebruiker van mijn product/Doelgroep
+
+— blok 2f4d9d91_0169 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Wat is mijn product?
+
+— blok 2f4d9d91_0170 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Op mijn website verkoop ik gym accessoires denk hierbij aan producten zoals drinkflessen,
+
+— blok 2f4d9d91_0171 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+lifting gloves, wriststraps, chalk, protein powder, lifting belts en performance monitors. De
+
+— blok 2f4d9d91_0172 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+accessoires zijn op te delen in twee soorten 1. Pre workout support accesoiries; deze
+
+— blok 2f4d9d91_0173 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+artiekelen worden gebruikt tijdens de fysieke activiteit om goede vorm tijdens een oefening te
+
+— blok 2f4d9d91_0174 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+behouden, dit zorgt voor het voorkomen van spier stress en vermoeidheid, gewricht
+
+— blok 2f4d9d91_0175 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+vermoeidheid en het voorkomen van hyperextensies, 2. Post workout accesoires; in
+
+— blok 2f4d9d91_0176 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+tegenstelling tot de Pre workout support accesoiries helpen deze producten je pas na het
+
+— blok 2f4d9d91_0177 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+sporten, tijdens de herstelperiode. De accessoires worden dus gebruikt om de prestaties
+
+— blok 2f4d9d91_0178 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+tijdens een workout te verbeteren en om de snelheid van het herstellen te bevorderen (Allied
+
+— blok 2f4d9d91_0179 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Market Research, https://www.alliedmarketresearch.com/, n.d.). De gym accessoires markt is
+
+— blok 2f4d9d91_0180 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+na de covid pandemie als maar blijven stijgen, vooral doormiddel van reclames op het
+
+— blok 2f4d9d91_0181 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+internet (Fact.MR – Gym Accessories Market Forecast, Trend Analysis & Competition
+
+— blok 2f4d9d91_0182 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Tracking - Global Review 2021 to 2031, n.d.).
+
+— blok 2f4d9d91_0183 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Doelgroep
+
+— blok 2f4d9d91_0184 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Volgens (Allied Market Research, https://www.alliedmarketresearch.com/, n.d.) bestaan de
+
+— blok 2f4d9d91_0185 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+consumenten van de gym accessoires groten deels uit professionele bodybuilders, acteurs,
+
+— blok 2f4d9d91_0186 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+modellen, mensen die naar de gym gaan en veel sociale media influencers die hun content
+
+— blok 2f4d9d91_0187 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+baseren op fitness. De consumenten van de accessoires kunnen dus als een geheel worden
+
+— blok 2f4d9d91_0188 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+geclassificeerd onder: “ mensen die sporten ” (Fact.MR – Gym Accessories Market Forecast,
+
+— blok 2f4d9d91_0189 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Trend Analysis & Competition Tracking - Global Review 2021 to 2031, n.d.). (Euronews,
+
+— blok 2f4d9d91_0190 | p14 | bullet | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+2023) luidt dat de gender, leeftijd, educatie niveau en economische status van mensen ook
+
+— blok 2f4d9d91_0191 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+een invloed heeft op de sporters.
+
+— blok 2f4d9d91_0192 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Uit onderzoekresultaten van 2022 blijkt dat mensen die consistent en dus het meest de
+
+— blok 2f4d9d91_0193 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+sportschool bezoeken mannen, mensen met een leeftijd tussen de 15 en 24, waarbij de
+
+— blok 2f4d9d91_0194 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+mensen tussen 25 en 39 op plek twee, mensen die na hun twintigste verjaardag nog
+
+— blok 2f4d9d91_0195 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+studeren en mensen met een goed inkomen of ouders met een goed inkomen zijn
+
+— blok 2f4d9d91_0196 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+(Euronews, 2023). (Fact.MR – Gym Accessories Market Forecast, Trend Analysis &
+
+— blok 2f4d9d91_0197 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Competition Tracking - Global Review 2021 to 2031, n.d.) versterkt de vorige statement en
+
+— blok 2f4d9d91_0198 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+zegt dat de gym accessoires markt vooral wordt gedreven door de stedelijke en werkende
+
+— blok 2f4d9d91_0199 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+populatie. Uit onderzoek van (Fact.MR – Gym Accessories Market Forecast, Trend Analysis
+
+— blok 2f4d9d91_0200 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+& Competition Tracking - Global Review 2021 to 2031, n.d.) Blijkt dat de gym accessoires
+
+— blok 2f4d9d91_0201 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+die het meest verkocht worden Ab straps, Belts, waterflessen, lichaam vet meter, hartslag
+
+— blok 2f4d9d91_0202 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+monitor, bloedruk monitor, audiospelers, handdoeken, matten, chalk, en workout ballen zijn.
+
+— blok 2f4d9d91_0203 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Deze producten worden in elk continent verkocht.
+
+— blok 2f4d9d91_0204 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Deze onderzoeks resultaten zijn niet alleen gebasseerd op nederland, maar op resultaten
+
+— blok 2f4d9d91_0205 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+van mensen over de gehele wereld. Volgens (De Top 10 Meest Gesproken Talen |
+
+— blok 2f4d9d91_0207 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Vertaalbureau Perfect, n.d.) spreken slechts 22 miljoen mensen op de wereld Nederlands.
+
+— blok 2f4d9d91_0208 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Als de website alleen in het nederlands beschikbaar is, zal dit de gebruikers vriendelijkheid
+
+— blok 2f4d9d91_0209 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+van de website negatief beïnvloeden. Daarom is het belangrijk dat de website beschikbaar
+
+— blok 2f4d9d91_0210 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+wordt gemaakt in verschillende talen.
+
+— blok 2f4d9d91_0211 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Waarom?
+
+— blok 2f4d9d91_0212 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Uit deskresearch onderzoek blijkt dat mensen wegens verschillende redenen de gym
+
+— blok 2f4d9d91_0213 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+accessoires aanschaffen. (Allied Market Research, https://www.alliedmarketresearch.com/,
+
+— blok 2f4d9d91_0214 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+n.d.) zegt dat de reden voor aanschaffing is om fit te blijven en een gezondere levensstijl te
+
+— blok 2f4d9d91_0215 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+leiden, het voorkomen van blessures vanwege verkeerde vorm tijdens de oefeningen, het
+
+— blok 2f4d9d91_0216 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+besparen van energie. Doormiddel van het gebruik van deze artikelen kunnen consumenten
+
+— blok 2f4d9d91_0217 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+dus langer hun workouts volhouden en wordt de mogelijkheid dat ze het sporten tot een
+
+— blok 2f4d9d91_0218 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+latere leeftijd kunnen doortrekken vergroot (Allied Market Research,
+
+— blok 2f4d9d91_0219 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+https://www.alliedmarketresearch.com/, n.d.) . (Fact.MR – Gym Accessories Market Forecast,
+
+— blok 2f4d9d91_0220 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Trend Analysis & Competition Tracking - Global Review 2021 to 2031, n.d.) en (Spraul,
+
+— blok 2f4d9d91_0221 | p15 | bullet | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+2024) zeggen dat de stijging in de verkoop van gym accessoires en opkomst in sportscholen
+
+— blok 2f4d9d91_0222 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+komt door de ontwikkeling in het bewust zijn van mensen met betrekking tot hun gezondheid.
+
+— blok 2f4d9d91_0223 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+Het feit dat veelvoorkomende ziektes zoals Corona, Obesitas en depressie grotendeels
+
+— blok 2f4d9d91_0224 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+voorkomen kunnen worden door het leiden van een gezonde levensstijl, geeft veel mensen
+
+— blok 2f4d9d91_0225 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep
+de wil om te starten met sporten en kopen van gym accessoires.
+
+— blok 2f4d9d91_0227 | p16 | heading | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+3.2 Webshopgebruiker met beperking
+
+— blok 2f4d9d91_0228 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+Wat is dyslexie?
+
+— blok 2f4d9d91_0229 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+Mijn webshop moet niet alleen fungeren voor normale gebruikers en meertalige gebruikers,
+
+— blok 2f4d9d91_0230 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+maar ook voor dyslecten. Volgens (Wat Is Dyslexie? - RID - Taal Rekenen, n.d.) zijn er in de
+
+— blok 2f4d9d91_0231 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+wereld 1 op de 10 mensen dyslectisch ook beïnvloedt dyslexie mannen en vrouwen op
+
+— blok 2f4d9d91_0232 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+dezelfde manier (Professional, n.d.) . Uit onderzoek van (Zauderer, 2023) blijkt dat 60% van
+
+— blok 2f4d9d91_0233 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+de dyslecten man is en 40% vrouw. Door een Dyslect vriendelijke website te maken zorg ik
+
+— blok 2f4d9d91_0234 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+ervoor dat ik deze potentiële klanten niet misloop. Mensen met dyslexie hebben moeite met
+
+— blok 2f4d9d91_0235 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+het lezen en/of schrijven van woorden (Wat Is Dyslexie? - RID - Taal Rekenen, n.d.). De
+
+— blok 2f4d9d91_0236 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+moeite met lezen en schrijven wordt veroorzaakt door een disruptie in het brein bij het
+
+— blok 2f4d9d91_0237 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+begrijpen van schrijven (Professional, n.d.). Bij het leren van klanken en letters wordt er in je
+
+— blok 2f4d9d91_0238 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+hersenen een verbinding aangelegd in de hersenen, hierdoor begrijp je het nu beter en komt
+
+— blok 2f4d9d91_0239 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+de geleerde informatie in je kortetermijngeheugen. Dyslecten hebben moeite met het
+
+— blok 2f4d9d91_0240 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+aanleggen van deze verbindingen (Wat Is Dyslexie? - RID - Taal Rekenen, n.d.).
+
+— blok 2f4d9d91_0241 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+Dyslexie kent meerdere niveaus; 1. Mild; mensen met een milde dyslexie hebben redelijk wat
+
+— blok 2f4d9d91_0242 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+moeite met het lezen en schrijven, maar kunnen hier met de juiste hulp en omgeving
+
+— blok 2f4d9d91_0243 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+omheen werken, 2. Gemiddeld; mensen met een gemiddelde dyslexie hebben wat meer
+
+— blok 2f4d9d91_0244 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+problemen met het lezen en schrijven dan de mensen met een milde dyslexie, en hebben
+
+— blok 2f4d9d91_0245 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+daardoor wat meer en specifiekere support en accommodatie nodig om hun problemen te
+
+— blok 2f4d9d91_0246 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+omzeilen, 3. Ernstig; bij mensen met ernstige dyslexie is de moeite met lezen en schrijven zo
+
+— blok 2f4d9d91_0247 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+groot dat speciale accommodatie en hulp niet meer helpt. Zij zullen waarschijnlijk hun hele
+
+— blok 2f4d9d91_0248 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+leven met dyslexie kampen (Professional, n.d.).
+
+— blok 2f4d9d91_0249 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+Hoe kunnen we ze helpen?
+
+— blok 2f4d9d91_0250 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+Volgens (Dyslexia - Diagnosis and Treatment - Mayo Clinic, 2022) helpen visueel-, fysiek- en
+
+— blok 2f4d9d91_0251 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+audiotechnieken dyslecten met het verbeteren van hun lees skills. (Hannahsmith, 2022)
+
+— blok 2f4d9d91_0252 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+versterkt deze statement door verscheidene manieren te beduiden voor het maken van een
+
+— blok 2f4d9d91_0253 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+Dyslect vriendelijkere webshop: 1. Lettertype grote; door het gebruik maken van een groter
+
+— blok 2f4d9d91_0254 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+lettertype kunnen dyslecten de tekst makkelijker lezen 2. Ruimte tussen woorden; meer
+
+— blok 2f4d9d91_0255 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+ruimte tussen woorden maakt een tekst overzichtelijker. Uit het interview met [PERSOON_02] is ook
+
+— blok 2f4d9d91_0256 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+veel input verkregen. Zij meldde dat het gebruik van een dun en lang uitgeschreven
+
+— blok 2f4d9d91_0257 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+lettertype, een goed contrast tussen de tekst-, achtergrond- en koptestkleur, het gebruik
+
+— blok 2f4d9d91_0258 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+maken van korte zinnen en het instellen van een spraakfunctie de gebruikerservaring van
+
+— blok 2f4d9d91_0259 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking
+een webshop voor haar vergroten.
+
+— blok 2f4d9d91_0261 | p17 | heading | kop: H1 Introductie > 3.3 Bronvermelding
+3.3 Bronvermelding
+
+— blok 2f4d9d91_0262 | p17 | bullet | kop: H1 Introductie > 3.3 Bronvermelding
+- Webshop gebruiker
+
+— blok 2f4d9d91_0263 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+Allied Market Research, https://www.alliedmarketresearch.com/. (n.d.). Gym Accessories
+
+— blok 2f4d9d91_0264 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+Market Size, share, Competitive Landscape and Trend Analysis Report by type, by
+
+— blok 2f4d9d91_0265 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+end user, by distribution channel : Global Opportunity Analysis and Industry Forecast,
+
+— blok 2f4d9d91_0266 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+2021-2031. Allied Market Research. https://www.alliedmarketresearch.com/gym-
+
+— blok 2f4d9d91_0267 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+accessories-market-A16938
+
+— blok 2f4d9d91_0268 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+Fact.MR – Gym Accessories market Forecast, trend analysis & Competition Tracking -
+
+— blok 2f4d9d91_0269 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+Global Review 2021 to 2031. (n.d.). https://www.factmr.com/report/gym-accessories-
+
+— blok 2f4d9d91_0270 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+market
+
+— blok 2f4d9d91_0271 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+Spraul, T. (2024, February 10). Gym membership statistics in 2024 (Big List) | Exercise.com.
+
+— blok 2f4d9d91_0272 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+Exercise.com | Software to Grow Your Fitness Business.
+
+— blok 2f4d9d91_0273 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+https://www.exercise.com/grow/gym-membership-statistics/
+
+— blok 2f4d9d91_0274 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+Euronews. (2023, March 5). Exercise in Europe: Which countries do the most and least
+
+— blok 2f4d9d91_0275 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+physical activity? Euronews. https://www.euronews.com/health/2023/03/05/exercise-in-
+
+— blok 2f4d9d91_0276 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+europe-which-countries-do-the-most-and-least-physical-activity
+
+— blok 2f4d9d91_0277 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+De top 10 meest gesproken talen | Vertaalbureau Perfect. (n.d.). Vertaalbureau Perfect.
+
+— blok 2f4d9d91_0278 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding
+Https://www.vertaalbureau-perfect.nl/blog/de-top-10-meest-gesproken-talen
+
+— blok 2f4d9d91_0279 | p17 | heading | kop: H1 Introductie > - Webshop gebruiker met beperking
+- Webshop gebruiker met beperking
+
+— blok 2f4d9d91_0280 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+Wat is dyslexie? - RID - Taal Rekenen. (n.d.). RID. https://www.rid.nl/ouder-en-
+
+— blok 2f4d9d91_0281 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+kind/springkr8-bij-dyslexie/wat-is-dyslexie
+
+— blok 2f4d9d91_0282 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+Zauderer, S. (2023, June 30). 33 Dyslexia Statistics & Facts: How Many People Have
+
+— blok 2f4d9d91_0283 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+Dyslexia? https://www.crossrivertherapy.com/research/dyslexia-
+
+— blok 2f4d9d91_0284 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+statistics#:~:text=How%20Many%20People%20Have%20Dyslexia%20Worldwide%3F,of%20
+
+— blok 2f4d9d91_0285 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+10%20people%20have%20dyslexia.
+
+— blok 2f4d9d91_0286 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+Professional, C. C. M. (n.d.). Dyslexia. Cleveland Clinic.
+
+— blok 2f4d9d91_0287 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+https://my.clevelandclinic.org/health/diseases/6005-dyslexia
+
+— blok 2f4d9d91_0288 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+Dyslexia - Diagnosis and treatment - Mayo Clinic. (2022, August 6).
+
+— blok 2f4d9d91_0289 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+https://www.mayoclinic.org/diseases-conditions/dyslexia/diagnosis-treatment/drc-20353557
+
+— blok 2f4d9d91_0290 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+Hannahsmith. (2022, September 27). How can I create a more dyslexia friendly website
+
+— blok 2f4d9d91_0291 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+experience? | Succeed with dyslexia. Succeed With
+
+— blok 2f4d9d91_0292 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+Dyslexia . https://www.succeedwithdyslexia.org/blog/creating-a-dyslexia-friendly-website-
+
+— blok 2f4d9d91_0293 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+experience/
+
+— blok 2f4d9d91_0294 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking
+Interview met [PERSOON_02]
+
+════════ CRITERIUM: stakeholders (Stakeholders) ════════
+
+— blok 2f4d9d91_0047 | p4 | heading | kop: H1 Introductie > H2 Stakeholders analyse
+H2 Stakeholders analyse
+
+— blok 2f4d9d91_0048 | p4 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse
+In dit deel van het document wordt de stakeholderanalyse uitgewerkt. De stakeholderanalyse
+
+— blok 2f4d9d91_0049 | p4 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse
+is opgedeeld in 5 onderdelen; de mindmap, de stakeholdertabel, betrokkenheid
+
+— blok 2f4d9d91_0050 | p4 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse
+stakeholders, prioriteit stakeholders en de communicatietechnieken per stakeholder. Alle
+
+— blok 2f4d9d91_0051 | p4 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse
+verschillende onderdelen zijn stappen die ondernomen moeten worden tijdens het maken
+
+— blok 2f4d9d91_0052 | p4 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse
+van een stakeholder analyse.
+
+— blok 2f4d9d91_0095 | p6 | heading | kop: H1 Introductie > 2.2 Stakeholder Tabel
+2.2 Stakeholder Tabel
+
+— blok 2f4d9d91_0096 | p6 | paragraph | kop: H1 Introductie > 2.2 Stakeholder Tabel
+In deze paragraaf worden de stakeholders die gedeclareerd zijn in de mindmap
+
+— blok 2f4d9d91_0097 | p6 | paragraph | kop: H1 Introductie > 2.2 Stakeholder Tabel
+gestructureerd en overzichtelijk uitgewerkt in de vorm van een tabel. Elke stakeholder wordt
+
+— blok 2f4d9d91_0098 | p6 | paragraph | kop: H1 Introductie > 2.2 Stakeholder Tabel
+in de tabel een taak/rol en een of meer belangen toegekend. De taak/rol en belangen zijn
+
+— blok 2f4d9d91_0099 | p6 | paragraph | kop: H1 Introductie > 2.2 Stakeholder Tabel
+gebaseerd op de webshop.
+
+— blok 2f4d9d91_0101 | p6 | table | kop: H1 Introductie > 2.2 Stakeholder Tabel
+Stakeholder | Taak/Rol | Belang
+Stakeholder | Taak/Rol | Belang
+1. Overheid | Houdt in de gaten of de AVG wet en regelgeving wordt gehandhaafd en het innen van belasting. | Willen dat het AVG wet en regelgeving wordt nageleefd. Willen dat de belasting wordt betaald.
+2.1 Gebruikers | Het vinden van de website en het kopen van de Gym artikelen. | Verlangen naar een betrouwbare en veilige transactie. Verlangen naar een goede gebruikerservaring.
+2.2 Gebruikers met Dyslexie/kleurenblindheid | Het vinden van de website en het kopen van de Gym artikelen. | Verlangen naar een betrouwbare en veilige transactie. Verlangen naar een goede gebruikerservaring.
+3. Opdrachtgever | Het stellen van eisen en wensen voor de webshop, het maken van termijnen en het uitbetalen voor het gedane werk. | Willen een website die gebruiksvriendelijkheid, toegankelijkheid, veiligheid en betrouwbaarheid.  Klanten moeten een soepele ervaring hebben bij het doorzoeken en kopen van een gevarieerd aanbod van producten.
+
+— blok 2f4d9d91_0103 | p7 | table | kop: H1 Introductie > 2.2 Stakeholder Tabel
+4. Projectmanagers | Het aansturen en begeleiden van het proces: Webshop bouw. Communicatie met de opdrachtgever. |  Willen duidelijke communicatie.  Vlotte samenwerking.
+5. Sponsoren | Het geven van geld voor het promoten van hun Gym artikelen. |  Willen een duidelijke vermelding van bedrijfsnaam bij hun product.
+6. Gebouw verhuur instantie | Het verhuren van een gebouw waar wij de Gym artikelen in stoppen. |  Willen dat de *uitgehuwde* vesting om een vast termijn wordt betaald.  Willen een goed onderhoud van de vesting.
+7. Leverancier | Het leveren van gym producten naar onze vesting. |  Willen een duidelijke formulering van de producten die ze moeten leveren.  Willen dat er wordt betaald voor hun diensten.
+8. Bezorgingsdienst | Het leveren van de Gym artikelen van onze vesting naar de klant. |  Willen een duidelijke formulering van de producten die ze moeten leveren.  Willen dat er wordt betaald voor hun diensten.
+9. Medewerkers | Het laden van de geleverancieerde Gym artikelen in onze vesting, onderhoud van ons gebouw en het leveren van de klantenservice. |  Willen dat er wordt betaald voor hun diensten.  Willen een duidelijk contract met veilige werkcondities.
+10. Marketing instantie | Het promoten van de webshop. |  Goede afspraken aan de hand van een contract
+
+— blok 2f4d9d91_0105 | p8 | table | kop: H1 Introductie > 2.2 Stakeholder Tabel
+ Vast termijn worden uitbetaald
+11. Concurrenten | Het veranderen van de prijs van producten. |  Willen dat mijn corporatie verlies draait
+12. Bank | Het uitlenen van geld aan mijn bedrijf. |  Willen dat mijn bedrijf winst maakt  Vast termijn worden uitbetaald
+
+— blok 2f4d9d91_0106 | p9 | heading | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+2.3 Betrokkenheid stakeholders
+
+— blok 2f4d9d91_0107 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+In deze paragraaf wordt de betrokkenheid van de stakeholders bepaald en weergegeven in
+
+— blok 2f4d9d91_0108 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+een Stakeholder engagement map.
+
+— blok 2f4d9d91_0109 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+Stakeholders kunnen primair (direct betrokken bij project aanpak of resultaat) of secundair
+
+— blok 2f4d9d91_0110 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+(indirect betrokken bij project aanpak of resultaat) zijn. De stakeholders worden ook
+
+— blok 2f4d9d91_0111 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+ingedeeld op de nabijheid van de organisatie. De organisatie van de stakeholders worden in
+
+— blok 2f4d9d91_0112 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+drie verschillende groepen onderscheden: 1. Intern: vanuit eigen organisatie, 2. Extern:
+
+— blok 2f4d9d91_0113 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+vanuit een andere organisatie, 3. Interface: niet betrokken maar heeft wel een legitiem
+
+— blok 2f4d9d91_0114 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+belang.
+
+— blok 2f4d9d91_0115 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+Om te bepalen of een stakeholder primair, secundair en intern, extern of interface is, heb ik
+
+— blok 2f4d9d91_0116 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+goed gekeken naar de verschillende eigenschappen van interne en externe stakeholders en
+
+— blok 2f4d9d91_0117 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+die op een rijtje gezet;
+
+— blok 2f4d9d91_0118 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+Eigenschappen van interne stakeholders:
+
+— blok 2f4d9d91_0119 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+ Is deel van mijn organisatie
+
+— blok 2f4d9d91_0120 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+ Worden direct beïnvloedt door de activiteiten van de organisatie
+
+— blok 2f4d9d91_0121 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+ Werkt voor mijn organisatie
+
+— blok 2f4d9d91_0122 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+ Wordt aangenomen door mijn organisatie
+
+— blok 2f4d9d91_0123 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+ Direct verantwoordelijk voor de vooruitgang van het bedrijf
+
+— blok 2f4d9d91_0124 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+Eigenschappen van externe stakeholders:
+
+— blok 2f4d9d91_0125 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+ Is niet deel van mijn organisatie
+
+— blok 2f4d9d91_0126 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+ Worden indirect beïnvloedt door de activiteiten van de organisatie
+
+— blok 2f4d9d91_0127 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+ Wordt beïnvloed door het werk van mijn organisatie
+
+— blok 2f4d9d91_0128 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+ Is niet aangenomen door mijn organisatie
+
+— blok 2f4d9d91_0129 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+ Indirect verantwoordelijk voor de vooruitgang van het bedrijf
+
+— blok 2f4d9d91_0130 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+Eigenschappen van interface stakeholders:
+
+— blok 2f4d9d91_0131 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+ Niet betrokken maar heeft wel een legitiem belang
+
+— blok 2f4d9d91_0132 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+Door het doorlopen van elke stakeholder met de eigenschappen van interne en externe
+
+— blok 2f4d9d91_0133 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+stakeholders, heb ik de stakeholders kunnen groeperen en in een Stakeholder engagement
+
+— blok 2f4d9d91_0134 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+map kunnen plaatsen. De interne stakeholders zijn direct betrokken bij de projectaanpak en
+
+— blok 2f4d9d91_0135 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+het resultaat, waardoor ze primaire stakeholders zijn. De externe stakeholders zijn indirect
+
+— blok 2f4d9d91_0136 | p9 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+betrokken bij de project aanpak en het resultaat, en zijn daardoor secundair.
+
+— blok 2f4d9d91_0138 | p10 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+Stakeholder engagement map 1-12
+
+— blok 2f4d9d91_0139 | p10 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+Een bijzonderheid in deze stakeholder map is de opdrachtgever. De opdrachtgever heb ik
+
+— blok 2f4d9d91_0140 | p10 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+gedeclareerd als een externe stakeholder, maar een primaire betrokkenheid toegekend. Ik
+
+— blok 2f4d9d91_0141 | p10 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+heb dit gedaan vanwege het feit dat de opdrachtgever naast alleen de opdracht toe te dienen
+
+— blok 2f4d9d91_0142 | p10 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+ook nog eens investeert in dit project. Een investeerder heeft directe invloed op het succes
+
+— blok 2f4d9d91_0143 | p10 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+en de aanpak van het project, omdat deze het budget bepaald, daarom heb ik de
+
+— blok 2f4d9d91_0144 | p10 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+opdrachtgever naast het feit dat zij van een andere organisatie komt toch een primaire
+
+— blok 2f4d9d91_0145 | p10 | paragraph | kop: H1 Introductie > 2.3 Betrokkenheid stakeholders
+betrokkenheid gegeven.
+
+— blok 2f4d9d91_0148 | p12 | heading | kop: H1 Introductie > 2.4 Prioriteit stakeholders
+2.4 Prioriteit stakeholders
+
+— blok 2f4d9d91_0149 | p12 | paragraph | kop: H1 Introductie > 2.4 Prioriteit stakeholders
+In dit deel van de stakeholdersanalyse worden de stakeholders gerangschikt bij prioriteit en
+
+— blok 2f4d9d91_0150 | p12 | paragraph | kop: H1 Introductie > 2.4 Prioriteit stakeholders
+weergegeven in een Stakeholder Influence Map.
+
+— blok 2f4d9d91_0151 | p12 | paragraph | kop: H1 Introductie > 2.4 Prioriteit stakeholders
+Ik heb de stakeholders geprioriteerd doormiddel van twee kenmerken: 1, hoeveel invloed ze
+
+— blok 2f4d9d91_0152 | p12 | paragraph | kop: H1 Introductie > 2.4 Prioriteit stakeholders
+hebben en 2, hoe hoog hun interesse is met betrekking tot de webshop. De hoeveelheid
+
+— blok 2f4d9d91_0153 | p12 | paragraph | kop: H1 Introductie > 2.4 Prioriteit stakeholders
+invloed die een stakeholder kan hebben wordt bepaald door de mate waarin de stakeholder
+
+— blok 2f4d9d91_0154 | p12 | paragraph | kop: H1 Introductie > 2.4 Prioriteit stakeholders
+de webshop beïnvloedt en kan beïnvloeden. Het niveau van interesse wordt bepaald door de
+
+— blok 2f4d9d91_0155 | p12 | paragraph | kop: H1 Introductie > 2.4 Prioriteit stakeholders
+invloed van de webshop op de stakeholders. Door bij elke stakeholder deze 2 kenmerken
+
+— blok 2f4d9d91_0156 | p12 | paragraph | kop: H1 Introductie > 2.4 Prioriteit stakeholders
+langs te lopen kon ik ze rangschikken in de stakeholder influence map.
+
+— blok 2f4d9d91_0157 | p12 | paragraph | kop: H1 Introductie > 2.4 Prioriteit stakeholders
+Hoe de stakeholders de webshop beïnvloeden en hoe de webshop hun beïnvloeden wordt
+
+— blok 2f4d9d91_0158 | p12 | paragraph | kop: H1 Introductie > 2.4 Prioriteit stakeholders
+op pagina 4 weergegeven.
+
+— blok 2f4d9d91_0159 | p12 | paragraph | kop: H1 Introductie > 2.4 Prioriteit stakeholders
+De stakeholders worden op deze manier in het kwadrant geplaatst.
+
+— blok 2f4d9d91_0161 | p13 | heading | kop: H1 Introductie > 2.5 Communicatiestrategie Stakeholders
+2.5 Communicatiestrategie Stakeholders
+
+— blok 2f4d9d91_0162 | p13 | paragraph | kop: H1 Introductie > 2.5 Communicatiestrategie Stakeholders
+In dit laatste deel van de stakeholdersanalyse weergeef ik het communicatieplan voor elke
+
+— blok 2f4d9d91_0163 | p13 | paragraph | kop: H1 Introductie > 2.5 Communicatiestrategie Stakeholders
+stakeholder. In het communicatieplan worden de volgende onderdelen uitgewerkt:
+
+— blok 2f4d9d91_0164 | p13 | paragraph | kop: H1 Introductie > 2.5 Communicatiestrategie Stakeholders
+Communicatiemethode, stakeholder, communicatie frequentie, communicatie doel,
+
+— blok 2f4d9d91_0165 | p13 | paragraph | kop: H1 Introductie > 2.5 Communicatiestrategie Stakeholders
+communicatie overbracht, gemaakt door, verzonden door en aanvullende informatie.
+
+════════ CRITERIUM: requirements (Requirements) ════════
+
+— blok 2f4d9d91_0296 | p18 | heading | kop: H1 Introductie > - Webshop gebruiker met beperking > H4 Wensen, Eisen, Prioriteiten
+H4 Wensen, Eisen, Prioriteiten
+
+— blok 2f4d9d91_0297 | p18 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking > H4 Wensen, Eisen, Prioriteiten
+In dit segment worden de wensen, eisen en prioriteiten van mijn webshop aan de hand van
+
+— blok 2f4d9d91_0298 | p18 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking > H4 Wensen, Eisen, Prioriteiten
+een requirements analyse weergegeven. De wensen eisen en prioriteiten zijn verkregen aan
+
+— blok 2f4d9d91_0299 | p18 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking > H4 Wensen, Eisen, Prioriteiten
+de hand van het onderzoek naar de webgebruiker, het interview met [PERSOON_02] en de
+
+— blok 2f4d9d91_0300 | p18 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking > H4 Wensen, Eisen, Prioriteiten
+stakeholdersanalyse
+
+— blok 2f4d9d91_0301 | p18 | heading | kop: H1 Introductie > 4.1 Constraints en (non-) Functionele eisen
+4.1 Constraints en (non-) Functionele eisen
+
+— blok 2f4d9d91_0302 | p18 | paragraph | kop: H1 Introductie > 4.1 Constraints en (non-) Functionele eisen
+Constraints
+
+— blok 2f4d9d91_0304 | p18 | table | kop: H1 Introductie > 4.1 Constraints en (non-) Functionele eisen
+Naam | Architecturele relevantie | Geadresseerd in:
+Naam | Architecturele relevantie | Geadresseerd in:
+CONSTR01: Budge t | De ontwikkeling van de website wordt voltooid binnen een budget van 10.000 euro. | Casus_Website_First Full Stack_v.1.pdf paragraaf 10 Stakeholder: Opdrachtgever
+CONSTR02: Termij n | De ontwikkeling van de website wordt voltooid binnen een termijn van 6 weken, hierin is de applicatie ontworpen, ontwikkeld en getest. | Casus_Website_First Full Stack_v.1.pdf paragraaf 10 Stakeholder: Opdrachtgever
+CONSTR03: wensen en eisen | De webshop moet voldoen aan de wensen en eisen van zowel ons als opdrachtgever als van de gekozen groep eindgebruikers. | Casus_Website_First Full Stack_v.1.pdf paragraaf 10 Stakeholder: Opdrachtgever
+CONSTR04: soort product + categorie | Op de webshop mag maar 1 soort product verkocht worden. Deze producten vallen binnen één soort artikelen. De categorieën waaruit gekozen kan worden zijn: | Casus_Website_First Full Stack_v.1.pdf paragraaf 2 & 3 Stakeholder: Opdrachtgever
+
+— blok 2f4d9d91_0305 | p19 | paragraph | kop: H1 Introductie > 4.1 Constraints en (non-) Functionele eisen
+Niet-functionele requirements
+
+— blok 2f4d9d91_0307 | p19 | table | kop: H1 Introductie > 4.1 Constraints en (non-) Functionele eisen
+schoenen, petten, games, sportartikelen, computers, computeraccessoires, eten, drinken, muziek, films, crypto, kleding en een categorie ‘overig in overleg’.
+CONSTR05: AVG | De webshop moet aan de AVG wet en regelgeving voldoen. | Casus_Website_First Full Stack_v.1.pdf paragraaf 9 Stakeholder: Opdrachtgever
+CONSTR06: Programmeertalen | De applicatie moet worden uitgewerkt in javascript, Springboot, typescript en Angular. | **********
+CONSTR07: Betaalwijze | Klanten mogen artikelen niet betalen met giftcards en zij kunnen niet gebruik maken van promocodes in de webshop. Verzendkosten niet afhankelijk van het formaat of de locatie, maar een standaardbedrag. | Casus_Website_First Full Stack_v.1.pdf paragraaf 3 en 5 Stakeholder: Opdrachtgever
+
+— blok 2f4d9d91_0309 | p20 | table | kop: H1 Introductie > 4.1 Constraints en (non-) Functionele eisen
+Naam | Architecturele relevantie | Geadresseerd in: | Prio
+Naam | Architecturele relevantie | Geadresseerd in: | Prio
+FR01: Uitstraling, opmaak & responsiveness | De uitstraling en opmaak van de website dien te passen bij de beoogde klanten van het soort product. Zij moeten de website en de producten daarop kunnen verkennen, ongeacht het device waarop ze het bekijken. | Casus_Website_First Full Stack_v.1.pdf paragraaf 6 Stakeholder: Opdrachtgever | MUST HAVE
+FR02: Beheer ** | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. | Casus_Website_First Full Stack_v.1.pdf paragraaf 8 Stakeholder: Opdrachtgever | SHOULD HAVE
+FR03: Online | Dit betekent dat de website al bereikbaar is voor klanten. En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen | Casus_Website_First Full Stack_v.1.pdf paragraaf 5 Stakeholder: Opdrachtgever | SHOULD HAVE
+FR04: beveiliging** | We benadrukken daarom het belang van strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) en vragen om een grondige beveiligings‐ en risicoanalyse om de gegevens van onze klanten te beschermen. | Casus_Website_First Full Stack_v.1.pdf paragraaf 9 Stakeholder: Opdrachtgever | MUST HAVE
+FR05 : Security | De applicatie moet rekening houden met een OWASP principe. | H6– Security Constraints | MUST Have
+FR06: Meertaligheid | De applicatie moet in meerdere talen beschikbaar zijn | Casus_Website_First Full Stack_v.1.pdf paragraaf 4 Stakeholder: Opdrachtgever | SHOULD HAVE
+FR07: gebruiker met beperking ** | In de applicatie moet rekening worden gehouden met mensen met laaggeletterde/Dyslectische klanten | Casus_Website_First Full Stack_v.1.pdf paragraaf 7 Stakeholder: Opdrachtgever | MUST HAVE
+
+— blok 2f4d9d91_0310 | p21 | paragraph | kop: H1 Introductie > 4.1 Constraints en (non-) Functionele eisen
+Functionele requirements
+
+— blok 2f4d9d91_0312 | p21 | table | kop: H1 Introductie > 4.1 Constraints en (non-) Functionele eisen
+Naam | Architecturele relevantie | Geadresseerd in: | Prio
+Naam | Architecturele relevantie | Geadresseerd in: | Prio
+UC01: aanmaak profiel | De gebruiker moet een profiel aan kunnen maken | Casus_Website_First Full Stack_v.1.pdf paragraaf 4 Stakeholder: Opdrachtgever | MUST HAVE
+UC02: login | De gebruiker moet kunnen inloggen op zijn aangemaakte profiel | Casus_Website_First Full Stack_v.1.pdf paragraaf 4 Stakeholder: Opdrachtgever | MUST HAVE
+UC03: product toevoegen | De klant moet een product in hun winkelmand kunnen plaatsen, en deze bij de winkelmand inhoud kunnen bekijken | Casus_Website_First Full Stack_v.1.pdf paragraaf 4 Stakeholder: Opdrachtgever | MUST HAVE
+UC04: product verwijderen | De klant moet items in de winkelmand kunnen verwijderen. | Casus_Website_First Full Stack_v.1.pdf paragraaf 4 Stakeholder: Opdrachtgever | MUST HAVE
+UC05: Create | De admin moet de mogelijkheid hebben om producten en categorieën te kunnen toevoegen | Interview Stakeholder: Gebruiker | SHOULD HAVE
+
+— blok 2f4d9d91_0542 | p36 | heading | kop: 2. Tekstanalyse + Legenda > Thema Inhoud Requirement/Constraint
+Thema Inhoud Requirement/Constraint
+
+— blok 2f4d9d91_0545 | p37 | table | kop: 2. Tekstanalyse + Legenda > Thema Inhoud Requirement/Constraint
+Betaalwijze & Betrouwbaarheid | Klanten mogen deze artikelen alleen niet betalen met gift cards en zij kunnen niet gebruik maken van promocodes in de webshop. Dit betekent dat de website al bereikbaar is voor klanten. En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen. Verzendkosten niet afhankelijk van het formaat of de locatie, maar een standaardbedrag. | Requirements + constraints (maak een keuze)
+Gepersonalisserde winkel ervaring | Daarom moeten zij een profiel aan kunnen maken en in kunnen loggen. Zij moeten producten gemakkelijk kunnen vinden, op de website bekijken en in hun winkelmand plaatsen. Klanten moeten de producten in hun winkelmand kunnen bekijken en verwijderen indien nodig. | Requirements
+Uistraling, opmaak & responsiveness | De uitstraling en opmaak van de website dien te passen bij de beoogde klanten van het soort product. Zij moeten de website en de producten daarop kunnen verkennen, ongeacht het device waarop ze het bekijken. We willen dat onze website toegankelijk is voor een breed scala aan klanten, inclusief laaggeletterde mensen, meertalige mensen, slechtziende mensen, mensen die kleurenblind zijn, ouderen, en mensen met beperkte financiële middelen. Daarom moet de individuele website toegankelijk Zijn voor één van deze groep klanten. De websiteontwikkelaar zal onderzoek uit moeten voeren naar hoe de website toegankelijk is voor de gekozen groep klanten. | Requirements
+Beheer | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. | Requirements
+
+— blok 2f4d9d91_0547 | p38 | table | kop: 2. Tekstanalyse + Legenda > Thema Inhoud Requirement/Constraint
+Beveiliging | We benadrukken daarom het belang van strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) en vragen om een grondige beveiligings‐ en risicoanalyse om de gegevens van onze klanten te beschermen. | Constraint**
+Communicatie, termijn en adviespresentatie | We stellen voor dat de ontwikkeling van de website wordt voltooid binnen een budget van 10.000 euro een redelijke termijn van zes weken. Hierbinnen is de webshop ontworpen, ontwikkeld en getest. Op relevante momenten willen wij op de hoogte gebracht worden van de voortgang. In een adviespresentatie willen wij als opdrachtgever overtuigd worden hoe de website aansluit bij de wensen en eisen van zowel ons als opdrachtgever als van de gekozen groep eindgebruikers. | Constraints
+Product & Categorie | We nodigen individuele websiteontwikkelaars uit om een eigen webshop te ontwikkelen waarop één soort product wordt verkocht. Deze producten vallen binnen één soort artikelen. De categorieën waaruit gekozen kan worden zijn: schoenen, petten, games, sportartikelen, computers, computeraccessoires, eten, drinken, muziek, films, crypto, kleding en een categorie ‘overig in overleg’. | Constraints
+
+════════ CRITERIUM: taalkeuze (Taalkeuze & consequenties) ════════
+
+— blok 2f4d9d91_0207 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep  [trefwoord-treffer buiten sectie]
+Vertaalbureau Perfect, n.d.) spreken slechts 22 miljoen mensen op de wereld Nederlands.
+
+— blok 2f4d9d91_0208 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep  [trefwoord-treffer buiten sectie]
+Als de website alleen in het nederlands beschikbaar is, zal dit de gebruikers vriendelijkheid
+
+— blok 2f4d9d91_0229 | p16 | paragraph | kop: H1 Introductie > 3.2 Webshopgebruiker met beperking  [trefwoord-treffer buiten sectie]
+Mijn webshop moet niet alleen fungeren voor normale gebruikers en meertalige gebruikers,
+
+— blok 2f4d9d91_0309 | p20 | table | kop: H1 Introductie > 4.1 Constraints en (non-) Functionele eisen  [trefwoord-treffer buiten sectie]
+Naam | Architecturele relevantie | Geadresseerd in: | Prio
+Naam | Architecturele relevantie | Geadresseerd in: | Prio
+FR01: Uitstraling, opmaak & responsiveness | De uitstraling en opmaak van de website dien te passen bij de beoogde klanten van het soort product. Zij moeten de website en de producten daarop kunnen verkennen, ongeacht het device waarop ze het bekijken. | Casus_Website_First Full Stack_v.1.pdf paragraaf 6 Stakeholder: Opdrachtgever | MUST HAVE
+FR02: Beheer ** | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. | Casus_Website_First Full Stack_v.1.pdf paragraaf 8 Stakeholder: Opdrachtgever | SHOULD HAVE
+FR03: Online | Dit betekent dat de website al bereikbaar is voor klanten. En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen | Casus_Website_First Full Stack_v.1.pdf paragraaf 5 Stakeholder: Opdrachtgever | SHOULD HAVE
+FR04: beveiliging** | We benadrukken daarom het belang van strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) en vragen om een grondige beveiligings‐ en risicoanalyse om de gegevens van onze klanten te beschermen. | Casus_Website_First Full Stack_v.1.pdf paragraaf 9 Stakeholder: Opdrachtgever | MUST HAVE
+FR05 : Security | De applicatie moet rekening houden met een OWASP principe. | H6– Security Constraints | MUST Have
+FR06: Meertaligheid | De applicatie moet in meerdere talen beschikbaar zijn | Casus_Website_First Full Stack_v.1.pdf paragraaf 4 Stakeholder: Opdrachtgever | SHOULD HAVE
+FR07: gebruiker met beperking ** | In de applicatie moet rekening worden gehouden met mensen met laaggeletterde/Dyslectische klanten | Casus_Website_First Full Stack_v.1.pdf paragraaf 7 Stakeholder: Opdrachtgever | MUST HAVE
+
+— blok 2f4d9d91_0532 | p35 | table | kop: 2. Tekstanalyse + Legenda > 2.1 Tekstanalyse  [trefwoord-treffer buiten sectie]
+willen dat onze website toegankelijk is voor een breed scala aan klanten, inclusief
+laaggeletterde mensen, meertalige mensen, slechtziende mensen, mensen die kleurenblind
+zijn, ouderen, en mensen met beperkte financiële middelen. Daarom moet de individuele
+website toegankelijk zijn voor één van deze groep klanten. | De websiteontwikkelaar zal
+onderzoek uit moeten voeren naar hoe de website toegankelijk is voor de gekozen groep
+klanten.
+
+— blok 2f4d9d91_0545 | p37 | table | kop: 2. Tekstanalyse + Legenda > Thema Inhoud Requirement/Constraint  [trefwoord-treffer buiten sectie]
+Betaalwijze & Betrouwbaarheid | Klanten mogen deze artikelen alleen niet betalen met gift cards en zij kunnen niet gebruik maken van promocodes in de webshop. Dit betekent dat de website al bereikbaar is voor klanten. En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen. Verzendkosten niet afhankelijk van het formaat of de locatie, maar een standaardbedrag. | Requirements + constraints (maak een keuze)
+Gepersonalisserde winkel ervaring | Daarom moeten zij een profiel aan kunnen maken en in kunnen loggen. Zij moeten producten gemakkelijk kunnen vinden, op de website bekijken en in hun winkelmand plaatsen. Klanten moeten de producten in hun winkelmand kunnen bekijken en verwijderen indien nodig. | Requirements
+Uistraling, opmaak & responsiveness | De uitstraling en opmaak van de website dien te passen bij de beoogde klanten van het soort product. Zij moeten de website en de producten daarop kunnen verkennen, ongeacht het device waarop ze het bekijken. We willen dat onze website toegankelijk is voor een breed scala aan klanten, inclusief laaggeletterde mensen, meertalige mensen, slechtziende mensen, mensen die kleurenblind zijn, ouderen, en mensen met beperkte financiële middelen. Daarom moet de individuele website toegankelijk Zijn voor één van deze groep klanten. De websiteontwikkelaar zal onderzoek uit moeten voeren naar hoe de website toegankelijk is voor de gekozen groep klanten. | Requirements
+Beheer | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. | Requirements
+
+════════ CRITERIUM: security (Security) ════════
+
+— blok 2f4d9d91_0101 | p6 | table | kop: H1 Introductie > 2.2 Stakeholder Tabel  [trefwoord-treffer buiten sectie]
+Stakeholder | Taak/Rol | Belang
+Stakeholder | Taak/Rol | Belang
+1. Overheid | Houdt in de gaten of de AVG wet en regelgeving wordt gehandhaafd en het innen van belasting. | Willen dat het AVG wet en regelgeving wordt nageleefd. Willen dat de belasting wordt betaald.
+2.1 Gebruikers | Het vinden van de website en het kopen van de Gym artikelen. | Verlangen naar een betrouwbare en veilige transactie. Verlangen naar een goede gebruikerservaring.
+2.2 Gebruikers met Dyslexie/kleurenblindheid | Het vinden van de website en het kopen van de Gym artikelen. | Verlangen naar een betrouwbare en veilige transactie. Verlangen naar een goede gebruikerservaring.
+3. Opdrachtgever | Het stellen van eisen en wensen voor de webshop, het maken van termijnen en het uitbetalen voor het gedane werk. | Willen een website die gebruiksvriendelijkheid, toegankelijkheid, veiligheid en betrouwbaarheid.  Klanten moeten een soepele ervaring hebben bij het doorzoeken en kopen van een gevarieerd aanbod van producten.
+
+— blok 2f4d9d91_0103 | p7 | table | kop: H1 Introductie > 2.2 Stakeholder Tabel  [trefwoord-treffer buiten sectie]
+4. Projectmanagers | Het aansturen en begeleiden van het proces: Webshop bouw. Communicatie met de opdrachtgever. |  Willen duidelijke communicatie.  Vlotte samenwerking.
+5. Sponsoren | Het geven van geld voor het promoten van hun Gym artikelen. |  Willen een duidelijke vermelding van bedrijfsnaam bij hun product.
+6. Gebouw verhuur instantie | Het verhuren van een gebouw waar wij de Gym artikelen in stoppen. |  Willen dat de *uitgehuwde* vesting om een vast termijn wordt betaald.  Willen een goed onderhoud van de vesting.
+7. Leverancier | Het leveren van gym producten naar onze vesting. |  Willen een duidelijke formulering van de producten die ze moeten leveren.  Willen dat er wordt betaald voor hun diensten.
+8. Bezorgingsdienst | Het leveren van de Gym artikelen van onze vesting naar de klant. |  Willen een duidelijke formulering van de producten die ze moeten leveren.  Willen dat er wordt betaald voor hun diensten.
+9. Medewerkers | Het laden van de geleverancieerde Gym artikelen in onze vesting, onderhoud van ons gebouw en het leveren van de klantenservice. |  Willen dat er wordt betaald voor hun diensten.  Willen een duidelijk contract met veilige werkcondities.
+10. Marketing instantie | Het promoten van de webshop. |  Goede afspraken aan de hand van een contract
+
+— blok 2f4d9d91_0179 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep  [trefwoord-treffer buiten sectie]
+Market Research, https://www.alliedmarketresearch.com/, n.d.). De gym accessoires markt is
+
+— blok 2f4d9d91_0184 | p14 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep  [trefwoord-treffer buiten sectie]
+Volgens (Allied Market Research, https://www.alliedmarketresearch.com/, n.d.) bestaan de
+
+— blok 2f4d9d91_0213 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep  [trefwoord-treffer buiten sectie]
+accessoires aanschaffen. (Allied Market Research, https://www.alliedmarketresearch.com/,
+
+— blok 2f4d9d91_0219 | p15 | paragraph | kop: H1 Introductie > 3.1 Webshopgebruiker van mijn product/Doelgroep  [trefwoord-treffer buiten sectie]
+https://www.alliedmarketresearch.com/, n.d.) . (Fact.MR – Gym Accessories Market Forecast,
+
+— blok 2f4d9d91_0263 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding  [trefwoord-treffer buiten sectie]
+Allied Market Research, https://www.alliedmarketresearch.com/. (n.d.). Gym Accessories
+
+— blok 2f4d9d91_0266 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding  [trefwoord-treffer buiten sectie]
+2021-2031. Allied Market Research. https://www.alliedmarketresearch.com/gym-
+
+— blok 2f4d9d91_0269 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding  [trefwoord-treffer buiten sectie]
+Global Review 2021 to 2031. (n.d.). https://www.factmr.com/report/gym-accessories-
+
+— blok 2f4d9d91_0273 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding  [trefwoord-treffer buiten sectie]
+https://www.exercise.com/grow/gym-membership-statistics/
+
+— blok 2f4d9d91_0275 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding  [trefwoord-treffer buiten sectie]
+physical activity? Euronews. https://www.euronews.com/health/2023/03/05/exercise-in-
+
+— blok 2f4d9d91_0278 | p17 | paragraph | kop: H1 Introductie > 3.3 Bronvermelding  [trefwoord-treffer buiten sectie]
+Https://www.vertaalbureau-perfect.nl/blog/de-top-10-meest-gesproken-talen
+
+— blok 2f4d9d91_0280 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking  [trefwoord-treffer buiten sectie]
+Wat is dyslexie? - RID - Taal Rekenen. (n.d.). RID. https://www.rid.nl/ouder-en-
+
+— blok 2f4d9d91_0283 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking  [trefwoord-treffer buiten sectie]
+Dyslexia? https://www.crossrivertherapy.com/research/dyslexia-
+
+— blok 2f4d9d91_0287 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking  [trefwoord-treffer buiten sectie]
+https://my.clevelandclinic.org/health/diseases/6005-dyslexia
+
+— blok 2f4d9d91_0289 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking  [trefwoord-treffer buiten sectie]
+https://www.mayoclinic.org/diseases-conditions/dyslexia/diagnosis-treatment/drc-20353557
+
+— blok 2f4d9d91_0292 | p17 | paragraph | kop: H1 Introductie > - Webshop gebruiker met beperking  [trefwoord-treffer buiten sectie]
+Dyslexia . https://www.succeedwithdyslexia.org/blog/creating-a-dyslexia-friendly-website-
+
+— blok 2f4d9d91_0307 | p19 | table | kop: H1 Introductie > 4.1 Constraints en (non-) Functionele eisen  [trefwoord-treffer buiten sectie]
+schoenen, petten, games, sportartikelen, computers, computeraccessoires, eten, drinken, muziek, films, crypto, kleding en een categorie ‘overig in overleg’.
+CONSTR05: AVG | De webshop moet aan de AVG wet en regelgeving voldoen. | Casus_Website_First Full Stack_v.1.pdf paragraaf 9 Stakeholder: Opdrachtgever
+CONSTR06: Programmeertalen | De applicatie moet worden uitgewerkt in javascript, Springboot, typescript en Angular. | **********
+CONSTR07: Betaalwijze | Klanten mogen artikelen niet betalen met giftcards en zij kunnen niet gebruik maken van promocodes in de webshop. Verzendkosten niet afhankelijk van het formaat of de locatie, maar een standaardbedrag. | Casus_Website_First Full Stack_v.1.pdf paragraaf 3 en 5 Stakeholder: Opdrachtgever
+
+— blok 2f4d9d91_0309 | p20 | table | kop: H1 Introductie > 4.1 Constraints en (non-) Functionele eisen  [trefwoord-treffer buiten sectie]
+Naam | Architecturele relevantie | Geadresseerd in: | Prio
+Naam | Architecturele relevantie | Geadresseerd in: | Prio
+FR01: Uitstraling, opmaak & responsiveness | De uitstraling en opmaak van de website dien te passen bij de beoogde klanten van het soort product. Zij moeten de website en de producten daarop kunnen verkennen, ongeacht het device waarop ze het bekijken. | Casus_Website_First Full Stack_v.1.pdf paragraaf 6 Stakeholder: Opdrachtgever | MUST HAVE
+FR02: Beheer ** | Het systeem moet een intuïtieve beheerinterface hebben waarmee producten, klanten en bestellingen eenvoudig worden beheerd. | Casus_Website_First Full Stack_v.1.pdf paragraaf 8 Stakeholder: Opdrachtgever | SHOULD HAVE
+FR03: Online | Dit betekent dat de website al bereikbaar is voor klanten. En dat als zij een bestelling plaatsen, zij die bestelling ook ontvangen | Casus_Website_First Full Stack_v.1.pdf paragraaf 5 Stakeholder: Opdrachtgever | SHOULD HAVE
+FR04: beveiliging** | We benadrukken daarom het belang van strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) en vragen om een grondige beveiligings‐ en risicoanalyse om de gegevens van onze klanten te beschermen. | Casus_Website_First Full Stack_v.1.pdf paragraaf 9 Stakeholder: Opdrachtgever | MUST HAVE
+FR05 : Security | De applicatie moet rekening houden met een OWASP principe. | H6– Security Constraints | MUST Have
+FR06: Meertaligheid | De applicatie moet in meerdere talen beschikbaar zijn | Casus_Website_First Full Stack_v.1.pdf paragraaf 4 Stakeholder: Opdrachtgever | SHOULD HAVE
+FR07: gebruiker met beperking ** | In de applicatie moet rekening worden gehouden met mensen met laaggeletterde/Dyslectische klanten | Casus_Website_First Full Stack_v.1.pdf paragraaf 7 Stakeholder: Opdrachtgever | MUST HAVE
+
+— blok 2f4d9d91_0324 | p24 | table | kop: H1 Introductie > Use Case beschrijvingen  [trefwoord-treffer buiten sectie]
+Actor | Gebruiker
+Actor | Gebruiker
+Preconditie | Moet in de applicatie zitten Moet zich bevinden bij he inlog scherm
+Beschrijving | Gebruiker moet een wachtwoord en emailadres kunnen invullen zodat hij kan inloggen in de applicatie en alle functionaliteiten kan gebruiken
+Scenario beschrijving | 1. Voer in het invoer veld waarboven het label “email” staat uw email 2. Zorg dat uw email adres voldoet aan de eisen van de applicatie. 3. Systeem checkt of de email voldoet aan de eisen 4. Voer in het invoer veld waarboven het label “passwoord” staat uw passwoord 5. Zorg dat uw passwoord voldoet aan de eisen van de applicatie. 6. Systeem checkt of de email voldoet aan de eisen 7. Klik op de “registreer” knop 8. Systeem slaat u gegevens op
+Postconditie | Gebruiker heeft zich geregistreerd, is ingelogd, kan al de gebruikersfunctionaliteiten van het systeem benutten en de inloggegevens zijn in het systeem opgeslagen.
+Actor | Gebruiker
+Preconditie | Moet in de applicatie zitten Moet zich bevinden bij he inlog scherm
+Beschrijving | Gebruiker moet met zijn bestaande inloggegevens kunnen inloggen op het systeem
+Scenario beschrijving | 1. Voer in het invoer veld waarboven het label “email” staat uw email 2. Systeem checkt of de email voldoet aan de eisen 3. Voer in het invoer veld waarboven het label “passwoord” staat uw passwoord 4. Systeem checkt of de email voldoet aan de eisen 5. Klik op de “log in” knop 6. Systeem checkt of de ingevoerde gegevens in de database zitten
+Postconditie | Gebruiker is ingelogd, kan al de gebruikersfunctionaliteiten van het systeem benutten de inloggegevens zijn door het systeem gevalideerd en goedgekeurd.
+
+— blok 2f4d9d91_0344 | p28 | paragraph | kop: H5 Ethische aandachtspunten  [trefwoord-treffer buiten sectie]
+fraude en oplichten op internet/ marktplaats heb ik extra aandacht voor de security omtrent
+
+— blok 2f4d9d91_0349 | p29 | paragraph | kop: H5 Ethische aandachtspunten  [trefwoord-treffer buiten sectie]
+moment dat zij niet genoeg waarde hangen aan de security.
+
+— blok 2f4d9d91_0363 | p29 | bullet | kop: H5 Ethische aandachtspunten  [trefwoord-treffer buiten sectie]
+- Beveiliging van de routes van mijn webshop
+
+— blok 2f4d9d91_0364 | p29 | heading | kop: H5 Ethische aandachtspunten > OWASP top 10
+OWASP top 10
+
+— blok 2f4d9d91_0365 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+Ik wil speciaal aandacht geven aan een security aspect van de owasp top 10 waar ik goed
+
+— blok 2f4d9d91_0366 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+op heb gelet. Namelijk de API5:2023 Broken Function Level Authorization. Deze security risk
+
+— blok 2f4d9d91_0367 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+gaat over hoe normale users administratieve functies kunnen krijgen door api requests te
+
+— blok 2f4d9d91_0368 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+sturen die alleen voor de admins beschikbaar zouden moeten zijn. Dit kan veroorzaakt
+
+— blok 2f4d9d91_0369 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+worden doordat een normale gebruiker bij de adminstratieve endpoints kan komen terwijl
+
+— blok 2f4d9d91_0370 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+hij/zij daar geen recht op heeft of omdat er niet wordt gevalideerd wat voor rol een gebruiker
+
+— blok 2f4d9d91_0371 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+heeft.
+
+— blok 2f4d9d91_0372 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+Ik heb met deze security risico rekening gehouden door ervoor te zorgen dat er in mijn
+
+— blok 2f4d9d91_0373 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+gebruiker model in de backend een variabele is die de rol van de gebruiker bijhoudt en door
+
+— blok 2f4d9d91_0374 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+alle functies die voor de admin bedoeld zijn in een aparte controller te stoppen. In de
+
+— blok 2f4d9d91_0375 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+securityconfig van mijn backend zorg ik ervoor dat wanneer een gebruiker een functie van de
+
+— blok 2f4d9d91_0376 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+admins gebruikt eerst zijn rol wordt bekeken. Wanneer de rol van een gebruiker een admin is
+
+— blok 2f4d9d91_0377 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+wordt hij toegelaten. Door dit te doen zorg ik ervoor dat iemand die geen admin rol heeft
+
+— blok 2f4d9d91_0378 | p29 | paragraph | kop: H5 Ethische aandachtspunten > OWASP top 10
+geen administratieve functies kan gebruiken.
+
+— blok 2f4d9d91_0495 | p34 | paragraph | kop: 2. Tekstanalyse + Legenda > 2.1 Tekstanalyse  [trefwoord-treffer buiten sectie]
+gebruiksvriendelijkheid, toegankelijkheid, veiligheid en betrouwbaarheid.
+
+— blok 2f4d9d91_0519 | p35 | paragraph | kop: 2. Tekstanalyse + Legenda > 2.1 Tekstanalyse  [trefwoord-treffer buiten sectie]
+Tenslotte is veiligheid een belangrijk element van website ‐ ontwikkeling. Ook al is er geen
+
+— blok 2f4d9d91_0520 | p35 | paragraph | kop: 2. Tekstanalyse + Legenda > 2.1 Tekstanalyse  [trefwoord-treffer buiten sectie]
+daadwerkelijke financiële transactie, de gegevens van onze bezoekers moeten veilig zijn. We
+
+— blok 2f4d9d91_0522 | p35 | paragraph | kop: 2. Tekstanalyse + Legenda > 2.1 Tekstanalyse  [trefwoord-treffer buiten sectie]
+Gegevensbescherming (AVG) en vragen om een grondige beveiligings ‐ en risicoanalyse om
+
+— blok 2f4d9d91_0539 | p36 | paragraph | kop: 2. Tekstanalyse + Legenda > 2.2 Legenda  [trefwoord-treffer buiten sectie]
+Rood = Beveiliging
+
+— blok 2f4d9d91_0547 | p38 | table | kop: 2. Tekstanalyse + Legenda > Thema Inhoud Requirement/Constraint  [trefwoord-treffer buiten sectie]
+Beveiliging | We benadrukken daarom het belang van strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) en vragen om een grondige beveiligings‐ en risicoanalyse om de gegevens van onze klanten te beschermen. | Constraint**
+Communicatie, termijn en adviespresentatie | We stellen voor dat de ontwikkeling van de website wordt voltooid binnen een budget van 10.000 euro een redelijke termijn van zes weken. Hierbinnen is de webshop ontworpen, ontwikkeld en getest. Op relevante momenten willen wij op de hoogte gebracht worden van de voortgang. In een adviespresentatie willen wij als opdrachtgever overtuigd worden hoe de website aansluit bij de wensen en eisen van zowel ons als opdrachtgever als van de gekozen groep eindgebruikers. | Constraints
+Product & Categorie | We nodigen individuele websiteontwikkelaars uit om een eigen webshop te ontwikkelen waarop één soort product wordt verkocht. Deze producten vallen binnen één soort artikelen. De categorieën waaruit gekozen kan worden zijn: schoenen, petten, games, sportartikelen, computers, computeraccessoires, eten, drinken, muziek, films, crypto, kleding en een categorie ‘overig in overleg’. | Constraints
+
+━━━ UITVOERFORMAAT ━━━
+
+Retourneer exact dit JSON-object. Geen tekst ervoor of erna.
+Elk criterium MOET het veld criterion_judgement bevatten (strong | mixed | weak).
+Geef GEEN stoplicht en GEEN documentoordeel — dat doet Python later.
+
+{
+  "document_id": "2f4d9d91",
+  "criteria": {
+    "beperking": {
+      "criterion_judgement": "strong | mixed | weak",
+      "diagnostics": {
+        "concreteness": "laag | middel | hoog",
+        "research_support": "laag | middel | hoog",
+        "case_relevance": "laag | middel | hoog",
+        "impact_on_requirements": "laag | middel | hoog"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "manual_review": true,
+      "manual_review_reason": [],
+      "reason": ""
+    },
+    "stakeholders": {
+      "criterion_judgement": "strong | mixed | weak",
+      "diagnostics": {
+        "stakeholder_relevance": "laag | middel | hoog",
+        "interest_quality": "laag | middel | hoog",
+        "influence_quality": "laag | middel | hoog",
+        "context_link": "laag | middel | hoog"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "manual_review": true,
+      "manual_review_reason": [],
+      "reason": ""
+    },
+    "requirements": {
+      "criterion_judgement": "strong | mixed | weak",
+      "diagnostics": {
+        "concreteness": "laag | middel | hoog",
+        "testability": "laag | middel | hoog",
+        "relevance": "laag | middel | hoog",
+        "explanation_quality": "laag | middel | hoog",
+        "priority_logic": "laag | middel | hoog",
+        "classification_quality": "laag | middel | hoog"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "manual_review": true,
+      "manual_review_reason": [],
+      "reason": ""
+    },
+    "taalkeuze": {
+      "criterion_judgement": "strong | mixed | weak",
+      "diagnostics": {
+        "explicit_choice": "laag | middel | hoog",
+        "target_group_fit": "laag | middel | hoog",
+        "consequence_quality": "laag | middel | hoog",
+        "design_decision_clarity": "laag | middel | hoog"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "manual_review": true,
+      "manual_review_reason": [],
+      "reason": ""
+    },
+    "security": {
+      "criterion_judgement": "strong | mixed | weak",
+      "diagnostics": {
+        "measure_quality": "laag | middel | hoog",
+        "risk_link": "laag | middel | hoog",
+        "case_relevance": "laag | middel | hoog",
+        "technical_correctness": "laag | middel | hoog",
+        "explanation_quality": "laag | middel | hoog"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "manual_review": true,
+      "manual_review_reason": [],
+      "reason": ""
+    }
+  }
+}
+
+━━━ VELDTOELICHTING ━━━
+
+* criterion_judgement — één samenvattend oordeel per criterium: strong, mixed of weak. Geen stoplicht, geen score.
+* diagnostics — per dimensie: laag, middel of hoog. Geen getallen.
+* strengths — inhoudelijke sterke punten die aantoonbaar in de tekst staan. Max 5. Nederlands, niet studentgericht.
+* weaknesses — inhoudelijke zwakke punten of lacunes. Max 5. Nederlands, specifiek, niet studentgericht.
+* manual_review — true bij dunne/generieke/onzekere inhoud; false alleen bij concrete, voldoende uitgelegde inhoud.
+* manual_review_reason — specifieke redenen voor manual_review true; leeg als false. Nederlands.
+* reason — één zin die de diagnose samenvat. Geen score, geen stoplicht, geen statuslabels, niet studentgericht.

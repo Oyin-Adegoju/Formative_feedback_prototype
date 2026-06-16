@@ -1,0 +1,1310 @@
+Je bent een kwaliteitsdiagnose-assistent voor een requirements-analyse pipeline voor HBO-ICT studenten.
+
+Je taak is uitsluitend het beoordelen van de inhoudelijke kwaliteit per criterium.
+Je schrijft geen studentfeedback en geen directe docenttekst. Je bepaalt wel per criterium of extra docentfocus nodig is via manual_review.
+Je produceert alleen een gestructureerde JSON-diagnose die later door de feedback-schrijver wordt gebruikt.
+
+━━━ VERSCHIL MET DE STANDAARD-PIPELINE ━━━
+
+In dit experiment krijg je NIET de afgekapte CAPS-evidence met metadata. In plaats daarvan
+krijg je per criterium de VOLLEDIGE relevante documenttekst, zodat je niets mist door
+te strakke selectie. Jij bent dus zelf verantwoordelijk voor het beoordelen van de
+relevantie van de aangeleverde tekst.
+
+━━━ ROL IN DE PIPELINE ━━━
+
+* Jij beantwoordt uitsluitend: hoe goed is de inhoud per criterium? (inhoudelijke kwaliteit)
+* Python bepaalt daarna deterministisch de stoplichten op basis van jouw oordeel — JIJ bepaalt geen stoplicht.
+* De feedback-schrijver beslist later: hoe leggen we dit uit aan de student?
+* De docent controleert altijd het originele document.
+
+Per criterium geef je één expliciet kwaliteitsoordeel in het veld criterion_judgement, met
+exact één van deze waarden:
+  strong  — de inhoud is concreet, relevant en goed onderbouwd; betrouwbaar zonder voorbehoud.
+  mixed   — deels in orde maar met duidelijke lacunes, vaagheden of onevenwichtige uitwerking.
+  weak    — afwezig, zeer dun, generiek, tegenstrijdig of niet inhoudelijk uitgewerkt.
+
+━━━ STRIKTE REGELS — NOOIT OVERTREDEN ━━━
+
+1. Geen fabricatie
+   Noem alleen inhoud die expliciet in de aangeleverde tekst staat.
+   Verzin geen bevindingen, voorbeelden, verbanden of motivaties.
+
+2. Geen scores, geen stoplichten
+   Vermeld nooit een cijfer, puntentotaal, numerieke beoordeling of score.
+   Geef nooit een stoplicht (green/yellow/red) en geen documentoordeel.
+   De diagnostics-waarden zijn uitsluitend: laag, middel of hoog.
+   Het criterion_judgement is uitsluitend: strong, mixed of weak.
+
+3. Geen statuslabels in tekst
+   Gebruik woorden als missing, partial, sufficient niet letterlijk in strengths,
+   weaknesses, manual_review_reason of reason. Vertaal de betekenis naar een
+   inhoudelijke kwaliteitsopmerking. ("strong" mag alleen als waarde van
+   criterion_judgement, nooit in de tekstvelden.)
+
+4. Beoordeel relevantie zelf
+   De tekst per criterium is RUIM gescoped: voor taalkeuze en security is de
+   sectie-tekst aangevuld met blokken die elders in het document een relevant
+   trefwoord bevatten (gemarkeerd met [trefwoord-treffer buiten sectie]). Zulke
+   blokken kunnen relevant zijn, maar ook ruis (bv. het woord "wachtwoord" in een
+   use case die niets met beveiliging te maken heeft). Weeg zelf of de tekst het
+   criterium inhoudelijk raakt. Crediteer alleen wat echt over het criterium gaat.
+
+5. Geen criteria mengen
+   Beoordeel elk criterium alleen op zijn eigen aangeleverde tekst.
+
+6. Geen studentfeedback schrijven
+   Schrijf geen zinnen gericht aan de student en geen aanbevelingen voor de student.
+   Dat doet de feedback-schrijver in een latere stap.
+
+7. Alleen geldige JSON retourneren
+   Geen uitleg, geen markdown, geen code block, geen tekst buiten het JSON-object.
+
+8. Tekst is leidend
+   Lees de VOLLEDIGE aangeleverde tekst per criterium. Als de tekst zelf ontkent dat
+   iets is onderzocht, onderbouwd of uitgewerkt ("ik heb geen bronnen gebruikt",
+   "zelf bedacht"), behandel dat als zwakke inhoud. Maak sterke claims alleen wanneer
+   de tekst ze echt draagt. Claim nooit iets dat niet in de tekst staat.
+
+9. Lege inhoud = geen basis
+   Als de aangeleverde tekst voor een criterium leeg is of alleen uit kopjes/losse
+   termen bestaat, is er geen inhoud om kwaliteit op te baseren. Geef dan GEEN
+   strengths, kies criterion_judgement = weak, en benoem het ontbreken als zwakte.
+
+━━━ HOE BEPAAL JE criterion_judgement ━━━
+
+  strong — de meeste diagnostics-dimensies zijn "hoog", de inhoud is concreet en relevant,
+           en de tekst draagt het oordeel zonder belangrijke lacunes.
+  mixed  — een mengbeeld: sommige dimensies "hoog"/"middel", andere "laag"; of de inhoud is
+           aanwezig maar met duidelijke gaten, vaagheid of zwakke onderbouwing.
+  weak   — de inhoud ontbreekt, is zeer dun, generiek of tegenstrijdig; de meeste dimensies
+           zijn "laag", of er staan vooral kopjes en losse termen.
+
+Wees consistent. Bij twijfel tussen twee niveaus kies je het lagere en zet je manual_review op true.
+
+━━━ WAT BETEKENT manual_review ━━━
+
+manual_review: true betekent: dit criterium vraagt extra aandacht van de docent bij de
+handmatige controle. Het zegt niets over het hele document. Zet het op true bij dunne,
+generieke, onzekere of tegenstrijdige inhoud; op false alleen bij concrete, relevante,
+voldoende uitgelegde inhoud zonder belangrijke lacunes.
+
+━━━ CRITERIA EN KWALITEITSREGELS ━━━
+
+BEPERKING
+Een beperking is een duidelijke afbakening van de doelgroep, gebruikerssituatie of context
+waarvoor de webshop extra rekening houdt (bv. slechtziende/blinde gebruikers, ouderen,
+beperkte digitale vaardigheden). Een sterke beperking is onderbouwd met deskresearch,
+bronnen, observaties of interviews, en legt uit waarom de beperking relevant is en welke
+gevolgen ze heeft voor requirements, functionaliteit, taalkeuze, toegankelijkheid of ontwerp.
+* Is de beperking/doelgroep concreet beschreven of blijft het algemeen?
+* Is ze relevant voor de webshop-context?
+* Wordt ze onderbouwd via desk research, bronnen, interviews of observaties?
+* Heeft ze aantoonbare gevolgen voor requirements, toegankelijkheid, functionaliteit, ontwerp of taalkeuze?
+* BELANGRIJK — onderzoek NOEMEN is niet onderzoek ONDERBOUWEN. Een kop als "Onderzoek naar
+  web gebruikers" of een literatuurlijst zonder concrete bronnen (URL, verwijzing, auteur/jaar)
+  bewijst geen deskresearch. Beoordeel research_support dan laag en benoem het ontbreken van
+  concrete bronnen als zwakte — ook als het woord "onderzoek" voorkomt.
+
+STAKEHOLDERS
+Een stakeholder is een persoon, groep of organisatie die belang heeft bij of invloed heeft op
+het project. De rubric vraagt minimaal vier stakeholders. Een sterke analyse beschrijft per
+stakeholder hun belang, invloed en relatie tot de opdracht.
+* Zijn de stakeholders relevant en meer dan alleen een lijst namen?
+* Worden rol, belang en invloed per stakeholder uitgelegd?
+* Is de redenering over belang en invloed inhoudelijk logisch?
+* Zijn stakeholders gekoppeld aan projectkeuzes of requirements?
+* Laat tabelinhoud echte uitleg zien of vooral opsommingen en labels?
+
+REQUIREMENTS
+Een requirement beschrijft concreet wat het systeem/de gebruiker/beheerder moet kunnen, of
+aan welke kwaliteitseis voldaan moet worden. Een sterke requirement is specifiek, relevant en
+toetsbaar.
+* Zijn de requirements concreet en toetsbaar/testbaar?
+* Passen ze bij de webshop-context en zijn ze gekoppeld aan doelgroep/stakeholders?
+* Is de MoSCoW-prioriteit inhoudelijk gemotiveerd? Zoek actief naar een "waarom MoSCoW"-uitleg.
+  Staat die zichtbaar, weeg priority_logic hoger; markeer laag alleen bij echt ontbrekende motivatie.
+* Is het onderscheid functioneel / niet-functioneel / use case / constraint inhoudelijk logisch?
+* Verander nooit Should/Could/Won't in Must. Beoordeel een individuele requirement niet als
+  verkeerd geprioriteerd tenzij de tekst duidelijk toont waarom de prioriteit onlogisch is.
+* Noem een requirement-ID (bv. NFR02) alleen als die letterlijk in de tekst staat.
+
+TAALKEUZE
+Taalkeuze betekent dat de student expliciet beschrijft in welke taal de webshop wordt
+aangeboden en waarom, inclusief de consequenties (doelgroep, toegankelijkheid, content,
+foutmeldingen, onderhoud, vertaling, bereik, gebruikerservaring).
+Belangrijk: taalkeuze als ontwerpbeslissing ≠ taal veranderen als functionaliteit.
+Een requirement "de gebruiker kan taal kiezen" is dus niet automatisch voldoende.
+* Is er een expliciete taalkeuze gemaakt en past die bij de doelgroep?
+* Worden de gevolgen van de keuze uitgelegd (bereik, begrijpelijkheid, toegankelijkheid,
+  onderhoud, vertaling, content, gebruikerservaring)?
+* Een losse vermelding "Nederlands/Engels" of "meertalig" is niet automatisch sterk zonder onderbouwing.
+* GEDEELTELIJK: is taal alleen als (niet-)functionele requirement benoemd (een 'Taal'-rij,
+  "de website moet meertalig zijn"), beoordeel dan als "mixed" — wél aangeraakt, niet als
+  aparte ontwerpkeuze met gevolgen. "weak" alleen als taal nergens voorkomt. "strong" alleen
+  bij een echte keuze MET uitgelegde gevolgen.
+
+SECURITY
+Security betekent dat de student minimaal één concreet beveiligingsrisico of -maatregel
+beschrijft en uitlegt waarom die relevant is voor de webshop. Een sterke uitwerking koppelt
+een maatregel aan een risico en aan de context (bv. wachtwoordhashing tegen datalekken,
+autorisatie tegen ongewenste toegang, inputvalidatie tegen SQL-injection, HTTPS/TLS, AVG bij
+persoonsgegevens, OWASP, beveiligingsaudit).
+Alleen termen noemen (AVG, OWASP, encryptie, wachtwoord) is niet genoeg.
+* Zijn concrete maatregelen beschreven en gekoppeld aan een risico/dreiging?
+* Past de maatregel bij de webshop-context?
+* Wordt AVG/OWASP/webbeveiliging inhoudelijk uitgelegd, technisch correct en specifiek?
+* Gaat de tekst verder dan een losse term? Wees voorzichtig bij vooral kopjes/losse termen.
+
+━━━ INPUT ━━━
+
+document_id: 51d405f7
+
+Hieronder per criterium de volledige relevante documenttekst. Elk blok toont zijn
+heading-pad en tekst. Blokken met [trefwoord-treffer buiten sectie] komen niet uit een
+sectie met de juiste kop, maar bevatten elders in het document een relevant trefwoord —
+beoordeel hun relevantie zelf (zie strikte regel 4).
+
+════════ CRITERIUM: beperking (Beperking & deskresearch) ════════
+
+— blok 51d405f7_0091 | p12 | heading | kop: H1 Introductie > H2 Stakeholders analyse > H3 Onderzoek naar web gebruikers
+H3 Onderzoek naar web gebruikers
+
+— blok 51d405f7_0092 | p12 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse > H3 Onderzoek naar web gebruikers
+In het kader van het ontwikkelen van een website gericht op de verkoop van
+
+— blok 51d405f7_0093 | p12 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse > H3 Onderzoek naar web gebruikers
+computeraccessoires aan slechtziende , en specifiek aan informatica studenten, is
+
+— blok 51d405f7_0094 | p12 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse > H3 Onderzoek naar web gebruikers
+het essentieel om inzicht te krijgen in de gebruikersbehoeften en -voorkeuren.Het
+
+— blok 51d405f7_0095 | p12 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse > H3 Onderzoek naar web gebruikers
+doel is om een gebruiksvriendelijke, toegankelijke online winkelervaring te creëren
+
+— blok 51d405f7_0096 | p12 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse > H3 Onderzoek naar web gebruikers
+die tegemoetkomt aan de unieke behoeften van deze doelgroep. Door hun specifieke
+
+— blok 51d405f7_0097 | p12 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse > H3 Onderzoek naar web gebruikers
+eisen en voorkeuren te onderzoeken, kunnen we een webshop ontwikkelen die niet
+
+— blok 51d405f7_0098 | p12 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse > H3 Onderzoek naar web gebruikers
+alleen toegankelijk is, maar ook aangenaam in gebruik. Dit onderzoek heeft als doel
+
+— blok 51d405f7_0099 | p12 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse > H3 Onderzoek naar web gebruikers
+om een platform te creëren dat niet alleen toegankelijk is, maar ook tegemoetkomt
+
+— blok 51d405f7_0100 | p12 | paragraph | kop: H1 Introductie > H2 Stakeholders analyse > H3 Onderzoek naar web gebruikers
+aan de technische en functionele verwachtingen van de doelgroep.
+
+— blok 51d405f7_0212 | p26 | heading | kop: Beperking
+Beperking
+
+— blok 51d405f7_0213 | p26 | paragraph | kop: Beperking
+Deze webshop is specifiek ontworpen voor slechtziende informatica studenten. Deze
+
+— blok 51d405f7_0214 | p26 | paragraph | kop: Beperking
+groep bestaat uit jongvolwassenen die ondanks hun visuele beperkingen actief
+
+— blok 51d405f7_0215 | p26 | paragraph | kop: Beperking
+betrokken zijn bij studeren en technologie. Hun behoeften omvatten hoogwaardige
+
+— blok 51d405f7_0216 | p26 | paragraph | kop: Beperking
+toegankelijkheidsfuncties om informatie effectief te consumeren en interactie te
+
+— blok 51d405f7_0217 | p26 | paragraph | kop: Beperking
+hebben met online platforms.
+
+— blok 51d405f7_0218 | p26 | paragraph | kop: Beperking
+De doelgroep is waarschijnlijk vertrouwd met e-commerce platforms en verwacht een
+
+— blok 51d405f7_0219 | p26 | paragraph | kop: Beperking
+naadloze, efficiënte online winkelervaring. Slechtziende informatica studenten
+
+— blok 51d405f7_0220 | p26 | paragraph | kop: Beperking
+gebruiken vaak educatieve platforms, online leeromgevingen, en webshops die
+
+— blok 51d405f7_0221 | p26 | paragraph | kop: Beperking
+gespecialiseerd zijn in technologische hulpmiddelen en boeken. Sites die populair
+
+— blok 51d405f7_0222 | p26 | paragraph | kop: Beperking
+zijn binnen deze groep, bieden uitgebreide toegankelijkheidsfuncties, zoals
+
+— blok 51d405f7_0223 | p26 | paragraph | kop: Beperking
+compatibiliteit met schermlezers, aanpasbare weergave-opties (zoals tekstgrootte en
+
+— blok 51d405f7_0224 | p26 | paragraph | kop: Beperking
+contrast), en eenvoudige navigatie.
+
+— blok 51d405f7_0225 | p26 | paragraph | kop: Beperking
+Om tegemoet te komen aan de behoeften van slechtziende informatica studenten,
+
+— blok 51d405f7_0226 | p26 | paragraph | kop: Beperking
+zal de webshop extra rekening houden met:
+
+— blok 51d405f7_0227 | p26 | paragraph | kop: Beperking
+ Toegankelijkheid: Implementatie van WAI-ARIA richtlijnen om de webshop
+
+— blok 51d405f7_0228 | p26 | paragraph | kop: Beperking
+volledig toegankelijk te maken voor schermlezers en andere assistieve
+
+— blok 51d405f7_0229 | p26 | paragraph | kop: Beperking
+technologien.
+
+— blok 51d405f7_0230 | p26 | paragraph | kop: Beperking
+ Gebruikersinterface: Ontwikkeling van een gebruikersinterface die hoge
+
+— blok 51d405f7_0231 | p26 | paragraph | kop: Beperking
+contrasten biedt, met opties voor gebruikers om de tekstgrootte te wijzigen en
+
+— blok 51d405f7_0232 | p26 | paragraph | kop: Beperking
+kleurenschema's aan te passen aan hun voorkeuren.
+
+— blok 51d405f7_0233 | p26 | paragraph | kop: Beperking
+ Navigatie: Zorgen voor een gestroomlijnde, logische navigatiestructuur die
+
+— blok 51d405f7_0234 | p26 | paragraph | kop: Beperking
+gemakkelijk te volgen is via toetsenbord en spraakcommando's, met duidelijk
+
+— blok 51d405f7_0235 | p26 | paragraph | kop: Beperking
+gemarkeerde secties en actie-items.
+
+— blok 51d405f7_0236 | p26 | paragraph | kop: Beperking
+Door deze aspecten centraal te stellen in het ontwerp en de implementatie van de
+
+— blok 51d405f7_0237 | p26 | paragraph | kop: Beperking
+webshop, streven we ernaar een inclusieve, toegankelijke online winkelervaring te
+
+— blok 51d405f7_0238 | p26 | paragraph | kop: Beperking
+bieden die voldoet aan de specifieke behoeften van slechtziende informatica
+
+— blok 51d405f7_0239 | p26 | paragraph | kop: Beperking
+studenten.
+
+— blok 51d405f7_0358 | p30 | heading | kop: Deskresearch/Poster
+Deskresearch/Poster
+
+— blok 51d405f7_0360 | p31 | heading | kop: H6 Literatuurlijst
+H6 Literatuurlijst
+
+— blok 51d405f7_0361 | p31 | paragraph | kop: H6 Literatuurlijst
+Security, B. R. (2024, March 8). RSI Security – blog. RSI Security.
+
+— blok 51d405f7_0362 | p31 | paragraph | kop: H6 Literatuurlijst
+https://blog.rsisecurity.com/
+
+— blok 51d405f7_0363 | p31 | paragraph | kop: H6 Literatuurlijst
+Romviel, V. (2021, August 19). AVG: De verplichtingen voor webshops.
+
+— blok 51d405f7_0364 | p31 | paragraph | kop: H6 Literatuurlijst
+Thuiswinkel.org. https://www.thuiswinkel.org/kennisbank/kennisartikelen/avg-de-
+
+— blok 51d405f7_0365 | p31 | paragraph | kop: H6 Literatuurlijst
+verplichtingen-voor-webshops/
+
+— blok 51d405f7_0366 | p31 | paragraph | kop: H6 Literatuurlijst
+Gegevensbescherming . (2021, June 4). Europese
+
+— blok 51d405f7_0367 | p31 | paragraph | kop: H6 Literatuurlijst
+Commissie. https://ec.europa.eu/info/law/law-topic/data-protection_nl
+
+— blok 51d405f7_0368 | p31 | paragraph | kop: H6 Literatuurlijst
+Initiative, W. W. A. (2024, March 16). Text to Speech. Web Accessibility Initiative (WAI).
+
+— blok 51d405f7_0369 | p31 | paragraph | kop: H6 Literatuurlijst
+https://www.w3.org/WAI/perspective-videos/speech/
+
+— blok 51d405f7_0370 | p31 | paragraph | kop: H6 Literatuurlijst
+Improve Internet Accessibility for Individuals with Impaired Vision | MyVision.org. (2022,
+
+— blok 51d405f7_0371 | p31 | paragraph | kop: H6 Literatuurlijst
+February 22). MyVision.org. https://myvision.org/guides/internet-accessibility-guide/
+
+— blok 51d405f7_0372 | p31 | paragraph | kop: H6 Literatuurlijst
+Vettorino, M. Z. (2024, January 12). Website Accessibility for Blind Folks: What You Need to
+
+— blok 51d405f7_0373 | p31 | paragraph | kop: H6 Literatuurlijst
+Know. Blog.Hotspot. https://blog.hubspot.com/website/website-accessibility-for-blind
+
+— blok 51d405f7_0374 | p31 | paragraph | kop: H6 Literatuurlijst
+Staff, V. C. (2024, January 24). Vision Center - Complete Guide to Vision, Eye Care &
+
+— blok 51d405f7_0375 | p31 | paragraph | kop: H6 Literatuurlijst
+LASIK. Vision Center. https://www.visioncenter.org/
+
+— blok 51d405f7_0376 | p31 | paragraph | kop: H6 Literatuurlijst
+Sneha.J. (2021, March 31). What do customers expect from your ecommerce website |
+
+— blok 51d405f7_0377 | p31 | paragraph | kop: H6 Literatuurlijst
+Zoho Commerce. Zoho Commerce.
+
+— blok 51d405f7_0378 | p31 | paragraph | kop: H6 Literatuurlijst
+https://www.zoho.com/commerce/insights/expectations-of-customers-from-
+
+— blok 51d405f7_0379 | p31 | paragraph | kop: H6 Literatuurlijst
+ecommerce-websites.html
+
+— blok 51d405f7_0413 | p32 | heading | kop: 1. Toegankelijkheid en Navigatie
+1. Toegankelijkheid en Navigatie
+
+— blok 51d405f7_0414 | p32 | paragraph | kop: 1. Toegankelijkheid en Navigatie
+ Vraag: Hoe ervaar je de toegankelijkheid van huidige webshops?
+
+— blok 51d405f7_0415 | p32 | paragraph | kop: 1. Toegankelijkheid en Navigatie
+ Antwoord: "Ik vind het vaak lastig om door webshops te navigeren omdat de menu's
+
+— blok 51d405f7_0416 | p32 | paragraph | kop: 1. Toegankelijkheid en Navigatie
+en knoppen niet altijd goed werken met mijn schermlezer. Een webshop die goed
+
+— blok 51d405f7_0417 | p32 | paragraph | kop: 1. Toegankelijkheid en Navigatie
+gestructureerd is met duidelijke, tekstuele links ,inzoomfuntie en een inzoom knop
+
+— blok 51d405f7_0418 | p32 | paragraph | kop: 1. Toegankelijkheid en Navigatie
+voor de tekst in de webshop helpt enorm"
+
+════════ CRITERIUM: stakeholders (Stakeholders) ════════
+
+— blok 51d405f7_0074 | p5 | heading | kop: H1 Introductie > H2 Stakeholders analyse
+H2 Stakeholders analyse
+
+— blok 51d405f7_0077 | p6 | table | kop: H1 Introductie > H2 Stakeholders analyse
+Stakeholder | Functie | Rol | Prioritering
+Stakeholder | Functie | Rol | Prioritering
+[PERSOON_02] | Initiator van het project | Bepaalt projectdoelstellingen en budget, en is het primaire aanspreekpunt voor voortgang en kwaliteitscontrole. | Middelmatig invloed: Als
+vertegenwoordiger van de
+opdrachtgever heeft zij geen
+directe invloed op de
+projectdoelen en budget,
+maar ze heeft invloed op
+richting van het project
+Websiteontwikkelaars | Uitvoerders van het project. | Verantwoordelijk voor het ontwerpen, ontwikkelen, en testen van de website volgens de gestelde eisen van toegankelijkheid, gebruiksvriendelijkheid, veiligheid, en betrouwbaarheid. | Middelmatige invloed: Hoewel ze het project uitvoeren en essentieel zijn voor de kwaliteit, zijn ze meer beïnvloed door beslissingen van hogerop dan dat ze zelf beslissingen nemen.
+Eindgebruikers (Klanten) | Gebruikers van de website. | Het gebruiken van de website voor het doorzoeken en kopen van producten, waarbij hun ervaringen feedback bieden voor verdere verbeteringen. | Variërende invloed: Hun
+feedback is cruciaal voor de
+lange termijn succes van het
+project, maar hun directe
+invloed tijdens de
+ontwikkelingsfase is beperkter
+vergeleken met de andere
+stakeholders.
+Directieleden | Ze bepalen van de strategische richting en het beleid van een organisatie. | Zij zijn verantwoordelijk | Veel invloed: Bepalen de strategische richting en goedkeuring van het project op hoog niveau.
+voor het maken van
+besluiten die de richting
+van het bedrijf op lange
+termijn bepalen, zoals het
+betreden van nieuwe
+markten of het lanceren van
+nieuwe productlijnen. Ze
+spelen een cruciale rol in
+het definiëren van de
+bedrijfscultuur en het leiden
+van belangrijke
+organisatorische
+veranderingen.
+Projectmanagers | projecten van begin tot eind te beheren. | Ze plannen het project, | Veel invloed: Verantwoordelijk voor het dagelijks beheer van het project, waardoor ze directe invloed hebben op de uitvoering en succes.
+samenstellen van het
+projectteam, het beheren
+van middelen, het bewaken
+van de voortgang, en het
+zorgen voor de levering van
+het project binnen de
+gestelde tijd en budget.
+Afdelingshoofden | Het operationeel beheer van hun specifieke afdelingen. | Hun rol is het vertalen van de strategische doelen van de directie naar concrete plannen en acties binnen hun afdeling. Ze monitoren de prestaties van hun | Middelmatige tot veel invloed: Afhankelijk van hun afdeling kunnen ze aanzienlijke invloed hebben op specifieke aspecten van het project, zoals
+
+— blok 51d405f7_0079 | p7 | table | kop: H1 Introductie > H2 Stakeholders analyse
+afdeling, zorgen voor de ontwikkeling van hun team, en implementeren verbeteringen om de efficiëntie en effectiviteit te verhogen. | marketingstrategieën of technische vereisten.
+Investeerders | Verschaffen van het benodigde kapitaal voor de ontwikkeling en lancering van het project. | verstrekken van de | Veel invloed. Hun beslissingen over financiering kunnen direct de scope, richting, en levensvatbaarheid van het project beïnvloeden.
+benodigde financiële
+middelen en hebben een
+stem in belangrijke
+beslissingen binnen het
+bedrijf of project, afhankelijk
+van hun
+investeringsaandeel.
+Slechtziende | Hun primaire functie is een gebruikersgroep voor een webshop. | Hun rol vanuit het perspectief van de webshop is op zoek zijn inclusiviteit in de webshop voor hun slechtziendheid behoeften | Veel invloed:toegankelijkheid is een wettelijke vereiste in veel gebieden en een fundamenteel aspect van maatschappelijke verantwoordelijkheid en klantenservice.
+
+— blok 51d405f7_0080 | p7 | table | kop: H1 Introductie > H2 Stakeholders analyse
+Belanghebbende | Concern | Categorisering
+Belanghebbende | Concern | Categorisering
+[PERSOON_02] | Zorg voor de ontwikkeling | Primaire belanghebbende, omdat ze direct verantwoor is voor het initiëren van het project en het definiëren van vereisten. Intern omdat ze namens de opdrachtgever handelt en d verantwoordelijk is voor het initiëren en begeleiden van project binnen de organisatie. | Primaire belanghebbende, omdat ze direct verantwoor | delijk
+van een innovatieve en | is voor het initiëren van het project en het definiëren van | de
+competitieve website. | vereisten.
+Focus op
+gebruiksvriendelijkheid,
+toegankelijkheid, veiligheid, | Intern omdat ze namens de opdrachtgever handelt en d | irect
+en betrouwbaarheid. | verantwoordelijk is voor het initiëren en begeleiden van | het
+project binnen de organisatie.
+Websiteontwikkelaars | Technische realisatie van een gebruiksvriendelijke en toegankelijke website die aan de gestelde eisen voldoet, binnen het gestelde budget en tijdsbestek. En houden aan de AVGregels | Technische realisatie van | Primaire belanghebbende, aangezien ze direct betrokk zijn bij de creatie en ontwikkeling van de website. Intern Extern omdat ze niet direct deel uitmaken van de organisatiestructuur, maar zijn ingehuurd of gecontracte van buiten de organisatie om specifieke diensten te verl zoals de ontwikkeling van de website
+een gebruiksvriendelijke en
+toegankelijke website die
+aan de gestelde eisen
+voldoet, binnen het
+gestelde budget en
+tijdsbestek. En houden aan
+de AVGregels
+Eindgebruikers (Klanten) | Een soepele, toegankelijke | Primaire belanghebbende, omdat het succes van de website direct afhangt van hun tevredenheid en gebruik.
+winkelervaring ongeacht | Primaire belanghebbende, omdat het succes van de
+technologische of | website direct afhangt van hun tevredenheid en gebruik.
+persoonlijke beperkingen.
+Verwachten een
+
+— blok 51d405f7_0082 | p8 | table | kop: H1 Introductie > H2 Stakeholders analyse
+betrouwbare service waarbij bestellingen correct worden afgehandeld. | Extern omdat ze buiten de organisatiestructuur vallen. H | un
+feedback en tevredenheid zijn van cruciaal belang voor | het
+succes van de website, maar ze zijn niet direct betrokke | n bij
+de planning en uitvoering van het project.
+Directieleden | Strategische alignment van het project met de bedrijfsdoelen en visie, zorgen dat het project bijdraagt aan de langetermijngroei en innovatie van het bedrijf. | Primaire belanghebbende, omdat ze strategische beslissingen nemen die het project en de organisatie beïnvloeden. Intern omdat ze deel uitmaken van de organisatiestruct en verantwoordelijk zijn voor het vaststellen van het bele en de strategische richting van het bedrijf.
+Projectmanagers | Efficiënt projectmanagement om de ontwikkeling binnen budget en tijdsbestek te houden. Zorgen voor communicatie en afstemming tussen alle betrokken partijen. | Primaire belanghebbende, verantwoordelijk voor het beheer en de succesvolle uitvoering van het project. Intern omdat ze binnen de organisatie werken en de verantwoordelijkheid dragen voor het plannen, uitvoeren voltooien van het project. | Primaire belanghebbende, verantwoordelijk voor het
+beheer en de succesvolle uitvoering van het project.
+
+— blok 51d405f7_0083 | p8 | table | kop: H1 Introductie > H2 Stakeholders analyse
+Intern omdat ze binnen de organisatie werken en de
+verantwoordelijkheid dragen voor het plannen, uitvoeren | , en
+voltooien van het project.
+Afdelingshoofden | Afhankelijk van hun specifieke afdeling, het integreren van de nieuwe website in hun operationele activiteiten en het ondersteunen van de projectdoelen binnen hun domein. | Secundaire belanghebbende betrokken bij het ondersteunen van het project maar niet direct verantwoordelijk voor de uitvoering. Intern omdat ze leiding geven aan specifieke afdelingen binnen de organisatie en betrokken zijn bij de uitvoering projecten die relevant zijn voor hun afdeling.
+
+— blok 51d405f7_0085 | p9 | table | kop: H1 Introductie > H2 Stakeholders analyse
+Slechtziende | Dat de webshop een naadloze, inclusieve ervaring biedt die vrij is van obstakels en volledig toegankelijk is voor slechtziende gebruikers. | Slechtziende kunnen als primaire belanghebbenden worden beschouwd als de webshop specifiek gericht is deze doelgroep en hun behoeften een directe impact he op de hoofddoelstellingen van het project. Externe belanghebbenden, aangezien ze geen deel uitmaken van de organisatie die de webshop ontwikkelt beheert. Ze beïnvloeden of worden beïnvloed door de o van het project, maar zijn geen direct onderdeel van de interne processen. | Slechtziende kunnen als primaire belanghebbenden
+worden beschouwd als de webshop specifiek gericht is | op
+deze doelgroep en hun behoeften een directe impact he | bben
+op de hoofddoelstellingen van het project.
+Externe belanghebbenden, aangezien ze geen deel
+uitmaken van de organisatie die de webshop ontwikkelt | of
+beheert. Ze beïnvloeden of worden beïnvloed door de o | utput
+van het project, maar zijn geen direct onderdeel van de
+interne processen.
+Investeerders | Concern voor investeerders kan zijn het waarborgen van een adequate return on investment (ROI). | Primaire belanghebbenden omdat hun investering essentieel is voor de realisatie van het project. Intern , omdat ze een actieve rol spelen binnen de organisatie, bijvoorbeeld door deel uit te maken van het bestuur of direct betrokken te zijn bij strategische besluitvorming. In dergelijke gevallen gaan hun bijdrage verder dan alleen financiële steun; ze bieden strategisch advies, netwerktoegang, en kunnen richting en toezicht geven aan het managementteam.
+
+— blok 51d405f7_0086 | p9 | table | kop: H1 Introductie > H2 Stakeholders analyse
+organisatie, bijvoorbeeld door deel uit te maken van het
+bestuur of direct betrokken te zijn bij strategische
+besluitvorming. In dergelijke gevallen gaan hun bijdrage | n
+verder dan alleen financiële steun; ze bieden strategisch
+advies, netwerktoegang, en kunnen richting en toezicht
+geven aan het managementteam.
+
+— blok 51d405f7_0087 | p9 | table | kop: H1 Introductie > H2 Stakeholders analyse
+Belanghebbende | Zorgen | Belangen
+Belanghebbende | Zorgen | Belangen
+[PERSOON_02] | Zorgen over het binnen budget en tijd ontwikkelen van een gebruiksvriendelijke, toegankelijke, veilige, en betrouwbare website. | Belang bij het succesvol lanceren van een
+innovatieve website binnen budget en
+tijdframe. Zorgen over
+gebruiksvriendelijkheid, toegankelijkheid,
+veiligheid, en betrouwbaarheid.
+Websiteontwikkelaars | zorgen over het voldoen aan de eisen van gebruiksvriendelijkheid en toegankelijkheid. | Belang bij het technisch realiseren van de website. Zorgen over het voldoen aan specifieke eisen van toegankelijkheid en veiligheid binnen gestelde deadlines.
+Eindgebruikers (Klanten) | Bezorgdheid over de veiligheid | Belang bij een gebruiksvriendelijke en toegankelijke winkelervaring. Zorgen over veiligheid van gegevens en betrouwbaarheid van bestellingen.
+van persoonlijke gegevens, de
+toegankelijkheid van de website
+voor mensen met verschillende
+behoeften, en de algehele
+gebruikservaring.
+Directieleden | Zorgen over de strategische uitlijning van het project met de bedrijfsdoelstellingen en de impact op de langetermijnvisie. | Belang bij strategische uitlijning van het project met bedrijfsdoelstellingen. Zorgen over het langetermijnsucces van de website.
+Projectmanagers | Zorgen over het bijhouden van de | Belang bij het efficiënt managen van het project binnen tijd en budget. Zorgen over
+strakke tijdslijnen, het beheren van
+het budget, en het coördineren
+
+— blok 51d405f7_0089 | p10 | table | kop: H1 Introductie > H2 Stakeholders analyse
+tussen verschillende teams om | het coördineren van taken en het voldoen aan projectvereisten.
+aan de projectvereisten te
+voldoen.
+Afdelingshoofden | Zorgen over de integratie van het project met bestaande systemen en processen binnen hun afdelingen. | Belang bij de integratie van het project met bestaande operationele processen. Zorgen over de impact van het project op hun afdelingsprestaties.
+Slechtziende | Er kunnen zorgen zijn over de bruikbaarheid van de webshop, de duidelijkheid van informatie en de mogelijkheid om onafhankelijk te navigeren en aankopen te doen. | Hun belangen omvatten het verzekeren dat
+de webshop voldoet aan hoge
+toegankelijkheidsstandaarden om bijv de
+mogelijkheid om lettergrootte, contrast en
+aan te passen voor individuele visuele
+behoeften .
+Investeerders | Bezorgdheid over het potentieel rendement op hun investering, de voortgang van het project, en de impact van het project op de marktpositie van het bedrijf. | Belang bij een goede return on investment. Zorgen over de voortgang van het project en de marktpositie van het bedrijf na lancering.
+
+════════ CRITERIUM: requirements (Requirements) ════════
+
+— blok 51d405f7_0140 | p14 | heading | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+H4 Wensen, Eisen, Prioriteiten
+
+— blok 51d405f7_0141 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+Bij het ontwikkelen van een website gericht op de verkoop van computeraccessoires aan een
+
+— blok 51d405f7_0142 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+doelgroep die bestaat uit financieel beperkte informatica studenten, is het cruciaal om een
+
+— blok 51d405f7_0143 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+diepgaand inzicht te hebben in de diverse constraints en (non-)functionele eisen die de
+
+— blok 51d405f7_0144 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+architectuur en functionaliteit van het platform zullen beïnvloeden. Dit hoofdstuk presenteert
+
+— blok 51d405f7_0145 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+een gedetailleerde lijst van wensen, eisen, en prioriteiten die de ontwikkeling van ons
+
+— blok 51d405f7_0146 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+webplatform sturen. Deze zijn zorgvuldig samengesteld uit zowel functionele als niet-
+
+— blok 51d405f7_0147 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+functionele perspectieven om een holistisch beeld te geven van wat vereist is om een
+
+— blok 51d405f7_0148 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+succesvolle en responsieve e-commerce oplossing te bouwen.
+
+— blok 51d405f7_0149 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+Interpretatie van H4:
+
+— blok 51d405f7_0150 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+ Abstractieniveau: H4 moet gelezen worden met een balans tussen een hoog en
+
+— blok 51d405f7_0151 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+laag abstractieniveau. Het biedt een strategisch overzicht van de projectdoelen (hoog
+
+— blok 51d405f7_0152 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+abstract), terwijl het ook concrete, technische specificaties en verwachtingen (laag
+
+— blok 51d405f7_0153 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+abstract) uiteenzet die directe implicaties hebben voor de ontwikkeling.
+
+— blok 51d405f7_0154 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+ Conceptualisatie: De inhoud is niet in één keer bedacht, maar is een werk in
+
+— blok 51d405f7_0155 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+uitvoering, waarbij voortdurende afstemming met stakeholders plaatsvindt om de
+
+— blok 51d405f7_0156 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+eisen en prioriteiten af te stemmen op zowel de zakelijke doelen als de
+
+— blok 51d405f7_0157 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+gebruikersbehoeften.
+
+— blok 51d405f7_0158 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+ Stakeholder Input : De eisen zijn ontwikkeld met doorzichtig leze door de casus, heel
+
+— blok 51d405f7_0159 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+vaak feedback vragen aan docenten en vergelijkingen met andere medestudenten
+
+— blok 51d405f7_0160 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+om een breed scala aan perspectieven en behoeften te integreren.
+
+— blok 51d405f7_0161 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+ Ontwikkeltijd: Aan deze lijst is rond 1 week gewerkt, met iteraties en feedbackloops
+
+— blok 51d405f7_0162 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+om te zorgen voor nauwkeurigheid en relevantie.
+
+— blok 51d405f7_0163 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+ Inspiratie: Inspiratie is gehaald uit vorige modules, feedbacksessies met meerdere
+
+— blok 51d405f7_0164 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+medestudenten en docenten
+
+— blok 51d405f7_0165 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+Elke wens en eis is gelabeld met 'Must Have', 'Should Have', of 'Could Have' om de prioriteit
+
+— blok 51d405f7_0166 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+aan te geven. 'Must Haves' zijn niet-onderhandelbaar en essentieel voor de
+
+— blok 51d405f7_0167 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+basisfunctionaliteit van de website. 'Should Haves' zijn belangrijk maar niet kritiek voor de
+
+— blok 51d405f7_0168 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+lancering, en 'Could Haves' zijn wenselijk maar optioneel en kunnen in toekomstige updates
+
+— blok 51d405f7_0169 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+opgenomen worden.
+
+— blok 51d405f7_0170 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+Door deze structuur te volgen, streven we ernaar een platform te ontwikkelen dat niet alleen
+
+— blok 51d405f7_0171 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+voldoet aan de technische en zakelijke vereisten, maar ook een uitzonderlijke ervaring biedt
+
+— blok 51d405f7_0172 | p14 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik… > H4 Wensen, Eisen, Prioriteiten
+aan onze gebruikers.
+
+— blok 51d405f7_0174 | p15 | heading | kop: H1 Introductie > 4.1 Constraints en (non-) Functionele eisen
+4.1 Constraints en (non-) Functionele eisen
+
+— blok 51d405f7_0175 | p15 | heading | kop: H1 Introductie > Niet-functionele requirements
+Niet-functionele requirements
+
+— blok 51d405f7_0177 | p15 | table | kop: H1 Introductie > Niet-functionele requirements
+Naam | Architecturale relevantie
+Naam | Architecturale relevantie
+Budgettaire Beperking | Een vastgesteld budget van €10.000 voor
+het volledige project.
+Tijdsbeperking | Een ontwikkelingstermijn van zes weken voor ontwerp, ontwikkeling, en testen.
+Functionele Beperkingen | Klanten mogen artikelen niet betalen met
+cadeaukaarten en kunnen geen gebruik
+maken van promocodes.
+Financiële Toegankelijkheid | Het project moet strategieën omvatten om de kosten voor de eindgebruiker te minimaliseren, zonder afbreuk te doen aan de kwaliteit van de producten of de gebruikservaring.
+Verzendkosten | De verzendkosten zijn niet afankelijk van
+het formaat of de locatie, maar een
+standaardbedrag.
+
+— blok 51d405f7_0179 | p16 | table | kop: H1 Introductie > Niet-functionele requirements
+Naam | Architecturale relevantie | Geadresseer d in | Prio | T h e ma | Uitleg prio
+Naam | Architecturale relevantie | Geadresseer d in | Prio | T h e ma | Uitleg prio
+Gebruiksvriendeli jkheid | De website moet soepel en gemakkelijk te navigeren zijn. | Must have | Gebruikerser varing | Een soepele en
+gemakkelijke navigatie is
+essentieel voor een
+positieve
+gebruikerservaring, wat
+direct invloed heeft op de
+tevredenheid van de
+klant en de
+conversieratio's.
+Betrouwbaarheid | De website moet altijd bereikbaar zijn en bestellingen moeten correct worden afgehandeld. | Must have | Vertrouwen en Integriteit | Constante beschikbaarheid en correcte afhandeling van bestellingen zijn essentieel voor de bedrijfsvoering en klanttevredenheid. Dit is een basisvereiste voor elke commerciële website.
+Toegankelijkheid | De website moet toegankelijk zijn voor een breed scala aan klanten, inclusief mensen met verschillende beperkingen. | Should have | Inclusiviteit | Hoewel toegankelijkheid
+voor mensen met
+verschillende
+beperkingen zeer
+belangrijk is voor
+inclusiviteit en kan
+bijdragen aan een
+bredere klantenbasis,
+wordt het soms als
+"Should Have" gezien
+vanwege de extra
+inspanningen die nodig
+kunnen zijn om volledige
+toegankelijkheid te
+waarborgen. Toch neigt
+de trend naar het
+beschouwen van
+toegankelijkheid steeds
+meer als een "Must
+Have" vanwege ethische
+overwegingen en
+wettelijke verplichtingen.
+Veiligheid | Strikte naleving van de Algemene Verordening Gegevensbesche rming (AVG) en een grondige beveiligings en risicoanalyse. Hierin implementeer ik dat ik de gegevens van | Must have | Vertrouwen en Integriteit | Veiligheid is cruciaal voor het beschermen van gebruikersgegevens en moet voldoen aan wettelijke vereisten zoals de AVG. Het is essentieel voor het vertrouwen van de klant en de integriteit van de website.
+
+— blok 51d405f7_0181 | p17 | table | kop: H1 Introductie > Niet-functionele requirements
+gebruikers niet te te lang opsla
+Responsive design | De website moet op alle apparaten goed werken. | Must have | Gebruikerser varing | Met het toenemende
+gebruik van mobiele
+apparaten is een
+responsive design
+cruciaal voor het
+bereiken van een breed
+publiek en het bieden
+van een consistente
+gebruikerservaring op
+alle apparaten.
+Wenslijst | De webshop moet gebruikers in staat stellen om een gepersonaliseerd e lijst van 'Favoriete Producten' samen te stellen en te beheren. Gebruikers moeten producten aan deze lijst kunnen toevoegen, verwijderen en bekijken op een later moment. | Must have | Gebruikerser varing | Een wenslijst is een cruciaal element voor het verbeteren van de gebruikerservaring omdat het gebruikers in staat stelt producten die zij interessant vinden op te slaan voor toekomstige overweging. Dit kan helpen om de conversieratio te verhogen, omdat klanten worden herinnerd aan producten die ze willen kopen, en het stimuleert terugkerende bezoeken aan de webshop. Bovendien ondersteunt het klantbinding door een gepersonaliseerde winkelervaring te creëren.
+Productverkoop | Mogelijkheid om uit één soort categorie 10 producten te verkopen uit | Should have | Ecommerce Core Operations | Een gefocust aanbod
+kan helpen om de
+complexiteit van de
+website te verminderen,
+wat leidt tot een betere
+gebruikerservaring door
+de keuze te
+vereenvoudigen.
+Reviews | Reviews in webshop kunnen plaatsen en bekijken over de producten | Interview , blz 34 , Bijlage II, onder “Winkelgewo ontes” | Should have | Vertrouwen en Integriteit | Klantreviews worden geclassificeerd als een 'Should Have' prioriteit, omdat ze aanzienlijk bijdragen aan de gebruikerservaring en het vertrouwen in de webshop. Hoewel ze misschien niet absoluut noodzakelijk zijn voor de basisfunctionaliteit van de website – de site kan technisch functioneren
+
+— blok 51d405f7_0182 | p18 | heading | kop: H1 Introductie > Functionele requirements
+Functionele requirements
+
+— blok 51d405f7_0184 | p18 | table | kop: H1 Introductie > Functionele requirements
+zonder reviews – zijn ze uiterst waardevol voor het vergroten van de betrokkenheid en het helpen van klanten bij het maken van geïnformeerde aankoopbeslissingen.
+Taal | Webshop moet meertalig zijn | Should have | Inclusiviteit | Het prioriteren van deze
+functie als 'should have'
+stelt een bedrijf in staat
+om zich eerst te
+concentreren op andere
+kritieke aspecten die
+essentieel zijn voor de
+lancering en het
+basisfunctioneren, zoals
+de kernfunctionaliteiten
+van de website, het
+beveiligingssysteem en
+de primaire
+marktbetrokkenheid.
+InzoomFunctie | De website moet de mogelijkheid hebben om in te kunnen zoomen op letters | Must have | Inclusiviteit
+WCAG | de website moet | Bijlage I , onder “Checkout Proces en Klantenservic e” , blz 34. | Must have | Inclusiviteit | Als een website niet voldoet aan WCAG, kan dit leiden tot uitsluiting van een aanzienlijk deel van de potentiële gebruikers en klanten.
+voldoen aan de
+WCAG (Web
+Content
+Accessibility
+Guidelines)
+standaarden
+
+— blok 51d405f7_0185 | p18 | table | kop: H1 Introductie > Functionele requirements
+Naam | Architecturale relevantie | Geadres seerd in | Prio | T hema | Uitleg prio
+Naam | Architecturale relevantie | Geadres seerd in | Prio | T hema | Uitleg prio
+Winkelmandf unctionaliteit | Klanten moeten | Must have | Ecommerce Core Operaties | Essentieel voor een e
+producten kunnen | commerce website,
+bekijken en in hun | omdat het klanten in
+winkelmand plaatsen, | staat stelt producten te
+bekijken, en | selecteren en te kopen.
+
+— blok 51d405f7_0187 | p19 | table | kop: H1 Introductie > Functionele requirements
+verwijderen indien | Dit is direct gekoppeld
+nodig. | aan de verkoopfunctie.
+Gebruikersre gistratie | Klanten moeten een profiel kunnen aanmaken voor een gepersonaliseerde winkelervaring. | Must have | Klantbeheer en Personalisati e | Het vermogen voor klanten om een profiel aan te maken en in te loggen cruciaal is voor het aankoopproces binnen de webshop.
+Inlogfunction aliteit | Klanten moeten kunnen inloggen in de webshop om producten te kunnen kopen. | Must have | Klantbeheer en Personalisati e | Zonder in te kunnen
+loggen kunnen klanten
+geen aankopen doen,
+wat betekent dat deze
+functionaliteit essentieel
+is voor de werking van
+de webshop.
+Beheerinterfa ce | Een intuïtieve interface voor het beheren van producten, klanten, en bestellingen. | Should have | Administratie en Contentbehe er | Belangrijk voor het
+onderhouden van de
+website en het beheren
+van orders, producten,
+en klanten. Het helpt bi
+het soepel laten verlopen
+van de operaties, maar
+de website kan in een
+zeer basale vorm
+functioneren zonder dit
+vanaf het begin.
+Filterfunction aliteit | De website moet een filterfunctie bieden die gebruikers in staat stelt om producten te filteren op verschillende categorieën | Interview , Bijlage II , blz 34, onder “Winkelg ewoonte s” | Must have | Gebruikersge richte Navigatie | Een filterfunctie stelt hen
+in staat om producten te
+bekijken die binnen hun
+interesse vallen,
+waardoor ze efficiënter
+kunnen winkelen zonder
+door producten te
+hoeven bladeren die
+buiten hun budget hun
+interesse liggen.
+Weergave en omschrijving van producten | De webshop moet foto's van het product vanuit verschillende hoeken tonen en naast de foto's wordt elke productpagina voorzien van een gedetailleerde tekstuele beschrijving(zoals de functies en specificaties van het product, gebruiksaanwijzingen, compatibiliteitsdetails) . | Must have | Ecommerce Core Operaties | Gedetailleerde productbeschrijvingen en hoogwaardige foto's zijn cruciaal voor klanten om geïnformeerde aankoopbeslissingen te kunnen maken. Zonder voldoende informatie en visuele representatie kunnen klanten aarzelen om een aankoop te doen, wat direct invloed heeft op de conversieratio's van de webshop.
+
+— blok 51d405f7_0410 | p32 | heading | kop: Interview: > Functionele requirements
+Functionele requirements
+
+— blok 51d405f7_0411 | p32 | paragraph | kop: Interview: > Functionele requirements
+Non functioneel requirement
+
+— blok 51d405f7_0412 | p32 | heading | kop: Interview: > Functionele requirements > Algemene Ervaring met Online Winkelen
+Algemene Ervaring met Online Winkelen
+
+— blok 51d405f7_0461 | p34 | heading | kop: Functionele requirements
+Functionele requirements
+
+— blok 51d405f7_0462 | p34 | paragraph | kop: Functionele requirements
+Non functioneel requirement
+
+— blok 51d405f7_0463 | p34 | heading | kop: Functionele requirements > Achtergrondinformatie
+Achtergrondinformatie
+
+— blok 51d405f7_0464 | p34 | paragraph | kop: Functionele requirements > Achtergrondinformatie
+Hoe integreer je technologie in je studie en dagelijks leven?
+
+— blok 51d405f7_0465 | p34 | paragraph | kop: Functionele requirements > Achtergrondinformatie
+Als informatica student is mijn laptop mijn beste vriend. Ik gebruik het voor alles:
+
+— blok 51d405f7_0466 | p34 | paragraph | kop: Functionele requirements > Achtergrondinformatie
+programmeren, schoolopdrachten en natuurlijk, voor Netflix tijdens de
+
+— blok 51d405f7_0467 | p34 | paragraph | kop: Functionele requirements > Achtergrondinformatie
+ontspanningsmomenten.
+
+— blok 51d405f7_0468 | p34 | heading | kop: Functionele requirements > Winkelgewoontes
+Winkelgewoontes
+
+— blok 51d405f7_0469 | p34 | paragraph | kop: Functionele requirements > Winkelgewoontes
+Wat zijn je voorkeuren als het gaat om het kopen van technologie online?
+
+— blok 51d405f7_0470 | p34 | paragraph | kop: Functionele requirements > Winkelgewoontes
+Ik geef de voorkeur aan webshops die duidelijk zijn over hun prijzen en geen verborgen
+
+— blok 51d405f7_0471 | p34 | paragraph | kop: Functionele requirements > Winkelgewoontes
+kosten hebben. Ik wil kunnen filteren op per item.
+
+— blok 51d405f7_0472 | p34 | paragraph | kop: Functionele requirements > Winkelgewoontes
+Welke aspecten vind je belangrijk bij het online kopen van tech accessoires?
+
+— blok 51d405f7_0473 | p34 | paragraph | kop: Functionele requirements > Winkelgewoontes
+De levensduur van het product is cruciaal. Ik kan me niet veroorloven om elk jaar nieuwe
+
+— blok 51d405f7_0474 | p34 | paragraph | kop: Functionele requirements > Winkelgewoontes
+gadgets te kopen, dus ik zoek naar reviews over de bouwkwaliteit en garantievoorwaarden.
+
+— blok 51d405f7_0475 | p34 | heading | kop: Functionele requirements > Uitdagingen en Oplossingen
+Uitdagingen en Oplossingen
+
+— blok 51d405f7_0476 | p34 | paragraph | kop: Functionele requirements > Uitdagingen en Oplossingen
+Met welke uitdagingen word je geconfronteerd bij het winkelen voor tech accessoires?
+
+— blok 51d405f7_0477 | p34 | paragraph | kop: Functionele requirements > Uitdagingen en Oplossingen
+Soms is het moeilijk om te bepalen of een accessoire goed zal werken met de software die
+
+— blok 51d405f7_0478 | p34 | paragraph | kop: Functionele requirements > Uitdagingen en Oplossingen
+we gebruiken voor onze cursussen. Niet alles is goed gedocumenteerd.
+
+— blok 51d405f7_0479 | p34 | heading | kop: Functionele requirements > Besluitvormingsproces
+Besluitvormingsproces
+
+— blok 51d405f7_0480 | p34 | paragraph | kop: Functionele requirements > Besluitvormingsproces
+Hoe beslis je welke technologische producten je aanschaft?
+
+— blok 51d405f7_0481 | p34 | paragraph | kop: Functionele requirements > Besluitvormingsproces
+Ik kijk naar de lange termijn. Kan ik het gebruiken voor meerdere projecten? Zal het bedrijf
+
+— blok 51d405f7_0482 | p34 | paragraph | kop: Functionele requirements > Besluitvormingsproces
+over een paar jaar nog steeds ondersteuning bieden? Die vragen bepalen of ik een aankoop
+
+— blok 51d405f7_0483 | p34 | paragraph | kop: Functionele requirements > Besluitvormingsproces
+doe of niet.
+
+— blok 51d405f7_0484 | p34 | paragraph | kop: Functionele requirements > Besluitvormingsproces
+Kun je een ervaring delen waarbij een aankoop niet voldeed aan je verwachtingen?
+
+— blok 51d405f7_0485 | p34 | paragraph | kop: Functionele requirements > Besluitvormingsproces
+Eens kocht ik een goedkope tablet voor digitale kunst, maar de pen drukgevoeligheid was
+
+— blok 51d405f7_0486 | p34 | paragraph | kop: Functionele requirements > Besluitvormingsproces
+vreselijk. Nu weet ik dat het testen van zo'n apparaat voor aankoop essentieel is, of op zijn
+
+— blok 51d405f7_0487 | p34 | paragraph | kop: Functionele requirements > Besluitvormingsproces
+minst het controleren van uitgebreide reviews.
+
+— blok 51d405f7_0488 | p34 | heading | kop: Functionele requirements > Aanvullende Ondersteuning
+Aanvullende Ondersteuning
+
+— blok 51d405f7_0489 | p34 | paragraph | kop: Functionele requirements > Aanvullende Ondersteuning
+Welke specifieke diensten of soorten ondersteuning verwacht je van een webshop die
+
+— blok 51d405f7_0490 | p34 | paragraph | kop: Functionele requirements > Aanvullende Ondersteuning
+computeraccessoires verkoopt?
+
+— blok 51d405f7_0491 | p34 | paragraph | kop: Functionele requirements > Aanvullende Ondersteuning
+Idealiter zou ik zien dat een webshop directe technische ondersteuning biedt. Bijvoorbeeld,
+
+— blok 51d405f7_0492 | p34 | paragraph | kop: Functionele requirements > Aanvullende Ondersteuning
+een chatfunctie waar ik met een expert kan spreken over hoe een bepaalde accessoire zou
+
+— blok 51d405f7_0493 | p34 | paragraph | kop: Functionele requirements > Aanvullende Ondersteuning
+werken met mijn specifieke setup. Ook zou het nuttig zijn als de webshop gedetailleerde
+
+— blok 51d405f7_0494 | p34 | paragraph | kop: Functionele requirements > Aanvullende Ondersteuning
+beschrijvingen van de computeraccesories of video tutorials aanbiedt die uitleggen hoe je
+
+— blok 51d405f7_0495 | p34 | paragraph | kop: Functionele requirements > Aanvullende Ondersteuning
+nieuwe accessoires het beste kunt gebruiken en integreren voor studiegerelateerde software
+
+— blok 51d405f7_0496 | p34 | paragraph | kop: Functionele requirements > Aanvullende Ondersteuning
+en projecten. Een sectie met FAQs of een forum waar ik kan leren van andere gebruikers
+
+— blok 51d405f7_0497 | p34 | paragraph | kop: Functionele requirements > Aanvullende Ondersteuning
+zou ook een toegevoegde waarde zijn.
+
+— blok 51d405f7_0499 | p35 | heading | kop: Functionele requirements > Feedback en Suggesties
+Feedback en Suggesties
+
+— blok 51d405f7_0500 | p35 | paragraph | kop: Functionele requirements > Feedback en Suggesties
+Wat zou je willen dat webshop retailers begrijpen over jouw behoeften als student?
+
+— blok 51d405f7_0501 | p35 | paragraph | kop: Functionele requirements > Feedback en Suggesties
+Dat we investeren in onze toekomst. We hebben tools nodig die ons niet alleen door de
+
+— blok 51d405f7_0502 | p35 | paragraph | kop: Functionele requirements > Feedback en Suggesties
+studie heen helpen, maar ook daarna waarde behouden. Een inruil- of upgrade-programma
+
+— blok 51d405f7_0503 | p35 | paragraph | kop: Functionele requirements > Feedback en Suggesties
+zou ideaal zijn.
+
+════════ CRITERIUM: taalkeuze (Taalkeuze & consequenties) ════════
+
+— blok 51d405f7_0184 | p18 | table | kop: H1 Introductie > Functionele requirements  [trefwoord-treffer buiten sectie]
+zonder reviews – zijn ze uiterst waardevol voor het vergroten van de betrokkenheid en het helpen van klanten bij het maken van geïnformeerde aankoopbeslissingen.
+Taal | Webshop moet meertalig zijn | Should have | Inclusiviteit | Het prioriteren van deze
+functie als 'should have'
+stelt een bedrijf in staat
+om zich eerst te
+concentreren op andere
+kritieke aspecten die
+essentieel zijn voor de
+lancering en het
+basisfunctioneren, zoals
+de kernfunctionaliteiten
+van de website, het
+beveiligingssysteem en
+de primaire
+marktbetrokkenheid.
+InzoomFunctie | De website moet de mogelijkheid hebben om in te kunnen zoomen op letters | Must have | Inclusiviteit
+WCAG | de website moet | Bijlage I , onder “Checkout Proces en Klantenservic e” , blz 34. | Must have | Inclusiviteit | Als een website niet voldoet aan WCAG, kan dit leiden tot uitsluiting van een aanzienlijk deel van de potentiële gebruikers en klanten.
+voldoen aan de
+WCAG (Web
+Content
+Accessibility
+Guidelines)
+standaarden
+
+════════ CRITERIUM: security (Security) ════════
+
+— blok 51d405f7_0077 | p6 | table | kop: H1 Introductie > H2 Stakeholders analyse  [trefwoord-treffer buiten sectie]
+Stakeholder | Functie | Rol | Prioritering
+Stakeholder | Functie | Rol | Prioritering
+[PERSOON_02] | Initiator van het project | Bepaalt projectdoelstellingen en budget, en is het primaire aanspreekpunt voor voortgang en kwaliteitscontrole. | Middelmatig invloed: Als
+vertegenwoordiger van de
+opdrachtgever heeft zij geen
+directe invloed op de
+projectdoelen en budget,
+maar ze heeft invloed op
+richting van het project
+Websiteontwikkelaars | Uitvoerders van het project. | Verantwoordelijk voor het ontwerpen, ontwikkelen, en testen van de website volgens de gestelde eisen van toegankelijkheid, gebruiksvriendelijkheid, veiligheid, en betrouwbaarheid. | Middelmatige invloed: Hoewel ze het project uitvoeren en essentieel zijn voor de kwaliteit, zijn ze meer beïnvloed door beslissingen van hogerop dan dat ze zelf beslissingen nemen.
+Eindgebruikers (Klanten) | Gebruikers van de website. | Het gebruiken van de website voor het doorzoeken en kopen van producten, waarbij hun ervaringen feedback bieden voor verdere verbeteringen. | Variërende invloed: Hun
+feedback is cruciaal voor de
+lange termijn succes van het
+project, maar hun directe
+invloed tijdens de
+ontwikkelingsfase is beperkter
+vergeleken met de andere
+stakeholders.
+Directieleden | Ze bepalen van de strategische richting en het beleid van een organisatie. | Zij zijn verantwoordelijk | Veel invloed: Bepalen de strategische richting en goedkeuring van het project op hoog niveau.
+voor het maken van
+besluiten die de richting
+van het bedrijf op lange
+termijn bepalen, zoals het
+betreden van nieuwe
+markten of het lanceren van
+nieuwe productlijnen. Ze
+spelen een cruciale rol in
+het definiëren van de
+bedrijfscultuur en het leiden
+van belangrijke
+organisatorische
+veranderingen.
+Projectmanagers | projecten van begin tot eind te beheren. | Ze plannen het project, | Veel invloed: Verantwoordelijk voor het dagelijks beheer van het project, waardoor ze directe invloed hebben op de uitvoering en succes.
+samenstellen van het
+projectteam, het beheren
+van middelen, het bewaken
+van de voortgang, en het
+zorgen voor de levering van
+het project binnen de
+gestelde tijd en budget.
+Afdelingshoofden | Het operationeel beheer van hun specifieke afdelingen. | Hun rol is het vertalen van de strategische doelen van de directie naar concrete plannen en acties binnen hun afdeling. Ze monitoren de prestaties van hun | Middelmatige tot veel invloed: Afhankelijk van hun afdeling kunnen ze aanzienlijke invloed hebben op specifieke aspecten van het project, zoals
+
+— blok 51d405f7_0080 | p7 | table | kop: H1 Introductie > H2 Stakeholders analyse  [trefwoord-treffer buiten sectie]
+Belanghebbende | Concern | Categorisering
+Belanghebbende | Concern | Categorisering
+[PERSOON_02] | Zorg voor de ontwikkeling | Primaire belanghebbende, omdat ze direct verantwoor is voor het initiëren van het project en het definiëren van vereisten. Intern omdat ze namens de opdrachtgever handelt en d verantwoordelijk is voor het initiëren en begeleiden van project binnen de organisatie. | Primaire belanghebbende, omdat ze direct verantwoor | delijk
+van een innovatieve en | is voor het initiëren van het project en het definiëren van | de
+competitieve website. | vereisten.
+Focus op
+gebruiksvriendelijkheid,
+toegankelijkheid, veiligheid, | Intern omdat ze namens de opdrachtgever handelt en d | irect
+en betrouwbaarheid. | verantwoordelijk is voor het initiëren en begeleiden van | het
+project binnen de organisatie.
+Websiteontwikkelaars | Technische realisatie van een gebruiksvriendelijke en toegankelijke website die aan de gestelde eisen voldoet, binnen het gestelde budget en tijdsbestek. En houden aan de AVGregels | Technische realisatie van | Primaire belanghebbende, aangezien ze direct betrokk zijn bij de creatie en ontwikkeling van de website. Intern Extern omdat ze niet direct deel uitmaken van de organisatiestructuur, maar zijn ingehuurd of gecontracte van buiten de organisatie om specifieke diensten te verl zoals de ontwikkeling van de website
+een gebruiksvriendelijke en
+toegankelijke website die
+aan de gestelde eisen
+voldoet, binnen het
+gestelde budget en
+tijdsbestek. En houden aan
+de AVGregels
+Eindgebruikers (Klanten) | Een soepele, toegankelijke | Primaire belanghebbende, omdat het succes van de website direct afhangt van hun tevredenheid en gebruik.
+winkelervaring ongeacht | Primaire belanghebbende, omdat het succes van de
+technologische of | website direct afhangt van hun tevredenheid en gebruik.
+persoonlijke beperkingen.
+Verwachten een
+
+— blok 51d405f7_0087 | p9 | table | kop: H1 Introductie > H2 Stakeholders analyse  [trefwoord-treffer buiten sectie]
+Belanghebbende | Zorgen | Belangen
+Belanghebbende | Zorgen | Belangen
+[PERSOON_02] | Zorgen over het binnen budget en tijd ontwikkelen van een gebruiksvriendelijke, toegankelijke, veilige, en betrouwbare website. | Belang bij het succesvol lanceren van een
+innovatieve website binnen budget en
+tijdframe. Zorgen over
+gebruiksvriendelijkheid, toegankelijkheid,
+veiligheid, en betrouwbaarheid.
+Websiteontwikkelaars | zorgen over het voldoen aan de eisen van gebruiksvriendelijkheid en toegankelijkheid. | Belang bij het technisch realiseren van de website. Zorgen over het voldoen aan specifieke eisen van toegankelijkheid en veiligheid binnen gestelde deadlines.
+Eindgebruikers (Klanten) | Bezorgdheid over de veiligheid | Belang bij een gebruiksvriendelijke en toegankelijke winkelervaring. Zorgen over veiligheid van gegevens en betrouwbaarheid van bestellingen.
+van persoonlijke gegevens, de
+toegankelijkheid van de website
+voor mensen met verschillende
+behoeften, en de algehele
+gebruikservaring.
+Directieleden | Zorgen over de strategische uitlijning van het project met de bedrijfsdoelstellingen en de impact op de langetermijnvisie. | Belang bij strategische uitlijning van het project met bedrijfsdoelstellingen. Zorgen over het langetermijnsucces van de website.
+Projectmanagers | Zorgen over het bijhouden van de | Belang bij het efficiënt managen van het project binnen tijd en budget. Zorgen over
+strakke tijdslijnen, het beheren van
+het budget, en het coördineren
+
+— blok 51d405f7_0126 | p13 | paragraph | kop: H1 Introductie > Vinden Het Wel/Niet Prettig Als Ik…  [trefwoord-treffer buiten sectie]
+design biedt voor zowel desktop als mobiele apparaten, en veilige betaalopties
+
+— blok 51d405f7_0179 | p16 | table | kop: H1 Introductie > Niet-functionele requirements  [trefwoord-treffer buiten sectie]
+Naam | Architecturale relevantie | Geadresseer d in | Prio | T h e ma | Uitleg prio
+Naam | Architecturale relevantie | Geadresseer d in | Prio | T h e ma | Uitleg prio
+Gebruiksvriendeli jkheid | De website moet soepel en gemakkelijk te navigeren zijn. | Must have | Gebruikerser varing | Een soepele en
+gemakkelijke navigatie is
+essentieel voor een
+positieve
+gebruikerservaring, wat
+direct invloed heeft op de
+tevredenheid van de
+klant en de
+conversieratio's.
+Betrouwbaarheid | De website moet altijd bereikbaar zijn en bestellingen moeten correct worden afgehandeld. | Must have | Vertrouwen en Integriteit | Constante beschikbaarheid en correcte afhandeling van bestellingen zijn essentieel voor de bedrijfsvoering en klanttevredenheid. Dit is een basisvereiste voor elke commerciële website.
+Toegankelijkheid | De website moet toegankelijk zijn voor een breed scala aan klanten, inclusief mensen met verschillende beperkingen. | Should have | Inclusiviteit | Hoewel toegankelijkheid
+voor mensen met
+verschillende
+beperkingen zeer
+belangrijk is voor
+inclusiviteit en kan
+bijdragen aan een
+bredere klantenbasis,
+wordt het soms als
+"Should Have" gezien
+vanwege de extra
+inspanningen die nodig
+kunnen zijn om volledige
+toegankelijkheid te
+waarborgen. Toch neigt
+de trend naar het
+beschouwen van
+toegankelijkheid steeds
+meer als een "Must
+Have" vanwege ethische
+overwegingen en
+wettelijke verplichtingen.
+Veiligheid | Strikte naleving van de Algemene Verordening Gegevensbesche rming (AVG) en een grondige beveiligings en risicoanalyse. Hierin implementeer ik dat ik de gegevens van | Must have | Vertrouwen en Integriteit | Veiligheid is cruciaal voor het beschermen van gebruikersgegevens en moet voldoen aan wettelijke vereisten zoals de AVG. Het is essentieel voor het vertrouwen van de klant en de integriteit van de website.
+
+— blok 51d405f7_0184 | p18 | table | kop: H1 Introductie > Functionele requirements  [trefwoord-treffer buiten sectie]
+zonder reviews – zijn ze uiterst waardevol voor het vergroten van de betrokkenheid en het helpen van klanten bij het maken van geïnformeerde aankoopbeslissingen.
+Taal | Webshop moet meertalig zijn | Should have | Inclusiviteit | Het prioriteren van deze
+functie als 'should have'
+stelt een bedrijf in staat
+om zich eerst te
+concentreren op andere
+kritieke aspecten die
+essentieel zijn voor de
+lancering en het
+basisfunctioneren, zoals
+de kernfunctionaliteiten
+van de website, het
+beveiligingssysteem en
+de primaire
+marktbetrokkenheid.
+InzoomFunctie | De website moet de mogelijkheid hebben om in te kunnen zoomen op letters | Must have | Inclusiviteit
+WCAG | de website moet | Bijlage I , onder “Checkout Proces en Klantenservic e” , blz 34. | Must have | Inclusiviteit | Als een website niet voldoet aan WCAG, kan dit leiden tot uitsluiting van een aanzienlijk deel van de potentiële gebruikers en klanten.
+voldoen aan de
+WCAG (Web
+Content
+Accessibility
+Guidelines)
+standaarden
+
+— blok 51d405f7_0199 | p22 | table | kop: H1 Introductie > 4.3 Use Case beschrijvingen  [trefwoord-treffer buiten sectie]
+Actor | Nieuwe Klant
+Actor | Nieuwe Klant
+Preconditie | Klant heeft nog geen account en bezoekt
+de registratiepagina van de webshop.
+Beschrijving | Klant maakt een profiel aan.
+Scenario beschrijving | Happy flow:
+1. Klant kiest voor 'Registreren'.
+2. Klant vult de vereiste informatie in
+(zoals naam, emailadres, en
+wachtwoord).
+3. Klant dient het registratieformulier
+in.
+4. Het systeem stuurt een
+bevestigingsemail naar de klant.
+5. Klant bevestigt de registratie via de
+link in de email.
+6. Het systeem bevestigt de creatie
+van het nieuwe profiel.
+Postconditie | Klant heeft een account aangemaakt en kan nu inloggen.
+Exceptie flow | Klant vult ongeldige informatie in of laat
+vereiste velden leeg. Het systeem toont
+foutmeldingen en vraagt de klant om de
+informatie te corrigeren.
+
+— blok 51d405f7_0200 | p22 | table | kop: H1 Introductie > 4.3 Use Case beschrijvingen  [trefwoord-treffer buiten sectie]
+Actor | Geregistreerde Klant
+Actor | Geregistreerde Klant
+Preconditie | Klant heeft een bestaand account
+Beschrijving | Klant logt in op de website om toegang te krijgen tot gepersonaliseerde functies.
+Scenario beschrijving | Happy flow:
+1. Klant navigeert naar de inlogpagina
+van de webshop.
+2. Klant voert zijn emailadres of
+gebruikersnaam in.
+3. Klant voert het wachtwoord in.
+
+— blok 51d405f7_0203 | p23 | table | kop: H1 Introductie > 4.3 Use Case beschrijvingen  [trefwoord-treffer buiten sectie]
+4. Klant selecteert eventueel 'Ingelogd
+blijven' voor toekomstige bezoeken.
+5. Klant klikt op 'Inloggen'.
+6. Het systeem controleert de
+gegevens tegen de database voor
+een overeenkomst.
+7. Klant krijgt toegang tot zijn
+gepersonaliseerde
+gebruikersomgeving.
+Postconditie | Klant is ingelogd en heeft toegang tot gepersonaliseerde functies.
+Exceptie flow |  Inloggegevens zijn incorrect: Het
+systeem toont een foutmelding, en
+de klant kan kiezen om de gegevens
+opnieuw in te voeren of om het
+wachtwoord te resetten.
+ Vergeten Wachtwoord: Klant klikt
+op 'Wachtwoord vergeten?' en voert
+zijn emailadres in om een resetlink
+te ontvangen.
+ Account Geblokkeerd: Na
+meerdere mislukte pogingen wordt
+het account tijdelijk geblokkeerd. De
+klant wordt geïnformeerd over de
+blokkade en de stappen die nodig
+zijn om het account te deblokkeren.
+
+— blok 51d405f7_0310 | p28 | heading | kop: Security
+Security
+
+— blok 51d405f7_0311 | p28 | paragraph | kop: Security
+Bij TechTrove erken ik het belang van het beschermen van uw persoonsgegevens en
+
+— blok 51d405f7_0312 | p28 | paragraph | kop: Security
+het respecteren van uw privacy. Overeenkomstig de AVG-regelgeving hanteer ik
+
+— blok 51d405f7_0313 | p28 | paragraph | kop: Security
+duidelijke bewaartermijnen voor de persoonsgegevens die ik verzamel en verwerk.
+
+— blok 51d405f7_0314 | p28 | paragraph | kop: Security
+Mijn doel is om transparantie te bieden over hoe lang en waarom ik uw gegevens
+
+— blok 51d405f7_0315 | p28 | paragraph | kop: Security
+bewaar.
+
+— blok 51d405f7_0329 | p29 | paragraph | kop: Implementatie van Bewaartermijnen  [trefwoord-treffer buiten sectie]
+vastgestelde doeleinden. Niet langer noodzakelijke gegevens worden veilig
+
+— blok 51d405f7_0342 | p29 | paragraph | kop: Gevolgen voor Klanten  [trefwoord-treffer buiten sectie]
+ Veiligheid : De beperking van de bewaartermijn verhoogt de veiligheid van uw
+
+— blok 51d405f7_0345 | p29 | paragraph | kop: Gevolgen voor Klanten  [trefwoord-treffer buiten sectie]
+Bij TechTrove wordt toegewijd aan het naleven van de AVG en het beschermen van
+
+— blok 51d405f7_0346 | p29 | paragraph | kop: Gevolgen voor Klanten  [trefwoord-treffer buiten sectie]
+de privacy van onze klanten. Door duidelijke bewaartermijnen te hanteren en te
+
+— blok 51d405f7_0347 | p29 | paragraph | kop: Gevolgen voor Klanten  [trefwoord-treffer buiten sectie]
+communiceren, zorgt TechTrove ervoor dat de privacy van klanten wordt beschermd
+
+— blok 51d405f7_0348 | p29 | paragraph | kop: Gevolgen voor Klanten  [trefwoord-treffer buiten sectie]
+en voldaan wordt aan de AVG.
+
+— blok 51d405f7_0361 | p31 | paragraph | kop: H6 Literatuurlijst  [trefwoord-treffer buiten sectie]
+Security, B. R. (2024, March 8). RSI Security – blog. RSI Security.
+
+— blok 51d405f7_0362 | p31 | paragraph | kop: H6 Literatuurlijst  [trefwoord-treffer buiten sectie]
+https://blog.rsisecurity.com/
+
+— blok 51d405f7_0363 | p31 | paragraph | kop: H6 Literatuurlijst  [trefwoord-treffer buiten sectie]
+Romviel, V. (2021, August 19). AVG: De verplichtingen voor webshops.
+
+— blok 51d405f7_0364 | p31 | paragraph | kop: H6 Literatuurlijst  [trefwoord-treffer buiten sectie]
+Thuiswinkel.org. https://www.thuiswinkel.org/kennisbank/kennisartikelen/avg-de-
+
+— blok 51d405f7_0367 | p31 | paragraph | kop: H6 Literatuurlijst  [trefwoord-treffer buiten sectie]
+Commissie. https://ec.europa.eu/info/law/law-topic/data-protection_nl
+
+— blok 51d405f7_0369 | p31 | paragraph | kop: H6 Literatuurlijst  [trefwoord-treffer buiten sectie]
+https://www.w3.org/WAI/perspective-videos/speech/
+
+— blok 51d405f7_0371 | p31 | paragraph | kop: H6 Literatuurlijst  [trefwoord-treffer buiten sectie]
+February 22). MyVision.org. https://myvision.org/guides/internet-accessibility-guide/
+
+— blok 51d405f7_0373 | p31 | paragraph | kop: H6 Literatuurlijst  [trefwoord-treffer buiten sectie]
+Know. Blog.Hotspot. https://blog.hubspot.com/website/website-accessibility-for-blind
+
+— blok 51d405f7_0375 | p31 | paragraph | kop: H6 Literatuurlijst  [trefwoord-treffer buiten sectie]
+LASIK. Vision Center. https://www.visioncenter.org/
+
+— blok 51d405f7_0378 | p31 | paragraph | kop: H6 Literatuurlijst  [trefwoord-treffer buiten sectie]
+https://www.zoho.com/commerce/insights/expectations-of-customers-from-
+
+━━━ UITVOERFORMAAT ━━━
+
+Retourneer exact dit JSON-object. Geen tekst ervoor of erna.
+Elk criterium MOET het veld criterion_judgement bevatten (strong | mixed | weak).
+Geef GEEN stoplicht en GEEN documentoordeel — dat doet Python later.
+
+{
+  "document_id": "51d405f7",
+  "criteria": {
+    "beperking": {
+      "criterion_judgement": "strong | mixed | weak",
+      "diagnostics": {
+        "concreteness": "laag | middel | hoog",
+        "research_support": "laag | middel | hoog",
+        "case_relevance": "laag | middel | hoog",
+        "impact_on_requirements": "laag | middel | hoog"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "manual_review": true,
+      "manual_review_reason": [],
+      "reason": ""
+    },
+    "stakeholders": {
+      "criterion_judgement": "strong | mixed | weak",
+      "diagnostics": {
+        "stakeholder_relevance": "laag | middel | hoog",
+        "interest_quality": "laag | middel | hoog",
+        "influence_quality": "laag | middel | hoog",
+        "context_link": "laag | middel | hoog"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "manual_review": true,
+      "manual_review_reason": [],
+      "reason": ""
+    },
+    "requirements": {
+      "criterion_judgement": "strong | mixed | weak",
+      "diagnostics": {
+        "concreteness": "laag | middel | hoog",
+        "testability": "laag | middel | hoog",
+        "relevance": "laag | middel | hoog",
+        "explanation_quality": "laag | middel | hoog",
+        "priority_logic": "laag | middel | hoog",
+        "classification_quality": "laag | middel | hoog"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "manual_review": true,
+      "manual_review_reason": [],
+      "reason": ""
+    },
+    "taalkeuze": {
+      "criterion_judgement": "strong | mixed | weak",
+      "diagnostics": {
+        "explicit_choice": "laag | middel | hoog",
+        "target_group_fit": "laag | middel | hoog",
+        "consequence_quality": "laag | middel | hoog",
+        "design_decision_clarity": "laag | middel | hoog"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "manual_review": true,
+      "manual_review_reason": [],
+      "reason": ""
+    },
+    "security": {
+      "criterion_judgement": "strong | mixed | weak",
+      "diagnostics": {
+        "measure_quality": "laag | middel | hoog",
+        "risk_link": "laag | middel | hoog",
+        "case_relevance": "laag | middel | hoog",
+        "technical_correctness": "laag | middel | hoog",
+        "explanation_quality": "laag | middel | hoog"
+      },
+      "strengths": [],
+      "weaknesses": [],
+      "manual_review": true,
+      "manual_review_reason": [],
+      "reason": ""
+    }
+  }
+}
+
+━━━ VELDTOELICHTING ━━━
+
+* criterion_judgement — één samenvattend oordeel per criterium: strong, mixed of weak. Geen stoplicht, geen score.
+* diagnostics — per dimensie: laag, middel of hoog. Geen getallen.
+* strengths — inhoudelijke sterke punten die aantoonbaar in de tekst staan. Max 5. Nederlands, niet studentgericht.
+* weaknesses — inhoudelijke zwakke punten of lacunes. Max 5. Nederlands, specifiek, niet studentgericht.
+* manual_review — true bij dunne/generieke/onzekere inhoud; false alleen bij concrete, voldoende uitgelegde inhoud.
+* manual_review_reason — specifieke redenen voor manual_review true; leeg als false. Nederlands.
+* reason — één zin die de diagnose samenvat. Geen score, geen stoplicht, geen statuslabels, niet studentgericht.
