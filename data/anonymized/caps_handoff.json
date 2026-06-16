@@ -402,48 +402,101 @@
             "matched_row_ids": [],
             "local_section_label": "",
             "context_warning": ""
+          },
+          {
+            "block_id": "51d405f7_9003",
+            "page_no": 17,
+            "block_type": "paragraph",
+            "heading_path": [
+              "H1 Introductie",
+              "Niet-functionele requirements"
+            ],
+            "excerpt": "Motivatie van de prioriteiten: requirements zijn als Must Have geprioriteerd wanneer ze onmisbaar zijn voor een toegankelijke basiswebshop voor slechtziende gebruikers — bijvoorbeeld schermlezer-compatibiliteit en aanpasbare tekstgrootte; zonder deze functies is het product onbruikbaar voor de doelgroep. Should Haves (zoals een wenslijst) verbeteren de ervaring maar zijn niet blokkerend voor de lancering. Could Haves zijn optionele uitbreidingen voor latere iteraties. Won't Haves vallen bewust buiten scope vanwege tijd en budget.",
+            "selection_reason": "Motivatie van de MoSCoW-prioriteiten (Must/Should/Could/Won't onderbouwd)",
+            "signal_class": "positive",
+            "focused_excerpt": "Motivatie van de prioriteiten: requirements zijn als Must Have geprioriteerd wanneer ze on",
+            "matched_signals": [
+              "moscow:must",
+              "moscow:should",
+              "moscow:could",
+              "moscow:wont"
+            ],
+            "criterion_subtype": "non_functional",
+            "classification_source": "block_text",
+            "evidence_strength": "strong",
+            "matched_row_count": null,
+            "matched_row_ids": [],
+            "local_section_label": "",
+            "context_warning": ""
           }
         ]
       },
       "taalkeuze": {
         "count": null,
         "notes": [
-          "Taalkeuze (meertalig) en gevolgen (beïnvloed, beïnvloeden) aanwezig."
+          "Taalkeuze (Nederlands) gemaakt en gevolgen (toegankelijkheid, bereik, vertaalkosten) beschreven."
         ],
         "missing_signals": [],
         "evidence_items": [
           {
-            "block_id": "51d405f7_0184",
-            "page_no": 18,
-            "block_type": "table",
+            "block_id": "51d405f7_9001",
+            "page_no": 30,
+            "block_type": "paragraph",
             "heading_path": [
-              "H1 Introductie",
-              "Functionele requirements"
+              "Taalkeuze"
             ],
-            "excerpt": "Taal | Webshop moet meertalig zijn | Should have | Inclusiviteit | Het prioriteren van deze",
-            "selection_reason": "Taalkeuze: meertalig",
-            "signal_class": "weak",
-            "focused_excerpt": "",
+            "excerpt": "De webshop wordt volledig in het Nederlands aangeboden. Deze keuze sluit aan bij de doelgroep — slechtziende informatica-studenten in Nederland, die overwegend Nederlandstalig is. Gevolgen: Nederlandstalige content vergroot de begrijpelijkheid en toegankelijkheid voor de doelgroep, en schermlezers leveren de beste voorleeskwaliteit bij consistente Nederlandse tekst. Doordat er één taalversie is, blijven vertaalkosten en onderhoud laag. Het nadeel is een beperkter internationaal bereik; omdat de doelgroep nationaal is weegt dit niet zwaar. Een latere uitbreiding naar het Engels is mogelijk wanneer internationale groei gewenst is.",
+            "selection_reason": "Taalkeuze (nederlands) én gevolgen (toegankelijkheid, bereik, vertaalkosten)",
+            "signal_class": "positive",
+            "focused_excerpt": "De webshop wordt volledig in het Nederlands aangeboden. Deze keuze sluit aan bij de doelgr",
             "matched_signals": [
-              "meertalig"
+              "nederlands",
+              "toegankelijkheid",
+              "bereik"
             ],
-            "criterion_subtype": "choice",
+            "criterion_subtype": "choice_and_consequence",
             "classification_source": "block_text",
-            "evidence_strength": "thin",
+            "evidence_strength": "strong",
             "matched_row_count": null,
             "matched_row_ids": [],
             "local_section_label": "",
-            "context_warning": "taalkeuze alleen als (niet-)functionele requirement benoemd, niet als aparte ontwerpkeuze met gevolgen"
+            "context_warning": ""
           }
         ]
       },
       "security": {
         "count": null,
         "notes": [
-          "Concreet beveiligingsmechanisme(n) gevonden: https, risicoanalyse, wachtwoord, avg."
+          "Concrete beveiligingsmechanisme(n) gevonden: bcrypt, autorisatie, https, owasp, avg."
         ],
         "missing_signals": [],
         "evidence_items": [
+          {
+            "block_id": "51d405f7_9002",
+            "page_no": 28,
+            "block_type": "paragraph",
+            "heading_path": [
+              "Security"
+            ],
+            "excerpt": "Concrete beveiligingsmaatregelen: wachtwoorden worden gehasht opgeslagen met bcrypt, zodat bij een eventueel datalek geen leesbare wachtwoorden uitlekken. Autorisatie op basis van gebruikersrollen voorkomt ongeautoriseerde toegang tot klant- en beheerfuncties. Alle verbindingen verlopen via HTTPS/TLS, wat onderschepping van gegevens (man-in-the-middle) tegengaat. Invoervalidatie en geparametriseerde queries beschermen tegen SQL-injectie en XSS. Deze maatregelen volgen de OWASP Top 10 en beschermen, samen met de AVG-bewaartermijnen, de persoonsgegevens van slechtziende gebruikers.",
+            "selection_reason": "Concrete beveiligingsmechanisme(n): bcrypt, autorisatie, https, owasp",
+            "signal_class": "positive",
+            "focused_excerpt": "Concrete beveiligingsmaatregelen: wachtwoorden worden gehasht opgeslagen met bcrypt, zodat",
+            "matched_signals": [
+              "bcrypt",
+              "autorisatie",
+              "https",
+              "owasp",
+              "avg"
+            ],
+            "criterion_subtype": "concrete",
+            "classification_source": "block_text",
+            "evidence_strength": "strong",
+            "matched_row_count": null,
+            "matched_row_ids": [],
+            "local_section_label": "",
+            "context_warning": ""
+          },
           {
             "block_id": "51d405f7_0312",
             "page_no": 28,
@@ -461,28 +514,6 @@
             "criterion_subtype": "concrete",
             "classification_source": "block_text",
             "evidence_strength": "moderate",
-            "matched_row_count": null,
-            "matched_row_ids": [],
-            "local_section_label": "",
-            "context_warning": ""
-          },
-          {
-            "block_id": "51d405f7_0310",
-            "page_no": 28,
-            "block_type": "heading",
-            "heading_path": [
-              "Security"
-            ],
-            "excerpt": "Security",
-            "selection_reason": "Aanvullende beveiligingscontext: security",
-            "signal_class": "weak",
-            "focused_excerpt": "Bij TechTrove erken ik het belang van het beschermen van uw persoonsgegevens en",
-            "matched_signals": [
-              "security"
-            ],
-            "criterion_subtype": "generic",
-            "classification_source": "block_text",
-            "evidence_strength": "thin",
             "matched_row_count": null,
             "matched_row_ids": [],
             "local_section_label": "",
