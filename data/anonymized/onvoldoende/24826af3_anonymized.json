@@ -1,0 +1,2578 @@
+{
+  "doc_id": "24826af3",
+  "source_path": "INFIRST_requirements/onvoldoende/INFIRFS_Requirement_Analyse_student10.pdf",
+  "source_name": "INFIRFS_Requirement_Analyse_student10.pdf",
+  "quality_label": "onvoldoende",
+  "block_count": 167,
+  "mapping_count": 3,
+  "mapping": {},
+  "blocks": [
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0001",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "[PERSOON_01] [STUDENTNR_01]",
+      "token_estimate": 4,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0002",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "First Full Stack (INFIRFS)",
+      "token_estimate": 6,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0003",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Datum",
+      "token_estimate": 1,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0004",
+      "page_no": 1,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Requirement Analyse",
+      "token_estimate": 4,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0005",
+      "page_no": 1,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 1",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0006",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Inhoud",
+      "token_estimate": 1,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0007",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Requirement Analyse ............................................................................................................................... 1",
+      "token_estimate": 37,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0008",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H1 Introductie .......................................................................................................................................... 2",
+      "token_estimate": 38,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0009",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H2 Stakeholders analyse .......................................................................................................................... 3",
+      "token_estimate": 37,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0010",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H3 Onderzoek naar web gebruikers ......................................................................................................... 4",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0011",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H4 Wensen, Eisen, Prioriteiten ................................................................................................................ 5",
+      "token_estimate": 36,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0012",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "4.1 Constraints en (non-) Functionele eisen ......................................................................................... 5",
+      "token_estimate": 33,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0013",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Niet-functionele requirements ............................................................................................................. 6",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0014",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Functionele requirements .................................................................................................................... 7",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0015",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "4.2 Use Case Diagram .......................................................................................................................... 8",
+      "token_estimate": 36,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0016",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Use Case beschrijvingen ....................................................................................................................... 8",
+      "token_estimate": 36,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0017",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Beperking ............................................................................................................................................... 10",
+      "token_estimate": 39,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0018",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H5 Ethische aandachtspunten ................................................................................................................ 10",
+      "token_estimate": 35,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0019",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H6 Literatuurlijst ..................................................................................................................................... 10",
+      "token_estimate": 38,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0020",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Bijlage I – Interview verslag [PERSOON_02] ............................................................................................................ 11",
+      "token_estimate": 36,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0021",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "H1 Introductie",
+      "token_estimate": 3,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0022",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Welkom op mijn prachtige Star Wars webshop!",
+      "token_estimate": 10,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0023",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Bij onze webshop staat de kracht van de Force centraal. Dit is de ultieme bestemming voor dingen die",
+      "token_estimate": 25,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0024",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "te maken hebben met het fantastische Star Wars universum. Of je nu op zoek bent naar replica’s van",
+      "token_estimate": 24,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0025",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "lightsabers, iconische merchandise of verzamelobjecten van je favoriete personages, hier vindt je het",
+      "token_estimate": 25,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0026",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "allemaal.",
+      "token_estimate": 2,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0027",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "Bij onze webshop streven we ernaar om de Force toegankelijk te maken voor elke Jedi en Sith, ook de",
+      "token_estimate": 24,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0028",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "mensen met een visuele beperking. Wij begrijpen hoe belangrijk het is om toegankelijk te zijn voor al",
+      "token_estimate": 25,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0029",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "onze klanten. Daarom hebben wij onze website zo ontworpen dat de navigatie erg duidelijk is en dat",
+      "token_estimate": 24,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0030",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "er een inzoemfunctie is. Hierdoor hopen wij de interactie voor slechtziende te verbeteren. Ons doel is",
+      "token_estimate": 25,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0031",
+      "page_no": 2,
+      "block_type": "front_matter",
+      "heading_path": [],
+      "text": "om elke bezoeker een soepele en fijne winkelervaring te geven.",
+      "token_estimate": 15,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0032",
+      "page_no": 2,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 2",
+      "token_estimate": 6,
+      "is_front_matter": true,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0033",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "Voel de kracht van het Star Wars universum bij onze webshop en laat je verleiden door onze collectie.",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0034",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "Moge de Force met je zijn terwijl je op ontdekkingsreis gaat door ons assortiment van het galaxy far,",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0035",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "far away!",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0036",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "Gitlab frontend: https://gitlab.inf-hsleiden.nl/[STUDENTNR_01]/infirfs_webshop/-/tree/master/src/app",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0037",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [],
+      "text": "Gitlab backend: https://gitlab.inf-hsleiden.nl/[STUDENTNR_01]/infirfs_webshop_backend/-/tree/main/src/main/java/com/example/todoappdeel3",
+      "token_estimate": 32,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0038",
+      "page_no": 3,
+      "block_type": "heading",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "H2 Stakeholders analyse",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0039",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "De stakeholder waar we rekening mee houden zijn deze ;",
+      "token_estimate": 13,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0040",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "1. Opdrachtgever – in de naam van Maartje, Vincent, Michiel e.a. – docenten van de module",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0041",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "2. Concurrent",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0042",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "3. Programmeur",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0043",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "4. Fabrikant",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0044",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "5. Gebruiker",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0045",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "6. Opdrachtgever (het bedrijf)",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0046",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "7. Leverancier",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0047",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "8. aandeelhouders",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0048",
+      "page_no": 3,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse"
+      ],
+      "text": "Hieronder staat het stakeholder kwadrant:",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0049",
+      "page_no": 3,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 3",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0050",
+      "page_no": 4,
+      "block_type": "heading",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "H3 Onderzoek naar web gebruikers",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0051",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "Het doel van mijn webshop is om starwars fans een simpele/makkelijke website te geven om alle Star",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0052",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "Wars merchendise te kopen. Ik richt me vooral op Star Wars fans tussen de 18 – 34 jaar oud. Er zijn",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0053",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "veel websites die Star Wars merchendise verkopen. Hier heb ik er een aantal van onderzocht. Bij de",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0054",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "webshop Large.nl verkopen ze van veel franchisen merchendise waaronder ook Star Wars ze verkopen",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0055",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "vooral kleding maar ook tassen en funco-pops. Op de website geeksheaven.nl verkopen ze vooral",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0056",
+      "page_no": 4,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers"
+      ],
+      "text": "funco-pops en andere acceccoires",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0057",
+      "page_no": 4,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 4",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0058",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "H4 Wensen, Eisen, Prioriteiten",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0059",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "In dit hoofdstuk staan de (non-) functional requirements, constraints en Use Cases die ik uit de casus",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0060",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H2 Stakeholders analyse",
+        "H3 Onderzoek naar web gebruikers",
+        "H4 Wensen, Eisen, Prioriteiten"
+      ],
+      "text": "en het gebruikers interview heb gehaald.",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0061",
+      "page_no": 5,
+      "block_type": "heading",
+      "heading_path": [
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "4.1 Constraints en (non-) Functionele eisen",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0062",
+      "page_no": 5,
+      "block_type": "paragraph",
+      "heading_path": [
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Constraints",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0063",
+      "page_no": 5,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 5",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0064",
+      "page_no": 5,
+      "block_type": "table",
+      "heading_path": [
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "Naam | Architecturele relevantie | Geadresseerd in:",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 1,
+        "column_count": 3,
+        "header_row": "Naam | Architecturele relevantie | Geadresseerd in:",
+        "cells": [
+          [
+            "Naam",
+            "Architecturele relevantie",
+            "Geadresseerd in:"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0065",
+      "page_no": 5,
+      "block_type": "table",
+      "heading_path": [
+        "4.1 Constraints en (non-) Functionele eisen"
+      ],
+      "text": "CONSTR01: | Er moeten 10 of meer producten worden verkocht | Pag1:par3:\nCONSTR02: | niet kunnen betalen met giftcards | Pag1:Par3:\nCONSTR03: | niet kunnen betalen met promo codes | Pag1:Par3:\nCONSTR04: | Voldoet aan AVG | Pag2:Par2:\nCONSTR05: | Toegankelijk voor de gekozen beperking | Pag1:Par7:\nCONSTR06: | binnen 6 weken moet de webshop ontworpen, ontwikkeld | Pag2:Par3:\nCONSTR07: | De applicatie inclusief ontwikkeling mag niet meer dan 10.000 euro kosten. | Pag2:par3:KL ( KL is de afkorting voor de stakeholder ).\nCONSTR08: | De website moet betrouwbaar zijn | Pag1:Par1:\nCONSTR09: | De webshop moet gemaakt worden in Angular | Docenten",
+      "token_estimate": 160,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 9,
+        "column_count": 3,
+        "header_row": null,
+        "cells": [
+          [
+            "CONSTR01:",
+            "Er moeten 10 of meer producten worden verkocht",
+            "Pag1:par3:"
+          ],
+          [
+            "CONSTR02:",
+            "niet kunnen betalen met giftcards",
+            "Pag1:Par3:"
+          ],
+          [
+            "CONSTR03:",
+            "niet kunnen betalen met promo codes",
+            "Pag1:Par3:"
+          ],
+          [
+            "CONSTR04:",
+            "Voldoet aan AVG",
+            "Pag2:Par2:"
+          ],
+          [
+            "CONSTR05:",
+            "Toegankelijk voor de gekozen beperking",
+            "Pag1:Par7:"
+          ],
+          [
+            "CONSTR06:",
+            "binnen 6 weken moet de webshop ontworpen, ontwikkeld",
+            "Pag2:Par3:"
+          ],
+          [
+            "CONSTR07:",
+            "De applicatie inclusief ontwikkeling mag niet meer dan 10.000 euro kosten.",
+            "Pag2:par3:KL ( KL is de afkorting voor de stakeholder )."
+          ],
+          [
+            "CONSTR08:",
+            "De website moet betrouwbaar zijn",
+            "Pag1:Par1:"
+          ],
+          [
+            "CONSTR09:",
+            "De webshop moet gemaakt worden in Angular",
+            "Docenten"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0066",
+      "page_no": 6,
+      "block_type": "heading",
+      "heading_path": [
+        "Niet-functionele requirements"
+      ],
+      "text": "Niet-functionele requirements",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0067",
+      "page_no": 6,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 6",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0068",
+      "page_no": 6,
+      "block_type": "table",
+      "heading_path": [
+        "Niet-functionele requirements"
+      ],
+      "text": "Geadresseerd | Prio\nin:\nNFR01: | op alle devices goed te gebruiken(bv. laptop en telefoon) | Pag1:Par6 | Should Have\nNFR02: | De applicatie moet autheticatie hebben | Authenticatie matrix | Must have\nNFR03: | De applicaite moet geauthoriseerde gebruikers bevatten | Login / Pwd policy | Should have\nNFR04: | Gebruikers vriendelijk en toegankelijk voor de gekozen beperking | Pag1:Par7 | Must have\nNFR05: | Goede security | Pag1:Par1: | Must have\nNFR06: | 2 talen | In de les | Should have\nNFR07: | toegankelijk op meerdere browsers | In de les | Must have\nNFR08: | voldoet aan de AVG | Pag2:Par2: | Must have",
+      "token_estimate": 152,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 10,
+        "column_count": 4,
+        "header_row": "Geadresseerd | Prio",
+        "cells": [
+          [
+            "Geadresseerd",
+            "Prio"
+          ],
+          [
+            "in:"
+          ],
+          [
+            "NFR01:",
+            "op alle devices goed te gebruiken(bv. laptop en telefoon)",
+            "Pag1:Par6",
+            "Should Have"
+          ],
+          [
+            "NFR02:",
+            "De applicatie moet autheticatie hebben",
+            "Authenticatie matrix",
+            "Must have"
+          ],
+          [
+            "NFR03:",
+            "De applicaite moet geauthoriseerde gebruikers bevatten",
+            "Login / Pwd policy",
+            "Should have"
+          ],
+          [
+            "NFR04:",
+            "Gebruikers vriendelijk en toegankelijk voor de gekozen beperking",
+            "Pag1:Par7",
+            "Must have"
+          ],
+          [
+            "NFR05:",
+            "Goede security",
+            "Pag1:Par1:",
+            "Must have"
+          ],
+          [
+            "NFR06:",
+            "2 talen",
+            "In de les",
+            "Should have"
+          ],
+          [
+            "NFR07:",
+            "toegankelijk op meerdere browsers",
+            "In de les",
+            "Must have"
+          ],
+          [
+            "NFR08:",
+            "voldoet aan de AVG",
+            "Pag2:Par2:",
+            "Must have"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0069",
+      "page_no": 7,
+      "block_type": "heading",
+      "heading_path": [
+        "Functionele requirements"
+      ],
+      "text": "Functionele requirements",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0070",
+      "page_no": 7,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 7",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0071",
+      "page_no": 7,
+      "block_type": "table",
+      "heading_path": [
+        "Functionele requirements"
+      ],
+      "text": "Naam | Architecturele relevantie | Geadresseerd | Prio\nin:\nFR: Item tonen | Als gebruiker moet ik kunnen kiezen uit minimaal 10 artikelen.. | Pag1:par3:Plenty | MUST have\nFR: inloggen | Als gebruiker wil ik kunnen aanmelden. | Pag7:par2:Plenty | MUST HAVE\nFR:Invoeren Nieuwe Klanten | Als gebruiker wil ik nieuwe klanten kunnen invoeren. | Pag3:par1: Plenty | MUST HAVE\nFR:registreren | gebruiker kan registreren | Pag1:Par4: Plenty | Should have\nFR: filteren | zoek en filteropties | In de les | Should have\nFR: producten toevoegen aan winkelwagen | Producten toevoegen aan winkelwagen | Pag1:Par4: Plenty | Should have\nFR: afrekenen | afrekenen(GEEN BETAAL METHODE INVULLEN) | In de les | Must have\nFR: accountbeheer | Gebruikers profiel en accountbeheer | Pag1:Par4: Plenty | Should have\nFR: recencies | Recensies kunnen geven en lezen van producten | In de les | Could have",
+      "token_estimate": 219,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 11,
+        "column_count": 4,
+        "header_row": "Naam | Architecturele relevantie | Geadresseerd | Prio",
+        "cells": [
+          [
+            "Naam",
+            "Architecturele relevantie",
+            "Geadresseerd",
+            "Prio"
+          ],
+          [
+            "in:"
+          ],
+          [
+            "FR: Item tonen",
+            "Als gebruiker moet ik kunnen kiezen uit minimaal 10 artikelen..",
+            "Pag1:par3:Plenty",
+            "MUST have"
+          ],
+          [
+            "FR: inloggen",
+            "Als gebruiker wil ik kunnen aanmelden.",
+            "Pag7:par2:Plenty",
+            "MUST HAVE"
+          ],
+          [
+            "FR:Invoeren Nieuwe Klanten",
+            "Als gebruiker wil ik nieuwe klanten kunnen invoeren.",
+            "Pag3:par1: Plenty",
+            "MUST HAVE"
+          ],
+          [
+            "FR:registreren",
+            "gebruiker kan registreren",
+            "Pag1:Par4: Plenty",
+            "Should have"
+          ],
+          [
+            "FR: filteren",
+            "zoek en filteropties",
+            "In de les",
+            "Should have"
+          ],
+          [
+            "FR: producten toevoegen aan winkelwagen",
+            "Producten toevoegen aan winkelwagen",
+            "Pag1:Par4: Plenty",
+            "Should have"
+          ],
+          [
+            "FR: afrekenen",
+            "afrekenen(GEEN BETAAL METHODE INVULLEN)",
+            "In de les",
+            "Must have"
+          ],
+          [
+            "FR: accountbeheer",
+            "Gebruikers profiel en accountbeheer",
+            "Pag1:Par4: Plenty",
+            "Should have"
+          ],
+          [
+            "FR: recencies",
+            "Recensies kunnen geven en lezen van producten",
+            "In de les",
+            "Could have"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0072",
+      "page_no": 8,
+      "block_type": "heading",
+      "heading_path": [
+        "4.2 Use Case Diagram"
+      ],
+      "text": "4.2 Use Case Diagram",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0073",
+      "page_no": 8,
+      "block_type": "paragraph",
+      "heading_path": [
+        "4.2 Use Case Diagram"
+      ],
+      "text": "Hieronder staat mijn Use Case Diagram",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0074",
+      "page_no": 8,
+      "block_type": "heading",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "Use Case beschrijvingen",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0075",
+      "page_no": 8,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "Use Case beschrijvingen",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0076",
+      "page_no": 8,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "Hieronder staat een overzicht van mijn Use Case beschrijvingen",
+      "token_estimate": 15,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0077",
+      "page_no": 8,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "UC4: registreren",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0078",
+      "page_no": 8,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 8",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0079",
+      "page_no": 8,
+      "block_type": "table",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "Actor | gebruiker\nPreconditie | Moet de site hebben opgestart\nBeschrijving | Gebruiker moet een account kunnen maken",
+      "token_estimate": 29,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 3,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "Actor",
+            "gebruiker"
+          ],
+          [
+            "Preconditie",
+            "Moet de site hebben opgestart"
+          ],
+          [
+            "Beschrijving",
+            "Gebruiker moet een account kunnen maken"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0080",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "UC6: product toevoegen aan winkelmand",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0081",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "UC10: producten kopen",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0082",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "UC2: inloggen",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0083",
+      "page_no": 9,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "UC11: Producten verwijderen uit winkelmand",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0084",
+      "page_no": 9,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 9",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0085",
+      "page_no": 9,
+      "block_type": "table",
+      "heading_path": [
+        "Use Case beschrijvingen"
+      ],
+      "text": "Scenario beschrijving | 1. Druk op ‘register’ 2. Vul email in 3. Vul wachtwoord in 4. Herhaal wachtwoord 5. Druk op ‘sign up’\nPostconditie | Gebruiker heeft een account aangemaakt\nActor | gebruiker\nPreconditie | Moet de site hebben opgestart en ingelogd zijn\nBeschrijving | Gebruiker moet producten aan de winkelmand kunnen toevoegen\nScenario beschrijving | 1. Kies welk product je wilt toevoegen aan de winkelmand 2. Druk op ‘Buy product’\nPostconditie | De gebruiker heeft een product toegevoegd aan de winkelmand\nActor | gebruiker\nPreconditie | Moet de site hebben opgestart, ingelogd zijn en moet producten hebben toegevoegd aan de winkelmand\nBeschrijving | Gebruiker moet de producten uit de winkelmand kunnen kopen\nScenario beschrijving | 1. Druk op ‘cart 2. Druk op ‘betalen’\nPostconditie | Gebruiker heeft de producten in de winkelmand gekocht\nActor | gebruiker\nPreconditie | Moet de site hebben opgestart en hebben geregistreerd\nBeschrijving | Gebruiker moet kunnen inloggen\nScenario beschrijving | 1. Druk op ‘login’ 2. Vul je email in 3. Vul je wachtwoord in 4. Druk op login\nPostconditie | De gebruiker is ingelogd in een eerder aangemaakt account\nActor | gebruiker\nPreconditie | Moet ingelogd zijn en producten hebben toegevoegd aan de winkelmand\nBeschrijving | Gebruiker moet producten uit winkelmand kunnen verwijderen\nScenario beschrijving | 1. Druk op ‘Cart’ 2. Druk op ‘ Delete’\nPostconditie | De gebruiker heeft een product uit de winkelmand verwijderd",
+      "token_estimate": 367,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": {
+        "row_count": 22,
+        "column_count": 2,
+        "header_row": null,
+        "cells": [
+          [
+            "Scenario beschrijving",
+            "1. Druk op ‘register’ 2. Vul email in 3. Vul wachtwoord in 4. Herhaal wachtwoord 5. Druk op ‘sign up’"
+          ],
+          [
+            "Postconditie",
+            "Gebruiker heeft een account aangemaakt"
+          ],
+          [
+            "Actor",
+            "gebruiker"
+          ],
+          [
+            "Preconditie",
+            "Moet de site hebben opgestart en ingelogd zijn"
+          ],
+          [
+            "Beschrijving",
+            "Gebruiker moet producten aan de winkelmand kunnen toevoegen"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Kies welk product je wilt toevoegen aan de winkelmand 2. Druk op ‘Buy product’"
+          ],
+          [
+            "Postconditie",
+            "De gebruiker heeft een product toegevoegd aan de winkelmand"
+          ],
+          [
+            "Actor",
+            "gebruiker"
+          ],
+          [
+            "Preconditie",
+            "Moet de site hebben opgestart, ingelogd zijn en moet producten hebben toegevoegd aan de winkelmand"
+          ],
+          [
+            "Beschrijving",
+            "Gebruiker moet de producten uit de winkelmand kunnen kopen"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Druk op ‘cart 2. Druk op ‘betalen’"
+          ],
+          [
+            "Postconditie",
+            "Gebruiker heeft de producten in de winkelmand gekocht"
+          ],
+          [
+            "Actor",
+            "gebruiker"
+          ],
+          [
+            "Preconditie",
+            "Moet de site hebben opgestart en hebben geregistreerd"
+          ],
+          [
+            "Beschrijving",
+            "Gebruiker moet kunnen inloggen"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Druk op ‘login’ 2. Vul je email in 3. Vul je wachtwoord in 4. Druk op login"
+          ],
+          [
+            "Postconditie",
+            "De gebruiker is ingelogd in een eerder aangemaakt account"
+          ],
+          [
+            "Actor",
+            "gebruiker"
+          ],
+          [
+            "Preconditie",
+            "Moet ingelogd zijn en producten hebben toegevoegd aan de winkelmand"
+          ],
+          [
+            "Beschrijving",
+            "Gebruiker moet producten uit winkelmand kunnen verwijderen"
+          ],
+          [
+            "Scenario beschrijving",
+            "1. Druk op ‘Cart’ 2. Druk op ‘ Delete’"
+          ],
+          [
+            "Postconditie",
+            "De gebruiker heeft een product uit de winkelmand verwijderd"
+          ]
+        ],
+        "index_cells": []
+      }
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0086",
+      "page_no": 10,
+      "block_type": "heading",
+      "heading_path": [
+        "Beperking"
+      ],
+      "text": "Beperking",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0087",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Beperking"
+      ],
+      "text": "Ik richt me ook op mensen met visuele beperkingen. Star Wars fans Vinden net als iedereen fijn als de",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0088",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Beperking"
+      ],
+      "text": "website goed te overzien is en dat er geen reclame op de webshop is.",
+      "token_estimate": 17,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0089",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Beperking"
+      ],
+      "text": "Ik houd rekening met mijn doelgroepen door een simpele webshop te maken waar geen kleine",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0090",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Beperking"
+      ],
+      "text": "lettertjes bij staan en waar er altijd een goed contrast is tussen de kleuren zodat de klanten met",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0091",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Beperking"
+      ],
+      "text": "visuele beperkingen ook een fijne winkelervaring hebben.",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0092",
+      "page_no": 10,
+      "block_type": "heading",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "H5 Ethische aandachtspunten",
+      "token_estimate": 6,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0093",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Na de lessen over ethische aandachtspunten heb ik besloten om een aantal dingen niet toe te voegen",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0094",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "aan mijn webshop",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0095",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Dat heeft gevolgen voor de website die ik gemaakt heb, namelijk ;",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0096",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "X Ik heb besloten om geen valse kortingen te hebben",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0097",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Y Ik heb besloten om geen valse informatie te geven over producten (bv. nog maar 3 beschikbaar of",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0098",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "bij de producten een label te hangen van best verkocht als dat niet zo is)",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0099",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "Z Ik heb besloten om geen reclame op mijn site te zetten van andere bedrijven. (want niet alle",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0100",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H5 Ethische aandachtspunten"
+      ],
+      "text": "reclame is veilig en geschikt voor alle leeftijden)",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0101",
+      "page_no": 10,
+      "block_type": "heading",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "H6 Literatuurlijst",
+      "token_estimate": 4,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0102",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "https://www.geeksheaven.nl/star-wars/ https://www.large.nl/fanmerch/star-wars/",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0103",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "https://www.pluralsight.com/blog/software-development/making-website-accessible-for-blind-",
+      "token_estimate": 22,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0104",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "lowvision",
+      "token_estimate": 2,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0105",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "https://nl.wix.com/blog/post/10-voorbeelden-van-de-beste-webshops-doe-er-je-",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0106",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "voordeelmee?utm_source=google&utm_medium=cpc&utm_campaign=14050035780^133862885988",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0107",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "^search %20-",
+      "token_estimate": 3,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0108",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "%20dsa&experiment_id=^^536052956537^&gad_source=1&gclid=Cj0KCQiA5rGuBhCnARIsAN11vgTB",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0109",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "xH9LRlZ5AthAjkIG-UZ_JTAJd_jqop4JUdSXZtUnWGWCSuW08uwaAlh1EALw_wcB",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0110",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "https://www.jouwweb.nl/webshop-",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0111",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "maken?ga[campaign]=13996494138&ga[adgroup]=127658222760&ga[network]=g&ga[position]=&ga",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0112",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "[kw]=webshop%20beginnen&ga[creative]=424878524078&gad_source=1&gclid=Cj0KCQjwwMqvBhC",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0113",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "tARIsAIXsZpZ49drq62FGAxshdnwzjOEy8qZYMTjmPnkD0bRuXQ7gQ1AAR9Eq8kIaAnQKEALw_wcB",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0114",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "https://succesmetjewebshop.nl/moeiteloos-meer-",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0115",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "klanten/?gad_source=1&gclid=Cj0KCQjwwMqvBhCtARIsAIXsZpZs5iNyavVMmph6AlkBVhG9oRtkhn8tv",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0116",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "PhHbS0xlUZ0q-4v8Hi_0EaArnCEALw_wcB",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0117",
+      "page_no": 10,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "https://succesmetjewebshop.nl/moeiteloos-meer-",
+      "token_estimate": 11,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0118",
+      "page_no": 10,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 10",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0119",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "H6 Literatuurlijst"
+      ],
+      "text": "klanten/?gad_source=1&gclid=Cj0KCQjwwMqvBhCtARIsAIXsZpZs5iNyavVMmph6AlkBVhG9oRtkhn8tv",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0120",
+      "page_no": 11,
+      "block_type": "heading",
+      "heading_path": [
+        "PhHbS0xlUZ0q-4v8Hi_0EaArnCEALw_wcB"
+      ],
+      "text": "PhHbS0xlUZ0q-4v8Hi_0EaArnCEALw_wcB",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": false,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0121",
+      "page_no": 11,
+      "block_type": "heading",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "Bijlage I – Interview verslag [PERSOON_02]",
+      "token_estimate": 8,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0122",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "1. Wat spreekt je het meest aan in de Star Wars-franchise en hoe zou je willen dat deze passie wordt",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0123",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "weerspiegeld in onze webshop?",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0124",
+      "page_no": 11,
+      "block_type": "bullet",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "- Hetgeen dat me het meest aanspreekt in de Star Wars-franchise is de epische verhaallijn, de diverse",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0125",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "personages en natuurlijk de adembenemende ruimtegevechten. Ik zou graag zien dat onze webshop deze",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0126",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "opwinding en avontuur weerspiegelt door middel van dynamische productpresentaties en exclusieve collecties die",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0127",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "de kern van Star Wars vangen.",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0128",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "2. Welke soort Star Wars-merchandise zoek je momenteel het meest en waarom?",
+      "token_estimate": 18,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0129",
+      "page_no": 11,
+      "block_type": "bullet",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "- Op dit moment ben ik vooral op zoek naar verzamelobjecten zoals lightsabers, helmen en replica's van",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0130",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "ruimteschepen. Deze items helpen me om de magie van Star Wars naar mijn eigen kamer te brengen.",
+      "token_estimate": 23,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0131",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "3. Wat zou je graag willen zien verbeteren aan de gebruikerservaring van onze webshop met betrekking tot het",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0132",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "vinden en kopen van Star Wars-producten?",
+      "token_estimate": 10,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0133",
+      "page_no": 11,
+      "block_type": "bullet",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "- Ik zou graag een verbetering zien in de zoekfunctie van de webshop, zodat ik gemakkelijker specifieke items kan",
+      "token_estimate": 28,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0134",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "vinden. Ook zou het handig zijn als er meer filters beschikbaar zijn om mijn zoekopdrachten te verfijnen op",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0135",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "bijvoorbeeld prijs, populariteit en releasejaar.",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0136",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "4. Zijn er specifieke collecties of productlijnen waarvan je graag meer zou willen zien in onze webshop? Zo ja,",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0137",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "welke?",
+      "token_estimate": 1,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0138",
+      "page_no": 11,
+      "block_type": "bullet",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "- Ik zou graag meer collecties zien die zich richten op de originele trilogie, aangezien die mijn favoriet is, maar ook",
+      "token_estimate": 29,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0139",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "op nieuwe series zoals The Mandalorian en The Book of Boba Fett.",
+      "token_estimate": 16,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0140",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "5. Hoe belangrijk vind je het dat onze webshop exclusieve Star Wars-merchandise aanbiedt die niet gemakkelijk",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0141",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "elders te vinden is?",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0142",
+      "page_no": 11,
+      "block_type": "bullet",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "- Het aanbieden van exclusieve Star Wars-merchandise is enorm belangrijk voor mij. Het voegt een gevoel van",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0143",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "exclusiviteit en waarde toe aan mijn collectie en maakt de ervaring des te specialer.",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0144",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "6. Op welke manier zou je graag meer betrokken worden bij onze webshop, bijvoorbeeld via exclusieve",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0145",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "evenementen of loyaliteitsprogramma's?",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0146",
+      "page_no": 11,
+      "block_type": "bullet",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "- Ik zou graag meer betrokken worden bij onze webshop door middel van exclusieve evenementen zoals virtuele",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0147",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "conventies of pre-sale events voor nieuwe merchandise. Ook een loyaliteitsprogramma met beloningen voor",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0148",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "frequente klanten zou geweldig zijn.",
+      "token_estimate": 9,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0149",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "7. Wat zijn enkele van je favoriete Star Wars-personages of -momenten en zou je graag zien dat deze worden",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0150",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "geïntegreerd in speciale aanbiedingen of verzamelobjecten?",
+      "token_estimate": 14,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0151",
+      "page_no": 11,
+      "block_type": "bullet",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "- Mijn favoriete Star Wars-personages zijn Han Solo en Ahsoka Tano, dus ik zou het fantastisch vinden als er",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0152",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "speciale aanbiedingen of verzamelobjecten zouden zijn die aan hen zijn gewijd.",
+      "token_estimate": 19,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0153",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "8. Hoeveel waarde hecht je aan de beschikbaarheid van officieel gelicentieerde Star Wars-merchandise in",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0154",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "vergelijking met fan-made of onofficiële producten?",
+      "token_estimate": 12,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0155",
+      "page_no": 11,
+      "block_type": "bullet",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "- Voor mij is het belangrijk dat onze webshop officieel gelicentieerde Star Wars-merchandise aanbiedt. Het",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0156",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "garandeert de kwaliteit en authenticiteit van de producten, wat essentieel is voor een echte fan.",
+      "token_estimate": 24,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0157",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "9. Op welke manier zou je graag meer te weten komen over nieuwe Star Wars-producten en aanbiedingen binnen",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0158",
+      "page_no": 11,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "onze webshop? Bijvoorbeeld via e-mailmeldingen, sociale media of een speciale sectie op onze website?",
+      "token_estimate": 25,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0159",
+      "page_no": 11,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 11",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0160",
+      "page_no": 12,
+      "block_type": "bullet",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "- Ik zou graag meer te weten komen over nieuwe Star Wars-producten en aanbiedingen via sociale media, vooral",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0161",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "Instagram en Twitter, omdat daar vaak sneak peeks en aankondigingen worden gedeeld.",
+      "token_estimate": 20,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0162",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "10. Zou je geïnteresseerd zijn in gepersonaliseerde Star Wars-producten, zoals merchandise met je favoriete",
+      "token_estimate": 26,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0163",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "personages, quotes of ontwerpen? Zo ja, welke soorten personalisatie zou je graag zien?",
+      "token_estimate": 21,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0164",
+      "page_no": 12,
+      "block_type": "bullet",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "- Absoluut! Ik zou het geweldig vinden om gepersonaliseerde Star Wars-producten te kunnen bestellen, zoals een",
+      "token_estimate": 27,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0165",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "lightsaber met mijn naam erop of een t-shirt met mijn favoriete citaat van Yoda. Dit voegt een persoonlijk tintje toe",
+      "token_estimate": 29,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0166",
+      "page_no": 12,
+      "block_type": "paragraph",
+      "heading_path": [
+        "Bijlage I – Interview verslag [PERSOON_02]"
+      ],
+      "text": "aan mijn verzameling.",
+      "token_estimate": 5,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    },
+    {
+      "doc_id": "24826af3",
+      "block_id": "24826af3_0167",
+      "page_no": 12,
+      "block_type": "noise",
+      "heading_path": [],
+      "text": "Requirements Analyse pag. 12",
+      "token_estimate": 7,
+      "is_front_matter": false,
+      "is_appendix": true,
+      "table_meta": null
+    }
+  ]
+}
