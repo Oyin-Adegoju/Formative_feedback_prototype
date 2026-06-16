@@ -97,8 +97,11 @@ def _parse_args() -> argparse.Namespace:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__,
     )
-    parser.add_argument("--input", required=True, metavar="PATH",
-                        help="Path to the anonymized JSON input file.")
+    parser.add_argument("--input", metavar="PATH",
+                        help="Path to the anonymized JSON document (runs CAPS to build the handoff).")
+    parser.add_argument("--handoff", metavar="PATH",
+                        help="Path to a pre-built CAPS handoff JSON. Skips CAPS and runs "
+                             "quality + merge + feedback directly on it.")
     parser.add_argument("--output-dir", default=str(_DEFAULT_OUTPUT_DIR), metavar="DIR",
                         help="Base output directory (default: data/full_pipeline_runs).")
     parser.add_argument("--max-candidates", type=int, default=20, metavar="N",
@@ -247,55 +250,73 @@ def main() -> int:
     args = _parse_args()
     debug: bool = args.debug
 
+    if bool(args.input) == bool(args.handoff):
+        print("[FATAL] Geef exact één van --input (document) of --handoff (handoff-JSON).")
+        return 1
+
     llm_base_url = os.environ.get("LLM_BASE_URL", "http://localhost:11434/v1")
     llm_model = os.environ.get("LLM_MODEL", "Qwen2.5-14B-Instruct")
 
     print("=" * 64)
     print("  Full Pipeline v2: CAPS → Qwen quality → merge → feedback")
     print("=" * 64)
-    print(f"  input        : {args.input}")
+    print(f"  input        : {args.handoff or args.input}{'  (handoff)' if args.handoff else ''}")
     print(f"  LLM base URL : {llm_base_url}")
     print(f"  LLM model    : {llm_model}")
     print(f"  mode         : {'CAPS + merge only (--no-llm)' if args.no_llm else 'full pipeline'}")
     print()
 
-    input_path = pathlib.Path(args.input)
+    input_path = pathlib.Path(args.handoff or args.input)
     if not input_path.exists():
         print(f"[FATAL] Input file not found: {input_path}")
         return 1
 
     try:
-        raw_text = input_path.read_text(encoding="utf-8")
-        raw: dict = json.loads(raw_text)
+        raw: dict = json.loads(input_path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
         print(f"[FATAL] JSON decode error in {input_path.name}: {exc}")
         if debug:
             traceback.print_exc()
         return 1
 
-    # ── Step 1: CAPS + handoff ────────────────────────────────────────────────
-    _section("Step 1 — CAPS + handoff")
-    report = _normalize_report(raw)
-    try:
-        artifacts = run_caps_with_artifacts(
-            report, input_source="anonymized", max_candidates=args.max_candidates,
-        )
-        caps_result = artifacts.result
-        handoff_dict = handoff_to_dict(build_handoff_from_artifacts(artifacts))
-    except Exception as exc:
-        print(f"[FATAL] CAPS/handoff raised: {exc}")
-        if debug:
-            traceback.print_exc()
-        return 1
-    print(f"  doc_id                  : {caps_result.doc_id}")
-    print( "  (CAPS structural check — beoordeelt NIET de inhoud, alleen of de")
-    print( "   verwachte secties/structuur aanwezig zijn; geen documentcijfer.")
-    print( "   Het definitieve oordeel is final_stoplight in Step 3.)")
-    print(f"  structural_check        : {caps_result.overall_stoplight}  (green = structuur aanwezig, red = blocker mist)")
-    print(f"  ontbrekende structuur   : {', '.join(caps_result.blockers_triggered) or 'none'}")
+    if args.handoff:
+        # Pre-built handoff supplied → skip CAPS; run quality + merge + feedback on it.
+        _section("Step 1 — handoff aangeleverd (CAPS overgeslagen)")
+        handoff_dict = raw
+        doc_id = handoff_dict.get("document_id") or input_path.stem
+        source_name = handoff_dict.get("source_name", "")
+        structural_stoplight = "n.v.t. (handoff aangeleverd)"
+        blockers: list[str] = []
+        print(f"  doc_id                  : {doc_id}")
+        print( "  (CAPS overgeslagen — handoff rechtstreeks aangeleverd; structuur niet herbepaald.)")
+    else:
+        # ── Step 1: CAPS + handoff ────────────────────────────────────────────
+        _section("Step 1 — CAPS + handoff")
+        report = _normalize_report(raw)
+        try:
+            artifacts = run_caps_with_artifacts(
+                report, input_source="anonymized", max_candidates=args.max_candidates,
+            )
+            caps_result = artifacts.result
+            handoff_dict = handoff_to_dict(build_handoff_from_artifacts(artifacts))
+        except Exception as exc:
+            print(f"[FATAL] CAPS/handoff raised: {exc}")
+            if debug:
+                traceback.print_exc()
+            return 1
+        doc_id = doc_id
+        source_name = source_name
+        structural_stoplight = structural_stoplight
+        blockers = list(caps_result.blockers_triggered)
+        print(f"  doc_id                  : {doc_id}")
+        print( "  (CAPS structural check — beoordeelt NIET de inhoud, alleen of de")
+        print( "   verwachte secties/structuur aanwezig zijn; geen documentcijfer.")
+        print( "   Het definitieve oordeel is final_stoplight in Step 3.)")
+        print(f"  structural_check        : {structural_stoplight}  (green = structuur aanwezig, red = blocker mist)")
+        print(f"  ontbrekende structuur   : {', '.join(blockers) or 'none'}")
 
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    run_dir = pathlib.Path(args.output_dir) / f"{caps_result.doc_id}_{timestamp}"
+    run_dir = pathlib.Path(args.output_dir) / f"{doc_id}_{timestamp}"
     run_dir.mkdir(parents=True, exist_ok=True)
 
     quality: dict | None = None
@@ -306,10 +327,10 @@ def main() -> int:
     def _write_summary(all_passed: bool, checks: dict) -> None:
         _write_json(run_dir / "run_summary.json", {
             "input_path": str(input_path.resolve()),
-            "doc_id": caps_result.doc_id,
-            "source_name": caps_result.source_name,
+            "doc_id": doc_id,
+            "source_name": source_name,
             "output_directory": str(run_dir),
-            "overall_stoplight": caps_result.overall_stoplight,
+            "overall_stoplight": structural_stoplight,
             "final_stoplight": (merged or {}).get("final_stoplight"),
             "criteria_requiring_extra_review": (merged or {}).get("criteria_requiring_extra_review", []),
             "quality_skipped": quality is None,
@@ -329,7 +350,7 @@ def main() -> int:
         # neutral placeholder so the merge contract stays valid; the count floor
         # still applies on top of it.
         empty_quality = {
-            "document_id": caps_result.doc_id,
+            "document_id": doc_id,
             "criteria": {
                 k: {"criterion_judgement": "mixed", "diagnostics": {},
                     "strengths": [], "weaknesses": [],
@@ -393,9 +414,12 @@ def main() -> int:
     # ── Step 6: Write outputs ─────────────────────────────────────────────────
     _section("Step 6 — Writing outputs")
     print(f"  Output directory: {run_dir}\n")
-    (run_dir / "input_copy.json").write_text(raw_text, encoding="utf-8")
+    (run_dir / "input_copy.json").write_text(
+        input_path.read_text(encoding="utf-8"), encoding="utf-8")
     print("    saved: input_copy.json              [original, unmodified]")
-    _write_json(run_dir / "anonymized_report.json", dict(report))
+    if not args.handoff:
+        # anonymized_report only exists when we ran CAPS from a document.
+        _write_json(run_dir / "anonymized_report.json", dict(report))
     _write_json(run_dir / "caps_handoff.json", handoff_dict)
     if quality is not None:
         _write_json(run_dir / "quality_diagnostics.json", quality)
@@ -413,7 +437,7 @@ def main() -> int:
 
     # ── Result ────────────────────────────────────────────────────────────────
     _section("Result")
-    print(f"  doc_id    : {caps_result.doc_id}")
+    print(f"  doc_id    : {doc_id}")
     print(f"  stoplight : {merged['final_stoplight']}")
     print(f"  output    : {run_dir}")
     if any_fail:
