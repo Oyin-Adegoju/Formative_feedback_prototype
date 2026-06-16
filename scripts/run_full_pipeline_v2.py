@@ -304,9 +304,9 @@ def main() -> int:
             if debug:
                 traceback.print_exc()
             return 1
-        doc_id = doc_id
-        source_name = source_name
-        structural_stoplight = structural_stoplight
+        doc_id = caps_result.doc_id
+        source_name = caps_result.source_name
+        structural_stoplight = caps_result.overall_stoplight
         blockers = list(caps_result.blockers_triggered)
         print(f"  doc_id                  : {doc_id}")
         print( "  (CAPS structural check — beoordeelt NIET de inhoud, alleen of de")
