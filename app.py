@@ -528,23 +528,27 @@ def _run_pipeline(anon_path: pathlib.Path) -> tuple[pathlib.Path | None, str]:
 # ---------------------------------------------------------------------------
 
 def _list_runs() -> list[pathlib.Path]:
-    if not _RUNS_DIR.exists():
-        return []
-    dirs = sorted(
-        (d for d in _RUNS_DIR.iterdir() if d.is_dir()),
-        reverse=True,
-    )
+    """Beschikbare feedback-runs voor de studentweergave.
+
+    Scant zowel de echte pipeline-runs (data/full_pipeline_runs/) als de
+    vooraf gegenereerde demo-feedback (data/demo_feedback/), zodat de student de
+    feedback ziet die de docent net via een upload toonde. Een map telt mee als
+    die een bruikbare feedback_result.json bevat.
+    """
     valid = []
-    for d in dirs:
-        fb_path = d / "feedback_result.json"
-        if not fb_path.exists():
+    for base in (_RUNS_DIR, _DEMO_DIR):
+        if not base.exists():
             continue
-        try:
-            data = json.loads(fb_path.read_text(encoding="utf-8"))
-            if isinstance(data, dict) and not data.get("skipped"):
-                valid.append(d)
-        except (OSError, json.JSONDecodeError):
-            pass
+        for d in sorted((d for d in base.iterdir() if d.is_dir()), reverse=True):
+            fb_path = d / "feedback_result.json"
+            if not fb_path.exists():
+                continue
+            try:
+                data = json.loads(fb_path.read_text(encoding="utf-8"))
+                if isinstance(data, dict) and not data.get("skipped"):
+                    valid.append(d)
+            except (OSError, json.JSONDecodeError):
+                pass
     return valid
 
 
@@ -831,6 +835,8 @@ def _render_docent_view(
         use_container_width=True,
     ):
         st.session_state[f"confirm_{run_dir.name}"] = True
+        # Maak deze run pas zichtbaar in de studentweergave na het versturen.
+        st.session_state.setdefault("sent_runs", set()).add(str(run_dir))
 
     st.markdown("</div>", unsafe_allow_html=True)
 
@@ -1051,25 +1057,28 @@ def main() -> None:
                 unsafe_allow_html=True,
             )
 
-            runs = _list_runs()
+            # Toon alleen feedback die de docent deze sessie heeft verstuurd.
+            sent_runs = st.session_state.get("sent_runs", set())
+            runs = [r for r in _list_runs() if str(r) in sent_runs]
 
             if not runs:
                 st.warning(
-                    "Geen feedback beschikbaar.\n\n"
-                    "De docent moet eerst een document verwerken."
+                    "Nog geen feedback beschikbaar.\n\n"
+                    "De docent moet de feedback eerst versturen "
+                    "(knop 'Verstuur feedback naar student')."
                 )
                 st.stop()
 
-            run_labels = [run.name for run in runs]
+            runs_by_label = {run.name: run for run in runs}
 
             selected_label = st.selectbox(
                 "Run",
-                options=run_labels,
+                options=list(runs_by_label),
                 index=0,
                 label_visibility="collapsed",
             )
 
-            st.session_state.run_dir = str(_RUNS_DIR / selected_label)
+            st.session_state.run_dir = str(runs_by_label[selected_label])
 
         # ── Footer ───
         st.markdown(
