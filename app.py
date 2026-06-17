@@ -950,25 +950,100 @@ def _render_upload_form() -> None:
     uploaded_pdf = st.file_uploader(
         "Student document (PDF)",
         type=["pdf"],
-        help="Selecteer een PDF om de knop te activeren.",
+        help="Selecteer een PDF om te uploaden.",
     )
 
     st.divider()
 
-    if st.button(
-        "Genereer formatieve feedback",
-        type="primary",
-        disabled=uploaded_pdf is None,
-    ):
-        _generate_demo(uploaded_pdf.name if uploaded_pdf is not None else None)
+    if uploaded_pdf is None:
+        return
+
+    pdf_name = uploaded_pdf.name
+    anonymized = (
+        st.session_state.get("anon_pdf") == pdf_name
+        and st.session_state.get("anon_run")
+    )
+
+    # Stap 1 — uploaden + anonimiseren.
+    if not anonymized:
+        if st.button("Upload document", type="primary"):
+            _anonymize_demo(pdf_name)
+        return
+
+    # Stap 2 — anonimisatie klaar: toon hoeveel namen zijn verwijderd + genereer-knop.
+    count = st.session_state.get("anon_count", 0)
+    st.success(
+        f"✓ Document geanonimiseerd — {count} "
+        f"{'naam' if count == 1 else 'namen'} verwijderd. "
+        "Je kunt het geanonimiseerde document straks downloaden onder 'Downloads'."
+    )
+    if st.button("Genereer feedback", type="primary"):
+        _show_feedback_demo()
 
 
-def _generate_demo(pdf_name: str | None = None) -> None:
-    """Toon vooraf gegenereerde feedback voor de geüploade PDF — geen pipeline, geen LLM.
+def _removed_names_count(doc_id: str) -> int:
+    """Aantal vervangen namen (mapping_count) uit het geanonimiseerde document."""
+    path = _anonymized_path(doc_id)
+    if path is None:
+        return 0
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return int(data.get("mapping_count") or 0)
+    except (OSError, json.JSONDecodeError, TypeError, ValueError):
+        return 0
 
-    De PDF-bestandsnaam bepaalt welke demo-map uit data/demo_feedback/ wordt
-    geladen (zie _resolve_demo_run). Onbekende PDF → geen demo-feedback.
+
+def _anonymize_demo(pdf_name: str) -> None:
+    """Stap 1 — toon de anonimisatie-animatie en bewaar het resultaat in de sessie.
+
+    Geen echte pipeline: de bijbehorende demo-map wordt opgezocht en het aantal
+    verwijderde namen uit het geanonimiseerde document gelezen.
     """
+    anon_placeholder = st.empty()
+
+    anon_placeholder.markdown(
+        """
+        <div class="thinking-indicator">
+            <span class="thinking-icon">🔒</span>
+            <span class="thinking-text">Document wordt geanonimiseerd</span>
+            <div class="thinking-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    run_dir = _resolve_demo_run(pdf_name)
+
+    time.sleep(4)
+    anon_placeholder.empty()
+
+    if run_dir is None:
+        for key in ("anon_pdf", "anon_count", "anon_run"):
+            st.session_state.pop(key, None)
+        st.error(
+            f"Geen demo-feedback gevonden voor '{pdf_name}'. "
+            "Voeg een map toe onder `data/demo_feedback/<pdf-naam-zonder-extensie>/` "
+            "met daarin `feedback_result.json` en `merged_feedback_input.json`, "
+            "of registreer de PDF in `_PDF_TO_DEMO` bovenin app.py."
+        )
+        return
+
+    fb = _load_json(run_dir / "feedback_result.json") or {}
+    st.session_state["anon_pdf"] = pdf_name
+    st.session_state["anon_count"] = _removed_names_count(fb.get("document_id", ""))
+    st.session_state["anon_run"] = str(run_dir)
+    st.rerun()
+
+
+def _show_feedback_demo() -> None:
+    """Stap 2 — toon de AI-feedback-animatie en open de geanonimiseerde run."""
+    run_dir = st.session_state.get("anon_run")
+    if not run_dir:
+        return
 
     thinking_placeholder = st.empty()
 
@@ -987,21 +1062,12 @@ def _generate_demo(pdf_name: str | None = None) -> None:
         unsafe_allow_html=True,
     )
 
-    run_dir = _resolve_demo_run(pdf_name)
-
     time.sleep(10)
     thinking_placeholder.empty()
 
-    if run_dir is None:
-        st.error(
-            f"Geen demo-feedback gevonden voor '{pdf_name}'. "
-            "Voeg een map toe onder `data/demo_feedback/<pdf-naam-zonder-extensie>/` "
-            "met daarin `feedback_result.json` en `merged_feedback_input.json`, "
-            "of registreer de PDF in `_PDF_TO_DEMO` bovenin app.py."
-        )
-        return
-
-    st.session_state.run_dir = str(run_dir)
+    st.session_state.run_dir = run_dir
+    for key in ("anon_pdf", "anon_count", "anon_run"):
+        st.session_state.pop(key, None)
     st.rerun()
 
 # ---------------------------------------------------------------------------
