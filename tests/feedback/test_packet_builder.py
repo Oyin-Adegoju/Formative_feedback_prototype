@@ -451,6 +451,96 @@ def test_beperking_partial_limitation_only_has_missing_research():
         )
 
 
+def _bep_report_with_litlist(lit_text: str) -> dict:
+    """Beperking doc with a doelgroep block + a Literatuurlijst section whose
+    single entry is `lit_text` (with or without a concrete source)."""
+    return {
+        "doc_id": "pkt-bep-litlist",
+        "source_name": "litlist.pdf",
+        "page_count": 3,
+        "block_count": 3,
+        "blocks": [
+            _block(
+                "b01", 1, "paragraph",
+                "Wij richten ons op slechtziende gebruikers. De gekozen beperking "
+                "is een visuele beperking. Dit is onze specifieke doelgroep.",
+                ["Onderzoek naar web gebruikers"],
+            ),
+            _block("b02", 2, "heading", "Literatuurlijst", ["Literatuurlijst"]),
+            _block("b03", 2, "paragraph", lit_text, ["Literatuurlijst"]),
+        ],
+    }
+
+
+def _bron_gap_items(pkt) -> list:
+    return [it for it in pkt.evidence_items if "zonder concrete bronnen" in it.selection_reason]
+
+
+def test_beperking_flags_empty_literatuurlijst_without_sources():
+    """A Literatuurlijst heading with no concrete source (no URL / year citation)
+    is surfaced as an absent_marker so the quality stage sees the missing bronnen."""
+    report = _bep_report_with_litlist("Misschien Google en TikTok.")
+    artifacts = run_caps_with_artifacts(report, input_source="parser_direct")
+    pkt = build_evidence_packets(artifacts)["beperking"]
+    gap = _bron_gap_items(pkt)
+    assert gap, "expected a bron-gap marker for an empty literatuurlijst"
+    assert gap[0].signal_class == "absent_marker"
+
+
+def test_beperking_no_gap_when_literatuurlijst_has_a_source():
+    """A Literatuurlijst with a real source (URL + year) must NOT be flagged."""
+    report = _bep_report_with_litlist(
+        "Bron: WHO (2023). Toegankelijkheid. https://www.who.int/report"
+    )
+    artifacts = run_caps_with_artifacts(report, input_source="parser_direct")
+    pkt = build_evidence_packets(artifacts)["beperking"]
+    assert not _bron_gap_items(pkt), "literatuurlijst with a real source must not be flagged"
+
+
+def _nfr_taal_items(pkt) -> list:
+    return [it for it in pkt.evidence_items
+            if "alleen als (niet-)functionele requirement" in (it.context_warning or "")]
+
+
+def test_taalkeuze_partial_when_only_a_requirement():
+    """Language addressed only as an NFR ('Taal | meertalig') is a PARTIAL (weak)
+    taalkeuze signal — present, not absent — with an honest NFR warning, so the
+    criterion is not treated as missing/red."""
+    report = {
+        "doc_id": "pkt-taal-nfr", "source_name": "taalnfr.pdf",
+        "page_count": 2, "block_count": 2,
+        "blocks": [
+            _block("t01", 1, "paragraph",
+                   "De webshop richt zich op een brede doelgroep.", ["Inleiding"]),
+            _block("t02", 1, "paragraph",
+                   "Taal: De website moet meertalig zijn (Nederlands en Engels).",
+                   ["Requirements", "Niet-functionele requirements"]),
+        ],
+    }
+    artifacts = run_caps_with_artifacts(report, input_source="parser_direct")
+    pkt = build_evidence_packets(artifacts)["taalkeuze"]
+    nfr = _nfr_taal_items(pkt)
+    assert nfr, "expected a partial NFR-taalkeuze item"
+    assert nfr[0].signal_class == "weak"
+
+
+def test_taalkeuze_use_case_language_is_not_counted():
+    """'Taal uitkiezen' as a use case is taalwisseling-functionaliteit, not a
+    design-time language choice — it must NOT become taalkeuze evidence."""
+    report = {
+        "doc_id": "pkt-taal-uc", "source_name": "taaluc.pdf",
+        "page_count": 2, "block_count": 1,
+        "blocks": [
+            _block("u01", 1, "paragraph",
+                   "UC15: Taal uitkiezen. De gebruiker kan de taal van de site wijzigen.",
+                   ["Use cases", "UC15 Taal uitkiezen"]),
+        ],
+    }
+    artifacts = run_caps_with_artifacts(report, input_source="parser_direct")
+    pkt = build_evidence_packets(artifacts)["taalkeuze"]
+    assert not _nfr_taal_items(pkt), "use-case language must not be a partial NFR signal"
+
+
 def test_taalkeuze_partial_choice_only_has_missing_consequences():
     """When only language choice is found, missing_signals mentions consequences."""
     report = {
@@ -554,16 +644,24 @@ def test_strong_packets_have_positive_items_for_present_criteria(strong_packets)
 # Section 3: Integration tests — real anonymised documents
 # ---------------------------------------------------------------------------
 
-_REAL_DOCS = [
-    ("Goed",        "8e5ee17e"),
-    ("Goed",        "c90afb25"),
-    ("Voldoende",   "1023e8a9"),
-    ("Voldoende",   "104812d2"),
-    ("Voldoende",   "2f4d9d91"),
-    ("onvoldoende", "23276484"),
-    ("onvoldoende", "35baf7d3"),
-    ("onvoldoende", "f14254dd"),
-]
+def _discover_real_docs(subdir: str | None = None) -> list[tuple[str, str]]:
+    """Discover (subdir, doc_id) for every anonymized document on disk.
+
+    The corpus is curated over time (documents added/removed), so the
+    integration parametrisation is derived from disk instead of a hardcoded
+    list — adding or deleting a document never breaks the suite.
+    """
+    subs = [subdir] if subdir else ["Goed", "Voldoende", "onvoldoende"]
+    out: list[tuple[str, str]] = []
+    for sub in subs:
+        d = _DATA_DIR / sub
+        if d.is_dir():
+            for f in sorted(d.glob("*_anonymized.json")):
+                out.append((sub, f.name[: -len("_anonymized.json")]))
+    return out
+
+
+_REAL_DOCS = _discover_real_docs()
 
 
 @pytest.mark.parametrize("subdir,doc_id", _REAL_DOCS)
@@ -615,10 +713,7 @@ def test_real_doc_no_positive_when_missing(subdir, doc_id):
             )
 
 
-@pytest.mark.parametrize("subdir,doc_id", [
-    ("Goed", "8e5ee17e"),
-    ("Goed", "c90afb25"),
-])
+@pytest.mark.parametrize("subdir,doc_id", _discover_real_docs("Goed"))
 def test_good_docs_have_mostly_positive_items(subdir, doc_id):
     """'Goed' documents should produce mainly positive items across criteria."""
     raw = _load_real_doc(subdir, doc_id)
@@ -634,10 +729,7 @@ def test_good_docs_have_mostly_positive_items(subdir, doc_id):
     )
 
 
-@pytest.mark.parametrize("subdir,doc_id", [
-    ("Voldoende", "104812d2"),
-    ("Voldoende", "2f4d9d91"),
-])
+@pytest.mark.parametrize("subdir,doc_id", _discover_real_docs("Voldoende"))
 def test_voldoende_requirements_has_table_evidence(subdir, doc_id):
     """'Voldoende' documents with requirements tables should surface them as evidence."""
     raw = _load_real_doc(subdir, doc_id)
@@ -689,10 +781,7 @@ def test_real_doc_evidence_items_have_enrichment(subdir, doc_id):
                 assert rid == rid.upper().replace(" ", "").replace("-", "")
 
 
-@pytest.mark.parametrize("subdir,doc_id", [
-    ("Goed", "8e5ee17e"),
-    ("Goed", "c90afb25"),
-])
+@pytest.mark.parametrize("subdir,doc_id", _discover_real_docs("Goed"))
 def test_real_doc_requirements_subtype_present(subdir, doc_id):
     """A 'Goed' requirements section should expose at least one structured subtype."""
     raw = _load_real_doc(subdir, doc_id)
@@ -710,11 +799,7 @@ def test_real_doc_requirements_subtype_present(subdir, doc_id):
         )
 
 
-@pytest.mark.parametrize("subdir,doc_id", [
-    ("onvoldoende", "23276484"),
-    ("onvoldoende", "35baf7d3"),
-    ("onvoldoende", "f14254dd"),
-])
+@pytest.mark.parametrize("subdir,doc_id", _discover_real_docs("onvoldoende"))
 def test_onvoldoende_failing_criteria_have_missing_signals(subdir, doc_id):
     """Failing criteria in 'onvoldoende' documents should have non-empty missing_signals."""
     raw = _load_real_doc(subdir, doc_id)

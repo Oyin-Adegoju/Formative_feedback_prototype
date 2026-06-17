@@ -187,16 +187,24 @@ def _load_real_doc(subdir: str, doc_id: str) -> dict[str, Any]:
     return raw
 
 
-_REAL_DOCS = [
-    ("Goed",        "8e5ee17e"),
-    ("Goed",        "c90afb25"),
-    ("Voldoende",   "1023e8a9"),
-    ("Voldoende",   "104812d2"),
-    ("Voldoende",   "2f4d9d91"),
-    ("onvoldoende", "23276484"),
-    ("onvoldoende", "35baf7d3"),
-    ("onvoldoende", "f14254dd"),
-]
+def _discover_real_docs(subdir: str | None = None) -> list[tuple[str, str]]:
+    """Discover (subdir, doc_id) for every anonymized document on disk.
+
+    The corpus is curated over time (documents added/removed), so the
+    integration parametrisation is derived from disk instead of a hardcoded
+    list — adding or deleting a document never breaks the suite.
+    """
+    subs = [subdir] if subdir else ["Goed", "Voldoende", "onvoldoende"]
+    out: list[tuple[str, str]] = []
+    for sub in subs:
+        d = _DATA_DIR / sub
+        if d.is_dir():
+            for f in sorted(d.glob("*_anonymized.json")):
+                out.append((sub, f.name[: -len("_anonymized.json")]))
+    return out
+
+
+_REAL_DOCS = _discover_real_docs()
 
 
 # ---------------------------------------------------------------------------
