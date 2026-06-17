@@ -97,7 +97,9 @@ def _assemble_prompt(handoff: dict, template: str) -> str:
         <<CAPS_HANDOFF_JSON>> → the full handoff serialised as pretty JSON
     """
     doc_id = handoff.get("document_id", "")
-    handoff_json = json.dumps(handoff, indent=2, ensure_ascii=False)
+    # Compact (no indent): full-content excerpts are large; pretty-printing roughly
+    # doubles the prompt and pushes it past the model's context window.
+    handoff_json = json.dumps(handoff, separators=(",", ":"), ensure_ascii=False)
     return (
         template
         .replace("<<DOC_ID>>", doc_id)

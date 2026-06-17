@@ -81,7 +81,9 @@ def _assemble_prompt(merged: dict, template: str) -> str:
         <<CRITERION_KEYS>>              — comma-joined CAPS criterion keys
         <<MERGED_FEEDBACK_INPUT_JSON>>  — the full merged input as pretty JSON
     """
-    merged_json = json.dumps(merged, indent=2, ensure_ascii=False)
+    # Compact (no indent): with full-content evidence the merged input is large;
+    # pretty-printing roughly doubles the prompt and risks the context window.
+    merged_json = json.dumps(merged, separators=(",", ":"), ensure_ascii=False)
     return (
         template
         .replace("<<STOPLIGHT>>", merged["final_stoplight"])
