@@ -68,10 +68,6 @@ from src.feedback.handoff import build_handoff_from_artifacts, to_dict as handof
 from src.feedback.merge_builder import build_merged_feedback_input, collect_known_block_ids
 from src.feedback.output_schema import DISCLAIMER, FeedbackResult
 from src.quality.quality_builder import QualityGenerationError, generate_quality_diagnostics
-from src.quality.full_content_quality import (
-    QualityGenerationError as FullContentQualityError,
-    generate_full_content_diagnostics,
-)
 
 _PROJECT_ROOT: Final[pathlib.Path] = pathlib.Path(__file__).resolve().parents[1]
 _DEFAULT_OUTPUT_DIR: Final[pathlib.Path] = _PROJECT_ROOT / "data" / "full_pipeline_runs"
@@ -112,11 +108,6 @@ def _parse_args() -> argparse.Namespace:
                         help="Max retrieval candidates per criterion (default: 20).")
     parser.add_argument("--no-llm", action="store_true",
                         help="Skip both LLM stages. Run CAPS + handoff + (empty) merge only.")
-    parser.add_argument("--full-content", action="store_true",
-                        help="Experimental: run the quality stage on the FULL per-criterion "
-                             "document text (src/quality/full_content_quality.py) instead of "
-                             "the trimmed CAPS evidence. Requires --input (needs the raw blocks); "
-                             "incompatible with --handoff.")
     parser.add_argument("--llm-timeout", type=int, default=800, metavar="SECONDS",
                         help="LLM request timeout in seconds (default: 800).")
     parser.add_argument("--debug", action="store_true",
@@ -263,11 +254,6 @@ def main() -> int:
         print("[FATAL] Geef exact één van --input (document) of --handoff (handoff-JSON).")
         return 1
 
-    if args.full_content and args.handoff:
-        print("[FATAL] --full-content vereist --input (de volledige blokken); "
-              "het werkt niet met --handoff.")
-        return 1
-
     llm_base_url = os.environ.get("LLM_BASE_URL", "http://localhost:11434/v1")
     llm_model = os.environ.get("LLM_MODEL", "Qwen2.5-14B-Instruct")
 
@@ -375,19 +361,11 @@ def main() -> int:
         merged = dict(build_merged_feedback_input(handoff_dict, empty_quality))
     else:
         # ── Step 2: Qwen quality ──────────────────────────────────────────────
-        if args.full_content:
-            _section("Step 2 — Qwen quality diagnosis (FULL CONTENT, experimenteel)")
-            print("  Volledige sectie-inhoud per criterium (geen afgekapte CAPS-evidence).")
-        else:
-            _section("Step 2 — Qwen quality diagnosis")
+        _section("Step 2 — Qwen quality diagnosis")
         try:
-            if args.full_content:
-                quality = dict(generate_full_content_diagnostics(
-                    report, timeout=args.llm_timeout))
-            else:
-                quality = dict(generate_quality_diagnostics(
-                    handoff_dict, timeout=args.llm_timeout))
-        except (QualityGenerationError, FullContentQualityError) as exc:
+            quality = dict(generate_quality_diagnostics(
+                handoff_dict, timeout=args.llm_timeout))
+        except QualityGenerationError as exc:
             print(f"\n[FATAL] Quality generation failed: {exc.reason}")
             if debug:
                 traceback.print_exc()
