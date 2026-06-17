@@ -1,44 +1,4 @@
 #!/usr/bin/env python3
-"""main.py — één PDF, twee strategieën, van anonimisering tot feedback.
-
-Orkestreert de hele keten in-proces en draait BEIDE evidence-strategieën op
-hetzelfde (één keer geanonimiseerde) document, zodat je 14B en 32B direct kunt
-vergelijken:
-
-    PDF → anonimiseer (1×) → report.json
-                               │
-              ┌────────────────┴─────────────────┐
-         14B  (getrimd)                     32B  (full-content)
-         run_caps_with_artifacts            build_full_content_handoff
-         → getrimde handoff                 → full-content handoff
-              └────────────────┬─────────────────┘
-                               ▼
-              generate_quality_diagnostics  (v3, gedeeld)
-              → build_merged_feedback_input (merge, gedeeld)
-              → generate_feedback           (v5, gedeeld)
-
-Alle stappen hergebruiken bestaande, geteste functies. De integratie-checks uit
-scripts/run_full_pipeline_v2.py worden hergebruikt, niet opnieuw geschreven.
-
-Per strategie worden alle tussenproducten weggeschreven onder:
-    data/main_runs/<doc_id>_<YYYYMMDD_HHMMSS>/
-        anonymized_report.json        het één keer geanonimiseerde document
-        comparison.json               final_stoplight + checks per strategie
-        14b/  handoff.json quality_diagnostics.json merged_feedback_input.json feedback_result.json
-        32b/  (idem)
-
-Geen fallback: een mislukte LLM-call of validatie van één strategie wordt
-gelogd en die strategie krijgt status "failed" — er wordt nooit een oordeel
-verzonnen. De andere strategie draait gewoon door.
-
-Model wordt per strategie via LLM_MODEL gezet; LLM_BASE_URL is gedeeld.
-Vereist een draaiende Ollama (of OpenAI-compatibele) server op LLM_BASE_URL.
-
-Gebruik:
-    python main.py --pdf pad/naar/document.pdf
-    python main.py --pdf pad/naar/document.pdf --strategy 14b      # alleen 14B
-    python main.py --pdf pad/naar/document.pdf --label Goed        # in subfolder anonimiseren
-"""
 
 from __future__ import annotations
 
