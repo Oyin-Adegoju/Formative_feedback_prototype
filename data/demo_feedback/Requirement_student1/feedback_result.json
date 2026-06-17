@@ -1,0 +1,53 @@
+{
+  "document_id": "96f07675",
+  "stoplight": "red",
+  "student_samenvatting": "Je document bevat veel relevante informatie over beperkingen, stakeholders en requirements, maar er zijn nog punten die verbeterd kunnen worden, vooral in de taalkeuze en security secties.",
+  "docent_toelichting": "Het stoplicht is rood, met extra aandacht voor taalkeuze en security. De tekstbasis was sterk voor beperkingen, stakeholders en requirements, maar zwakker voor taalkeuze en security. CAPS selecteerde de relevante secties op basis van sectie-identiteit en signalen in de tekst. Docent moet extra aandacht besteden aan expliciete taalkeuzebeslissingen en gevolgen ervan, evenals gedetailleerde beveiligingsmaatregelen.",
+  "feed_up": "Het doel is om een volledig en goed onderbouwd document te leveren dat alle relevante aspecten van de webshop behandelt, inclusief beperkingen, stakeholders, requirements, taalkeuze en security.",
+  "feedback": [
+    {
+      "criterium": "beperking",
+      "observatie": "Je beschrijving van beperkingen is gedetailleerd en specifiek, met concrete voorbeelden zoals de doelgroep meisjes rond universiteitsleeftijd en slechtziende mensen. Bijvoorbeeld, je legt uit hoe tekstgrootte aanpassing en kleurenschema toegankelijkheid verbeteren. Er is echter nog ruimte om de onderbouwing te versterken met specifieke bronnen of interviews. Verder ontbreken er concrete gevolgen voor functionaliteit of ontwerp, behalve toegankelijkheid.",
+      "evidence_ref": [
+        "96f07675_0048",
+        "96f07675_0049"
+      ]
+    },
+    {
+      "criterium": "stakeholders",
+      "observatie": "Je beschrijving van stakeholders is gedetailleerd en relevant, met een duidelijke uitleg over hun rol en invloed op het project. Bijvoorbeeld, je legt uit hoe de vertegenwoordiger van het investeringsbedrijf essentieel is voor het project. Er zijn echter geen specifieke gevolgen of impact beschreven die deze stakeholders hebben op de webshopontwikkeling.",
+      "evidence_ref": [
+        "96f07675_0031",
+        "96f07675_0033"
+      ]
+    },
+    {
+      "criterium": "requirements",
+      "observatie": "Je requirements zijn specifiek en relevant voor de webshop-context, inclusief functionaliteit en niet-functionele eisen. Bijvoorbeeld, je legt uit waarom bepaalde requirements als Must Haves of Should Haves worden gekwalificeerd. Er is echter geen expliciete uitleg over hoe bepaalde functionaliteiten zullen worden getest of gevalideerd.",
+      "evidence_ref": [
+        "96f07675_0142",
+        "96f07675_0143"
+      ]
+    },
+    {
+      "criterium": "taalkeuze",
+      "observatie": "Er is geen expliciete taalkeuze gemaakt of uitgelegd in het document. Geen gevolgen van de taalkeuze zijn beschreven voor doelgroep, toegankelijkheid, content, foutmeldingen, onderhoud, vertaling, bereik en gebruikerservaring. Het is belangrijk om een duidelijke beslissing te nemen over welke taal je gaat gebruiken en de gevolgen daarvan uit te leggen.",
+      "evidence_ref": []
+    },
+    {
+      "criterium": "security",
+      "observatie": "Er zijn geen concrete beveiligingsmaatregelen beschreven of uitgelegd. Bijvoorbeeld, er is geen gedetailleerde uitleg over hoe de strikte naleving van de AVG wordt gegarandeerd. Geen risico's of dreigingen worden gekoppeld aan de maatregelen en er is geen technisch correcte uitleg over hoe deze maatregelen werken.",
+      "evidence_ref": [
+        "96f07675_0128"
+      ]
+    }
+  ],
+  "feed_forward": [
+    "Motiveer per requirement waarom het Must/Should/Could is (niet alleen labelen).",
+    "Onderbouw je doelgroep/beperking met concrete bronnen (URL of verwijzing), niet alleen een verwijzing naar 'onderzoek'.",
+    "Beschrijf de gevolgen van de taalkeuze voor toegankelijkheid, content en gebruikerservaring.",
+    "Geef gedetailleerde beveiligingsmaatregelen met technische uitleg over hoe ze werken."
+  ],
+  "taalgebruik": "Het document is goed gestructureerd en de taal is duidelijk. Er zijn echter punten waar de onderbouwing kan worden versterkt, vooral in de secties over taalkeuze en security.",
+  "disclaimer": "Dit is formatieve feedback en geen officiële beoordeling."
+}

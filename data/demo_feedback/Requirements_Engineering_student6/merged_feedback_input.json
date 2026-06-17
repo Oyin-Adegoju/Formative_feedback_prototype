@@ -1,0 +1,289 @@
+{
+  "document_id": "2f4d9d91",
+  "source_name": "Requirements_Engineering_student6.pdf",
+  "final_stoplight": "yellow",
+  "criteria_requiring_extra_review": [
+    "taalkeuze"
+  ],
+  "criteria": {
+    "beperking": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (125 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "2f4d9d91_0168",
+          "page_no": 14,
+          "block_type": "heading",
+          "heading_path": [
+            "H1 Introductie",
+            "3.1 Webshopgebruiker van mijn product/Doelgroep"
+          ],
+          "excerpt": "3.1 Webshopgebruiker van mijn product/Doelgroep"
+        },
+        {
+          "block_id": "2f4d9d91_0257",
+          "page_no": 16,
+          "block_type": "paragraph",
+          "heading_path": [
+            "H1 Introductie",
+            "3.2 Webshopgebruiker met beperking"
+          ],
+          "excerpt": "lettertype, een goed contrast tussen de tekst-, achtergrond- en koptekstkleur, het gebruik"
+        },
+        {
+          "block_id": "2f4d9d91_0258",
+          "page_no": 16,
+          "block_type": "paragraph",
+          "heading_path": [
+            "H1 Introductie",
+            "3.2 Webshopgebruiker met beperking"
+          ],
+          "excerpt": "maken van korte zinnen en het instellen van een spraakfunctie de gebruikerservaring van"
+        }
+      ],
+      "qwen_diagnostics": {
+        "concreteness": "hoog",
+        "research_support": "hoog",
+        "case_relevance": "hoog",
+        "impact_on_requirements": "hoog"
+      },
+      "qwen_strengths": [
+        "Het document bevat gedetailleerde informatie over de doelgroep, inclusief gebruikers met dyslexie en laaggeletterde mensen.",
+        "Er is onderzoek gedaan naar hoe de website toegankelijk kan zijn voor verschillende groepen klanten.",
+        "De wensen en eisen van de opdrachtgever en de doelgroep worden duidelijk beschreven."
+      ],
+      "qwen_weaknesses": [],
+      "criterion_judgement": "strong",
+      "criterion_stoplight": "green",
+      "manual_review": false,
+      "manual_review_reason": []
+    },
+    "stakeholders": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (70 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "2f4d9d91_0101",
+          "page_no": 6,
+          "block_type": "table",
+          "heading_path": [
+            "H1 Introductie",
+            "2.2 Stakeholder Tabel"
+          ],
+          "excerpt": "Stakeholder | Taak/Rol | Belang\n1. Overheid | Houdt in de gaten of de AVG wet en regelgeving wordt gehandhaafd en het innen van belasting. | Willen dat het AVG wet en regelgeving wordt nageleefd.\n3. Opdrachtgever | Het stellen van eisen en wensen voor de webshop, het maken van termijnen en het uitbetalen voor het gedane werk. | Willen een website die gebruiksvriendelijkheid, toegankelijkheid, veiligheid en betrouwbaarheid."
+        },
+        {
+          "block_id": "2f4d9d91_0138",
+          "page_no": 10,
+          "block_type": "paragraph",
+          "heading_path": [
+            "H1 Introductie",
+            "2.3 Betrokkenheid stakeholders"
+          ],
+          "excerpt": "Stakeholder engagement map 1-12"
+        },
+        {
+          "block_id": "2f4d9d91_0165",
+          "page_no": 13,
+          "block_type": "paragraph",
+          "heading_path": [
+            "H1 Introductie",
+            "2.5 Communicatiestrategie Stakeholders"
+          ],
+          "excerpt": "communicatie overbracht, gemaakt door, verzonden door en aanvullende informatie."
+        }
+      ],
+      "qwen_diagnostics": {
+        "stakeholder_relevance": "hoog",
+        "interest_quality": "hoog",
+        "influence_quality": "hoog",
+        "context_link": "hoog"
+      },
+      "qwen_strengths": [
+        "Er is een gedetailleerde stakeholdersanalyse met een duidelijke prioriteitsindeling en communicatiestrategie.",
+        "De stakeholders worden goed ingedeeld op basis van hun invloed en interesse, inclusief de opdrachtgever die als externe stakeholder wordt beschouwd maar een primaire betrokkenheid heeft.",
+        "Er is een duidelijke communicatieplan voor elke stakeholder."
+      ],
+      "qwen_weaknesses": [],
+      "criterion_judgement": "strong",
+      "criterion_stoplight": "green",
+      "manual_review": false,
+      "manual_review_reason": []
+    },
+    "requirements": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (16 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "2f4d9d91_0307",
+          "page_no": 19,
+          "block_type": "table",
+          "heading_path": [
+            "H1 Introductie",
+            "4.1 Constraints en (non-) Functionele eisen"
+          ],
+          "excerpt": "CONSTR05: AVG | De webshop moet aan de AVG wet en regelgeving voldoen. | paragraaf 9 Stakeholder: Opdrachtgever\nCONSTR06: Programmeertalen | De applicatie moet worden uitgewerkt in javascript, Springboot, typescript en Angular.\nCONSTR07: Betaalwijze | Klanten mogen artikelen niet betalen met giftcards en zij kunnen niet gebruik maken van promocodes in de webshop."
+        },
+        {
+          "block_id": "2f4d9d91_0309",
+          "page_no": 20,
+          "block_type": "table",
+          "heading_path": [
+            "H1 Introductie",
+            "4.1 Constraints en (non-) Functionele eisen"
+          ],
+          "excerpt": "Naam | Architecturele relevantie | Geadresseerd in: | Prio\nFR01: Uitstraling, opmaak & responsiveness | De uitstraling en opmaak van de website dien te passen bij de beoogde klanten van het soort product. | paragraaf 6 | MUST HAVE\nFR04: beveiliging | We benadrukken het belang van strikte naleving van de AVG en vragen om een grondige beveiligings- en risicoanalyse. | paragraaf 9 | MUST HAVE\nFR05: Security | De applicatie moet rekening houden met een OWASP principe. | H6 Security Constraints | MUST HAVE\nFR06: Meertaligheid | De applicatie moet in meerdere talen beschikbaar zijn | paragraaf 4 | SHOULD HAVE\nFR07: gebruiker met beperking | In de applicatie moet rekening worden gehouden met laaggeletterde/dyslectische klanten | paragraaf 7 | MUST HAVE"
+        }
+      ],
+      "qwen_diagnostics": {
+        "concreteness": "hoog",
+        "testability": "hoog",
+        "relevance": "hoog",
+        "explanation_quality": "hoog",
+        "priority_logic": "hoog",
+        "classification_quality": "hoog"
+      },
+      "qwen_strengths": [
+        "Er zijn gedetailleerde functionele en niet-functionele eisen beschreven, inclusief security en meertaligheid.",
+        "De prioriteiten van de requirements worden duidelijk aangegeven met MUST HAVE, SHOULD HAVE labels.",
+        "Het document bevat een grondige analyse van de wensen en eisen van zowel de opdrachtgever als de doelgroep."
+      ],
+      "qwen_weaknesses": [],
+      "criterion_judgement": "strong",
+      "criterion_stoplight": "green",
+      "manual_review": false,
+      "manual_review_reason": []
+    },
+    "taalkeuze": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (6 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "2f4d9d91_0208",
+          "page_no": 15,
+          "block_type": "paragraph",
+          "heading_path": [
+            "H1 Introductie",
+            "3.1 Webshopgebruiker van mijn product/Doelgroep"
+          ],
+          "excerpt": "Als de website alleen in het nederlands beschikbaar is, zal dit de gebruikersvriendelijkheid",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie - beoordeel de relevantie zelf"
+        },
+        {
+          "block_id": "2f4d9d91_0229",
+          "page_no": 16,
+          "block_type": "paragraph",
+          "heading_path": [
+            "H1 Introductie",
+            "3.2 Webshopgebruiker met beperking"
+          ],
+          "excerpt": "Mijn webshop moet niet alleen fungeren voor normale gebruikers en meertalige gebruikers,",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie - beoordeel de relevantie zelf"
+        },
+        {
+          "block_id": "2f4d9d91_0309",
+          "page_no": 20,
+          "block_type": "table",
+          "heading_path": [
+            "H1 Introductie",
+            "4.1 Constraints en (non-) Functionele eisen"
+          ],
+          "excerpt": "FR06: Meertaligheid | De applicatie moet in meerdere talen beschikbaar zijn | paragraaf 4 Stakeholder: Opdrachtgever | SHOULD HAVE",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie - beoordeel de relevantie zelf"
+        }
+      ],
+      "qwen_diagnostics": {
+        "explicit_choice": "middel",
+        "target_group_fit": "hoog",
+        "consequence_quality": "laag",
+        "design_decision_clarity": "middel"
+      },
+      "qwen_strengths": [
+        "Er is een beslissing genomen om de website meertalig te maken, wat past bij de doelgroep.",
+        "De keuze voor meertaligheid wordt verwezen naar in de requirements."
+      ],
+      "qwen_weaknesses": [
+        "Het document bevat geen gedetailleerde uitleg over de implicaties van de taalkeuze op de design en functionaliteit van de website.",
+        "Er is weinig expliciete keuzeverklaring voor de meertalige optie."
+      ],
+      "criterion_judgement": "mixed",
+      "criterion_stoplight": "yellow",
+      "manual_review": true,
+      "manual_review_reason": [
+        "De uitleg over de implicaties van de taalkeuze op de design en functionaliteit is beperkt.",
+        "Er is weinig expliciete keuzeverklaring voor de meertalige optie."
+      ]
+    },
+    "security": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (44 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "2f4d9d91_0364",
+          "page_no": 29,
+          "block_type": "heading",
+          "heading_path": [
+            "H5 Ethische aandachtspunten",
+            "OWASP top 10"
+          ],
+          "excerpt": "OWASP top 10"
+        },
+        {
+          "block_id": "2f4d9d91_0365",
+          "page_no": 29,
+          "block_type": "paragraph",
+          "heading_path": [
+            "H5 Ethische aandachtspunten",
+            "OWASP top 10"
+          ],
+          "excerpt": "Ik wil speciaal aandacht geven aan een security aspect van de owasp top 10 waar ik goed"
+        },
+        {
+          "block_id": "2f4d9d91_0378",
+          "page_no": 29,
+          "block_type": "paragraph",
+          "heading_path": [
+            "H5 Ethische aandachtspunten",
+            "OWASP top 10"
+          ],
+          "excerpt": "geen administratieve functies kan gebruiken."
+        }
+      ],
+      "qwen_diagnostics": {
+        "measure_quality": "hoog",
+        "risk_link": "hoog",
+        "case_relevance": "hoog",
+        "technical_correctness": "hoog",
+        "explanation_quality": "hoog"
+      },
+      "qwen_strengths": [
+        "Er is een gedetailleerde beschrijving van de OWASP top 10 security aspecten, inclusief hoe de API5:2023 Broken Function Level Authorization wordt aangepakt.",
+        "Het document bevat specifieke maatregelen om de routes van de webshop te beveiligen en preventieve stappen tegen oplichting en fraude.",
+        "Er is een grondige beveiligings- en risicoanalyse beschreven."
+      ],
+      "qwen_weaknesses": [],
+      "criterion_judgement": "strong",
+      "criterion_stoplight": "green",
+      "manual_review": false,
+      "manual_review_reason": []
+    }
+  }
+}
