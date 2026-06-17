@@ -38,6 +38,19 @@ _RUNS_DIR = _PROJECT_ROOT / "data" / "full_pipeline_runs"
 _UPLOADS_DIR = _PROJECT_ROOT / "data" / "uploads"
 _CATALOG_PATH = _PROJECT_ROOT / "data" / "reference" / "people_catalog.json"
 
+# Demo-feedback: vooraf gegenereerde output per PDF (GEEN pipeline, GEEN LLM).
+# Elke submap onder _DEMO_DIR bevat minimaal feedback_result.json en
+# merged_feedback_input.json. _PDF_TO_DEMO mapt de geüploade PDF-bestandsnaam op
+# de bijbehorende submap, zodat de juiste feedback verschijnt bij "Genereer".
+_DEMO_DIR = _PROJECT_ROOT / "data" / "demo_feedback"
+_PDF_TO_DEMO: dict[str, str] = {
+    "Requirement_student1.pdf":              "Requirement_student1",
+    "Requirements_Engineering_student6.pdf": "Requirements_Engineering_student6",
+}
+
+# Map met de geanonimiseerde documenten (per doc_id), voor de download-knop.
+_ANONYMIZED_DIR = _PROJECT_ROOT / "data" / "anonymized"
+
 sys.path.insert(0, str(_PROJECT_ROOT))
 
 _CRITERION_LABELS: dict[str, str] = {
@@ -542,6 +555,17 @@ def _load_json(path: pathlib.Path) -> dict | None:
     except (OSError, json.JSONDecodeError):
         return None
 
+
+def _anonymized_path(doc_id: str) -> pathlib.Path | None:
+    """Zoek het geanonimiseerde document <doc_id>_anonymized.json onder data/anonymized/.
+
+    De bestanden staan in subfolders (Goed/Voldoende/onvoldoende), dus we zoeken
+    recursief. Geeft None wanneer er niets matcht.
+    """
+    if not doc_id or not _ANONYMIZED_DIR.exists():
+        return None
+    return next(_ANONYMIZED_DIR.rglob(f"{doc_id}_anonymized.json"), None)
+
 # ---------------------------------------------------------------------------
 # Gedeelde render-helpers (ongewijzigd)
 # ---------------------------------------------------------------------------
@@ -820,14 +844,17 @@ def _render_docent_view(
 
     col_a, col_b = st.columns(2)
 
-    input_path = run_dir / "input_copy.json"
-    anon_data = input_path.read_bytes() if input_path.exists() else b"{}"
+    # Geanonimiseerd document: haal het echte <doc_id>_anonymized.json uit
+    # data/anonymized/. Valt terug op een eventueel input_copy.json in de run-map.
+    doc_id = fb.get("document_id") or run_dir.name
+    anon_path = _anonymized_path(doc_id) or (run_dir / "input_copy.json")
+    anon_data = anon_path.read_bytes() if anon_path.exists() else b"{}"
 
     with col_a:
         st.download_button(
             label="Geanonimiseerd document (JSON)",
             data=anon_data,
-            file_name=f"{run_dir.name}_geanonimiseerd.json",
+            file_name=f"{doc_id}_anonymized.json",
             mime="application/json",
         )
 
@@ -837,7 +864,7 @@ def _render_docent_view(
         st.download_button(
             label="Feedback resultaat (JSON)",
             data=fb_bytes,
-            file_name=f"{run_dir.name}_feedback.json",
+            file_name=f"{doc_id}_feedback_result.json",
             mime="application/json",
         )
 
@@ -887,6 +914,24 @@ def _find_demo_run() -> pathlib.Path | None:
 
     return None
 
+
+def _resolve_demo_run(pdf_name: str | None) -> pathlib.Path | None:
+    """Map een geüploade PDF-bestandsnaam op de bijbehorende demo-map.
+
+    Eerst exact op bestandsnaam via _PDF_TO_DEMO; valt anders terug op de
+    PDF-stam als gelijknamige submap onder _DEMO_DIR. Een map telt alleen mee als
+    die een feedback_result.json bevat. Vindt niets passends, dan None (geen
+    stille terugval op een willekeurige run).
+    """
+    if not pdf_name:
+        return None
+    name = pathlib.Path(pdf_name).name
+    folder = _PDF_TO_DEMO.get(name) or pathlib.Path(name).stem
+    candidate = _DEMO_DIR / folder
+    if (candidate / "feedback_result.json").exists():
+        return candidate
+    return None
+
 # ---------------------------------------------------------------------------
 # Upload-formulier — verbeterde opmaak
 # ---------------------------------------------------------------------------
@@ -909,11 +954,15 @@ def _render_upload_form() -> None:
         type="primary",
         disabled=uploaded_pdf is None,
     ):
-        _generate_demo()
+        _generate_demo(uploaded_pdf.name if uploaded_pdf is not None else None)
 
 
-def _generate_demo() -> None:
-    """Laad een bestaande voorbeeldrun — geen pipeline, geen LLM."""
+def _generate_demo(pdf_name: str | None = None) -> None:
+    """Toon vooraf gegenereerde feedback voor de geüploade PDF — geen pipeline, geen LLM.
+
+    De PDF-bestandsnaam bepaalt welke demo-map uit data/demo_feedback/ wordt
+    geladen (zie _resolve_demo_run). Onbekende PDF → geen demo-feedback.
+    """
 
     thinking_placeholder = st.empty()
 
@@ -932,16 +981,17 @@ def _generate_demo() -> None:
         unsafe_allow_html=True,
     )
 
-    run_dir = _find_demo_run()
+    run_dir = _resolve_demo_run(pdf_name)
 
     time.sleep(10)
     thinking_placeholder.empty()
 
     if run_dir is None:
         st.error(
-            "Geen complete voorbeeldoutput gevonden in `data/full_pipeline_runs/`. "
-            "Zorg dat er een run aanwezig is met zowel `feedback_result.json` "
-            "als `merged_feedback_input.json`."
+            f"Geen demo-feedback gevonden voor '{pdf_name}'. "
+            "Voeg een map toe onder `data/demo_feedback/<pdf-naam-zonder-extensie>/` "
+            "met daarin `feedback_result.json` en `merged_feedback_input.json`, "
+            "of registreer de PDF in `_PDF_TO_DEMO` bovenin app.py."
         )
         return
 
