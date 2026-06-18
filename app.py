@@ -14,6 +14,7 @@ from __future__ import annotations
 import hashlib
 import json
 import pathlib
+import re
 import subprocess
 import sys
 import time
@@ -243,8 +244,22 @@ def _inject_css() -> None:
             align-items: center;
             gap: 8px;
         }}
+        /* Aandacht-banner bij criteria die handmatige controle vereisen. */
         .criterion-card-attention {{
-            color: #e65100 !important;
+            background: #ffebee;
+            border-left: 4px solid #c62828;
+            color: #c62828;
+            padding: 12px 16px;
+            margin: 0 0 12px 0;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }}
+        .criterion-card-attention .attention-reason {{
+            font-weight: 400;
+            font-size: 0.82rem;
+            color: #6d2020;
+            margin-top: 4px;
         }}
 
         /* ── Evidence blokken ── */
@@ -592,6 +607,14 @@ def _render_evidence(items: list[dict]) -> None:
         )
 
 
+def _split_to_bullets(text: str) -> list[str]:
+    """Splits prose op nieuwe regels of zin-einde voor bullet-rendering."""
+    if not text:
+        return []
+    parts = re.split(r"\n+|(?<=[.!?])\s+", text.strip())
+    return [p.strip() for p in parts if p.strip()]
+
+
 # Studentweergave — verbeterde opmaak
 # ---------------------------------------------------------------------------
 
@@ -615,7 +638,18 @@ def _render_student_view(fb: dict, run_dir: pathlib.Path) -> None:
     st.markdown("<div class='section-header'>Wat wordt er verwacht?</div>", unsafe_allow_html=True)
     st.write(fb.get("feed_up", ""))
 
-    st.markdown("<div class='section-header'>Feedback per criterium</div>", unsafe_allow_html=True)
+    st.markdown(
+        "<div class='section-header'>Aanbevelingen voor verbetering</div>",
+        unsafe_allow_html=True,
+    )
+
+    for tip in fb.get("feed_forward", []):
+        st.markdown(f"- {tip}")
+
+    st.markdown(
+        "<div class='section-header'>Feedback per criterium</div>",
+        unsafe_allow_html=True,
+    )
 
     feedback_entries = fb.get("feedback", [])
     for entry in feedback_entries:
@@ -623,7 +657,7 @@ def _render_student_view(fb: dict, run_dir: pathlib.Path) -> None:
         label = _CRITERION_LABELS.get(key, key)
         observatie = entry.get("observatie", "")
 
-        # Haal eventueel aangepaste feedback en opmerkingen van de docent op
+        # Bewerkbare feedback en docent-opmerkingen uit session_state.
         edit_key = f"edit_{key}_{run_dir.name}"
         notes_key = f"notes_{key}_{run_dir.name}"
 
@@ -645,14 +679,6 @@ def _render_student_view(fb: dict, run_dir: pathlib.Path) -> None:
                     f"{opmerking}</div>",
                     unsafe_allow_html=True,
                 )
-
-    st.markdown(
-        "<div class='section-header'>Aanbevelingen voor verbetering</div>",
-        unsafe_allow_html=True,
-    )
-
-    for tip in fb.get("feed_forward", []):
-        st.markdown(f"- {tip}")
 
     taalgebruik = fb.get("taalgebruik", "")
     if taalgebruik:
@@ -687,13 +713,24 @@ def _render_docent_view(
         unsafe_allow_html=True,
     )
 
-    st.write(fb.get("docent_toelichting", ""))
+    # Docent-toelichting als bullets ipv platte tekst.
+    for bullet in _split_to_bullets(fb.get("docent_toelichting", "")):
+        st.markdown(f"- {bullet}")
 
     if merged:
         extra = merged.get("criteria_requiring_extra_review", [])
         if extra:
             extra_labels = [_CRITERION_LABELS.get(k, k) for k in extra]
             st.warning(f"**Extra docentfocus:** {', '.join(extra_labels)}")
+
+    # ── Aanbevelingen voor verbetering ──────────────────────────────────────
+    st.markdown(
+        "<div class='section-header'>Aanbevelingen voor verbetering</div>",
+        unsafe_allow_html=True,
+    )
+
+    for tip in fb.get("feed_forward", []):
+        st.markdown(f"- {tip}")
 
     # ── Feedback per criterium ──────────────────────────────────────────────
     st.markdown(
@@ -718,19 +755,25 @@ def _render_docent_view(
         manual = crit_merged.get("manual_review", False)
         observatie = crit_fb.get("observatie", "")
 
-        prefix = "! " if manual else ""
+        # ⚠️ in label maakt de aandachtsclassificatie meteen zichtbaar
+        # zonder dat de expander open hoeft te staan.
+        prefix = "⚠️ " if manual else ""
 
         with st.expander(f"{prefix}{label}", expanded=True):
 
-            # Aandachtswaarschuwing
+            # Prominente aandacht-banner bij ernstige criteria.
             if manual:
                 reasons = crit_merged.get("manual_review_reason", [])
-                if reasons:
-                    st.markdown(
-                        f"<span style='color:#e65100;font-size:0.82rem;'>"
-                        f"{' · '.join(reasons)}</span>",
-                        unsafe_allow_html=True,
-                    )
+                reason_html = (
+                    f"<div class='attention-reason'>{' · '.join(reasons)}</div>"
+                    if reasons else ""
+                )
+                st.markdown(
+                    f"<div class='criterion-card-attention'>"
+                    f"🚨 Aandacht vereist — handmatige controle nodig"
+                    f"{reason_html}</div>",
+                    unsafe_allow_html=True,
+                )
 
             # Sterktes / verbeterpunten
             strengths = crit_merged.get("qwen_strengths", [])
@@ -805,15 +848,6 @@ def _render_docent_view(
                 placeholder="Voeg hier aanvullende opmerkingen toe...",
                 label_visibility="collapsed",
             )
-
-    # ── Aanbevelingen ───────────────────────────────────────────────────────
-    st.markdown(
-        "<div class='section-header'>Aanbevelingen voor verbetering</div>",
-        unsafe_allow_html=True,
-    )
-
-    for tip in fb.get("feed_forward", []):
-        st.markdown(f"- {tip}")
 
     taalgebruik = fb.get("taalgebruik", "")
     if taalgebruik:
