@@ -714,8 +714,14 @@ def _render_docent_view(
     )
 
     # Docent-toelichting als bullets ipv platte tekst.
-    for bullet in _split_to_bullets(fb.get("docent_toelichting", "")):
-        st.markdown(f"- {bullet}")
+    toelichting_bullets = _split_to_bullets(fb.get("docent_toelichting", ""))
+    if toelichting_bullets:
+        st.markdown(
+            "<div class='section-header'>Docent-toelichting</div>",
+            unsafe_allow_html=True,
+        )
+        for bullet in toelichting_bullets:
+            st.markdown(f"- {bullet}")
 
     if merged:
         extra = merged.get("criteria_requiring_extra_review", [])
