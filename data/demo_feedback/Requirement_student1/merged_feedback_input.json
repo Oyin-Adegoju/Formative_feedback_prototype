@@ -1,0 +1,272 @@
+{
+  "document_id": "96f07675",
+  "source_name": "Requirement_student1.pdf",
+  "final_stoplight": "red",
+  "criteria_requiring_extra_review": [
+    "taalkeuze",
+    "security"
+  ],
+  "criteria": {
+    "beperking": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (109 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "96f07675_0047",
+          "page_no": 10,
+          "block_type": "heading",
+          "heading_path": [
+            "Onderzoek naar web gebruikers"
+          ],
+          "excerpt": "Onderzoek naar web gebruikers"
+        },
+        {
+          "block_id": "96f07675_0048",
+          "page_no": 10,
+          "block_type": "paragraph",
+          "heading_path": [
+            "Onderzoek naar web gebruikers"
+          ],
+          "excerpt": "De website moet dit gaan doen: Zich richten op twee specifieke doelgroepen, namelijk meisjes rond"
+        },
+        {
+          "block_id": "96f07675_0049",
+          "page_no": 10,
+          "block_type": "paragraph",
+          "heading_path": [
+            "Onderzoek naar web gebruikers"
+          ],
+          "excerpt": "universiteitsleeftijd die op zoek zijn naar unieke brillen en slechtziende mensen die behoefte hebben"
+        },
+        {
+          "block_id": "96f07675_0060",
+          "page_no": 10,
+          "block_type": "paragraph",
+          "heading_path": [
+            "Onderzoek naar web gebruikers"
+          ],
+          "excerpt": "Slechtziende mensen: Voor slechtziende mensen is het cruciaal dat de website toegankelijk is en hen"
+        },
+        {
+          "block_id": "96f07675_0061",
+          "page_no": 10,
+          "block_type": "paragraph",
+          "heading_path": [
+            "Onderzoek naar web gebruikers"
+          ],
+          "excerpt": "de mogelijkheid biedt om de tekstgrootte naar eigen voorkeur aan te passen. Het kleurenschema van"
+        }
+      ],
+      "qwen_diagnostics": {
+        "concreteness": "hoog",
+        "research_support": "middel",
+        "case_relevance": "hoog",
+        "impact_on_requirements": "hoog"
+      },
+      "qwen_strengths": [
+        "De beperkingen zijn concreet beschreven, met specifieke doelgroepen zoals meisjes rond universiteitsleeftijd en slechtziende mensen.",
+        "Er wordt gedetailleerd uitgelegd hoe de beperkingen invloed hebben op de toegankelijkheid van de webshop, inclusief functionaliteit voor tekstgrootte aanpassing en kleurenschema."
+      ],
+      "qwen_weaknesses": [
+        "De onderbouwing van de beperkingen is grotendeels gebaseerd op deskresearch zonder specifieke bronnen of interviews.",
+        "Er zijn geen concrete gevolgen voor functionaliteit of ontwerp genoemd, behalve toegankelijkheid."
+      ],
+      "criterion_judgement": "strong",
+      "criterion_stoplight": "green",
+      "manual_review": false,
+      "manual_review_reason": []
+    },
+    "stakeholders": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (12 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "96f07675_0029",
+          "page_no": 4,
+          "block_type": "heading",
+          "heading_path": [
+            "H1 Introductie",
+            "H2 Stakeholders analyse"
+          ],
+          "excerpt": "H2 Stakeholders analyse"
+        },
+        {
+          "block_id": "96f07675_0030",
+          "page_no": 4,
+          "block_type": "paragraph",
+          "heading_path": [
+            "H1 Introductie",
+            "H2 Stakeholders analyse"
+          ],
+          "excerpt": "De stakeholder waar we rekening mee houden zijn deze ; Functie en Rol :"
+        },
+        {
+          "block_id": "96f07675_0033",
+          "page_no": 4,
+          "block_type": "table",
+          "heading_path": [
+            "H1 Introductie",
+            "H2 Stakeholders analyse"
+          ],
+          "excerpt": "Stakeholder Functie | Stakeholder Functie | Rol\n[PERSOON_03] | Vertegenwoordiger van investeringsbedrijf Plenty. | [PERSOON_03] is verantwoordelijk voor het vinden van geschikte websiteontwikkelaars en het definieren van de vereisten voor het project.\nEigenaren/Investeerders | Eigenaren of financiele investeerders van investeringsbedrijf Plenty. | Ze zijn verantwoordelijk voor het goedkeuren van het project en het vaststellen van de algemene strategie en doelstellingen ervan.\nManagementteam | Leidinggevenden en managers binnen investeringsbedrijf Plenty. | Ze zijn betrokken bij het toezicht houden op het project en het zorgen voor een goede uitvoering van de strategie."
+        }
+      ],
+      "qwen_diagnostics": {
+        "stakeholder_relevance": "hoog",
+        "interest_quality": "hoog",
+        "influence_quality": "hoog",
+        "context_link": "hoog"
+      },
+      "qwen_strengths": [
+        "De stakeholders zijn relevant en gedetailleerd beschreven, inclusief hun rol en invloed op het project.",
+        "Er wordt uitgelegd hoe de stakeholders betrokken zijn bij het project en welke impact ze hebben."
+      ],
+      "qwen_weaknesses": [],
+      "criterion_judgement": "strong",
+      "criterion_stoplight": "green",
+      "manual_review": false,
+      "manual_review_reason": []
+    },
+    "requirements": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (44 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "96f07675_0142",
+          "page_no": 14,
+          "block_type": "paragraph",
+          "heading_path": [
+            "Onderzoek naar web gebruikers",
+            "Functionele requirements"
+          ],
+          "excerpt": "1. Must have: Klanten moeten in staat zijn om te registreren en een profiel aan te maken in de"
+        },
+        {
+          "block_id": "96f07675_0143",
+          "page_no": 14,
+          "block_type": "paragraph",
+          "heading_path": [
+            "Onderzoek naar web gebruikers",
+            "Functionele requirements"
+          ],
+          "excerpt": "webshop"
+        },
+        {
+          "block_id": "96f07675_0155",
+          "page_no": 14,
+          "block_type": "table",
+          "heading_path": [
+            "Onderzoek naar web gebruikers",
+            "Functionele requirements"
+          ],
+          "excerpt": "Naam | Architecturele relevantie | Geadresseerd in: | Prio\nUC01: Registratie functionaliteit | Klanten moeten in staat zijn om te registreren en een profiel aan te maken bij de webshop | Pag7:par2:US R | MUST HAVE\nUC02: inlogfunctionalitei | Klanten moeten in staat zijn te loggen om een gepersonaliseerde winkelervaring te hebben | MUST HAVE\nUC03: Winkelmandfunctionaliteit | Klanten moeten producten kunnen toevoegen aan hun winkelmandje, het mandje kunnen bekijken, producten kunnen verwijderen en de bestelling kunnen afronden. | MUST HAVE\nUC04: Beheerinterface | Een intuitieve beheerinterface is essentieel voor het efficient beheren van producten, klanten en bestellingen. | MUST HAVE"
+        }
+      ],
+      "qwen_diagnostics": {
+        "concreteness": "hoog",
+        "testability": "middel",
+        "relevance": "hoog",
+        "explanation_quality": "hoog",
+        "priority_logic": "hoog",
+        "classification_quality": "hoog"
+      },
+      "qwen_strengths": [
+        "De requirements zijn specifiek en relevant voor de webshop-context, inclusief functionaliteit en niet-functionele eisen.",
+        "Er wordt gedetailleerd uitgelegd waarom bepaalde requirements als Must Haves of Should Haves worden gekwalificeerd."
+      ],
+      "qwen_weaknesses": [
+        "Enkele requirements zijn moeilijk te testen, zoals de 'beschikbaarheid en betrouwbaarheid' van de website.",
+        "Er is geen expliciete uitleg over hoe bepaalde functionaliteiten zullen worden getest of gevalideerd."
+      ],
+      "criterion_judgement": "strong",
+      "criterion_stoplight": "green",
+      "manual_review": false,
+      "manual_review_reason": []
+    },
+    "taalkeuze": {
+      "count": null,
+      "caps_notes": [
+        "Geen relevante tekst voor dit criterium in het document gevonden."
+      ],
+      "missing_signals": [],
+      "evidence_items": [],
+      "qwen_diagnostics": {
+        "explicit_choice": "laag",
+        "target_group_fit": "laag",
+        "consequence_quality": "laag",
+        "design_decision_clarity": "laag"
+      },
+      "qwen_strengths": [],
+      "qwen_weaknesses": [
+        "Er is geen expliciete taalkeuze gemaakt of uitgelegd in het document.",
+        "Geen gevolgen van de taalkeuze zijn beschreven voor doelgroep, toegankelijkheid, content, foutmeldingen, onderhoud, vertaling, bereik en gebruikerservaring."
+      ],
+      "criterion_judgement": "weak",
+      "criterion_stoplight": "red",
+      "manual_review": true,
+      "manual_review_reason": [
+        "Geen expliciete taalkeuze of gevolgen beschreven in het document."
+      ]
+    },
+    "security": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (4 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "96f07675_0114",
+          "page_no": 13,
+          "block_type": "paragraph",
+          "heading_path": [
+            "Onderzoek naar web gebruikers",
+            "moeten betrouwbaar worden verwerkt en afgehandeld."
+          ],
+          "excerpt": "2. M: Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG)",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie - beoordeel de relevantie zelf"
+        },
+        {
+          "block_id": "96f07675_0128",
+          "page_no": 13,
+          "block_type": "table",
+          "heading_path": [
+            "Onderzoek naar web gebruikers",
+            "het apparaat dat de klant gebruikt."
+          ],
+          "excerpt": "Naam | Architecturele relevantie | Geadresseerd in: | Prio\nNFR06: Gegevensbescherming en naleving van de AVG: | Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essentieel om de gegevens van klanten te beschermen en risico's te minimaliseren. | Should Have",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie - beoordeel de relevantie zelf"
+        }
+      ],
+      "qwen_diagnostics": {
+        "measure_quality": "laag",
+        "risk_link": "laag",
+        "case_relevance": "middel",
+        "technical_correctness": "laag",
+        "explanation_quality": "laag"
+      },
+      "qwen_strengths": [],
+      "qwen_weaknesses": [
+        "Er zijn geen concrete beveiligingsmaatregelen beschreven of uitgelegd.",
+        "Geen risico's of dreigingen worden gekoppeld aan de maatregelen, en er is geen technisch correcte uitleg over hoe deze maatregelen werken."
+      ],
+      "criterion_judgement": "weak",
+      "criterion_stoplight": "red",
+      "manual_review": true,
+      "manual_review_reason": [
+        "Beveiligingsmaatregelen zijn niet gedetailleerd beschreven of onderbouwd in het document."
+      ]
+    }
+  }
+}

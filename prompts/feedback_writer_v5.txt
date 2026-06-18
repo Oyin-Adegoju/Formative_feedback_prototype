@@ -317,9 +317,17 @@ Retourneer exact dit JSON-object. Geen tekst ervoor of erna.
   evidence_ref bevat alleen block IDs die echt relevant zijn voor dat criterium.
  
 * feed_forward
-  2–4 concrete, bruikbare aanbevelingen voor verbetering.
+  2–5 concrete, bruikbare aanbevelingen voor verbetering.
   Baseer deze op missing_signals en qwen_weaknesses per criterium.
   Maak ze concreet, uitvoerbaar en waar mogelijk gekoppeld aan wat in het document nog mist.
+
+  BELANGRIJK — sluit de cirkel: elk concreet verbeterpunt dat je in een observatie
+  noemt, moet ook als actiepunt in feed_forward terugkomen. Een advies mag niet
+  alleen in de observatie staan. Dek dus niet alleen de volledig ontbrekende criteria
+  (zoals taalkeuze/beveiliging), maar ook de gedeeltelijke gaten, bijvoorbeeld:
+  - "Motiveer per requirement waarom het Must/Should/Could is (niet alleen labelen)."
+  - "Onderbouw je doelgroep/beperking met concrete bronnen (URL of verwijzing), niet alleen een verwijzing naar 'onderzoek'."
+  Formuleer ze studentgericht en specifiek voor dit document.
  
 * taalgebruik
   Korte opmerking over schrijfstijl, structuur of duidelijkheid van het document,

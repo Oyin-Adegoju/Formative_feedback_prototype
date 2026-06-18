@@ -1,0 +1,57 @@
+{
+  "document_id": "2f4d9d91",
+  "stoplight": "yellow",
+  "student_samenvatting": "Je document bevat gedetailleerde informatie over de doelgroep, inclusief gebruikers met dyslexie en laaggeletterde mensen, en een grondige stakeholdersanalyse. Er zijn echter nog verbeterpunten nodig bij de uitleg van implicaties voor de taalkeuze op design en functionaliteit.",
+  "docent_toelichting": "Het document heeft een geel stoplicht met extra aandacht vereist voor het criterium 'taalkeuze'. De onderliggende tekstbasis is sterk, vooral gebaseerd op sterke tekstblokken en tabellen. CAPS selecteerde deze stukken vanwege relevante sectie-identiteit en signalen zoals requirement-tabel en stakeholdercontext. Docent moet extra aandacht besteden aan de expliciete keuzeverklaring voor meertaligheid en implicaties op design en functionaliteit.",
+  "feed_up": "Het doel is om een gedetailleerde analyse van beperkingen, stakeholders, requirements, taalkeuze en security te leveren die voldoet aan de gestelde criteria en eisen.",
+  "feedback": [
+    {
+      "criterium": "beperking",
+      "observatie": "Je document bevat gedetailleerde informatie over gebruikers met dyslexie en laaggeletterde mensen. Je beschrijft hoe je de website toegankelijk maakt voor deze groepen, bijvoorbeeld door het gebruik van een groot lettertype en spraakfuncties. Dit is goed gedaan! Er zijn echter nog verbeterpunten nodig bij de uitleg van specifieke technieken zoals contrast tussen tekst- en achtergrondkleur. Het zou helpen om concrete voorbeelden te geven van hoe deze aanpassingen in de praktijk worden toegepast.",
+      "evidence_ref": [
+        "2f4d9d91_0257",
+        "2f4d9d91_0258"
+      ]
+    },
+    {
+      "criterium": "stakeholders",
+      "observatie": "Je document bevat een gedetailleerde stakeholdersanalyse met een duidelijke prioriteitsindeling en communicatiestrategie. De stakeholders worden goed ingedeeld op basis van hun invloed en interesse, inclusief de opdrachtgever die als externe stakeholder wordt beschouwd maar een primaire betrokkenheid heeft. Er is echter nog ruimte voor verbetering bij het verduidelijken van specifieke communicatiemethoden per stakeholder. Bijvoorbeeld, hoe je de communicatie met bepaalde stakeholders effectief organiseert.",
+      "evidence_ref": [
+        "2f4d9d91_0138",
+        "2f4d9d91_0165"
+      ]
+    },
+    {
+      "criterium": "requirements",
+      "observatie": "Je document bevat gedetailleerde functionele en niet-functionele eisen, inclusief security en meertaligheid. De prioriteiten van de requirements worden duidelijk aangegeven met MUST HAVE en SHOULD HAVE labels. Er is echter nog ruimte voor verbetering bij het motiveren van deze prioriteiten. Bijvoorbeeld, waarom bepaalde eisen een MUST HAVE zijn en andere een SHOULD HAVE. Het zou helpen om concrete argumenten te geven voor de keuzes die je maakt.",
+      "evidence_ref": [
+        "2f4d9d91_0307",
+        "2f4d9d91_0309"
+      ]
+    },
+    {
+      "criterium": "taalkeuze",
+      "observatie": "Je document bevat een beslissing om de website meertalig te maken, wat past bij de doelgroep. De keuze voor meertaligheid wordt verwezen naar in de requirements. Er is echter weinig gedetailleerde uitleg over de implicaties van deze taalkeuze op de design en functionaliteit van de website. Het zou helpen om specifieke aspecten te bespreken, zoals hoe de meertalige optie wordt geïmplementeerd in de ontwerp- en technische details.",
+      "evidence_ref": [
+        "2f4d9d91_0309"
+      ]
+    },
+    {
+      "criterium": "security",
+      "observatie": "Je document bevat een gedetailleerde beschrijving van de OWASP top 10 security aspecten, inclusief hoe de API5:2023 Broken Function Level Authorization wordt aangepakt. Er zijn specifieke maatregelen genoemd om de routes van de webshop te beveiligen en preventieve stappen tegen oplichting en fraude. Het zou helpen om meer details te geven over hoe deze maatregelen precies worden toegepast in de praktijk, bijvoorbeeld door specifieke voorbeelden te geven van hoe de security-configuratie wordt ingesteld.",
+      "evidence_ref": [
+        "2f4d9d91_0365",
+        "2f4d9d91_0378"
+      ]
+    }
+  ],
+  "feed_forward": [
+    "Motiveer per requirement waarom het een MUST HAVE of SHOULD HAVE is, niet alleen labelen.",
+    "Onderbouw je doelgroep/beperking met concrete bronnen (URL of verwijzing), niet alleen 'onderzoek'.",
+    "Beschrijf specifieke technieken voor toegankelijkheid, zoals contrast tussen tekst- en achtergrondkleur.",
+    "Geef meer details over de implementatie van meertaligheid in ontwerp- en technische aspecten.",
+    "Specificeer hoe preventieve stappen tegen oplichting en fraude precies worden toegepast."
+  ],
+  "taalgebruik": "Het document is goed gestructureerd en duidelijk geschreven, met gedetailleerde uitleg over de verschillende aspecten. Er zijn echter nog verbeterpunten nodig bij het motiveren van keuzes en het geven van concrete voorbeelden.",
+  "disclaimer": "Dit is formatieve feedback en geen officiële beoordeling."
+}

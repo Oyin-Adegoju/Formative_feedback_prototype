@@ -1,142 +1,96 @@
-"""Run the CAPS pipeline on all anonymized JSON reports in data/anonymized/.
+"""Build a FULL-CONTENT CAPS handoff for ONE anonymized document.
+
+This deliberately does NOT batch all documents into a single combined
+caps_handoff.json anymore. You point it at exactly the document you want and it
+writes one per-document handoff:
+
+    data/anonymized/caps_handoff_<doc_id>.json
+
+Strategy (src/feedback/full_content.py): per criterion it includes the FULL,
+untrimmed text of every block whose deepest heading belongs to that criterion's
+section family — plus, for taalkeuze and security only, a keyword fallback for
+documents without a dedicated heading. No budget trimming, no table-row cap.
+The output is the standard handoff shape, so it feeds straight into the pipeline:
+
+    python scripts/run_full_pipeline_v2.py --handoff data/anonymized/caps_handoff_<doc_id>.json
 
 Usage:
-    py -3 scripts/run_caps_on_anonymized.py
+    py -3 scripts/run_caps_on_anonymized.py --input data/anonymized/Goed/51d405f7_anonymized.json
 
-Emits a SINGLE artifact, data/anonymized/caps_handoff.json — an array with one
-pre-Qwen handoff object per document (see src/feedback/handoff.py). This
-consolidated file replaces the former parallel caps_results.json (CAPS
-verdicts) and evidence_packets.json (evidence), both of which were strict
-subsets of the handoff.
-
-Compatibility shim applied here (no production CAPS files changed):
-    The anonymized JSON is missing `page_count` at the top level.
-    _normalize_report() injects it from max(block.page_no) before
-    passing the report to run_caps_with_artifacts().
+If --input is omitted, the placeholder constant below is used — edit it, or just
+pass --input on the command line.
 """
 
 from __future__ import annotations
 
+import argparse
 import json
 import pathlib
 import sys
 
-# Ensure UTF-8 output on Windows terminals that default to cp1252.
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-# Allow running from the project root without installing the package.
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
-from src.caps.caps import run_caps_with_artifacts
-from src.caps.models import CapsRunResult, ParseReportDict
-from src.feedback.handoff import build_handoff_from_artifacts, to_dict
-
-# ---------------------------------------------------------------------------
-# Paths
-# ---------------------------------------------------------------------------
+from src.caps.criterion_specs import CRITERIA_KEYS
+from src.feedback.full_content import build_full_content_handoff
 
 _DATA_DIR = pathlib.Path(__file__).resolve().parents[1] / "data" / "anonymized"
-_HANDOFF_FILE = _DATA_DIR / "caps_handoff.json"
+
+# Placeholder: edit this, or pass --input on the command line.
+_INPUT_PLACEHOLDER = _DATA_DIR / "Goed" / "<zet-hier-je-document>_anonymized.json"
 
 
-# ---------------------------------------------------------------------------
-# Compatibility shim
-# ---------------------------------------------------------------------------
-
-
-def _normalize_report(raw: dict) -> ParseReportDict:
-    """Inject page_count when absent (only mismatch between anonymized JSON and CAPS contract).
-
-    All other extra fields (quality_label, mapping_count, mapping, per-block doc_id)
-    are harmless at runtime — dicts may carry unknown keys without issue.
-    """
+def _normalize_report(raw: dict) -> dict:
+    """Inject page_count when the anonymized JSON omits it (CAPS-contract shim)."""
     if "page_count" not in raw or raw["page_count"] is None:
         blocks = raw.get("blocks") or []
         raw["page_count"] = max((b["page_no"] for b in blocks), default=0)
-    return raw  # type: ignore[return-value]
+    return raw
 
 
-# ---------------------------------------------------------------------------
-# Output formatting
-# ---------------------------------------------------------------------------
-
-_STOPLIGHT_SYMBOL = {"green": "[GREEN]", "yellow": "[YELLOW]", "red": "[RED]"}
-
-
-def _print_result(filename: str, result: CapsRunResult) -> None:
-    sym = _STOPLIGHT_SYMBOL.get(result.overall_stoplight, "?")
-    print(f"\n{'=' * 60}")
-    print(f"  {filename}")
-    print(f"{'=' * 60}")
-    print(f"  doc_id       : {result.doc_id}")
-    print(f"  stoplight    : {sym} {result.overall_stoplight}")
-    print(f"  hidden_score : {result.scorecard.hidden_score} / 15")
-    blockers = result.blockers_triggered or ["none"]
-    print(f"  blockers     : {', '.join(blockers)}")
-    print()
-
-    for key, cr in result.scorecard.results.items():
-        sym_c = _STOPLIGHT_SYMBOL.get(cr.stoplight, "?")
-        count_str = f"count={cr.count}  " if cr.count is not None else ""
-        missing_str = ", ".join(cr.missing_signals) or "-"
-        print(
-            f"  {sym_c} {key:<14}  status={cr.status:<11} "
-            f"{count_str}missing_signals={missing_str}"
-        )
-        for note in cr.notes[:2]:
-            short = note[:100] + ("…" if len(note) > 100 else "")
-            print(f"               -> {short}")
-
-
-# ---------------------------------------------------------------------------
-# Serialization helpers
-# ---------------------------------------------------------------------------
-
-
-def _handoff_to_dict(filename: str, artifacts) -> dict:
-    """Build the pre-Qwen handoff dict for one document, tagged with its filename.
-
-    `file` is added purely as a batch-run convenience so each entry in the
-    consolidated array is traceable to its source file. document_id /
-    source_name remain the stable handoff identity.
-    """
-    handoff = build_handoff_from_artifacts(artifacts)
-    data = to_dict(handoff)
-    return {"file": filename, **data}
-
-
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
-
-
-def main() -> None:
-    json_files = sorted(_DATA_DIR.rglob("*_anonymized.json"))
-    if not json_files:
-        print(f"No *_anonymized.json files found in {_DATA_DIR}")
-        sys.exit(1)
-
-    all_handoffs = []
-
-    for path in json_files:
-        filename = path.name
-        try:
-            raw = json.loads(path.read_text(encoding="utf-8"))
-            report = _normalize_report(raw)
-            artifacts = run_caps_with_artifacts(report, input_source="anonymized")
-            _print_result(filename, artifacts.result)
-            all_handoffs.append(_handoff_to_dict(filename, artifacts))
-        except Exception as exc:  # noqa: BLE001
-            print(f"\n[ERROR] {filename}: {exc}")
-
-    # Write the single consolidated pre-Qwen handoff artifact.
-    _HANDOFF_FILE.write_text(
-        json.dumps(all_handoffs, indent=2, ensure_ascii=False),
-        encoding="utf-8",
+def _parse_args() -> argparse.Namespace:
+    p = argparse.ArgumentParser(
+        description="Build a full-content CAPS handoff for ONE anonymized document.",
     )
-    print(f"\n[saved] {_HANDOFF_FILE}")
+    p.add_argument("--input", metavar="PATH",
+                   help="Path to the anonymized JSON document (defaults to the placeholder).")
+    p.add_argument("--output-dir", default=str(_DATA_DIR), metavar="DIR",
+                   help="Directory to write the per-document handoff (default: data/anonymized).")
+    return p.parse_args()
+
+
+def main() -> int:
+    args = _parse_args()
+    input_path = pathlib.Path(args.input) if args.input else _INPUT_PLACEHOLDER
+
+    if not input_path.exists():
+        print(f"[FATAL] Input niet gevonden: {input_path}")
+        if not args.input:
+            print("        Geef --input <pad> mee, of pas de placeholder bovenin het script aan.")
+        return 1
+
+    raw = json.loads(input_path.read_text(encoding="utf-8"))
+    report = _normalize_report(raw)
+
+    handoff = build_full_content_handoff(report)
+    doc_id = handoff["document_id"] or input_path.stem
+
+    out_path = pathlib.Path(args.output_dir) / f"caps_handoff_{doc_id}.json"
+    out_path.write_text(json.dumps(handoff, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    print(f"{'=' * 60}\n  Full-content handoff: {doc_id}\n{'=' * 60}")
+    print(f"  bron     : {input_path}")
+    for key in CRITERIA_KEYS:
+        items = handoff["criteria"][key]["evidence_items"]
+        chars = sum(len(it["excerpt"]) for it in items)
+        kw = sum(1 for it in items if it.get("classification_source") == "keyword")
+        kw_str = f" (waarvan {kw} trefwoord)" if kw else ""
+        print(f"  {key:13} blokken={len(items):3}{kw_str}  tekens={chars}")
+    print(f"\n[saved] {out_path}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

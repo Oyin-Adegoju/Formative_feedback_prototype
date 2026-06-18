@@ -36,12 +36,11 @@ from src.feedback.packet_builder import build_evidence_packets
 _DATA_DIR = pathlib.Path(__file__).parents[2] / "data" / "anonymized"
 
 _HANDOFF_TOP_LEVEL_KEYS: frozenset[str] = frozenset({
-    "document_id", "source_name", "overall_stoplight",
-    "blockers_triggered", "criteria",
+    "document_id", "source_name", "criteria",
 })
 
 _CRITERION_REQUIRED_FIELDS: frozenset[str] = frozenset({
-    "status", "stoplight", "count", "notes", "missing_signals", "evidence_items",
+    "count", "notes", "missing_signals", "evidence_items",
 })
 
 _EVIDENCE_ITEM_FIELDS: frozenset[str] = frozenset({
@@ -76,10 +75,11 @@ _FORBIDDEN_QWEN_KEYS: frozenset[str] = frozenset({
     "qwen_diagnostics", "qwen_strengths", "qwen_weaknesses",
 })
 
-_VALID_STATUSES: frozenset[str] = frozenset(
-    {"missing", "partial", "sufficient", "strong"}
-)
-_VALID_STOPLIGHTS: frozenset[str] = frozenset({"red", "yellow", "green"})
+# CAPS scoring verdicts were removed from the pre-Qwen extraction handoff —
+# these must never appear at document or criterion level.
+_FORBIDDEN_VERDICT_KEYS: frozenset[str] = frozenset({
+    "status", "stoplight", "overall_stoplight", "blockers_triggered",
+})
 
 
 # ---------------------------------------------------------------------------
@@ -187,17 +187,24 @@ def _load_real_doc(subdir: str, doc_id: str) -> dict[str, Any]:
     return raw
 
 
-_REAL_DOCS = [
-    ("Goed",        "2e138dc4"),
-    ("Goed",        "8e5ee17e"),
-    ("Goed",        "c90afb25"),
-    ("Voldoende",   "1023e8a9"),
-    ("Voldoende",   "104812d2"),
-    ("Voldoende",   "2f4d9d91"),
-    ("onvoldoende", "23276484"),
-    ("onvoldoende", "35baf7d3"),
-    ("onvoldoende", "f14254dd"),
-]
+def _discover_real_docs(subdir: str | None = None) -> list[tuple[str, str]]:
+    """Discover (subdir, doc_id) for every anonymized document on disk.
+
+    The corpus is curated over time (documents added/removed), so the
+    integration parametrisation is derived from disk instead of a hardcoded
+    list — adding or deleting a document never breaks the suite.
+    """
+    subs = [subdir] if subdir else ["Goed", "Voldoende", "onvoldoende"]
+    out: list[tuple[str, str]] = []
+    for sub in subs:
+        d = _DATA_DIR / sub
+        if d.is_dir():
+            for f in sorted(d.glob("*_anonymized.json")):
+                out.append((sub, f.name[: -len("_anonymized.json")]))
+    return out
+
+
+_REAL_DOCS = _discover_real_docs()
 
 
 # ---------------------------------------------------------------------------
@@ -235,8 +242,13 @@ def test_document_identity_from_caps(strong_handoff):
     handoff, artifacts = strong_handoff
     assert handoff.document_id == artifacts.result.doc_id
     assert handoff.source_name == artifacts.result.source_name
-    assert handoff.overall_stoplight == artifacts.result.overall_stoplight
-    assert handoff.blockers_triggered == artifacts.result.blockers_triggered
+
+
+def test_handoff_carries_no_document_verdict(strong_handoff):
+    """The pre-Qwen handoff has no document-level stoplight/blocker verdict."""
+    handoff, _ = strong_handoff
+    assert not hasattr(handoff, "overall_stoplight")
+    assert not hasattr(handoff, "blockers_triggered")
 
 
 def test_criterion_is_handoff_instance(strong_handoff):
@@ -245,17 +257,20 @@ def test_criterion_is_handoff_instance(strong_handoff):
         assert isinstance(handoff.criteria[key], CriterionHandoff)
 
 
-def test_verdict_fields_copied_verbatim_from_caps(strong_handoff):
-    """CAPS is the source of truth: every verdict field matches CriterionResult."""
+def test_extraction_fields_copied_verbatim_from_caps(strong_handoff):
+    """CAPS is the source of truth for the extraction notes/missing_signals.
+    count is intentionally neutralized to None (not trustworthy enough to
+    expose); the verdicts (status/stoplight) are not carried."""
     handoff, artifacts = strong_handoff
     for key in CRITERIA_KEYS:
         cr = artifacts.result.scorecard.results[key]
         ch = handoff.criteria[key]
-        assert ch.status == cr.status
-        assert ch.stoplight == cr.stoplight
-        assert ch.count == cr.count
+        assert ch.count is None
         assert ch.notes == cr.notes
         assert ch.missing_signals == cr.missing_signals
+        # Verdicts are deliberately absent from the handoff entry.
+        assert not hasattr(ch, "status")
+        assert not hasattr(ch, "stoplight")
 
 
 def test_evidence_items_reused_from_packets(strong_handoff):
@@ -377,6 +392,14 @@ def test_no_hidden_score(strong_handoff):
     assert "hidden_score" not in text
 
 
+def test_no_caps_verdict_fields(strong_handoff):
+    """CAPS scoring verdicts must not appear anywhere in the pre-Qwen handoff JSON."""
+    handoff, _ = strong_handoff
+    text = json.dumps(to_dict(handoff))
+    for key in _FORBIDDEN_VERDICT_KEYS:
+        assert f'"{key}"' not in text, f"removed CAPS verdict leaked: {key}"
+
+
 def test_build_caps_handoff_matches_convenience(strong_handoff):
     """build_caps_handoff(result, packets) equals build_handoff_from_artifacts."""
     handoff, artifacts = strong_handoff
@@ -396,19 +419,15 @@ def test_real_doc_handoff_contract(subdir, doc_id):
     artifacts = run_caps_with_artifacts(raw, input_source="anonymized")
     d = to_dict(build_handoff_from_artifacts(artifacts))
 
-    # Document identity.
+    # Document identity (no document-level verdict in the extraction handoff).
     assert d["document_id"] == raw["doc_id"]
     assert set(d.keys()) == _HANDOFF_TOP_LEVEL_KEYS
-    assert isinstance(d["blockers_triggered"], list)
-    assert d["overall_stoplight"] in _VALID_STOPLIGHTS
 
-    # All criteria present with the required fields and valid values.
+    # All criteria present with the required extraction fields and valid values.
     assert set(d["criteria"].keys()) == set(CRITERIA_KEYS)
     for key in CRITERIA_KEYS:
         crit = d["criteria"][key]
         assert set(crit.keys()) == _CRITERION_REQUIRED_FIELDS
-        assert crit["status"] in _VALID_STATUSES
-        assert crit["stoplight"] in _VALID_STOPLIGHTS
         assert crit["count"] is None or isinstance(crit["count"], int)
         assert isinstance(crit["notes"], list)
         assert isinstance(crit["missing_signals"], list)
@@ -433,7 +452,7 @@ def test_real_doc_no_manual_review_or_qwen(subdir, doc_id):
     raw = _load_real_doc(subdir, doc_id)
     artifacts = run_caps_with_artifacts(raw, input_source="anonymized")
     text = json.dumps(to_dict(build_handoff_from_artifacts(artifacts)))
-    for key in _FORBIDDEN_KEYS | _FORBIDDEN_QWEN_KEYS:
+    for key in _FORBIDDEN_KEYS | _FORBIDDEN_QWEN_KEYS | _FORBIDDEN_VERDICT_KEYS:
         assert f'"{key}"' not in text, f"{doc_id}: forbidden key leaked: {key}"
 
 

@@ -1,0 +1,32 @@
+[
+  {
+    "doc_id": "51d405f7",
+    "source_name": "requirement analyse fullstack_student2.pdf",
+    "quality_label": "Goed",
+    "prompt_chars": 73927,
+    "prompt_tokens_est": 18482,
+    "blocks_per_criterion": {
+      "beperking": 65,
+      "stakeholders": 10,
+      "requirements": 87,
+      "taalkeuze": 1,
+      "security": 31
+    },
+    "prompt_path": "/Users/user/bpdee2-formatieve-feedback-assistent/data/full_content_experiment/51d405f7/prompt.txt"
+  },
+  {
+    "doc_id": "2f4d9d91",
+    "source_name": "Requirements_Engineering_student6.pdf",
+    "quality_label": "Voldoende",
+    "prompt_chars": 79139,
+    "prompt_tokens_est": 19785,
+    "blocks_per_criterion": {
+      "beperking": 125,
+      "stakeholders": 70,
+      "requirements": 16,
+      "taalkeuze": 6,
+      "security": 44
+    },
+    "prompt_path": "/Users/user/bpdee2-formatieve-feedback-assistent/data/full_content_experiment/2f4d9d91/prompt.txt"
+  }
+]

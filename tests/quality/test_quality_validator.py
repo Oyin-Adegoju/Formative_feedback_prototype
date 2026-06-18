@@ -11,8 +11,9 @@ from src.quality.output_schema import QUALITY_DIMENSIONS
 from src.quality.quality_validator import QualityValidationError, validate
 
 
-def _criterion(key: str, manual_review: bool = False) -> dict:
+def _criterion(key: str, manual_review: bool = False, judgement: str = "mixed") -> dict:
     return {
+        "criterion_judgement": judgement,
         "diagnostics": {dim: "middel" for dim in QUALITY_DIMENSIONS[key]},
         "strengths": ["Concreet beschreven onderdeel."],
         "weaknesses": ["Onderbouwing kan steviger."],
@@ -49,6 +50,44 @@ def test_manual_review_true_is_preserved():
     payload["criteria"]["security"] = _criterion("security", manual_review=True)
     result = validate(_to_json(payload), document_id="doc")
     assert result["criteria"]["security"]["manual_review"] is True
+
+
+# ---------------------------------------------------------------------------
+# criterion_judgement
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize("judgement", ["strong", "mixed", "weak"])
+def test_valid_criterion_judgement_preserved(judgement):
+    payload = _valid_quality()
+    payload["criteria"]["beperking"] = _criterion("beperking", judgement=judgement)
+    result = validate(_to_json(payload), document_id="doc")
+    assert result["criteria"]["beperking"]["criterion_judgement"] == judgement
+
+
+def test_missing_criterion_judgement_raises():
+    payload = _valid_quality()
+    del payload["criteria"]["beperking"]["criterion_judgement"]
+    with pytest.raises(QualityValidationError) as exc:
+        validate(_to_json(payload), document_id="doc")
+    assert "criterion_judgement" in exc.value.reason
+
+
+def test_invalid_criterion_judgement_raises():
+    payload = _valid_quality()
+    payload["criteria"]["beperking"]["criterion_judgement"] = "green"
+    with pytest.raises(QualityValidationError) as exc:
+        validate(_to_json(payload), document_id="doc")
+    assert "criterion_judgement" in exc.value.reason
+
+
+def test_caps_status_judgement_word_in_judgement_is_allowed():
+    """'strong' is a valid criterion_judgement value even though it is also a CAPS
+    status label — the status-leak guard only scans free-text fields."""
+    payload = _valid_quality()
+    payload["criteria"]["beperking"] = _criterion("beperking", judgement="strong")
+    result = validate(_to_json(payload), document_id="doc")
+    assert result["criteria"]["beperking"]["criterion_judgement"] == "strong"
 
 
 # ---------------------------------------------------------------------------

@@ -52,8 +52,6 @@ def _make_merged(
     }
     criteria = {
         key: {
-            "caps_status": "sufficient",
-            "caps_stoplight": "yellow",
             "count": None,
             "caps_notes": [],
             "missing_signals": [],
@@ -61,6 +59,8 @@ def _make_merged(
             "qwen_diagnostics": {},
             "qwen_strengths": [],
             "qwen_weaknesses": [],
+            "criterion_judgement": "mixed",
+            "criterion_stoplight": "yellow",
             "manual_review": False,
             "manual_review_reason": [],
         }
@@ -70,7 +70,6 @@ def _make_merged(
         "document_id": doc_id,
         "source_name": "test.pdf",
         "final_stoplight": final_stoplight,
-        "blockers_triggered": [],
         "criteria_requiring_extra_review": [],
         "criteria": criteria,
     }
@@ -430,3 +429,17 @@ def test_docent_toelichting_stoplight_case_insensitive():
     payload["docent_toelichting"] = "Stoplicht: GREEN — lichte controle volstaat."
     result = validate(_to_json(payload), _make_merged("green"))
     assert result is not None
+
+
+def test_docent_toelichting_accepts_dutch_colour_word():
+    # Smaller models write the Dutch colour name; that must satisfy the check.
+    cases = {
+        "green": "Het stoplicht staat op groen, een globale controle volstaat.",
+        "yellow": "Het stoplicht is geel; let op enkele criteria.",
+        "red": "Het stoplicht staat op rood en vraagt aandacht.",
+    }
+    for stoplight, docent in cases.items():
+        payload = _valid_llm_output(stoplight)
+        payload["docent_toelichting"] = docent
+        result = validate(_to_json(payload), _make_merged(stoplight))
+        assert result["stoplight"] == stoplight

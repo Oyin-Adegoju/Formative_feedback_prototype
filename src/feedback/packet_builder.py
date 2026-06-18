@@ -137,6 +137,41 @@ _TAAL_CHOICE_STRICT: Final[frozenset[str]] = frozenset({
     "beschikbaar in het",
 })
 
+# Taalkeuze that appears only AS A (non-)functional REQUIREMENT — e.g. a "Taal"
+# requirement row, "de website moet meertalig zijn", "Nederlands en Engels",
+# "vertaald naar een andere taal". This is a PARTIAL signal: language is
+# addressed as a requirement, but not as a separate design decision with
+# consequences. Applied only to requirements/NFR-section blocks by the caller.
+_TAAL_REQ_TOKENS: Final[frozenset[str]] = frozenset({
+    "taalkeuze", "meertalig", "meertaligheid", "tweetalig", "anderstalig",
+    "taalondersteuning", "taalversie", "standaardtaal", "taal van de",
+    "in het nederlands", "in het engels", "nederlandstalig", "engelstalig",
+    "vertaald", "vertaling", "vertalen",
+})
+# "meertalige mensen/gebruikers" is a doelgroep description, NOT a language choice.
+_TAAL_DOELGROEP_RE: Final[re.Pattern[str]] = re.compile(
+    r"meertalige?\s+(?:mensen|gebruikers|klanten|bezoekers|personen|doelgroep)",
+    re.IGNORECASE,
+)
+# A "Taal"-labelled requirement, e.g. "Taal |", "Taal:", "NFR16: Taal".
+_TAAL_LABEL_RE: Final[re.Pattern[str]] = re.compile(
+    r"\btaal\b\s*[:|]|\bnfr\d{0,3}\s*:?\s*taal\b", re.IGNORECASE
+)
+
+
+def _taal_requirement_signal(text: str) -> bool:
+    """True when a block addresses language AS A REQUIREMENT (partial taalkeuze).
+
+    Excludes doelgroep mentions ("meertalige mensen"). Meant to be applied by the
+    caller only to requirements/NFR-section blocks (not use cases).
+    """
+    low = _TAAL_DOELGROEP_RE.sub(" ", text.lower())
+    if any(t in low for t in _TAAL_REQ_TOKENS):
+        return True
+    if _TAAL_LABEL_RE.search(low):
+        return True
+    return "nederlands" in low and "engels" in low
+
 _SEC_CONCRETE: Final[frozenset[str]] = frozenset({
     "authenticatie", "autorisatie", "encryptie", "avg", "gdpr",
     "owasp", "https", "ssl", "tls", "jwt", "2fa", "two-factor",
@@ -820,6 +855,36 @@ def _heading_only_marker(
 # ---------------------------------------------------------------------------
 
 
+# Literatuurlijst / bron section detection for the deskresearch half. A real
+# reference list contains at least one concrete source — a URL or a year
+# citation. A heading with neither is an empty/insufficient reference list.
+_BRON_HEADING_RE: Final[re.Pattern[str]] = re.compile(
+    r"literatuur|bron(?:nen|vermelding)?\b|deskresearch", re.IGNORECASE
+)
+_CONCRETE_SOURCE_RE: Final[re.Pattern[str]] = re.compile(
+    r"https?://|www\.|\b(?:19|20)\d{2}\b", re.IGNORECASE
+)
+
+
+def _empty_bron_section(ctx: _DocCtx) -> BlockDict | None:
+    """Return the bron/literatuur heading block when such a section exists in the
+    FULL document but contains no concrete source (URL or year citation); else None.
+
+    Scans the full ordered block list — not the ≤max_candidates retrieval hits —
+    so a populated reference list whose URL blocks happened to rank low is never
+    wrongly flagged as empty.
+    """
+    section = [
+        b for b in ctx.blocks
+        if any(_BRON_HEADING_RE.search(s) for s in b["heading_path"])
+    ]
+    if not section:
+        return None
+    if any(_CONCRETE_SOURCE_RE.search(b["text"]) for b in section):
+        return None
+    return next((b for b in section if b["block_type"] == "heading"), section[0])
+
+
 def _build_beperking_packet(
     spec: CriterionSpec,
     hits: list[RetrievalHit],
@@ -858,11 +923,17 @@ def _build_beperking_packet(
             return ctx.window(h.block["block_id"])[:160].lower()
         return " ".join(h.block["text"].split())[:120].lower()
 
+    # Reserve one slot for the bron-gap marker (added below) so an empty
+    # literatuurlijst is still reported even when the doelgroep section would
+    # otherwise fill the whole budget.
+    gap_block = _empty_bron_section(ctx)
+    content_max = MAX - 1 if gap_block is not None else MAX
+
     # Limitation-bearing blocks first, then research-bearing, then the rest.
     lim_first = [h for h in content if _has_terms(h, _BEP_LIMITATION)]
     res_first = [h for h in content if _has_terms(h, _BEP_RESEARCH)]
     for h in lim_first + res_first + content:
-        if len(items) >= MAX:
+        if len(items) >= content_max:
             break
         bid = h.block["block_id"]
         if bid in seen:
@@ -898,6 +969,30 @@ def _build_beperking_packet(
             "beperking", hits,
             "Sectieheading gevonden maar geen inhoud herkend", ctx,
         )
+
+    # Bronnen-check (deskresearch-helft): flag a literatuurlijst/bron-sectie that
+    # exists but lists no concrete sources (no URL, no year citation). Surfaced as
+    # an absent_marker evidence item so the quality stage sees it, even though
+    # CAPS' broad term-match would otherwise treat the bare heading as research.
+    if gap_block is not None and gap_block["block_id"] not in seen and len(items) < MAX:
+        seen.add(gap_block["block_id"])
+        items.append(EvidenceItem(
+            block_id=gap_block["block_id"],
+            page_no=gap_block["page_no"],
+            block_type=gap_block["block_type"],
+            heading_path=list(gap_block["heading_path"]),
+            excerpt=_excerpt_paragraph(gap_block["text"])
+                    or " ".join(gap_block["heading_path"][-1:]),
+            selection_reason=(
+                "Literatuurlijst/bron-sectie aanwezig maar zonder concrete "
+                "bronnen (geen URL of verwijzing)"
+            ),
+            signal_class="absent_marker",
+            evidence_strength="absent",
+        ))
+        gap_note = "Literatuurlijst zonder concrete bronnen (geen URL of verwijzing)"
+        if gap_note not in missing_sigs:
+            missing_sigs.append(gap_note)
 
     if cr.status in ("missing", "partial"):
         has_lim = any(i.criterion_subtype in ("limitation", "limitation_and_research")
@@ -1154,7 +1249,7 @@ def _build_taalkeuze_packet(
         out = "\n".join(lines)
         return out[:260].rstrip() + ("…" if len(out) > 260 else "")
 
-    def _add(h: RetrievalHit, *, outside_section: bool) -> None:
+    def _add(h: RetrievalHit, *, outside_section: bool, partial: bool = False) -> None:
         bid = h.block["block_id"]
         if bid in seen or len(items) >= MAX:
             return
@@ -1183,7 +1278,14 @@ def _build_taalkeuze_packet(
             subtype = ""
         sc: SignalClass = "weak" if (negated or not (c_terms or k_terms)) else "positive"
         warn_parts: list[str] = []
-        if outside_section:
+        if partial:
+            # Language addressed only as a requirement → partial, never strong.
+            sc = "weak"
+            warn_parts.append(
+                "taalkeuze alleen als (niet-)functionele requirement benoemd, "
+                "niet als aparte ontwerpkeuze met gevolgen"
+            )
+        elif outside_section:
             warn_parts.append("taalkeuze besproken buiten een aparte taalsectie")
         if negated:
             sc = "weak"
@@ -1215,6 +1317,23 @@ def _build_taalkeuze_packet(
                 break
             if _strict_phrases(h.block["text"]):
                 _add(h, outside_section=True)
+
+    # 3. PARTIAL: language addressed only as a (non-)functional requirement.
+    #    Caught here as a weak signal so the criterion is "partially present"
+    #    (→ yellow) instead of absent (→ red). Use cases are excluded (changing
+    #    language at runtime is a feature, not a design-time language choice).
+    if len(items) < MAX:
+        for h in _sort_content_first([h for h in hits if not _is_heading_only(h)]):
+            if len(items) >= MAX:
+                break
+            if h.block["block_id"] in seen:
+                continue
+            if "requirements" not in primary_families(h.block["heading_path"]):
+                continue
+            if _is_use_case_section(h):
+                continue
+            if _taal_requirement_signal(h.block["text"]):
+                _add(h, outside_section=True, partial=True)
 
     if not items:
         items = _heading_only_marker(
@@ -1428,6 +1547,27 @@ def _apply_coverage(
     return out
 
 
+def _dedup_items_by_excerpt(items: list[EvidenceItem]) -> list[EvidenceItem]:
+    """Drop items whose rendered excerpt duplicates an earlier item in the packet.
+
+    Coverage tiling de-duplicates paragraph windows for the header-based criteria,
+    but it does not touch tables or taalkeuze items. Two stakeholder table blocks
+    that render the same rows, or two adjacent taalkeuze paragraphs that expand to
+    the same window, would otherwise show the SAME text twice. Keying on the
+    normalised excerpt collapses those to the first occurrence — no criterion ever
+    presents the same passage twice.
+    """
+    seen: set[str] = set()
+    out: list[EvidenceItem] = []
+    for it in items:
+        key = " ".join(it.excerpt.split()).lower()[:200]
+        if key and key in seen:
+            continue
+        seen.add(key)
+        out.append(it)
+    return out
+
+
 # ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
@@ -1473,6 +1613,10 @@ def build_evidence_packets(
         # excerpts.
         if key in _COVERAGE_KEYS:
             pkt.evidence_items = _apply_coverage(pkt.evidence_items, ctx, key)
+
+        # Final safety net: no criterion may present the same excerpt twice
+        # (catches table duplicates and taalkeuze items, which tiling skips).
+        pkt.evidence_items = _dedup_items_by_excerpt(pkt.evidence_items)
 
         # Safety net: a 'missing' verdict must never carry positive evidence.
         if cr.status == "missing":
