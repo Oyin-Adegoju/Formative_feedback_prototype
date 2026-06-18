@@ -1,0 +1,10 @@
+# Externe dependencies voor de INFIRFS Formatieve Feedback Assistent.
+# De rest van de code draait op de Python-standaardbibliotheek (o.a. urllib voor
+# de LLM-calls), dus alleen deze twee packages zijn nodig.
+#
+# Python 3.10+ vereist (de code gebruikt o.a. `X | None`-typehints).
+#
+# Installeren:  pip install -r requirements.txt
+
+streamlit==1.56.0      # webfrontend (app.py)
+pdfplumber==0.11.9     # PDF-parsing tijdens de anonimisering (src/parser)
