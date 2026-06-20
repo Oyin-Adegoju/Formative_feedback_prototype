@@ -33,6 +33,7 @@ import re
 from typing import Final
 
 from src.caps.criterion_specs import CRITERIA_KEYS
+from src.llm.json_extract import extract_json
 from src.quality.output_schema import (
     JUDGEMENT_VALUES,
     QUALITY_DIMENSIONS,
@@ -214,7 +215,7 @@ def validate(raw_json: str, document_id: str) -> QualityDiagnostics:
         QualityValidationError: on any guardrail violation.
     """
     try:
-        data = json.loads(raw_json)
+        data = json.loads(extract_json(raw_json))
     except json.JSONDecodeError as exc:
         raise QualityValidationError(
             f"JSON parse error: {exc}", raw=raw_json

@@ -37,6 +37,7 @@ from typing import Final
 from src.caps.criterion_specs import CRITERIA_KEYS
 from src.feedback.merge_builder import collect_known_block_ids
 from src.feedback.output_schema import DISCLAIMER, CriterionFeedback, FeedbackResult
+from src.llm.json_extract import extract_json
 
 # ---------------------------------------------------------------------------
 # Score-leak detection patterns
@@ -176,7 +177,7 @@ def validate(raw_json: str, merged: dict) -> FeedbackResult:
 
     # --- 1. JSON parse ---
     try:
-        data = json.loads(raw_json)
+        data = json.loads(extract_json(raw_json))
     except json.JSONDecodeError as exc:
         raise FeedbackValidationError(
             f"JSON parse error: {exc}", raw=raw_json
