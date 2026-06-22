@@ -12,6 +12,7 @@ Flow:
 from __future__ import annotations
 
 import hashlib
+import html
 import json
 import pathlib
 import re
@@ -96,6 +97,24 @@ _LEVEL_COLOR: dict[str, str] = {
     "laag":   "#c62828",
     "middel": "#e65100",
     "hoog":   "#2e7d32",
+}
+
+# Anonimisatie: placeholder-prefix → (enkelvoud, meervoud) voor een nette,
+# naamloze samenvatting. Sluit aan op _PLACEHOLDER_PREFIXES in anonymizer.py.
+_ANON_LABELS: dict[str, tuple[str, str]] = {
+    "PERSOON":   ("naam", "namen"),
+    "STUDENTNR": ("studentnummer", "studentnummers"),
+    "EMAIL":     ("e-mailadres", "e-mailadressen"),
+    "TEL":       ("telefoonnummer", "telefoonnummers"),
+    "GEVOELIG":  ("gevoelig gegeven", "gevoelige gegevens"),
+}
+_ANON_ORDER: tuple[str, ...] = ("PERSOON", "STUDENTNR", "EMAIL", "TEL", "GEVOELIG")
+_ANON_PLACEHOLDER_RE = re.compile(r"\[([A-Z]+)_\d+\]")
+
+# Korte uitleg bij technische termen in de docentweergave (info-icoon op hover).
+_TERM_TOOLTIPS: dict[str, str] = {
+    "CAPS": "Het systeem dat relevante delen uit het document selecteert als basis voor de analyse.",
+    "sectie-identiteit": "De documentsectie waaruit een tekstfragment is geselecteerd, zoals requirements, stakeholders of security.",
 }
 
 _HS_GREEN = "#004438"
@@ -414,6 +433,92 @@ def _inject_css() -> None:
             margin-bottom: 8px;
             border: 1px solid #eeeeee;
         }}
+
+        /* ── Docent: korte samenvatting boven ── */
+        .docent-top-summary {{
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 4px 0 14px 0;
+        }}
+        .docent-toelichting-list {{
+            margin: 0 0 8px 1.1rem;
+            padding: 0;
+        }}
+        .docent-toelichting-list li {{
+            margin-bottom: 4px;
+        }}
+
+        /* ── Docentfocus-blok (waarschuwingsstijl) ── */
+        .docent-focus {{
+            background: #fff8e1;
+            border-left: 4px solid #f9a825;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin: 4px 0 18px 0;
+            font-size: 0.92rem;
+            color: #5d4037;
+        }}
+        .docent-focus-title {{
+            font-weight: 700;
+            color: #e65100;
+            margin-bottom: 4px;
+        }}
+
+        /* ── Info-icoon met klik-popup bij technische termen ── */
+        .term-word {{
+            border-bottom: 1px dotted #888;
+        }}
+        .term-pop {{
+            position: relative;
+            display: inline;
+        }}
+        .term-details {{
+            display: inline;
+        }}
+        .term-details > summary {{
+            display: inline;
+            list-style: none;
+            cursor: pointer;
+            color: {_HS_GREEN};
+            font-size: 0.72rem;
+            font-weight: 700;
+            vertical-align: super;
+            margin-left: 2px;
+        }}
+        .term-details > summary::-webkit-details-marker {{ display: none; }}
+        .term-bubble {{
+            position: absolute;
+            bottom: 1.7em;
+            left: 0;
+            z-index: 1000;
+            width: 240px;
+            background: #1a1a2e;
+            color: #ffffff;
+            padding: 9px 11px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 400;
+            line-height: 1.35;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+        }}
+        .term-bubble::after {{
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 14px;
+            border: 6px solid transparent;
+            border-top-color: #1a1a2e;
+        }}
+
+        /* ── Studentfeedback als bullets ── */
+        .student-feedback-list {{
+            margin: 0 0 4px 1.1rem;
+            padding: 0;
+        }}
+        .student-feedback-list li {{
+            margin-bottom: 4px;
+        }}
         </style>
         """,
         unsafe_allow_html=True,
@@ -585,6 +690,51 @@ def _anonymized_path(doc_id: str) -> pathlib.Path | None:
         return None
     return next(_ANONYMIZED_DIR.rglob(f"{doc_id}_anonymized.json"), None)
 
+
+def _anonymization_type_summary(doc_id: str) -> list[str]:
+    """Naamloze samenvatting van wát er is geanonimiseerd.
+
+    Afgeleid uit de placeholder-labels (bv. [PERSOON_01], [STUDENTNR_02]) in het
+    geanonimiseerde document. Telt UNIEKE placeholders per type en toont nooit
+    echte namen of originele waarden. Geeft regels als "3 namen geanonimiseerd".
+    """
+    path = _anonymized_path(doc_id)
+    if path is None:
+        upload = _UPLOADS_DIR / f"{doc_id}_anonymized.json"
+        path = upload if upload.exists() else None
+    if path is None:
+        return []
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+
+    seen: dict[str, set[str]] = {}
+
+    def _scan(text: str) -> None:
+        for match in _ANON_PLACEHOLDER_RE.finditer(text or ""):
+            seen.setdefault(match.group(1), set()).add(match.group(0))
+
+    for block in data.get("blocks", []):
+        _scan(block.get("text", ""))
+        table_meta = block.get("table_meta") or {}
+        _scan(table_meta.get("header_row", ""))
+        for row in table_meta.get("cells") or []:
+            for cell in row:
+                _scan(cell or "")
+
+    lines: list[str] = []
+    for prefix in _ANON_ORDER:
+        if prefix in seen:
+            n = len(seen[prefix])
+            singular, plural = _ANON_LABELS[prefix]
+            lines.append(f"{n} {singular if n == 1 else plural} geanonimiseerd")
+    for prefix, placeholders in seen.items():        # onbekende types: generiek
+        if prefix not in _ANON_LABELS:
+            n = len(placeholders)
+            lines.append(f"{n} {'gegeven' if n == 1 else 'gegevens'} geanonimiseerd")
+    return lines
+
 # ---------------------------------------------------------------------------
 # Gedeelde render-helpers (ongewijzigd)
 # ---------------------------------------------------------------------------
@@ -613,6 +763,28 @@ def _split_to_bullets(text: str) -> list[str]:
         return []
     parts = re.split(r"\n+|(?<=[.!?])\s+", text.strip())
     return [p.strip() for p in parts if p.strip()]
+
+
+def _with_term_tooltips(text: str) -> str:
+    """HTML met een klikbaar info-icoon (ⓘ) + nette popup-uitleg boven de term.
+
+    De tekst wordt eerst ge-escaped; alleen hele woorden worden vervangen. De
+    popup is een <details>-element: klikken op ⓘ toont de bubbel, nogmaals
+    klikken sluit hem (puur in de browser, geen Streamlit-herlaad).
+    """
+    safe = html.escape(text or "")
+    for term, explanation in _TERM_TOOLTIPS.items():
+        pattern = re.compile(rf"(?<!\w){re.escape(term)}(?!\w)")
+        replacement = (
+            "<span class='term-pop'>"
+            f"<span class='term-word'>{html.escape(term)}</span>"
+            "<details class='term-details'>"
+            "<summary class='info-i'>ⓘ</summary>"
+            f"<span class='term-bubble'>{html.escape(explanation)}</span>"
+            "</details></span>"
+        )
+        safe = pattern.sub(replacement, safe)
+    return safe
 
 
 # Studentweergave — verbeterde opmaak
@@ -657,26 +829,21 @@ def _render_student_view(fb: dict, run_dir: pathlib.Path) -> None:
         label = _CRITERION_LABELS.get(key, key)
         observatie = entry.get("observatie", "")
 
-        # Bewerkbare feedback en docent-opmerkingen uit session_state.
+        # Eventueel door de docent aangepaste feedback uit session_state.
         edit_key = f"edit_{key}_{run_dir.name}"
-        notes_key = f"notes_{key}_{run_dir.name}"
-
         feedback_tekst = st.session_state.get(edit_key, observatie)
-        opmerking = st.session_state.get(notes_key, "")
 
         with st.expander(f"{label}", expanded=False):
-            st.markdown(
-                f"<div class='student-feedback-block'>{feedback_tekst}</div>",
-                unsafe_allow_html=True,
-            )
-
-            if opmerking:
+            bullets = _split_to_bullets(feedback_tekst)
+            if bullets:
+                items = "".join(f"<li>{html.escape(bullet)}</li>" for bullet in bullets)
                 st.markdown(
-                    f"<div style='margin-top:10px;padding:10px 14px;"
-                    f"background:#fff8e1;border-left:3px solid #f9a825;"
-                    f"border-radius:6px;font-size:0.88rem;color:#555;'>"
-                    f"<strong>Opmerking van de docent:</strong><br>"
-                    f"{opmerking}</div>",
+                    f"<ul class='student-feedback-list'>{items}</ul>",
+                    unsafe_allow_html=True,
+                )
+            else:
+                st.markdown(
+                    f"<div class='student-feedback-block'>{html.escape(feedback_tekst)}</div>",
                     unsafe_allow_html=True,
                 )
 
@@ -702,32 +869,61 @@ def _render_docent_view(
     stoplight = fb.get("stoplight", "green")
     badge = _STOPLIGHT_BADGE.get(stoplight, "")
     css_class = f"stoplight-{stoplight}"
+    niveau = _NIVEAU_LABEL.get(stoplight, stoplight.capitalize())
 
-    stoplight_nl = _STOPLIGHT_NL.get(stoplight, stoplight.capitalize())
-
+    # 1. Stoplicht (kleur via badge) + niveaulabel — geen losse "Stoplicht: rood".
     st.markdown(
         f"<div class='stoplight-banner {css_class}'>"
         f"<span style='font-size:1.6rem;'>{badge}</span>"
-        f"<span>Stoplicht: {stoplight_nl}</span>"
+        f"<span>{niveau}</span>"
         f"</div>",
         unsafe_allow_html=True,
     )
 
-    # Docent-toelichting als bullets ipv platte tekst.
+    # 2. Korte, vetgedrukte samenvatting: waar moet de docent op letten?
+    extra = (merged or {}).get("criteria_requiring_extra_review", [])
+    extra_labels = [_CRITERION_LABELS.get(k, k) for k in extra]
+    if extra_labels:
+        top_summary = "Aandacht nodig bij: " + ", ".join(extra_labels) + "."
+    else:
+        top_summary = "Geen criteria gemarkeerd voor extra controle — beoordeel ter bevestiging."
+    st.markdown(
+        f"<div class='docent-top-summary'>{html.escape(top_summary)}</div>",
+        unsafe_allow_html=True,
+    )
+
+    # 3. Docent-toelichting als bullets; de laatste (actiegerichte) zin gaat naar
+    #    het docentfocus-blok (stap 4).
     toelichting_bullets = _split_to_bullets(fb.get("docent_toelichting", ""))
+    focus_sentence = ""
+    if len(toelichting_bullets) > 1:
+        focus_sentence = toelichting_bullets[-1]
+        toelichting_bullets = toelichting_bullets[:-1]
     if toelichting_bullets:
         st.markdown(
             "<div class='section-header'>Docent-toelichting</div>",
             unsafe_allow_html=True,
         )
-        for bullet in toelichting_bullets:
-            st.markdown(f"- {bullet}")
+        items = "".join(
+            f"<li>{_with_term_tooltips(bullet)}</li>" for bullet in toelichting_bullets
+        )
+        st.markdown(
+            f"<ul class='docent-toelichting-list'>{items}</ul>",
+            unsafe_allow_html=True,
+        )
 
-    if merged:
-        extra = merged.get("criteria_requiring_extra_review", [])
-        if extra:
-            extra_labels = [_CRITERION_LABELS.get(k, k) for k in extra]
-            st.warning(f"**Extra docentfocus:** {', '.join(extra_labels)}")
+    # 4. Docentfocus-blok: compact en actiegericht (laatste zin van de toelichting,
+    #    of een generieke controle-aanwijzing bij gemarkeerde criteria).
+    if not focus_sentence and extra_labels:
+        focus_sentence = "Controleer de gemarkeerde criteria in het originele document."
+    if focus_sentence:
+        st.markdown(
+            f"<div class='docent-focus'>"
+            f"<div class='docent-focus-title'>⚠️ Extra docentfocus</div>"
+            f"<div>{_with_term_tooltips(focus_sentence)}</div>"
+            f"</div>",
+            unsafe_allow_html=True,
+        )
 
     # ── Aanbevelingen voor verbetering ──────────────────────────────────────
     st.markdown(
@@ -836,22 +1032,6 @@ def _render_docent_view(
                 value=st.session_state[edit_key],
                 key=edit_key,
                 height=130,
-                label_visibility="collapsed",
-            )
-
-            # ── Opmerkingenveld ─────────────────────────────────────────────
-            notes_key = f"notes_{key}_{run_dir.name}"
-
-            st.markdown(
-                "<div class='notes-label'>Eigen opmerkingen voor de student</div>",
-                unsafe_allow_html=True,
-            )
-
-            st.text_area(
-                label="notes_text",
-                key=notes_key,
-                height=70,
-                placeholder="Voeg hier aanvullende opmerkingen toe...",
                 label_visibility="collapsed",
             )
 
@@ -1010,12 +1190,23 @@ def _render_upload_form() -> None:
             _anonymize_demo(pdf_name)
         return
 
-    # Stap 2 — anonimisatie klaar: toon hoeveel namen zijn verwijderd + genereer-knop.
+    # Stap 2 — anonimisatie klaar: getypeerde samenvatting + genereer-knop.
     count = st.session_state.get("anon_count", 0)
-    st.success(
-        f"✓ Document geanonimiseerd — {count} "
-        f"{'naam' if count == 1 else 'namen'} verwijderd. "
-        "Je kunt het geanonimiseerde document straks downloaden onder 'Downloads'."
+    types = st.session_state.get("anon_types", [])
+    if types:
+        st.success(
+            "✓ Document geanonimiseerd. De volgende gegevens zijn vervangen "
+            "door anonieme labels:"
+        )
+        st.markdown("\n".join(f"- {line}" for line in types))
+    else:
+        st.success(
+            f"✓ Document geanonimiseerd — {count} "
+            f"{'gegeven' if count == 1 else 'gegevens'} verwijderd."
+        )
+    st.caption(
+        "Echte namen worden nooit getoond of opgeslagen. "
+        "Het geanonimiseerde document is straks te downloaden onder 'Downloads'."
     )
     if st.button("Genereer feedback", type="primary"):
         _show_feedback_demo()
@@ -1062,7 +1253,7 @@ def _anonymize_demo(pdf_name: str) -> None:
     anon_placeholder.empty()
 
     if run_dir is None:
-        for key in ("anon_pdf", "anon_count", "anon_run"):
+        for key in ("anon_pdf", "anon_count", "anon_types", "anon_run"):
             st.session_state.pop(key, None)
         st.error(
             f"Geen demo-feedback gevonden voor '{pdf_name}'. "
@@ -1073,8 +1264,10 @@ def _anonymize_demo(pdf_name: str) -> None:
         return
 
     fb = _load_json(run_dir / "feedback_result.json") or {}
+    doc_id = fb.get("document_id", "")
     st.session_state["anon_pdf"] = pdf_name
-    st.session_state["anon_count"] = _removed_names_count(fb.get("document_id", ""))
+    st.session_state["anon_count"] = _removed_names_count(doc_id)
+    st.session_state["anon_types"] = _anonymization_type_summary(doc_id)
     st.session_state["anon_run"] = str(run_dir)
     st.rerun()
 
@@ -1085,28 +1278,29 @@ def _show_feedback_demo() -> None:
     if not run_dir:
         return
 
-    thinking_placeholder = st.empty()
+    status = st.empty()
+    bar = st.progress(0)
 
-    thinking_placeholder.markdown(
-        """
-        <div class="thinking-indicator">
-            <span class="thinking-icon">🤖</span>
-            <span class="thinking-text">AI is aan het denken</span>
-            <div class="thinking-dots">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    stages = [
+        ("Document wordt voorbereid", 0.20),
+        ("Analyse wordt uitgevoerd", 0.50),
+        ("Feedback wordt gegenereerd", 0.85),
+        ("Resultaat wordt geladen", 1.00),
+    ]
+    seconds_per_stage = 2.0
+    for label, fraction in stages:
+        status.markdown(
+            f"<div class='thinking-text'>{label}…</div>",
+            unsafe_allow_html=True,
+        )
+        bar.progress(fraction)
+        time.sleep(seconds_per_stage)
 
-    time.sleep(10)
-    thinking_placeholder.empty()
+    status.empty()
+    bar.empty()
 
     st.session_state.run_dir = run_dir
-    for key in ("anon_pdf", "anon_count", "anon_run"):
+    for key in ("anon_pdf", "anon_count", "anon_types", "anon_run"):
         st.session_state.pop(key, None)
     st.rerun()
 
