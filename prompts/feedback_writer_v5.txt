@@ -165,7 +165,7 @@ Per criterium in criteria:
                            context_warning
   qwen_diagnostics     — kwaliteitsoordelen per dimensie (laag / middel / hoog)
   qwen_strengths       — inhoudelijk sterke punten herkend door Qwen
-  qwen_weaknesses      — inhoudelijke zwakke punten of lacunes herkend door Qwen
+  qwen_weaknesses      — inhoudelijke zwakke punten of ontbrekende onderdelen herkend door Qwen
   criterion_judgement  — Qwen-kwaliteitsoordeel voor dit criterium
                          (gebruik als context; noem deze waarde nooit letterlijk in de output)
   criterion_stoplight  — definitief per-criterium stoplicht (green / yellow / red), deterministisch

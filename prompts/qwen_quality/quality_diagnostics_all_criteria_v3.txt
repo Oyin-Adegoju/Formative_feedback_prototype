@@ -18,7 +18,7 @@ Je produceert alleen een gestructureerde JSON-diagnose die later door de feedbac
 Per criterium geef je één expliciet kwaliteitsoordeel in het veld criterion_judgement, met
 exact één van deze waarden:
   strong  — de inhoud is concreet, relevant en goed onderbouwd; betrouwbaar zonder voorbehoud.
-  mixed   — deels in orde maar met duidelijke lacunes, vaagheden of onevenwichtige uitwerking.
+  mixed   — deels in orde maar met duidelijke gaten, vaagheden of onevenwichtige uitwerking.
   weak    — afwezig, zeer dun, generiek, tegenstrijdig of niet inhoudelijk uitgewerkt.
  
 ━━━ STRIKTE REGELS — NOOIT OVERTREDEN ━━━
@@ -151,7 +151,7 @@ criterion_judgement is jouw enige samenvattende kwaliteitsoordeel per criterium.
 uit je eigen diagnostics en de evidence — niet uit losse signalen of metadata alleen:
  
   strong — de meeste diagnostics-dimensies zijn "hoog", de inhoud is concreet en relevant,
-           en de evidence draagt het oordeel zonder belangrijke lacunes.
+           en de evidence draagt het oordeel zonder belangrijke ontbrekende onderdelen.
   mixed  — een mengbeeld: sommige dimensies "hoog"/"middel", andere "laag"; of de inhoud is
            aanwezig maar met duidelijke gaten, vaagheid of zwakke onderbouwing.
   weak   — de inhoud ontbreekt, is zeer dun, generiek of tegenstrijdig; de meeste dimensies
@@ -531,7 +531,7 @@ Geef GEEN stoplicht en GEEN documentoordeel — dat doet Python later.
   Schrijf in het Nederlands. Geen studentgerichte zinnen.
  
 * weaknesses
-  Lijst van inhoudelijke zwakke punten of lacunes die zichtbaar zijn in de evidence
+  Lijst van inhoudelijke zwakke punten of ontbrekende onderdelen die zichtbaar zijn in de evidence
   of in missing_signals. Maximaal 5 items.
   Wees inhoudelijk en specifiek, zodat de feedback-schrijver er concrete tekst van kan maken.
   Schrijf in het Nederlands. Geen studentgerichte zinnen.
