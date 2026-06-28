@@ -347,8 +347,7 @@ def main() -> int:
         _section("Step 2 — Quality (skipped: --no-llm)")
         print("  Quality stage skipped; building merge with empty Qwen fields.")
         # No Qwen judgement available without the LLM. Use "mixed" (→ yellow) as a
-        # neutral placeholder so the merge contract stays valid; the count floor
-        # still applies on top of it.
+        # neutral placeholder so the merge contract stays valid; 
         empty_quality = {
             "document_id": doc_id,
             "criteria": {

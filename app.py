@@ -465,28 +465,22 @@ def _inject_css() -> None:
             margin-bottom: 4px;
         }}
 
-        /* ── Info-icoon met klik-popup bij technische termen ── */
+        /* ── Info-icoon met hover-tooltip bij technische termen ── */
         .term-word {{
             border-bottom: 1px dotted #888;
         }}
         .term-pop {{
             position: relative;
             display: inline;
+            cursor: help;
         }}
-        .term-details {{
-            display: inline;
-        }}
-        .term-details > summary {{
-            display: inline;
-            list-style: none;
-            cursor: pointer;
+        .info-i {{
             color: {_HS_GREEN};
             font-size: 0.72rem;
             font-weight: 700;
             vertical-align: super;
             margin-left: 2px;
         }}
-        .term-details > summary::-webkit-details-marker {{ display: none; }}
         .term-bubble {{
             position: absolute;
             bottom: 1.7em;
@@ -501,6 +495,15 @@ def _inject_css() -> None:
             font-weight: 400;
             line-height: 1.35;
             box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.12s ease;
+            pointer-events: none;
+        }}
+        /* Toon de bubbel alleen tijdens hover; weg zodra de muis weg is. */
+        .term-pop:hover .term-bubble {{
+            opacity: 1;
+            visibility: visible;
         }}
         .term-bubble::after {{
             content: "";
@@ -766,11 +769,11 @@ def _split_to_bullets(text: str) -> list[str]:
 
 
 def _with_term_tooltips(text: str) -> str:
-    """HTML met een klikbaar info-icoon (ⓘ) + nette popup-uitleg boven de term.
+    """HTML met een info-icoon (ⓘ) + uitleg-bubbel die puur op hover verschijnt.
 
     De tekst wordt eerst ge-escaped; alleen hele woorden worden vervangen. De
-    popup is een <details>-element: klikken op ⓘ toont de bubbel, nogmaals
-    klikken sluit hem (puur in de browser, geen Streamlit-herlaad).
+    bubbel toont alleen tijdens hover (CSS) en verdwijnt zodra de muis weggaat —
+    geen klik-state, dus niets blijft staan.
     """
     safe = html.escape(text or "")
     for term, explanation in _TERM_TOOLTIPS.items():
@@ -778,10 +781,9 @@ def _with_term_tooltips(text: str) -> str:
         replacement = (
             "<span class='term-pop'>"
             f"<span class='term-word'>{html.escape(term)}</span>"
-            "<details class='term-details'>"
-            "<summary class='info-i'>ⓘ</summary>"
+            "<span class='info-i'>ⓘ</span>"
             f"<span class='term-bubble'>{html.escape(explanation)}</span>"
-            "</details></span>"
+            "</span>"
         )
         safe = pattern.sub(replacement, safe)
     return safe
