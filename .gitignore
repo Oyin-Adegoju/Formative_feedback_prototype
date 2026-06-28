@@ -12,3 +12,6 @@ data/full_pipeline_runs/
 data/anonymized_internal/
 # Referentiedata bevat de echte studentroster + gebouwde catalogus (PII) -> niet committen
 data/reference/
+
+# Originele studentdocumenten (PII) -> lokaal bewaren, niet committen
+INFIRST_requirements/
