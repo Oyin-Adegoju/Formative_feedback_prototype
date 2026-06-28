@@ -1,0 +1,1244 @@
+{
+  "document_id": "fedbfec0",
+  "source_name": "FirstFullStack _student9.pdf",
+  "final_stoplight": "red",
+  "criteria_requiring_extra_review": [
+    "beperking",
+    "requirements",
+    "taalkeuze",
+    "security"
+  ],
+  "criteria": {
+    "beperking": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (83 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "fedbfec0_0067",
+          "page_no": 5,
+          "block_type": "heading",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "H3 Onderzoek naar web gebruikers."
+        },
+        {
+          "block_id": "fedbfec0_0068",
+          "page_no": 5,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "Missie van de Website:"
+        },
+        {
+          "block_id": "fedbfec0_0069",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "De missie van de website is om een inclusieve en gebruiksvriendelijke ervaring te bieden voor"
+        },
+        {
+          "block_id": "fedbfec0_0070",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "lieZebbers van nagellak, met specifieke aandacht voor de doelgroep die kleurenblindheid ervaart."
+        },
+        {
+          "block_id": "fedbfec0_0071",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "Door dit te doen, streven we naar een omgeving waarin elke gebruiker moeiteloos kan genieten van"
+        },
+        {
+          "block_id": "fedbfec0_0072",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "nagelverzorging en het verkennen van diverse nagellakproducten."
+        },
+        {
+          "block_id": "fedbfec0_0073",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "Doelgroep focus:"
+        },
+        {
+          "block_id": "fedbfec0_0074",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "Deze website richt zich voornamelijk op mensen van alle leefijden en geslachten die geïnteresseerd"
+        },
+        {
+          "block_id": "fedbfec0_0075",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "zijn in nagelverzorging en nagellak. Specifieke aandacht gaat uit naar diegenen die kleurenblindheid"
+        },
+        {
+          "block_id": "fedbfec0_0076",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "ervaren. Dit omvat zowel mannen als vrouwen, waardoor we een inclusieve ruimte creëren voor alle"
+        },
+        {
+          "block_id": "fedbfec0_0077",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "nagellaklieZebbers."
+        },
+        {
+          "block_id": "fedbfec0_0078",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "Gebruikersvoorkeuren:"
+        },
+        {
+          "block_id": "fedbfec0_0079",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "Onze doelgroep gebruikt dergelijke websites voor het ontdekken van nieuwe nagellakproducten, het"
+        },
+        {
+          "block_id": "fedbfec0_0080",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "vinden van inspira=e voor nagelontwerpen en het delen van ervaringen met medelieZebbers. Ze"
+        },
+        {
+          "block_id": "fedbfec0_0081",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "geven er de voorkeur aan als de website:"
+        },
+        {
+          "block_id": "fedbfec0_0082",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Duidelijke productbeschrijvingen en informa=e biedt."
+        },
+        {
+          "block_id": "fedbfec0_0083",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Kleurcontrasten in het ontwerp gebruikt voor een betere leesbaarheid."
+        },
+        {
+          "block_id": "fedbfec0_0084",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Alterna=eve manieren biedt om kleurinforma=e te begrijpen."
+        },
+        {
+          "block_id": "fedbfec0_0085",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Een inclusieve benadering heef in termen van gender en visuele capaciteiten. Rekening"
+        },
+        {
+          "block_id": "fedbfec0_0086",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "houden met Voorkeuren:"
+        },
+        {
+          "block_id": "fedbfec0_0087",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "Om aan de voorkeuren van de doelgroep te voldoen, houden we extra rekening met:"
+        },
+        {
+          "block_id": "fedbfec0_0088",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Het op=maliseren van kleurcontrasten en duidelijke Visuals op de website."
+        },
+        {
+          "block_id": "fedbfec0_0089",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Het verstrekken van gedetailleerde produc=nforma=e en gebruik van alterna=eve tekst."
+        },
+        {
+          "block_id": "fedbfec0_0090",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Inclusieve marke=ngprak=jken, zoals het opnemen van diverse modellen in adverten=es."
+        },
+        {
+          "block_id": "fedbfec0_0091",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Het mogelijk maken van een soepele online winkelervaring, rekening houdend met"
+        },
+        {
+          "block_id": "fedbfec0_0092",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "kleurenblinden."
+        },
+        {
+          "block_id": "fedbfec0_0093",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "Door ons op deze manier te richten op de doelgroep en rekening te houden met hun specifieke"
+        },
+        {
+          "block_id": "fedbfec0_0094",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "voorkeuren, streven we ernaar een posi=eve en toegankelijke online ruimte te creëren voor alle"
+        },
+        {
+          "block_id": "fedbfec0_0095",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "nagellaklieZebbers, ongeacht hun visuele capaciteiten en genders."
+        },
+        {
+          "block_id": "fedbfec0_0096",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "SamenvaFng interviews:"
+        },
+        {
+          "block_id": "fedbfec0_0097",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Kleuren en Assor)ment: De voorkeur gaat uit naar een breed kleurenpalet dat gekoppeld is"
+        },
+        {
+          "block_id": "fedbfec0_0098",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "aan nagellak, waarbij diversiteit en aantrekkelijkheid centraal staan."
+        },
+        {
+          "block_id": "fedbfec0_0099",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Prijs/Kwaliteit Verhouding: Hoogwaardige producten tegen betaalbare prijzen hebben de"
+        },
+        {
+          "block_id": "fedbfec0_0100",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "voorkeur, met een sterke nadruk op waar voor je geld."
+        },
+        {
+          "block_id": "fedbfec0_0101",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Informa)e op de Website: Belangrijke informa=e omvat gezondheidsaspecten,"
+        },
+        {
+          "block_id": "fedbfec0_0102",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "duurzaamheid, verwijderingsmethoden en productbeschrijvingen."
+        },
+        {
+          "block_id": "fedbfec0_0103",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Assor)ment en Exclusiviteit: De voorkeur gaat uit naar een ruim assor=ment met exclusieve"
+        },
+        {
+          "block_id": "fedbfec0_0104",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "collec=es en limited edi=ons om unieke keuzes te bieden."
+        },
+        {
+          "block_id": "fedbfec0_0105",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Aanbiedingen en Kor)ngen: Interesse in abonnementen met kor=ng voor frequente"
+        },
+        {
+          "block_id": "fedbfec0_0106",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "aankopen, benadrukkend dat aantrekkelijke aanbiedingen gewaardeerd worden."
+        },
+        {
+          "block_id": "fedbfec0_0107",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Community Betrokkenheid: Een ac=eve online community waar ervaringen gedeeld worden,"
+        },
+        {
+          "block_id": "fedbfec0_0108",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "is van groot belang."
+        },
+        {
+          "block_id": "fedbfec0_0109",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Bronnen voor Nagellak Ontdekken: Ontdekken van nieuwe nagellak gebeurt via influencers"
+        },
+        {
+          "block_id": "fedbfec0_0110",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "en vrienden, waarmee de waarde van betrokkenheid bij influencers wordt benadrukt."
+        },
+        {
+          "block_id": "fedbfec0_0111",
+          "page_no": 6,
+          "block_type": "bullet",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "• Milieubewuste Benadering: De voorkeur gaat uit naar een milieubewust merk, met aandacht"
+        },
+        {
+          "block_id": "fedbfec0_0112",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "voor duurzame verpakkingen en het vermijden van schadelijke chemicaliën. Bronnen Thijs de"
+        },
+        {
+          "block_id": "fedbfec0_0113",
+          "page_no": 6,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers."
+          ],
+          "excerpt": "Rooij, [PERSOON_03], Sem Treur."
+        },
+        {
+          "block_id": "fedbfec0_0120",
+          "page_no": 10,
+          "block_type": "heading",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "Usercase beschrijvingen"
+        },
+        {
+          "block_id": "fedbfec0_0121",
+          "page_no": 10,
+          "block_type": "table",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "Naam | UC01 Gebruikers registratie en inloggen\nActor | Klant\nPreconditie | De gebruiker heeft geen geregistreerd account op de website.\nBeschrijving | Deze user case beschrijft het proces waarin een nieuwe klant zich registreert op de website en vervolgens inlogt op zijn of haar account.\nScenario beschrijving | 1. de klant opent de website en klikt op de knop 'Registreren'. 2. Het systeem toont het registratieformulier waar de klant gevraagd wordt om persoonlijke gegevens in te vullen, zoals naam, emailadres en wachtwoord. 3. De klant vult de vereiste gegevens in en klikt op 'Registreren'. 4. Het systeem controleert of de ingevoerde gegevens geldig zijn en uniek zijn voor elke gebruiker. 5. Als de gegevens geldig zijn, wordt het account van de klant aangemaakt, en ontvangt de klant een bevestigingsmail. 6. De klant opent de bevestigingsmail en klikt op de verificatielink om het account te activeren. Na verificatie kan de klant inloggen op de website.\nPostconditie | De klant heeft succesvol een account geregistreerd, geactiveerd en is ingelogd op de website. Het systeem heeft nu toegang tot de persoonlijke gegevens van de klant.\nNaam | UC02 Product catalogus\nActor | Klant\nPreconditie | De klant is op de wesbite\nBeschrijving | Deze user case beschrijft hoe de klant door de productcatalogus kan bladeren, producten kan bekijken en informatie kan vinden."
+        },
+        {
+          "block_id": "fedbfec0_0122",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "Scenario 1. De klant bevindt zich op de hoofdpagina van de website."
+        },
+        {
+          "block_id": "fedbfec0_0123",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "beschrijving 2. De klant navigeert naar de sectie \"Producten\" of kiest een"
+        },
+        {
+          "block_id": "fedbfec0_0124",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "specifieke categorie uit de catalogus."
+        },
+        {
+          "block_id": "fedbfec0_0125",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "3. Het systeem toont een overzicht van producten in de gekozen"
+        },
+        {
+          "block_id": "fedbfec0_0126",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "categorie, met relevante informatie zoals naam, prijs en afbeelding."
+        },
+        {
+          "block_id": "fedbfec0_0127",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "4. De klant kan doorklikken naar individuele productpagina's voor"
+        },
+        {
+          "block_id": "fedbfec0_0128",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "meer details."
+        },
+        {
+          "block_id": "fedbfec0_0129",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "5. Op de productpagina kan de klant gedetailleerde informatie over"
+        },
+        {
+          "block_id": "fedbfec0_0130",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "het product lezen en eventueel specificaties, recensies of"
+        },
+        {
+          "block_id": "fedbfec0_0131",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "gerelateerde producten bekijken."
+        },
+        {
+          "block_id": "fedbfec0_0132",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "6. De klant heeft de mogelijkheid om het product aan de winkelmand"
+        },
+        {
+          "block_id": "fedbfec0_0133",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "toe te voegen als het aan de verwachtingen voldoet."
+        },
+        {
+          "block_id": "fedbfec0_0134",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "Postconditie De klant heeft door de productcatalogus gebladerd, producten bekeken en"
+        },
+        {
+          "block_id": "fedbfec0_0135",
+          "page_no": 11,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "heeft mogelijk producten aan de winkelmand toegevoegd."
+        },
+        {
+          "block_id": "fedbfec0_0136",
+          "page_no": 11,
+          "block_type": "table",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "Naam | UC03 Winkelmandfunctionaliteit\nNaam | UC03 Winkelmandfunctionaliteit\nActor | Klant\nPreconditie | De klant heeft producten aan de winkelmand toegevoegd.\nBeschrijving | Deze user case beschrijft hoe de klant zijn of haar winkelmand beheert en bestellingen voorbereidt.\nScenario beschrijving | 1. De klant klikt op de winkelmandknop om de inhoud van de winkelmand te bekijken. 2. Het systeem toont een overzicht van de producten in de winkelmand, inclusief aantallen en totale kosten. 3. De klant heeft de mogelijkheid om producten te verwijderen, de hoeveelheid aan te passen of verder te winkelen. 4. Na het controleren van de winkelmand klikt de klant op de knop 'Afrekenen'. 5. Het systeem leidt de klant naar het afrekenproces waar verzend en factuurgegevens worden ingevoerd. 6. De klant voltooit het afrekenproces door de bestelling te bevestigen.\nPostconditie | De klant heeft de winkelmand beheerd en een bestelling geplaatst.\nNaam | UC04 Beheerinterface\nActor | Beheerder\nPreconditie | De beheerder is ingelogd op het beheerdersaccount.\nBeschrijving | Deze usercase beschrijft hoe de beheerder de interface gebruikt om producten, klanten en bestellingen te beheren."
+        },
+        {
+          "block_id": "fedbfec0_0137",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "Scenario 1. 1. De beheerder navigeert naar de beheerinterface na het"
+        },
+        {
+          "block_id": "fedbfec0_0138",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "beschrijving"
+        },
+        {
+          "block_id": "fedbfec0_0139",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "inloggen."
+        },
+        {
+          "block_id": "fedbfec0_0140",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "2. Het systeem toont verschillende beheermogelijkheden, zoals"
+        },
+        {
+          "block_id": "fedbfec0_0141",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "productbeheer, klantbeheer en bestellingbeheer."
+        },
+        {
+          "block_id": "fedbfec0_0142",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "3. De beheerder selecteert bijvoorbeeld \"Productbeheer\" en voert"
+        },
+        {
+          "block_id": "fedbfec0_0143",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "wijzigingen door, zoals prijsaanpassingen of productinformatie"
+        },
+        {
+          "block_id": "fedbfec0_0144",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "bijwerken."
+        },
+        {
+          "block_id": "fedbfec0_0145",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "4. De beheerder kan nieuwe producten toevoegen of oude"
+        },
+        {
+          "block_id": "fedbfec0_0146",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "producten verwijderen."
+        },
+        {
+          "block_id": "fedbfec0_0147",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "5. De beheerder heeft toegang tot klantinformatie, kan"
+        },
+        {
+          "block_id": "fedbfec0_0148",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "klantaccounts beheren en eventuele klantproblemen oplossen."
+        },
+        {
+          "block_id": "fedbfec0_0149",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "6. In het bestellingbeheer kan de beheerder bestellingen"
+        },
+        {
+          "block_id": "fedbfec0_0150",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "controleren, statussen bijwerken en orderdetails bekijken."
+        },
+        {
+          "block_id": "fedbfec0_0151",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "Postconditie"
+        },
+        {
+          "block_id": "fedbfec0_0152",
+          "page_no": 12,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "Naam UC06 profiel aanmaken"
+        },
+        {
+          "block_id": "fedbfec0_0153",
+          "page_no": 12,
+          "block_type": "table",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "Naam | UC05 Bestellingen plaatsen\nNaam | UC05 Bestellingen plaatsen\nActor | Klant\nPreconditie | De klant heeft producten aan de winkelmand toegevoegd.\nBeschrijving | Deze usercase beschrijft het proces waarin de klant een bestelling plaatst.\nScenario beschrijving | 1. De klant bevindt zich op de afrekenpagina nadat producten aan de winkelmand zijn toegevoegd. 2. De klant vult de vereiste verzend en factuurgegevens in. 3. De klant kiest een betaalmethode en voert de benodigde informatie in. 4. Na het controleren van alle gegevens klikt de klant op de knop 'Plaats bestelling'. 5. Het systeem verwerkt de bestelling, trekt de kosten af van het account van de klant en genereert een orderbevestiging. De klant ontvangt een bevestigingsmail met details over de bestelling en kan de status van de bestelling volgen via het profiel.\nPostconditie | De klant heeft succesvol een bestelling geplaatst, het systeem heeft de bestelling verwerkt en bevestigd, en de klant heeft een bevestigingsmail ontvangen. De bestelling is bijgewerkt in het besteloverzicht op de profielpagina van de klant, en de factuur is beschikbaar."
+        },
+        {
+          "block_id": "fedbfec0_0154",
+          "page_no": 13,
+          "block_type": "heading",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase diagram"
+          ],
+          "excerpt": "Usercase diagram"
+        },
+        {
+          "block_id": "fedbfec0_0155",
+          "page_no": 13,
+          "block_type": "table",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase diagram"
+          ],
+          "excerpt": "Actor | Klant\nActor | Klant\nPreconditie | De klant heeft nog geen profiel op de website.\nBeschrijving | Deze usercase beschrijft het proces waarin een klant een nieuw profiel aanmaakt op de website.\nScenario beschrijving | 1. De klant opent de website. 2. De klant klikt op de knop 'Profiel aanmaken'. 3. Het systeem toont het registratieformulier waar de klant persoonlijke gegevens moet invullen, zoals naam, emailadres en wachtwoord. 4. De klant vult de vereiste gegevens in en klikt op 'Profiel aanmaken'. 5. Het systeem controleert of de ingevoerde gegevens geldig zijn en uniek zijn voor elke gebruiker. 6. Als de gegevens geldig zijn, wordt het profiel van de klant aangemaakt en wordt de klant doorgestuurd naar de profielpagina.\nPostconditie | De klant heeft succesvol een profiel aangemaakt en kan nu inloggen met de geregistreerde gegevens."
+        }
+      ],
+      "qwen_diagnostics": {
+        "concreteness": "middel",
+        "research_support": "laag",
+        "case_relevance": "hoog",
+        "impact_on_requirements": "middel"
+      },
+      "qwen_strengths": [
+        "De beperking van kleurenblindheid is expliciet genoemd en gekoppeld aan de doelgroep.",
+        "Er zijn specifieke maatregelen genoemd om kleurcontrasten te verbeteren voor gebruikers met kleurenblindheid."
+      ],
+      "qwen_weaknesses": [
+        "De onderbouwing van de beperking is vaag en er wordt geen deskresearch of bronnen vermeld.",
+        "Het effect op de functionaliteit en ontwerp is niet duidelijk uitgewerkt, behalve het gebruik van kleurcontrasten."
+      ],
+      "criterion_judgement": "mixed",
+      "criterion_stoplight": "yellow",
+      "manual_review": true,
+      "manual_review_reason": [
+        "De onderbouwing van de beperking is vaag en er zijn geen concrete bronnen of deskresearch vermeld.",
+        "Het effect op de functionaliteit en ontwerp is niet duidelijk uitgewerkt."
+      ]
+    },
+    "stakeholders": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (2 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "fedbfec0_0032",
+          "page_no": 3,
+          "block_type": "heading",
+          "heading_path": [
+            "H2 Stakeholder analyse"
+          ],
+          "excerpt": "H2 Stakeholder analyse"
+        },
+        {
+          "block_id": "fedbfec0_0033",
+          "page_no": 3,
+          "block_type": "table",
+          "heading_path": [
+            "H2 Stakeholder analyse"
+          ],
+          "excerpt": "Naam | Func)e: | Rol | impact | invloed\n[PERSOON_02] | Vertegenwoordiger van Plenty Investeringen | Opdrachtgever | Hoog, als ini=ator en financier van het project. | Hoog, als beslisser en beïnvloeder van de projectrich=ng.\nIndividuele Websiteontwikkelaars | Website ontwikkelaars | Uitvoerders van de website ontwikkelingstaak | Gemiddeld, aZankelijk van hun exper=se en bijdrage. | Gemiddeld, via feedback en gebruikersgedrag\nKlanten van de webshop | Eindgebruikers | Gebruikers van de ontwikkelde app | Hoog, omdat hun tevredenheid het succes van de webshop bepaalt. | Gemiddeld, via feedback en gebruikersgedrag\nOverheid | Regelgevende instan=e | Zorgt voor we_elijke naleving en regelgeving | Hoog, met poten=ële juridische gevolgen | Hoog, vooral in termen van naleving\nLeveranciers | Leveranciers van producten | Belangerijk voor de product aanbod in de webshop | Gemiddeld, aZankelijk van de rela=e met de webshop | Gemiddeld, vooral op logis=ek en voorraad.\nMichel | Beheerder | Opdracht gever docenten | Hoog\nbeheerder | Beheerder website | Beheerder van website | Hoog voor dagelijks beheer | Hoog voor opera=onele efficiën=e"
+        }
+      ],
+      "qwen_diagnostics": {
+        "stakeholder_relevance": "hoog",
+        "interest_quality": "hoog",
+        "influence_quality": "hoog",
+        "context_link": "hoog"
+      },
+      "qwen_strengths": [
+        "De stakeholders zijn relevant voor de webshop-context en hun invloed is duidelijk beschreven.",
+        "Er wordt uitgelegd hoe elke stakeholder belangrijk is voor het project, inclusief opdrachtgevers, klanten, ontwikkelaars en overheid."
+      ],
+      "qwen_weaknesses": [],
+      "criterion_judgement": "strong",
+      "criterion_stoplight": "green",
+      "manual_review": false,
+      "manual_review_reason": []
+    },
+    "requirements": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (6 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "fedbfec0_0114",
+          "page_no": 7,
+          "block_type": "heading",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "H4 Wensen, Eisen, prioriteiten."
+          ],
+          "excerpt": "H4 Wensen, Eisen, prioriteiten."
+        },
+        {
+          "block_id": "fedbfec0_0115",
+          "page_no": 8,
+          "block_type": "heading",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Func&oenle Requirements"
+          ],
+          "excerpt": "Func&oenle Requirements"
+        },
+        {
+          "block_id": "fedbfec0_0116",
+          "page_no": 8,
+          "block_type": "heading",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Niet-Func&onele Requirements"
+          ],
+          "excerpt": "Niet-Func&onele Requirements"
+        },
+        {
+          "block_id": "fedbfec0_0117",
+          "page_no": 8,
+          "block_type": "table",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Niet-Func&onele Requirements"
+          ],
+          "excerpt": "Func)onele requirements | Beschrijving | Moscow\nFunc)onele requirements | Beschrijving | Moscow\nGebruikers registra=e en inloggen UCO1 | Klanten moeten in staat zijn om een profiel aan te maken en in te loggen op de website. | Must have\nProduct catalogus UCO2 | Een overzichtelijke en goed georganiseerde productcatalogus met de genoemde categorieën. Klanten moeten producten eenvoudig kunnen vinden en bekijken. | Must have\nWinkelmandfunc=onaliteit UCO3c | Klanten moeten producten kunnen toevoegen, bekijken en verwijderen uit hun winkelmand. Een goed ontworpen winkelmandfunc=onaliteit voor een soepele aZandeling van bestellingen. | Must have\nBeheerinterface UCO4 | Een intuï=eve beheerinterface voor efficiënt beheer van producten, klanten en bestellingen. | Should have\nBestelling plaatsen UC05 | Klanten moeten eenvoudig bestellingen kunnen plaatsen met een duidelijk afrekenproces. | Must have\nProfiel aanmaken UC06 | Klanten moeten een profiel aan kunnen maken, waarbij er gegevens worden opgeslagen. | Must have\nNon func)onele requirements | Beschrijving | Moscow\nGebruiksvriendelijkheid | De website moet gebruiksvriendelijk zijn, met een aantrekkelijke en intuï=eve gebruikersinterface. Klanten moeten een gepersonaliseerde winkelervaring hebben. | Must have\nBetrouwbaarheid: | De website moet al=jd bereikbaar zijn voor klanten. Bestellingen moeten betrouwbaar worden afgehandeld, en klanten moeten ontvangen wat ze bestellen. | Must have"
+        },
+        {
+          "block_id": "fedbfec0_0118",
+          "page_no": 9,
+          "block_type": "table",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Niet-Func&onele Requirements"
+          ],
+          "excerpt": "Veiligheid en GDPRnaleving: | Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essen=eel. Er moet een grondige beveiligings en risicoanalyse worden uitgevoerd om de gegevens van klanten te | Must have\nbeschermen, ondanks het ontbreken van daadwerkelijke financiële transac=es.\nAantrekkelijkheid: | De uitstraling en opmaak van de website moeten passen bij de beoogde klanten van het soort product. De website moet verkennend zijn, ongeacht het apparaat waarop deze wordt bekeken. | Should have\nToegankelijkheid voor diverse groepen klanten: | De website moet toegankelijk zijn voor een breed scala aan klanten, waaronder laaggele_erde mensen, meertalige mensen, slechtziende mensen, mensen die kleurenblind zijn, ouderen, en mensen met beperkte financiële middelen. | Should have\nVormgeving bol.com"
+        },
+        {
+          "block_id": "fedbfec0_0119",
+          "page_no": 9,
+          "block_type": "table",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Niet-Func&onele Requirements"
+          ],
+          "excerpt": "constraints | beschrijving\nBetaling en promo=es: | Klanten mogen producten niet betalen met gifcards. Het gebruik van promocodes in de webshop is niet toegestaan.\nBudget en Tijdslijn: | De ontwikkeling van de website moet binnen een budget van 10.000 euro worden voltooid binnen een redelijke termijn van zes weken. Op relevante momenten moet de opdrachtgever op de hoogte worden gebracht van de voortgang, en aan het einde van de zes weken moet er een werkende webshop kunnen worden getoond in een adviespresenta=e.\nThema | De website moet een thema hebben."
+        }
+      ],
+      "qwen_diagnostics": {
+        "concreteness": "middel",
+        "testability": "hoog",
+        "relevance": "hoog",
+        "explanation_quality": "laag",
+        "priority_logic": "laag",
+        "classification_quality": "hoog"
+      },
+      "qwen_strengths": [
+        "De functionaliteit en niet-functionele requirements zijn duidelijk gedefinieerd.",
+        "Er is een goede prioriteitsclassificatie (MoSCoW) aangebracht."
+      ],
+      "qwen_weaknesses": [
+        "De motivatie achter de gekozen prioriteiten is vaag of ontbreekt.",
+        "Sommige requirements zijn niet goed uitgelegd, wat leidt tot onduidelijkheden over hun specifieke doel en implementatie."
+      ],
+      "criterion_judgement": "mixed",
+      "criterion_stoplight": "yellow",
+      "manual_review": true,
+      "manual_review_reason": [
+        "De motivatie achter de gekozen prioriteiten is vaag of ontbreekt.",
+        "Sommige requirements zijn niet goed uitgelegd, wat leidt tot onduidelijkheden over hun specifieke doel en implementatie."
+      ]
+    },
+    "taalkeuze": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (1 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "fedbfec0_0118",
+          "page_no": 9,
+          "block_type": "table",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Niet-Func&onele Requirements"
+          ],
+          "excerpt": "Veiligheid en GDPRnaleving: | Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essen=eel. Er moet een grondige beveiligings en risicoanalyse worden uitgevoerd om de gegevens van klanten te | Must have\nbeschermen, ondanks het ontbreken van daadwerkelijke financiële transac=es.\nAantrekkelijkheid: | De uitstraling en opmaak van de website moeten passen bij de beoogde klanten van het soort product. De website moet verkennend zijn, ongeacht het apparaat waarop deze wordt bekeken. | Should have\nToegankelijkheid voor diverse groepen klanten: | De website moet toegankelijk zijn voor een breed scala aan klanten, waaronder laaggele_erde mensen, meertalige mensen, slechtziende mensen, mensen die kleurenblind zijn, ouderen, en mensen met beperkte financiële middelen. | Should have\nVormgeving bol.com",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie — beoordeel de relevantie zelf"
+        }
+      ],
+      "qwen_diagnostics": {
+        "explicit_choice": "laag",
+        "target_group_fit": "laag",
+        "consequence_quality": "laag",
+        "design_decision_clarity": "laag"
+      },
+      "qwen_strengths": [],
+      "qwen_weaknesses": [
+        "Er is geen expliciete taalkeuze gemaakt.",
+        "De gevolgen van de taalkeuze voor doelgroep, toegankelijkheid en gebruikerservaring zijn niet uitgelegd."
+      ],
+      "criterion_judgement": "weak",
+      "criterion_stoplight": "red",
+      "manual_review": true,
+      "manual_review_reason": [
+        "Er is geen expliciete taalkeuze gemaakt.",
+        "De gevolgen van de taalkeuze voor doelgroep, toegankelijkheid en gebruikerservaring zijn niet uitgelegd."
+      ]
+    },
+    "security": {
+      "count": null,
+      "caps_notes": [
+        "Volledige in-sectie inhoud meegegeven (11 blok(ken), geen afkapping)."
+      ],
+      "missing_signals": [],
+      "evidence_items": [
+        {
+          "block_id": "fedbfec0_0049",
+          "page_no": 4,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]"
+          ],
+          "excerpt": "betrouwbaarheid, gepersonaliseerde winkelervaring, veiligheid van persoonlijke gegevens.",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie — beoordeel de relevantie zelf"
+        },
+        {
+          "block_id": "fedbfec0_0051",
+          "page_no": 4,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]"
+          ],
+          "excerpt": "bezorgingsproblemen, zorgen over privacy en gegevensbescherming.",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie — beoordeel de relevantie zelf"
+        },
+        {
+          "block_id": "fedbfec0_0056",
+          "page_no": 4,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]"
+          ],
+          "excerpt": "privacywe_en, reputa=eschade voor het bedrijf.",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie — beoordeel de relevantie zelf"
+        },
+        {
+          "block_id": "fedbfec0_0064",
+          "page_no": 4,
+          "block_type": "paragraph",
+          "heading_path": [
+            "[PERSOON_02]"
+          ],
+          "excerpt": "naleving van veiligheids- en privacy voorschrifen.",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie — beoordeel de relevantie zelf"
+        },
+        {
+          "block_id": "fedbfec0_0118",
+          "page_no": 9,
+          "block_type": "table",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Niet-Func&onele Requirements"
+          ],
+          "excerpt": "Veiligheid en GDPRnaleving: | Strikte naleving van de Algemene Verordening Gegevensbescherming (AVG) is essen=eel. Er moet een grondige beveiligings en risicoanalyse worden uitgevoerd om de gegevens van klanten te | Must have\nbeschermen, ondanks het ontbreken van daadwerkelijke financiële transac=es.\nAantrekkelijkheid: | De uitstraling en opmaak van de website moeten passen bij de beoogde klanten van het soort product. De website moet verkennend zijn, ongeacht het apparaat waarop deze wordt bekeken. | Should have\nToegankelijkheid voor diverse groepen klanten: | De website moet toegankelijk zijn voor een breed scala aan klanten, waaronder laaggele_erde mensen, meertalige mensen, slechtziende mensen, mensen die kleurenblind zijn, ouderen, en mensen met beperkte financiële middelen. | Should have\nVormgeving bol.com",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie — beoordeel de relevantie zelf"
+        },
+        {
+          "block_id": "fedbfec0_0121",
+          "page_no": 10,
+          "block_type": "table",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase beschrijvingen"
+          ],
+          "excerpt": "Naam | UC01 Gebruikers registratie en inloggen\nActor | Klant\nPreconditie | De gebruiker heeft geen geregistreerd account op de website.\nBeschrijving | Deze user case beschrijft het proces waarin een nieuwe klant zich registreert op de website en vervolgens inlogt op zijn of haar account.\nScenario beschrijving | 1. de klant opent de website en klikt op de knop 'Registreren'. 2. Het systeem toont het registratieformulier waar de klant gevraagd wordt om persoonlijke gegevens in te vullen, zoals naam, emailadres en wachtwoord. 3. De klant vult de vereiste gegevens in en klikt op 'Registreren'. 4. Het systeem controleert of de ingevoerde gegevens geldig zijn en uniek zijn voor elke gebruiker. 5. Als de gegevens geldig zijn, wordt het account van de klant aangemaakt, en ontvangt de klant een bevestigingsmail. 6. De klant opent de bevestigingsmail en klikt op de verificatielink om het account te activeren. Na verificatie kan de klant inloggen op de website.\nPostconditie | De klant heeft succesvol een account geregistreerd, geactiveerd en is ingelogd op de website. Het systeem heeft nu toegang tot de persoonlijke gegevens van de klant.\nNaam | UC02 Product catalogus\nActor | Klant\nPreconditie | De klant is op de wesbite\nBeschrijving | Deze user case beschrijft hoe de klant door de productcatalogus kan bladeren, producten kan bekijken en informatie kan vinden.",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie — beoordeel de relevantie zelf"
+        },
+        {
+          "block_id": "fedbfec0_0155",
+          "page_no": 13,
+          "block_type": "table",
+          "heading_path": [
+            "[PERSOON_02]",
+            "H3 Onderzoek naar web gebruikers.",
+            "Usercase diagram"
+          ],
+          "excerpt": "Actor | Klant\nActor | Klant\nPreconditie | De klant heeft nog geen profiel op de website.\nBeschrijving | Deze usercase beschrijft het proces waarin een klant een nieuw profiel aanmaakt op de website.\nScenario beschrijving | 1. De klant opent de website. 2. De klant klikt op de knop 'Profiel aanmaken'. 3. Het systeem toont het registratieformulier waar de klant persoonlijke gegevens moet invullen, zoals naam, emailadres en wachtwoord. 4. De klant vult de vereiste gegevens in en klikt op 'Profiel aanmaken'. 5. Het systeem controleert of de ingevoerde gegevens geldig zijn en uniek zijn voor elke gebruiker. 6. Als de gegevens geldig zijn, wordt het profiel van de klant aangemaakt en wordt de klant doorgestuurd naar de profielpagina.\nPostconditie | De klant heeft succesvol een profiel aangemaakt en kan nu inloggen met de geregistreerde gegevens."
+        },
+        {
+          "block_id": "fedbfec0_0157",
+          "page_no": 14,
+          "block_type": "paragraph",
+          "heading_path": [
+            "H5 Ethische aandachtspunten"
+          ],
+          "excerpt": "1. Bescherming van privacy : Dit betekent dat het belangrijk is om ervoor te zorgen dat de",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie — beoordeel de relevantie zelf"
+        },
+        {
+          "block_id": "fedbfec0_0159",
+          "page_no": 14,
+          "block_type": "paragraph",
+          "heading_path": [
+            "H5 Ethische aandachtspunten"
+          ],
+          "excerpt": "betalingsinforma=e, veilig worden bewaard en niet worden gedeeld zonder hun",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie — beoordeel de relevantie zelf"
+        },
+        {
+          "block_id": "fedbfec0_0160",
+          "page_no": 14,
+          "block_type": "paragraph",
+          "heading_path": [
+            "H5 Ethische aandachtspunten"
+          ],
+          "excerpt": "toestemming. Het gaat erom dat mensen zich veilig voelen om hun gegevens te delen en",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie — beoordeel de relevantie zelf"
+        },
+        {
+          "block_id": "fedbfec0_0188",
+          "page_no": 16,
+          "block_type": "table",
+          "heading_path": [
+            "Interviewverslag"
+          ],
+          "excerpt": "Vragen: | Conclusie antwoord:\nVragen: | Conclusie antwoord:\nWat vind u belangrijk voor de aanzicht van een nagellak website? | Het is belangrijk dat de website overzichtelijk is en dat ik gemakkelijk op kleur kan filteren om snel de kleur te vinden die ik zoek.\nIs de prijs van belang wanneer u zoekt op nagellak kopen, en speelt prijs/kwaliteit verhouding mee? | Ja, ik geef de voorkeur aan de hoogste kwaliteit voor de laagste prijs. Ik ben bereid om elders goedkopere nagellak te kopen, zolang deze aan mijn kwaliteitseisen voldoet.\nWelke specifieke informa?e zoekt u meestal op een nagellakwebsite, zoals productbeschrijvingen, reviews, of tutorial? | Ik zoek vaak naar productbeschrijvingen, met name informa=e over hoe lang de nagellak blijf zi_en en hoe je het veilig kunt verwijderen. Ook vind ik het handig als er instruc=es zijn over hoe je het product moet gebruiken, zoals de =jd die het onder de lamp moet bijvoorbeeld.\nZou u eerder geneigd zijn om nagellak te kopen op een website met veel keuzemogelijkheden, of geeA u de voorkeur aan een meer gespecialiseerde selec?e? | Ik geef de voorkeur aan een website met veel kleuren, omdat ik mijn collec=e wil uitbreiden.\nHoe belangrijk is het voor u dat een nagellakwebsite informa?e verstrekt over de gebruikte ingrediënten en mogelijke gezondheidseffecten? | Ik kijk niet echt naar de ingrediënten, maar het is wel belangrijk voor me dat de website duidelijk vertelt hoe je het product veilig kunt gebruiken en verwijderen.",
+          "classification_source": "keyword",
+          "context_warning": "trefwoord-treffer buiten een eigen sectie — beoordeel de relevantie zelf"
+        }
+      ],
+      "qwen_diagnostics": {
+        "measure_quality": "laag",
+        "risk_link": "laag",
+        "case_relevance": "middel",
+        "technical_correctness": "laag",
+        "explanation_quality": "laag"
+      },
+      "qwen_strengths": [],
+      "qwen_weaknesses": [
+        "Er zijn geen specifieke beveiligingsmaatregelen beschreven.",
+        "Het risico dat wordt aangepakt is niet duidelijk gekoppeld aan de maatregel.",
+        "De technische correctheid en specifiekheid van de uitleg ontbreekt."
+      ],
+      "criterion_judgement": "weak",
+      "criterion_stoplight": "red",
+      "manual_review": true,
+      "manual_review_reason": [
+        "Er zijn geen specifieke beveiligingsmaatregelen beschreven.",
+        "Het risico dat wordt aangepakt is niet duidelijk gekoppeld aan de maatregel.",
+        "De technische correctheid en specifiekheid van de uitleg ontbreekt."
+      ]
+    }
+  }
+}

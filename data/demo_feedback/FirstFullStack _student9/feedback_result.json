@@ -1,0 +1,55 @@
+{
+  "document_id": "fedbfec0",
+  "stoplight": "red",
+  "student_samenvatting": "Je document bevat enkele sterke punten zoals de beschrijving van specifieke maatregelen om kleurcontrasten te verbeteren, maar er zijn ook belangrijke tekortkomingen in termen van onderbouwing en duidelijkheid bij sommige criteria. Het is aanbevolen om extra aandacht te besteden aan de beperkingen, requirements, taalkeuze en security.",
+  "docent_toelichting": "Het stoplicht is rood met extra aandacht nodig voor beperking, requirements, taalkeuze en security. De tekstbasis was gemiddeld sterk voor beperking en requirements, maar zwakker voor taalkeuze en security. CAPS selecteerde de relevante secties op basis van signalen zoals 'kleurenblindheid' en 'veiligheid'. Docent moet extra aandacht besteden aan onderbouwing van beperkingen, motivatie achter prioriteiten in requirements, expliciete taalkeuze en specifieke beveiligingsmaatregelen.",
+  "feed_up": "Het doel is om een volledig en goed onderbouwd document te leveren dat de beperkingen van gebruikers, stakeholders, functionaliteit en niet-functionele eisen, taalkeuze en veiligheidsaspecten gedetailleerd beschrijft.",
+  "feedback": [
+    {
+      "criterium": "beperking",
+      "observatie": "Je document benadrukt de beperking van kleurenblindheid en noemt specifieke maatregelen om kleurcontrasten te verbeteren. Bijvoorbeeld, je beschrijft hoe kleurcontrasten in het ontwerp gebruikt worden voor betere leesbaarheid. Dit is een sterke punten. Echter, de onderbouwing van deze beperking is vaag en er zijn geen concrete bronnen of deskresearch vermeld. Het effect op de functionaliteit en ontwerp is ook niet duidelijk uitgewerkt. Om dit te verbeteren, zou je kunnen beginnen met het toevoegen van specifieke bronnen die ondersteuning bieden voor deze beperking.",
+      "evidence_ref": [
+        "fedbfec0_0071",
+        "fedbfec0_0083"
+      ]
+    },
+    {
+      "criterium": "stakeholders",
+      "observatie": "Je document beschrijft de stakeholders relevant voor de webshop-context en hun invloed is duidelijk uitgewerkt. Bijvoorbeeld, je legt uit hoe opdrachtgevers, klanten, ontwikkelaars en overheid belangrijk zijn voor het project. Dit is een sterke punten. Er zijn geen specifieke zwaktes geïdentificeerd in deze sectie.",
+      "evidence_ref": [
+        "fedbfec0_0032",
+        "fedbfec0_0033"
+      ]
+    },
+    {
+      "criterium": "requirements",
+      "observatie": "Je document bevat duidelijke functionaliteit en niet-functionele requirements, zoals de noodzaak van een gebruiksvriendelijke website en betrouwbaarheid. Bijvoorbeeld, je beschrijft dat klanten in staat moeten zijn om een profiel aan te maken en in te loggen op de website. Dit is een sterke punten. Echter, de motivatie achter de gekozen prioriteiten (Must/Should/Could) is vaag of ontbreekt. Sommige requirements zijn ook niet goed uitgelegd wat leidt tot onduidelijkheden over hun specifieke doel en implementatie. Om dit te verbeteren, zou je kunnen beginnen met het toevoegen van concrete motivaties voor de gekozen prioriteiten.",
+      "evidence_ref": [
+        "fedbfec0_0117",
+        "fedbfec0_0118"
+      ]
+    },
+    {
+      "criterium": "taalkeuze",
+      "observatie": "Je document bevat geen expliciete taalkeuze en de gevolgen van deze keuze voor doelgroep, toegankelijkheid en gebruikerservaring zijn niet uitgelegd. Dit is een belangrijk aspect dat nog moet worden aangevuld. Om dit te verbeteren, zou je kunnen beginnen met het definiëren van de taalkeuze die je gaat gebruiken en leggen hoe deze keuze past bij de doelgroep en wat de gevolgen zijn voor toegankelijkheid.",
+      "evidence_ref": [
+        "fedbfec0_0118"
+      ]
+    },
+    {
+      "criterium": "security",
+      "observatie": "Je document bevat geen specifieke beveiligingsmaatregelen en het risico dat wordt aangepakt is niet duidelijk gekoppeld aan de maatregel. Bijvoorbeeld, hoewel je meldt dat er een grondige beveiligings- en risicoanalyse moet worden uitgevoerd om de gegevens van klanten te beschermen, zijn geen specifieke stappen genoemd. Om dit te verbeteren, zou je kunnen beginnen met het definiëren van specifieke maatregelen die je gaat nemen en hoe deze maatregelen het risico beperken.",
+      "evidence_ref": [
+        "fedbfec0_0118"
+      ]
+    }
+  ],
+  "feed_forward": [
+    "Onderbouw de beperking van kleurenblindheid met specifieke bronnen of deskresearch om de onderbouwing te versterken.",
+    "Motiveer per requirement waarom het Must/Should/Could is, en leg uit wat de specifieke doelstellingen zijn voor elke requirement.",
+    "Definieer een expliciete taalkeuze en leg uit hoe deze keuze past bij de doelgroep en wat de gevolgen zijn voor toegankelijkheid.",
+    "Definieer specifieke beveiligingsmaatregelen en leg uit hoe deze maatregelen het risico beperken."
+  ],
+  "taalgebruik": "De structuur van je document is goed, maar er zijn momenten waarop de uitleg wat vaag is. Het zou helpen om meer specifieke voorbeelden en onderbouwing toe te voegen om duidelijkheid te creëren.",
+  "disclaimer": "Dit is formatieve feedback en geen officiële beoordeling."
+}

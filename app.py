@@ -48,6 +48,7 @@ _DEMO_DIR = _PROJECT_ROOT / "data" / "demo_feedback"
 _PDF_TO_DEMO: dict[str, str] = {
     "Requirement_student1.pdf":              "Requirement_student1",
     "Requirements_Engineering_student6.pdf": "Requirements_Engineering_student6",
+    "FirstFullStack _student9.pdf":          "FirstFullStack _student9",
 }
 
 # Map met de geanonimiseerde documenten (per doc_id), voor de download-knop.
